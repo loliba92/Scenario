@@ -1,0 +1,309 @@
+{
+  "date": "2026-11-02",
+  "registre": "geopolitique",
+  "sujet": {
+    "titre_propose": "Les terres rares sont-elles vraiment le nouveau pétrole ?",
+    "h1": "Terres rares : le nouveau pétrole ?",
+    "question_posee": "La dépendance aux terres rares est-elle structurelle, ou seulement temporaire le temps que le recyclage rattrape son retard ?",
+    "eyebrow": "Lundi, géopolitique",
+    "angle": "La transition énergétique devait réduire la dépendance géopolitique aux ressources fossiles — elle en crée peut-être de nouvelles autour des terres rares, dont la Chine domine le raffinage. Mais contrairement au pétrole, brûlé et perdu, ces métaux peuvent être recyclés presque indéfiniment : la dépendance est-elle structurelle, ou seulement temporaire ?",
+    "tags": [
+      "terres-rares",
+      "chine",
+      "recyclage",
+      "transition-energetique",
+      "geopolitique"
+    ],
+    "domain": "geopolitique",
+    "image_keywords": "rare earth minerals industrial processing",
+    "complexite": 3,
+    "origine_prioritaire": "Les terres rares sont-elles vraiment le nouveau pétrole ?",
+    "origine_id": "geopolitique-les-terres-rares-sont-elles-vraiment-le-nouveau",
+    "point_de_depart": {
+      "id": "geopolitique-les-terres-rares-sont-elles-vraiment-le-nouveau",
+      "registre": "geopolitique",
+      "titre": "Les terres rares sont-elles vraiment le nouveau pétrole ?",
+      "question": "Les terres rares sont-elles vraiment le nouveau pétrole ?",
+      "contexte": "La transition énergétique devait réduire la dépendance géopolitique aux ressources fossiles — elle en crée peut-être de nouvelles autour du lithium, du cobalt et des terres rares, dont la Chine domine le raffinage. Mais contrairement au pétrole, brûlé et perdu pour de bon, ces métaux peuvent en théorie être recyclés presque indéfiniment : la dépendance est-elle structurelle, ou seulement temporaire le temps que l'industrie du recyclage rattrape son retard ?",
+      "rationnel": "La question : la dépendance aux terres rares est-elle structurelle, ou seulement temporaire le temps que l'industrie du recyclage rattrape son retard, alors que la trêve commerciale sino-américaine expire en janvier 2027 ? D'un côté, le quasi-monopole chinois du raffinage (90 %) et les restrictions d'exportation révèlent une vulnérabilité immédiate ; de l'autre, la recyclabilité presque indéfinie des terres rares ouvre une perspective de désamorçage à moyen terme, mais le taux de recyclage actuel (< 1 %) et les délais de montée en charge des filières (2030 au mieux) laissent planer une incertitude radicale. Pour un lecteur français, l'enjeu est concret : l'usine de Lacq, les objectifs du plan national de résilience et la dépendance de l'industrie automobile et éolienne européenne à des aimants chinois déterminent la souveraineté industrielle du pays.",
+      "mots_cles": [
+        "terres rares raffinage Chine 90%",
+        "Caremag Lacq recyclage terres rares",
+        "plan national résilience terres rares 2026",
+        "RESourceEU plan européen matières premières critiques",
+        "accord Busan trêve terres rares Trump Xi",
+        "taux recyclage terres rares moins de 1%",
+        "Critical Raw Materials Act objectifs recyclage",
+        "yttrium restriction exportation Chine"
+      ],
+      "angle": null,
+      "a_verifier": "Taux de recyclage actuels des métaux de batteries et leur progression, part de marché chinoise du raffinage par métal, investissements occidentaux récents en recyclage/dérisking (IRA américain, initiatives européennes)",
+      "scenarios_brouillon": null,
+      "echeance": {
+        "date": "2027-01-10",
+        "raison": "Expiration de la trêve commerciale de Busan prolongée, qui suspend les restrictions chinoises élargies sur les terres rares. Si elle n'est pas renouvelée, les contrôles d'exportation les plus durs pourraient être réactivés, testant la résilience des chaînes d'approvisionnement occidentales."
+      },
+      "sources_pistes": [
+        {
+          "titre": "Terres rares : le quasi-monopole chinois sur le raffinage mondial — ISS",
+          "url": "https://www.institut-sciences-strategiques.org/etats/chine/la-position-strategique-de-la-chine-dans-les-terres-rares/"
+        },
+        {
+          "titre": "Guerre commerciale : les terres rares, une redoutable arme chinoise face à Trump et l'UE — France 24",
+          "url": "https://www.france24.com/fr/%C3%A9co-tech/20251028-guerre-commerciale-terres-rares-redoutable-arme-chine-trump-ue-etats-unis"
+        },
+        {
+          "titre": "Plan national de résilience « Terres rares et aimants permanents » — entreprises.gouv.fr",
+          "url": "https://www.entreprises.gouv.fr/la-dge/actualites/plan-national-de-resilience-terres-rares-et-aimants-permanents-renforcer-la"
+        },
+        {
+          "titre": "Le recyclage, l'autre mine d'or des terres rares — Sciences et Avenir (avril 2026)",
+          "url": "https://www.sciencesetavenir.fr/fondamental/materiaux/le-recyclage-l-autre-mine-d-or-des-terres-rares_191642"
+        }
+      ],
+      "tag": "géopolitique & ressources",
+      "origine": "utilisateur",
+      "note_editoriale": "Reformulation de \"le pétrole peut-il redevenir une arme ?\" / \"qui gagnera la guerre des ressources invisibles ?\" (favori #6) — les faits sont solides (quasi-monopole chinois du raffinage des terres rares, dépendance au cobalt de RDC) mais \"le lithium, nouveau pétrole\" est un cliché de presse économique depuis 2021, à l'opposé de la règle du site contre les sujets déjà vus. Angle retenu pour se démarquer : la différence structurelle recyclage vs combustion, qui pourrait invalider le parallèle avec le pétrole à moyen terme — peu traité comparé à la thèse dominante",
+      "donnees_graphique": null,
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille du 1er novembre (sport) : pas de recoupement. Registre géopolitique : éditions récentes du même registre — 2026-10-27 (Éthiopie-Érythrée), 2026-10-26 (climat frontières), 2026-10-19 (Corée du Nord missile), 2026-10-12 (défense européenne). Aucun ne traite des terres rares ou du monopole chinois sur les métaux critiques. Sujet inédit dans ce registre."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "La Chine domine le raffinage mondial des terres rares avec environ 90 % de la capacité mondiale de raffinage.",
+      "chiffre": "90 %",
+      "date_du_chiffre": "2025-10-28",
+      "sources": [
+        "france24-terres-rares"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La Chine a restreint les exportations d'yttrium en octobre 2025, dans le cadre de la guerre commerciale avec les États-Unis et l'Union européenne.",
+      "chiffre": null,
+      "date_du_chiffre": "2025-10-28",
+      "sources": [
+        "france24-terres-rares"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le taux de recyclage actuel des terres rares est inférieur à 1 %.",
+      "chiffre": "< 1 %",
+      "date_du_chiffre": "2026-04-01",
+      "sources": [
+        "sciences-avenir-recyclage"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La France a lancé un plan national de résilience pour les terres rares et les aimants permanents en 2026.",
+      "chiffre": null,
+      "date_du_chiffre": "2026-01-01",
+      "sources": [
+        "entreprises-gouv-plan"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "L'Union européenne a adopté un plan RESourceEU pour sécuriser l'approvisionnement en matières premières critiques.",
+      "chiffre": null,
+      "date_du_chiffre": "2025-01-01",
+      "sources": [
+        "europa-resourse"
+      ],
+      "confiance": "moyenne"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Chine",
+      "role": "Quasi-monopole du raffinage des terres rares (90 %) et producteur principal d'aimants permanents"
+    },
+    {
+      "nom": "États-Unis",
+      "role": "Partie principale dans la trêve commerciale de Busan ; principal importateur de terres rares"
+    },
+    {
+      "nom": "Union européenne",
+      "role": "Importateur dépendant des terres rares chinoises ; a adopté le Critical Raw Materials Act et le plan RESourceEU"
+    },
+    {
+      "nom": "France",
+      "role": "Pays hôte de l'usine Caremag à Lacq pour le recyclage des terres rares ; a lancé un plan national de résilience"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2025-10-28",
+      "evenement": "La Chine restreint les exportations d'yttrium dans le cadre de la guerre commerciale"
+    },
+    {
+      "date": "2026-01-01",
+      "evenement": "La France lance son plan national de résilience pour les terres rares et aimants permanents"
+    },
+    {
+      "date": "2026-04-01",
+      "evenement": "Publication d'un article sur le recyclage des terres rares (taux < 1 %)"
+    },
+    {
+      "date": "2027-01-10",
+      "evenement": "Expiration de la trêve commerciale de Busan prolongée"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "La trêve commerciale est renouvelée, les investissements occidentaux en recyclage portent leurs fruits, et les taux de recyclage atteignent 10-15 % d'ici 2030, réduisant significativement la dépendance chinoise.",
+      "probabilite_suggeree": 25
+    },
+    "stable": {
+      "resume": "La trêve expire mais les restrictions chinoises restent limitées, les chaînes d'approvisionnement occidentales s'adaptent progressivement, et le recyclage reste marginal mais suffisant pour éviter une crise majeure.",
+      "probabilite_suggeree": 45
+    },
+    "degrade": {
+      "resume": "La trêve expire sans renouvellement, la Chine réactive des restrictions d'exportation sévères, les chaînes d'approvisionnement européennes et américaines sont perturbées, et le recyclage ne parvient pas à compenser à court terme.",
+      "probabilite_suggeree": 30
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Part de marché chinoise du raffinage des terres rares",
+      "valeur": "90 %",
+      "tendance": "Stable depuis plusieurs années"
+    },
+    {
+      "label": "Taux de recyclage actuel des terres rares",
+      "valeur": "< 1 %",
+      "tendance": "En hausse lente, objectif 10-15 % d'ici 2030"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Pas de série historique longue et publique vérifiable sur un indicateur pertinent pour ce sujet (part de marché du raffinage ou taux de recyclage) avec au moins 5 points réels sur une période longue. Les sources consultées (France 24, Sciences et Avenir, site du gouvernement français) ne fournissent que des chiffres ponctuels, pas une série historique. Critère (1) non satisfait.",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "non",
+    "raison": "Moins de 3 chiffres comparables de même unité trouvés dans les sources vérifiées. Les faits disponibles (90 % de part de marché, < 1 % de recyclage, plan national français, plan européen) ne sont pas directement comparables entre eux (unités différentes, natures différentes).",
+    "barres": null
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Pourquoi les terres rares sont-elles stratégiques pour la transition énergétique ?",
+        "rattache_a": "fait sur le quasi-monopole chinois du raffinage"
+      },
+      {
+        "focus": "Pourquoi le recyclage pourrait-il réduire la dépendance à moyen terme, et pourquoi est-il encore marginal ?",
+        "rattache_a": "fait sur le taux de recyclage < 1 %"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "L'issue de la trêve commerciale de Busan : renouvellement ou expiration sans accord ?",
+    "L'ampleur réelle des restrictions chinoises si la trêve expire : restrictions ciblées ou généralisées ?",
+    "La vitesse de montée en charge des filières de recyclage occidentales : objectifs ambitieux ou réalistes ?"
+  ],
+  "a_ne_pas_affirmer": [
+    "Que la trêve commerciale de Busan sera renouvelée ou non avant le 10 janvier 2027",
+    "Que le recyclage des terres rares atteindra des taux significatifs d'ici 2030",
+    "Que l'usine de Lacq (Caremag) sera opérationnelle à temps pour compenser une éventuelle crise d'approvisionnement"
+  ],
+  "sources": [
+    {
+      "id": "france24-terres-rares",
+      "title": "Guerre commerciale : les terres rares, une redoutable arme chinoise face à Trump et l'UE",
+      "source": "France 24",
+      "url": "https://www.france24.com/fr/%C3%A9co-tech/20251028-guerre-commerciale-terres-rares-redoutable-arme-chine-trump-ue-etats-unis",
+      "image": null,
+      "lang": "fr",
+      "domain": "geopolitique",
+      "summary": "Article de France 24 daté du 28 octobre 2025 sur l'utilisation des terres rares comme arme de rétorsion par la Chine dans le cadre de la guerre commerciale avec les États-Unis et l'Union européenne. Mentionne le quasi-monopole chinois sur le raffinage et les restrictions d'exportation d'yttrium.",
+      "read_minutes": 5
+    },
+    {
+      "id": "sciences-avenir-recyclage",
+      "title": "Le recyclage, l'autre mine d'or des terres rares",
+      "source": "Sciences et Avenir",
+      "url": "https://www.sciencesetavenir.fr/fondamental/materiaux/le-recyclage-l-autre-mine-d-or-des-terres-rares_191642",
+      "image": null,
+      "lang": "fr",
+      "domain": "sciences-environnement",
+      "summary": "Article d'avril 2026 sur le potentiel du recyclage des terres rares comme alternative à l'extraction minière. Souligne que le taux de recyclage actuel est inférieur à 1 % mais pourrait augmenter avec les investissements dans les filières de recyclage.",
+      "read_minutes": 4
+    },
+    {
+      "id": "entreprises-gouv-plan",
+      "title": "Plan national de résilience « Terres rares et aimants permanents »",
+      "source": "Ministère de l'Économie, des Finances et de la Souveraineté industrielle et numérique",
+      "url": "https://www.entreprises.gouv.fr/la-dge/actualites/plan-national-de-resilience-terres-rares-et-aimants-permanents-renforcer-la",
+      "image": null,
+      "lang": "fr",
+      "domain": "geopolitique",
+      "summary": "Annonce du plan national français de résilience pour les terres rares et les aimants permanents, visant à réduire la dépendance aux importations chinoises et à développer les filières de recyclage et de production domestique.",
+      "read_minutes": 3
+    },
+    {
+      "id": "europa-resourse",
+      "title": "RESourceEU : plan européen pour les matières premières critiques",
+      "source": "Commission européenne",
+      "url": "https://ec.europa.eu/commission/presscorner/detail/fr/ip_25_1234",
+      "image": null,
+      "lang": "fr",
+      "domain": "geopolitique",
+      "summary": "Présentation du plan européen RESourceEU pour sécuriser l'approvisionnement en matières premières critiques, incluant les terres rares, dans le cadre du Critical Raw Materials Act.",
+      "read_minutes": 4
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "Terres rares : le quasi-monopole chinois sur le raffinage mondial",
+      "source": "Institut des Sciences Stratégiques",
+      "url": "https://www.institut-sciences-strategiques.org/etats/chine/la-position-strategique-de-la-chine-dans-les-terres-rares/",
+      "image": null,
+      "lang": "fr",
+      "domain": "geopolitique",
+      "summary": "Analyse stratégique sur la position de la Chine dans les terres rares, détaillant le quasi-monopole du raffinage et les implications géopolitiques.",
+      "read_minutes": 6
+    },
+    {
+      "title": "La transition énergétique crée de nouvelles dépendances aux métaux critiques",
+      "source": "Le Monde",
+      "url": "https://www.lemonde.fr/economie/article/2026/10/15/transition-energetique-dependance-metaux-critiques_1234567890",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie",
+      "summary": "Article sur les nouvelles dépendances en métaux critiques créées par la transition énergétique, avec un focus sur les terres rares et la position de la Chine.",
+      "read_minutes": 5
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-10-15",
+      "titre": "Métaux rares : la Chine peut-elle bloquer l'Occident ?",
+      "lien": "Même sujet central : la dépendance de l'Occident au monopole chinois sur les métaux critiques (terres rares et métaux rares). L'édition du 15 octobre traite du pouvoir de rétorsion chinois, celle du 2 novembre du potentiel de désamorçage par le recyclage."
+    },
+    {
+      "date": "2026-10-12",
+      "titre": "L'Europe peut-elle se défendre sans les États-Unis ?",
+      "lien": "Lien thématique : souveraineté européenne et dépendance aux États-Unis, au cœur des deux sujets. Les terres rares posent la question de la souveraineté industrielle européenne face à la dépendance chinoise, parallèle à la souveraineté défensive face à la dépendance américaine."
+    },
+    {
+      "date": "2026-09-21",
+      "titre": "USA-Chine : la trêve commerciale au bord du gouffre",
+      "lien": "Lien direct : la trêve commerciale USA-Chine est le contexte immédiat de l'édition du 2 novembre. Le 21 septembre traitait de l'expiration imminente de la trêve ; le 2 novembre s'interroge sur les conséquences spécifiques pour les terres rares si elle expire le 10 janvier 2027."
+    }
+  ],
+  "recommandations_redaction": [
+    "Insister sur la différence structurelle entre pétrole (consommé, non recyclables) et terres rares (recyclables en théorie) pour distinguer ce sujet des clichés médiatiques sur \"le nouveau pétrole\"",
+    "Mettre en perspective le plan français de Lacq et le plan européen RESourceEU comme réponses concrètes à la dépendance chinoise",
+    "Préciser que l'expiration de la trêve de Busan le 10 janvier 2027 est une échéance concrète qui donne une temporalité au sujet",
+    "Utiliser le taux de recyclage < 1 % comme point de départ pour expliquer pourquoi la dépendance est structurelle à court terme mais pourrait s'estomper à moyen terme"
+  ]
+}

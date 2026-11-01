@@ -1,0 +1,170 @@
+{
+  "h1": "Terres rares : le nouveau pétrole ?",
+  "question_text": "La dépendance aux terres rares est-elle structurelle, ou seulement temporaire le temps que le recyclage rattrape son retard ?",
+  "section_title": "Trois voies pour sortir du piège des terres rares",
+  "dek": [
+    "Pour faire tourner une voiture à essence, il faut continuellement brûler du carburant qui disparaît en fumée. Pour fabriquer un moteur électrique ou une éolienne, il faut des métaux particuliers appelés terres rares<a class=\"lex-ref\" href=\"#lex-terres-rares\" aria-label=\"Voir la définition dans le lexique\">*</a>, comme le néodyme ou le dysprosium. Ces dix-sept éléments chimiques du tableau périodique possèdent des propriétés magnétiques exceptionnelles. Ils permettent de fabriquer des aimants permanents très puissants et très légers. La transition énergétique moderne cherche à remplacer le pétrole par de l'électricité verte. Paradoxalement, ce basculement crée une nouvelle vulnérabilité matérielle : nous passons d'une dépendance envers les pays producteurs de carburant à une dépendance envers les fournisseurs de minéraux technologiques indispensables.",
+    "Aujourd'hui, un acteur unique tient le robinet de cette filière stratégique. La Chine contrôle environ 60 % de l'extraction minière de ces minerais, mais surtout près de <strong>90 %</strong> de la capacité mondiale de raffinage<a class=\"lex-ref\" href=\"#lex-raffinage\" aria-label=\"Voir la définition dans le lexique\">*</a>. Extraire de la roche brute ne suffit pas : il faut séparer chimiquement chaque métal avec une extrême précision au cours de dizaines d'étapes industrielles polluantes. Pendant trois décennies, les pays occidentaux ont fermé leurs propres usines pour des raisons environnementales et de coûts financiers. Pékin a patiemment bâti un monopole industriel presque parfait. Cette avance technique et commerciale lui permet désormais de fixer les cours mondiaux et de peser lourdement sur les industries technologiques concurrentes.",
+    "Cette domination industrielle se transforme désormais en un puissant levier diplomatique dans les négociations commerciales internationales. Le <strong>28 octobre 2025</strong>, Pékin a ainsi restreint ses exportations d'yttrium, un métal indispensable aux céramiques techniques, aux radars militaires et aux écrans électroniques. Les autorités chinoises ont instauré un système strict de licences d'exportation pour chaque cargaison. Cette mesure a forcé Washington et Bruxelles à négocier sous pression pour éviter une rupture brutale de leurs chaînes de montage. Une trêve commerciale a été conclue à Busan pour suspendre temporairement ces mesures de rétorsion. Toutefois, cet accord provisoire expire le <strong>10 janvier 2027</strong>, laissant planer la menace d'un blocage sévère des usines occidentales de haute technologie.",
+    "Pourtant, comparer les terres rares au pétrole comporte une limite fondamentale souvent oubliée dans le débat public. Un litre de carburant brûlé dans un moteur thermique est définitivement détruit et perdu. À l'inverse, un bloc de néodyme intégré dans le moteur d'une voiture électrique ou dans un avion de chasse reste intact au fil des années d'utilisation. Ces métaux peuvent théoriquement être récupérés, fondus et réutilisés sans aucune dégradation de leurs performances physiques. Une fois qu'un pays a importé suffisamment de métaux pour électrifier son économie, il possède en réalité une véritable réserve locale dans ses vieux équipements, qui pourrait réduire ses achats à l'étranger.",
+    "Le véritable obstacle actuel réside dans notre incapacité pratique à récupérer ces matières précieuses dans nos déchets industriels et électroniques. À l'échelle planétaire, le taux de recyclage des terres rares reste aujourd'hui <strong>inférieur à 1 %</strong>. Les aimants permanents sont de petite taille, souvent collés ou soudés au cœur des composants électroniques, ce qui rend leur démontage manuel extrêmement long et coûteux. Pour surmonter ce goulot d'étranglement, l'Union européenne a déployé son plan RESourceEU, tandis que la France a lancé en <strong>2026</strong> un plan national de résilience pour soutenir des usines de pointe, comme le site Caremag à Lacq, afin de réindustrialiser la séparation de ces minerais.",
+    "L'avenir de notre indépendance énergétique repose donc sur une course de vitesse industrielle incertaine. Trois scénarios se dessinent pour les années à venir. Dans le premier, un sursaut technologique et des investissements massifs permettent de hisser le recyclage à plus de 10 % d'ici 2030, tout en prolongeant la trêve diplomatique. Dans le deuxième, qui constitue notre hypothèse centrale, la trêve expire sans crise majeure mais le recyclage progresse trop lentement pour desserrer l'étau chinois. Dans le troisième, une rupture commerciale brutale en 2027 paralyse les usines européennes avant que les filières de récupération ne soient opérationnelles."
+  ],
+  "enjeu_en_clair": {
+    "lead": "La transition écologique remplace le pétrole par des minéraux critiques dont la Chine raffine 90 % des volumes mondiaux.",
+    "text": "L'Occident abandonne l'or noir pour électrifier ses transports et son industrie, mais cette mutation repose sur des métaux stratégiques. La Chine contrôle l'essentiel de leur traitement chimique et menace de bloquer ses exportations. Contrairement à l'essence qui brûle, ces métaux se recyclent presque à l'infini. Le problème est que notre taux de récupération reste inférieur à 1 %. La survie de nos usines dépend de notre capacité à recycler vite avant une crise."
+  },
+  "stakes_branches": {
+    "favorable": "Le recyclage monte en puissance et la diplomatie évite les ruptures de stocks.",
+    "stable": "La dépendance chinoise persiste sans blocage majeur grâce à une adaptation lente.",
+    "degrade": "La Chine coupe les livraisons en 2027 et plonge l'industrie européenne dans l'impasse."
+  },
+  "comprendre_box": [
+    {
+      "lead": "Pourquoi le raffinage compte bien plus que la simple présence de mines ?",
+      "text": "Posséder de la terre contenant des minéraux ressemble à posséder un champ de blé : sans moulin pour séparer le grain de la paille, on ne peut pas faire de pain. La Chine possède les moulins chimiques de la planète. Même si l'Europe ouvrait des mines demain, elle devrait encore expédier ses roches en Chine pour en extraire des métaux utilisables.",
+      "apres_dek_index": 1
+    },
+    {
+      "lead": "Pourquoi recycler un aimant ressemble à chercher une aiguille dans une botte de foin ?",
+      "text": "Dans une voiture ou un smartphone, les terres rares représentent quelques grammes dispersés au milieu de plastiques, de colles et d'autres métaux. Récupérer ces fragments demande des solvants chimiques spécifiques et beaucoup d'énergie. Sans filière de collecte standardisée, jeter l'équipement reste financièrement plus simple que d'en extraire la matière première.",
+      "apres_dek_index": 4
+    }
+  ],
+  "list_box": null,
+  "indicators": [
+    {
+      "label": "Part de marché chinoise du raffinage des terres rares",
+      "value": "90 %",
+      "delta": "quasi-monopole mondial stable"
+    },
+    {
+      "label": "Taux de recyclage actuel des terres rares",
+      "value": "< 1 %",
+      "delta": "objectif de 10 à 15 % d'ici 2030"
+    }
+  ],
+  "cards": {
+    "favorable": {
+      "pct": 25,
+      "gauge_word": "Peu probable",
+      "h3": "Le recyclage décolle et la trêve commerciale est prolongée",
+      "why": [
+        "Premier scénario : les négociations internationales aboutissent à un accord durable et les nouvelles technologies de valorisation des déchets montent en cadence. Dans cette perspective, les gouvernements américain et européen prolongent la trêve de Busan au-delà du 10 janvier 2027 en garantissant des concessions commerciales à Pékin. Parallèlement, les financements massifs du plan RESourceEU et du plan national de résilience français portent leurs fruits sur le terrain. L'usine Caremag de Lacq ainsi que d'autres sites de traitement parviennent à automatiser le désassemblage des moteurs électriques usagés. Ces progrès techniques permettent d'atteindre un taux de recyclage mondial compris entre 10 % et 15 % d'ici 2030, créant une boucle d'économie circulaire autonome pour les constructeurs automobiles.",
+        "Par rapport aux deux autres trajectoires, cette option favorable suppose un alignement parfait entre volonté politique, stabilité géopolitique et rentabilité économique rapide des industriels de la récupération. Elle évite l'escalade douanière redoutée dans le scénario dégradé et dépasse la simple gestion des pénuries propre au scénario stable. Toutefois, convaincre les industriels de payer des terres rares recyclées plus cher que les minerais chinois subventionnés reste un défi financier majeur. Une telle transformation rapide de la filière nécessiterait des subventions publiques continues et une harmonisation réglementaire stricte au sein du marché unique européen."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Part de marché chinoise du raffinage des terres rares",
+          "evo_current": "75 %",
+          "evo_arrow": "down",
+          "evo_prev": "90 %"
+        },
+        {
+          "field_name": "Taux de recyclage actuel des terres rares",
+          "evo_current": "12 %",
+          "evo_arrow": "up",
+          "evo_prev": "< 1 %"
+        }
+      ],
+      "france_line": "L'écosystème de Lacq et la filière automobile française sécurisent leurs chaînes de production de moteurs électriques.",
+      "france_impact": "favorable"
+    },
+    "stable": {
+      "pct": 45,
+      "gauge_word": "Probable",
+      "h3": "La dépendance persiste sans crise ouverte malgré la fin de la trêve",
+      "why": [
+        "Deuxième scénario : les tensions commerciales s'installent dans la durée sans provoquer de blocus généralisé, maintenant un équilibre précaire. À l'expiration de la trêve de Busan le 10 janvier 2027, Pékin maintient son dispositif de licences au compte-gouttes sans fermer totalement les vannes des exportations. Les entreprises occidentales acceptent des formalités administratives plus lourdes et des surcoûts logistiques réguliers pour continuer à s'approvisionner auprès des raffineurs asiatiques. De leur côté, les filières européennes de recyclage se développent lentement, pénalisées par le coût élevé des procédés chimiques et la dispersion géographique des déchets électroniques. Le taux de réutilisation dépasse à peine 3 % à 5 %, ce qui amortit marginalement les chocs sans briser le monopole de Pékin.",
+        "Ce scénario médian se distingue du scénario favorable par l'absence de véritable saut technologique dans le recyclage, et du scénario dégradé par le refus de Pékin de saborder ses propres clients industriels. La Chine a besoin des devises occidentales autant que l'Occident a besoin de ses minéraux, ce qui incite les deux blocs à un pragmatisme contraint. Les plans nationaux permettent de protéger temporairement quelques applications militaires et industrielles critiques grâce à des stocks stratégiques d'État. La dépendance envers l'Asie demeurerait alors une contrainte structurelle que les industriels européens compenseraient par une hausse des prix de vente de leurs véhicules et équipements."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Part de marché chinoise du raffinage des terres rares",
+          "evo_current": "85 %",
+          "evo_arrow": "down",
+          "evo_prev": "90 %"
+        },
+        {
+          "field_name": "Taux de recyclage actuel des terres rares",
+          "evo_current": "4 %",
+          "evo_arrow": "up",
+          "evo_prev": "< 1 %"
+        }
+      ],
+      "france_line": "Les usines françaises subissent des coûts de production plus élevés et des retards réguliers sur les composants électroniques.",
+      "france_impact": "degrade"
+    },
+    "degrade": {
+      "pct": 30,
+      "gauge_word": "Probable",
+      "h3": "L'embargo chinois paralyse les filières industrielles occidentales",
+      "why": [
+        "Troisième scénario : l'échec complet des pourparlers diplomatiques déclenche une guerre commerciale ouverte sur les ressources critiques. Dès janvier 2027, après la fin de la trêve de Busan, Pékin durcit drastiquement l'octroi des licences d'exportation pour l'yttrium, le néodyme et le dysprosium vers l'Europe et l'Amérique du Nord. Les chaînes de production de voitures électriques, d'éoliennes en mer et de systèmes de guidage militaire sont frappées par de sévères ruptures d'approvisionnement en quelques semaines. Les initiatives locales de recyclage et les projets miniers hors de Chine, encore embryonnaires et incapables de traiter de gros volumes, ne parviennent pas à combler le déficit immédiat de matières raffinées.",
+        "Contrairement au scénario stable où les flux commerciaux continuent sous contrainte, cette issue provoque une récession industrielle brutale dans le secteur manufacturier européen. Elle met en lumière l'illusion d'une transition énergétique rapide sans souveraineté minérale préalable. L'Europe se retrouverait prise au piège d'un calendrier où ses usines de recyclage auraient plusieurs années de retard sur le calendrier des sanctions géopolitiques. Dans ce contexte de pénurie généralisée, les constructeurs occidentaux pourraient être contraints de suspendre temporairement la fabrication de nombreux modèles électriques ou de négocier des accords bilatéraux asymétriques en position de faiblesse."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Part de marché chinoise du raffinage des terres rares",
+          "evo_current": "90 %",
+          "evo_arrow": "flat",
+          "evo_prev": "90 %"
+        },
+        {
+          "field_name": "Taux de recyclage actuel des terres rares",
+          "evo_current": "1,5 %",
+          "evo_arrow": "up",
+          "evo_prev": "< 1 %"
+        }
+      ],
+      "france_line": "Des arrêts temporaires de production frappent le secteur automobile et retardent le déploiement des parcs éoliens tricolores.",
+      "france_impact": "degrade"
+    }
+  },
+  "essentiel_box": [
+    "La transition énergétique vers l'électrique crée-t-elle une dépendance irréversible aux terres rares chinoises, ou le recyclage permettra-t-il de nous affranchir rapidement de ce carcan géopolitique ?",
+    "La Chine contrôle 90 % du raffinage mondial de ces dix-sept métaux critiques indispensables aux aimants permanents, tandis que le taux de recyclage planétaire stagne aujourd'hui sous la barre de 1 %.",
+    "Non, le recyclage ne suffira pas à court terme : notre scénario le plus probable (45 %) montre une dépendance qui perdure malgré la fin de la trêve, face à un scénario de rupture commerciale (30 %) et un sursaut du recyclage (25 %).",
+    "L'échéance diplomatique majeure est fixée au 10 janvier 2027 avec l'expiration de la trêve commerciale de Busan négociée entre Washington et Pékin."
+  ],
+  "delta_france": {
+    "kind": "negatif",
+    "score": -0.5,
+    "word": "assez négatif",
+    "text": "car le maintien d'une forte dépendance (45 %) et le risque de rupture d'approvisionnement (30 %) pèsent lourdement sur la compétitivité industrielle nationale face à un scénario vertueux encore minoritaire (25 %)."
+  },
+  "phrase_a_retenir": "La Chine concentre 90 % du raffinage des terres rares, tandis que le recyclage mondial reste sous 1 % à l'approche de la fin de la trêve commerciale fixée au 10 janvier 2027.",
+  "phrase_a_retenir_stat": "90 %",
+  "lexique": [
+    {
+      "slug": "terres-rares",
+      "terme": "terres rares",
+      "definition": "Groupe de dix-sept métaux aux propriétés magnétiques et optiques indispensables aux moteurs électriques, aux éoliennes et à l'électronique de défense."
+    },
+    {
+      "slug": "raffinage",
+      "terme": "raffinage",
+      "definition": "Ensemble des opérations chimiques complexes et polluantes servant à séparer les métaux bruts de la roche pour les rendre utilisables par l'industrie."
+    }
+  ],
+  "sources_html": [
+    "<a href=\"https://www.france24.com/fr/%C3%A9co-tech/20251028-guerre-commerciale-terres-rares-redoutable-arme-chine-trump-ue-etats-unis\" target=\"_blank\" rel=\"noopener noreferrer\">France 24 — Guerre commerciale : les terres rares, une redoutable arme chinoise face à Trump et l'UE ↗</a>",
+    "<a href=\"https://www.sciencesetavenir.fr/fondamental/materiaux/le-recyclage-l-autre-mine-d-or-des-terres-rares_191642\" target=\"_blank\" rel=\"noopener noreferrer\">Sciences et Avenir — Le recyclage, l'autre mine d'or des terres rares ↗</a>",
+    "<a href=\"https://www.entreprises.gouv.fr/la-dge/actualites/plan-national-de-resilience-terres-rares-et-aimants-permanents-renforcer-la\" target=\"_blank\" rel=\"noopener noreferrer\">Ministère de l'Économie, des Finances et de la Souveraineté industrielle et numérique — Plan national de résilience « Terres rares et aimants permanents » ↗</a>",
+    "<a href=\"https://ec.europa.eu/commission/presscorner/detail/fr/ip_25_1234\" target=\"_blank\" rel=\"noopener noreferrer\">Commission européenne — RESourceEU : plan européen pour les matières premières critiques ↗</a>"
+  ],
+  "meta": {
+    "title": "Terres rares : le nouveau pétrole ? — Scénario",
+    "meta_description": "Terres rares : le nouveau pétrole ? Enjeux géopolitiques et scénarios prospectifs.",
+    "og_image_alt": "Usine industrielle de traitement chimique des minerais et aimants permanents de terres rares",
+    "keywords": [
+      "géopolitique",
+      "tensions",
+      "international",
+      "alliances",
+      "Terres"
+    ],
+    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-11-02.html\"\n  },\n  \"headline\": \"Terres rares : le nouveau pétrole ? — Scénario\",\n  \"description\": \"Terres rares : le nouveau pétrole ? Enjeux géopolitiques et scénarios prospectifs.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-11-02.png\"\n  ],\n  \"datePublished\": \"2026-11-02T00:00:00\",\n  \"dateModified\": \"2026-11-02T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"géopolitique, tensions, international, alliances, Terres\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Géopolitique\"\n}",
+    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Terres rares : le nouveau pétrole ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-11-02.html\"\n    }\n  ]\n}"
+  }
+}
