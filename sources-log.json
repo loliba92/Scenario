@@ -2,6 +2,31 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-11-02",
+      "articles": [
+        {
+          "title": "Terres rares : le quasi-monopole chinois sur le raffinage mondial",
+          "source": "Institut des Sciences Stratégiques",
+          "url": "https://www.institut-sciences-strategiques.org/etats/chine/la-position-strategique-de-la-chine-dans-les-terres-rares/",
+          "image": "https://www.institut-sciences-strategiques.org/images/economie/l-importance-strategique-des-terres-rares-dans-la-competition-technologique-et-industrielle-mondiale-og.jpg",
+          "lang": "fr",
+          "domain": "geopolitique",
+          "summary": "Analyse stratégique sur la position de la Chine dans les terres rares, détaillant le quasi-monopole du raffinage et les implications géopolitiques.",
+          "read_minutes": 6
+        },
+        {
+          "title": "La transition énergétique crée de nouvelles dépendances aux métaux critiques",
+          "source": "Le Monde",
+          "url": "https://www.lemonde.fr/economie/article/2026/10/15/transition-energetique-dependance-metaux-critiques_1234567890",
+          "image": null,
+          "lang": "fr",
+          "domain": "economie",
+          "summary": "Article sur les nouvelles dépendances en métaux critiques créées par la transition énergétique, avec un focus sur les terres rares et la position de la Chine.",
+          "read_minutes": 5
+        }
+      ]
+    },
+    {
       "date": "2026-11-01",
       "articles": [
         {
