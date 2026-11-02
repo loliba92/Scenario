@@ -73,8 +73,9 @@ from generate_daily_edition import GenerationError, call_openrouter  # noqa: E40
 # Passé à DeepSeek le 18 septembre 2026 pour réduire les coûts, puis revenu aux
 # modèles gratuits le 2 octobre 2026 — mais ceux-ci (« gratuits » : MODELES_GRATUITS
 # dans enrich_sujets.py) sont régulièrement surchargés (503), ce qui bloque le workflow.
-# Revenir à un modèle stable qui n'échoue pas aléatoirement.
-HOT_TOPICS_MODEL = "anthropic/claude-sonnet-4-20250514"
+# Utiliser DeepSeek payant (~$2/run) avec Gemini Flash en fallback — moins cher que
+# Claude, et fallback assure la fiabilité.
+HOT_TOPICS_MODEL = "deepseek/deepseek-chat,google/gemini-2.0-flash-exp"
 
 ROOT = Path(__file__).resolve().parents[2]
 SUJETS_PRIORITAIRES = ROOT / "sujets-prioritaires.md"
