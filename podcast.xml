@@ -16,6 +16,17 @@
       <itunes:email>contact@lesscenarios.fr</itunes:email>
     </itunes:owner>
     <item>
+      <title>Terres rares : le nouveau pétrole ?</title>
+      <link>https://lesscenarios.fr/archives/2026-11-02.html</link>
+      <guid isPermaLink="false">scenario-podcast-2026-11-02</guid>
+      <pubDate>Mon, 02 Nov 2026 07:00:00 +0000</pubDate>
+      <description>Terres rares : le nouveau pétrole ? Épisode lu par une voix de synthèse (intelligence artificielle), à partir de l'édition du 2026-11-02. Version écrite : https://lesscenarios.fr/archives/2026-11-02.html Rien n'est écrit à l'avance.</description>
+      <enclosure url="https://github.com/loliba92/Scenario/releases/download/podcast-2026-11-02/2026-11-02.mp3" length="5553549" type="audio/mpeg"/>
+      <itunes:duration>00:07:42</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:image href="https://lesscenarios.fr/podcast/episodes/2026-11-02.jpg"/>
+    </item>
+    <item>
       <title>Sport : la compétition équitable est-elle encore possible ?</title>
       <link>https://lesscenarios.fr/archives/2026-11-01.html</link>
       <guid isPermaLink="false">scenario-podcast-2026-11-01</guid>
