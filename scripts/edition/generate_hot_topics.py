@@ -70,14 +70,11 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from generate_daily_edition import GenerationError, call_openrouter  # noqa: E402
 
-# Passé de DEFAULT_MODEL (anthropic/claude-sonnet-5) à DeepSeek le
-# 18 septembre 2026 : repérage de sujets chauds = tri/priorisation,
-# pas de rédaction fine — finance le passage d'Opus sur la recherche
-# quotidienne (voir generate_fallback_brief.py).
-# « gratuits » : plusieurs modèles gratuits OpenRouter en relais (le même mécanisme que l'enrichissement,
-# voir enrich_sujets.py : MODELES_GRATUITS) — demandé le 2 octobre 2026. Un nom de modèle précis
-# (ou plusieurs séparés par des virgules) reste possible avec --model.
-HOT_TOPICS_MODEL = "gratuits"
+# Passé à DeepSeek le 18 septembre 2026 pour réduire les coûts, puis revenu aux
+# modèles gratuits le 2 octobre 2026 — mais ceux-ci (« gratuits » : MODELES_GRATUITS
+# dans enrich_sujets.py) sont régulièrement surchargés (503), ce qui bloque le workflow.
+# Revenir à un modèle stable qui n'échoue pas aléatoirement.
+HOT_TOPICS_MODEL = "anthropic/claude-sonnet-4-20250514"
 
 ROOT = Path(__file__).resolve().parents[2]
 SUJETS_PRIORITAIRES = ROOT / "sujets-prioritaires.md"
