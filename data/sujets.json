@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "43f7879cd0f3f6557fd075b3597605a734390c2a4cec34294d013a78b78cb0a3"
+    "md_sha256": "dcd34d4f85d24ef0aefe669835cff473b7ca89a6c38d0ebf188386e8d3434918"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -554,6 +554,46 @@
         {
           "type": "commentaire",
           "texte": "Registre scindé le 12 août (retour utilisateur) : la géopolitique dure (conflits, diplomatie, États) et l'économie mondiale (marchés, monnaies, dette, matières premières) partageaient jusque-là le même slot du lundi, ce qui tassait deux blocs très différents dans une seule file. L'économie mondiale a sa propre section dimanche (voir plus bas) — la case libérée vient de la fusion des deux jours culture (française + internationale) en un seul, samedi. **Règle de classement pour les sujets à cheval sur les deux** (ex. guerres commerciales, tarifs douaniers) : si l'enjeu central est un rapport de force entre États (qui menace qui, qui négocie quoi) → géopolitique/lundi ; si l'enjeu central est un indicateur chiffré ou un marché (prix, taux, dette, cours) → économie/dimanche. Cas tranchés le 12 août à titre d'exemple : \"Guerre commerciale USA-Chine\" reste ici (framing État contre État, guerre froide) ; \"Droits de douane de Trump\" part en économie (contenu réel = batailles judiciaires et chiffres de recettes tarifaires, pas un rapport de force diplomatique). Les vieilles éditions déjà publiées gardent leur tag d'origine (`geopolitique`), jamais retaggées rétroactivement — voir docs/tags.md."
+        },
+        {
+          "type": "sujet",
+          "id": "geopolitique-le-conflit-au-yemen-peut-il-destabiliser",
+          "titre": "Le conflit au Yémen peut-il déstabiliser davantage la région du Golfe ?",
+          "question": null,
+          "tag": "géopolitique & Golfe",
+          "statut": "a_traiter",
+          "validation": "a_valider",
+          "contexte": "Les récentes frappes aériennes des Houthis contre des navires dans la mer Rouge et les attaques contre des infrastructures pétrolières en Arabie saoudite ont exacerbé les tensions dans la région. Les États-Unis et l'UE ont renforcé leur présence militaire pour sécuriser les voies maritimes.",
+          "rationnel": "La question : Les Houthis peuvent-ils perturber durablement le commerce maritime et les exportations pétrolières, ou les efforts internationaux vont-ils contenir la crise ? Les scénarios dépendent de la capacité des Houthis à maintenir leur pression et de la réponse des acteurs régionaux. L'enjeu pour la France est la stabilité des approvisionnements énergétiques et la sécurité de ses intérêts économiques dans la région.",
+          "angle": null,
+          "a_verifier": null,
+          "mots_cles": [
+            "Yémen",
+            "Houthis",
+            "mer Rouge",
+            "Arabie saoudite",
+            "commerce maritime",
+            "pétrole"
+          ],
+          "scenarios": {
+            "favorable": "Les efforts internationaux sécurisent les voies maritimes et les Houthis sont contraints de négocier.",
+            "stable": "Les attaques sporadiques continuent sans escalade majeure.",
+            "degrade": "Les Houthis bloquent le détroit de Bab el-Mandeb, provoquant une crise énergétique mondiale."
+          },
+          "echeance": null,
+          "sources": [
+            {
+              "titre": "Les Houthis intensifient leurs attaques en mer Rouge",
+              "url": null
+            }
+          ],
+          "origine": "veille",
+          "note": "Ajouté automatiquement le 2026-11-02 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
+          "donnees": null,
+          "ajoute_le": "2026-11-02",
+          "publie_le": null,
+          "edition": null,
+          "enrichi_le": null
         },
         {
           "type": "sujet",
@@ -1484,6 +1524,45 @@
         },
         {
           "type": "sujet",
+          "id": "sport-le-football-feminin-peut-il-devenir-aussi",
+          "titre": "Le football féminin peut-il devenir aussi rentable que le masculin ?",
+          "question": null,
+          "tag": "sport & financement",
+          "statut": "a_traiter",
+          "validation": "a_valider",
+          "contexte": "Les audiences TV du foot féminin ont progressé de 30 % en 2026, mais les écarts de rémunération restent énormes.",
+          "rationnel": "La question : Les investisseurs vont-ils combler le gap, ou le modèle reste-t-il déséquilibré ? Les scénarios dépendent des sponsors et des droits TV. L'enjeu est l'équité dans le sport.",
+          "angle": null,
+          "a_verifier": null,
+          "mots_cles": [
+            "football féminin",
+            "audiences",
+            "sponsors",
+            "équité",
+            "sport"
+          ],
+          "scenarios": {
+            "favorable": "Les revenus rattrapent ceux du masculin d'ici 2030.",
+            "stable": "Les progrès restent lents.",
+            "degrade": "Les écarts se creusent à nouveau."
+          },
+          "echeance": null,
+          "sources": [
+            {
+              "titre": "Foot féminin : le boom des audiences",
+              "url": null
+            }
+          ],
+          "origine": "veille",
+          "note": "Ajouté automatiquement le 2026-11-02 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
+          "donnees": null,
+          "ajoute_le": "2026-11-02",
+          "publie_le": null,
+          "edition": null,
+          "enrichi_le": null
+        },
+        {
+          "type": "sujet",
           "id": "sport-zidane-devoile-sa-premiere-liste-des-bleus-cinq",
           "titre": "Zidane dévoile sa première liste des Bleus : cinq nouveaux, Tchouaméni et Kanté écartés — le pari du renouveau peut-il réussir dès la Ligue des nations ?",
           "question": null,
@@ -2161,6 +2240,45 @@
       "titre": "Actualité & politique française — mercredi",
       "jour": "mercredi",
       "entrees": [
+        {
+          "type": "sujet",
+          "id": "actualite-francaise-la-reforme-des-retraites-peut-elle-revenir-dans",
+          "titre": "La réforme des retraites peut-elle revenir dans le débat présidentiel ?",
+          "question": null,
+          "tag": "politique & retraites",
+          "statut": "a_traiter",
+          "validation": "a_valider",
+          "contexte": "Le gouvernement a annoncé un gel des discussions sur les retraites jusqu'après les élections de 2027, mais des syndicats et partis d'opposition relancent le débat. Les dernières projections montrent un déficit accru du système.",
+          "rationnel": "La question : Les candidats à la présidentielle vont-ils être forcés de prendre position sur une réforme impopulaire, ou le sujet restera-t-il tabou ? Les scénarios dépendent de la pression syndicale et des sondages. L'enjeu est l'équilibre financier du système et son impact sur le pouvoir d'achat.",
+          "angle": null,
+          "a_verifier": null,
+          "mots_cles": [
+            "retraites",
+            "réforme",
+            "déficit",
+            "syndicats",
+            "présidentielle 2027"
+          ],
+          "scenarios": {
+            "favorable": "Un consensus émerge pour une réforme progressive.",
+            "stable": "Le statu quo persiste jusqu'aux élections.",
+            "degrade": "Des grèves massives perturbent l'économie."
+          },
+          "echeance": null,
+          "sources": [
+            {
+              "titre": "Retraites : le débat relancé malgré le gel gouvernemental",
+              "url": null
+            }
+          ],
+          "origine": "veille",
+          "note": "Ajouté automatiquement le 2026-11-02 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
+          "donnees": null,
+          "ajoute_le": "2026-11-02",
+          "publie_le": null,
+          "edition": null,
+          "enrichi_le": null
+        },
         {
           "type": "sujet",
           "id": "actualite-francaise-facturation-electronique-obligatoire-septembre",
@@ -3327,6 +3445,45 @@
       "titre": "Sciences — vendredi (climat & écologie, espace, IA, médecine, énergie…)",
       "jour": "vendredi",
       "entrees": [
+        {
+          "type": "sujet",
+          "id": "sciences-les-nouveaux-traitements-contre-l-obesite-vont",
+          "titre": "Les nouveaux traitements contre l'obésité vont-ils bouleverser la santé publique ?",
+          "question": null,
+          "tag": "médecine & santé",
+          "statut": "a_traiter",
+          "validation": "a_valider",
+          "contexte": "Les médicaments comme l'Ozempic montrent des résultats prometteurs, mais leur coût et leur accessibilité divisent les experts.",
+          "rationnel": "La question : Ces traitements peuvent-ils réduire l'épidémie d'obésité, ou resteront-ils réservés aux plus riches ? Les scénarios dépendent des politiques de remboursement et des innovations concurrentes. L'enjeu est la réduction des coûts de santé liés à l'obésité.",
+          "angle": null,
+          "a_verifier": null,
+          "mots_cles": [
+            "obésité",
+            "Ozempic",
+            "traitements",
+            "santé publique",
+            "coût"
+          ],
+          "scenarios": {
+            "favorable": "Des génériques rendent les traitements accessibles à tous.",
+            "stable": "Seuls les pays riches en bénéficient.",
+            "degrade": "Les effets secondaires freinent leur adoption."
+          },
+          "echeance": null,
+          "sources": [
+            {
+              "titre": "Ozempic : révolution ou mirage ?",
+              "url": null
+            }
+          ],
+          "origine": "veille",
+          "note": "Ajouté automatiquement le 2026-11-02 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
+          "donnees": null,
+          "ajoute_le": "2026-11-02",
+          "publie_le": null,
+          "edition": null,
+          "enrichi_le": null
+        },
         {
           "type": "sujet",
           "id": "sciences-robotique-les-robots-vont-ils-vraiment-entrer",
@@ -4719,6 +4876,45 @@
         },
         {
           "type": "sujet",
+          "id": "culture-le-cinema-francais-peut-il-rivaliser-avec-les",
+          "titre": "Le cinéma français peut-il rivaliser avec les plateformes ?",
+          "question": null,
+          "tag": "cinéma & streaming",
+          "statut": "a_traiter",
+          "validation": "a_valider",
+          "contexte": "Les entrées en salles chutent de 20 % en 2026, tandis que les abonnements Netflix explosent.",
+          "rationnel": "La question : Les salles peuvent-elles se réinventer, ou le modèle traditionnel est-il condamné ? Les scénarios dépendent des politiques culturelles et des innovations. L'enjeu est la survie d'un pan de la culture française.",
+          "angle": null,
+          "a_verifier": null,
+          "mots_cles": [
+            "cinéma français",
+            "Netflix",
+            "salles",
+            "abonnements",
+            "culture"
+          ],
+          "scenarios": {
+            "favorable": "Des partenariats avec les plateformes relancent l'industrie.",
+            "stable": "Les salles se spécialisent dans les événements.",
+            "degrade": "Le cinéma indépendant disparaît."
+          },
+          "echeance": null,
+          "sources": [
+            {
+              "titre": "Cinéma français : la chute des entrées s'accélère",
+              "url": null
+            }
+          ],
+          "origine": "veille",
+          "note": "Ajouté automatiquement le 2026-11-02 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
+          "donnees": null,
+          "ajoute_le": "2026-11-02",
+          "publie_le": null,
+          "edition": null,
+          "enrichi_le": null
+        },
+        {
+          "type": "sujet",
           "id": "culture-netflix-peut-il-devenir-le-nouveau-cinema",
           "titre": "Netflix peut-il devenir le nouveau cinéma ?",
           "question": null,
@@ -5811,6 +6007,45 @@
         {
           "type": "commentaire",
           "texte": "Faire tourner les sous-thèmes : marchés financiers, monnaies (dollar, or, bitcoin), dette et taux d'intérêt, matières premières (pétrole, énergie), entreprises et secteurs à l'échelle mondiale, inégalités, démographie économique, luxe et consommation… Nouveau registre créé le 12 août (retour utilisateur), scindé de l'ancien slot \"Géopolitique / international — lundi\" qui mélangeait géopolitique dure et économie mondiale — voir la note dans la section Géopolitique — lundi pour la règle de classement des sujets à cheval sur les deux."
+        },
+        {
+          "type": "sujet",
+          "id": "economie-la-bulle-immobiliere-commerciale-va-t-elle",
+          "titre": "La bulle immobilière commerciale va-t-elle éclater en Europe ?",
+          "question": null,
+          "tag": "économie & immobilier",
+          "statut": "a_traiter",
+          "validation": "a_valider",
+          "contexte": "Les prix des bureaux et centres commerciaux chutent de 15 % en un an dans plusieurs capitales européennes. La demande en baisse et les taux élevés fragilisent les investisseurs.",
+          "rationnel": "La question : Les marchés peuvent-ils absorber la correction sans crise systémique, ou va-t-on vers une vague de faillites ? Les scénarios dépendent de la flexibilité des acteurs et des politiques monétaires. L'enjeu pour la France est la stabilité financière et l'emploi dans le secteur.",
+          "angle": null,
+          "a_verifier": null,
+          "mots_cles": [
+            "immobilier commercial",
+            "bulle",
+            "taux d'intérêt",
+            "Europe",
+            "crise financière"
+          ],
+          "scenarios": {
+            "favorable": "Une reprise modérée stabilise les prix.",
+            "stable": "La correction se poursuit sans crise majeure.",
+            "degrade": "Des faillites en cascade déclenchent une crise bancaire."
+          },
+          "echeance": null,
+          "sources": [
+            {
+              "titre": "L'immobilier commercial européen sous pression",
+              "url": null
+            }
+          ],
+          "origine": "veille",
+          "note": "Ajouté automatiquement le 2026-11-02 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
+          "donnees": null,
+          "ajoute_le": "2026-11-02",
+          "publie_le": null,
+          "edition": null,
+          "enrichi_le": null
         },
         {
           "type": "sujet",

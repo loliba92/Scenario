@@ -147,6 +147,15 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 ## Géopolitique — lundi
 <!-- Registre scindé le 12 août (retour utilisateur) : la géopolitique dure (conflits, diplomatie, États) et l'économie mondiale (marchés, monnaies, dette, matières premières) partageaient jusque-là le même slot du lundi, ce qui tassait deux blocs très différents dans une seule file. L'économie mondiale a sa propre section dimanche (voir plus bas) — la case libérée vient de la fusion des deux jours culture (française + internationale) en un seul, samedi. **Règle de classement pour les sujets à cheval sur les deux** (ex. guerres commerciales, tarifs douaniers) : si l'enjeu central est un rapport de force entre États (qui menace qui, qui négocie quoi) → géopolitique/lundi ; si l'enjeu central est un indicateur chiffré ou un marché (prix, taux, dette, cours) → économie/dimanche. Cas tranchés le 12 août à titre d'exemple : "Guerre commerciale USA-Chine" reste ici (framing État contre État, guerre froide) ; "Droits de douane de Trump" part en économie (contenu réel = batailles judiciaires et chiffres de recettes tarifaires, pas un rapport de force diplomatique). Les vieilles éditions déjà publiées gardent leur tag d'origine (`geopolitique`), jamais retaggées rétroactivement — voir docs/tags.md. -->
+- [ ] 🔍 Le conflit au Yémen peut-il déstabiliser davantage la région du Golfe ? [géopolitique & Golfe]
+  <!-- id: geopolitique-le-conflit-au-yemen-peut-il-destabiliser -->
+  <!-- contexte: Les récentes frappes aériennes des Houthis contre des navires dans la mer Rouge et les attaques contre des infrastructures pétrolières en Arabie saoudite ont exacerbé les tensions dans la région. Les États-Unis et l'UE ont renforcé leur présence militaire pour sécuriser les voies maritimes. -->
+  <!-- rationnel: La question : Les Houthis peuvent-ils perturber durablement le commerce maritime et les exportations pétrolières, ou les efforts internationaux vont-ils contenir la crise ? Les scénarios dépendent de la capacité des Houthis à maintenir leur pression et de la réponse des acteurs régionaux. L'enjeu pour la France est la stabilité des approvisionnements énergétiques et la sécurité de ses intérêts économiques dans la région. -->
+  <!-- mots-clés: Yémen ; Houthis ; mer Rouge ; Arabie saoudite ; commerce maritime ; pétrole -->
+  <!-- scénarios (brouillon): favorable = Les efforts internationaux sécurisent les voies maritimes et les Houthis sont contraints de négocier. ; stable = Les attaques sporadiques continuent sans escalade majeure. ; dégradé = Les Houthis bloquent le détroit de Bab el-Mandeb, provoquant une crise énergétique mondiale. -->
+  <!-- sources: Les Houthis intensifient leurs attaques en mer Rouge -->
+  <!-- origine: veille -->
+  <!-- note: Ajouté automatiquement le 2026-11-02 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
 - [x] Les terres rares sont-elles vraiment le nouveau pétrole ? [géopolitique & ressources]
   <!-- id: geopolitique-les-terres-rares-sont-elles-vraiment-le-nouveau -->
   <!-- contexte: La transition énergétique devait réduire la dépendance géopolitique aux ressources fossiles — elle en crée peut-être de nouvelles autour du lithium, du cobalt et des terres rares, dont la Chine domine le raffinage. Mais contrairement au pétrole, brûlé et perdu pour de bon, ces métaux peuvent en théorie être recyclés presque indéfiniment : la dépendance est-elle structurelle, ou seulement temporaire le temps que l'industrie du recyclage rattrape son retard ? -->
@@ -319,6 +328,15 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 ## Sport — dimanche
 <!-- Enjeux sportifs & économiques, jamais la vie privée des sportifs. Sous-thèmes : football, rugby, tennis, JO, cyclisme, sports méca… -->
+- [ ] 🔍 Le football féminin peut-il devenir aussi rentable que le masculin ? [sport & financement]
+  <!-- id: sport-le-football-feminin-peut-il-devenir-aussi -->
+  <!-- contexte: Les audiences TV du foot féminin ont progressé de 30 % en 2026, mais les écarts de rémunération restent énormes. -->
+  <!-- rationnel: La question : Les investisseurs vont-ils combler le gap, ou le modèle reste-t-il déséquilibré ? Les scénarios dépendent des sponsors et des droits TV. L'enjeu est l'équité dans le sport. -->
+  <!-- mots-clés: football féminin ; audiences ; sponsors ; équité ; sport -->
+  <!-- scénarios (brouillon): favorable = Les revenus rattrapent ceux du masculin d'ici 2030. ; stable = Les progrès restent lents. ; dégradé = Les écarts se creusent à nouveau. -->
+  <!-- sources: Foot féminin : le boom des audiences -->
+  <!-- origine: veille -->
+  <!-- note: Ajouté automatiquement le 2026-11-02 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
 - [x] Zidane dévoile sa première liste des Bleus : cinq nouveaux, Tchouaméni et Kanté écartés — le pari du renouveau peut-il réussir dès la Ligue des nations ? [football]
   <!-- id: sport-zidane-devoile-sa-premiere-liste-des-bleus-cinq -->
   <!-- contexte: Le 18 septembre 2026, Zinédine Zidane a dévoilé sa première liste de 23 joueurs en tant que sélectionneur de l'équipe de France, nommé le 28 juillet en remplacement de Didier Deschamps après l'élimination en demi-finales du Mondial-2026. Cinq nouveaux sont appelés : le gardien Guillaume Restes (Toulouse), les défenseurs Andy Diouf (Inter Milan) et Jérémy Jacquet (Liverpool), le milieu Lucas Da Cunha (Côme) et l'attaquant Esteban Lepaul (Rennes). Les absences notables incluent N'Golo Kanté (35 ans, « choix » assumé par Zidane), Aurélien Tchouaméni, Lucas Digne et Maghnes Akliouche. Zidane n'a convoqué que 23 joueurs pour quatre matches de Ligue des nations (Turquie, Belgique, Italie, Belgique) à partir du 25 septembre. Il a confirmé Kylian Mbappé comme capitaine et annoncé quatre vice-capitaines sans les nommer -->
@@ -441,6 +459,15 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 
 ## Actualité & politique française — mercredi
+- [ ] 🔍 La réforme des retraites peut-elle revenir dans le débat présidentiel ? [politique & retraites]
+  <!-- id: actualite-francaise-la-reforme-des-retraites-peut-elle-revenir-dans -->
+  <!-- contexte: Le gouvernement a annoncé un gel des discussions sur les retraites jusqu'après les élections de 2027, mais des syndicats et partis d'opposition relancent le débat. Les dernières projections montrent un déficit accru du système. -->
+  <!-- rationnel: La question : Les candidats à la présidentielle vont-ils être forcés de prendre position sur une réforme impopulaire, ou le sujet restera-t-il tabou ? Les scénarios dépendent de la pression syndicale et des sondages. L'enjeu est l'équilibre financier du système et son impact sur le pouvoir d'achat. -->
+  <!-- mots-clés: retraites ; réforme ; déficit ; syndicats ; présidentielle 2027 -->
+  <!-- scénarios (brouillon): favorable = Un consensus émerge pour une réforme progressive. ; stable = Le statu quo persiste jusqu'aux élections. ; dégradé = Des grèves massives perturbent l'économie. -->
+  <!-- sources: Retraites : le débat relancé malgré le gel gouvernemental -->
+  <!-- origine: veille -->
+  <!-- note: Ajouté automatiquement le 2026-11-02 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
 - [ ] Facturation électronique obligatoire (septembre 2026) : les entreprises sont-elles prêtes ? [entreprises & numérique]
   <!-- id: actualite-francaise-facturation-electronique-obligatoire-septembre -->
   <!-- contexte: La réforme devient obligatoire, mais ~9 entreprises sur 11 ne seraient pas prêtes. Risque de couac administratif pour les TPE/PME. → Favorable = transition en douceur ; stable = démarrage lent mais absorbé ; dégradé = pagaille, reports, trésoreries fragilisées -->
@@ -644,6 +671,15 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 
 ## Sciences — vendredi (climat & écologie, espace, IA, médecine, énergie…)
+- [ ] 🔍 Les nouveaux traitements contre l'obésité vont-ils bouleverser la santé publique ? [médecine & santé]
+  <!-- id: sciences-les-nouveaux-traitements-contre-l-obesite-vont -->
+  <!-- contexte: Les médicaments comme l'Ozempic montrent des résultats prometteurs, mais leur coût et leur accessibilité divisent les experts. -->
+  <!-- rationnel: La question : Ces traitements peuvent-ils réduire l'épidémie d'obésité, ou resteront-ils réservés aux plus riches ? Les scénarios dépendent des politiques de remboursement et des innovations concurrentes. L'enjeu est la réduction des coûts de santé liés à l'obésité. -->
+  <!-- mots-clés: obésité ; Ozempic ; traitements ; santé publique ; coût -->
+  <!-- scénarios (brouillon): favorable = Des génériques rendent les traitements accessibles à tous. ; stable = Seuls les pays riches en bénéficient. ; dégradé = Les effets secondaires freinent leur adoption. -->
+  <!-- sources: Ozempic : révolution ou mirage ? -->
+  <!-- origine: veille -->
+  <!-- note: Ajouté automatiquement le 2026-11-02 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
 - [ ] Robotique : les robots vont-ils vraiment entrer dans notre quotidien ? [IA & numérique]
   <!-- id: sciences-robotique-les-robots-vont-ils-vraiment-entrer -->
   <!-- contexte: En 2026, la robotique domestique connaît une accélération sans précédent mais reste à un stade embryonnaire pour les robots polyvalents. Le marché mondial des robots de service grand public a atteint environ 19,15 milliards de dollars en 2025 et devrait atteindre 24,42 milliards en 2026, avec une croissance portée par les robots spécialisés (aspirateurs, tondeuses) qui représentent plus de 40 % du segment. Côté humanoïdes, le norvégien 1X a ouvert les précommandes de son robot NEO à 20 000 dollars l'unité ou 499 dollars par mois en abonnement, avec des premières livraisons aux États-Unis annoncées pour fin 2026 et plus de 10 000 précommandes revendiquées. Au CES 2026 (janvier), LG a dévoilé CLOiD et SwitchBot l'Onero H1, deux robots domestiques à bras articulés capables de tâches ménagères (plier le linge, ranger, préparer un café), mais sans date de commercialisation ferme. Figure AI a présenté en septembre 2026 Helix 2.5, un modèle d'IA permettant à son robot Figure 03 d'effectuer zéro-shot trois tâches domestiques dans 30 foyers américains jamais visités, et vise une disponibilité grand public fin 2026. En France, le marché de la robotique de service est évalué à 1,1 milliard d'euros en 2026, mais les robots humanoïdes restent quasi absents des foyers : seuls 2 % des foyers français possédaient un robot aspirateur au milieu des années 2010, et les robots compagnons comme Pepper ont été retirés de la production. L'IFR (Fédération internationale de robotique) estime que l'adoption massive des humanoïdes exigera encore des progrès en programmation intuitive, manipulation robuste, coûts compatibles et normes de sécurité harmonisées. -->
@@ -891,6 +927,15 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 ## Culture — samedi
 <!-- Faire tourner les domaines : cinéma, musique, jeux vidéo, littérature, spectacle, séries, art… Registre fusionné le 12 août (retour utilisateur) : "Culture française" (samedi) et "Culture internationale" (dimanche) couvraient les mêmes domaines avec une frontière souvent artificielle (un sujet français a presque toujours une dimension internationale, et inversement) et étaient tous les deux clairsemés — fusionnés en un seul registre plus riche, sans distinction française/internationale à l'entrée. La case libérée par la fusion sert au nouveau registre "Économie & finance mondiale — dimanche" (voir plus bas). -->
+- [ ] 🔍 Le cinéma français peut-il rivaliser avec les plateformes ? [cinéma & streaming]
+  <!-- id: culture-le-cinema-francais-peut-il-rivaliser-avec-les -->
+  <!-- contexte: Les entrées en salles chutent de 20 % en 2026, tandis que les abonnements Netflix explosent. -->
+  <!-- rationnel: La question : Les salles peuvent-elles se réinventer, ou le modèle traditionnel est-il condamné ? Les scénarios dépendent des politiques culturelles et des innovations. L'enjeu est la survie d'un pan de la culture française. -->
+  <!-- mots-clés: cinéma français ; Netflix ; salles ; abonnements ; culture -->
+  <!-- scénarios (brouillon): favorable = Des partenariats avec les plateformes relancent l'industrie. ; stable = Les salles se spécialisent dans les événements. ; dégradé = Le cinéma indépendant disparaît. -->
+  <!-- sources: Cinéma français : la chute des entrées s'accélère -->
+  <!-- origine: veille -->
+  <!-- note: Ajouté automatiquement le 2026-11-02 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
 - [ ] Netflix peut-il devenir le nouveau cinéma ? [cinéma & streaming]
   <!-- id: culture-netflix-peut-il-devenir-le-nouveau-cinema -->
   <!-- contexte: À quel moment les plateformes pourraient-elles décider qu'elles n'ont plus besoin des salles pour lancer leurs plus gros films ? -->
@@ -1088,6 +1133,15 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 ## Économie & finance mondiale — jeudi
 <!-- Faire tourner les sous-thèmes : marchés financiers, monnaies (dollar, or, bitcoin), dette et taux d'intérêt, matières premières (pétrole, énergie), entreprises et secteurs à l'échelle mondiale, inégalités, démographie économique, luxe et consommation… Nouveau registre créé le 12 août (retour utilisateur), scindé de l'ancien slot "Géopolitique / international — lundi" qui mélangeait géopolitique dure et économie mondiale — voir la note dans la section Géopolitique — lundi pour la règle de classement des sujets à cheval sur les deux. -->
+- [ ] 🔍 La bulle immobilière commerciale va-t-elle éclater en Europe ? [économie & immobilier]
+  <!-- id: economie-la-bulle-immobiliere-commerciale-va-t-elle -->
+  <!-- contexte: Les prix des bureaux et centres commerciaux chutent de 15 % en un an dans plusieurs capitales européennes. La demande en baisse et les taux élevés fragilisent les investisseurs. -->
+  <!-- rationnel: La question : Les marchés peuvent-ils absorber la correction sans crise systémique, ou va-t-on vers une vague de faillites ? Les scénarios dépendent de la flexibilité des acteurs et des politiques monétaires. L'enjeu pour la France est la stabilité financière et l'emploi dans le secteur. -->
+  <!-- mots-clés: immobilier commercial ; bulle ; taux d'intérêt ; Europe ; crise financière -->
+  <!-- scénarios (brouillon): favorable = Une reprise modérée stabilise les prix. ; stable = La correction se poursuit sans crise majeure. ; dégradé = Des faillites en cascade déclenchent une crise bancaire. -->
+  <!-- sources: L'immobilier commercial européen sous pression -->
+  <!-- origine: veille -->
+  <!-- note: Ajouté automatiquement le 2026-11-02 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
 - [ ] Solvabilité des assureurs européens : les ratios vont-ils se dégrader ? [assurance & finance]
   <!-- id: economie-solvabilite-des-assureurs-europeens-les-ratios -->
   <!-- contexte: Le rapport EIOPA de juin 2026 (données fin 2025) montre des ratios SCR médians robustes : 247 % pour la vie (+17 pp), 219 % pour les mixtes, 214 % pour la non-vie. En France, l'ACPR relève un taux de couverture CSR à 250 % fin 2025 (238 % fin 2024), tiré par la vie/mixte à 240 % et la non-vie à 299 %, sauf les bancassureurs en baisse à 221 %. Le dashboard EIOPA de juillet 2026 (données T1 2026) juge les risques de solvabilité stables au niveau moyen, mais signale une hétérogénéité persistante (Islande -24 pp, Malte -22 pp, Norvège -20 pp) et des vulnérabilités : immobilier (-3 % sur un an), crédit privé, cyber. La révision Solvabilité II (directive UE 2025/2) s'appliquera au 30 janvier 2027 avec UFR abaissé à 3,45 % et chocs de taux asymétriques. -->
