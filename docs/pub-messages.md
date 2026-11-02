@@ -1300,6 +1300,16 @@ préférée pour son registre déjà simplifié.*
 
 *Phrase à retenir de l'édition du 2026-11-01 (archives/2026-11-01.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
 
+### chiffre-2026-11-02
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 90 %
+- message: La Chine concentre 90 % du raffinage des terres rares, tandis que le recyclage mondial reste sous 1 % à l'approche de la fin de la trêve commerciale fixée au 10 janvier 2027.
+- attribution: — lesscenarios.fr, 2 novembre 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-11-02.html
+
+*Phrase à retenir de l'édition du 2026-11-02 (archives/2026-11-02.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
