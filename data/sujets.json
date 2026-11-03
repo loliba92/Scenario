@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "daffd62b499e0b72b04e3e9e1844f8604f68dfba3628405df2bd336da7687be2"
+    "md_sha256": "5735ae1e6c999a050eecf83fbb78e45383c53b52eef23f780960e6e436b8f61a"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -290,7 +290,7 @@
           "titre": "Kaliningrad : la menace nucléaire russe peut-elle faire reculer l'OTAN, ou au contraire précipiter un affrontement direct entre Moscou et l'Alliance ?",
           "question": null,
           "tag": "géopolitique & sécurité",
-          "statut": "a_traiter",
+          "statut": "publie",
           "validation": "valide",
           "contexte": "Le 30 septembre 2026, la Russie a adressé un document écrit à l'OTAN, consulté par Reuters, avertissant qu'elle serait prête à utiliser « l'ensemble de son arsenal, y compris les armes nucléaires » si l'Alliance tentait d'isoler son enclave de Kaliningrad du reste du territoire russe. Le document accuse l'OTAN de suivre une « voie dangereuse et imprudente » et mentionne la possibilité de « frappes russes contre les centres de décision des États membres ». L'enclave, territoire d'un million d'habitants situé entre la Pologne et la Lituanie, est fortement militarisée et abrite des missiles Iskander. Le secrétaire général de l'OTAN Mark Rutte a répondu le 1er octobre en condamnant une « rhétorique nucléaire irresponsable », tout en minimisant le risque réel. Un hélicoptère militaire russe Mi-8 a par ailleurs fait une incursion dans l'espace aérien polonais la semaine précédente.",
           "rationnel": "La question : La menace nucléaire russe autour de Kaliningrad pourra‑t-elle faire reculer l'OTAN ou provoquer un affrontement direct entre Moscou et l'Alliance d’ici le 15 octobre 2026 ? La Russie pourrait jouer la surenchère pour diviser les Européens et détourner l’attention de l’Ukraine, tandis que l’OTAN pourrait maintenir une position ferme mais mesurée, rouvrir les canaux diplomatiques et éviter toute escalade militaire, ou un incident aérien ou un exercice mal interprété pourrait déclencher une riposte qui ferait basculer la crise vers un scénario dégradé. Pour un lecteur français membre de l’OTAN, l’enjeu est la sécurité du territoire européen, la stabilité des approvisionnements énergétiques et les répercussions éventuelles sur l’économie nationale.",
@@ -330,8 +330,8 @@
           "note": "Ajouté automatiquement le 2026-10-01 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. Repéré en veille sur le registre Géopolitique, remonté ici pour son urgence.",
           "donnees": "[relevé du 2026-10-27] Interceptions hebdomadaires de l'Otan (Baltic Air Policing) face à des avions russes violant les règles de vol (nombre de scrambles par semaine). Semaine 9-15 sept 2024 = 8 (2024-09-15) ; Semaine 11-17 août 2025 = 2 (2025-08-17) ; Semaine 29 sept-5 oct 2025 = 3 (2025-10-05) ; Semaine 6-12 oct 2025 = 6 (2025-10-12) ; Semaine 20-26 oct 2025 = 3 (2025-10-26) ; Semaine 9-15 fév 2026 = 3 (2026-02-15). Sources : https://kam.lt/en/data-on-interceptions-of-aircraft-completed-near-the-baltic-states-borders-on-september-9-15-2024/ ; https://kam.lt/en/data-on-interceptions-of-aircraft-completed-near-the-baltic-states-borders-on-august-11-17-2025/ ; https://kam.lt/en/data-on-interceptions-of-aircraft-completed-near-the-baltic-states-borders-on-september-29-october-5-2025/ ; https://kam.lt/en/data-on-interceptions-of-aircraft-completed-near-the-baltic-states-borders-on-october-6-12-2025/ ; https://kam.lt/en/data-on-interceptions-of-aircraft-completed-near-the-baltic-states-borders-on-october-20-26-2025/ ; https://kam.lt/en/data-on-interceptions-of-aircraft-completed-near-the-baltic-states-borders-on-february-9-15-2026/",
           "ajoute_le": "2026-10-01",
-          "publie_le": null,
-          "edition": null,
+          "publie_le": "2026-11-03",
+          "edition": "2026-11-03",
           "enrichi_le": "2026-10-27"
         },
         {
