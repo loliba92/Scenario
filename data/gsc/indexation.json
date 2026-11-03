@@ -1,11 +1,11 @@
 {
-  "mis_a_jour": "2026-11-02",
+  "mis_a_jour": "2026-11-03",
   "pages": [
     {
       "url": "https://lesscenarios.fr/",
       "verdict": "PASS",
       "etat": "Envoyée et indexée",
-      "derniere_exploration": "2026-10-07T14:19:39Z",
+      "derniere_exploration": "2026-11-02T19:05:02Z",
       "canonique_google": "https://lesscenarios.fr/",
       "canonique_declaree": "https://lesscenarios.fr/",
       "robots": "ALLOWED",
@@ -65,7 +65,7 @@
       "url": "https://lesscenarios.fr/en/",
       "verdict": "PASS",
       "etat": "Envoyée et indexée",
-      "derniere_exploration": "2026-10-08T04:33:41Z",
+      "derniere_exploration": "2026-11-02T23:14:13Z",
       "canonique_google": "https://lesscenarios.fr/en/",
       "canonique_declaree": "https://lesscenarios.fr/en/",
       "robots": "ALLOWED",
