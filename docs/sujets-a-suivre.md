@@ -192,6 +192,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 03.11.2026 — [Kaliningrad : la menace nucléaire russe fait-elle reculer l'OTAN ou précipite-t-elle un affrontement ?](../archives/2026-11-03.html)
 - 02.11.2026 — [Terres rares : le nouveau pétrole ?](../archives/2026-11-02.html)
 - 01.11.2026 — [Sport : la compétition équitable est-elle encore possible ?](../archives/2026-11-01.html)
 - 31.10.2026 — [Art numérique : l'original pourrait-il redevenir le luxe ultime ?](../archives/2026-10-31.html)

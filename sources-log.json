@@ -2,6 +2,41 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-11-03",
+      "articles": [
+        {
+          "title": "Russia's nuclear warning to NATO meant to ensure Kaliningrad security, Kremlin says",
+          "source": "Reuters Connect",
+          "url": "https://www.reutersconnect.com/collection/russias-nuclear-warning-to-nato-meant-to-ensure-kaliningrad-security-kremlin-says/dGFnOnJldXRlcnMuY29tLDIwMjY6bmV3c21sX1ZBNjc1MjAxMTAyMDI2UlAx",
+          "image": "https://cdn1.agency.thomsonreuters.com/preview/tag:reuters.com,2026:newsml_LVA009675201102026RP1:1/tag:reuters.com,2026:binary_LVA009675201102026RP1-VIEWIMAGE:768X432/640x640?partner=false&Expires=2109042111&Signature=mMV0x~Z4FoVjjizmv7FryhcP-Imlh3jXO1qpQu7CjvtI7jgLz4ShUmbUnYZY2MSOZ9VTvr9~A~hd~82rLIU1fc9hQS-LGNwIIEritzG1c4iF~PwY9949lmi7dHv4qV83IW80Iv08ojfcNORGxAtTqhaX~jvFARFhl2pDcUXI4fNXxiXiOiREsGUPISth02MX1KUyEl43O6jtx3uqf7K55kd8mXyeX6xxs1bJnGJ5f22FKP5zZIPgFF2UGBdljtLSpuMMgTP6Z8jlP-Efo7sIXlHtGZ99IeIBvSGKXhu4VY8b3M0KQhKnvzfXJNl2obpP0kgFCMu7fF3DtDOEdKsOxQ__&Key-Pair-Id=APKAJ7VIBMO3UCTTZSWQ",
+          "lang": "en",
+          "domain": "international",
+          "summary": "Le Kremlin a déclaré que le message nucléaire à l'OTAN visait à assurer la sécurité de Kaliningrad et ne devait pas être vu comme confrontational.",
+          "read_minutes": 2
+        },
+        {
+          "title": "Putin says the world is living through a dangerous moment, warns West not to escalate",
+          "source": "Reuters",
+          "url": "https://www.reuters.com/world/europe/putin-says-world-is-living-through-dangerous-moment-warns-west-not-escalate-2026-10-01/",
+          "image": null,
+          "lang": "en",
+          "domain": "international",
+          "summary": "Le 1er octobre 2026, Vladimir Poutine a déclaré que le monde traverse un moment dangereux et a mis en garde l'Occident de ne pas escalader la crise de Kaliningrad.",
+          "read_minutes": 3
+        },
+        {
+          "title": "Surprise drill tests US soldiers' readiness near Russian exclave",
+          "source": "Stars and Stripes",
+          "url": "https://www.stripes.com/branches/army/2026-10-01/us-army-poland-suwalki-kaliningrad-23022880.html",
+          "image": "https://www.stripes.com/incoming/hh1sn3-021026alertphoto01.jpg/alternates/LANDSCAPE_480/021026ALERTphoto01.JPG",
+          "lang": "en",
+          "domain": "international",
+          "summary": "Le 1er octobre 2026, des soldats américains du 37e régiment blindé ont participé à un exercice de surprise près de la zone de entraînement de Bemowo Piskie, à 50 miles de Kaliningrad, testant leur capacité à passer du sommeil à l'état de combat.",
+          "read_minutes": 3
+        }
+      ]
+    },
+    {
       "date": "2026-11-02",
       "articles": [
         {
