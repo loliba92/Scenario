@@ -143,6 +143,36 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
   <!-- origine: veille -->
   <!-- enrichi: 2026-10-31 -->
   <!-- note: Ajouté automatiquement le 2026-09-18 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — validé. Repéré en veille sur le registre Géopolitique, remonté ici pour son urgence -->
+- [ ] Marchés émergents : un risque de fuite massive des capitaux ? [économie & finance]
+  <!-- id: carte-blanche-marches-emergents-un-risque-de-fuite-massive-des-capitaux- -->
+  <!-- tag: économie & finance -->
+- [ ] Bitcoin : le bitcoin devient-il un actif institutionnel ? [économie & finance]
+  <!-- id: carte-blanche-bitcoin-le-bitcoin-devient-il-un-actif-institutionnel- -->
+  <!-- tag: économie & finance -->
+- [ ] Assurance cyber : l'explosion des risques numériques va-t-elle faire flamber les tarifs ? [assurance & numérique]
+  <!-- id: carte-blanche-assurance-cyber-l-explosion-des-risques-numeriques-va-t-elle-faire-flamber-les-tarifs- -->
+  <!-- tag: assurance & numérique -->
+- [ ] L'effondrement de la fécondité mondiale : le monde peut-il éviter un déclin démographique généralisé ? [société & démographie]
+  <!-- id: carte-blanche-l-effondrement-de-la-fecondite-mondiale-la-quasi-totalite-de-la-planete-passe-sous-le- -->
+  <!-- tag: société & démographie -->
+- [ ] Luxe : le luxe peut-il continuer sa croissance ? [économie]
+  <!-- id: carte-blanche-luxe-le-luxe-peut-il-continuer-sa-croissance- -->
+  <!-- tag: économie -->
+- [ ] Guerre commerciale USA-Chine : la mondialisation entre-t-elle dans une nouvelle guerre froide économique ? [géopolitique & économie]
+  <!-- id: carte-blanche-guerre-commerciale-usa-chine-la-mondialisation-entre-t-elle-dans-une-nouvelle-guerre-f -->
+  <!-- tag: géopolitique & économie -->
+- [ ] Le climat va-t-il redessiner les frontières du monde ? [géopolitique & climat]
+  <!-- id: carte-blanche-le-climat-va-t-il-redessiner-les-frontieres-du-monde- -->
+  <!-- tag: géopolitique & climat -->
+- [ ] Les terres rares sont-elles vraiment le nouveau pétrole ? [géopolitique & ressources]
+  <!-- id: carte-blanche-les-terres-rares-sont-elles-vraiment-le-nouveau-petrole- -->
+  <!-- tag: géopolitique & ressources -->
+- [ ] Nouvel ordre mondial : la domination occidentale est-elle remise en cause ? [géopolitique]
+  <!-- id: carte-blanche-nouvel-ordre-mondial-la-domination-occidentale-est-elle-remise-en-cause-par-un-monde-d -->
+  <!-- tag: géopolitique -->
+- [ ] Poutine joue-t-il son va-tout ? [géopolitique & sécurité]
+  <!-- id: carte-blanche-poutine-joue-t-il-son-va-tout- -->
+  <!-- tag: géopolitique & sécurité -->
 
 
 ## Géopolitique — lundi
