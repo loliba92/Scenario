@@ -1,0 +1,376 @@
+{
+  "date": "2026-11-04",
+  "registre": "actualite_francaise",
+  "sujet": {
+    "titre_propose": "Facturation électronique obligatoire (septembre 2026) : les entreprises sont-elles prêtes ?",
+    "h1": "Facturation électronique : les entreprises prêtes pour septembre ?",
+    "question_posee": "La réforme de la facturation électronique devient obligatoire en septembre 2026 : les entreprises françaises, surtout les TPE/PME, parviendront-elles à se conformer avant la fin de la période de tolérance en décembre 2026 ?",
+    "eyebrow": "Mercredi, actualité française",
+    "angle": "La réforme de la facturation électronique entre en phase d'obligation d'émission en septembre 2026, avec une période de tolérance jusqu'en décembre 2026 avant l'application des sanctions. Alors que le gouvernement annonce des résultats 'au-delà des attentes', environ 1,2 million d'entreprises resteraient encore sans solution de réception. La transition sera-t-elle fluide ou risque-t-elle de créer des ruptures de trésorerie pour les plus petites entreprises ?",
+    "tags": [
+      "facturation-electronique",
+      "entreprises",
+      "reforme-administrative",
+      "TPE-PME",
+      "DGFIP"
+    ],
+    "domain": "economie-entreprises",
+    "image_keywords": "electronic invoicing, business document, digital paperwork",
+    "complexite": 3,
+    "origine_prioritaire": "Facturation électronique obligatoire (septembre 2026) : les entreprises sont-elles prêtes ?",
+    "origine_id": "actualite-francaise-facturation-electronique-obligatoire-septembre",
+    "point_de_depart": {
+      "id": "actualite-francaise-facturation-electronique-obligatoire-septembre",
+      "registre": "actualite_francaise",
+      "titre": "Facturation électronique obligatoire (septembre 2026) : les entreprises sont-elles prêtes ?",
+      "question": "Facturation électronique obligatoire (septembre 2026) : les entreprises sont-elles prêtes ?",
+      "contexte": "La réforme devient obligatoire, mais ~9 entreprises sur 11 ne seraient pas prêtes. Risque de couac administratif pour les TPE/PME. → Favorable = transition en douceur ; stable = démarrage lent mais absorbé ; dégradé = pagaille, reports, trésoreries fragilisées",
+      "rationnel": "La question : Les entreprises françaises, notamment les TPE/PME, parviendront-elles à se conformer à l'obligation de facturation électronique d'ici la fin de la période de tolérance (décembre 2026) et à respecter l'obligation d'émission effective en septembre 2027 ? L'issue demeure ouverte car un taux de désignation atteignant 70 % mi‑septembre laisserait entrevoir un scénario favorable, tandis que les 1,2 million d'entreprises encore dépourvues de solution de réception et les rejets techniques élevés pourraient entraîner un démarrage lent (stable) ou une pagaille (dégradé) selon la capacité d'absorption du système. Pour un dirigeant de TPE/PME français, l'enjeu concret consiste à éviter toute rupture de trésorerie liée à des factures rejetées ou à l'impossibilité de se faire facturer, en anticipant dès maintenant sa mise en conformité avant la fin de la tolérance en décembre 2026.",
+      "mots_cles": [
+        "facturation électronique 2026",
+        "réforme facture électronique",
+        "plateforme agréée DGFIP",
+        "David Amiel",
+        "e-invoicing France",
+        "PPF portail public facturation",
+        "obligation réception facture électronique",
+        "TPE PME facturation électronique"
+      ],
+      "angle": null,
+      "a_verifier": "Le chiffre '9 entreprises sur 11 ne seraient pas prêtes' cité dans le dossier initial provient d'un post LinkedIn et non d'une étude officielle ; à confirmer par une source fiable ou à écarter. Le nombre exact d'entreprises encore sans plateforme au 1er octobre 2026 serait utile.",
+      "scenarios_brouillon": null,
+      "echeance": {
+        "date": "2026-12-31",
+        "raison": "Fin de la période de tolérance annoncée par David Amiel : à partir de janvier 2027, les sanctions pour non-conformité pourront s'appliquer aux entreprises qui n'auront pas régularisé leur situation."
+      },
+      "sources_pistes": [
+        {
+          "titre": "Facturation électronique : résultat 'au-delà des attentes' selon David Amiel",
+          "url": "https://www.boursorama.com/actualite-economique/actualites/facturation-electronique-resultat-au-dela-des-attentes-selon-david-amiel-8f53adbfb8bb9f2bb3ba5c2e02dff8eb"
+        },
+        {
+          "titre": "Facturation électronique : deux tiers des entreprises françaises sont déjà prêtes",
+          "url": "https://echosplus.com/2026/09/01/facturation-electronique-deux-tiers-des-entreprises-francaises-sont-deja-pretes/"
+        },
+        {
+          "titre": "Réforme de la facturation électronique en France – Docnova (bilan 3 semaines)",
+          "url": "https://docnova.ai/fr/la-reforme-de-la-facturation-en-france-les-trois-premieres-semaines/"
+        },
+        {
+          "titre": "Facturation électronique : les premiers chiffres du démarrage",
+          "url": "https://www.comparatif-facture-electronique.fr/bilan-demarrage-facturation-electronique-premiers-chiffres/"
+        }
+      ],
+      "tag": "entreprises & numérique",
+      "origine": null,
+      "note_editoriale": null,
+      "donnees_graphique": "[relevé du 2026-10-14] Part des 4 millions d'entreprises cibles ayant désigné une plateforme de réception (unité : %). 10 juillet 2026 = 36 % (10/07/2026) ; 23 août 2026 = 58 % (23/08/2026) ; 1er septembre 2026 = 65 % (01/09/2026) ; 4 septembre 2026 = 66 % (04/09/2026) ; 4 octobre 2026 = 75 % (04/10/2026). Sources : https://www.ccfi.asso.fr/lancement-de-la-facturation-electronique-les-plateformes-continuent-a-recevoir-enormement-de-demandes/ ; https://www.senspo.fr/gouvernement/communiques/323051",
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Vérification anti-doublon effectuée : l'édition du 3 novembre 2026 porte sur Kaliningrad et la menace nucléaire russe (thème géopolitique completement différent). Aucun recoupement avec la veille. Le registre 'actualité française' n'a pas été traité récemment sur ce sujet spécifique (la dernière édition sur la facturation électronique remonte à septembre 2026, mais avec un angle différent : bilan du démarrage plutôt que la question de la préparation des entreprises). Aucun doublon détecté."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "La facturation électronique devient obligatoire pour les entreprises françaises en septembre 2026, avec une période de tolérance jusqu'en décembre 2026 avant l'application des sanctions.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "src-1"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "En septembre 2026, environ deux tiers des entreprises françaises auraient déjà désigné une plateforme de réception pour la facturation électronique.",
+      "chiffre": "65-70 %",
+      "date_du_chiffre": "2026-09-01",
+      "sources": [
+        "src-2",
+        "src-3"
+      ],
+      "confiance": "moyenne"
+    },
+    {
+      "affirmation": "En octobre 2026, le taux de désignation des plateformes de réception atteignait environ 75 % des entreprises cibles.",
+      "chiffre": "75 %",
+      "date_du_chiffre": "2026-10-04",
+      "sources": [
+        "src-4",
+        "src-5"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Environ 1,2 million d'entreprises françaises resteraient encore sans solution de réception de factures électroniques à l'approche de l'échéance.",
+      "chiffre": "1,2 million",
+      "date_du_chiffre": null,
+      "sources": [
+        "src-3"
+      ],
+      "confiance": "moyenne"
+    },
+    {
+      "affirmation": "Le ministre David Amiel a annoncé des résultats 'au-delà des attentes' concernant la mise en conformité des entreprises.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "src-1"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le portail public facturation (PPF) est l'une des plateformes agréées par la DGFIP pour la facturation électronique.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "src-2"
+      ],
+      "confiance": "haute"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "David Amiel",
+      "role": "Ministre chargé de l'administration et de la réforme de l'État"
+    },
+    {
+      "nom": "DGFIP",
+      "role": "Direction générale des finances publiques - autorité chargée d'agréer les plateformes de facturation électronique"
+    },
+    {
+      "nom": "CCFI",
+      "role": "Chambre de commerce et d'industrie - organisme de suivi du déploiement de la facturation électronique"
+    },
+    {
+      "nom": "Entreprises françaises (TPE/PME)",
+      "role": "Bénéficiaires obligées de la réforme - environ 4 millions d'entreprises concernées"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2026-09-01",
+      "evenement": "Début de l'obligation de facturation électronique pour les grandes entreprises et les ETI"
+    },
+    {
+      "date": "2026-09-01",
+      "evenement": "Résultats initiaux : environ 65 % des entreprises ont désigné une plateforme de réception"
+    },
+    {
+      "date": "2026-10-04",
+      "evenement": "Taux de désignation des plateformes atteint environ 75 %"
+    },
+    {
+      "date": "2026-12-31",
+      "evenement": "Fin de la période de tolérance - à partir de janvier 2027, les sanctions pour non-conformité peuvent s'appliquer"
+    },
+    {
+      "date": "2027-09-01",
+      "evenement": "Obligation d'émission effective pour toutes les entreprises (date butoir finale)"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "La transition se déroule en douceur : la majorité des entreprises, y compris les TPE/PME, parviennent à se conformer avant la fin de la période de tolérance en décembre 2026. Les plateformes agréées absorbent le flux, les rejets techniques restent marginaux, et les entreprises les plus petites bénéficient d'un accompagnement efficace. Le taux de désignation continue de croître et dépasse 85 % d'ici fin novembre 2026.",
+      "probabilite_suggeree": 35
+    },
+    "stable": {
+      "resume": "Le démarrage est lent mais absorbé : une partie des TPE/PME rencontrent des difficultés techniques ou administratives, avec des factures rejetées ou des retards de mise en conformité, mais le système global tient. Les plateformes et l'administration gèrent les incidents au fil de l'eau, et la période de tolérance jusqu'en décembre 2026 permet de rattraper les retards sans perturbation majeure pour la trésorerie des entreprises.",
+      "probabilite_suggeree": 45
+    },
+    "degrade": {
+      "resume": "La transition se solde par une pagaille administrative : un nombre significatif d'entreprises, surtout les plus petites, ne parviennent pas à se conformer à temps. Les rejets de factures électroniques se multiplient, entraînant des ruptures de trésorerie pour les TPE/PME qui ne peuvent pas se faire payer ou facturer correctement. Les sanctions s'appliquent dès janvier 2027 pour les entreprises non conformes, créant un climat d'incertitude et de méfiance envers la réforme.",
+      "probabilite_suggeree": 20
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Taux de désignation des plateformes de réception",
+      "valeur": "75 %",
+      "tendance": "en hausse (36 % le 10 juillet → 75 % le 4 octobre 2026)"
+    },
+    {
+      "label": "Entreprises sans solution de réception",
+      "valeur": "environ 1,2 million",
+      "tendance": "en baisse mais encore significatif"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "La série de données sur le taux de désignation des plateformes de réception (36 % le 10 juillet, 58 % le 23 août, 65 % le 1er septembre, 66 % le 4 septembre, 75 % le 4 octobre 2026) est courte (5 points sur moins de 3 mois) et ne remplit pas le critère d'un historique long documenté par une source publique fiable. De plus, ces données proviennent de communiqués de presse d'organismes professionnels (CCFI, Senspo) plutôt que d'une source statistique officielle continue. Le critère (1) n'est pas satisfait : pas d'historique complet documenté au-delà de ces 5 points. Le critère (2) n'est pas satisfait : moins de 5 points réels sur une période courte. Le critère (3) est partiellement satisfait mais insuffisant.",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "oui",
+    "raison": "Trois chiffres comparables (même unité : pourcentage de désignation de plateforme) sont disponibles dans les sources vérifiées, permettant une comparaison avant/après sur la période de déploiement.",
+    "barres": {
+      "aria_label": "Évolution du taux de désignation des plateformes de réception pour la facturation électronique entre juillet et octobre 2026",
+      "lead": "Part des entreprises ayant désigné une plateforme de réception pour la facturation électronique, à différents moments de l'été 2026.",
+      "caption": "Sources : CCFI et Senspo, communiqués de presse, juillet-octobre 2026",
+      "unite": "%",
+      "valeurs": [
+        {
+          "label": "10 juillet 2026",
+          "valeur": 36.0,
+          "affichage": "36 %",
+          "mis_en_avant": false
+        },
+        {
+          "label": "23 août 2026",
+          "valeur": 58.0,
+          "affichage": "58 %",
+          "mis_en_avant": false
+        },
+        {
+          "label": "1er septembre 2026",
+          "valeur": 65.0,
+          "affichage": "65 %",
+          "mis_en_avant": false
+        },
+        {
+          "label": "4 octobre 2026",
+          "valeur": 75.0,
+          "affichage": "75 %",
+          "mis_en_avant": true
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Qu'est-ce que la facturation électronique obligatoire et comment fonctionne le système ?",
+        "rattache_a": "fait-1"
+      },
+      {
+        "focus": "Quelles sont les obligations concrètes pour les TPE/PME et les échéances à respecter ?",
+        "rattache_a": "fait-2"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Le chiffre exact du nombre d'entreprises encore sans plateforme de réception à la date du brief n'est pas confirmé par une source officielle unique ; les estimations varient selon les sources (1,2 million selon certaines sources, mais ce chiffre doit être vérifié).",
+    "La proportion réelle d'entreprises 'prêtes' versus 'non prêtes' est difficile à établir avec précision : le taux de désignation d'une plateforme ne garantit pas la conformité effective de l'ensemble des processus de facturation.",
+    "L'impact réel sur la trésorerie des TPE/PME en cas de rejet de factures électroniques n'est pas quantifié dans les sources disponibles."
+  ],
+  "a_ne_pas_affirmer": [
+    "L'affirmation selon laquelle '9 entreprises sur 11 ne seraient pas prêtes' ne peut pas être retenue car elle provient d'un post LinkedIn non vérifié et n'a pas été confirmée par une source fiable.",
+    "La date exacte de l'obligation d'émission pour toutes les entreprises (prévue en septembre 2027) ne doit pas être présentée comme une échéance immédiate : la période de tolérance jusqu'en décembre 2026 est la priorité."
+  ],
+  "sources": [
+    {
+      "id": "src-1",
+      "title": "Facturation électronique : résultat 'au-delà des attentes' selon David Amiel",
+      "source": "Boursorama",
+      "url": "https://www.boursorama.com/actualite-economique/actualites/facturation-electronique-resultat-au-dela-des-attentes-selon-david-amiel-8f53adbfb8bb9f2bb3ba5c2e02dff8eb",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie-entreprises",
+      "summary": "Le ministre David Amiel annonce des résultats 'au-delà des attentes' concernant la mise en conformité des entreprises pour la facturation électronique, avec un taux de désignation des plateformes en hausse.",
+      "read_minutes": 3
+    },
+    {
+      "id": "src-2",
+      "title": "Facturation électronique : deux tiers des entreprises françaises sont déjà prêtes",
+      "source": "Echos Plus",
+      "url": "https://echosplus.com/2026/09/01/facturation-electronique-deux-tiers-des-entreprises-francaises-sont-deja-pretes/",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie-entreprises",
+      "summary": "En septembre 2026, environ 65 % des entreprises françaises ont déjà désigné une plateforme de réception pour la facturation électronique, selon les premiers chiffres disponibles.",
+      "read_minutes": 4
+    },
+    {
+      "id": "src-3",
+      "title": "Réforme de la facturation électronique en France – Docnova (bilan 3 semaines)",
+      "source": "Docnova",
+      "url": "https://docnova.ai/fr/la-reforme-de-la-facturation-en-france-les-trois-premieres-semaines/",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie-entreprises",
+      "summary": "Bilan des trois premières semaines de la réforme de la facturation électronique en France : état des lieux du déploiement, difficultés rencontrées par les entreprises et perspectives.",
+      "read_minutes": 5
+    },
+    {
+      "id": "src-4",
+      "title": "Facturation électronique : les premiers chiffres du démarrage",
+      "source": "Comparatif Facture Électronique",
+      "url": "https://www.comparatif-facture-electronique.fr/bilan-demarrage-facturation-electronique-premiers-chiffres/",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie-entreprises",
+      "summary": "Premier bilan chiffré du démarrage de la facturation électronique en France : taux de désignation des plateformes, nombre d'entreprises concernées, incidents techniques.",
+      "read_minutes": 4
+    },
+    {
+      "id": "src-5",
+      "title": "Lancement de la facturation électronique : les plateformes continuent à recevoir énormément de demandes",
+      "source": "CCFI",
+      "url": "https://www.ccfi.asso.fr/lancement-de-la-facturation-electronique-les-plateformes-continuent-a-recevoir-enormement-de-demandes/",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie-entreprises",
+      "summary": "Communiqué de la CCFI sur l'état du déploiement de la facturation électronique : les plateformes agréées continuent de recevoir un grand nombre de demandes de désignation des entreprises.",
+      "read_minutes": 3
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "Facturation électronique : David Amiel annonce des résultats 'au-delà des attentes'",
+      "source": "Boursorama",
+      "url": "https://www.boursorama.com/actualite-economique/actualites/facturation-electronique-resultat-au-dela-des-attentes-selon-david-amiel-8f53adbfb8bb9f2bb3ba5c2e02dff8eb",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie-entreprises",
+      "summary": "Le ministre de l'Administration et de la Réforme de l'État, David Amiel, a annoncé que les résultats du déploiement de la facturation électronique étaient 'au-delà des attentes', avec un taux de désignation des plateformes en forte progression.",
+      "read_minutes": 3
+    },
+    {
+      "title": "Facturation électronique : deux tiers des entreprises françaises sont déjà prêtes",
+      "source": "Echos Plus",
+      "url": "https://echosplus.com/2026/09/01/facturation-electronique-deux-tiers-des-entreprises-francaises-sont-deja-pretes/",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie-entreprises",
+      "summary": "Article sur l'état d'avancement de la facturation électronique en France : environ 65 % des entreprises ont désigné une plateforme de réception au 1er septembre 2026.",
+      "read_minutes": 4
+    },
+    {
+      "title": "Bilan des trois premières semaines de la facturation électronique en France",
+      "source": "Docnova",
+      "url": "https://docnova.ai/fr/la-reforme-de-la-facturation-en-france-les-trois-premieres-semaines/",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie-entreprises",
+      "summary": "Analyse du déploiement de la facturation électronique après trois semaines : difficultés techniques, adaptation des entreprises, rôle des plateformes agréées.",
+      "read_minutes": 5
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-09-16",
+      "titre": "Électricité : la fin de l'ARENH va-t-elle faire flamber ta facture ?",
+      "lien": "Les deux sujets traitent d'une réforme administrative française ayant un impact direct sur les factures des entreprises et des particuliers, avec une période de transition et des inquiétudes sur les conséquences pratiques."
+    },
+    {
+      "date": "2026-09-13",
+      "titre": "Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?",
+      "lien": "Les deux éditions abordent des réformes gouvernementales françaises à échéance automnale, avec des enjeux de conformité et des risques de non-respect des délais par les acteurs concernés."
+    },
+    {
+      "date": "2026-10-21",
+      "titre": "La France est-elle au bord du gouffre ?",
+      "lien": "Le sujet de la facturation électronique s'inscrit dans le contexte plus large des réformes structurelles françaises et de leur capacité à être déployées efficacement, un thème central de l'édition du 21 octobre."
+    }
+  ],
+  "recommandations_redaction": [
+    "Préciser la distinction entre l'obligation de réception (déjà en vigueur pour les grandes entreprises) et l'obligation d'émission (échéance à venir en septembre 2027 pour toutes les entreprises).",
+    "Expliquer clairement le rôle des plateformes agréées par la DGFIP et le portail public facturation (PPF) pour les TPE/PME.",
+    "Mettre en garde contre l'interprétation trop optimiste du taux de désignation : désigner une plateforme ne garantit pas la conformité effective de tous les processus de facturation.",
+    "Souligner les risques concrets pour les TPE/PME : rejet de factures, impossibilité de se faire payer, rupture de trésorerie.",
+    "Préciser que la période de tolérance jusqu'en décembre 2026 est l'échéance immédiate à surveiller, avant l'obligation d'émission de septembre 2027."
+  ]
+}
