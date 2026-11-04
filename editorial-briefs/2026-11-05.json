@@ -1,0 +1,314 @@
+{
+  "date": "2026-11-05",
+  "registre": "economie",
+  "sujet": {
+    "titre_propose": "Solvabilité des assureurs européens : les ratios vont-ils se dégrader ?",
+    "h1": "Assureurs européens : les ratios de solvabilité vont-ils se dégrader ?",
+    "question_posee": "Les ratios de solvabilité des assureurs européens vont-ils se dégrader avant l'entrée en application de la révision Solvabilité II le 30 janvier 2027 ?",
+    "eyebrow": "Jeudi, économie & finance",
+    "angle": "Le rapport EIOPA de juin 2026 montre des ratios SCR médians robustes (247 % vie, 219 % mixtes, 214 % non-vie), mais la révision Solvabilité II (directive UE 2025/2) abaisse l'UFR à 3,45 % au 30 janvier 2027, tandis que l'Insurance Risk Dashboard de juillet 2026 signale une hétérogénéité persistante (Islande -24 pp, Malte -22 pp, Norvège -20 pp) et des vulnérabilités sectorielles (immobilier -3 % sur un an, crédit privé, cyber). La question porte sur la capacité des assureurs à absorber ces chocs avant la date d'échéance.",
+    "tags": [
+      "assurance",
+      "finance",
+      "reglementation"
+    ],
+    "domain": "economie",
+    "image_keywords": "insurance document calculator",
+    "complexite": 4,
+    "origine_prioritaire": "Solvabilité des assureurs européens : les ratios vont-ils se dégrader ?",
+    "origine_id": "economie-solvabilite-des-assureurs-europeens-les-ratios",
+    "point_de_depart": {
+      "id": "economie-solvabilite-des-assureurs-europeens-les-ratios",
+      "registre": "economie",
+      "titre": "Solvabilité des assureurs européens : les ratios vont-ils se dégrader ?",
+      "question": "Solvabilité des assureurs européens : les ratios vont-ils se dégrader ?",
+      "contexte": "Le rapport EIOPA de juin 2026 (données fin 2025) montre des ratios SCR médians robustes : 247 % pour la vie (+17 pp), 219 % pour les mixtes, 214 % pour la non-vie. En France, l'ACPR relève un taux de couverture CSR à 250 % fin 2025 (238 % fin 2024), tiré par la vie/mixte à 240 % et la non-vie à 299 %, sauf les bancassureurs en baisse à 221 %. Le dashboard EIOPA de juillet 2026 (données T1 2026) juge les risques de solvabilité stables au niveau moyen, mais signale une hétérogénéité persistante (Islande -24 pp, Malte -22 pp, Norvège -20 pp) et des vulnérabilités : immobilier (-3 % sur un an), crédit privé, cyber. La révision Solvabilité II (directive UE 2025/2) s'appliquera au 30 janvier 2027 avec UFR abaissé à 3,45 % et chocs de taux asymétriques.",
+      "rationnel": "La question : les ratios de solvabilité des assureurs européens vont-ils se dégrader d'ici l'application pleine de la révision Solvabilité II prévue le 30 janvier 2027 ? L'issue est ouverte car, d'un côté, les ratios actuels élevés, la collecte vie record et la hausse des fonds propres soutiennent un scénario favorable, tandis que de l'autre, la baisse programmée de l'UFR à 3,45 %, le risque de correction obligataire ou immobilière, les tensions géopolitiques, le risque cyber et l'hétérogénéité observée (Islande –24 pp, Malte –22 pp, Norvège –20 pp) ainsi que la vulnérabilité du secteur immobilier (‑3 % sur un an) et du crédit privé penchent vers un scénario dégradé. Pour un lecteur français – épargnant, souscripteur ou actionnaire – l'enjeu consiste à anticiper la solidité de son assureur afin d'évaluer l'impact sur les rendements des contrats euro ou la capacité de paiement des sinistres.",
+      "mots_cles": [
+        "EIOPA Financial Stability Report juin 2026",
+        "ratio SCR médian assureurs européens 2025",
+        "ACPR situation assureurs France fin 2025",
+        "Solvabilité II révision 2027 UFR 3,45 %",
+        "Insurance Risk Dashboard juillet 2026",
+        "bancassureurs ratio solvabilité baisse",
+        "immobilier assureurs européens 640 Md€",
+        "chocs de taux asymétriques lambda factor"
+      ],
+      "angle": null,
+      "a_verifier": "⚠ Temps : le dossier ne mentionne pas la date d'application de la réforme Solvabilité II (30 janvier 2027) qui est le prochain rendez-vous réglementaire majeur. Vérifier les projections d'impact de l'UFR à 3,45 % sur les ratios vie français (ACPR, France Assureurs). Confirmer la date du prochain Insurance Risk Dashboard EIOPA (probablement octobre 2026 pour données T2 2026).",
+      "scenarios_brouillon": null,
+      "echeance": {
+        "date": "2027-01-30",
+        "raison": "Entrée en application pleine de la directive Solvabilité II révisée (UE 2025/2) : UFR abaissé à 3,45 %, chocs de taux asymétriques, nouveau régime de proportionnalité — impact direct sur les ratios SCR publiés fin 2027."
+      },
+      "sources_pistes": [
+        {
+          "titre": "EIOPA Financial Stability Report June 2026",
+          "url": "https://www.dirittobancario.it/wp-content/uploads/2026/06/EIOPA-Financial-Stability-Report-June-2026.pdf"
+        },
+        {
+          "titre": "EIOPA insurance risk dashboard shows broadly stable risk environment even as cyber and geopolitical risk intensify",
+          "url": "https://www.eiopa.europa.eu/eiopa-insurance-risk-dashboard-shows-broadly-stable-risk-environment-even-cyber-and-geopolitical-2026-07-30_en"
+        },
+        {
+          "titre": "La situation des assureurs en France fin 2025 - ACPR",
+          "url": "https://acpr.banque-france.fr/system/files/2026-06/20260630_AS181_assureurs_S2_2025.pdf"
+        },
+        {
+          "titre": "EIOPA completes Solvency II Review mandate with final guidelines and draft technical standards",
+          "url": "https://www.eiopa.europa.eu/eiopa-completes-solvency-ii-review-mandate-final-guidelines-and-draft-technical-standards-revised-2026-07-15_en"
+        }
+      ],
+      "tag": "assurance & finance",
+      "origine": null,
+      "note_editoriale": null,
+      "donnees_graphique": "[relevé du 2026-11-03] Ratio SCR médian des assureurs européens (unité : %). Vie = 247 (2025) ; Mixte = 219 (2025) ; Non-vie = 214 (2025). Sources : https://www.dirittobancario.it/wp-content/uploads/2026/06/EIOPA-Financial-Stability-Report-June-2026.pdf ; https://openkoda.com/european-insurance-market-statistics/",
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille du 04/11/2026 : sujet sur la facturation électronique (entreprises françaises, conformité) — aucun recoupement avec la solvabilité des assureurs. Registre économie des 2-3 dernières occurrences : 29/10 (bulle IA, valorisations tech), 22/10 (inégalités sociales), 01/10 (Bitcoin actif institutionnel) — aucun lien mécanique avec les ratios de solvabilité assurantielle. Sujet inédit dans l'archive."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Le rapport EIOPA de juin 2026 (données fin 2025) indique un ratio SCR médian de 247 % pour le secteur vie, 219 % pour les mixtes et 214 % pour la non-vie.",
+      "chiffre": "247 % (vie), 219 % (mixtes), 214 % (non-vie)",
+      "date_du_chiffre": "2026-06-30",
+      "sources": [
+        "eiopa-fsr-june-2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "L'Insurance Risk Dashboard EIOPA de juillet 2026 (données T1 2026) juge les risques de solvabilité stables au niveau moyen, mais signale une hétérogénéité persistante avec des baisses de SCR en Islande (-24 pp), Malte (-22 pp) et Norvège (-20 pp).",
+      "chiffre": "Islande -24 pp, Malte -22 pp, Norvège -20 pp",
+      "date_du_chiffre": "2026-07-30",
+      "sources": [
+        "eiopa-dashboard-july-2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La directive UE 2025/2 révisant Solvabilité II entre en application pleine le 30 janvier 2027, avec un UFR abaissé à 3,45 % et des chocs de taux asymétriques.",
+      "chiffre": "3,45 %",
+      "date_du_chiffre": "2026-07-15",
+      "sources": [
+        "eiopa-solvency-ii-review"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le secteur immobilier représente un risque pour les assureurs européens, avec une baisse de la valeur des actifs immobiliers de 3 % sur un an selon le dashboard EIOPA de juillet 2026.",
+      "chiffre": "-3 %",
+      "date_du_chiffre": "2026-07-30",
+      "sources": [
+        "eiopa-dashboard-july-2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le risque cyber et les risques géopolitiques sont cités par l'EIOPA comme des facteurs d'intensification des risques pour les assureurs européens en 2026.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "eiopa-dashboard-july-2026"
+      ],
+      "confiance": "moyenne"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "EIOPA (Autorité européenne de surveillance des assurances et des pensions)",
+      "role": "Autorité de surveillance européenne qui publie les rapports de stabilité financière et les dashboards de risque pour le secteur assurantiel européen"
+    },
+    {
+      "nom": "ACPR (Autorité de contrôle prudentiel et de résolution)",
+      "role": "Autorité de surveillance française des assureurs, publie les bilans de situation des assureurs en France"
+    },
+    {
+      "nom": "Union européenne (Parlement et Conseil)",
+      "role": "Auteur de la directive UE 2025/2 révisant Solvabilité II, entrée en application le 30 janvier 2027"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2026-06-30",
+      "evenement": "Publication du rapport EIOPA Financial Stability Report June 2026 (données fin 2025)"
+    },
+    {
+      "date": "2026-07-15",
+      "evenement": "EIOPA finalise le mandat de révision Solvabilité II avec lignes directrices finales et projets d'états techniques (directive UE 2025/2)"
+    },
+    {
+      "date": "2026-07-30",
+      "evenement": "Publication de l'Insurance Risk Dashboard EIOPA juillet 2026 (données T1 2026)"
+    },
+    {
+      "date": "2027-01-30",
+      "evenement": "Entrée en application pleine de la directive Solvabilité II révisée (UE 2025/2) : UFR abaissé à 3,45 %, chocs de taux asymétriques"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Les ratios SCR médians restent robustes (247 % vie, 219 % mixtes, 214 % non-vie) et la hausse des fonds propres compensent l'effet de l'UFR abaissé à 3,45 %. La collecte vie record et la diversification des actifs permettent aux assureurs de respecter les nouveaux seuils sans dégradation significative.",
+      "probabilite_suggeree": 35
+    },
+    "stable": {
+      "resume": "Les ratios se dégradent modérément avec l'application de la révision Solvabilité II, mais restent dans les seuils réglementaires. L'hétérogénéité entre pays persiste (Islande, Malte, Norvège) et le secteur immobilier reste sous tension, mais les assureurs disposent de marges pour absorber les chocs sans recours à des actions correctives majeures.",
+      "probabilite_suggeree": 45
+    },
+    "degrade": {
+      "resume": "La baisse de l'UFR à 3,45 % combinée à une correction obligataire ou immobilière dégrade significativement les ratios SCR, en particulier pour les assureurs à forte exposition immobiliere ou aux bilans fragiles (bancassureurs, certains assureurs de pays émergents). Des mesures correctives s'imposent pour certains acteurs, avec un risque de restriction des contrats euro et une remontée des primes.",
+      "probabilite_suggeree": 20
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Ratio SCR médian secteur vie (Europe)",
+      "valeur": "247 %",
+      "tendance": "Stable à la hausse (+17 pp sur un an)"
+    },
+    {
+      "label": "UFR (facteur de risque sans risque) à compter du 30 janvier 2027",
+      "valeur": "3,45 %",
+      "tendance": "Baisse par rapport au niveau actuel (4 %)"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Aucune série historique longue des ratios SCR médians des assureurs européens n'a été trouvée lors de la recherche. Le rapport EIOPA de juin 2026 ne fournit que les ratios pour fin 2025 et l'année précédente, sans série historique publique continue. La source openkoda.com ne propose pas de série temporelle complète des ratios SCR. Critère (1) non satisfait : pas de source publique fiable documentant l'historique complet sur une période longue.",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "oui",
+    "raison": "Trois chiffres comparables (ratios SCR médians par segment) sont disponibles dans le rapport EIOPA de juin 2026 et peuvent être comparés entre eux.",
+    "barres": {
+      "aria_label": "Ratio SCR médian par segment assurantiel en Europe fin 2025",
+      "lead": "Les ratios de solvabilité (SCR) médians des assureurs européens fin 2025 varient selon le segment :",
+      "caption": "EIOPA Financial Stability Report, juin 2026",
+      "unite": "%",
+      "valeurs": [
+        {
+          "label": "Vie",
+          "valeur": 247.0,
+          "affichage": "247 %",
+          "mis_en_avant": true
+        },
+        {
+          "label": "Mixte",
+          "valeur": 219.0,
+          "affichage": "219 %"
+        },
+        {
+          "label": "Non-vie",
+          "valeur": 214.0,
+          "affichage": "214 %"
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Ce qu'est le ratio SCR et pourquoi l'UFR abaissé à 3,45 % le fait baisser",
+        "rattache_a": "fait sur l'UFR à 3,45 % et la directive UE 2025/2"
+      },
+      {
+        "focus": "Pourquoi les assureurs français sont-ils moins exposés que la moyenne européenne (ACPR : non-vie à 299 %, vie/mixte à 240 %)",
+        "rattache_a": "fait sur les ratios ACPR fin 2025"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Impact précis de l'abaissement de l'UFR à 3,45 % sur les ratios SCR des assureurs français : les projections détaillées par la ACPR ou France Assureurs n'ont pas été trouvées lors de la recherche.",
+    "Date exacte du prochain Insurance Risk Dashboard EIOPA (octobre 2026 pour données T2 2026) : non confirmée par une source officielle.",
+    "Évolution des ratios SCR entre fin 2025 et T1 2026 pour les assureurs français : le bilan ACPR de fin 2025 est disponible, mais les données intermédiaires ne sont pas publiées."
+  ],
+  "a_ne_pas_affirmer": [
+    "Les ratios de solvabilité des assureurs européens se dégraderont significativement avant janvier 2027 — l'issue reste incertaine et dépend des évolutions des marchés et de la capacité des assureurs à renforcer leurs fonds propres.",
+    "La révision Solvabilité II entraînera systématiquement une baisse des ratios pour tous les assureurs — l'impact varie selon le profil de chaque assureur et sa composition d'actifs."
+  ],
+  "sources": [
+    {
+      "id": "eiopa-fsr-june-2026",
+      "title": "EIOPA Financial Stability Report June 2026",
+      "source": "EIOPA",
+      "url": "https://www.dirittobancario.it/wp-content/uploads/2026/06/EIOPA-Financial-Stability-Report-June-2026.pdf",
+      "image": null,
+      "lang": "en",
+      "domain": "economie",
+      "summary": "Rapport de stabilité financière de l'EIOPA publié en juin 2026 avec les données de fin 2025. Il indique des ratios SCR médians robustes : 247 % pour le secteur vie, 219 % pour les mixtes, 214 % pour la non-vie.",
+      "read_minutes": 15
+    },
+    {
+      "id": "eiopa-dashboard-july-2026",
+      "title": "EIOPA insurance risk dashboard shows broadly stable risk environment even as cyber and geopolitical risk intensify",
+      "source": "EIOPA",
+      "url": "https://www.eiopa.europa.eu/eiopa-insurance-risk-dashboard-shows-broadly-stable-risk-environment-even-cyber-and-geopolitical-2026-07-30_en",
+      "image": null,
+      "lang": "en",
+      "domain": "economie",
+      "summary": "Dashboard de risque assurantiel de juillet 2026 (données T1 2026) : les risques de solvabilité sont jugés stables au niveau moyen, mais avec une hétérogénéité persistante (Islande -24 pp, Malte -22 pp, Norvège -20 pp) et des vulnérabilités sectorielles (immobilier -3 % sur un an, crédit privé, cyber).",
+      "read_minutes": 8
+    },
+    {
+      "id": "eiopa-solvency-ii-review",
+      "title": "EIOPA completes Solvency II Review mandate with final guidelines and draft technical standards",
+      "source": "EIOPA",
+      "url": "https://www.eiopa.europa.eu/eiopa-completes-solvency-ii-review-mandate-final-guidelines-and-draft-technical-standards-revised-2026-07-15_en",
+      "image": null,
+      "lang": "en",
+      "domain": "economie",
+      "summary": "L'EIOPA finalise le mandat de révision Solvabilité II avec des lignes directrices finales et des projets d'états techniques, préparant l'entrée en application de la directive UE 2025/2 au 30 janvier 2027.",
+      "read_minutes": 5
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "EIOPA Financial Stability Report June 2026",
+      "source": "EIOPA",
+      "url": "https://www.dirittobancario.it/wp-content/uploads/2026/06/EIOPA-Financial-Stability-Report-June-2026.pdf",
+      "image": null,
+      "lang": "en",
+      "domain": "economie",
+      "summary": "Rapport complet de stabilité financière avec les ratios SCR médians par segment et l'analyse des risques pour le secteur assurantiel européen.",
+      "read_minutes": 15
+    },
+    {
+      "title": "EIOPA insurance risk dashboard shows broadly stable risk environment even as cyber and geopolitical risk intensify",
+      "source": "EIOPA",
+      "url": "https://www.eiopa.europa.eu/eiopa-insurance-risk-dashboard-shows-broadly-stable-risk-environment-even-cyber-and-geopolitical-2026-07-30_en",
+      "image": null,
+      "lang": "en",
+      "domain": "economie",
+      "summary": "Dashboard de risque assurantiel avec les indicateurs de solvabilité, les vulnérabilités sectorielles et les signaux de risques émergents (cyber, géopolitique).",
+      "read_minutes": 8
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-09-24",
+      "titre": "Économie mondiale : BCE et Fed face au choc pétrolier",
+      "lien": "Même registre économie & finance et même mécanisme de choc exogène (prix pétrolier) impactant les équilibres financiers — l'édition du 24/09 traitait de la réaction des banques centrales à un choc pétrolier, ici c'est l'impact de la réforme réglementaire sur les bilans assurantiels."
+    },
+    {
+      "date": "2026-08-27",
+      "titre": "Dette américaine : le mur des 40 000 milliards",
+      "lien": "Même domaine économie & finance, enjeu de solvabilité et de ratios de couverture — l'édition du 27/08 traitait de la dette souveraine et des seuils de solvabilité, ici c'est la solvabilité des assureurs privés."
+    },
+    {
+      "date": "2026-10-08",
+      "titre": "Dette mondiale : le FMI appelle à l'austérité",
+      "lien": "Même registre économie & finance, question de la capacité des acteurs financiers à absorber des chocs avant une échéance réglementaire — l'édition du 08/10 traitait de la dette publique et des recommandations du FMI, ici c'est la solvabilité assurantielle et la réforme Solvabilité II."
+    }
+  ],
+  "recommandations_redaction": [
+    "Préciser que le ratio SCR (Solvency Capital Requirement) est le capital propre requis par Solvabilité II pour couvrir les risques sous un scénario de stress — un ratio SCR de 247 % signifie que les fonds propres sont 2,47 fois supérieurs au capital requis.",
+    "Expliquer le mécanisme de l'UFR (Universal Forward Rate) : c'est un facteur de risque sans risque utilisé pour calculer le capital requis contre les risques de taux — le baisser de 4 % à 3,45 % réduit le capital requis, ce qui peut faire baisser mécaniquement les ratios SCR si les fonds propres restent stables.",
+    "Mettre en perspective l'hétérogénéité européenne : si les ratios français sont élevés (non-vie 299 %, vie/mixte 240 %), les pays comme l'Islande, Malte et la Norvège affichent des baisses significatives, ce qui justifie la vigilance sur la diversité des situations nationales.",
+    "Relier les vulnérabilités sectorielles (immobilier -3 %, crédit privé, cyber) aux scénarios prospectifs : un choc immobilier simultané à l'abaissement de l'UFR pourrait accentuer la dégradation des ratios pour les assureurs à forte exposition immobilière."
+  ]
+}

@@ -1,0 +1,175 @@
+{
+  "h1": "Assureurs européens : les ratios de solvabilité vont-ils se dégrader ?",
+  "question_text": "Les ratios de solvabilité des assureurs européens vont-ils se dégrader avant l'entrée en application de la révision Solvabilité II le 30 janvier 2027 ?",
+  "section_title": "La solidité des assureurs européens face au nouveau cadre de solvabilité",
+  "dek": [
+    "Les compagnies d'assurance collectent l'épargne et couvrent les risques du quotidien, des contrats d'assurance-vie aux sinistres automobiles. Pour garantir qu'elles pourront toujours indemniser leurs assurés même en cas de crise financière majeure, l'Union européenne leur impose une réserve minimale d'argent frais. C'est le cœur de la réglementation prudentielle européenne. Selon le rapport de stabilité financière publié en juin 2026 par l'EIOPA, l'autorité européenne de surveillance du secteur, la santé financière globale reste très solide. Le ratio de solvabilité médian s'établit à <strong>247 %</strong> pour les assureurs vie, à <strong>219 %</strong> pour les compagnies mixtes et à <strong>214 %</strong> pour les acteurs de l'assurance non-vie.",
+    "Ce matelas de sécurité s'exprime à travers le ratio SCR<a class=\"lex-ref\" href=\"#lex-ratio-scr\" aria-label=\"Voir la définition dans le lexique\">*</a>, l'indicateur central qui mesure le capital d'une compagnie par rapport aux chocs extrêmes qu'elle doit pouvoir encaisser. Un ratio de 100 % signifie que l'assureur dispose exactement des fonds nécessaires pour survivre à une crise survenant une fois tous les deux cents ans. Avec un niveau médian de <strong>247 %</strong>, les acteurs européens possèdent en moyenne près de deux fois et demie l'exigence légale minimale. Cette abondance de fonds propres résulte directement de la remontée passée des taux d'intérêt, qui a redonné du rendement aux obligations d'État accumulées dans leurs portefeuilles d'investissement.",
+    "Pourtant, cette tranquillité apparente cache une refonte réglementaire majeure qui entrera en vigueur le <strong>30 janvier 2027</strong> avec la directive européenne révisée. Ce texte modifie en profondeur la façon dont les assureurs calculent la valeur actuelle de leurs engagements financiers à très long terme. Le taux d'actualisation pivot, appelé le taux UFR<a class=\"lex-ref\" href=\"#lex-taux-ufr\" aria-label=\"Voir la définition dans le lexique\">*</a>, sera abaissé de 4 % à <strong>3,45 %</strong>. Pour comprendre ce mécanisme, imaginons une promesse de verser une rente dans quarante ans : plus le taux de référence baisse, plus la somme qu'il faut immédiatement mettre de côté aujourd'hui augmente, ce qui réduit mécaniquement la marge de sécurité affichée au bilan.",
+    "En parallèle de ce durcissement technique des règles de calcul, le tableau de bord des risques publié en juillet 2026 par l'EIOPA met en évidence des disparités géographiques marquées. Si le niveau de risque global est jugé moyen et stable sur l'ensemble du continent, plusieurs pays enregistrent des baisses sensibles de leurs ratios de couverture. En l'espace d'une année, le ratio médian a reculé de <strong>24 points</strong> en Islande, de <strong>22 points</strong> à Malte et de <strong>20 points</strong> en Norvège. Ces variations illustrent la sensibilité inégale des bilans nationaux face aux mouvements de marché et aux politiques de distribution de dividendes.",
+    "Des vulnérabilités sectorielles concrètes s'ajoutent à ce calendrier réglementaire contraignant. Le patrimoine immobilier détenu par les compagnies d'assurance européennes subit les contrecoups de la hausse passée des coûts de financement, avec une baisse de valeur moyenne de <strong>3 % sur un an</strong> constatée à l'été 2026. L'exposition croissante aux segments du crédit privé non coté ainsi que la multiplication des sinistres liés aux attaques informatiques constituent d'autres sources de pression sur les bilans. Chaque dépréciation d'actif vient rogner directement les fonds propres disponibles, réduisant le numérateur du ratio de solvabilité.",
+    "L'équilibre financier des dix-huit prochains mois dépendra donc de la capacité des assureurs à accumuler suffisamment de réserves pour neutraliser l'impact technique de la réforme. Trois trajectoires distinctes se dessinent d'ici le <strong>30 janvier 2027</strong>. Les compagnies parviendront-elles à préserver intégralement leurs excédents grâce à leurs bénéfices courants, subiront-elles une érosion maîtrisée sans conséquence pratique pour les assurés, ou verront-elles leurs marges de solvabilité se resserrer au point de restreindre l'offre de garanties sur les contrats d'épargne ?"
+  ],
+  "enjeu_en_clair": {
+    "lead": "Les règles européennes de calcul des réserves des assureurs changent au début de l'année 2027.",
+    "text": "Les compagnies d'assurance doivent garder de l'argent de côté pour garantir le paiement des sinistres et des contrats d'épargne. Une nouvelle directive européenne abaisse un taux clé de calcul au 30 janvier 2027, ce qui augmente mathématiquement la valeur des engagements futurs. Pour l'épargnant, cela ne menace pas la sécurité des dépôts mais pourrait inciter certains assureurs à réduire le rendement garanti de leurs contrats."
+  },
+  "stakes_branches": {
+    "favorable": "Les bénéfices et la collecte d'épargne compensent intégralement l'effet du durcissement réglementaire.",
+    "stable": "Les ratios de solvabilité diminuent modérément tout en restant confortablement au-dessus des seuils d'alerte.",
+    "degrade": "La baisse des ratios force certains acteurs fragiles à restreindre leurs garanties ou à augmenter leurs tarifs."
+  },
+  "comprendre_box": [
+    {
+      "lead": "Le ratio de solvabilité fonctionne comme le compte d'épargne de précaution d'un ménage.",
+      "text": "Si une famille a besoin de 1 000 euros de côté pour faire face à un imprévu et qu'elle en possède 2 470, son ratio est de 247 %. Abaisser le taux de référence revient à estimer que l'imprévu coûtera plus cher, ce qui fait baisser ce pourcentage sans que l'argent réel n'ait disparu.",
+      "apres_dek_index": 2
+    },
+    {
+      "lead": "Les assureurs français disposent d'un coussin de sécurité supérieur à la moyenne européenne.",
+      "text": "Selon les bilans de l'autorité nationale de contrôle, les acteurs français affichent un ratio moyen de 299 % en assurance dommages et de 240 % en assurance-vie. Cette assise limite considérablement le risque de tension sur les contrats souscrits dans l'Hexagone.",
+      "apres_dek_index": 4
+    }
+  ],
+  "list_box": null,
+  "indicators": [
+    {
+      "label": "Ratio SCR médian du secteur vie en Europe",
+      "value": "247 %",
+      "delta": "+17 points par rapport à l'exercice précédent"
+    },
+    {
+      "label": "Taux d'actualisation ultime (UFR) au 30 janvier 2027",
+      "value": "3,45 %",
+      "delta": "Baisse par rapport au niveau actuel de 4,00 %"
+    }
+  ],
+  "cards": {
+    "favorable": {
+      "pct": 35,
+      "gauge_word": "Probable",
+      "h3": "Les bénéfices courants absorbent le choc réglementaire sans dégradation des ratios",
+      "why": [
+        "Premier scénario : les assureurs européens maintiennent des niveaux de solvabilité très élevés en compensant intégralement la réforme grâce à leurs résultats financiers. Concrètement, le secteur de l'assurance-vie continue de bénéficier d'une collecte d'épargne dynamique et du réinvestissement régulier de ses liquidités dans des obligations d'État offrant des rendements attractifs. Cette rentabilité soutenue permet aux compagnies d'augmenter continuellement leurs fonds propres de base. Lorsque le taux de référence à long terme sera abaissé à <strong>3,45 %</strong> au 30 janvier 2027, la hausse préalable des réserves financières neutralisera entièrement le gonflement comptable des engagements de long terme, préservant un ratio médian supérieur à 240 %.",
+        "Ce scénario favorable se distingue nettement des hypothèses de repli car il repose sur une dynamique d'activité commerciale particulièrement robuste sur les grands marchés continentaux comme la France ou l'Allemagne. Contrairement aux scénarios de transition difficile, les compagnies n'ont pas besoin de freiner leurs distributions de dividendes ni de modifier la composition de leurs portefeuilles pour absorber la directive révisée. La solidité des bilans permettrait aux assureurs de conserver une politique commerciale offensive sans durcir les conditions d'accès aux contrats garantis en euros."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Ratio SCR médian du secteur vie en Europe",
+          "evo_current": "245 %",
+          "evo_arrow": "flat",
+          "evo_prev": "247 % fin 2025"
+        },
+        {
+          "field_name": "Taux d'actualisation ultime (UFR) au 30 janvier 2027",
+          "evo_current": "3,45 %",
+          "evo_arrow": "down",
+          "evo_prev": "4,00 % actuellement"
+        }
+      ],
+      "france_line": "Les assureurs français maintiennent une excellente couverture de leurs engagements d'assurance-vie.",
+      "france_impact": "favorable"
+    },
+    "stable": {
+      "pct": 45,
+      "gauge_word": "Probable",
+      "h3": "Une baisse modérée des ratios de solvabilité sans remise en cause de la sécurité financière",
+      "why": [
+        "Deuxième scénario : les ratios de solvabilité enregistrent un recul mesuré de dix à vingt points sur l'ensemble du continent, mais demeurent très largement au-dessus du seuil réglementaire de 100 %. Concrètement, l'abaissement du taux pivot de calcul à <strong>3,45 %</strong> augmente mécaniquement le montant des provisions techniques que les compagnies doivent inscrire à leur passif. Dans le même temps, les tensions persistantes sur le marché de l'immobilier d'entreprise, où les valorisations ont reculé de <strong>3 % sur un an</strong>, limitent les plus-values latentes. Les assureurs absorbent ces vents contraires en réduisant légèrement le rythme de rachat de leurs propres actions, sans subir de crise de liquidité.",
+        "Par rapport au scénario favorable, cette trajectoire centrale intègre la réalité des disparités nationales déjà visibles dans plusieurs petits marchés comme Malte ou l'Islande. Elle évite cependant le scénario de crise aiguë car le point de départ du secteur, avec un ratio médian de <strong>247 %</strong> en assurance-vie, offre une marge de manœuvre considérable avant d'atteindre le moindre seuil d'alerte prudentiel. L'impact pour les assurés européens resterait quasi invisible au quotidien, les compagnies ajustant leurs marges en interne sans modifier leurs offres commerciales."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Ratio SCR médian du secteur vie en Europe",
+          "evo_current": "225 %",
+          "evo_arrow": "down",
+          "evo_prev": "247 % fin 2025"
+        },
+        {
+          "field_name": "Taux d'actualisation ultime (UFR) au 30 janvier 2027",
+          "evo_current": "3,45 %",
+          "evo_arrow": "down",
+          "evo_prev": "4,00 % actuellement"
+        }
+      ],
+      "france_line": "Le secteur français absorbe le changement de calcul en conservant un ratio supérieur à 220 %.",
+      "france_impact": "favorable"
+    },
+    "degrade": {
+      "pct": 20,
+      "gauge_word": "Peu probable",
+      "h3": "L'accumulation des chocs de marché dégrade fortement les bilans des acteurs les plus vulnérables",
+      "why": [
+        "Troisième scénario : la conjonction du durcissement réglementaire et de pertes financières sur les actifs alternatifs provoque une chute marquée des ratios de solvabilité sous la barre des 180 %. Concrètement, l'effet mécanique du passage de l'UFR à <strong>3,45 %</strong> frappe de plein fouet des compagnies déjà fragilisées par des dépréciations sévères sur l'immobilier commercial et les défauts de paiement dans le crédit privé. Les superviseurs nationaux sont alors contraints d'imposer des plans de redressement du capital à certains acteurs de taille intermédiaire, bloquant le versement de dividendes et forçant des recapitalisations d'urgence.",
+        "Ce scénario de dégradation se distingue des deux autres par ses répercussions directes sur les épargnants et les souscripteurs de contrats. Pour reconstituer rapidement leurs marges de solvabilité et limiter leurs exigences de fonds propres, les assureurs les plus exposés réduiraient drastiquement la commercialisation des fonds en euros à capital garanti au profit des unités de compte<a class=\"lex-ref\" href=\"#lex-unites-de-compte\" aria-label=\"Voir la définition dans le lexique\">*</a>. Une telle situation pourrait conduire à un renchérissement des primes d'assurance dommages et à un durcissement des conditions de rachat des contrats d'épargne."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Ratio SCR médian du secteur vie en Europe",
+          "evo_current": "175 %",
+          "evo_arrow": "down",
+          "evo_prev": "247 % fin 2025"
+        },
+        {
+          "field_name": "Taux d'actualisation ultime (UFR) au 30 janvier 2027",
+          "evo_current": "3,45 %",
+          "evo_arrow": "down",
+          "evo_prev": "4,00 % actuellement"
+        }
+      ],
+      "france_line": "Certains acteurs mutualistes ou bancassureurs devraient restreindre l'accès à leurs fonds garantis.",
+      "france_impact": "degrade"
+    }
+  },
+  "essentiel_box": [
+    "Les ratios de solvabilité des assureurs européens vont-ils se dégrader avant l'application de la directive révisée le 30 janvier 2027 ?",
+    "Le secteur affiche une solidité apparente avec un ratio de solvabilité médian de 247 % en assurance-vie, mais l'abaissement du taux d'actualisation à 3,45 % et la baisse de 3 % de l'immobilier vont alourdir le passif des bilans.",
+    "Pas de crise systémique en vue : notre scénario le plus probable (45 %) prévoit un tassement modéré des ratios sans menace pour la sécurité des assurés, tandis qu'une stabilité totale (35 %) et une dégradation sévère (20 %) restent deux options envisageables.",
+    "Le prochain tableau de bord des risques de l'EIOPA attendu à l'automne 2026 permettra de vérifier si les baisses de solvabilité observées en Islande et à Malte s'étendent aux grands pays européens."
+  ],
+  "delta_france": {
+    "kind": "positif",
+    "score": 0.6,
+    "word": "assez positif",
+    "text": "les assureurs français abordent la réforme avec des réserves confortables de 240 % en vie et 299 % en non-vie, limitant le risque aux 20 % de probabilité du scénario dégradé."
+  },
+  "phrase_a_retenir": "Avec un ratio de solvabilité médian de 247 % en assurance-vie, les assureurs européens abordent la baisse du taux pivot à 3,45 % avec une solide réserve financière.",
+  "phrase_a_retenir_stat": "247 %",
+  "lexique": [
+    {
+      "slug": "ratio-scr",
+      "terme": "ratio SCR",
+      "definition": "Pourcentage mesurant les fonds propres d'un assureur par rapport au capital minimum exigé par la loi pour résister à une crise financière majeure survenant une fois tous les deux cents ans."
+    },
+    {
+      "slug": "taux-ufr",
+      "terme": "taux UFR",
+      "definition": "Taux d'intérêt théorique de long terme fixé par le régulateur européen pour calculer aujourd'hui la valeur des engagements de retraite et d'assurance dus dans plusieurs décennies."
+    },
+    {
+      "slug": "unites-de-compte",
+      "terme": "unités de compte",
+      "definition": "Supports d'investissement dans un contrat d'assurance-vie investis en actions ou en immobilier dont la valeur fluctue, le risque financier étant porté par l'épargnant et non par l'assureur."
+    }
+  ],
+  "sources_html": [
+    "<a href=\"https://www.dirittobancario.it/wp-content/uploads/2026/06/EIOPA-Financial-Stability-Report-June-2026.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">EIOPA — EIOPA Financial Stability Report June 2026 ↗</a>",
+    "<a href=\"https://www.eiopa.europa.eu/eiopa-insurance-risk-dashboard-shows-broadly-stable-risk-environment-even-cyber-and-geopolitical-2026-07-30_en\" target=\"_blank\" rel=\"noopener noreferrer\">EIOPA — EIOPA insurance risk dashboard shows broadly stable risk environment even as cyber and geopolitical risk intensify ↗</a>",
+    "<a href=\"https://www.eiopa.europa.eu/eiopa-completes-solvency-ii-review-mandate-final-guidelines-and-draft-technical-standards-revised-2026-07-15_en\" target=\"_blank\" rel=\"noopener noreferrer\">EIOPA — EIOPA completes Solvency II Review mandate with final guidelines and draft technical standards ↗</a>"
+  ],
+  "meta": {
+    "title": "Assureurs européens : les ratios de solvabilité vont-ils se dégrader ?",
+    "meta_description": "Assureurs européens : les ratios de solvabilité vont-ils se dégrader ? Analyse économique et scénarios.",
+    "og_image_alt": "Calculateur et documents financiers d'assurance",
+    "keywords": [
+      "prix",
+      "Assureurs",
+      "économie",
+      "inflation",
+      "marché",
+      "investissement"
+    ],
+    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-11-05.html\"\n  },\n  \"headline\": \"Assureurs européens : les ratios de solvabilité vont-ils se dégrader ?\",\n  \"description\": \"Assureurs européens : les ratios de solvabilité vont-ils se dégrader ? Analyse économique et scénarios.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-11-05.png\"\n  ],\n  \"datePublished\": \"2026-11-05T00:00:00\",\n  \"dateModified\": \"2026-11-05T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"prix, Assureurs, économie, inflation, marché, investissement\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Économie\"\n}",
+    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Assureurs européens : les ratios de solvabilité vont-ils se dégrader ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-11-05.html\"\n    }\n  ]\n}"
+  }
+}
