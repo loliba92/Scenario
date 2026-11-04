@@ -26,8 +26,8 @@
       "apres_dek_index": 2
     },
     {
-      "lead": "Les assureurs français disposent d'un coussin de sécurité supérieur à la moyenne européenne.",
-      "text": "Selon les bilans de l'autorité nationale de contrôle, les acteurs français affichent un ratio moyen de 299 % en assurance dommages et de 240 % en assurance-vie. Cette assise limite considérablement le risque de tension sur les contrats souscrits dans l'Hexagone.",
+      "lead": "Les grands marchés continentaux disposent d'un coussin de sécurité supérieur à la moyenne.",
+      "text": "Avec des ratios médians européens de 247 % en vie et 214 % en non-vie selon l'EIOPA, les acteurs des grands marchés matures conservent une marge confortable. Cette assise diversifiée limite considérablement le risque de tension immédiate sur les contrats d'assurance.",
       "apres_dek_index": 4
     }
   ],
@@ -92,7 +92,7 @@
           "evo_prev": "4,00 % actuellement"
         }
       ],
-      "france_line": "Le secteur français absorbe le changement de calcul en conservant un ratio supérieur à 220 %.",
+      "france_line": "Le secteur français absorbe le changement de calcul en conservant un ratio solide et sécurisant.",
       "france_impact": "favorable"
     },
     "degrade": {
@@ -131,7 +131,7 @@
     "kind": "positif",
     "score": 0.6,
     "word": "assez positif",
-    "text": "les assureurs français abordent la réforme avec des réserves confortables de 240 % en vie et 299 % en non-vie, limitant le risque aux 20 % de probabilité du scénario dégradé."
+    "text": "les acteurs français et continentaux abordent la réforme avec un ratio médian européen très solide de 247 %, limitant l'impact négatif aux 20 % de probabilité du scénario dégradé."
   },
   "phrase_a_retenir": "Avec un ratio de solvabilité médian de 247 % en assurance-vie, les assureurs européens abordent la baisse du taux pivot à 3,45 % avec une solide réserve financière.",
   "phrase_a_retenir_stat": "247 %",
@@ -163,13 +163,13 @@
     "og_image_alt": "Calculateur et documents financiers d'assurance",
     "keywords": [
       "prix",
+      "marché",
+      "investissement",
       "Assureurs",
       "économie",
-      "inflation",
-      "marché",
-      "investissement"
+      "inflation"
     ],
-    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-11-05.html\"\n  },\n  \"headline\": \"Assureurs européens : les ratios de solvabilité vont-ils se dégrader ?\",\n  \"description\": \"Assureurs européens : les ratios de solvabilité vont-ils se dégrader ? Analyse économique et scénarios.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-11-05.png\"\n  ],\n  \"datePublished\": \"2026-11-05T00:00:00\",\n  \"dateModified\": \"2026-11-05T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"prix, Assureurs, économie, inflation, marché, investissement\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Économie\"\n}",
+    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-11-05.html\"\n  },\n  \"headline\": \"Assureurs européens : les ratios de solvabilité vont-ils se dégrader ?\",\n  \"description\": \"Assureurs européens : les ratios de solvabilité vont-ils se dégrader ? Analyse économique et scénarios.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-11-05.png\"\n  ],\n  \"datePublished\": \"2026-11-05T00:00:00\",\n  \"dateModified\": \"2026-11-05T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"prix, marché, investissement, Assureurs, économie, inflation\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Économie\"\n}",
     "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Assureurs européens : les ratios de solvabilité vont-ils se dégrader ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-11-05.html\"\n    }\n  ]\n}"
   }
 }
