@@ -11,4 +11,15 @@
       <news:title>Kaliningrad: Are Russian nuclear threats forcing NATO to back down or precipitating a confrontation?</news:title>
     </news:news>
   </url>
-<url><loc>https://lesscenarios.fr/archives/2026-11-04.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-11-04T06:01:41+01:00</news:publication_date><news:title>Facturation électronique : les entreprises prêtes pour l'échéance de décembre ?</news:title></news:news></url></urlset>
+<url><loc>https://lesscenarios.fr/archives/2026-11-04.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-11-04T06:01:41+01:00</news:publication_date><news:title>Facturation électronique : les entreprises prêtes pour l'échéance de décembre ?</news:title></news:news></url>  <url>
+    <loc>https://lesscenarios.fr/en/archives/2026-11-04.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Scénario</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-11-04T06:01:41+01:00</news:publication_date>
+      <news:title>E-invoicing: Are Businesses Ready for the December Deadline?</news:title>
+    </news:news>
+  </url>
+</urlset>
