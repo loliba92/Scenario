@@ -2,6 +2,41 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-11-04",
+      "articles": [
+        {
+          "title": "Facturation électronique : David Amiel annonce des résultats 'au-delà des attentes'",
+          "source": "Boursorama",
+          "url": "https://www.boursorama.com/actualite-economique/actualites/facturation-electronique-resultat-au-dela-des-attentes-selon-david-amiel-8f53adbfb8bb9f2bb3ba5c2e02dff8eb",
+          "image": "https://www.boursorama.com/static/i/content/images/0/b/1/0b1cc80081ef22aa969ebc2f203405d2-1200x800.jpg",
+          "lang": "fr",
+          "domain": "economie-entreprises",
+          "summary": "Le ministre de l'Administration et de la Réforme de l'État, David Amiel, a annoncé que les résultats du déploiement de la facturation électronique étaient 'au-delà des attentes', avec un taux de désignation des plateformes en forte progression.",
+          "read_minutes": 3
+        },
+        {
+          "title": "Facturation électronique : deux tiers des entreprises françaises sont déjà prêtes",
+          "source": "Echos Plus",
+          "url": "https://echosplus.com/2026/09/01/facturation-electronique-deux-tiers-des-entreprises-francaises-sont-deja-pretes/",
+          "image": "https://echosplus.com/wp-content/uploads/2026/08/David-Amiel-ministre-des-Comptes-publics-lors-de-la-conference-de-presse-le-18-aout-a-Bercy-image-capture-decran-live-compte-X@Economie_Gouv-scaled.jpeg",
+          "lang": "fr",
+          "domain": "economie-entreprises",
+          "summary": "Article sur l'état d'avancement de la facturation électronique en France : environ 65 % des entreprises ont désigné une plateforme de réception au 1er septembre 2026.",
+          "read_minutes": 4
+        },
+        {
+          "title": "Bilan des trois premières semaines de la facturation électronique en France",
+          "source": "Docnova",
+          "url": "https://docnova.ai/fr/la-reforme-de-la-facturation-en-france-les-trois-premieres-semaines/",
+          "image": "https://docnova.ai/wp-content/uploads/2026/09/France-E-Invoicing-Reform-The-First-Three-Weeks.png",
+          "lang": "fr",
+          "domain": "economie-entreprises",
+          "summary": "Analyse du déploiement de la facturation électronique après trois semaines : difficultés techniques, adaptation des entreprises, rôle des plateformes agréées.",
+          "read_minutes": 5
+        }
+      ]
+    },
+    {
       "date": "2026-11-03",
       "articles": [
         {
