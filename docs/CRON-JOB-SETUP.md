@@ -34,7 +34,7 @@ Request body (JSON):  {"event_type": "EVENT_TYPE_ICI"}
 | 2 | 🚀 Publication (prod) | `trigger-post-edition` | **05:00** | 7h | Publie le vrai site (index.html, archives, feed.xml) du jour |
 | 3 | 📱 Pub réseaux sociaux | `trigger-pub` | **06:00** | 8h | Post Telegram/X/LinkedIn/Instagram — APRÈS que le site soit en ligne |
 | 4 | 📰 Récap hebdo | `trigger-hebdo` | **11:00** dimanche uniquement | 13h | Récap de la semaine + email Buttondown |
-| 5 | 🔭 Événements à surveiller | `trigger-signaux` | **05:30** | 6h30 | Contrôle des échéances de `data/signaux.json`, écrit `data/signaux-rapport.md` (`signaux.yml`) |
+| 5 | 🔭 Événements à surveiller | `trigger-signaux` (ou adresse `.../actions/workflows/signaux.yml/dispatches`, corps `{"ref": "main"}`) | **05:30** | 6h30 | Contrôle des échéances de `data/signaux.json`, écrit `data/signaux-rapport.md` (`signaux.yml`) |
 
 La traduction anglaise (`translate-en.yml`) n'a **pas besoin** de job cron :
 elle se déclenche automatiquement dès que `index.html` est publié (push
