@@ -192,11 +192,8 @@ MODELES_DIALOGUE = "google/gemma-4-31b-it:free,google/gemma-4-26b-a4b-it:free,qw
 
 
 # Texte parlé quotidien : les modèles gratuits sont souvent limités en débit (429 sur tous, run du 3 octobre 2026),
-# donc des modèles payants ferment la liste pour que l'épisode sorte chaque jour : Solar Pro 4 d'abord (environ
-# 0,15 $ / 0,60 $ par million de jetons, d'après les journaux OpenRouter du 4 novembre 2026), puis Claude Haiku 4.5
-# (1 $ / 5 $) en dernier recours si Solar Pro 4 échoue ou si ses textes sont refusés par les contrôles.
-# Choix à confirmer par l'essai du workflow « Podcast — épisode de test » avant fusion (voir CLAUDE.md, « Choix des modèles »).
-MODELES_NARRATION = MODELES_DIALOGUE + ",upstage/solar-pro4,anthropic/claude-haiku-4-5"
+# donc un modèle payant bon marché (quelques centimes par épisode) ferme la liste pour que l'épisode sorte chaque jour.
+MODELES_NARRATION = MODELES_DIALOGUE + ",anthropic/claude-haiku-4-5"
 
 
 def generer_dialogue(ed: dict, modele: str, cle: str, essais: int = 3) -> tuple[list[dict], list[str]]:
