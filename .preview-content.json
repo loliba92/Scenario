@@ -27,7 +27,7 @@
     },
     {
       "lead": "Le compromis délicat entre autonomie et téléopération humaine",
-      "text": "Quand un robot hésite devant un placard, un opérateur humain prend parfois le contrôle à distance. Cela débloque la machine, mais fait entrer des caméras surveillées par un tiers directement dans votre chambre.",
+      "text": "Quand un robot hésite devant un placard, un opérateur humain prend parfois le contrôle à distance. Cela débloque la machine, mais fait entrer des caméras surveillées par un tiers directement dans l'intimité d'une chambre.",
       "apres_dek_index": 3
     }
   ],
@@ -164,13 +164,13 @@
     "meta_description": "Robotique : les robots vont-ils vraiment entrer dans notre quotidien ? Analyse fondée sur données scientifiques.",
     "og_image_alt": "Robot domestique polyvalent dans une cuisine moderne",
     "keywords": [
-      "santé",
+      "recherche",
       "Robotique",
       "étude scientifique",
-      "recherche",
-      "innovation"
+      "innovation",
+      "santé"
     ],
-    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-11-06.html\"\n  },\n  \"headline\": \"Robotique : les robots vont-ils vraiment entrer dans notre quotidien ?\",\n  \"description\": \"Robotique : les robots vont-ils vraiment entrer dans notre quotidien ? Analyse fondée sur données scientifiques.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-11-06.png\"\n  ],\n  \"datePublished\": \"2026-11-06T00:00:00\",\n  \"dateModified\": \"2026-11-06T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"santé, Robotique, étude scientifique, recherche, innovation\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Sciences\"\n}",
+    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-11-06.html\"\n  },\n  \"headline\": \"Robotique : les robots vont-ils vraiment entrer dans notre quotidien ?\",\n  \"description\": \"Robotique : les robots vont-ils vraiment entrer dans notre quotidien ? Analyse fondée sur données scientifiques.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-11-06.png\"\n  ],\n  \"datePublished\": \"2026-11-06T00:00:00\",\n  \"dateModified\": \"2026-11-06T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"recherche, Robotique, étude scientifique, innovation, santé\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Sciences\"\n}",
     "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Robotique : les robots vont-ils vraiment entrer dans notre quotidien ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-11-06.html\"\n    }\n  ]\n}"
   }
 }
