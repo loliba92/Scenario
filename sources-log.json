@@ -2,6 +2,31 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-11-05",
+      "articles": [
+        {
+          "title": "EIOPA Financial Stability Report June 2026",
+          "source": "EIOPA",
+          "url": "https://www.dirittobancario.it/wp-content/uploads/2026/06/EIOPA-Financial-Stability-Report-June-2026.pdf",
+          "image": null,
+          "lang": "en",
+          "domain": "economie",
+          "summary": "Rapport complet de stabilité financière avec les ratios SCR médians par segment et l'analyse des risques pour le secteur assurantiel européen.",
+          "read_minutes": 15
+        },
+        {
+          "title": "EIOPA insurance risk dashboard shows broadly stable risk environment even as cyber and geopolitical risk intensify",
+          "source": "EIOPA",
+          "url": "https://www.eiopa.europa.eu/eiopa-insurance-risk-dashboard-shows-broadly-stable-risk-environment-even-cyber-and-geopolitical-2026-07-30_en",
+          "image": null,
+          "lang": "en",
+          "domain": "economie",
+          "summary": "Dashboard de risque assurantiel avec les indicateurs de solvabilité, les vulnérabilités sectorielles et les signaux de risques émergents (cyber, géopolitique).",
+          "read_minutes": 8
+        }
+      ]
+    },
+    {
       "date": "2026-11-04",
       "articles": [
         {

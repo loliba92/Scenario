@@ -192,6 +192,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 05.11.2026 — [Assureurs européens : les ratios de solvabilité vont-ils se dégrader ?](../archives/2026-11-05.html)
 - 04.11.2026 — [Facturation électronique : les entreprises prêtes pour l'échéance de décembre ?](../archives/2026-11-04.html)
 - 03.11.2026 — [Kaliningrad : la menace nucléaire russe fait-elle reculer l'OTAN ou précipite-t-elle un affrontement ?](../archives/2026-11-03.html)
 - 02.11.2026 — [Terres rares : le nouveau pétrole ?](../archives/2026-11-02.html)
