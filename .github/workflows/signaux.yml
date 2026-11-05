@@ -1,0 +1,48 @@
+name: Événements à surveiller
+
+# Contrôle quotidien des échéances de data/signaux.json (scripts/detection/verifier_signaux.py).
+# Déclenché par cron-job.org (event_type : trigger-signaux). Aucun appel payant ni requête externe.
+# Écrit seulement data/signaux-rapport.md ; ne modifie ni signaux.json ni les sujets.
+
+on:
+  repository_dispatch:
+    types: [trigger-signaux]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  signaux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Tests
+        run: python3 -m unittest scripts/detection/test_verifier_signaux.py
+
+      - name: Committer et pousser
+        run: |
+          git config user.name "scenario-signaux-bot"
+          git config user.email "actions@users.noreply.github.com"
+          for i in 1 2 3; do
+            git fetch origin main
+            git reset --hard origin/main
+            python3 scripts/detection/verifier_signaux.py > /dev/null
+            git add data/signaux-rapport.md
+            if git diff --cached --quiet; then
+              echo "Aucun changement."
+              exit 0
+            fi
+            git commit -m "[signaux] point quotidien des événements à surveiller"
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            sleep $((i * 5))
+          done
+          echo "Échec du push après 3 essais." >&2
+          exit 1
