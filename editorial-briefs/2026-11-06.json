@@ -1,0 +1,389 @@
+{
+  "date": "2026-11-06",
+  "registre": "sciences",
+  "sujet": {
+    "titre_propose": "Robotique : les robots vont-ils vraiment entrer dans notre quotidien ?",
+    "h1": "Robotique : les robots vont-ils vraiment entrer dans notre quotidien ?",
+    "question_posee": "Les robots domestiques polyvalents seront-ils disponibles et adoptés dans les foyers français d'ici fin 2026 ?",
+    "eyebrow": "Vendredi, sciences",
+    "angle": "En 2026, la robotique domestique accélère mais reste embryonnaire pour les robots polyvalents. Entre précommandes à 20 000 dollars (1X NEO), démonstrations de bras articulés (LG CLOiD, SwitchBot Onero H1) et modèles d'IA capables de généralisation zéro-shot (Figure Helix 2.5), la question n'est plus de savoir si la technologie existe, mais si elle sera abordable, fiable et conforme aux normes de sécurité et de vie privée pour les foyers français, où le taux d'équipement reste historiquement faible.",
+    "tags": [
+      "robotique",
+      "IA",
+      "domestique",
+      "futur"
+    ],
+    "domain": "sciences",
+    "image_keywords": "home robot kitchen living room",
+    "complexite": 4,
+    "origine_prioritaire": "Robotique : les robots vont-ils vraiment entrer dans notre quotidien ?",
+    "origine_id": "sciences-robotique-les-robots-vont-ils-vraiment-entrer",
+    "point_de_depart": {
+      "id": "sciences-robotique-les-robots-vont-ils-vraiment-entrer",
+      "registre": "sciences",
+      "titre": "Robotique : les robots vont-ils vraiment entrer dans notre quotidien ?",
+      "question": "Robotique : les robots vont-ils vraiment entrer dans notre quotidien ?",
+      "contexte": "En 2026, la robotique domestique connaît une accélération sans précédent mais reste à un stade embryonnaire pour les robots polyvalents. Le marché mondial des robots de service grand public a atteint environ 19,15 milliards de dollars en 2025 et devrait atteindre 24,42 milliards en 2026, avec une croissance portée par les robots spécialisés (aspirateurs, tondeuses) qui représentent plus de 40 % du segment. Côté humanoïdes, le norvégien 1X a ouvert les précommandes de son robot NEO à 20 000 dollars l'unité ou 499 dollars par mois en abonnement, avec des premières livraisons aux États-Unis annoncées pour fin 2026 et plus de 10 000 précommandes revendiquées. Au CES 2026 (janvier), LG a dévoilé CLOiD et SwitchBot l'Onero H1, deux robots domestiques à bras articulés capables de tâches ménagères (plier le linge, ranger, préparer un café), mais sans date de commercialisation ferme. Figure AI a présenté en septembre 2026 Helix 2.5, un modèle d'IA permettant à son robot Figure 03 d'effectuer zéro-shot trois tâches domestiques dans 30 foyers américains jamais visités, et vise une disponibilité grand public fin 2026. En France, le marché de la robotique de service est évalué à 1,1 milliard d'euros en 2026, mais les robots humanoïdes restent quasi absents des foyers : seuls 2 % des foyers français possédaient un robot aspirateur au milieu des années 2010, et les robots compagnons comme Pepper ont été retirés de la production. L'IFR (Fédération internationale de robotique) estime que l'adoption massive des humanoïdes exigera encore des progrès en programmation intuitive, manipulation robuste, coûts compatibles et normes de sécurité harmonisées.",
+      "rationnel": "La question : Les robots domestiques polyvalents seront-ils disponibles et adoptés dans les foyers français d'ici la fin 2026 ? Les progrès en IA (modèles VLA, généralisation zéro-shot) et les investissements massifs (3,5 milliards de dollars de compute chez Figure AI, usine BotQ capable de 12 000 unités/an, plus de 10 000 précommandes NEO à 20 000 dollars l'unité ou 499 dollars par mois) laissent entrevoir un scénario favorable, tandis que le coût élevé, la fiabilité limitée nécessitant parfois une téléopération humaine, les questions de sécurité et de vie privée ainsi que le retard culturel du marché français (faible taux d'équipement actuel, retrait de Pepper, besoin de progrès en programmation, manipulation robuste, coûts compatibles et normes de sécurité harmonisées) ouvrent la voie à un scénario stable ou dégradé. L'enjeu concret pour un lecteur français est de savoir si ces machines pourraient alléger les tâches ménagères ou assister les seniors, tout en devant affronter le prix, la conformité au RGPD et la dépendance à des fabricants étrangers.",
+      "mots_cles": [
+        "robot domestique 2026",
+        "1X NEO précommande livraison",
+        "Figure 03 Helix maison",
+        "LG CLOiD CES 2026",
+        "SwitchBot Onero H1",
+        "robot humanoïde foyer prix",
+        "robotique service France marché",
+        "humanoid home robot 2026"
+      ],
+      "angle": null,
+      "a_verifier": "Nombre exact de livraisons effectives de NEO à des particuliers d'ici fin 2026 ; prix final et date de commercialisation du Figure 03 pour le grand public ; disponibilité en France des modèles annoncés (NEO, CLOiD, Onero H1) ; taux d'équipement actualisé des foyers français en robots domestiques polyvalents (hors aspirateurs).",
+      "scenarios_brouillon": null,
+      "echeance": null,
+      "sources_pistes": [
+        {
+          "titre": "Robots domestiques : où en est-on vraiment ?",
+          "url": "https://www.journaldunet.com/intelligence-artificielle/1554029-robotique-domestique-ou-en-est-on-vraiment/"
+        },
+        {
+          "titre": "1X NEO Home Robot - Order Today",
+          "url": "https://www.1x.tech/discover/neo-home-robot"
+        },
+        {
+          "titre": "Figure Helix 2.5: Zero-Shot 30-Home Generalization",
+          "url": "https://www.figure.ai/news/helix-2-5-zero-shot-30-home-generalization"
+        },
+        {
+          "titre": "LG Electronics Presents LG CLOiD Home Robot at CES 2026",
+          "url": "https://www.lg.com/global/newsroom/news/home-appliance-solution/lg-electronics-presents-lg-cloid-home-robot-to-demonstrate-zero-labor-home-at-ces-2026/"
+        }
+      ],
+      "tag": "IA & numérique",
+      "origine": null,
+      "note_editoriale": null,
+      "donnees_graphique": "[relevé du 2026-11-03] Nombre de précommandes de robots domestiques (unité : unités). 1X NEO = 10 000 (2026) ; LG CLOiD = non disponible (2026) ; Figure 03 = non disponible (2026). Sources : https://www.1x.tech/discover/neo-factory ; https://www.koreatimes.co.kr/business/companies/20260108/ces-2026-lg-ai-home-robot-cloid-to-undergo-real-world-testing-next-year ; https://www.figure.ai/news/helix-2-5-zero-shot-30-home-generalization",
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille (2026-11-05, économie, assureurs) sans recoupement. Registre sciences : éditions récentes du même registre — 2026-10-30 (IA et emploi), 2026-10-23 (eau), 2026-10-19 (Corée du Nord missile) — aucun ne traite de robotique domestique. Aucun recoupement avec suivi actif (Big Tech justice, Spider-Man, etc.). Sujet inédit au sens strict, aucun nom propre récurrent ni filière déjà traitée sous un autre angle (contraste avec fusion nucléaire du 15 septembre qui portait sur une filière énergie différente)."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Le marché mondial des robots de service grand public a atteint environ 19,15 milliards de dollars en 2025 et devrait atteindre 24,42 milliards en 2026.",
+      "chiffre": "19,15 milliards de dollars (2025) ; 24,42 milliards de dollars (2026 projeté)",
+      "date_du_chiffre": "2026-01-01",
+      "sources": [
+        "s1"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Les robots spécialisés (aspirateurs, tondeuses) représentent plus de 40 % du segment des robots de service grand public.",
+      "chiffre": "plus de 40 %",
+      "date_du_chiffre": null,
+      "sources": [
+        "s1"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "1X a ouvert les précommandes de son robot NEO à 20 000 dollars l'unité ou 499 dollars par mois en abonnement, avec des premières livraisons aux États-Unis annoncées pour fin 2026 et plus de 10 000 précommandes revendiquées.",
+      "chiffre": "20 000 dollars l'unité ; 499 dollars par mois ; plus de 10 000 précommandes",
+      "date_du_chiffre": "2026-09-01",
+      "sources": [
+        "s2",
+        "s3"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Au CES 2026 (janvier), LG a dévoilé CLOiD et SwitchBot l'Onero H1, deux robots domestiques à bras articulés capables de tâches ménagères (plier le linge, ranger, préparer un café), mais sans date de commercialisation ferme.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "s5"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Figure AI a présenté en septembre 2026 Helix 2.5, un modèle d'IA permettant à son robot Figure 03 d'effectuer zéro-shot trois tâches domestiques dans 30 foyers américains jamais visités, et vise une disponibilité grand public fin 2026.",
+      "chiffre": null,
+      "date_du_chiffre": "2026-09-15",
+      "sources": [
+        "s6"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "En France, le marché de la robotique de service est évalué à 1,1 milliard d'euros en 2026, mais les robots humanoïdes restent quasi absents des foyers.",
+      "chiffre": "1,1 milliard d'euros (2026)",
+      "date_du_chiffre": "2026-01-01",
+      "sources": [
+        "s1"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Seuls 2 % des foyers français possédaient un robot aspirateur au milieu des années 2010, et les robots compagnons comme Pepper ont été retirés de la production.",
+      "chiffre": "2 % (milieu des années 2010)",
+      "date_du_chiffre": "2015-01-01",
+      "sources": [
+        "s1"
+      ],
+      "confiance": "moyenne"
+    },
+    {
+      "affirmation": "L'IFR (Fédération internationale de robotique) estime que l'adoption massive des humanoïdes exigera encore des progrès en programmation intuitive, manipulation robuste, coûts compatibles et normes de sécurité harmonisées.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "s1"
+      ],
+      "confiance": "haute"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "1X (Norvège)",
+      "role": "Développeur du robot domestique NEO, ouvert aux précommandes"
+    },
+    {
+      "nom": "Figure AI (États-Unis)",
+      "role": "Développeur du robot Figure 03 et du modèle d'IA Helix 2.5"
+    },
+    {
+      "nom": "LG Electronics (Corée du Sud)",
+      "role": "Démonstrateur du robot domestique CLOiD au CES 2026"
+    },
+    {
+      "nom": "SwitchBot (Chine)",
+      "role": "Démonstrateur du robot domestique Onero H1 au CES 2026"
+    },
+    {
+      "nom": "IFR (Fédération internationale de robotique)",
+      "role": "Organisme de référence sur les tendances et barrières à l'adoption des robots"
+    },
+    {
+      "nom": "Marché français des robots de service",
+      "role": "Évalué à 1,1 milliard d'euros en 2026, avec un faible taux d'équipement des foyers"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2026-01-07",
+      "evenement": "CES 2026 : LG dévoile CLOiD, SwitchBot dévoile Onero H1 (robots domestiques à bras articulés)"
+    },
+    {
+      "date": "2026-09-15",
+      "evenement": "Figure AI présente Helix 2.5 (généralisation zéro-shot dans 30 foyers américains)"
+    },
+    {
+      "date": "2026-09-20",
+      "evenement": "1X ouvre les précommandes de NEO (20 000 $ ou 499 $/mois), annonce plus de 10 000 précommandes et livraisons aux États-Unis fin 2026"
+    },
+    {
+      "date": "2026-12-31",
+      "evenement": "Échéance annoncée des premières livraisons NEO aux États-Unis et de la disponibilité grand public de Figure 03 (à confirmer)"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Les robots polyvalents (NEO, Figure 03, CLOiD/Onero H1) commencent à être livrés ou disponibles en fin 2026 aux États-Unis, les modèles d'IA permettent une généralisation zéro-shot, et les prix baissent ou s'accessibilisent par abonnement. En France, un premier segment de foyers (seniors, ménages à double charge) adopte ces robots malgré le coût, portés par la curiosité et la recherche d'automatisation des tâches ménagères.",
+      "probabilite_suggeree": 25
+    },
+    "stable": {
+      "resume": "Les robots sont disponibles mais restent niche : coût élevé (20 000 $ pour NEO), fiabilité limitée nécessitant parfois une téléopération humaine, questions de sécurité et de vie privée (RGPD), et absence de normes harmonisées. En France, l'adoption reste marginale, les robots spécialisés (aspirateurs) continuant de dominer le marché. Les démonstrations de CES 2026 ne se transforment pas en livraisons massives avant 2027.",
+      "probabilite_suggeree": 55
+    },
+    "degrade": {
+      "resume": "Aucun robot polyvalent ne parvient à une livraison grand public avant fin 2026 (retards, problèmes de fiabilité, coûts trop élevés), les modèles d'IA restent limités à des démonstrations, et les questions de sécurité/vie privée bloquent l'adoption. En France, le marché reste quasi inexistant pour les humanoïdes, et les robots compagnons comme Pepper ne reviennent pas. L'enjeu de allègement des tâches ménagères reste lettre morte pour la plupart des foyers.",
+      "probabilite_suggeree": 20
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Marché mondial des robots de service grand public",
+      "valeur": "19,15 milliards de dollars (2025) ; 24,42 milliards de dollars (2026 projeté)",
+      "tendance": "croissance forte, portée par les robots spécialisés (>40 % du segment)"
+    },
+    {
+      "label": "Précommandes NEO (1X)",
+      "valeur": "plus de 10 000 précommandes",
+      "tendance": "intérêt initial confirmé, mais livraisons effectives à confirmer fin 2026"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Aucune source publique fiable ne documente une série historique longue et complète du nombre de robots domestiques polyvalents livrés ou précommandés sur plusieurs années. Les données disponibles (10 000 précommandes NEO en 2026, chiffres de marché 2025-2026) sont des instantanés ponctuels, pas une série. Critère (1) non satisfait : pas d'historique complet disponible. Critère (2) non satisfait : moins de 5 points réels sur une période longue. Critère (3) non satisfait : la série n'éclaire pas directement la question de l'adoption en France.",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "oui",
+    "raison": "Trois chiffres réels et comparables (même unité : dollars) sont disponibles dans les sources vérifiées : prix NEO 20 000 $ l'unité, abonnement 499 $/mois, et marché mondial 19,15 milliards $ (2025). Ces chiffres illustrent le coût et la taille du marché, deux dimensions clés de la question d'adoption.",
+    "barres": {
+      "aria_label": "Graphique comparatif : prix du robot NEO, abonnement mensuel et taille du marché mondial des robots de service grand public en 2025",
+      "lead": "Coût et marché : deux barrières à l'adoption des robots domestiques polyvalents",
+      "caption": "Sources : 1X ( NEO Home Robot ), JournalduNet ( marché robots de service 2025-2026 ), données vérifiées le 2026-11-06",
+      "unite": "$",
+      "valeurs": [
+        {
+          "label": "Prix NEO (achat)",
+          "valeur": 20000,
+          "affichage": "20 000 $ (achat)",
+          "mis_en_avant": true
+        },
+        {
+          "label": "Abonnement NEO",
+          "valeur": 499,
+          "affichage": "499 $/mois",
+          "mis_en_avant": false
+        },
+        {
+          "label": "Marché mondial 2025",
+          "valeur": 19150000000,
+          "affichage": "19,15 milliards $ (2025)",
+          "mis_en_avant": false
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Pourquoi les robots polyvalents ne sont pas encore dans nos maisons : coût, fiabilité, sécurité et normes",
+        "rattache_a": "faits_verifies (IFR, coût NEO, fiabilité limitée)"
+      },
+      {
+        "focus": "Ce que la généralisation zéro-shot change (et ce qu'elle ne change pas)",
+        "rattache_a": "faits_verifies (Figure Helix 2.5, démonstrations CES 2026)"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Nombre exact de livraisons effectives de NEO à des particuliers d'ici fin 2026 — les premières livraisons sont annoncées mais non confirmées par des sources indépendantes",
+    "Prix final et date de commercialisation du Figure 03 pour le grand public — l'annonce vise fin 2026 mais aucune date ferme n'est publiée",
+    "Disponibilité en France des modèles annoncés (NEO, CLOiD, Onero H1) — aucune source ne confirme une distribution française avant 2027",
+    "Taux d'équipement actualisé des foyers français en robots domestiques polyvalents (hors aspirateurs) — les données disponibles datent du milieu des années 2010 (2 % pour les aspirateurs)"
+  ],
+  "a_ne_pas_affirmer": [
+    "Que les premières livraisons NEO ont déjà eu lieu en octobre/novembre 2026 — aucune source indépendante ne confirme cette date",
+    "Que le Figure 03 sera disponible en France fin 2026 — l'annonce concerne les États-Unis",
+    "Que les robots domestiques polyvalents remplaceront les humains dans les tâches ménagères d'ici 2026 — les sources parlent de démonstrations et de précommandes, pas d'adoption massive"
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Robots domestiques : où en est-on vraiment ?",
+      "source": "JournalduNet",
+      "url": "https://www.journaldunet.com/intelligence-artificielle/1554029-robotique-domestique-ou-en-est-on-vraiment/",
+      "image": null,
+      "lang": "fr",
+      "domain": "sciences",
+      "summary": "Tour d'horizon du marché des robots domestiques en 2026 : chiffres du marché mondial (19,15 Mds $ en 2025, 24,42 Mds $ en 2026), part des robots spécialisés (>40 %), état de la robotique humanoïde en France (marché 1,1 Md €, faible équipement des foyers, retrait de Pepper), et barrières à l'adoption selon l'IFR.",
+      "read_minutes": 5
+    },
+    {
+      "id": "s2",
+      "title": "1X NEO Home Robot - Order Today",
+      "source": "1X Technologies",
+      "url": "https://www.1x.tech/discover/neo-home-robot",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences",
+      "summary": "Page officielle du robot NEO de 1X : précommande à 20 000 $ l'unité ou 499 $/mois en abonnement, premières livraisons aux États-Unis annoncées fin 2026, plus de 10 000 précommandes revendiquées.",
+      "read_minutes": 2
+    },
+    {
+      "id": "s3",
+      "title": "1X NEO Factory",
+      "source": "1X Technologies",
+      "url": "https://www.1x.tech/discover/neo-factory",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences",
+      "summary": "Page officielle de l'usine de production de NEO (BotQ) : capacité de 12 000 unités/an, investissement de 3,5 milliards de dollars de compute chez Figure AI (mentionné dans le contexte du sujet).",
+      "read_minutes": 2
+    },
+    {
+      "id": "s5",
+      "title": "SwitchBot Onero H1",
+      "source": "SwitchBot",
+      "url": "https://www.switchbot.com/oneroh1",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences",
+      "summary": "Page produit du robot domestique Onero H1 de SwitchBot, présenté au CES 2026 : bras articulé pour tâches ménagères, sans date de commercialisation confirmée.",
+      "read_minutes": 2
+    },
+    {
+      "id": "s6",
+      "title": "Figure Helix 2.5: Zero-Shot 30-Home Generalization",
+      "source": "Figure AI",
+      "url": "https://www.figure.ai/news/helix-2-5-zero-shot-30-home-generalization",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences",
+      "summary": "Communication officielle de Figure AI (septembre 2026) : présentation de Helix 2.5, modèle d'IA permettant au robot Figure 03 d'effectuer zéro-shot trois tâches domestiques dans 30 foyers américains jamais visités, avec pour objectif une disponibilité grand public fin 2026.",
+      "read_minutes": 3
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "Robots domestiques : où en est-on vraiment ?",
+      "source": "JournalduNet",
+      "url": "https://www.journaldunet.com/intelligence-artificielle/1554029-robotique-domestique-ou-en-est-on-vraiment/",
+      "image": null,
+      "lang": "fr",
+      "domain": "sciences",
+      "summary": "Article de synthèse sur l'état de la robotique domestique en 2026 : marché, acteurs, barrières à l'adoption.",
+      "read_minutes": 5
+    },
+    {
+      "title": "1X NEO Home Robot - Order Today",
+      "source": "1X Technologies",
+      "url": "https://www.1x.tech/discover/neo-home-robot",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences",
+      "summary": "Page officielle du robot NEO : précommandes, prix, livraisons annoncées.",
+      "read_minutes": 2
+    },
+    {
+      "title": "Figure Helix 2.5: Zero-Shot 30-Home Generalization",
+      "source": "Figure AI",
+      "url": "https://www.figure.ai/news/helix-2-5-zero-shot-30-home-generalization",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences",
+      "summary": "Annonce de la généralisation zéro-shot de Helix 2.5 dans 30 foyers américains.",
+      "read_minutes": 3
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-10-30",
+      "titre": "IA et emploi : transformer ou détruire le travail ?",
+      "lien": "Même registre sciences et même filière IA : l'édition du 30 octobre traite de l'impact de l'IA sur le travail, tandis que le sujet du jour porte sur l'IA appliquée aux robots domestiques (Helix 2.5, généralisation zéro-shot) — deux usages de l'IA à enjeux distincts mais mêmes technologies sous-jacentes."
+    },
+    {
+      "date": "2026-10-13",
+      "titre": "IA : risque d'extinction ou peur exagérée ?",
+      "lien": "Même registre sciences et même filière IA : l'édition du 13 octobre interroge les risques de l'IA avancée, tandis que le sujet du jour aborde les implications concrètes de l'IA dans la robotique domestique (sécurité, vie privée, confiance) — deux perspectives sur la même technologie."
+    },
+    {
+      "date": "2026-09-15",
+      "titre": "Fusion nucléaire : la promesse enfin tenue ?",
+      "lien": "Même registre sciences et même logique de prospective technologique à horizon long : l'édition du 15 septembre interroge une promesse technologique (fusion nucléaire) qui pourrait-elle enfin se concrétiser, tandis que le sujet du jour interroge une autre promesse (robots domestiques polyvalents) — deux cas de figure sur l'écart entre annonce et adoption réelle."
+    }
+  ],
+  "recommandations_redaction": [
+    "Insister sur le contraste entre les démonstrations impressionnantes (CES 2026, Helix 2.5) et la réalité des livraisons effectives — aucune source ne confirme des livraisons massives avant fin 2026",
+    "Préciser que les prix annoncés (20 000 $ NEO, 499 $/mois) sont des précommandes, pas des prix de vente définitivement établis",
+    "Mettre en garde contre la confusion entre robots spécialisés (aspirateurs, déjà >40 % du marché) et robots polyvalents (humanoïdes, encore quasi absents des foyers)",
+    "Aborder explicitement les questions de sécurité, de vie privée (RGPD) et de dépendance à des fabricants étrangers pour un lecteur français",
+    "Utiliser le graphique de repli (prix NEO, abonnement, marché mondial) pour illustrer les barrières économiques à l'adoption"
+  ]
+}

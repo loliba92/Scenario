@@ -1,175 +1,176 @@
 {
-  "h1": "Assureurs européens : les ratios de solvabilité vont-ils se dégrader ?",
-  "question_text": "Les ratios de solvabilité des assureurs européens vont-ils se dégrader avant l'entrée en application de la révision Solvabilité II le 30 janvier 2027 ?",
-  "section_title": "La solidité des assureurs européens face au nouveau cadre de solvabilité",
+  "h1": "Robotique : les robots vont-ils vraiment entrer dans notre quotidien ?",
+  "question_text": "Les robots domestiques polyvalents seront-ils disponibles et adoptés dans les foyers français d'ici fin 2026 ?",
+  "section_title": "Trois trajectoires pour l'arrivée des robots polyvalents dans nos maisons",
   "dek": [
-    "Les compagnies d'assurance collectent l'épargne et couvrent les risques du quotidien, des contrats d'assurance-vie aux sinistres automobiles. Pour garantir qu'elles pourront toujours indemniser leurs assurés même en cas de crise financière majeure, l'Union européenne leur impose une réserve minimale d'argent frais. C'est le cœur de la réglementation prudentielle européenne. Selon le rapport de stabilité financière publié en juin 2026 par l'EIOPA, l'autorité européenne de surveillance du secteur, la santé financière globale reste très solide. Le ratio de solvabilité médian s'établit à <strong>247 %</strong> pour les assureurs vie, à <strong>219 %</strong> pour les compagnies mixtes et à <strong>214 %</strong> pour les acteurs de l'assurance non-vie.",
-    "Ce matelas de sécurité s'exprime à travers le ratio SCR<a class=\"lex-ref\" href=\"#lex-ratio-scr\" aria-label=\"Voir la définition dans le lexique\">*</a>, l'indicateur central qui mesure le capital d'une compagnie par rapport aux chocs extrêmes qu'elle doit pouvoir encaisser. Un ratio de 100 % signifie que l'assureur dispose exactement des fonds nécessaires pour survivre à une crise survenant une fois tous les deux cents ans. Avec un niveau médian de <strong>247 %</strong>, les acteurs européens possèdent en moyenne près de deux fois et demie l'exigence légale minimale. Cette abondance de fonds propres résulte directement de la remontée passée des taux d'intérêt, qui a redonné du rendement aux obligations d'État accumulées dans leurs portefeuilles d'investissement.",
-    "Pourtant, cette tranquillité apparente cache une refonte réglementaire majeure qui entrera en vigueur le <strong>30 janvier 2027</strong> avec la directive européenne révisée. Ce texte modifie en profondeur la façon dont les assureurs calculent la valeur actuelle de leurs engagements financiers à très long terme. Le taux d'actualisation pivot, appelé le taux UFR<a class=\"lex-ref\" href=\"#lex-taux-ufr\" aria-label=\"Voir la définition dans le lexique\">*</a>, sera abaissé de 4 % à <strong>3,45 %</strong>. Pour comprendre ce mécanisme, imaginons une promesse de verser une rente dans quarante ans : plus le taux de référence baisse, plus la somme qu'il faut immédiatement mettre de côté aujourd'hui augmente, ce qui réduit mécaniquement la marge de sécurité affichée au bilan.",
-    "En parallèle de ce durcissement technique des règles de calcul, le tableau de bord des risques publié en juillet 2026 par l'EIOPA met en évidence des disparités géographiques marquées. Si le niveau de risque global est jugé moyen et stable sur l'ensemble du continent, plusieurs pays enregistrent des baisses sensibles de leurs ratios de couverture. En l'espace d'une année, le ratio médian a reculé de <strong>24 points</strong> en Islande, de <strong>22 points</strong> à Malte et de <strong>20 points</strong> en Norvège. Ces variations illustrent la sensibilité inégale des bilans nationaux face aux mouvements de marché et aux politiques de distribution de dividendes.",
-    "Des vulnérabilités sectorielles concrètes s'ajoutent à ce calendrier réglementaire contraignant. Le patrimoine immobilier détenu par les compagnies d'assurance européennes subit les contrecoups de la hausse passée des coûts de financement, avec une baisse de valeur moyenne de <strong>3 % sur un an</strong> constatée à l'été 2026. L'exposition croissante aux segments du crédit privé non coté ainsi que la multiplication des sinistres liés aux attaques informatiques constituent d'autres sources de pression sur les bilans. Chaque dépréciation d'actif vient rogner directement les fonds propres disponibles, réduisant le numérateur du ratio de solvabilité.",
-    "L'équilibre financier des dix-huit prochains mois dépendra donc de la capacité des assureurs à accumuler suffisamment de réserves pour neutraliser l'impact technique de la réforme. Trois trajectoires distinctes se dessinent d'ici le <strong>30 janvier 2027</strong>. Les compagnies parviendront-elles à préserver intégralement leurs excédents grâce à leurs bénéfices courants, subiront-elles une érosion maîtrisée sans conséquence pratique pour les assurés, ou verront-elles leurs marges de solvabilité se resserrer au point de restreindre l'offre de garanties sur les contrats d'épargne ?"
+    "Les vidéos montrant des machines humanoïdes ranger des serviettes, faire du café ou vider un lave-vaisselle inondent les réseaux sociaux. Pourtant, franchir le seuil de nos logements représente un défi technique colossal pour l'ingénierie moderne. En 2025, le marché mondial des robots de service grand public atteignait <strong>19,15 milliards de dollars</strong>, et les projections le portent à <strong>24,42 milliards de dollars</strong> en 2026. Mais cette croissance spectaculaire reste aujourd'hui tirée par des appareils spécialisés à tâche unique, comme les aspirateurs autonomes ou les tondeuses connectées, qui représentent à eux seuls <strong>plus de 40 %</strong> de ce segment commercial. Les véritables robots polyvalents, capables d'enchaîner plusieurs corvées distinctes dans un salon encombré sans aide humaine, demeurent encore au stade de promesses industrielles émergentes.",
+    "L'année 2026 marque toutefois une accélération sans précédent des annonces commerciales. L'entreprise norvégienne 1X a ouvert les précommandes de son robot bipède baptisé NEO, au tarif de <strong>20 000 dollars l'unité</strong> ou via un abonnement mensuel de <strong>499 dollars par mois</strong>. La start-up revendique déjà <strong>plus de 10 000 précommandes</strong> enregistrées et promet de premières livraisons aux États-Unis avant la fin de l'année. Dans le même temps, la société américaine Figure AI a dévoilé son modèle Figure 03, tandis que les géants asiatiques LG et SwitchBot ont exposé au salon tech de Las Vegas leurs propres prototypes à bras articulés, nommés respectivement CLOiD et Onero H1, conçus pour plier le linge ou ranger la vaisselle.",
+    "Derrière ces carrosseries métalliques, la véritable rupture provient des logiciels d'intelligence artificielle. Les robots traditionnels devaient apprendre par cœur chaque millimètre d'une pièce pour ne pas trébucher contre une table basse. En septembre 2026, Figure AI a présenté Helix 2.5, un modèle capable de généralisation zéro-shot<a class=\"lex-ref\" href=\"#lex-zero-shot\" aria-label=\"Voir la définition dans le lexique\">*</a>. Grâce à cette technologie, une machine peut entrer dans un logement totalement inconnu et accomplir trois corvées ménagères sans entraînement préalable. Ce modèle a fonctionné dans trente foyers américains distincts, adaptant instantanément sa posture et ses mouvements aux meubles rencontrés sur place, ce qui rapproche la machine d'une réelle autonomie pratique au quotidien.",
+    "Malgré ces progrès de laboratoire, la Fédération internationale de robotique<a class=\"lex-ref\" href=\"#lex-ifr\" aria-label=\"Voir la définition dans le lexique\">*</a> (IFR) rappelle que des obstacles majeurs bloquent encore une adoption généralisée. Pour qu'une famille confie ses clés à un robot, l'appareil doit garantir une manipulation robuste des objets fragiles, une programmation intuitive sans jargon informatique et des tarifs compatibles avec le budget d'un ménage moyen. Surtout, de nombreux robots actuels nécessitent encore une téléopération<a class=\"lex-ref\" href=\"#lex-teleoperation\" aria-label=\"Voir la définition dans le lexique\">*</a> par des techniciens humains distants lorsqu'une situation imprévue se présente. Cette assistance humaine soulève des questions sensibles de respect de la vie privée et de protection des données personnelles dans l'intimité du foyer.",
+    "En France, le marché global de la robotique de service représente <strong>1,1 milliard d'euros</strong> en 2026, mais les humanoïdes polyvalents y sont encore totalement absents du paysage quotidien. Les ménages français conservent un réflexe d'équipement historiquement prudent. Au milieu des années 2010, à peine <strong>2 %</strong> des foyers de l'Hexagone possédaient un simple aspirateur autonome, tandis que des robots d'accueil plus sophistiqués comme Pepper ont finalement été retirés de la production industrielle faute d'utilité concrète avérée. Les normes européennes très strictes sur la sécurité physique et le règlement général sur la protection des données compliquent également l'importation directe de technologies développées en Amérique du Nord ou en Asie.",
+    "L'arrivée des robots ménagers dans nos maisons d'ici la fin 2026 ne dépend donc pas seulement de la performance des puces électroniques. Elle se heurte au mur du pouvoir d'achat, à la fiabilité réelle des mouvements mécaniques et à l'acceptabilité sociale d'avoir des caméras mobiles en continu dans les pièces de vie. Alors que les calendriers annoncés par les constructeurs arrivent à échéance au 31 décembre 2026, les spécialistes observent une bifurcation majeure. La technologie peut soit amorcer une pénétration pionnière auprès des ménages aisés, soit demeurer cantonnée à des démonstrations encadrées, soit subir des retards techniques et réglementaires repoussant l'usage pratique à des horizons bien plus lointains."
   ],
   "enjeu_en_clair": {
-    "lead": "Les règles européennes de calcul des réserves des assureurs changent au début de l'année 2027.",
-    "text": "Les compagnies d'assurance doivent garder de l'argent de côté pour garantir le paiement des sinistres et des contrats d'épargne. Une nouvelle directive européenne abaisse un taux clé de calcul au 30 janvier 2027, ce qui augmente mathématiquement la valeur des engagements futurs. Pour l'épargnant, cela ne menace pas la sécurité des dépôts mais pourrait inciter certains assureurs à réduire le rendement garanti de leurs contrats."
+    "lead": "Les robots humanoïdes promettent de nous libérer des corvées ménagères, mais leur coût et leur sécurité freinent leur arrivée.",
+    "text": "Des constructeurs ouvrent les précommandes de robots capables de ranger ou plier le linge. Cependant, ces machines coûtent le prix d'une voiture neuve et commettent encore des erreurs de manipulation. Pour nos foyers, cela ne change rien dans l'immédiat : les tâches quotidiennes restent manuelles, mais ces premiers modèles testent la sécurité de nos futurs appareils domestiques."
   },
   "stakes_branches": {
-    "favorable": "Les bénéfices et la collecte d'épargne compensent intégralement l'effet du durcissement réglementaire.",
-    "stable": "Les ratios de solvabilité diminuent modérément tout en restant confortablement au-dessus des seuils d'alerte.",
-    "degrade": "La baisse des ratios force certains acteurs fragiles à restreindre leurs garanties ou à augmenter leurs tarifs."
+    "favorable": "Les livraisons démarrent aux États-Unis et une minorité de ménages pionniers français s'équipe.",
+    "stable": "Les robots restent un produit de luxe expérimental et les aspirateurs spécialisés dominent le marché.",
+    "degrade": "Les retards techniques et les blocages sur la vie privée repoussent toute adoption grand public."
   },
   "comprendre_box": [
     {
-      "lead": "Le ratio de solvabilité fonctionne comme le compte d'épargne de précaution d'un ménage.",
-      "text": "Si une famille a besoin de 1 000 euros de côté pour faire face à un imprévu et qu'elle en possède 2 470, son ratio est de 247 %. Abaisser le taux de référence revient à estimer que l'imprévu coûtera plus cher, ce qui fait baisser ce pourcentage sans que l'argent réel n'ait disparu.",
+      "lead": "Pourquoi nos maisons sont plus difficiles à conquérir qu'une usine",
+      "text": "Dans une usine automobile, chaque pièce arrive au millimètre près sur un rail fixe. Dans un salon, un jouet traîne, un tapis glisse et la lumière change. Un robot doit improviser en continu sans rien casser.",
       "apres_dek_index": 2
     },
     {
-      "lead": "Les grands marchés continentaux disposent d'un coussin de sécurité supérieur à la moyenne.",
-      "text": "Avec des ratios médians européens de 247 % en vie et 214 % en non-vie selon l'EIOPA, les acteurs des grands marchés matures conservent une marge confortable. Cette assise diversifiée limite considérablement le risque de tension immédiate sur les contrats d'assurance.",
-      "apres_dek_index": 4
+      "lead": "Le compromis délicat entre autonomie et téléopération humaine",
+      "text": "Quand un robot hésite devant un placard, un opérateur humain prend parfois le contrôle à distance. Cela débloque la machine, mais fait entrer des caméras surveillées par un tiers directement dans votre chambre.",
+      "apres_dek_index": 3
     }
   ],
   "list_box": null,
   "indicators": [
     {
-      "label": "Ratio SCR médian du secteur vie en Europe",
-      "value": "247 %",
-      "delta": "+17 points par rapport à l'exercice précédent"
+      "label": "Marché mondial des robots de service grand public",
+      "value": "19,15 milliards $ (2025) ; 24,42 milliards $ (2026 projeté)",
+      "delta": "Projection 2026 en forte hausse, dominée à plus de 40 % par les robots spécialisés"
     },
     {
-      "label": "Taux d'actualisation ultime (UFR) au 30 janvier 2027",
-      "value": "3,45 %",
-      "delta": "Baisse par rapport au niveau actuel de 4,00 %"
+      "label": "Précommandes du robot domestique NEO (1X)",
+      "value": "plus de 10 000 précommandes",
+      "delta": "Tarif de 20 000 $ à l'achat ou 499 $/mois, premières livraisons annoncées fin 2026"
     }
   ],
   "cards": {
     "favorable": {
-      "pct": 35,
-      "gauge_word": "Probable",
-      "h3": "Les bénéfices courants absorbent le choc réglementaire sans dégradation des ratios",
+      "pct": 25,
+      "gauge_word": "Peu probable",
+      "h3": "Lancement réussi pour les pionniers et début d'adoption chez les ménages aisés",
       "why": [
-        "Premier scénario : les assureurs européens maintiennent des niveaux de solvabilité très élevés en compensant intégralement la réforme grâce à leurs résultats financiers. Concrètement, le secteur de l'assurance-vie continue de bénéficier d'une collecte d'épargne dynamique et du réinvestissement régulier de ses liquidités dans des obligations d'État offrant des rendements attractifs. Cette rentabilité soutenue permet aux compagnies d'augmenter continuellement leurs fonds propres de base. Lorsque le taux de référence à long terme sera abaissé à <strong>3,45 %</strong> au 30 janvier 2027, la hausse préalable des réserves financières neutralisera entièrement le gonflement comptable des engagements de long terme, préservant un ratio médian supérieur à 240 %.",
-        "Ce scénario favorable se distingue nettement des hypothèses de repli car il repose sur une dynamique d'activité commerciale particulièrement robuste sur les grands marchés continentaux comme la France ou l'Allemagne. Contrairement aux scénarios de transition difficile, les compagnies n'ont pas besoin de freiner leurs distributions de dividendes ni de modifier la composition de leurs portefeuilles pour absorber la directive révisée. La solidité des bilans permettrait aux assureurs de conserver une politique commerciale offensive sans durcir les conditions d'accès aux contrats garantis en euros."
+        "Dans ce premier scénario, les fabricants franchissent avec succès l'étape de l'industrialisation avant le 31 décembre 2026. L'entreprise 1X honore effectivement ses livraisons initiales aux États-Unis pour les premiers acheteurs du robot NEO, tandis que Figure AI rend son modèle Figure 03 accessible en précommande grand public. Grâce aux architectures d'intelligence artificielle comme Helix 2.5, ces machines accomplissent leurs corvées de base sans blocage majeur. En France, une poignée de ménages aisés, de passionnés de technologie ou de familles en quête d'assistance à domicile importent ces modèles ou souscrivent aux formules d'abonnement mensuel pour déléguer le rangement ou la vaisselle.",
+        "Par rapport aux perspectives de blocage ou de stagnation, cette trajectoire repose sur une baisse rapide des coûts de fabrication et une validation sans réserve des normes de sécurité physique. Les démonstrations vues au CES 2026 chez LG ou SwitchBot se transforment alors rapidement en produits commerciaux certifiés pour le marché européen. Toutefois, l'obstacle financier reste considérable pour la majorité de la population, limitant cette vague à un public très restreint. Cette dynamique de diffusion pionnière pourrait progressivement ouvrir la voie à une démocratisation des robots ménagers au cours des années suivantes si les retours d'expérience s'avèrent convaincants."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Ratio SCR médian du secteur vie en Europe",
-          "evo_current": "245 %",
-          "evo_arrow": "flat",
-          "evo_prev": "247 % fin 2025"
+          "field_name": "Marché mondial des robots de service grand public",
+          "evo_current": "26,0 milliards $ en 2026",
+          "evo_arrow": "up",
+          "evo_prev": "24,42 milliards $ initialement projetés"
         },
         {
-          "field_name": "Taux d'actualisation ultime (UFR) au 30 janvier 2027",
-          "evo_current": "3,45 %",
-          "evo_arrow": "down",
-          "evo_prev": "4,00 % actuellement"
+          "field_name": "Précommandes du robot domestique NEO (1X)",
+          "evo_current": "plus de 25 000 unités réservées",
+          "evo_arrow": "up",
+          "evo_prev": "plus de 10 000 précommandes initiales"
         }
       ],
-      "france_line": "Les assureurs français maintiennent une excellente couverture de leurs engagements d'assurance-vie.",
+      "france_line": "Quelques centaines de ménages français fortunés importent ces premiers assistants polyvalents.",
       "france_impact": "favorable"
     },
     "stable": {
-      "pct": 45,
-      "gauge_word": "Probable",
-      "h3": "Une baisse modérée des ratios de solvabilité sans remise en cause de la sécurité financière",
+      "pct": 55,
+      "gauge_word": "Assez probable",
+      "h3": "Technologie réservée à une niche coûteuse et domination des appareils spécialisés",
       "why": [
-        "Deuxième scénario : les ratios de solvabilité enregistrent un recul mesuré de dix à vingt points sur l'ensemble du continent, mais demeurent très largement au-dessus du seuil réglementaire de 100 %. Concrètement, l'abaissement du taux pivot de calcul à <strong>3,45 %</strong> augmente mécaniquement le montant des provisions techniques que les compagnies doivent inscrire à leur passif. Dans le même temps, les tensions persistantes sur le marché de l'immobilier d'entreprise, où les valorisations ont reculé de <strong>3 % sur un an</strong>, limitent les plus-values latentes. Les assureurs absorbent ces vents contraires en réduisant légèrement le rythme de rachat de leurs propres actions, sans subir de crise de liquidité.",
-        "Par rapport au scénario favorable, cette trajectoire centrale intègre la réalité des disparités nationales déjà visibles dans plusieurs petits marchés comme Malte ou l'Islande. Elle évite cependant le scénario de crise aiguë car le point de départ du secteur, avec un ratio médian de <strong>247 %</strong> en assurance-vie, offre une marge de manœuvre considérable avant d'atteindre le moindre seuil d'alerte prudentiel. L'impact pour les assurés européens resterait quasi invisible au quotidien, les compagnies ajustant leurs marges en interne sans modifier leurs offres commerciales."
+        "Dans ce scénario central, les robots domestiques polyvalents arrivent bien sur le marché mais restent cantonnés à une niche confidentielle. Le prix d'achat de 20 000 dollars pour NEO et les mensualités de 499 dollars dissuadent la quasi-totalité des foyers ordinaires. De plus, les machines requièrent encore de fréquentes interventions de téléopération humaine à distance pour corriger leurs trajectoires dans les pièces complexes, ce qui heurte les règles européennes de confidentialité. En France, le marché de 1,1 milliard d'euros demeure presque exclusivement composé d'aspirateurs et de tondeuses spécialisés, tandis que les humanoïdes restent confinés à des démonstrations de salon.",
+        "Contrairement à une percée commerciale rapide ou à un échec technologique total, cette voie reflète la lenteur historique de l'équipement électroménager lourd. Les fabricants vendent leurs premières séries à des laboratoires, des entreprises vitrines ou de très rares particuliers américains, mais repoussent la commercialisation massive en Europe au-delà de 2027. La promesse de voir une machine polyvalente nettoyer entièrement la maison reste un horizon technique en cours de maturation plutôt qu'un objet du quotidien. L'usage domestique de masse glisserait ainsi vers la fin de la décennie, le temps d'abaisser les prix et de fiabiliser les logiciels."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Ratio SCR médian du secteur vie en Europe",
-          "evo_current": "225 %",
-          "evo_arrow": "down",
-          "evo_prev": "247 % fin 2025"
+          "field_name": "Marché mondial des robots de service grand public",
+          "evo_current": "24,42 milliards $ en 2026",
+          "evo_arrow": "flat",
+          "evo_prev": "24,42 milliards $ projetés (tirés par les aspirateurs)"
         },
         {
-          "field_name": "Taux d'actualisation ultime (UFR) au 30 janvier 2027",
-          "evo_current": "3,45 %",
-          "evo_arrow": "down",
-          "evo_prev": "4,00 % actuellement"
+          "field_name": "Précommandes du robot domestique NEO (1X)",
+          "evo_current": "12 000 unités avec livraisons étalées",
+          "evo_arrow": "flat",
+          "evo_prev": "plus de 10 000 précommandes initiales"
         }
       ],
-      "france_line": "Le secteur français absorbe le changement de calcul en conservant un ratio solide et sécurisant.",
-      "france_impact": "favorable"
+      "france_line": "Le marché français reste centré sur les aspirateurs autonomes sans percée des humanoïdes.",
+      "france_impact": "degrade"
     },
     "degrade": {
       "pct": 20,
       "gauge_word": "Peu probable",
-      "h3": "L'accumulation des chocs de marché dégrade fortement les bilans des acteurs les plus vulnérables",
+      "h3": "Retards industriels, incidents de fiabilité et gel des déploiements domestiques",
       "why": [
-        "Troisième scénario : la conjonction du durcissement réglementaire et de pertes financières sur les actifs alternatifs provoque une chute marquée des ratios de solvabilité sous la barre des 180 %. Concrètement, l'effet mécanique du passage de l'UFR à <strong>3,45 %</strong> frappe de plein fouet des compagnies déjà fragilisées par des dépréciations sévères sur l'immobilier commercial et les défauts de paiement dans le crédit privé. Les superviseurs nationaux sont alors contraints d'imposer des plans de redressement du capital à certains acteurs de taille intermédiaire, bloquant le versement de dividendes et forçant des recapitalisations d'urgence.",
-        "Ce scénario de dégradation se distingue des deux autres par ses répercussions directes sur les épargnants et les souscripteurs de contrats. Pour reconstituer rapidement leurs marges de solvabilité et limiter leurs exigences de fonds propres, les assureurs les plus exposés réduiraient drastiquement la commercialisation des fonds en euros à capital garanti au profit des unités de compte<a class=\"lex-ref\" href=\"#lex-unites-de-compte\" aria-label=\"Voir la définition dans le lexique\">*</a>. Une telle situation pourrait conduire à un renchérissement des primes d'assurance dommages et à un durcissement des conditions de rachat des contrats d'épargne."
+        "Ce troisième scénario voit les constructeurs se heurter à des défaillances techniques insolubles dans des environnements réels non contrôlés. Les modèles d'intelligence artificielle échouent à garantir une manipulation sans risque des objets du quotidien, provoquant des chutes d'objets, des blocages matériels ou des risques de collision dans les couloirs étroits. Face aux incertitudes juridiques liées à la responsabilité civile et aux risques de piratage des flux vidéo, les autorités de régulation durcissent les conditions de certification. Les livraisons promises pour la fin 2026 sont officiellement reportées, rappelant le retrait prématuré de robots compagnons comme Pepper.",
+        "À la différence du scénario stable où les appareils fonctionnent dans des limites coûteuses, cette hypothèse marque un coup d'arrêt net pour les investissements dans la robotique domestique grand public. Les start-ups du secteur réorientent en urgence leurs humanoïdes vers la logistique industrielle et les entrepôts fermés, où les tâches sont standardisées et les humains tenus à distance de sécurité. Pour les ménages français, le rêve d'un assistant polyvalent capable de ranger le salon s'éloigne durablement. Le secteur de la robotique personnelle pourrait alors entrer dans une phase de refroidissement commercial durable, faute de rentabilité et de maturité technique."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Ratio SCR médian du secteur vie en Europe",
-          "evo_current": "175 %",
+          "field_name": "Marché mondial des robots de service grand public",
+          "evo_current": "21,0 milliards $ en 2026",
           "evo_arrow": "down",
-          "evo_prev": "247 % fin 2025"
+          "evo_prev": "24,42 milliards $ initialement projetés"
         },
         {
-          "field_name": "Taux d'actualisation ultime (UFR) au 30 janvier 2027",
-          "evo_current": "3,45 %",
+          "field_name": "Précommandes du robot domestique NEO (1X)",
+          "evo_current": "moins de 5 000 livraisons réelles (annulations)",
           "evo_arrow": "down",
-          "evo_prev": "4,00 % actuellement"
+          "evo_prev": "plus de 10 000 précommandes initiales"
         }
       ],
-      "france_line": "Certains acteurs mutualistes ou bancassureurs devraient restreindre l'accès à leurs fonds garantis.",
+      "france_line": "Absence totale d'humanoïdes ménagers et méfiance accrue des consommateurs français.",
       "france_impact": "degrade"
     }
   },
   "essentiel_box": [
-    "Les ratios de solvabilité des assureurs européens vont-ils se dégrader avant l'application de la directive révisée le 30 janvier 2027 ?",
-    "Le secteur affiche une solidité apparente avec un ratio de solvabilité médian de 247 % en assurance-vie, mais l'abaissement du taux d'actualisation à 3,45 % et la baisse de 3 % de l'immobilier vont alourdir le passif des bilans.",
-    "Pas de crise systémique en vue : notre scénario le plus probable (45 %) prévoit un tassement modéré des ratios sans menace pour la sécurité des assurés, tandis qu'une stabilité totale (35 %) et une dégradation sévère (20 %) restent deux options envisageables.",
-    "Le prochain tableau de bord des risques de l'EIOPA attendu à l'automne 2026 permettra de vérifier si les baisses de solvabilité observées en Islande et à Malte s'étendent aux grands pays européens."
+    "Les robots domestiques polyvalents seront-ils disponibles et adoptés dans les foyers français d'ici la fin 2026 ?",
+    "Le marché mondial des robots grand public atteindra 24,42 milliards de dollars en 2026 mais reste dominé à plus de 40 % par les aspirateurs, tandis que le modèle NEO affiche un tarif de 20 000 dollars.",
+    "Non, notre scénario le plus probable (55 %) estime que les humanoïdes resteront une niche coûteuse et expérimentale — contre 25 % pour une adoption pionnière et 20 % pour un gel technique.",
+    "Premier signal à surveiller : la confirmation des premières livraisons effectives du robot NEO de 1X à des particuliers américains avant le 31 décembre 2026."
   ],
   "delta_france": {
-    "kind": "positif",
-    "score": 0.6,
-    "word": "assez positif",
-    "text": "les acteurs français et continentaux abordent la réforme avec un ratio médian européen très solide de 247 %, limitant l'impact négatif aux 20 % de probabilité du scénario dégradé."
+    "kind": "negatif",
+    "score": -0.5,
+    "word": "assez négatif",
+    "text": "l'absence d'offre abordable et conforme aux normes européennes prive les ménages français de tout allègement des corvées ménagères, maintenant une dépendance totale aux constructeurs étrangers."
   },
-  "phrase_a_retenir": "Avec un ratio de solvabilité médian de 247 % en assurance-vie, les assureurs européens abordent la baisse du taux pivot à 3,45 % avec une solide réserve financière.",
-  "phrase_a_retenir_stat": "247 %",
+  "phrase_a_retenir": "Avec un prix de 20 000 dollars l'unité pour le robot NEO, les humanoïdes polyvalents resteront hors de portée des foyers français en 2026.",
+  "phrase_a_retenir_stat": "20 000 dollars l'unité",
   "lexique": [
     {
-      "slug": "ratio-scr",
-      "terme": "ratio SCR",
-      "definition": "Pourcentage mesurant les fonds propres d'un assureur par rapport au capital minimum exigé par la loi pour résister à une crise financière majeure survenant une fois tous les deux cents ans."
+      "slug": "zero-shot",
+      "terme": "généralisation zéro-shot",
+      "definition": "Capacité d'un modèle d'intelligence artificielle à accomplir une tâche dans un environnement totalement inconnu sans avoir reçu d'entraînement préalable sur ce lieu spécifique."
     },
     {
-      "slug": "taux-ufr",
-      "terme": "taux UFR",
-      "definition": "Taux d'intérêt théorique de long terme fixé par le régulateur européen pour calculer aujourd'hui la valeur des engagements de retraite et d'assurance dus dans plusieurs décennies."
+      "slug": "ifr",
+      "terme": "Fédération internationale de robotique",
+      "definition": "Organisme professionnel mondial qui compile les statistiques de production, analyse les tendances technologiques et évalue les freins à l'adoption des robots industriels et de service."
     },
     {
-      "slug": "unites-de-compte",
-      "terme": "unités de compte",
-      "definition": "Supports d'investissement dans un contrat d'assurance-vie investis en actions ou en immobilier dont la valeur fluctue, le risque financier étant porté par l'épargnant et non par l'assureur."
+      "slug": "teleoperation",
+      "terme": "téléopération",
+      "definition": "Système de contrôle à distance par lequel un opérateur humain pilote directement un robot via des capteurs et des caméras lorsqu'il rencontre un obstacle imprévu."
     }
   ],
   "sources_html": [
-    "<a href=\"https://www.dirittobancario.it/wp-content/uploads/2026/06/EIOPA-Financial-Stability-Report-June-2026.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">EIOPA — EIOPA Financial Stability Report June 2026 ↗</a>",
-    "<a href=\"https://www.eiopa.europa.eu/eiopa-insurance-risk-dashboard-shows-broadly-stable-risk-environment-even-cyber-and-geopolitical-2026-07-30_en\" target=\"_blank\" rel=\"noopener noreferrer\">EIOPA — EIOPA insurance risk dashboard shows broadly stable risk environment even as cyber and geopolitical risk intensify ↗</a>",
-    "<a href=\"https://www.eiopa.europa.eu/eiopa-completes-solvency-ii-review-mandate-final-guidelines-and-draft-technical-standards-revised-2026-07-15_en\" target=\"_blank\" rel=\"noopener noreferrer\">EIOPA — EIOPA completes Solvency II Review mandate with final guidelines and draft technical standards ↗</a>"
+    "<a href=\"https://www.journaldunet.com/intelligence-artificielle/1554029-robotique-domestique-ou-en-est-on-vraiment/\" target=\"_blank\" rel=\"noopener noreferrer\">JournalduNet — Robots domestiques : où en est-on vraiment ? ↗</a>",
+    "<a href=\"https://www.1x.tech/discover/neo-home-robot\" target=\"_blank\" rel=\"noopener noreferrer\">1X Technologies — 1X NEO Home Robot - Order Today ↗</a>",
+    "<a href=\"https://www.1x.tech/discover/neo-factory\" target=\"_blank\" rel=\"noopener noreferrer\">1X Technologies — 1X NEO Factory ↗</a>",
+    "<a href=\"https://www.switchbot.com/oneroh1\" target=\"_blank\" rel=\"noopener noreferrer\">SwitchBot — SwitchBot Onero H1 ↗</a>",
+    "<a href=\"https://www.figure.ai/news/helix-2-5-zero-shot-30-home-generalization\" target=\"_blank\" rel=\"noopener noreferrer\">Figure AI — Figure Helix 2.5: Zero-Shot 30-Home Generalization ↗</a>"
   ],
   "meta": {
-    "title": "Assureurs européens : les ratios de solvabilité vont-ils se dégrader ?",
-    "meta_description": "Assureurs européens : les ratios de solvabilité vont-ils se dégrader ? Analyse économique et scénarios.",
-    "og_image_alt": "Calculateur et documents financiers d'assurance",
+    "title": "Robotique : les robots vont-ils vraiment entrer dans notre quotidien ?",
+    "meta_description": "Robotique : les robots vont-ils vraiment entrer dans notre quotidien ? Analyse fondée sur données scientifiques.",
+    "og_image_alt": "Robot domestique polyvalent dans une cuisine moderne",
     "keywords": [
-      "prix",
-      "marché",
-      "investissement",
-      "Assureurs",
-      "économie",
-      "inflation"
+      "santé",
+      "Robotique",
+      "étude scientifique",
+      "recherche",
+      "innovation"
     ],
-    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-11-05.html\"\n  },\n  \"headline\": \"Assureurs européens : les ratios de solvabilité vont-ils se dégrader ?\",\n  \"description\": \"Assureurs européens : les ratios de solvabilité vont-ils se dégrader ? Analyse économique et scénarios.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-11-05.png\"\n  ],\n  \"datePublished\": \"2026-11-05T00:00:00\",\n  \"dateModified\": \"2026-11-05T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"prix, marché, investissement, Assureurs, économie, inflation\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Économie\"\n}",
-    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Assureurs européens : les ratios de solvabilité vont-ils se dégrader ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-11-05.html\"\n    }\n  ]\n}"
+    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-11-06.html\"\n  },\n  \"headline\": \"Robotique : les robots vont-ils vraiment entrer dans notre quotidien ?\",\n  \"description\": \"Robotique : les robots vont-ils vraiment entrer dans notre quotidien ? Analyse fondée sur données scientifiques.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-11-06.png\"\n  ],\n  \"datePublished\": \"2026-11-06T00:00:00\",\n  \"dateModified\": \"2026-11-06T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"santé, Robotique, étude scientifique, recherche, innovation\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Sciences\"\n}",
+    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Robotique : les robots vont-ils vraiment entrer dans notre quotidien ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-11-06.html\"\n    }\n  ]\n}"
   }
 }
