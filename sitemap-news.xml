@@ -11,4 +11,15 @@
       <news:title>European Insurers: Are Solvency Ratios Set to Deteriorate?</news:title>
     </news:news>
   </url>
-<url><loc>https://lesscenarios.fr/archives/2026-11-06.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-11-06T06:01:54+01:00</news:publication_date><news:title>Robotique : les robots vont-ils vraiment entrer dans notre quotidien ?</news:title></news:news></url></urlset>
+<url><loc>https://lesscenarios.fr/archives/2026-11-06.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-11-06T06:01:54+01:00</news:publication_date><news:title>Robotique : les robots vont-ils vraiment entrer dans notre quotidien ?</news:title></news:news></url>  <url>
+    <loc>https://lesscenarios.fr/en/archives/2026-11-06.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Scénario</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-11-06T06:01:54+01:00</news:publication_date>
+      <news:title>Robotics: Will robots really enter our daily lives?</news:title>
+    </news:news>
+  </url>
+</urlset>
