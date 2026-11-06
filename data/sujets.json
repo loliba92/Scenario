@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "6e4c99a6132274493498aaf4dfe433f5aadb108bf10dd0306d4e3a2c5127f1d9"
+    "md_sha256": "7bae5fa0d0bb8538250f0c1c99cbe4c18b07a7478a74a6531ac3bad8b8382568"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -2077,11 +2077,11 @@
           ],
           "origine": null,
           "note": "Fusionne \"le progrès technologique menace-t-il l'exploit sportif ? (à quel moment l'exploit cesse-t-il d'être humain ?)\" et \"le sport professionnel peut-il rester humain ?\" du même lot — même question, la seconde formulation retenue en titre car plus concrète. Distinct de l'entrée équité juste au-dessus : celle-ci porte sur qui gagne (écarts entre athlètes/moyens), celle-ci sur ce que devient l'athlète lui-même, y compris chez les mieux dotés",
-          "donnees": null,
+          "donnees": "[relevé du 2026-11-06] Utilisation de l'IA dans l'entraînement sportif de haut niveau (pourcentage d'amélioration). RFEA = 15.20% (2026) ; Google Cloud = 20.30% (2026) ; Sonar Atlas = 18.70% (2026). Sources : https://www.ibm.com/case-studies/rfea ; https://cloud.google.com/transform/us-ski-snowboard-ai-powered-training-tool-olympic-winter-games-new-tricks ; https://www.sonarhealth.co/fr/blog/donnees-objets-connectes-athletes-ia/",
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": "2026-10-03"
+          "enrichi_le": "2026-11-06"
         },
         {
           "type": "sujet",
