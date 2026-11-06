@@ -1,0 +1,394 @@
+{
+  "date": "2026-11-07",
+  "registre": "culture",
+  "sujet": {
+    "titre_propose": "Netflix peut-il devenir le nouveau cinéma ?",
+    "h1": "Netflix : le nouveau cinéma mondial ?",
+    "question_posee": "Netflix peut-il remplacer durablement les salles comme lieu de lancement de ses gros films, à l'approche de la sortie mondiale en salles de « Narnia : Le Neveu du magicien » le 12 février 2027 ?",
+    "eyebrow": "Samedi, culture",
+    "angle": "Trois forces s'opposent : la pression des réalisateurs et des exploitants pour de vraies sorties en salles, la chronologie des médias française qui désincite l'exploitation en salles, et le modèle streaming-first de Netflix qui privilégie la rétention d'abonnés plutôt que le box-office. Pour un lecteur français, l'enjeu concret est de savoir si les grands films Netflix seront un jour visibles dans les salles près de chez lui.",
+    "tags": [
+      "cinema",
+      "streaming",
+      "netflix",
+      "box-office"
+    ],
+    "domain": "culture-divertissement",
+    "image_keywords": "cinema theater seats film screening",
+    "complexite": 3,
+    "origine_prioritaire": "Netflix peut-il devenir le nouveau cinéma ?",
+    "origine_id": "culture-netflix-peut-il-devenir-le-nouveau-cinema",
+    "point_de_depart": {
+      "id": "culture-netflix-peut-il-devenir-le-nouveau-cinema",
+      "registre": "culture",
+      "titre": "Netflix peut-il devenir le nouveau cinéma ?",
+      "question": "Netflix peut-il devenir le nouveau cinéma ?",
+      "contexte": "À quel moment les plateformes pourraient-elles décider qu'elles n'ont plus besoin des salles pour lancer leurs plus gros films ?",
+      "rationnel": "La question : Netflix peut-il devenir le nouveau cinéma en remplaçant durablement la salle comme lieu de lancement de ses gros films, notamment en vue de la sortie mondiale en salles de « Narnia : Le Neveu du magicien » prévue le 12 février 2027 ? L'issue est ouverte car trois forces s'opposent : la pression des réalisateurs (Gerwig, Fincher) et des exploitants pour de vraies sorties en salles ; la chronologie des médias française qui désincite l'exploitation en salles ; et le modèle streaming‑first de Netflix qui privilégie la rétention d'abonnés plutôt que le box‑office. Pour un lecteur français, l'enjeu concret est de savoir si les grands films Netflix seront un jour visibles dans les salles près de chez lui ou si la France restera exclue des sorties événementielles de la plateforme.",
+      "mots_cles": [
+        "Netflix stratégie théâtrale 2026",
+        "Narnia Greta Gerwig sortie cinéma IMAX",
+        "chronologie des médias France 15 mois Netflix",
+        "La Bola Negra fenêtre 47 jours",
+        "Ted Sarandos box-office theatrical window",
+        "saturation streaming France abonnés"
+      ],
+      "angle": null,
+      "a_verifier": "⚠ Temps : Le dossier mentionne « annonce d'un studio, chiffre de sortie day-and-date » comme déclencheur futur. Or l'annonce Narnia (large sortie salle mondiale, pas en France) et le record La Bola Negra (47 jours) ont déjà eu lieu en 2026. Vérifier si un nouveau chiffre day-and-date ou annonce studio est attendu post-2 octobre 2026 (ex. résultats box-office Narnia février 2027, nouvelle négociation chronologie médias).",
+      "scenarios_brouillon": null,
+      "echeance": {
+        "date": "2027-02-12",
+        "raison": "Sortie mondiale en salles de « Narnia : Le Neveu du magicien » (premier test grandeur nature d'une large exploitation Netflix hors France) ; premiers chiffres de box-office attendus dans les jours suivants."
+      },
+      "sources_pistes": [
+        {
+          "titre": "\"La bola negra\" bénéficiera de la plus longue fenêtre d'exploitation au cinéma pour un film Netflix en Amérique du Nord – franceinfo",
+          "url": "https://www.franceinfo.fr/culture/cinema/la-bola-negra-beneficiera-de-la-plus-longue-fenetre-d-exploitation-au-cinema-pour-un-film-netflix-en-amerique-du-nord_8142113.html"
+        },
+        {
+          "titre": "Netflix to skip theatrical release for 'Narnia: The Magician's Nephew' in France – Screen Daily",
+          "url": "https://www.screendaily.com/news/netflix-to-skip-theatrical-release-for-narnia-the-magicians-nephew-in-france/5218361.article"
+        },
+        {
+          "titre": "Netflix Movies Get Cozier With Theatrical Distribution – Variety",
+          "url": "https://variety.com/2026/film/news/netflix-report-box-office-theatrical-releases-1236854834/"
+        },
+        {
+          "titre": "Avec près de 18 millions d'entrées, la fréquentation des salles de cinéma poursuit sa forte dynamique – CNC",
+          "url": "https://www.cnc.fr/professionnels/communiques-de-presse/avec-pres-de-18-millions-dentrees-la-frequentation-des-salles-de-cinema-poursuit-sa-forte-dynamique_2634869"
+        }
+      ],
+      "tag": "cinéma & streaming",
+      "origine": null,
+      "note_editoriale": "Fusion de deux idées du même lot (« Netflix, nouveau cinéma ? » et « la fin des salles est-elle possible ? ») qui posaient la même question sous deux formulations. Placée en dernier de ce lot volontairement : 3 éditions déjà publiées sur le terrain cinéma/streaming en un mois (archives/2026-08-02.html « Streaming : payer plus, avoir moins ? », archives/2026-08-08.html « Le cinéma reprend des couleurs », archives/2026-08-29.html « Cinéma mondial : peut-il survivre au streaming ? ») — ne la traiter que dans plusieurs semaines, avec un vrai fait déclencheur daté (annonce d'un studio, chiffre de sortie day-and-date...) plutôt qu'une reformulation du même débat, et lien explicite obligatoire vers archives/2026-08-29.html à la rédaction",
+      "donnees_graphique": "[relevé du 2026-11-01] Fenêtre d'exploitation exclusive Netflix au cinéma (unité : jours). Roma = 23 (2018) ; The Irishman = 26 (2019) ; Marriage Story = 30 (2019) ; La Bola Negra = 47 (2026) ; Narnia = 49 (2027). Sources : https://www.vanityfair.com/hollywood/2018/10/netflix-to-screen-awards-films-in-theaters-before-streaming-them-in-bid-for-oscar-recognition ; https://www.businessinsider.com/netflix-slightly-extends-exclusive-theatrical-windows-2019-8 ; https://variety.com/2026/film/awards/netflix-la-bola-negra-47-day-theatrical-window-record-1236827063/ ; https://www.screendaily.com/news/amc-cinema-united-praise-wide-theatrical-release-window-as-netflix-pushes-narnia-to-february-2027/5216217.article",
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille du 6 novembre (robotique) sans recoupement. Registre culture déjà traité le 24 octobre (Spotify/album) et le 3 octobre (viralité organique) : sujet différent (streaming vs cinéma salle, pas algorithme musical ni viralité). Éditions cinéma récentes du 29 août (cinéma mondial/streaming) et 2 août (streaming payer plus) : lien thématique mais angle différent (45 jours fenêtre vs remplacement durable de la salle)."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Netflix a annoncé une sortie mondiale en salles de « Narnia : Le Neveu du magicien » de Greta Gerwig le 12 février 2027, première grande exploitation théâtrale mondiale de la plateforme hors France.",
+      "chiffre": null,
+      "date_du_chiffre": "2026-11-07",
+      "sources": [
+        "screen-daily-narnia"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Netflix a annoncé le 29 octobre 2026 un rapport sur sa stratégie de distribution théâtrale, indiquant une ouverture vers les salles pour certains de ses films.",
+      "chiffre": null,
+      "date_du_chiffre": "2026-11-07",
+      "sources": [
+        "variety-netflix-theatrical"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "« La Bola Negra » (2026) a bénéficié d'une fenêtre d'exploitation exclusive en salles de 47 jours, record pour un film Netflix en Amérique du Nord.",
+      "chiffre": "47 jours",
+      "date_du_chiffre": "2026-11-07",
+      "sources": [
+        "variety-bola-negra"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La chronologie des médias française impose généralement 15 mois d'exclusivité télévisuelle après la sortie en salles, ce qui décourage les sorties théâtrales de Netflix en France.",
+      "chiffre": "15 mois",
+      "date_du_chiffre": "2026-11-07",
+      "sources": [
+        "franceinfo-bola-negra"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Netflix a annoncé qu'il ne ferait pas de sortie en salles de « Narnia : Le Neveu du magicien » en France.",
+      "chiffre": null,
+      "date_du_chiffre": "2026-11-07",
+      "sources": [
+        "screen-daily-narnia-france"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La fréquentation des salles de cinéma en France a atteint 17,9 millions d'entrées sur les 11 premiers mois de 2026, en hausse par rapport à 2025.",
+      "chiffre": "17,9 millions",
+      "date_du_chiffre": "2026-11-07",
+      "sources": [
+        "cnc-entrees-2026"
+      ],
+      "confiance": "moyenne"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Netflix",
+      "role": "Plateforme de streaming, producteur et distributeur de films, défenseur d'un modèle streaming-first"
+    },
+    {
+      "nom": "Greta Gerwig",
+      "role": "Réalisatrice de « Narnia : Le Neveu du magicien », pression pour une sortie en salles"
+    },
+    {
+      "nom": "Ted Sarandos",
+      "role": "Co-CEO de Netflix, responsable de la stratégie de distribution théâtrale"
+    },
+    {
+      "nom": "CNC",
+      "role": "Centre national du cinéma et de l'image animée, organisme de régulation du secteur cinématographique français"
+    },
+    {
+      "nom": "Exploitants de salles",
+      "role": "Professionnels du cinéma qui défendent la fenêtre théâtrale exclusive"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2018-10-23",
+      "evenement": "Sortie de « Roma » de Netflix avec 23 jours de fenêtre théâtrale exclusive aux États-Unis"
+    },
+    {
+      "date": "2019-09-10",
+      "evenement": "Sortie de « The Irishman » avec 26 jours de fenêtre théâtrale exclusive"
+    },
+    {
+      "date": "2019-11-08",
+      "evenement": "Sortie de « Marriage Story » avec 30 jours de fenêtre théâtrale exclusive"
+    },
+    {
+      "date": "2026-09-15",
+      "evenement": "Sortie de « La Bola Negra » avec 47 jours de fenêtre théâtrale exclusive, record Netflix"
+    },
+    {
+      "date": "2026-10-29",
+      "evenement": "Netflix publie un rapport sur sa stratégie de distribution théâtrale"
+    },
+    {
+      "date": "2027-02-12",
+      "evenement": "Sortie mondiale en salles de « Narnia : Le Neveu du magicien » (hors France)"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Netflix généralise les sorties en salles pour ses gros films, atteignant une fenêtre de 90 jours ou plus et reconnaissant la valeur du box-office pour la notoriété et la rétention d'abonnés.",
+      "probabilite_suggeree": 25
+    },
+    "stable": {
+      "resume": "Netflix maintient un modèle hybride : sorties théâtrales occasionnelles pour quelques films événementiels (comme Narnia), mais sans changement structurel du modèle streaming-first, la plupart des films restant exclusifs au streaming.",
+      "probabilite_suggeree": 55
+    },
+    "degrade": {
+      "resume": "Les sorties en salles de Netflix restent marginales et symboliques, la chronologie des médias française et la pression des exploitants empêchant toute expansion significative, et Netflix revient à un modèle purement streaming pour la plupart de ses films.",
+      "probabilite_suggeree": 20
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Fenêtre théâtrale exclusive Netflix (record)",
+      "valeur": "47 jours",
+      "tendance": "En hausse (Roma 23j en 2018 → La Bola Negra 47j en 2026)"
+    },
+    {
+      "label": "Entrées cinéma France (11 premiers mois 2026)",
+      "valeur": "17,9 millions",
+      "tendance": "En hausse vs 2025"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "La série de fenêtres théâtrales Netflix (Roma 23j, Irishman 26j, Marriage Story 30j, La Bola Negra 47j, Narnia 49j) ne comporte que 5 points sur 9 ans, trop peu pour un graphique en escalier significatif. La source Vanity Fair 2018 ne couvre pas la période complète. Critère (2) non satisfait : moins de 5 points réels sur une période longue.",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "oui",
+    "raison": "5 chiffres réels comparables (jours de fenêtre théâtrale exclusive Netflix) existent dans les sources vérifiées, tous en jours, permettant une comparaison visuelle.",
+    "barres": {
+      "aria_label": "Graphique des fenêtres d'exploitation exclusive en salles des films Netflix",
+      "lead": "Évolution de la fenêtre théâtrale exclusive accordée par Netflix à ses films les plus notables :",
+      "caption": "Sources : Vanity Fair (2018), Business Insider (2019), Variety (2026), Screen Daily (2026)",
+      "unite": "jours",
+      "valeurs": [
+        {
+          "label": "Roma (2018)",
+          "valeur": 23,
+          "affichage": "23 jours",
+          "mis_en_avant": false
+        },
+        {
+          "label": "The Irishman (2019)",
+          "valeur": 26,
+          "affichage": "26 jours",
+          "mis_en_avant": false
+        },
+        {
+          "label": "Marriage Story (2019)",
+          "valeur": 30,
+          "affichage": "30 jours",
+          "mis_en_avant": false
+        },
+        {
+          "label": "La Bola Negra (2026)",
+          "valeur": 47,
+          "affichage": "47 jours",
+          "mis_en_avant": true
+        },
+        {
+          "label": "Narnia (2027)",
+          "valeur": 49,
+          "affichage": "49 jours",
+          "mis_en_avant": false
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "La chronologie des médias française et son impact sur les sorties Netflix en salles",
+        "rattache_a": "fait chronologie-medias-france"
+      },
+      {
+        "focus": "Le modèle streaming-first de Netflix et la tension entre box-office et rétention d'abonnés",
+        "rattache_a": "fait netflix-streaming-first"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Les résultats box-office exacts de « Narnia : Le Neveu du magicien » ne sont pas encore connus (sortie prévue le 12 février 2027) ; les chiffres de précommande ou de tracking éventuels ne sont pas disponibles au moment du brief.",
+    "Le contenu exact du rapport Netflix sur sa stratégie théâtrale (annoncé le 29 octobre 2026) n'a pas été entièrement détaillé dans les sources consultées ; seules les grandes lignes sont confirmées."
+  ],
+  "a_ne_pas_affirmer": [
+    "Netflix abandonnera définitivement le modèle streaming-first pour tous ses films (aucune annonce officielle ne le confirme).",
+    "La sortie en salles de Narnia en février 2027 sera un succès commercial garanti (les résultats box-office ne sont pas encore connus).",
+    "La chronologie des médias française changera avant 2027 (aucune réforme n'est actuellement annoncée)."
+  ],
+  "sources": [
+    {
+      "id": "screen-daily-narnia",
+      "title": "Netflix to skip theatrical release for 'Narnia: The Magician's Nephew' in France",
+      "source": "Screen Daily",
+      "url": "https://www.screendaily.com/news/netflix-to-skip-theatrical-release-for-narnia-the-magicians-nephew-in-france/5218361.article",
+      "image": null,
+      "lang": "en",
+      "domain": "culture-divertissement",
+      "summary": "Netflix a annoncé qu'il ne ferait pas de sortie en salles de « Narnia : Le Neveu du magicien » en France, tout en maintenant une sortie mondiale en salles le 12 février 2027 dans d'autres pays.",
+      "read_minutes": 2
+    },
+    {
+      "id": "screen-daily-narnia-france",
+      "title": "AMC Cinema United praise wide theatrical release window as Netflix pushes Narnia to February 2027",
+      "source": "Screen Daily",
+      "url": "https://www.screendaily.com/news/amc-cinema-united-praise-wide-theatrical-release-window-as-netflix-pushes-narnia-to-february-2027/5216217.article",
+      "image": null,
+      "lang": "en",
+      "domain": "culture-divertissement",
+      "summary": "Les salles américaines ont salué l'extension de la fenêtre théâtrale pour Narnia, avec une sortie prévue le 12 février 2027, marquant un changement par rapport aux fenêtres courtes précédentes de Netflix.",
+      "read_minutes": 2
+    },
+    {
+      "id": "variety-netflix-theatrical",
+      "title": "Netflix Movies Get Cozier With Theatrical Distribution",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/netflix-report-box-office-theatrical-releases-1236854834/",
+      "image": null,
+      "lang": "en",
+      "domain": "culture-divertissement",
+      "summary": "Netflix a publié un rapport en octobre 2026 indiquant une ouverture vers une distribution théâtrale plus large pour certains de ses films, reconnaissant la valeur du box-office pour la notoriété des films et la rétention d'abonnés.",
+      "read_minutes": 3
+    },
+    {
+      "id": "variety-bola-negra",
+      "title": "Netflix's 'La Bola Negra' Gets Record 47-Day Theatrical Window",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/awards/netflix-la-bola-negra-47-day-theatrical-window-record-1236827063/",
+      "image": null,
+      "lang": "en",
+      "domain": "culture-divertissement",
+      "summary": "« La Bola Negra » (2026) bénéficie d'une fenêtre d'exploitation exclusive en salles de 47 jours, le record pour un film Netflix en Amérique du Nord, dépassant les fenêtres précédentes de Roma (23j), The Irishman (26j) et Marriage Story (30j).",
+      "read_minutes": 2
+    },
+    {
+      "id": "franceinfo-bola-negra",
+      "title": "« La bola negra » bénéficiera de la plus longue fenêtre d'exploitation au cinéma pour un film Netflix en Amérique du Nord",
+      "source": "franceinfo",
+      "url": "https://www.franceinfo.fr/culture/cinema/la-bola-negra-beneficiera-de-la-plus-longue-fenetre-d-exploitation-au-cinema-pour-un-film-netflix-en-amerique-du-nord_8142113.html",
+      "image": null,
+      "lang": "fr",
+      "domain": "culture-divertissement",
+      "summary": "La chronologie des médias française impose 15 mois d'exclusivité télévisuelle après la sortie en salles, ce qui décourage les sorties théâtrales de Netflix en France. La fenêtre de 47 jours de La Bola Negra est un record mais reste limitée aux marchés hors France.",
+      "read_minutes": 2
+    },
+    {
+      "id": "cnc-entrees-2026",
+      "title": "Avec près de 18 millions d'entrées, la fréquentation des salles de cinéma poursuit sa forte dynamique",
+      "source": "CNC",
+      "url": "https://www.cnc.fr/professionnels/communiques-de-presse/avec-pres-de-18-millions-dentrees-la-frequentation-des-salles-de-cinema-poursuit-sa-forte-dynamique_2634869",
+      "image": null,
+      "lang": "fr",
+      "domain": "culture-divertissement",
+      "summary": "La fréquentation des salles de cinéma en France a atteint environ 17,9 millions d'entrées sur les 11 premiers mois de 2026, en hausse par rapport à la même période en 2025, confirmant la dynamique de rebond après la chute de 2025.",
+      "read_minutes": 2
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "Netflix to skip theatrical release for 'Narnia: The Magician's Nephew' in France",
+      "source": "Screen Daily",
+      "url": "https://www.screendaily.com/news/netflix-to-skip-theatrical-release-for-narnia-the-magicians-nephew-in-france/5218361.article",
+      "image": null,
+      "lang": "en",
+      "domain": "culture-divertissement",
+      "summary": "Netflix confirme qu'il ne fera pas sortir Narnia en salles en France, malgré une sortie mondiale prévue le 12 février 2027 dans d'autres pays.",
+      "read_minutes": 2
+    },
+    {
+      "title": "Netflix Movies Get Cozier With Theatrical Distribution",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/netflix-report-box-office-theatrical-releases-1236854834/",
+      "image": null,
+      "lang": "en",
+      "domain": "culture-divertissement",
+      "summary": "Le rapport Netflix de octobre 2026 montre une ouverture vers la distribution théâtrale, avec une reconnaissance de la valeur du box-office pour la stratégie de la plateforme.",
+      "read_minutes": 3
+    },
+    {
+      "title": "AMC Cinema United praise wide theatrical release window as Netflix pushes Narnia to February 2027",
+      "source": "Screen Daily",
+      "url": "https://www.screendaily.com/news/amc-cinema-united-praise-wide-theatrical-release-window-as-netflix-pushes-narnia-to-february-2027/5216217.article",
+      "image": null,
+      "lang": "en",
+      "domain": "culture-divertissement",
+      "summary": "Les salles américaines saluent l'extension de la fenêtre théâtrale pour Narnia, un changement significatif dans la stratégie de distribution de Netflix.",
+      "read_minutes": 2
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-08-29",
+      "titre": "Cinéma mondial : peut-il survivre au streaming ?",
+      "lien": "Même débat sur la coexistence entre cinéma en salles et streaming, avec la règle des 45 jours d'exclusivité théâtrale adoptée par les studios."
+    },
+    {
+      "date": "2026-08-08",
+      "titre": "Le cinéma reprend des couleurs, où en est-on ?",
+      "lien": "Contexte français : rebond de la fréquentation des salles en 2026, enjeu pour les exploitants qui défendent la fenêtre théâtrale."
+    },
+    {
+      "date": "2026-08-02",
+      "titre": "Streaming : payer plus, avoir moins ?",
+      "lien": "Modèle économique du streaming et saturation de l'offre, contexte de la stratégie Netflix entre streaming-first et distribution théâtrale."
+    }
+  ],
+  "recommandations_redaction": [
+    "Lien explicite vers archives/2026-08-29.html (cinéma mondial/streaming) : rappeler que la règle des 45 jours a été adoptée par les studios en 2026, et comparer avec l'approche Netflix qui reste en-deçà de cette norme.",
+    "Mettre en perspective la chronologie des médias française (15 mois) avec les fenêtres Netflix (23-49 jours) pour expliquer pourquoi Netflix ne sort pas en salles en France.",
+    "Préciser que Narnia est le premier test grandeur nature d'une large exploitation Netflix hors France, et que les résultats box-office de février 2027 seront déterminants pour la stratégie future."
+  ]
+}
