@@ -2,6 +2,41 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-11-06",
+      "articles": [
+        {
+          "title": "Robots domestiques : où en est-on vraiment ?",
+          "source": "JournalduNet",
+          "url": "https://www.journaldunet.com/intelligence-artificielle/1554029-robotique-domestique-ou-en-est-on-vraiment/",
+          "image": "https://img-0.journaldunet.com/raaeimLPKyZo5A_hmTurSG887kw=/1500x/smart/b0149ea2dca64ed9bd114676a04bc625/ccmcms-jdn/39543018.png",
+          "lang": "fr",
+          "domain": "sciences",
+          "summary": "Article de synthèse sur l'état de la robotique domestique en 2026 : marché, acteurs, barrières à l'adoption.",
+          "read_minutes": 5
+        },
+        {
+          "title": "1X NEO Home Robot - Order Today",
+          "source": "1X Technologies",
+          "url": "https://www.1x.tech/discover/neo-home-robot",
+          "image": "https://cdn.sanity.io/images/qka6yvsc/production/fdda789a2e7c6caa9a798dd920b8a0acb254ea9d-1200x630.jpg?fit=max&auto=format",
+          "lang": "en",
+          "domain": "sciences",
+          "summary": "Page officielle du robot NEO : précommandes, prix, livraisons annoncées.",
+          "read_minutes": 2
+        },
+        {
+          "title": "Figure Helix 2.5: Zero-Shot 30-Home Generalization",
+          "source": "Figure AI",
+          "url": "https://www.figure.ai/news/helix-2-5-zero-shot-30-home-generalization",
+          "image": "https://images.ctfassets.net/qx5k8y1u9drj/4CPKQKu184BLNmPpAgHKuM/04ae48b4a30aaf37bd65a411f2372ef6/OPEN_GRAPH_IMAGE_helix_2.5.jpg",
+          "lang": "en",
+          "domain": "sciences",
+          "summary": "Annonce de la généralisation zéro-shot de Helix 2.5 dans 30 foyers américains.",
+          "read_minutes": 3
+        }
+      ]
+    },
+    {
       "date": "2026-11-05",
       "articles": [
         {
