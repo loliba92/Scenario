@@ -2,6 +2,41 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-11-07",
+      "articles": [
+        {
+          "title": "Netflix to skip theatrical release for 'Narnia: The Magician's Nephew' in France",
+          "source": "Screen Daily",
+          "url": "https://www.screendaily.com/news/netflix-to-skip-theatrical-release-for-narnia-the-magicians-nephew-in-france/5218361.article",
+          "image": "https://d1nslcd7m2225b.cloudfront.net/Pictures/1024x536/7/7/2/1482772_221119a_0150_592460_crop.jpg",
+          "lang": "en",
+          "domain": "culture-divertissement",
+          "summary": "Netflix confirme qu'il ne fera pas sortir Narnia en salles en France, malgré une sortie mondiale prévue le 12 février 2027 dans d'autres pays.",
+          "read_minutes": 2
+        },
+        {
+          "title": "Netflix Movies Get Cozier With Theatrical Distribution",
+          "source": "Variety",
+          "url": "https://variety.com/2026/film/news/netflix-report-box-office-theatrical-releases-1236854834/",
+          "image": "https://variety.com/wp-content/uploads/2025/12/Ted-Sarandos.jpg?crop=0px%2C523px%2C1920px%2C1078px&resize=1000%2C563",
+          "lang": "en",
+          "domain": "culture-divertissement",
+          "summary": "Le rapport Netflix de octobre 2026 montre une ouverture vers la distribution théâtrale, avec une reconnaissance de la valeur du box-office pour la stratégie de la plateforme.",
+          "read_minutes": 3
+        },
+        {
+          "title": "AMC Cinema United praise wide theatrical release window as Netflix pushes Narnia to February 2027",
+          "source": "Screen Daily",
+          "url": "https://www.screendaily.com/news/amc-cinema-united-praise-wide-theatrical-release-window-as-netflix-pushes-narnia-to-february-2027/5216217.article",
+          "image": "https://d1nslcd7m2225b.cloudfront.net/Pictures/1024x536/8/9/0/1477890_221119a_0150_592460_crop.jpg",
+          "lang": "en",
+          "domain": "culture-divertissement",
+          "summary": "Les salles américaines saluent l'extension de la fenêtre théâtrale pour Narnia, un changement significatif dans la stratégie de distribution de Netflix.",
+          "read_minutes": 2
+        }
+      ]
+    },
+    {
       "date": "2026-11-06",
       "articles": [
         {

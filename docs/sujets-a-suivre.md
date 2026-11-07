@@ -192,6 +192,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 07.11.2026 — [Netflix : le nouveau cinéma mondial ?](../archives/2026-11-07.html)
 - 06.11.2026 — [Robotique : les robots vont-ils vraiment entrer dans notre quotidien ?](../archives/2026-11-06.html)
 - 05.11.2026 — [Assureurs européens : les ratios de solvabilité vont-ils se dégrader ?](../archives/2026-11-05.html)
 - 04.11.2026 — [Facturation électronique : les entreprises prêtes pour l'échéance de décembre ?](../archives/2026-11-04.html)
