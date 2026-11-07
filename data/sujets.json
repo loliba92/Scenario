@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "7bae5fa0d0bb8538250f0c1c99cbe4c18b07a7478a74a6531ac3bad8b8382568"
+    "md_sha256": "2b3fa60505010e47acd47e1a2840ee04bad2dc6aa879de0890e6eaa9d8d66c64"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -4919,7 +4919,7 @@
           "titre": "Netflix peut-il devenir le nouveau cinéma ?",
           "question": null,
           "tag": "cinéma & streaming",
-          "statut": "a_traiter",
+          "statut": "publie",
           "validation": "valide",
           "contexte": "À quel moment les plateformes pourraient-elles décider qu'elles n'ont plus besoin des salles pour lancer leurs plus gros films ?",
           "rationnel": "La question : Netflix peut-il devenir le nouveau cinéma en remplaçant durablement la salle comme lieu de lancement de ses gros films, notamment en vue de la sortie mondiale en salles de « Narnia : Le Neveu du magicien » prévue le 12 février 2027 ? L'issue est ouverte car trois forces s'opposent : la pression des réalisateurs (Gerwig, Fincher) et des exploitants pour de vraies sorties en salles ; la chronologie des médias française qui désincite l'exploitation en salles ; et le modèle streaming‑first de Netflix qui privilégie la rétention d'abonnés plutôt que le box‑office. Pour un lecteur français, l'enjeu concret est de savoir si les grands films Netflix seront un jour visibles dans les salles près de chez lui ou si la France restera exclue des sorties événementielles de la plateforme.",
@@ -4960,8 +4960,8 @@
           "note": "Fusion de deux idées du même lot (« Netflix, nouveau cinéma ? » et « la fin des salles est-elle possible ? ») qui posaient la même question sous deux formulations. Placée en dernier de ce lot volontairement : 3 éditions déjà publiées sur le terrain cinéma/streaming en un mois (archives/2026-08-02.html « Streaming : payer plus, avoir moins ? », archives/2026-08-08.html « Le cinéma reprend des couleurs », archives/2026-08-29.html « Cinéma mondial : peut-il survivre au streaming ? ») — ne la traiter que dans plusieurs semaines, avec un vrai fait déclencheur daté (annonce d'un studio, chiffre de sortie day-and-date...) plutôt qu'une reformulation du même débat, et lien explicite obligatoire vers archives/2026-08-29.html à la rédaction",
           "donnees": "[relevé du 2026-11-01] Fenêtre d'exploitation exclusive Netflix au cinéma (unité : jours). Roma = 23 (2018) ; The Irishman = 26 (2019) ; Marriage Story = 30 (2019) ; La Bola Negra = 47 (2026) ; Narnia = 49 (2027). Sources : https://www.vanityfair.com/hollywood/2018/10/netflix-to-screen-awards-films-in-theaters-before-streaming-them-in-bid-for-oscar-recognition ; https://www.businessinsider.com/netflix-slightly-extends-exclusive-theatrical-windows-2019-8 ; https://variety.com/2026/film/awards/netflix-la-bola-negra-47-day-theatrical-window-record-1236827063/ ; https://www.screendaily.com/news/amc-cinema-united-praise-wide-theatrical-release-window-as-netflix-pushes-narnia-to-february-2027/5216217.article",
           "ajoute_le": null,
-          "publie_le": null,
-          "edition": null,
+          "publie_le": "2026-11-07",
+          "edition": "2026-11-07",
           "enrichi_le": "2026-11-01"
         },
         {

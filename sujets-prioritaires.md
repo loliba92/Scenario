@@ -938,7 +938,7 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
   <!-- sources: Cinéma français : la chute des entrées s'accélère -->
   <!-- origine: veille -->
   <!-- note: Ajouté automatiquement le 2026-11-02 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
-- [ ] Netflix peut-il devenir le nouveau cinéma ? [cinéma & streaming]
+- [x] Netflix peut-il devenir le nouveau cinéma ? [cinéma & streaming]
   <!-- id: culture-netflix-peut-il-devenir-le-nouveau-cinema -->
   <!-- contexte: À quel moment les plateformes pourraient-elles décider qu'elles n'ont plus besoin des salles pour lancer leurs plus gros films ? -->
   <!-- rationnel: La question : Netflix peut-il devenir le nouveau cinéma en remplaçant durablement la salle comme lieu de lancement de ses gros films, notamment en vue de la sortie mondiale en salles de « Narnia : Le Neveu du magicien » prévue le 12 février 2027 ? L'issue est ouverte car trois forces s'opposent : la pression des réalisateurs (Gerwig, Fincher) et des exploitants pour de vraies sorties en salles ; la chronologie des médias française qui désincite l'exploitation en salles ; et le modèle streaming‑first de Netflix qui privilégie la rétention d'abonnés plutôt que le box‑office. Pour un lecteur français, l'enjeu concret est de savoir si les grands films Netflix seront un jour visibles dans les salles près de chez lui ou si la France restera exclue des sorties événementielles de la plateforme. -->
