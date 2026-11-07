@@ -1,0 +1,152 @@
+{
+  "h1": "Sport : peut-il rester humain face à l'IA et aux données ?",
+  "question_text": "Le sport professionnel peut-il rester humain face à l'optimisation par l'IA et aux données biométriques ?",
+  "section_title": "Trois trajectoires pour l'avenir de l'athlète face aux algorithmes",
+  "dek": [
+    "Dans les coulisses du sport de très haut niveau, une transformation invisible mais radicale s'accélère. Les champions ne s'entraînent plus seulement au chronomètre ou au ressenti avec leur entraîneur. Ils sont désormais équipés d'une multitude de capteurs miniaturisés qui enregistrent en direct leurs battements de cœur, la puissance développée sur leurs pédales, leur température corporelle et même la qualité de leur sommeil. Ces mesures physiologiques continues alimentent des programmes informatiques capables de repérer la moindre fatigue avant même qu'elle ne soit ressentie par le corps. L'enjeu n'est plus seulement de s'entraîner plus dur, mais de calibrer chaque effort à la seconde près. Cette quête de précision mathématique soulève une interrogation fondamentale : jusqu'où peut-on numériser le corps d'un sportif sans effacer sa part humaine d'instinct, d'aléa et d'émotion ?",
+    "L'utilisation concrète de ces technologies a franchi un cap lors du Tour de France 2026 au sein de la prestigieuse formation UAE Team Emirates, qui accompagne le champion slovène Tadej Pogacar. Son directeur de la performance, Jeroen Swart, a révélé compiler en permanence la variabilité de la fréquence cardiaque<a class=\"lex-ref\" href=\"#lex-variabilite-cardiaque\" aria-label=\"Voir la définition dans le lexique\">*</a>, les signaux des capteurs de puissance et les ressentis subjectifs des coureurs dans une plateforme centrale d'intelligence artificielle. Alors que la rédaction manuelle d'un bilan physique personnalisé prenait autrefois plusieurs jours de travail intensif à une équipe médicale, les algorithmes génèrent aujourd'hui <strong>40 bilans en une heure</strong>. Ces outils calculent précisément la charge de travail optimale pour chaque étape, ajustant les séances d'entraînement au millimètre pour maximiser la récupération et les gains athlétiques.",
+    "Cette irruption technologique permet des gains mesurables qui transforment la compétition de haut niveau dans de nombreuses disciplines. Les différentes études récentes indiquent une <strong>amélioration de performance documentée de 15 % à 20 %</strong> grâce à ce suivi algorithmique. Les mesures montrent par exemple des progrès de 15,2 % dans le cyclisme sur piste, de 18,7 % avec les objets connectés de dernière génération et jusqu'à 20,3 % dans l'analyse gestuelle appliquée au ski de compétition. Cependant, cette efficacité redoutable crée une asymétrie croissante entre les équipes fortunées capables de financer ces infrastructures logicielles et les structures plus modestes. L'aléa sportif, qui faisait la beauté de la compétition, tend à s'effacer devant une équation où la victoire dépend de la puissance de calcul des serveurs informatiques.",
+    "Face à cette collecte massive d'informations corporelles, les autorités de régulation commencent à poser des limites strictes. En France, la Commission nationale de l'informatique et des libertés, la CNIL, a publié une recommandation officielle sur la collecte des données biométriques<a class=\"lex-ref\" href=\"#lex-donnees-biometriques\" aria-label=\"Voir la définition dans le lexique\">*</a> des sportifs. L'autorité rappelle avec fermeté que le port d'un capteur doit toujours reposer sur l'accord libre de l'athlète et respecter le principe de minimisation des données<a class=\"lex-ref\" href=\"#lex-minimisation-des-donnees\" aria-label=\"Voir la définition dans le lexique\">*</a>. Concrètement, un club n'a le droit de recueillir que les paramètres strictement nécessaires à l'exercice physique, sans transformer la vie privée du sportif en laboratoire permanent. De plus, ces données de santé récoltées pour l'entraînement ne peuvent en aucun cas être détournées pour la lutte antidopage ou des sanctions disciplinaires.",
+    "À l'échelle continentale, le cadre juridique se renforce également avec le règlement européen sur l'intelligence artificielle, l'AI Act<a class=\"lex-ref\" href=\"#lex-ai-act\" aria-label=\"Voir la définition dans le lexique\">*</a>, adopté en 2024 et dont l'application s'étend progressivement jusqu'en 2026. Ce texte classe les systèmes d'intelligence artificielle par niveau de risque et impose des contrôles sévères pour les applications jugées à risque élevé, notamment celles qui évaluent les comportements humains ou influencent l'accès à un emploi. Dans le sport professionnel, des syndicats de joueurs comme la FIFPRO s'inquiètent de l'usage managérial de ces algorithmes : un club pourrait-il refuser une prolongation de contrat ou réduire un salaire en se basant uniquement sur un score statistique prédisant un risque de blessure future ? La frontière entre aide médicale et surveillance abusive devient particulièrement floue.",
+    "L'avenir du sport de haut niveau se trouve ainsi à la croisée des chemins entre perfectionnement technique et préservation de l'humain. D'un côté, l'optimisation par les algorithmes promet de réduire les risques de blessures graves, de prolonger les carrières et d'offrir des spectacles d'une intensité physique inégalée. De l'autre, elle menace de réduire l'athlète à une simple machine biologique monitorée 24 heures sur 24, exécutant des stratégies conçues par des ordinateurs plutôt que par son intuition. Le sport professionnel saura-t-il encadrer ces technologies pour préserver la part de doute et d'émotion qui fait vibrer le public ? Pour éclairer cette incertitude majeure, notre rédaction analyse trois scénarios prospectifs sur la place accordée aux algorithmes dans les stades de demain."
+  ],
+  "enjeu_en_clair": {
+    "lead": "Les capteurs et l'intelligence artificielle mesurent chaque battement de cœur des athlètes pour optimiser leurs résultats, au risque de transformer le sport en concours d'algorithmes.",
+    "text": "Dans le sport d'élite, des logiciels analysent désormais en continu la fatigue et les constantes physiques des champions pour dicter leur entraînement. Le débat oppose l'optimisation médicale légitime à une surveillance permanente qui prive l'athlète de son autonomie. Pour le grand public, l'enjeu touche à la magie même du spectacle sportif, qui perdrait son intérêt si les machines programmaient entièrement les performances."
+  },
+  "stakes_branches": {
+    "favorable": "L'IA demeure un simple conseiller médical strictement encadré, protégeant la santé du sportif et laissant le génie humain décider du résultat.",
+    "stable": "Les technologies s'installent progressivement sans règles claires, créant une surveillance quotidienne acceptée par habitude dans les grands clubs.",
+    "degrade": "L'athlète devient un système vivant entièrement piloté par des algorithmes, où la stratégie et les contrats dépendent uniquement des capteurs."
+  },
+  "comprendre_box": [
+    {
+      "lead": "La surveillance biométrique permanente transforme le corps en flux continu d'informations numériques.",
+      "text": "Imaginez qu'un capteur fixé sous votre peau transmette en temps réel à votre employeur votre rythme cardiaque, vos heures de sommeil et votre niveau de stress. Dans le sport professionnel, cette collecte dépasse largement le cadre des séances d'entraînement : les algorithmes analysent la récupération nocturne et la vie privée pour prédire les performances sur le terrain.",
+      "apres_dek_index": 1
+    },
+    {
+      "lead": "Le cadre juridique européen cherche à tracer une ligne rouge entre mesure sportive et intrusion intime.",
+      "text": "Le droit européen et la CNIL imposent que les données de santé appartiennent avant tout à la personne qui les produit. Dans un vestiaire, cela signifie qu'un entraîneur ne peut pas forcer un joueur à porter un traceur GPS chez lui, ni utiliser ses données cardiaques pour justifier une baisse de salaire sans contrôle éthique.",
+      "apres_dek_index": 4
+    }
+  ],
+  "list_box": null,
+  "indicators": [
+    {
+      "label": "Amélioration de performance documentée avec l'IA",
+      "value": "15 % à 20 %",
+      "delta": "selon les disciplines (cyclisme, ski, capteurs connectés en 2026)"
+    }
+  ],
+  "cards": {
+    "favorable": {
+      "pct": 35,
+      "gauge_word": "Probable",
+      "h3": "L'IA reste un outil d'assistance médicale encadré par des règles éthiques strictes",
+      "why": [
+        "Dans ce premier scénario, les instances internationales et les ligues professionnelles établissent des chartes éthiques contraignantes en s'appuyant sur les recommandations de la CNIL et les obligations de l'AI Act. L'intelligence artificielle est cantonnée à un rôle d'aide à la décision médicale et d'optimisation préventive pour éviter le surentraînement et les blessures musculaires. L'athlète conserve la propriété totale de ses paramètres physiologiques et peut refuser à tout moment le partage de ses données intimes sans risquer de sanction sportive ou financière. Pendant les compétitions officielles, les oreillettes connectées à des modèles d'analyse prédictive en temps réel sont interdites afin de préserver l'incertitude tactique, l'audace individuelle et le sens de l'exploit spontané qui passionnent les spectateurs.",
+        "Ce scénario équilibré à 35 % de probabilité s'impose comme une alternative protectrice face au risque de dérive technologique, mais il exige une volonté politique forte que les deux autres scénarios jugent compromise par les intérêts économiques. Contrairement à la banalisation d'une surveillance continue ou à l'automatisation totale des décisions tactiques, cette trajectoire garantit que la créativité et le talent brut priment sur les modèles mathématiques. Les clubs continuent de valoriser l'intelligence de jeu et la relation humaine entre le coach et son joueur. Si les fédérations harmonisent rapidement leurs règles sous la pression des syndicats de sportifs, ce modèle d'innovation éthique pourrait durablement protéger l'esprit du sport professionnel."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Amélioration de performance documentée avec l'IA",
+          "evo_current": "10 % à 15 %",
+          "evo_arrow": "flat",
+          "evo_prev": "15 % à 20 % actuellement sans garde-fous stricts"
+        }
+      ],
+      "france_line": "Les centres de formation et clubs français bénéficient d'un cadre juridique protecteur valorisant la santé des jeunes athlètes.",
+      "france_impact": "favorable"
+    },
+    "stable": {
+      "pct": 45,
+      "gauge_word": "Probable",
+      "h3": "La surveillance biométrique se banalise progressivement sans débat public structuré",
+      "why": [
+        "Dans ce deuxième scénario, qui représente l'issue la plus probable avec 45 % de probabilité selon notre évaluation, les technologies d'optimisation continuent de se diffuser rapidement dans le sport de haut niveau sans véritable régulation globale. Les athlètes acceptent tacitement de porter des capteurs de plus en plus intrusifs pour rester compétitifs face à la concurrence internationale, craignant d'être écartés s'ils refusent la collecte de leurs signaux vitaux. Les équipes les plus fortunées multiplient les partenariats avec les géants de la tech pour analyser le sommeil, la nutrition et le métabolisme de leurs champions. Les règles de la CNIL et de l'AI Act sont appliquées de manière minimale ou contournées via des clauses de consentement standardisées insérées directement dans les contrats de travail.",
+        "Cette trajectoire médiane se distingue nettement d'une régulation éthique stricte (35 %) comme d'un basculement dystopique immédiat (20 %) : elle progresse par petits compromis successifs et silencieux. Les gains de performance chiffrés entre 15 % et 20 % deviennent la norme d'évaluation standard imposée par les préparateurs physiques. Les sportifs s'habituent à être monitorés en permanence, considérant cette surveillance corporelle comme une simple contrepartie normale de leurs rémunérations élevées. Si aucune contestation majeure n'émerge des vestiaires ou des instances sportives, cette dynamique d'optimisation feutrée glisserait vers une dépendance algorithmique irréversible où le ressenti personnel de l'athlète perdrait toute valeur face aux données chiffrées."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Amélioration de performance documentée avec l'IA",
+          "evo_current": "15 % à 20 %",
+          "evo_arrow": "up",
+          "evo_prev": "généralisation du standard actuel dans tous les grands clubs"
+        }
+      ],
+      "france_line": "Les athlètes français s'alignent sur les standards de surveillance imposés par les championnats étrangers les plus riches.",
+      "france_impact": "degrade"
+    },
+    "degrade": {
+      "pct": 20,
+      "gauge_word": "Peu probable",
+      "h3": "L'athlète est réduit à un système biologique entièrement piloté par des algorithmes",
+      "why": [
+        "Dans ce troisième scénario, la recherche absolue du rendement financier et de la victoire transforme les sportifs professionnels en simples exécutants d'algorithmes prédictifs. La surveillance biométrique s'exerce 24 heures sur 24 par le biais d'implants sous-cutanés et de textiles connectés obligatoires mesurant en permanence le rythme cardiaque, l'oxygénation et le stress nerveux. Les compositions d'équipe, les remplacements en plein match et les prolongations de contrat sont dictés par des logiciels d'intelligence artificielle évaluant les risques de panne physique ou de méforme statistique. L'intuition de l'entraîneur et la spontanéité du joueur sont totalement marginalisées au profit de plans de jeu millimétrés calculés par des ordinateurs distants qui réduisent l'aléa sportif à néant.",
+        "Bien qu'évalué à 20 % de probabilité en raison des barrières légales européennes, ce scénario d'hyper-technologisation montre ce qui se produirait si la logique marchande l'emportait totalement sur l'éthique sportive. Contrairement au scénario stable où subsiste une marge de liberté individuelle, l'athlète devient ici un pur actif financier coté et optimisé comme une machine industrielle. Cette dérive risque de détourner les passionnés, lassés par des confrontations prévisibles et standardisées où le génie imprévisible des champions a disparu. Si les ligues privées mondiales s'affranchissent des régulateurs publics, le sport de compétition pourrait ainsi perdre son essence humaine pour se muer en un affrontement technologique entre ingénieurs de données."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Amélioration de performance documentée avec l'IA",
+          "evo_current": "plus de 25 %",
+          "evo_arrow": "up",
+          "evo_prev": "hausse artificielle au détriment de l'autonomie et de la santé mentale"
+        }
+      ],
+      "france_line": "Perte d'attractivité du modèle sportif français face aux ligues mondiales dérégulées et déshumanisées.",
+      "france_impact": "degrade"
+    }
+  },
+  "essentiel_box": [
+    "La question posée est de savoir si le sport professionnel peut préserver sa dimension humaine face à la généralisation de l'intelligence artificielle et du suivi biométrique permanent.",
+    "Les équipes d'élite utilisent déjà des capteurs corporels et l'IA pour générer 40 bilans physiologiques en une heure, apportant des gains de performance documentés de 15 % à 20 %.",
+    "Non, le sport ne restera pas pleinement humain sans règles strictes : notre scénario le plus probable (45 %) voit la surveillance biométrique s'installer par habitude dans les vestiaires, tandis que deux autres scénarios envisagent un encadrement éthique protecteur (35 %) ou une déshumanisation algorithmique totale (20 %).",
+    "Le signal à surveiller concerne la mise en conformité des clubs sportifs avec le règlement européen AI Act et les premières décisions de la CNIL sur les contrats de joueurs d'ici la fin 2026."
+  ],
+  "delta_france": {
+    "kind": "negatif",
+    "score": -0.3,
+    "word": "léger négatif",
+    "text": "la probabilité cumulée de 65 % en faveur d'une surveillance biométrique accrue (45 % en scénario stable et 20 % en scénario dégradé) fragilise les droits des sportifs et le modèle éthique français."
+  },
+  "phrase_a_retenir": "L'intelligence artificielle permet d'améliorer les performances sportives de 15 % à 20 %, mais pose la question du respect de la vie privée des athlètes face à la surveillance permanente.",
+  "phrase_a_retenir_stat": "15 % à 20 %",
+  "lexique": [
+    {
+      "slug": "donnees-biometriques",
+      "terme": "données biométriques",
+      "definition": "Informations numériques relatives aux caractéristiques physiques, physiologiques ou comportementales d'une personne, comme le rythme cardiaque ou la température, bénéficiant d'une protection juridique renforcée."
+    },
+    {
+      "slug": "ai-act",
+      "terme": "AI Act",
+      "definition": "Règlement européen adopté en 2024 qui encadre le développement et l'usage des systèmes d'intelligence artificielle en imposant des obligations de transparence selon le niveau de risque des applications."
+    },
+    {
+      "slug": "minimisation-des-donnees",
+      "terme": "minimisation des données",
+      "definition": "Principe fondamental du RGPD exigeant qu'un organisme ne collecte et ne traite que les informations strictement nécessaires et pertinentes par rapport à l'objectif précis annoncé à l'utilisateur."
+    },
+    {
+      "slug": "variabilite-cardiaque",
+      "terme": "variabilité de la fréquence cardiaque",
+      "definition": "Mesure scientifique des variations d'intervalles entre deux battements de cœur consécutifs, utilisée par les préparateurs physiques pour évaluer avec précision le niveau de fatigue du système nerveux."
+    }
+  ],
+  "sources_html": [
+    "<a href=\"https://www.ladepeche.fr/2026/07/02/tour-de-france-2026-cest-une-revolution-comment-lequipe-de-tadej-pogacar-utilise-lintelligence-artificielle-pour-ameliorer-ses-performances-13449444.php\" target=\"_blank\" rel=\"noopener noreferrer\">La Dépêche du Midi — Tour de France 2026 : comment l'équipe de Tadej Pogacar utilise l'IA pour améliorer ses performances ↗</a>",
+    "<a href=\"https://www.cnil.fr/fr/la-collecte-de-donnees-pour-la-mesure-de-la-performance-physique-individuelle-des-sportifs-de-haut\" target=\"_blank\" rel=\"noopener noreferrer\">CNIL — La CNIL sur la collecte de données pour la mesure de la performance physique des sportifs ↗</a>",
+    "<a href=\"https://artificialintelligenceact.eu/\" target=\"_blank\" rel=\"noopener noreferrer\">Union européenne — Règlement européen sur l'intelligence artificielle (AI Act) ↗</a>"
+  ],
+  "meta": {
+    "title": "Sport : peut-il rester humain face à l'IA et aux données ? — Scénario",
+    "meta_description": "Sport : peut-il rester humain face à l'IA et aux données ? 3 scénarios prospectifs pour 2030.",
+    "og_image_alt": "Un athlète s'entraînant avec des capteurs connectés et des analyses de données de performance",
+    "keywords": [
+      "Sport"
+    ],
+    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-11-08.html\"\n  },\n  \"headline\": \"Sport : peut-il rester humain face à l'IA et aux données ? — Scénario\",\n  \"description\": \"Sport : peut-il rester humain face à l'IA et aux données ? 3 scénarios prospectifs pour 2030.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-11-08.png\"\n  ],\n  \"datePublished\": \"2026-11-08T00:00:00\",\n  \"dateModified\": \"2026-11-08T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"Sport\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Sport\"\n}",
+    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Sport : peut-il rester humain face à l'IA et aux données ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-11-08.html\"\n    }\n  ]\n}"
+  }
+}

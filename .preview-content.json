@@ -1,178 +1,152 @@
 {
-  "h1": "Netflix : le nouveau cinéma mondial ?",
-  "question_text": "Netflix peut-il remplacer durablement les salles comme lieu de lancement de ses gros films, à l'approche de la sortie mondiale en salles de « Narnia : Le Neveu du magicien » le 12 février 2027 ?",
-  "section_title": "Sorties en salles ou streaming direct : trois trajectoires pour Netflix",
+  "h1": "Sport : peut-il rester humain face à l'IA et aux données ?",
+  "question_text": "Le sport professionnel peut-il rester humain face à l'optimisation par l'IA et aux données biométriques ?",
+  "section_title": "Trois trajectoires pour l'avenir de l'athlète face aux algorithmes",
   "dek": [
-    "Pendant plus d'une décennie, le géant américain du streaming a défendu un dogme intangible : tous ses films devaient sortir directement en ligne pour ses abonnés, le même jour partout sur la planète. Mais cette certitude vacille à mesure que les coûts de production explosent. La plateforme de vidéo à la demande prépare en effet pour le <strong>12 février 2027</strong> la sortie mondiale sur grand écran de sa superproduction « Narnia : Le Neveu du magicien », réalisée par Greta Gerwig. Ce projet marque une rupture majeure, car l'œuvre sera projetée dans les cinémas du monde entier plusieurs semaines avant son arrivée sur les écrans domestiques.",
-    "Pour attirer des cinéastes prestigieux et donner du prestige à ses créations, l'entreprise a progressivement allongé le délai qui sépare la salle obscure du salon. Ce temps réservé au grand écran s'appelle la fenêtre d'exploitation<a class=\"lex-ref\" href=\"#lex-fenetre-d-exploitation\" aria-label=\"Voir la définition dans le lexique\">*</a>. Elle n'était que de 23 jours pour « Roma » en 2018 et de 30 jours pour « Marriage Story » en 2019. À l'automne 2026, le drame historique espagnol « La Bola Negra » a établi un nouveau sommet interne avec <strong>47 jours</strong> d'exclusivité en salle en Amérique du Nord, un record qui sera encore dépassé par les 49 jours prévus pour Narnia.",
-    "Pourtant, cette ouverture internationale bute contre une exception de taille en France, où le film ne sortira pas du tout au cinéma. La législation nationale impose en effet un calendrier très strict, la chronologie des médias<a class=\"lex-ref\" href=\"#lex-chronologie-des-medias\" aria-label=\"Voir la définition dans le lexique\">*</a>, qui interdit à une plateforme de proposer un film à ses abonnés moins de <strong>15 mois</strong> après sa projection en salle. Pour le groupe californien, bloquer une œuvre aussi coûteuse pendant plus d'un an sur son premier marché européen reste inconcevable, privant ainsi les spectateurs français d'une diffusion sur grand écran.",
-    "La politique du groupe reste pilotée par une logique financière simple : maximiser les abonnements mensuels récurrents plutôt que de dépendre des aléas de la billetterie. Même si les propriétaires de cinémas, appelés les exploitants de salles<a class=\"lex-ref\" href=\"#lex-exploitants-de-salles\" aria-label=\"Voir la définition dans le lexique\">*</a>, réclament des films porteurs pour remplir leurs fauteuils, la direction rappelle régulièrement que son cœur de métier demeure la diffusion à domicile. Le box-office<a class=\"lex-ref\" href=\"#lex-box-office\" aria-label=\"Voir la définition dans le lexique\">*</a> traditionnel rapporte de l'argent frais mais impose d'immenses frais de promotion qui réduisent la rentabilité nette de chaque long-métrage.",
-    "Dans l'Hexagone, les salles de cinéma démontrent pourtant une belle résistance populaire avec <strong>17,9 millions</strong> d'entrées enregistrées sur les onze premiers mois de l'année 2026 selon les premières estimations professionnelles. Les exploitants continuent de défendre leur modèle face aux géants du numérique, estimant que l'expérience collective et le prestige du grand écran restent irremplaçables pour créer des événements culturels durables. Cette vitalité entretient un bras de fer permanent entre les règles de financement locales et les ambitions des plateformes mondiales.",
-    "L'avenir de la distribution cinématographique mondiale se joue ainsi à la croisée de trois forces contraires : les exigences artistiques des réalisateurs, la rigidité des régulations nationales et la rentabilité du streaming payant. Entre une alliance globale avec les réseaux de cinéma traditionnels, un repli stratégique sur le tout-numérique ou un statu quo fait d'exceptions au coup par coup, les équilibres du septième art pourraient être profondément redessinés dans les prochaines années."
+    "Dans les coulisses du sport de très haut niveau, une transformation invisible mais radicale s'accélère. Les champions ne s'entraînent plus seulement au chronomètre ou au ressenti avec leur entraîneur. Ils sont désormais équipés d'une multitude de capteurs miniaturisés qui enregistrent en direct leurs battements de cœur, la puissance développée sur leurs pédales, leur température corporelle et même la qualité de leur sommeil. Ces mesures physiologiques continues alimentent des programmes informatiques capables de repérer la moindre fatigue avant même qu'elle ne soit ressentie par le corps. L'enjeu n'est plus seulement de s'entraîner plus dur, mais de calibrer chaque effort à la seconde près. Cette quête de précision mathématique soulève une interrogation fondamentale : jusqu'où peut-on numériser le corps d'un sportif sans effacer sa part humaine d'instinct, d'aléa et d'émotion ?",
+    "L'utilisation concrète de ces technologies a franchi un cap lors du Tour de France 2026 au sein de la prestigieuse formation UAE Team Emirates, qui accompagne le champion slovène Tadej Pogacar. Son directeur de la performance, Jeroen Swart, a révélé compiler en permanence la variabilité de la fréquence cardiaque<a class=\"lex-ref\" href=\"#lex-variabilite-cardiaque\" aria-label=\"Voir la définition dans le lexique\">*</a>, les signaux des capteurs de puissance et les ressentis subjectifs des coureurs dans une plateforme centrale d'intelligence artificielle. Alors que la rédaction manuelle d'un bilan physique personnalisé prenait autrefois plusieurs jours de travail intensif à une équipe médicale, les algorithmes génèrent aujourd'hui <strong>40 bilans en une heure</strong>. Ces outils calculent précisément la charge de travail optimale pour chaque étape, ajustant les séances d'entraînement au millimètre pour maximiser la récupération et les gains athlétiques.",
+    "Cette irruption technologique permet des gains mesurables qui transforment la compétition de haut niveau dans de nombreuses disciplines. Les différentes études récentes indiquent une <strong>amélioration de performance documentée de 15 % à 20 %</strong> grâce à ce suivi algorithmique. Les mesures montrent par exemple des progrès de 15,2 % dans le cyclisme sur piste, de 18,7 % avec les objets connectés de dernière génération et jusqu'à 20,3 % dans l'analyse gestuelle appliquée au ski de compétition. Cependant, cette efficacité redoutable crée une asymétrie croissante entre les équipes fortunées capables de financer ces infrastructures logicielles et les structures plus modestes. L'aléa sportif, qui faisait la beauté de la compétition, tend à s'effacer devant une équation où la victoire dépend de la puissance de calcul des serveurs informatiques.",
+    "Face à cette collecte massive d'informations corporelles, les autorités de régulation commencent à poser des limites strictes. En France, la Commission nationale de l'informatique et des libertés, la CNIL, a publié une recommandation officielle sur la collecte des données biométriques<a class=\"lex-ref\" href=\"#lex-donnees-biometriques\" aria-label=\"Voir la définition dans le lexique\">*</a> des sportifs. L'autorité rappelle avec fermeté que le port d'un capteur doit toujours reposer sur l'accord libre de l'athlète et respecter le principe de minimisation des données<a class=\"lex-ref\" href=\"#lex-minimisation-des-donnees\" aria-label=\"Voir la définition dans le lexique\">*</a>. Concrètement, un club n'a le droit de recueillir que les paramètres strictement nécessaires à l'exercice physique, sans transformer la vie privée du sportif en laboratoire permanent. De plus, ces données de santé récoltées pour l'entraînement ne peuvent en aucun cas être détournées pour la lutte antidopage ou des sanctions disciplinaires.",
+    "À l'échelle continentale, le cadre juridique se renforce également avec le règlement européen sur l'intelligence artificielle, l'AI Act<a class=\"lex-ref\" href=\"#lex-ai-act\" aria-label=\"Voir la définition dans le lexique\">*</a>, adopté en 2024 et dont l'application s'étend progressivement jusqu'en 2026. Ce texte classe les systèmes d'intelligence artificielle par niveau de risque et impose des contrôles sévères pour les applications jugées à risque élevé, notamment celles qui évaluent les comportements humains ou influencent l'accès à un emploi. Dans le sport professionnel, des syndicats de joueurs comme la FIFPRO s'inquiètent de l'usage managérial de ces algorithmes : un club pourrait-il refuser une prolongation de contrat ou réduire un salaire en se basant uniquement sur un score statistique prédisant un risque de blessure future ? La frontière entre aide médicale et surveillance abusive devient particulièrement floue.",
+    "L'avenir du sport de haut niveau se trouve ainsi à la croisée des chemins entre perfectionnement technique et préservation de l'humain. D'un côté, l'optimisation par les algorithmes promet de réduire les risques de blessures graves, de prolonger les carrières et d'offrir des spectacles d'une intensité physique inégalée. De l'autre, elle menace de réduire l'athlète à une simple machine biologique monitorée 24 heures sur 24, exécutant des stratégies conçues par des ordinateurs plutôt que par son intuition. Le sport professionnel saura-t-il encadrer ces technologies pour préserver la part de doute et d'émotion qui fait vibrer le public ? Pour éclairer cette incertitude majeure, notre rédaction analyse trois scénarios prospectifs sur la place accordée aux algorithmes dans les stades de demain."
   ],
   "enjeu_en_clair": {
-    "lead": "Netflix teste la sortie de ses grands films au cinéma tout en refusant de sortir son prochain blockbuster dans les salles françaises.",
-    "text": "Le géant du streaming veut offrir à ses grosses productions le prestige des salles de cinéma pour attirer les meilleurs réalisateurs. Mais en France, la loi impose d'attendre 15 mois après la salle avant de diffuser le film en ligne. Netflix préfère donc priver les cinémas français de « Narnia » pour servir directement ses abonnés chez eux."
+    "lead": "Les capteurs et l'intelligence artificielle mesurent chaque battement de cœur des athlètes pour optimiser leurs résultats, au risque de transformer le sport en concours d'algorithmes.",
+    "text": "Dans le sport d'élite, des logiciels analysent désormais en continu la fatigue et les constantes physiques des champions pour dicter leur entraînement. Le débat oppose l'optimisation médicale légitime à une surveillance permanente qui prive l'athlète de son autonomie. Pour le grand public, l'enjeu touche à la magie même du spectacle sportif, qui perdrait son intérêt si les machines programmaient entièrement les performances."
   },
   "stakes_branches": {
-    "favorable": "Netflix adopte les règles des studios classiques et sort ses blockbusters partout au cinéma.",
-    "stable": "Netflix réserve la salle à quelques rares films prestigieux sans abandonner sa priorité au streaming.",
-    "degrade": "Face aux contraintes des exploitants et des lois locales, Netflix renonce aux salles et diffuse tout en ligne."
+    "favorable": "L'IA demeure un simple conseiller médical strictement encadré, protégeant la santé du sportif et laissant le génie humain décider du résultat.",
+    "stable": "Les technologies s'installent progressivement sans règles claires, créant une surveillance quotidienne acceptée par habitude dans les grands clubs.",
+    "degrade": "L'athlète devient un système vivant entièrement piloté par des algorithmes, où la stratégie et les contrats dépendent uniquement des capteurs."
   },
   "comprendre_box": [
     {
-      "lead": "La chronologie des médias : un calendrier légal pour protéger le financement du cinéma",
-      "text": "En France, la chronologie des médias organise l'ordre de diffusion des films après leur sortie en salle : d'abord le cinéma, puis l'achat en vidéo, la télévision payante, et enfin les plateformes de streaming après 15 mois. Cette règle permet de financer la création locale, mais elle pousse Netflix à éviter les salles pour ne pas bloquer ses films.",
-      "apres_dek_index": 2
+      "lead": "La surveillance biométrique permanente transforme le corps en flux continu d'informations numériques.",
+      "text": "Imaginez qu'un capteur fixé sous votre peau transmette en temps réel à votre employeur votre rythme cardiaque, vos heures de sommeil et votre niveau de stress. Dans le sport professionnel, cette collecte dépasse largement le cadre des séances d'entraînement : les algorithmes analysent la récupération nocturne et la vie privée pour prédire les performances sur le terrain.",
+      "apres_dek_index": 1
     },
     {
-      "lead": "Streaming contre billetterie : deux manières opposées de gagner de l'argent",
-      "text": "Un studio traditionnel gagne sa vie en vendant chaque ticket de cinéma à l'unité. Netflix fonctionne comme une salle de sport : ses revenus dépendent d'abonnements mensuels réguliers payés par les utilisateurs, qu'ils regardent un ou dix films par mois.",
-      "apres_dek_index": 3
+      "lead": "Le cadre juridique européen cherche à tracer une ligne rouge entre mesure sportive et intrusion intime.",
+      "text": "Le droit européen et la CNIL imposent que les données de santé appartiennent avant tout à la personne qui les produit. Dans un vestiaire, cela signifie qu'un entraîneur ne peut pas forcer un joueur à porter un traceur GPS chez lui, ni utiliser ses données cardiaques pour justifier une baisse de salaire sans contrôle éthique.",
+      "apres_dek_index": 4
     }
   ],
   "list_box": null,
   "indicators": [
     {
-      "label": "Fenêtre théâtrale exclusive Netflix (record)",
-      "value": "47 jours",
-      "delta": "Record historique avec La Bola Negra en 2026, contre 23 jours pour Roma en 2018"
-    },
-    {
-      "label": "Entrées cinéma France (11 premiers mois 2026)",
-      "value": "17,9 millions",
-      "delta": "Tendance en hausse par rapport à la même période sur l'année 2025"
+      "label": "Amélioration de performance documentée avec l'IA",
+      "value": "15 % à 20 %",
+      "delta": "selon les disciplines (cyclisme, ski, capteurs connectés en 2026)"
     }
   ],
   "cards": {
     "favorable": {
-      "pct": 25,
+      "pct": 35,
       "gauge_word": "Probable",
-      "h3": "Netflix généralise les sorties au cinéma pour tous ses gros films",
+      "h3": "L'IA reste un outil d'assistance médicale encadré par des règles éthiques strictes",
       "why": [
-        "Premier scénario : la firme de Los Gatos s'aligne pleinement sur les pratiques des studios traditionnels d'Hollywood. Elle accorde à chacun de ses projets d'envergure une exploitation exclusive de plusieurs semaines sur grand écran dans le monde entier. Concrètement, le succès commercial de superproductions comme « Narnia : Le Neveu du magicien » démontrerait qu'une présence massive au box-office génère des dizaines de millions de dollars de recettes directes tout en servant de formidable rampe de lancement publicitaire. Les exploitants de cinémas accueilleraient ce flux continu de productions populaires qui viendrait remplir leurs salles toute l'année.",
-        "Par rapport aux deux autres trajectoires, ce choix marquerait la fin définitive du modèle streaming exclusif en acceptant les contraintes partagées du secteur cinématographique mondial. L'entreprise renoncerait à l'immédiateté absolue pour ses abonnés afin de bâtir des marques plus fortes et d'attirer les réalisateurs les plus réputés de l'industrie. Notre scénario évalue cette normalisation complète à 25 % de probabilité, car elle obligerait la plateforme à négocier des accords spécifiques pays par pays et pourrait inciter certains utilisateurs à résilier leur abonnement régulier."
+        "Dans ce premier scénario, les instances internationales et les ligues professionnelles établissent des chartes éthiques contraignantes en s'appuyant sur les recommandations de la CNIL et les obligations de l'AI Act. L'intelligence artificielle est cantonnée à un rôle d'aide à la décision médicale et d'optimisation préventive pour éviter le surentraînement et les blessures musculaires. L'athlète conserve la propriété totale de ses paramètres physiologiques et peut refuser à tout moment le partage de ses données intimes sans risquer de sanction sportive ou financière. Pendant les compétitions officielles, les oreillettes connectées à des modèles d'analyse prédictive en temps réel sont interdites afin de préserver l'incertitude tactique, l'audace individuelle et le sens de l'exploit spontané qui passionnent les spectateurs.",
+        "Ce scénario équilibré à 35 % de probabilité s'impose comme une alternative protectrice face au risque de dérive technologique, mais il exige une volonté politique forte que les deux autres scénarios jugent compromise par les intérêts économiques. Contrairement à la banalisation d'une surveillance continue ou à l'automatisation totale des décisions tactiques, cette trajectoire garantit que la créativité et le talent brut priment sur les modèles mathématiques. Les clubs continuent de valoriser l'intelligence de jeu et la relation humaine entre le coach et son joueur. Si les fédérations harmonisent rapidement leurs règles sous la pression des syndicats de sportifs, ce modèle d'innovation éthique pourrait durablement protéger l'esprit du sport professionnel."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Fenêtre théâtrale exclusive Netflix (record)",
-          "evo_current": "90 jours",
-          "evo_arrow": "up",
-          "evo_prev": "47 jours en 2026"
-        },
-        {
-          "field_name": "Entrées cinéma France (11 premiers mois 2026)",
-          "evo_current": "20,5 millions",
-          "evo_arrow": "up",
-          "evo_prev": "17,9 millions en 2026"
+          "field_name": "Amélioration de performance documentée avec l'IA",
+          "evo_current": "10 % à 15 %",
+          "evo_arrow": "flat",
+          "evo_prev": "15 % à 20 % actuellement sans garde-fous stricts"
         }
       ],
-      "france_line": "Un accord exceptionnel permettrait aux spectateurs français de voir les grosses productions sur grand écran.",
+      "france_line": "Les centres de formation et clubs français bénéficient d'un cadre juridique protecteur valorisant la santé des jeunes athlètes.",
       "france_impact": "favorable"
     },
     "stable": {
-      "pct": 55,
-      "gauge_word": "Assez probable",
-      "h3": "Netflix maintient un modèle hybride réservé aux films d'exception",
+      "pct": 45,
+      "gauge_word": "Probable",
+      "h3": "La surveillance biométrique se banalise progressivement sans débat public structuré",
       "why": [
-        "Deuxième scénario : le groupe américain conserve sa stratégie sur mesure sans bouleverser son fonctionnement global. Concrètement, la grande majorité des films originaux continuerait d'arriver directement en ligne pour les abonnés du monde entier, tandis qu'une poignée de projets prestigieux ou taillés pour les récompenses bénéficierait d'une sortie en salle limitée. Les cinémas nord-américains et asiatiques profiteraient de ces événements ponctuels comme Narnia ou « La Bola Negra », alors que les territoires dotés de règles trop strictes comme la France resteraient délibérément contournés pour préserver l'exclusivité du catalogue en ligne.",
-        "Ce modèle à la carte évite l'affrontement frontal avec les règles de distribution nationales tout en offrant un compromis satisfaisant aux grands cinéastes partenaires. Contrairement à une conversion totale vers les salles ou à un repli numérique complet, cette voie médiane protège la rentabilité du service tout en captant le prestige indispensable des festivals internationaux. Notre rédaction évalue cette option comme la plus probable avec 55 % de chances, car elle permettrait au diffuseur de tester l'appétit du public grand écran sans jamais affaiblir la valeur centrale de son catalogue numérique."
+        "Dans ce deuxième scénario, qui représente l'issue la plus probable avec 45 % de probabilité selon notre évaluation, les technologies d'optimisation continuent de se diffuser rapidement dans le sport de haut niveau sans véritable régulation globale. Les athlètes acceptent tacitement de porter des capteurs de plus en plus intrusifs pour rester compétitifs face à la concurrence internationale, craignant d'être écartés s'ils refusent la collecte de leurs signaux vitaux. Les équipes les plus fortunées multiplient les partenariats avec les géants de la tech pour analyser le sommeil, la nutrition et le métabolisme de leurs champions. Les règles de la CNIL et de l'AI Act sont appliquées de manière minimale ou contournées via des clauses de consentement standardisées insérées directement dans les contrats de travail.",
+        "Cette trajectoire médiane se distingue nettement d'une régulation éthique stricte (35 %) comme d'un basculement dystopique immédiat (20 %) : elle progresse par petits compromis successifs et silencieux. Les gains de performance chiffrés entre 15 % et 20 % deviennent la norme d'évaluation standard imposée par les préparateurs physiques. Les sportifs s'habituent à être monitorés en permanence, considérant cette surveillance corporelle comme une simple contrepartie normale de leurs rémunérations élevées. Si aucune contestation majeure n'émerge des vestiaires ou des instances sportives, cette dynamique d'optimisation feutrée glisserait vers une dépendance algorithmique irréversible où le ressenti personnel de l'athlète perdrait toute valeur face aux données chiffrées."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Fenêtre théâtrale exclusive Netflix (record)",
-          "evo_current": "49 jours",
-          "evo_arrow": "flat",
-          "evo_prev": "47 jours en 2026"
-        },
-        {
-          "field_name": "Entrées cinéma France (11 premiers mois 2026)",
-          "evo_current": "18,2 millions",
-          "evo_arrow": "flat",
-          "evo_prev": "17,9 millions en 2026"
+          "field_name": "Amélioration de performance documentée avec l'IA",
+          "evo_current": "15 % à 20 %",
+          "evo_arrow": "up",
+          "evo_prev": "généralisation du standard actuel dans tous les grands clubs"
         }
       ],
-      "france_line": "Les spectateurs français restent privés de sorties en salle pour préserver un accès rapide sur l'application.",
+      "france_line": "Les athlètes français s'alignent sur les standards de surveillance imposés par les championnats étrangers les plus riches.",
       "france_impact": "degrade"
     },
     "degrade": {
       "pct": 20,
       "gauge_word": "Peu probable",
-      "h3": "Netflix renonce aux cinémas et verrouille ses films en ligne",
+      "h3": "L'athlète est réduit à un système biologique entièrement piloté par des algorithmes",
       "why": [
-        "Troisième scénario : l'entreprise fait marche arrière et abandonne ses expérimentations sur grand écran pour se reconcentrer exclusivement sur son application. Concrètement, si les recettes en billetterie de Narnia s'avéraient décevantes par rapport aux investissements consentis ou si les tensions avec les exploitants devenaient ingérables, la direction mettrait fin aux fenêtres d'exclusivité. Tous les longs-métrages sans exception seraient de nouveau réservés aux seuls foyers connectés dès leur premier jour de sortie, restaurant une égalité d'accès immédiate pour l'ensemble des membres à travers la planète.",
-        "Face aux deux autres options, ce scénario marquerait l'échec de la convergence entre la culture traditionnelle de la salle et l'économie moderne de l'abonnement en continu. Le groupe ferait le choix de la simplicité opérationnelle en réduisant ses dépenses de commercialisation physique et en réaffirmant sa supériorité technologique sur les circuits de projection centenaires. Notre scénario évalue cette fermeture à 20 % de probabilité, car un tel repli risquerait de couper définitivement la plateforme des plus grands auteurs et des cérémonies de récompenses prestigieuses."
+        "Dans ce troisième scénario, la recherche absolue du rendement financier et de la victoire transforme les sportifs professionnels en simples exécutants d'algorithmes prédictifs. La surveillance biométrique s'exerce 24 heures sur 24 par le biais d'implants sous-cutanés et de textiles connectés obligatoires mesurant en permanence le rythme cardiaque, l'oxygénation et le stress nerveux. Les compositions d'équipe, les remplacements en plein match et les prolongations de contrat sont dictés par des logiciels d'intelligence artificielle évaluant les risques de panne physique ou de méforme statistique. L'intuition de l'entraîneur et la spontanéité du joueur sont totalement marginalisées au profit de plans de jeu millimétrés calculés par des ordinateurs distants qui réduisent l'aléa sportif à néant.",
+        "Bien qu'évalué à 20 % de probabilité en raison des barrières légales européennes, ce scénario d'hyper-technologisation montre ce qui se produirait si la logique marchande l'emportait totalement sur l'éthique sportive. Contrairement au scénario stable où subsiste une marge de liberté individuelle, l'athlète devient ici un pur actif financier coté et optimisé comme une machine industrielle. Cette dérive risque de détourner les passionnés, lassés par des confrontations prévisibles et standardisées où le génie imprévisible des champions a disparu. Si les ligues privées mondiales s'affranchissent des régulateurs publics, le sport de compétition pourrait ainsi perdre son essence humaine pour se muer en un affrontement technologique entre ingénieurs de données."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Fenêtre théâtrale exclusive Netflix (record)",
-          "evo_current": "0 jour",
-          "evo_arrow": "down",
-          "evo_prev": "47 jours en 2026"
-        },
-        {
-          "field_name": "Entrées cinéma France (11 premiers mois 2026)",
-          "evo_current": "17,5 millions",
-          "evo_arrow": "down",
-          "evo_prev": "17,9 millions en 2026"
+          "field_name": "Amélioration de performance documentée avec l'IA",
+          "evo_current": "plus de 25 %",
+          "evo_arrow": "up",
+          "evo_prev": "hausse artificielle au détriment de l'autonomie et de la santé mentale"
         }
       ],
-      "france_line": "La chronologie des médias devient sans objet pour Netflix qui diffuse l'intégralité de ses créations en ligne.",
+      "france_line": "Perte d'attractivité du modèle sportif français face aux ligues mondiales dérégulées et déshumanisées.",
       "france_impact": "degrade"
     }
   },
   "essentiel_box": [
-    "La question posée est de savoir si Netflix peut s'imposer comme le nouveau lieu de lancement de ses blockbusters au cinéma plutôt que sur son application.",
-    "Le géant américain prépare la sortie mondiale de Narnia le 12 février 2027 avec une exclusivité de 49 jours en salle, mais refuse de le projeter en France pour éviter les 15 mois d'attente imposés par la loi.",
-    "Non, le modèle hybride au cas par cas reste l'issue la plus probable selon notre analyse (55 % de probabilité), devant une généralisation en salle (25 %) et un repli numérique (20 %).",
-    "Le signal à surveiller sera le niveau des recettes au box-office mondial de « Narnia : Le Neveu du magicien » lors de son premier week-end d'exploitation en février 2027."
+    "La question posée est de savoir si le sport professionnel peut préserver sa dimension humaine face à la généralisation de l'intelligence artificielle et du suivi biométrique permanent.",
+    "Les équipes d'élite utilisent déjà des capteurs corporels et l'IA pour générer 40 bilans physiologiques en une heure, apportant des gains de performance documentés de 15 % à 20 %.",
+    "Non, le sport ne restera pas pleinement humain sans règles strictes : notre scénario le plus probable (45 %) voit la surveillance biométrique s'installer par habitude dans les vestiaires, tandis que deux autres scénarios envisagent un encadrement éthique protecteur (35 %) ou une déshumanisation algorithmique totale (20 %).",
+    "Le signal à surveiller concerne la mise en conformité des clubs sportifs avec le règlement européen AI Act et les premières décisions de la CNIL sur les contrats de joueurs d'ici la fin 2026."
   ],
   "delta_france": {
     "kind": "negatif",
-    "score": -0.5,
-    "word": "assez négatif",
-    "text": "l'attachement aux 15 mois de la chronologie des médias prive durablement le public français des grands films Netflix en salle dans 75 % des scénarios envisagés."
+    "score": -0.3,
+    "word": "léger négatif",
+    "text": "la probabilité cumulée de 65 % en faveur d'une surveillance biométrique accrue (45 % en scénario stable et 20 % en scénario dégradé) fragilise les droits des sportifs et le modèle éthique français."
   },
-  "phrase_a_retenir": "Avec 47 jours accordés en salle à « La Bola Negra », Netflix allonge son exclusivité cinéma mais refuse toujours de sortir ses films sur grand écran en France.",
-  "phrase_a_retenir_stat": "47 jours",
+  "phrase_a_retenir": "L'intelligence artificielle permet d'améliorer les performances sportives de 15 % à 20 %, mais pose la question du respect de la vie privée des athlètes face à la surveillance permanente.",
+  "phrase_a_retenir_stat": "15 % à 20 %",
   "lexique": [
     {
-      "slug": "fenetre-d-exploitation",
-      "terme": "fenêtre d'exploitation",
-      "definition": "Période pendant laquelle un film est diffusé exclusivement dans les cinémas avant de pouvoir être vendu en vidéo, diffusé à la télévision ou mis en ligne sur une plateforme de streaming."
+      "slug": "donnees-biometriques",
+      "terme": "données biométriques",
+      "definition": "Informations numériques relatives aux caractéristiques physiques, physiologiques ou comportementales d'une personne, comme le rythme cardiaque ou la température, bénéficiant d'une protection juridique renforcée."
     },
     {
-      "slug": "chronologie-des-medias",
-      "terme": "chronologie des médias",
-      "definition": "Règle juridique française qui fixe l'ordre et les délais d'attente obligatoires entre la sortie d'un film au cinéma et sa mise à disposition sur les autres supports comme la télévision ou Internet."
+      "slug": "ai-act",
+      "terme": "AI Act",
+      "definition": "Règlement européen adopté en 2024 qui encadre le développement et l'usage des systèmes d'intelligence artificielle en imposant des obligations de transparence selon le niveau de risque des applications."
     },
     {
-      "slug": "exploitants-de-salles",
-      "terme": "exploitants de salles",
-      "definition": "Entreprises et professionnels propriétaires des cinémas qui assurent la projection des films au public et la gestion quotidienne des établissements."
+      "slug": "minimisation-des-donnees",
+      "terme": "minimisation des données",
+      "definition": "Principe fondamental du RGPD exigeant qu'un organisme ne collecte et ne traite que les informations strictement nécessaires et pertinentes par rapport à l'objectif précis annoncé à l'utilisateur."
     },
     {
-      "slug": "box-office",
-      "terme": "box-office",
-      "definition": "Mesure du succès commercial d'un film calculée à partir du nombre de billets vendus ou des recettes financières générées par les entrées dans les cinémas."
+      "slug": "variabilite-cardiaque",
+      "terme": "variabilité de la fréquence cardiaque",
+      "definition": "Mesure scientifique des variations d'intervalles entre deux battements de cœur consécutifs, utilisée par les préparateurs physiques pour évaluer avec précision le niveau de fatigue du système nerveux."
     }
   ],
   "sources_html": [
-    "<a href=\"https://www.screendaily.com/news/netflix-to-skip-theatrical-release-for-narnia-the-magicians-nephew-in-france/5218361.article\" target=\"_blank\" rel=\"noopener noreferrer\">Screen Daily — Netflix to skip theatrical release for 'Narnia: The Magician's Nephew' in France ↗</a>",
-    "<a href=\"https://www.screendaily.com/news/amc-cinema-united-praise-wide-theatrical-release-window-as-netflix-pushes-narnia-to-february-2027/5216217.article\" target=\"_blank\" rel=\"noopener noreferrer\">Screen Daily — AMC Cinema United praise wide theatrical release window as Netflix pushes Narnia to February 2027 ↗</a>",
-    "<a href=\"https://variety.com/2026/film/news/netflix-report-box-office-theatrical-releases-1236854834/\" target=\"_blank\" rel=\"noopener noreferrer\">Variety — Netflix Movies Get Cozier With Theatrical Distribution ↗</a>",
-    "<a href=\"https://variety.com/2026/film/awards/netflix-la-bola-negra-47-day-theatrical-window-record-1236827063/\" target=\"_blank\" rel=\"noopener noreferrer\">Variety — Netflix's 'La Bola Negra' Gets Record 47-Day Theatrical Window ↗</a>",
-    "<a href=\"https://www.franceinfo.fr/culture/cinema/la-bola-negra-beneficiera-de-la-plus-longue-fenetre-d-exploitation-au-cinema-pour-un-film-netflix-en-amerique-du-nord_8142113.html\" target=\"_blank\" rel=\"noopener noreferrer\">franceinfo — « La bola negra » bénéficiera de la plus longue fenêtre d'exploitation au cinéma pour un film Netflix en Amérique du Nord ↗</a>",
-    "<a href=\"https://www.cnc.fr/professionnels/communiques-de-presse/avec-pres-de-18-millions-dentrees-la-frequentation-des-salles-de-cinema-poursuit-sa-forte-dynamique_2634869\" target=\"_blank\" rel=\"noopener noreferrer\">CNC — Avec près de 18 millions d'entrées, la fréquentation des salles de cinéma poursuit sa forte dynamique ↗</a>"
+    "<a href=\"https://www.ladepeche.fr/2026/07/02/tour-de-france-2026-cest-une-revolution-comment-lequipe-de-tadej-pogacar-utilise-lintelligence-artificielle-pour-ameliorer-ses-performances-13449444.php\" target=\"_blank\" rel=\"noopener noreferrer\">La Dépêche du Midi — Tour de France 2026 : comment l'équipe de Tadej Pogacar utilise l'IA pour améliorer ses performances ↗</a>",
+    "<a href=\"https://www.cnil.fr/fr/la-collecte-de-donnees-pour-la-mesure-de-la-performance-physique-individuelle-des-sportifs-de-haut\" target=\"_blank\" rel=\"noopener noreferrer\">CNIL — La CNIL sur la collecte de données pour la mesure de la performance physique des sportifs ↗</a>",
+    "<a href=\"https://artificialintelligenceact.eu/\" target=\"_blank\" rel=\"noopener noreferrer\">Union européenne — Règlement européen sur l'intelligence artificielle (AI Act) ↗</a>"
   ],
   "meta": {
-    "title": "Netflix : le nouveau cinéma mondial ? — Scénario",
-    "meta_description": "Netflix : le nouveau cinéma mondial ? 3 scénarios prospectifs pour 2030.",
-    "og_image_alt": "Rangées de sièges rouges dans une salle de cinéma obscure devant un grand écran blanc",
+    "title": "Sport : peut-il rester humain face à l'IA et aux données ? — Scénario",
+    "meta_description": "Sport : peut-il rester humain face à l'IA et aux données ? 3 scénarios prospectifs pour 2030.",
+    "og_image_alt": "Un athlète s'entraînant avec des capteurs connectés et des analyses de données de performance",
     "keywords": [
-      "Netflix"
+      "Sport"
     ],
-    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-11-07.html\"\n  },\n  \"headline\": \"Netflix : le nouveau cinéma mondial ? — Scénario\",\n  \"description\": \"Netflix : le nouveau cinéma mondial ? 3 scénarios prospectifs pour 2030.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-11-07.png\"\n  ],\n  \"datePublished\": \"2026-11-07T00:00:00\",\n  \"dateModified\": \"2026-11-07T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"Netflix\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Actualité\"\n}",
-    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Netflix : le nouveau cinéma mondial ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-11-07.html\"\n    }\n  ]\n}"
+    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-11-08.html\"\n  },\n  \"headline\": \"Sport : peut-il rester humain face à l'IA et aux données ? — Scénario\",\n  \"description\": \"Sport : peut-il rester humain face à l'IA et aux données ? 3 scénarios prospectifs pour 2030.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-11-08.png\"\n  ],\n  \"datePublished\": \"2026-11-08T00:00:00\",\n  \"dateModified\": \"2026-11-08T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"Sport\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Sport\"\n}",
+    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Sport : peut-il rester humain face à l'IA et aux données ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-11-08.html\"\n    }\n  ]\n}"
   }
 }

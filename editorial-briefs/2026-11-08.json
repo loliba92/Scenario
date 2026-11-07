@@ -1,0 +1,293 @@
+{
+  "date": "2026-11-08",
+  "registre": "sport",
+  "sujet": {
+    "titre_propose": "Le sport professionnel peut-il rester humain ?",
+    "h1": "Sport : peut-il rester humain face à l'IA et aux données ?",
+    "question_posee": "Le sport professionnel peut-il rester humain face à l'optimisation par l'IA et aux données biométriques ?",
+    "eyebrow": "Dimanche, sport",
+    "angle": "L'IA et les données biométriques transforment l'entraînement de haut niveau. Entre performance et surveillance, où se situe la limite entre optimisation légitime et déshumanisation de l'athlète ?",
+    "tags": [
+      "sport",
+      "intelligence-artificielle",
+      "données-personnelles",
+      "éthique"
+    ],
+    "domain": "sport",
+    "image_keywords": "athlete training data monitoring",
+    "complexite": 4,
+    "origine_prioritaire": "Le sport professionnel peut-il rester humain ?",
+    "origine_id": "sport-le-sport-professionnel-peut-il-rester-humain",
+    "point_de_depart": {
+      "id": "sport-le-sport-professionnel-peut-il-rester-humain",
+      "registre": "sport",
+      "titre": "Le sport professionnel peut-il rester humain ?",
+      "question": "Le sport professionnel peut-il rester humain ?",
+      "contexte": "Optimisation biologique, IA d'entraînement, données biométriques, surveillance permanente : le sportif de demain sera-t-il encore un individu qui s'entraîne, ou le résultat d'un système d'optimisation ?",
+      "rationnel": "La question : Le sport professionnel pourra-t-il rester humain d'ici la fin 2026 malgré l'optimisation poussée par l'IA et les données biométriques ? L'issue reste ouverte car, d'une part, la quête de performance pousse à un usage toujours plus intensif de l'IA et du suivi biométrique, tandis que, d'autre part, les régulateurs (CNIL, AI Act, CIO) et les syndicats de sportifs (FIFPRO, FNASS) tentent d'encadrer ces pratiques sans consensus clair sur la limite entre optimisation légitime et déshumanisation de l'athlète. Pour un lecteur français, l'enjeu est concret : la France constitue un terrain d'expérimentation majeur (INSEP, équipes cyclistes FDJ, retombées des JO Paris 2024) et les décisions réglementaires européennes en cours détermineront si le sportif demeure maître de son corps et de ses données.",
+      "mots_cles": [
+        "IA entraînement sportif haut niveau",
+        "données biométriques athlètes RGPD CNIL",
+        "AI Act sport classification haut risque",
+        "UAE Team Emirates Anna IA performance",
+        "INSEP intelligence artificielle performance",
+        "FIFPRO santé sportifs données personnelles",
+        "Olympic AI Agenda CIO éthique",
+        "propriété données sportives syndicats athlètes"
+      ],
+      "angle": null,
+      "a_verifier": "Usage réel de l'IA dans l'entraînement de haut niveau (fédérations, clubs, cas documentés), débats existants (syndicats de sportifs, médecine du sport) sur la surveillance biométrique permanente, limites déjà posées par certaines disciplines",
+      "scenarios_brouillon": null,
+      "echeance": null,
+      "sources_pistes": [
+        {
+          "titre": "Tour de France 2026 : comment l'équipe de Tadej Pogacar utilise l'IA pour améliorer ses performances",
+          "url": "https://www.ladepeche.fr/2026/07/02/tour-de-france-2026-cest-une-revolution-comment-lequipe-de-tadej-pogacar-utilise-lintelligence-artificielle-pour-ameliorer-ses-performances-13449444.php"
+        },
+        {
+          "titre": "Comment l'IA aide-t-elle à rendre les athlètes plus performants ? (INSEP)",
+          "url": "https://www.techniques-ingenieur.fr/actualite/articles/comment-lia-aide-t-elle-a-rendre-les-athletes-plus-performants-142253/"
+        },
+        {
+          "titre": "Données biométriques des athlètes : qui collecte, qui exploite, qui protège",
+          "url": "https://www.sports-insiders.net/donnees-biometriques-des-athletes-qui-collecte-qui-exploite-qui-protege"
+        },
+        {
+          "titre": "La CNIL sur la collecte de données pour la mesure de la performance physique des sportifs",
+          "url": "https://www.cnil.fr/fr/la-collecte-de-donnees-pour-la-mesure-de-la-performance-physique-individuelle-des-sportifs-de-haut"
+        }
+      ],
+      "tag": "sport & IA",
+      "origine": null,
+      "note_editoriale": "Fusionne \"le progrès technologique menace-t-il l'exploit sportif ? (à quel moment l'exploit cesse-t-il d'être humain ?)\" et \"le sport professionnel peut-il rester humain ?\" du même lot — même question, la seconde formulation retenue en titre car plus concrète. Distinct de l'entrée équité juste au-dessus : celle-ci porte sur qui gagne (écarts entre athlètes/moyens), celle-ci sur ce que devient l'athlète lui-même, y compris chez les mieux dotés",
+      "donnees_graphique": "[relevé du 2026-11-06] Utilisation de l'IA dans l'entraînement sportif de haut niveau (pourcentage d'amélioration). RFEA = 15.20% (2026) ; Google Cloud = 20.30% (2026) ; Sonar Atlas = 18.70% (2026). Sources : https://www.ibm.com/case-studies/rfea ; https://cloud.google.com/transform/us-ski-snowboard-ai-powered-training-tool-olympic-winter-games-new-tricks ; https://www.sonarhealth.co/fr/blog/donnees-objets-connectes-athletes-ia/",
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Vérifié contre l'édition du 07.11.2026 (Netflix, culture-divertissement) : aucun recoupement. Vérifié contre les 2-3 dernières éditions sport (01.11.2026 compétition équitable, 25.10.2026 Pass Sport, 04.10.2026 Championnat des Nations) : le sujet du jour porte sur l'IA/données biométriques et la condition de l'athlète, distinct de l'équité compétitive, du budget Pass Sport et du format de compétition. Aucun doublon."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "L'IA est utilisée dans l'entraînement de haut niveau pour analyser les données de performance et optimiser les charges de travail.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "src-ia-entrainement"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La CNIL a publié une recommandation sur la collecte de données biométriques pour la mesure de la performance physique des sportifs de haut niveau.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "src-cnil"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le règlement européen sur l'intelligence artificielle (AI Act) classe certains systèmes de IA comme à risque élevé, soumettant leur déploiement à des obligations strictes.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "src-ai-act"
+      ],
+      "confiance": "haute"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Fédérations et clubs de haut niveau",
+      "role": "Utilisateurs de solutions d'IA pour l'entraînement et la préparation"
+    },
+    {
+      "nom": "CNIL",
+      "role": "Autorité française de protection des données, a publié des recommandations sur les données biométriques des sportifs"
+    },
+    {
+      "nom": "Union européenne (AI Act)",
+      "role": "Régulateur du déploiement des systèmes d'IA à risque dans l'Union"
+    },
+    {
+      "nom": "FIFPRO / syndicats de sportifs",
+      "role": "Défenseurs des droits des athlètes sur la collecte et l'exploitation de leurs données"
+    },
+    {
+      "nom": "CIO (Comité international olympique)",
+      "role": "Élabore des orientations sur l'usage de l'IA dans le sport olympique"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2024-01-01",
+      "evenement": "Adoption du règlement européen sur l'intelligence artificielle (AI Act)"
+    },
+    {
+      "date": "2025-01-01",
+      "evenement": "Mise en application progressive des obligations pour les systèmes à risque élevé"
+    },
+    {
+      "date": "2026-07-01",
+      "evenement": "Utilisation documentée de l'IA dans l'entraînement d'une équipe du Tour de France"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "L'IA reste un outil d'aide à la décision, encadrée par la CNIL et l'AI Act, les sportifs conservant la maîtrise de leurs données et le sens de l'exploit.",
+      "probabilite_suggeree": 35
+    },
+    "stable": {
+      "resume": "L'usage de l'IA et des données biométriques se généralise sans cadre clair, entre optimisation acceptée et surveillance croissante, sans débat public structuré.",
+      "probabilite_suggeree": 45
+    },
+    "degrade": {
+      "resume": "La surveillance biométrique permanente et l'optimisation algorithmique deviennent la norme, les sportifs se retrouvant traités comme des systèmes à optimiser plutôt que comme des athlètes.",
+      "probabilite_suggeree": 20
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Amélioration de performance documentée avec l'IA",
+      "valeur": "15 % à 20 %",
+      "tendance": "en hausse"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Aucune série historique longue et publique sur l'usage de l'IA dans l'entraînement sportif n'a été identifiée (recherche effectuée sur des sources académiques et institutionnelles, période couverte limitée à quelques cas récents, moins de 5 points réels sur une période longue). Critère (2) non satisfait.",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "oui",
+    "raison": "Trois chiffres comparables (pourcentage d'amélioration de performance) identifiés dans des sources récentes, de même unité, pour alimenter un graphique en barres.",
+    "barres": {
+      "aria_label": "Graphique comparant l'amélioration de performance documentée avec l'IA dans trois contextes sportifs",
+      "lead": "L'IA apporte des gains de performance mesurés dans plusieurs disciplines.",
+      "caption": "Sources : IBM, Google Cloud, Sonar Health — données 2026",
+      "unite": "%",
+      "valeurs": [
+        {
+          "label": "RFEA (cyclisme)",
+          "valeur": 15.2,
+          "affichage": "15,2 %",
+          "mis_en_avant": false
+        },
+        {
+          "label": "Google Cloud (ski)",
+          "valeur": 20.3,
+          "affichage": "20,3 %",
+          "mis_en_avant": true
+        },
+        {
+          "label": "Sonar Atlas (objets connectés)",
+          "valeur": 18.7,
+          "affichage": "18,7 %",
+          "mis_en_avant": false
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Qu'est-ce que la surveillance biométrique permanente chez un sportif ?",
+        "rattache_a": "données biométriques et performance"
+      },
+      {
+        "focus": "Quel cadre juridique pour l'IA dans le sport ?",
+        "rattache_a": "AI Act et recommandations CNIL"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Le périmètre exact des systèmes d'IA classés à risque élevé par l'AI Act dans le contexte sportif n'est pas documenté de façon explicite dans les sources consultées.",
+    "L'ampleur réelle de l'usage de l'IA dans l'entraînement de haut niveau en France (INSEP, équipes françaises) reste partiellement documentée."
+  ],
+  "a_ne_pas_affirmer": [
+    "Le CIO a adopté un « Olympic AI Agenda » avec des principes précis — cette affirmation n'a pas pu être vérifiée via une source accessible (page introuvable ou non indexée), elle est donc retirée du brief."
+  ],
+  "sources": [
+    {
+      "id": "src-ia-entrainement",
+      "title": "Tour de France 2026 : comment l'équipe de Tadej Pogacar utilise l'IA pour améliorer ses performances",
+      "source": "La Dépêche du Midi",
+      "url": "https://www.ladepeche.fr/2026/07/02/tour-de-france-2026-cest-une-revolution-comment-lequipe-de-tadej-pogacar-utilise-lintelligence-artificielle-pour-ameliorer-ses-performances-13449444.php",
+      "image": null,
+      "lang": "fr",
+      "domain": "sport",
+      "summary": "Article documentant l'usage de l'IA par une équipe professionnelle de cyclisme pour analyser les données de performance et optimiser les entraînements lors du Tour de France 2026.",
+      "read_minutes": 4
+    },
+    {
+      "id": "src-cnil",
+      "title": "La CNIL sur la collecte de données pour la mesure de la performance physique des sportifs",
+      "source": "CNIL",
+      "url": "https://www.cnil.fr/fr/la-collecte-de-donnees-pour-la-mesure-de-la-performance-physique-individuelle-des-sportifs-de-haut",
+      "image": null,
+      "lang": "fr",
+      "domain": "sport",
+      "summary": "Recommandation de la CNIL sur la collecte de données biométriques destinées à mesurer la performance physique des sportifs de haut niveau, avec des principes de protection des données personnelles.",
+      "read_minutes": 3
+    },
+    {
+      "id": "src-ai-act",
+      "title": "Règlement européen sur l'intelligence artificielle (AI Act)",
+      "source": "Union européenne",
+      "url": "https://artificialintelligenceact.eu/",
+      "image": null,
+      "lang": "en",
+      "domain": "sport",
+      "summary": "Règlement de l'Union européenne classant les systèmes d'IA par niveau de risque et imposant des obligations pour les systèmes à risque élevé, dont certaines applications pourraient concerner le sport.",
+      "read_minutes": 5
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "Comment l'IA aide-t-elle à rendre les athlètes plus performants ?",
+      "source": "Techniques de l'Ingénieur",
+      "url": "https://www.techniques-ingenieur.fr/actualite/articles/comment-lia-aide-t-elle-a-rendre-les-athletes-plus-performants-142253/",
+      "image": null,
+      "lang": "fr",
+      "domain": "sport",
+      "summary": "Article de l'INSEP expliquant comment l'intelligence artificielle est utilisée pour améliorer la performance des athlètes de haut niveau.",
+      "read_minutes": 3
+    },
+    {
+      "title": "Données biométriques des athlètes : qui collecte, qui exploite, qui protège",
+      "source": "Sports Insiders",
+      "url": "https://www.sports-insiders.net/donnees-biometriques-des-athletes-qui-collecte-qui-exploite-qui-protege",
+      "image": null,
+      "lang": "fr",
+      "domain": "sport",
+      "summary": "Analyse des enjeux de collecte et d'exploitation des données biométriques des athlètes, et des questions de protection et de propriété de ces données.",
+      "read_minutes": 4
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-11-01",
+      "titre": "Sport : la compétition équitable est-elle encore possible ?",
+      "lien": "Même domaine sportif, même interrogation sur l'impact des technologies et des données sur l'équité et la nature de la compétition."
+    },
+    {
+      "date": "2026-10-11",
+      "titre": "Milan-Cortina : l'IA va-t-elle remplacer les juges ?",
+      "lien": "Même question sur le rôle de l'IA dans le sport de haut niveau et la place qui reste à l'humain dans le jugement et la régulation."
+    },
+    {
+      "date": "2026-10-16",
+      "titre": "Énergie sombre : l'IA du CEA cartographie 100 millions de galaxies",
+      "lien": "Même thème de l'IA appliquée à un domaine d'analyse complexe, pour contraste entre usage scientifique et usage sportif de l'IA."
+    }
+  ],
+  "recommandations_redaction": [
+    "Préciser que l'IA dans l'entraînement reste un outil d'aide à la décision, pas une substitution totale du coach.",
+    "Distinguer clairement l'optimisation légitime (analyse de la charge, prévention des blessures) de la surveillance permanente qui pourrait déshumaniser l'athlète.",
+    "Insister sur la question de la propriété des données biométriques : qui les collecte, qui les exploite, qui en profite.",
+    "Évoquer le cadre européen (AI Act, RGPD, recommandations CNIL) comme tentative d'encadrement, sans consensus clair sur la limite exacte."
+  ]
+}
