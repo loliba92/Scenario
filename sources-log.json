@@ -2,6 +2,31 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-11-08",
+      "articles": [
+        {
+          "title": "Comment l'IA aide-t-elle à rendre les athlètes plus performants ?",
+          "source": "Techniques de l'Ingénieur",
+          "url": "https://www.techniques-ingenieur.fr/actualite/articles/comment-lia-aide-t-elle-a-rendre-les-athletes-plus-performants-142253/",
+          "image": "https://www.techniques-ingenieur.fr/actualite/wp-content/uploads/2025/01/INSEP-3-Une.jpg",
+          "lang": "fr",
+          "domain": "sport",
+          "summary": "Article de l'INSEP expliquant comment l'intelligence artificielle est utilisée pour améliorer la performance des athlètes de haut niveau.",
+          "read_minutes": 3
+        },
+        {
+          "title": "Données biométriques des athlètes : qui collecte, qui exploite, qui protège",
+          "source": "Sports Insiders",
+          "url": "https://www.sports-insiders.net/donnees-biometriques-des-athletes-qui-collecte-qui-exploite-qui-protege",
+          "image": "https://www.sports-insiders.net/storage/884996/conversions/donnees-biometriques-des-athletes-qui-collecte-qui-exploite-qui-protege-og.webp",
+          "lang": "fr",
+          "domain": "sport",
+          "summary": "Analyse des enjeux de collecte et d'exploitation des données biométriques des athlètes, et des questions de protection et de propriété de ces données.",
+          "read_minutes": 4
+        }
+      ]
+    },
+    {
       "date": "2026-11-07",
       "articles": [
         {
