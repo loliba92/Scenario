@@ -1,5 +1,5 @@
 {
-  "h1": "Ukraine : l'intensification des frappes sur les raffineries russes peut-elle faire basculer la guerre énergétique ?",
+  "h1": "Ukraine : la guerre des raffineries peut-elle faire basculer le conflit ?",
   "question_text": "L'escalade réciproque sur les infrastructures énergétiques peut-elle créer un choc pétrolier mondial, forcer la Russie à négocier, ou s'enliser dans une guerre d'usure énergétique sans vainqueur ?",
   "section_title": "Trois trajectoires pour l'escalade énergétique entre Kiev et Moscou",
   "dek": [
@@ -157,17 +157,17 @@
     "<a href=\"https://www.lequotidien.re/article/national-et-international/2026/10/03/la-russie-appelle-les-diplomates-et-etrangers-a-quitter-kiev-ciblee-a-repetition-doc-d2649t4\" target=\"_blank\" rel=\"noopener noreferrer\">Le Quotidien de la Réunion — La Russie appelle les diplomates et étrangers à quitter Kiev, ciblée à répétition ↗</a>"
   ],
   "meta": {
-    "title": "Ukraine : l'intensification des frappes… — Scénario",
+    "title": "Ukraine : la guerre des raffineries peut-elle faire basculer le conflit ?",
     "meta_description": "Ukraine : l'intensification des frappes sur les raffineries russes peut-elle fai Enjeux géopolitiques et scénarios prospectifs.",
     "og_image_alt": "Installation industrielle pétrolière et réservoirs de carburant sous tension géopolitique",
     "keywords": [
-      "international",
+      "Ukraine",
       "tensions",
       "alliances",
-      "Ukraine",
-      "géopolitique"
+      "géopolitique",
+      "international"
     ],
-    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-11-09.html\"\n  },\n  \"headline\": \"Ukraine : l'intensification des frappes… — Scénario\",\n  \"description\": \"Ukraine : l'intensification des frappes sur les raffineries russes peut-elle fai Enjeux géopolitiques et scénarios prospectifs.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-11-09.png\"\n  ],\n  \"datePublished\": \"2026-11-09T00:00:00\",\n  \"dateModified\": \"2026-11-09T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"international, tensions, alliances, Ukraine, géopolitique\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Géopolitique\"\n}",
+    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-11-09.html\"\n  },\n  \"headline\": \"Ukraine : la guerre des raffineries peut-elle faire basculer le conflit ?\",\n  \"description\": \"Ukraine : l'intensification des frappes sur les raffineries russes peut-elle fai Enjeux géopolitiques et scénarios prospectifs.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-11-09.png\"\n  ],\n  \"datePublished\": \"2026-11-09T00:00:00\",\n  \"dateModified\": \"2026-11-09T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"Ukraine, tensions, alliances, géopolitique, international\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Géopolitique\"\n}",
     "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Ukraine : l'intensification des frappes sur les raffineries russes peut-elle faire basculer la guerre énergétique ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-11-09.html\"\n    }\n  ]\n}"
   }
 }
