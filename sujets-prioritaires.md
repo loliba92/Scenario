@@ -147,6 +147,15 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 ## Géopolitique — lundi
 <!-- Registre scindé le 12 août (retour utilisateur) : la géopolitique dure (conflits, diplomatie, États) et l'économie mondiale (marchés, monnaies, dette, matières premières) partageaient jusque-là le même slot du lundi, ce qui tassait deux blocs très différents dans une seule file. L'économie mondiale a sa propre section dimanche (voir plus bas) — la case libérée vient de la fusion des deux jours culture (française + internationale) en un seul, samedi. **Règle de classement pour les sujets à cheval sur les deux** (ex. guerres commerciales, tarifs douaniers) : si l'enjeu central est un rapport de force entre États (qui menace qui, qui négocie quoi) → géopolitique/lundi ; si l'enjeu central est un indicateur chiffré ou un marché (prix, taux, dette, cours) → économie/dimanche. Cas tranchés le 12 août à titre d'exemple : "Guerre commerciale USA-Chine" reste ici (framing État contre État, guerre froide) ; "Droits de douane de Trump" part en économie (contenu réel = batailles judiciaires et chiffres de recettes tarifaires, pas un rapport de force diplomatique). Les vieilles éditions déjà publiées gardent leur tag d'origine (`geopolitique`), jamais retaggées rétroactivement — voir docs/tags.md. -->
+- [ ] 🔍 L'Iran conditionne-t-il la réouverture du détroit d'Ormuz à un accord nucléaire avec les États-Unis ? [géopolitique & nucléaire]
+  <!-- id: geopolitique-l-iran-conditionne-t-il-la-reouverture-du -->
+  <!-- contexte: Le 7 novembre 2026, l'Iran a transmis une proposition nucléaire à sept conditions via le Qatar, exigeant leur respect avant toute négociation. Washington examine la proposition tandis que Donald Trump menace de nouvelles frappes. Dans le détroit d'Ormuz, deux pétroliers ont pris feu après avoir heurté des mines, exacerbant les tensions. -->
+  <!-- rationnel: La question : l'Iran parviendra-t-il à imposer ses conditions pour rouvrir le détroit d'Ormuz, ou les États-Unis déclencheront-ils une escalade militaire ? Les forces en présence incluent la pression économique iranienne via le blocage du détroit et la menace militaire américaine. L'enjeu pour la France est la stabilité des approvisionnements énergétiques et la sécurité maritime. -->
+  <!-- mots-clés: Iran ; États-Unis ; détroit d'Ormuz ; proposition nucléaire ; pétroliers ; Donald Trump -->
+  <!-- scénarios (brouillon): favorable = Un accord temporaire est trouvé, évitant une escalade militaire et permettant une reprise partielle du trafic maritime. ; stable = Les négociations patinent, prolongeant le statu quo avec des tensions persistantes mais contrôlées. ; dégradé = Les États-Unis lancent des frappes militaires, déclenchant une crise régionale majeure et une flambée des prix du pétrole. -->
+  <!-- sources: Synthèse de l'actualité mondiale du 7 novembre 2026 | World Watch <https://worldwatch.media/fr/digest/2026-11-07> ; Géopolitique & puissances — Yaktu <https://yaktu.fr/focus/geopolitique-puissances/> -->
+  <!-- origine: veille -->
+  <!-- note: Ajouté automatiquement le 2026-11-08 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
 - [ ] 🔍 Le conflit au Yémen peut-il déstabiliser davantage la région du Golfe ? [géopolitique & Golfe]
   <!-- id: geopolitique-le-conflit-au-yemen-peut-il-destabiliser -->
   <!-- contexte: Les récentes frappes aériennes des Houthis contre des navires dans la mer Rouge et les attaques contre des infrastructures pétrolières en Arabie saoudite ont exacerbé les tensions dans la région. Les États-Unis et l'UE ont renforcé leur présence militaire pour sécuriser les voies maritimes. -->
@@ -673,6 +682,15 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 
 ## Sciences — vendredi (climat & écologie, espace, IA, médecine, énergie…)
+- [ ] 🔍 La percée d'OpenAI sur la théorie de Yang-Mills va-t-elle révolutionner la physique ? [sciences & IA]
+  <!-- id: sciences-la-percee-d-openai-sur-la-theorie-de-yang-mills -->
+  <!-- contexte: Le 1er novembre 2026, OpenAI a produit une preuve de 1 147 pages sur la théorie de Yang-Mills, mais les physiciens refusent de la publier avant une vérification approfondie. Cette théorie, non résolue depuis des décennies, est cruciale pour la physique des particules. -->
+  <!-- rationnel: La question : la preuve d'OpenAI sera-t-elle validée, ouvrant une nouvelle ère pour la physique, ou révèlera-t-elle les limites de l'IA en recherche fondamentale ? Les enjeux incluent la crédibilité des découvertes assistées par IA et l'avenir de la collaboration humain-machine en science. -->
+  <!-- mots-clés: OpenAI ; théorie de Yang-Mills ; physique ; IA ; recherche -->
+  <!-- scénarios (brouillon): favorable = La preuve est validée, accélérant les recherches en physique et légitimant l'IA comme outil scientifique. ; stable = Des erreurs sont identifiées, mais la méthode inspire de nouvelles approches. ; dégradé = La preuve est irrecevable, discréditant temporairement l'IA en recherche fondamentale. -->
+  <!-- sources: Percée d'OpenAI sur la théorie de Yang-Mills, mort du télescope Swift et un sas de l'ISS condamné – le récap’ sciences de la semaine - Numerama <https://www.numerama.com/sciences/2364619-percee-dopenai-sur-la-theorie-de-yang-mills-mort-du-telescope-swift-et-un-sas-de-liss-condamne-le-recap-sciences-de-la-semaine.html> -->
+  <!-- origine: veille -->
+  <!-- note: Ajouté automatiquement le 2026-11-08 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
 - [ ] 🔍 Les nouveaux traitements contre l'obésité vont-ils bouleverser la santé publique ? [médecine & santé]
   <!-- id: sciences-les-nouveaux-traitements-contre-l-obesite-vont -->
   <!-- contexte: Les médicaments comme l'Ozempic montrent des résultats prometteurs, mais leur coût et leur accessibilité divisent les experts. -->
@@ -930,6 +948,15 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 ## Culture — samedi
 <!-- Faire tourner les domaines : cinéma, musique, jeux vidéo, littérature, spectacle, séries, art… Registre fusionné le 12 août (retour utilisateur) : "Culture française" (samedi) et "Culture internationale" (dimanche) couvraient les mêmes domaines avec une frontière souvent artificielle (un sujet français a presque toujours une dimension internationale, et inversement) et étaient tous les deux clairsemés — fusionnés en un seul registre plus riche, sans distinction française/internationale à l'entrée. La case libérée par la fusion sert au nouveau registre "Économie & finance mondiale — dimanche" (voir plus bas). -->
+- [ ] 🔍 L'IA dans l'édition : les maisons d'édition françaises peuvent-elles se protéger ? [culture & numérique]
+  <!-- id: culture-l-ia-dans-l-edition-les-maisons-d-edition -->
+  <!-- contexte: En novembre 2026, le groupe Madrigall (Gallimard, Flammarion) annonce l'utilisation d'un logiciel pour détecter les manuscrits générés par IA. Cette décision suit des polémiques sur des livres soupçonnés d'être écrits par des IA, comme l'affaire Thélyson Orélien. -->
+  <!-- rationnel: La question : les éditeurs parviendront-ils à filtrer les œuvres générées par IA, ou assistera-t-on à une crise de confiance dans la littérature ? Les défis incluent la fiabilité des détecteurs et l'évolution des techniques d'IA. L'enjeu est la préservation de la créativité humaine. -->
+  <!-- mots-clés: IA ; édition ; Madrigall ; manuscrits ; détection -->
+  <!-- scénarios (brouillon): favorable = Les éditeurs adaptent leurs processus, préservant la qualité littéraire tout en intégrant l'IA comme outil. ; stable = Des controverses persistent, mais le marché s'ajuste progressivement. ; dégradé = Une crise de confiance s'installe, avec un effondrement des ventes de livres suspects. -->
+  <!-- sources: L’IA dans l’édition, le Mois du Doc et la dernière sélection des prix littéraires ont fait l’actu culturelle cette semaine - RTBF Actus <https://www.rtbf.be/article/l-ia-dans-l-edition-le-mois-du-doc-et-la-derniere-selection-des-prix-litteraires-ont-fait-l-actu-culturelle-cette-semaine-11808151> -->
+  <!-- origine: veille -->
+  <!-- note: Ajouté automatiquement le 2026-11-08 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
 - [ ] 🔍 Le cinéma français peut-il rivaliser avec les plateformes ? [cinéma & streaming]
   <!-- id: culture-le-cinema-francais-peut-il-rivaliser-avec-les -->
   <!-- contexte: Les entrées en salles chutent de 20 % en 2026, tandis que les abonnements Netflix explosent. -->
@@ -1136,6 +1163,15 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 ## Économie & finance mondiale — jeudi
 <!-- Faire tourner les sous-thèmes : marchés financiers, monnaies (dollar, or, bitcoin), dette et taux d'intérêt, matières premières (pétrole, énergie), entreprises et secteurs à l'échelle mondiale, inégalités, démographie économique, luxe et consommation… Nouveau registre créé le 12 août (retour utilisateur), scindé de l'ancien slot "Géopolitique / international — lundi" qui mélangeait géopolitique dure et économie mondiale — voir la note dans la section Géopolitique — lundi pour la règle de classement des sujets à cheval sur les deux. -->
+- [ ] 🔍 La bulle de l'IA sur les marchés financiers va-t-elle éclater ? [économie & finance]
+  <!-- id: economie-la-bulle-de-l-ia-sur-les-marches-financiers-va -->
+  <!-- contexte: En novembre 2026, les investisseurs se détournent des actions liées à l'intelligence artificielle, provoquant une chute de 2 500 milliards de dollars de capitalisation pour le Nasdaq 100. Les entreprises technologiques se tournent vers le marché obligataire européen, augmentant les coûts de financement. -->
+  <!-- rationnel: La question : les valorisations excessives des entreprises liées à l'IA vont-elles se corriger brutalement, ou le marché retrouvera-t-il un équilibre ? Les facteurs incluent la régulation américaine et la demande réelle en technologies IA. L'enjeu pour la France est l'exposition de ses fonds d'investissement et startups. -->
+  <!-- mots-clés: bulle IA ; Nasdaq ; marchés financiers ; obligations ; régulation -->
+  <!-- scénarios (brouillon): favorable = Les corrections sont limitées et le marché se stabilise autour de valorisations réalistes. ; stable = Une correction modérée a lieu, sans impact systémique sur l'économie. ; dégradé = Un krach technologique déclenche une crise financière mondiale. -->
+  <!-- sources: Monde – L'actualité de la semaine – 6 novembre 2026 | Etudes économiques - Crédit Agricole <https://etudes-economiques.credit-agricole.com/fr/monde-lactualite-de-la-semaine-6-novembre-2026> -->
+  <!-- origine: veille -->
+  <!-- note: Ajouté automatiquement le 2026-11-08 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
 - [ ] 🔍 La bulle immobilière commerciale va-t-elle éclater en Europe ? [économie & immobilier]
   <!-- id: economie-la-bulle-immobiliere-commerciale-va-t-elle -->
   <!-- contexte: Les prix des bureaux et centres commerciaux chutent de 15 % en un an dans plusieurs capitales européennes. La demande en baisse et les taux élevés fragilisent les investisseurs. -->
