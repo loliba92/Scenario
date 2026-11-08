@@ -1,4 +1,4 @@
-# Événements à surveiller — point du 07/11/2026
+# Événements à surveiller — point du 08/11/2026
 
 Fichier généré par `scripts/detection/verifier_signaux.py` (source : `data/signaux.json`).
 
@@ -9,8 +9,8 @@ Aucun.
 Aucun.
 
 ## En cours
-- Vote du budget 2027 à l'Assemblée sans motion de censure — limite le 31/12/2026 (dans 54 jours)
-- Annonce d'un cessez-le-feu entre l'Éthiopie et l'Érythrée sous médiation régionale — limite le 30/11/2026 (dans 23 jours)
+- Vote du budget 2027 à l'Assemblée sans motion de censure — limite le 31/12/2026 (dans 53 jours)
+- Annonce d'un cessez-le-feu entre l'Éthiopie et l'Érythrée sous médiation régionale — limite le 30/11/2026 (dans 22 jours)
 
 ## Déjà tranchés
 Aucun.
