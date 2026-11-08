@@ -1,0 +1,173 @@
+{
+  "h1": "Ukraine : l'intensification des frappes sur les raffineries russes peut-elle faire basculer la guerre énergétique ?",
+  "question_text": "L'escalade réciproque sur les infrastructures énergétiques peut-elle créer un choc pétrolier mondial, forcer la Russie à négocier, ou s'enliser dans une guerre d'usure énergétique sans vainqueur ?",
+  "section_title": "Trois trajectoires pour l'escalade énergétique entre Kiev et Moscou",
+  "dek": [
+    "Depuis le début de l'automne, la guerre entre l'Ukraine et la Russie a pris un nouveau tournant au cœur des usines de carburant. Le 3 octobre 2026, le président ukrainien Volodymyr Zelensky a annoncé vouloir « passer à l'échelle supérieure » en visant directement les raffineries<a class=\"lex-ref\" href=\"#lex-raffinerie\" aria-label=\"Voir la définition dans le lexique\">*</a> russes. Pour Kiev, l'objectif militaire est double : priver l'armée russe de son carburant sur le front et assécher les revenus pétroliers qui financent l'effort de guerre du Kremlin. En représailles immédiates, Moscou a intensifié ses tirs de missiles et de drones contre le réseau électrique ukrainien, tout en appelant les diplomates étrangers à évacuer la capitale.",
+    "La vulnérabilité du secteur pétrolier russe est devenue bien réelle. Selon les estimations de l'Agence internationale de l'énergie, le débit de raffinage russe est tombé à <strong>3,8 millions de barils/jour</strong> en juin 2026, alors que le pays dispose d'une capacité installée théorique de <strong>6,5 millions de barils/jour</strong>. Cet écart montre que les attaques de drones à longue portée désorganisent les installations techniques complexes. Comme une usine moderne dont une seule pièce maîtresse tombe en panne, une raffinerie touchée peut rester immobilisée pendant plusieurs mois, faute de composants électroniques et mécaniques de rechange sous embargo.",
+    "En réaction à ces frappes répétées, le pouvoir russe a déjà dû imposer des restrictions temporaires sur ses exportations d'essence et de gazole pour éviter les pénuries dans ses propres stations-service. Cette tension interne fragilise l'économie russe, mais elle inquiète aussi les pays occidentaux. Si la Russie vend moins de carburants raffinés à ses partenaires habituels comme l'Inde ou la Turquie, le marché mondial doit réorganiser ses circuits d'approvisionnement en urgence. Cette nervosité pousse les cours du brut à la hausse et alourdit la facture d'essence des automobilistes européens.",
+    "Sur le terrain terrestre, le front reste très disputé. Les autorités ukrainiennes ont annoncé que leur contre-offensive baptisée « Vivaldi » avait permis de reprendre environ <strong>140 km²</strong> dans la région du Donbass, un chiffre qui reste à confirmer par des observateurs indépendants. Mais cette avancée militaire locale ne compense pas la menace qui pèse sur les villes ukrainiennes à l'approche de la saison froide. Moscou cible délibérément les centrales thermiques et les transformateurs électriques pour plonger les civils dans le noir et le froid avant l'hiver.",
+    "L'équilibre énergétique mondial dépend désormais des décisions stratégiques des grands producteurs de pétrole. Les pays exportateurs réunis au sein de l'OPEP+<a class=\"lex-ref\" href=\"#lex-opep-plus\" aria-label=\"Voir la définition dans le lexique\">*</a> surveillent de très près le niveau de l'offre disponible. Si les frappes ukrainiennes retirent durablement des volumes importants de produits raffinés du marché, le cartel pourrait choisir de compenser le manque ou, au contraire, de maintenir des quotas stricts pour soutenir les prix. Les importateurs européens, dont la France, se retrouvent ainsi pris en étau entre la solidarité militaire avec Kiev et le risque d'une nouvelle vague d'inflation énergétique.",
+    "L'issue de ce bras de fer reste profondément incertaine car chaque camp dispose d'un pouvoir de nuisance majeur sur l'approvisionnement de l'autre. L'Ukraine parviendra-t-elle à asphyxier la logistique russe au point de forcer Vladimir Poutine à négocier une trêve sur l'énergie ? Moscou réussira-t-il à briser la résistance ukrainienne en détruisant ses infrastructures vitales avant le dégel ? Ou verrons-nous les deux belligérants s'enfermer dans un échange de coups destructeur qui maintiendra une prime de risque<a class=\"lex-ref\" href=\"#lex-prime-de-risque\" aria-label=\"Voir la définition dans le lexique\">*</a> permanente sur le baril de pétrole mondial ?"
+  ],
+  "enjeu_en_clair": {
+    "lead": "L'Ukraine attaque les raffineries russes pour priver Moscou d'argent et de carburant, tandis que la Russie bombarde le réseau électrique ukrainien avant l'hiver.",
+    "text": "L'Ukraine envoie des drones sur les usines de pétrole russes. La Russie réplique en détruisant l'électricité des villes ukrainiennes. Le désaccord porte sur la capacité de ces frappes à faire plier l'adversaire. Pour les Français, l'enjeu direct est le prix du carburant à la pompe et le risque d'une nouvelle hausse des prix de l'énergie cet hiver."
+  },
+  "stakes_branches": {
+    "favorable": "Un accord d'arrêt mutuel des frappes énergétiques protège l'approvisionnement civil des deux pays.",
+    "stable": "Des frappes ciblées régulières maintiennent une hausse modérée du prix du carburant en Europe.",
+    "degrade": "L'escalade totale détruit le réseau ukrainien et propulse le pétrole mondial au-dessus de 120 dollars."
+  },
+  "comprendre_box": [
+    {
+      "lead": "Pourquoi frapper une raffinerie est plus efficace que viser un puits de pétrole ?",
+      "text": "Un puits de pétrole brut est un simple trou dans le sol : s'il est endommagé, il se répare vite et le brut peut attendre dans la roche. Une raffinerie, c'est une usine chimique géante qui transforme le brut en essence, gazole et kérosène utilisables par les chars. Détruire une colonne de distillation bloque des millions de litres de carburant d'un coup.",
+      "apres_dek_index": 1
+    },
+    {
+      "lead": "Comment une prime de risque pétrolière se ressent-elle sur votre plein ?",
+      "text": "Quand les marchés craignent une rupture d'approvisionnement, les négociants ajoutent une prime de sécurité sur chaque baril acheté. Un surcoût de 5 à 10 dollars par baril de pétrole brut se traduit directement à la pompe en France par une augmentation mécanique d'environ 4 à 8 centimes d'euro par litre de carburant.",
+      "apres_dek_index": 4
+    }
+  ],
+  "list_box": null,
+  "indicators": [
+    {
+      "label": "Débit de raffinage russe (juin 2026)",
+      "value": "3,8 millions de barils/jour",
+      "delta": "plus bas niveau depuis plusieurs années selon l'IEA"
+    },
+    {
+      "label": "Capacité installée de raffinage russe (référence IEA 2026)",
+      "value": "6,5 millions de barils/jour",
+      "delta": "capacité théorique — débit réel nettement inférieur"
+    }
+  ],
+  "cards": {
+    "favorable": {
+      "pct": 20,
+      "gauge_word": "Peu probable",
+      "h3": "Un compromis force l'arrêt des frappes sur l'énergie",
+      "why": [
+        "Premier scénario : les frappes ukrainiennes réduisent fortement la production de gazole russe et provoquent de lourdes pénuries dans les grandes villes de Russie. Face à cette déstabilisation économique et aux difficultés logistiques de son armée, le Kremlin accepte d'ouvrir des pourparlers techniques sous médiation internationale. Concrètement, les deux pays concluent un cessez-le-feu sectoriel strict : l'Ukraine cesse ses attaques de drones contre les raffineries russes en échange de l'arrêt complet des bombardements russes sur le réseau électrique et les centrales de chauffage ukrainiennes.",
+        "Par rapport aux deux autres trajectoires, cette option exige que Moscou admette publiquement la vulnérabilité de son complexe pétrolier face aux drones longue portée. Elle suppose aussi que Kiev accepte de renoncer à son levier le plus destructeur contre les finances russes. Cette issue apaiserait immédiatement les marchés de l'énergie et ferait disparaître la prime de risque géopolitique, mais elle ne pourrait survenir que si la pression économique sur le pouvoir russe devenait intenable dès le début de l'hiver."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Débit de raffinage russe (juin 2026)",
+          "evo_current": "4,4 millions de barils/jour",
+          "evo_arrow": "up",
+          "evo_prev": "3,8 Mbd en juin 2026"
+        },
+        {
+          "field_name": "Capacité installée de raffinage russe (référence IEA 2026)",
+          "evo_current": "6,5 millions de barils/jour",
+          "evo_arrow": "flat",
+          "evo_prev": "6,5 Mbd de capacité théorique"
+        }
+      ],
+      "france_line": "Baisse du prix du carburant à la pompe et sécurisation de l'approvisionnement énergétique européen.",
+      "france_impact": "favorable"
+    },
+    "stable": {
+      "pct": 55,
+      "gauge_word": "Assez probable",
+      "h3": "Une guerre d'usure énergétique s'installe sans rupture majeure",
+      "why": [
+        "Deuxième scénario : les deux armées maintiennent un échange de coups régulier et calibré tout au long de l'hiver. L'armée ukrainienne frappe deux à trois raffineries russes par mois, obligeant Moscou à réparer ses installations au ralenti et à restreindre périodiquement ses ventes de carburant à l'étranger. De son côté, la Russie poursuit ses attaques par drones sur les sous-stations électriques ukrainiennes, imposant des coupures de courant temporaires mais sans provoquer l'effondrement total du pays. Concrètement, le marché pétrolier mondial intègre durablement une prime de risque de 5 à 10 dollars par baril.",
+        "Contrairement au scénario favorable d'un accord rapide ou au scénario dégradé d'un embrasement général, cette guerre d'usure devient la nouvelle norme acceptée par les marchés. Les pays européens surmontent la saison froide grâce à leurs stocks stratégiques bien remplis et à des importations de gaz naturel liquéfié, tandis que la Russie réoriente une partie de son pétrole brut non raffiné vers l'Asie. Cette situation prolongerait les tensions actuelles sans modifier radicalement l'équilibre militaire global sur la ligne de front."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Débit de raffinage russe (juin 2026)",
+          "evo_current": "3,9 millions de barils/jour",
+          "evo_arrow": "flat",
+          "evo_prev": "3,8 Mbd en juin 2026"
+        },
+        {
+          "field_name": "Capacité installée de raffinage russe (référence IEA 2026)",
+          "evo_current": "6,5 millions de barils/jour",
+          "evo_arrow": "flat",
+          "evo_prev": "6,5 Mbd de capacité théorique"
+        }
+      ],
+      "france_line": "Prix du carburant maintenus à un niveau élevé mais sans pénurie ni coupure d'énergie.",
+      "france_impact": "degrade"
+    },
+    "degrade": {
+      "pct": 25,
+      "gauge_word": "Peu probable",
+      "h3": "L'escalade totale déclenche un choc pétrolier mondial",
+      "why": [
+        "Troisième scénario : la Russie répond aux attaques ukrainiennes par une campagne de destruction massive visant l'ensemble des infrastructures énergétiques résiduelles de l'Ukraine et menace les voies maritimes en mer Noire. Le réseau électrique ukrainien est mis hors service, provoquant une crise humanitaire majeure en plein hiver. Dans le même temps, les perturbations sur les exportations pétrolières et gazières régionales font flamber le cours du Brent au-delà de 120 dollars le baril. Concrètement, les gouvernements européens doivent déclencher leurs plans d'urgence énergétique et rationner certaines consommations industrielles.",
+        "À la différence du scénario d'usure maîtrisée, cette rupture violente transformerait une crise régionale en un choc économique mondial comparable aux crises pétrolières historiques. L'Union européenne devrait activer son mécanisme de solidarité gazière pour secourir les pays les plus vulnérables du continent. Une telle dérive entraînerait une envolée brutale de l'inflation et placerait les économies occidentales sous une tension financière extrême, ce qui pourrait affaiblir le consensus politique autour du soutien à l'Ukraine."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Débit de raffinage russe (juin 2026)",
+          "evo_current": "3,2 millions de barils/jour",
+          "evo_arrow": "down",
+          "evo_prev": "3,8 Mbd en juin 2026"
+        },
+        {
+          "field_name": "Capacité installée de raffinage russe (référence IEA 2026)",
+          "evo_current": "6,5 millions de barils/jour",
+          "evo_arrow": "flat",
+          "evo_prev": "6,5 Mbd de capacité théorique"
+        }
+      ],
+      "france_line": "Flambée du carburant au-dessus de 2,20 euros le litre et risque de restrictions énergétiques.",
+      "france_impact": "degrade"
+    }
+  },
+  "essentiel_box": [
+    "L'intensification des attaques de drones ukrainiens contre les raffineries russes menace de perturber le raffinage de Moscou, tandis que la Russie réplique sur le réseau électrique de Kiev à l'approche de l'hiver.",
+    "Le débit des raffineries russes est tombé à 3,8 millions de barils par jour en juin 2026 selon l'IEA, bien en dessous de sa capacité installée théorique de 6,5 millions de barils par jour.",
+    "Pas de rupture immédiate : notre scénario le plus probable (55 %) prévoit une guerre d'usure énergétique continue avec une prime de risque de 5 à 10 dollars par baril — deux autres scénarios restent possibles : accord de trêve énergétique (20 %) et choc pétrolier mondial au-delà de 120 dollars (25 %).",
+    "Le signal à surveiller est l'ajustement des quotas de production lors de la prochaine réunion de l'OPEP+ et le niveau réel des réserves de carburant russes au cœur de l'hiver."
+  ],
+  "delta_france": {
+    "kind": "negatif",
+    "score": -0.6,
+    "word": "assez négatif",
+    "text": "car le maintien probable d'une guerre d'usure (55 %) et le risque d'escalade sévère (25 %) font peser un surcoût durable sur le carburant des ménages français, face à seulement 20 % de chances d'un apaisement rapide."
+  },
+  "phrase_a_retenir": "Avec un débit tombé à 3,8 millions de barils/jour en juin 2026, le raffinage russe tourne bien en dessous de ses 6,5 millions de capacité sous la pression des drones ukrainiens.",
+  "phrase_a_retenir_stat": "3,8 millions de barils/jour",
+  "lexique": [
+    {
+      "slug": "raffinerie",
+      "terme": "raffineries",
+      "definition": "Usines industrielles complexes qui transforment le pétrole brut extrait du sol en carburants utilisables, comme l'essence, le gazole ou le kérosène."
+    },
+    {
+      "slug": "opep-plus",
+      "terme": "OPEP+",
+      "definition": "Organisation des pays exportateurs de pétrole élargie à dix pays partenaires dont la Russie, qui fixe des quotas de production pour influencer les prix mondiaux."
+    },
+    {
+      "slug": "prime-de-risque",
+      "terme": "prime de risque",
+      "definition": "Surcoût financier intégré au prix d'un produit sur les marchés pour compenser l'incertitude liée à une menace politique, militaire ou climatique."
+    }
+  ],
+  "sources_html": [
+    "<a href=\"https://www.lindependant.fr/2026/10/03/guerre-en-ukraine-nous-devrons-passer-a-lechelle-superieure-lukraine-va-intensifier-ses-frappes-sur-les-raffineries-russes-annonce-zelensky-13582396.php\" target=\"_blank\" rel=\"noopener noreferrer\">L'Indépendant — Guerre en Ukraine : « Nous devrons passer à l'échelle supérieure »… L'Ukraine va intensifier ses frappes sur les raffineries russes ↗</a>",
+    "<a href=\"https://www.lequotidien.re/article/national-et-international/2026/10/03/la-russie-appelle-les-diplomates-et-etrangers-a-quitter-kiev-ciblee-a-repetition-doc-d2649t4\" target=\"_blank\" rel=\"noopener noreferrer\">Le Quotidien de la Réunion — La Russie appelle les diplomates et étrangers à quitter Kiev, ciblée à répétition ↗</a>"
+  ],
+  "meta": {
+    "title": "Ukraine : l'intensification des frappes… — Scénario",
+    "meta_description": "Ukraine : l'intensification des frappes sur les raffineries russes peut-elle fai Enjeux géopolitiques et scénarios prospectifs.",
+    "og_image_alt": "Installation industrielle pétrolière et réservoirs de carburant sous tension géopolitique",
+    "keywords": [
+      "international",
+      "tensions",
+      "alliances",
+      "Ukraine",
+      "géopolitique"
+    ],
+    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-11-09.html\"\n  },\n  \"headline\": \"Ukraine : l'intensification des frappes… — Scénario\",\n  \"description\": \"Ukraine : l'intensification des frappes sur les raffineries russes peut-elle fai Enjeux géopolitiques et scénarios prospectifs.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-11-09.png\"\n  ],\n  \"datePublished\": \"2026-11-09T00:00:00\",\n  \"dateModified\": \"2026-11-09T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"international, tensions, alliances, Ukraine, géopolitique\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Géopolitique\"\n}",
+    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Ukraine : l'intensification des frappes sur les raffineries russes peut-elle faire basculer la guerre énergétique ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-11-09.html\"\n    }\n  ]\n}"
+  }
+}

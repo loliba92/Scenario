@@ -1,152 +1,173 @@
 {
-  "h1": "Sport : peut-il rester humain face à l'IA et aux données ?",
-  "question_text": "Le sport professionnel peut-il rester humain face à l'optimisation par l'IA et aux données biométriques ?",
-  "section_title": "Trois trajectoires pour l'avenir de l'athlète face aux algorithmes",
+  "h1": "Ukraine : l'intensification des frappes sur les raffineries russes peut-elle faire basculer la guerre énergétique ?",
+  "question_text": "L'escalade réciproque sur les infrastructures énergétiques peut-elle créer un choc pétrolier mondial, forcer la Russie à négocier, ou s'enliser dans une guerre d'usure énergétique sans vainqueur ?",
+  "section_title": "Trois trajectoires pour l'escalade énergétique entre Kiev et Moscou",
   "dek": [
-    "Dans les coulisses du sport de très haut niveau, une transformation invisible mais radicale s'accélère. Les champions ne s'entraînent plus seulement au chronomètre ou au ressenti avec leur entraîneur. Ils sont désormais équipés d'une multitude de capteurs miniaturisés qui enregistrent en direct leurs battements de cœur, la puissance développée sur leurs pédales, leur température corporelle et même la qualité de leur sommeil. Ces mesures physiologiques continues alimentent des programmes informatiques capables de repérer la moindre fatigue avant même qu'elle ne soit ressentie par le corps. L'enjeu n'est plus seulement de s'entraîner plus dur, mais de calibrer chaque effort à la seconde près. Cette quête de précision mathématique soulève une interrogation fondamentale : jusqu'où peut-on numériser le corps d'un sportif sans effacer sa part humaine d'instinct, d'aléa et d'émotion ?",
-    "L'utilisation concrète de ces technologies a franchi un cap lors du Tour de France 2026 au sein de la prestigieuse formation UAE Team Emirates, qui accompagne le champion slovène Tadej Pogacar. Son directeur de la performance, Jeroen Swart, a révélé compiler en permanence la variabilité de la fréquence cardiaque<a class=\"lex-ref\" href=\"#lex-variabilite-cardiaque\" aria-label=\"Voir la définition dans le lexique\">*</a>, les signaux des capteurs de puissance et les ressentis subjectifs des coureurs dans une plateforme centrale d'intelligence artificielle. Alors que la rédaction manuelle d'un bilan physique personnalisé prenait autrefois plusieurs jours de travail intensif à une équipe médicale, les algorithmes génèrent aujourd'hui <strong>40 bilans en une heure</strong>. Ces outils calculent précisément la charge de travail optimale pour chaque étape, ajustant les séances d'entraînement au millimètre pour maximiser la récupération et les gains athlétiques.",
-    "Cette irruption technologique permet des gains mesurables qui transforment la compétition de haut niveau dans de nombreuses disciplines. Les différentes études récentes indiquent une <strong>amélioration de performance documentée de 15 % à 20 %</strong> grâce à ce suivi algorithmique. Les mesures montrent par exemple des progrès de 15,2 % dans le cyclisme sur piste, de 18,7 % avec les objets connectés de dernière génération et jusqu'à 20,3 % dans l'analyse gestuelle appliquée au ski de compétition. Cependant, cette efficacité redoutable crée une asymétrie croissante entre les équipes fortunées capables de financer ces infrastructures logicielles et les structures plus modestes. L'aléa sportif, qui faisait la beauté de la compétition, tend à s'effacer devant une équation où la victoire dépend de la puissance de calcul des serveurs informatiques.",
-    "Face à cette collecte massive d'informations corporelles, les autorités de régulation commencent à poser des limites strictes. En France, la Commission nationale de l'informatique et des libertés, la CNIL, a publié une recommandation officielle sur la collecte des données biométriques<a class=\"lex-ref\" href=\"#lex-donnees-biometriques\" aria-label=\"Voir la définition dans le lexique\">*</a> des sportifs. L'autorité rappelle avec fermeté que le port d'un capteur doit toujours reposer sur l'accord libre de l'athlète et respecter le principe de minimisation des données<a class=\"lex-ref\" href=\"#lex-minimisation-des-donnees\" aria-label=\"Voir la définition dans le lexique\">*</a>. Concrètement, un club n'a le droit de recueillir que les paramètres strictement nécessaires à l'exercice physique, sans transformer la vie privée du sportif en laboratoire permanent. De plus, ces données de santé récoltées pour l'entraînement ne peuvent en aucun cas être détournées pour la lutte antidopage ou des sanctions disciplinaires.",
-    "À l'échelle continentale, le cadre juridique se renforce également avec le règlement européen sur l'intelligence artificielle, l'AI Act<a class=\"lex-ref\" href=\"#lex-ai-act\" aria-label=\"Voir la définition dans le lexique\">*</a>, adopté en 2024 et dont l'application s'étend progressivement jusqu'en 2026. Ce texte classe les systèmes d'intelligence artificielle par niveau de risque et impose des contrôles sévères pour les applications jugées à risque élevé, notamment celles qui évaluent les comportements humains ou influencent l'accès à un emploi. Dans le sport professionnel, des syndicats de joueurs comme la FIFPRO s'inquiètent de l'usage managérial de ces algorithmes : un club pourrait-il refuser une prolongation de contrat ou réduire un salaire en se basant uniquement sur un score statistique prédisant un risque de blessure future ? La frontière entre aide médicale et surveillance abusive devient particulièrement floue.",
-    "L'avenir du sport de haut niveau se trouve ainsi à la croisée des chemins entre perfectionnement technique et préservation de l'humain. D'un côté, l'optimisation par les algorithmes promet de réduire les risques de blessures graves, de prolonger les carrières et d'offrir des spectacles d'une intensité physique inégalée. De l'autre, elle menace de réduire l'athlète à une simple machine biologique monitorée 24 heures sur 24, exécutant des stratégies conçues par des ordinateurs plutôt que par son intuition. Le sport professionnel saura-t-il encadrer ces technologies pour préserver la part de doute et d'émotion qui fait vibrer le public ? Pour éclairer cette incertitude majeure, notre rédaction analyse trois scénarios prospectifs sur la place accordée aux algorithmes dans les stades de demain."
+    "Depuis le début de l'automne, la guerre entre l'Ukraine et la Russie a pris un nouveau tournant au cœur des usines de carburant. Le 3 octobre 2026, le président ukrainien Volodymyr Zelensky a annoncé vouloir « passer à l'échelle supérieure » en visant directement les raffineries<a class=\"lex-ref\" href=\"#lex-raffinerie\" aria-label=\"Voir la définition dans le lexique\">*</a> russes. Pour Kiev, l'objectif militaire est double : priver l'armée russe de son carburant sur le front et assécher les revenus pétroliers qui financent l'effort de guerre du Kremlin. En représailles immédiates, Moscou a intensifié ses tirs de missiles et de drones contre le réseau électrique ukrainien, tout en appelant les diplomates étrangers à évacuer la capitale.",
+    "La vulnérabilité du secteur pétrolier russe est devenue bien réelle. Selon les estimations de l'Agence internationale de l'énergie, le débit de raffinage russe est tombé à <strong>3,8 millions de barils/jour</strong> en juin 2026, alors que le pays dispose d'une capacité installée théorique de <strong>6,5 millions de barils/jour</strong>. Cet écart montre que les attaques de drones à longue portée désorganisent les installations techniques complexes. Comme une usine moderne dont une seule pièce maîtresse tombe en panne, une raffinerie touchée peut rester immobilisée pendant plusieurs mois, faute de composants électroniques et mécaniques de rechange sous embargo.",
+    "En réaction à ces frappes répétées, le pouvoir russe a déjà dû imposer des restrictions temporaires sur ses exportations d'essence et de gazole pour éviter les pénuries dans ses propres stations-service. Cette tension interne fragilise l'économie russe, mais elle inquiète aussi les pays occidentaux. Si la Russie vend moins de carburants raffinés à ses partenaires habituels comme l'Inde ou la Turquie, le marché mondial doit réorganiser ses circuits d'approvisionnement en urgence. Cette nervosité pousse les cours du brut à la hausse et alourdit la facture d'essence des automobilistes européens.",
+    "Sur le terrain terrestre, le front reste très disputé. Les autorités ukrainiennes ont annoncé que leur contre-offensive baptisée « Vivaldi » avait permis de reprendre environ <strong>140 km²</strong> dans la région du Donbass, un chiffre qui reste à confirmer par des observateurs indépendants. Mais cette avancée militaire locale ne compense pas la menace qui pèse sur les villes ukrainiennes à l'approche de la saison froide. Moscou cible délibérément les centrales thermiques et les transformateurs électriques pour plonger les civils dans le noir et le froid avant l'hiver.",
+    "L'équilibre énergétique mondial dépend désormais des décisions stratégiques des grands producteurs de pétrole. Les pays exportateurs réunis au sein de l'OPEP+<a class=\"lex-ref\" href=\"#lex-opep-plus\" aria-label=\"Voir la définition dans le lexique\">*</a> surveillent de très près le niveau de l'offre disponible. Si les frappes ukrainiennes retirent durablement des volumes importants de produits raffinés du marché, le cartel pourrait choisir de compenser le manque ou, au contraire, de maintenir des quotas stricts pour soutenir les prix. Les importateurs européens, dont la France, se retrouvent ainsi pris en étau entre la solidarité militaire avec Kiev et le risque d'une nouvelle vague d'inflation énergétique.",
+    "L'issue de ce bras de fer reste profondément incertaine car chaque camp dispose d'un pouvoir de nuisance majeur sur l'approvisionnement de l'autre. L'Ukraine parviendra-t-elle à asphyxier la logistique russe au point de forcer Vladimir Poutine à négocier une trêve sur l'énergie ? Moscou réussira-t-il à briser la résistance ukrainienne en détruisant ses infrastructures vitales avant le dégel ? Ou verrons-nous les deux belligérants s'enfermer dans un échange de coups destructeur qui maintiendra une prime de risque<a class=\"lex-ref\" href=\"#lex-prime-de-risque\" aria-label=\"Voir la définition dans le lexique\">*</a> permanente sur le baril de pétrole mondial ?"
   ],
   "enjeu_en_clair": {
-    "lead": "Les capteurs et l'intelligence artificielle mesurent chaque battement de cœur des athlètes pour optimiser leurs résultats, au risque de transformer le sport en concours d'algorithmes.",
-    "text": "Dans le sport d'élite, des logiciels analysent désormais en continu la fatigue et les constantes physiques des champions pour dicter leur entraînement. Le débat oppose l'optimisation médicale légitime à une surveillance permanente qui prive l'athlète de son autonomie. Pour le grand public, l'enjeu touche à la magie même du spectacle sportif, qui perdrait son intérêt si les machines programmaient entièrement les performances."
+    "lead": "L'Ukraine attaque les raffineries russes pour priver Moscou d'argent et de carburant, tandis que la Russie bombarde le réseau électrique ukrainien avant l'hiver.",
+    "text": "L'Ukraine envoie des drones sur les usines de pétrole russes. La Russie réplique en détruisant l'électricité des villes ukrainiennes. Le désaccord porte sur la capacité de ces frappes à faire plier l'adversaire. Pour les Français, l'enjeu direct est le prix du carburant à la pompe et le risque d'une nouvelle hausse des prix de l'énergie cet hiver."
   },
   "stakes_branches": {
-    "favorable": "L'IA demeure un simple conseiller médical strictement encadré, protégeant la santé du sportif et laissant le génie humain décider du résultat.",
-    "stable": "Les technologies s'installent progressivement sans règles claires, créant une surveillance quotidienne acceptée par habitude dans les grands clubs.",
-    "degrade": "L'athlète devient un système vivant entièrement piloté par des algorithmes, où la stratégie et les contrats dépendent uniquement des capteurs."
+    "favorable": "Un accord d'arrêt mutuel des frappes énergétiques protège l'approvisionnement civil des deux pays.",
+    "stable": "Des frappes ciblées régulières maintiennent une hausse modérée du prix du carburant en Europe.",
+    "degrade": "L'escalade totale détruit le réseau ukrainien et propulse le pétrole mondial au-dessus de 120 dollars."
   },
   "comprendre_box": [
     {
-      "lead": "La surveillance biométrique permanente transforme le corps en flux continu d'informations numériques.",
-      "text": "Imaginez qu'un capteur fixé sous votre peau transmette en temps réel à votre employeur votre rythme cardiaque, vos heures de sommeil et votre niveau de stress. Dans le sport professionnel, cette collecte dépasse largement le cadre des séances d'entraînement : les algorithmes analysent la récupération nocturne et la vie privée pour prédire les performances sur le terrain.",
+      "lead": "Pourquoi frapper une raffinerie est plus efficace que viser un puits de pétrole ?",
+      "text": "Un puits de pétrole brut est un simple trou dans le sol : s'il est endommagé, il se répare vite et le brut peut attendre dans la roche. Une raffinerie, c'est une usine chimique géante qui transforme le brut en essence, gazole et kérosène utilisables par les chars. Détruire une colonne de distillation bloque des millions de litres de carburant d'un coup.",
       "apres_dek_index": 1
     },
     {
-      "lead": "Le cadre juridique européen cherche à tracer une ligne rouge entre mesure sportive et intrusion intime.",
-      "text": "Le droit européen et la CNIL imposent que les données de santé appartiennent avant tout à la personne qui les produit. Dans un vestiaire, cela signifie qu'un entraîneur ne peut pas forcer un joueur à porter un traceur GPS chez lui, ni utiliser ses données cardiaques pour justifier une baisse de salaire sans contrôle éthique.",
+      "lead": "Comment une prime de risque pétrolière se ressent-elle sur votre plein ?",
+      "text": "Quand les marchés craignent une rupture d'approvisionnement, les négociants ajoutent une prime de sécurité sur chaque baril acheté. Un surcoût de 5 à 10 dollars par baril de pétrole brut se traduit directement à la pompe en France par une augmentation mécanique d'environ 4 à 8 centimes d'euro par litre de carburant.",
       "apres_dek_index": 4
     }
   ],
   "list_box": null,
   "indicators": [
     {
-      "label": "Amélioration de performance documentée avec l'IA",
-      "value": "15 % à 20 %",
-      "delta": "selon les disciplines (cyclisme, ski, capteurs connectés en 2026)"
+      "label": "Débit de raffinage russe (juin 2026)",
+      "value": "3,8 millions de barils/jour",
+      "delta": "plus bas niveau depuis plusieurs années selon l'IEA"
+    },
+    {
+      "label": "Capacité installée de raffinage russe (référence IEA 2026)",
+      "value": "6,5 millions de barils/jour",
+      "delta": "capacité théorique — débit réel nettement inférieur"
     }
   ],
   "cards": {
     "favorable": {
-      "pct": 35,
-      "gauge_word": "Probable",
-      "h3": "L'IA reste un outil d'assistance médicale encadré par des règles éthiques strictes",
+      "pct": 20,
+      "gauge_word": "Peu probable",
+      "h3": "Un compromis force l'arrêt des frappes sur l'énergie",
       "why": [
-        "Dans ce premier scénario, les instances internationales et les ligues professionnelles établissent des chartes éthiques contraignantes en s'appuyant sur les recommandations de la CNIL et les obligations de l'AI Act. L'intelligence artificielle est cantonnée à un rôle d'aide à la décision médicale et d'optimisation préventive pour éviter le surentraînement et les blessures musculaires. L'athlète conserve la propriété totale de ses paramètres physiologiques et peut refuser à tout moment le partage de ses données intimes sans risquer de sanction sportive ou financière. Pendant les compétitions officielles, les oreillettes connectées à des modèles d'analyse prédictive en temps réel sont interdites afin de préserver l'incertitude tactique, l'audace individuelle et le sens de l'exploit spontané qui passionnent les spectateurs.",
-        "Ce scénario équilibré à 35 % de probabilité s'impose comme une alternative protectrice face au risque de dérive technologique, mais il exige une volonté politique forte que les deux autres scénarios jugent compromise par les intérêts économiques. Contrairement à la banalisation d'une surveillance continue ou à l'automatisation totale des décisions tactiques, cette trajectoire garantit que la créativité et le talent brut priment sur les modèles mathématiques. Les clubs continuent de valoriser l'intelligence de jeu et la relation humaine entre le coach et son joueur. Si les fédérations harmonisent rapidement leurs règles sous la pression des syndicats de sportifs, ce modèle d'innovation éthique pourrait durablement protéger l'esprit du sport professionnel."
+        "Premier scénario : les frappes ukrainiennes réduisent fortement la production de gazole russe et provoquent de lourdes pénuries dans les grandes villes de Russie. Face à cette déstabilisation économique et aux difficultés logistiques de son armée, le Kremlin accepte d'ouvrir des pourparlers techniques sous médiation internationale. Concrètement, les deux pays concluent un cessez-le-feu sectoriel strict : l'Ukraine cesse ses attaques de drones contre les raffineries russes en échange de l'arrêt complet des bombardements russes sur le réseau électrique et les centrales de chauffage ukrainiennes.",
+        "Par rapport aux deux autres trajectoires, cette option exige que Moscou admette publiquement la vulnérabilité de son complexe pétrolier face aux drones longue portée. Elle suppose aussi que Kiev accepte de renoncer à son levier le plus destructeur contre les finances russes. Cette issue apaiserait immédiatement les marchés de l'énergie et ferait disparaître la prime de risque géopolitique, mais elle ne pourrait survenir que si la pression économique sur le pouvoir russe devenait intenable dès le début de l'hiver."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Amélioration de performance documentée avec l'IA",
-          "evo_current": "10 % à 15 %",
+          "field_name": "Débit de raffinage russe (juin 2026)",
+          "evo_current": "4,4 millions de barils/jour",
+          "evo_arrow": "up",
+          "evo_prev": "3,8 Mbd en juin 2026"
+        },
+        {
+          "field_name": "Capacité installée de raffinage russe (référence IEA 2026)",
+          "evo_current": "6,5 millions de barils/jour",
           "evo_arrow": "flat",
-          "evo_prev": "15 % à 20 % actuellement sans garde-fous stricts"
+          "evo_prev": "6,5 Mbd de capacité théorique"
         }
       ],
-      "france_line": "Les centres de formation et clubs français bénéficient d'un cadre juridique protecteur valorisant la santé des jeunes athlètes.",
+      "france_line": "Baisse du prix du carburant à la pompe et sécurisation de l'approvisionnement énergétique européen.",
       "france_impact": "favorable"
     },
     "stable": {
-      "pct": 45,
-      "gauge_word": "Probable",
-      "h3": "La surveillance biométrique se banalise progressivement sans débat public structuré",
+      "pct": 55,
+      "gauge_word": "Assez probable",
+      "h3": "Une guerre d'usure énergétique s'installe sans rupture majeure",
       "why": [
-        "Dans ce deuxième scénario, qui représente l'issue la plus probable avec 45 % de probabilité selon notre évaluation, les technologies d'optimisation continuent de se diffuser rapidement dans le sport de haut niveau sans véritable régulation globale. Les athlètes acceptent tacitement de porter des capteurs de plus en plus intrusifs pour rester compétitifs face à la concurrence internationale, craignant d'être écartés s'ils refusent la collecte de leurs signaux vitaux. Les équipes les plus fortunées multiplient les partenariats avec les géants de la tech pour analyser le sommeil, la nutrition et le métabolisme de leurs champions. Les règles de la CNIL et de l'AI Act sont appliquées de manière minimale ou contournées via des clauses de consentement standardisées insérées directement dans les contrats de travail.",
-        "Cette trajectoire médiane se distingue nettement d'une régulation éthique stricte (35 %) comme d'un basculement dystopique immédiat (20 %) : elle progresse par petits compromis successifs et silencieux. Les gains de performance chiffrés entre 15 % et 20 % deviennent la norme d'évaluation standard imposée par les préparateurs physiques. Les sportifs s'habituent à être monitorés en permanence, considérant cette surveillance corporelle comme une simple contrepartie normale de leurs rémunérations élevées. Si aucune contestation majeure n'émerge des vestiaires ou des instances sportives, cette dynamique d'optimisation feutrée glisserait vers une dépendance algorithmique irréversible où le ressenti personnel de l'athlète perdrait toute valeur face aux données chiffrées."
+        "Deuxième scénario : les deux armées maintiennent un échange de coups régulier et calibré tout au long de l'hiver. L'armée ukrainienne frappe deux à trois raffineries russes par mois, obligeant Moscou à réparer ses installations au ralenti et à restreindre périodiquement ses ventes de carburant à l'étranger. De son côté, la Russie poursuit ses attaques par drones sur les sous-stations électriques ukrainiennes, imposant des coupures de courant temporaires mais sans provoquer l'effondrement total du pays. Concrètement, le marché pétrolier mondial intègre durablement une prime de risque de 5 à 10 dollars par baril.",
+        "Contrairement au scénario favorable d'un accord rapide ou au scénario dégradé d'un embrasement général, cette guerre d'usure devient la nouvelle norme acceptée par les marchés. Les pays européens surmontent la saison froide grâce à leurs stocks stratégiques bien remplis et à des importations de gaz naturel liquéfié, tandis que la Russie réoriente une partie de son pétrole brut non raffiné vers l'Asie. Cette situation prolongerait les tensions actuelles sans modifier radicalement l'équilibre militaire global sur la ligne de front."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Amélioration de performance documentée avec l'IA",
-          "evo_current": "15 % à 20 %",
-          "evo_arrow": "up",
-          "evo_prev": "généralisation du standard actuel dans tous les grands clubs"
+          "field_name": "Débit de raffinage russe (juin 2026)",
+          "evo_current": "3,9 millions de barils/jour",
+          "evo_arrow": "flat",
+          "evo_prev": "3,8 Mbd en juin 2026"
+        },
+        {
+          "field_name": "Capacité installée de raffinage russe (référence IEA 2026)",
+          "evo_current": "6,5 millions de barils/jour",
+          "evo_arrow": "flat",
+          "evo_prev": "6,5 Mbd de capacité théorique"
         }
       ],
-      "france_line": "Les athlètes français s'alignent sur les standards de surveillance imposés par les championnats étrangers les plus riches.",
+      "france_line": "Prix du carburant maintenus à un niveau élevé mais sans pénurie ni coupure d'énergie.",
       "france_impact": "degrade"
     },
     "degrade": {
-      "pct": 20,
+      "pct": 25,
       "gauge_word": "Peu probable",
-      "h3": "L'athlète est réduit à un système biologique entièrement piloté par des algorithmes",
+      "h3": "L'escalade totale déclenche un choc pétrolier mondial",
       "why": [
-        "Dans ce troisième scénario, la recherche absolue du rendement financier et de la victoire transforme les sportifs professionnels en simples exécutants d'algorithmes prédictifs. La surveillance biométrique s'exerce 24 heures sur 24 par le biais d'implants sous-cutanés et de textiles connectés obligatoires mesurant en permanence le rythme cardiaque, l'oxygénation et le stress nerveux. Les compositions d'équipe, les remplacements en plein match et les prolongations de contrat sont dictés par des logiciels d'intelligence artificielle évaluant les risques de panne physique ou de méforme statistique. L'intuition de l'entraîneur et la spontanéité du joueur sont totalement marginalisées au profit de plans de jeu millimétrés calculés par des ordinateurs distants qui réduisent l'aléa sportif à néant.",
-        "Bien qu'évalué à 20 % de probabilité en raison des barrières légales européennes, ce scénario d'hyper-technologisation montre ce qui se produirait si la logique marchande l'emportait totalement sur l'éthique sportive. Contrairement au scénario stable où subsiste une marge de liberté individuelle, l'athlète devient ici un pur actif financier coté et optimisé comme une machine industrielle. Cette dérive risque de détourner les passionnés, lassés par des confrontations prévisibles et standardisées où le génie imprévisible des champions a disparu. Si les ligues privées mondiales s'affranchissent des régulateurs publics, le sport de compétition pourrait ainsi perdre son essence humaine pour se muer en un affrontement technologique entre ingénieurs de données."
+        "Troisième scénario : la Russie répond aux attaques ukrainiennes par une campagne de destruction massive visant l'ensemble des infrastructures énergétiques résiduelles de l'Ukraine et menace les voies maritimes en mer Noire. Le réseau électrique ukrainien est mis hors service, provoquant une crise humanitaire majeure en plein hiver. Dans le même temps, les perturbations sur les exportations pétrolières et gazières régionales font flamber le cours du Brent au-delà de 120 dollars le baril. Concrètement, les gouvernements européens doivent déclencher leurs plans d'urgence énergétique et rationner certaines consommations industrielles.",
+        "À la différence du scénario d'usure maîtrisée, cette rupture violente transformerait une crise régionale en un choc économique mondial comparable aux crises pétrolières historiques. L'Union européenne devrait activer son mécanisme de solidarité gazière pour secourir les pays les plus vulnérables du continent. Une telle dérive entraînerait une envolée brutale de l'inflation et placerait les économies occidentales sous une tension financière extrême, ce qui pourrait affaiblir le consensus politique autour du soutien à l'Ukraine."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Amélioration de performance documentée avec l'IA",
-          "evo_current": "plus de 25 %",
-          "evo_arrow": "up",
-          "evo_prev": "hausse artificielle au détriment de l'autonomie et de la santé mentale"
+          "field_name": "Débit de raffinage russe (juin 2026)",
+          "evo_current": "3,2 millions de barils/jour",
+          "evo_arrow": "down",
+          "evo_prev": "3,8 Mbd en juin 2026"
+        },
+        {
+          "field_name": "Capacité installée de raffinage russe (référence IEA 2026)",
+          "evo_current": "6,5 millions de barils/jour",
+          "evo_arrow": "flat",
+          "evo_prev": "6,5 Mbd de capacité théorique"
         }
       ],
-      "france_line": "Perte d'attractivité du modèle sportif français face aux ligues mondiales dérégulées et déshumanisées.",
+      "france_line": "Flambée du carburant au-dessus de 2,20 euros le litre et risque de restrictions énergétiques.",
       "france_impact": "degrade"
     }
   },
   "essentiel_box": [
-    "La question posée est de savoir si le sport professionnel peut préserver sa dimension humaine face à la généralisation de l'intelligence artificielle et du suivi biométrique permanent.",
-    "Les équipes d'élite utilisent déjà des capteurs corporels et l'IA pour générer 40 bilans physiologiques en une heure, apportant des gains de performance documentés de 15 % à 20 %.",
-    "Non, le sport ne restera pas pleinement humain sans règles strictes : notre scénario le plus probable (45 %) voit la surveillance biométrique s'installer par habitude dans les vestiaires, tandis que deux autres scénarios envisagent un encadrement éthique protecteur (35 %) ou une déshumanisation algorithmique totale (20 %).",
-    "Le signal à surveiller concerne la mise en conformité des clubs sportifs avec le règlement européen AI Act et les premières décisions de la CNIL sur les contrats de joueurs d'ici la fin 2026."
+    "L'intensification des attaques de drones ukrainiens contre les raffineries russes menace de perturber le raffinage de Moscou, tandis que la Russie réplique sur le réseau électrique de Kiev à l'approche de l'hiver.",
+    "Le débit des raffineries russes est tombé à 3,8 millions de barils par jour en juin 2026 selon l'IEA, bien en dessous de sa capacité installée théorique de 6,5 millions de barils par jour.",
+    "Pas de rupture immédiate : notre scénario le plus probable (55 %) prévoit une guerre d'usure énergétique continue avec une prime de risque de 5 à 10 dollars par baril — deux autres scénarios restent possibles : accord de trêve énergétique (20 %) et choc pétrolier mondial au-delà de 120 dollars (25 %).",
+    "Le signal à surveiller est l'ajustement des quotas de production lors de la prochaine réunion de l'OPEP+ et le niveau réel des réserves de carburant russes au cœur de l'hiver."
   ],
   "delta_france": {
     "kind": "negatif",
-    "score": -0.3,
-    "word": "léger négatif",
-    "text": "la probabilité cumulée de 65 % en faveur d'une surveillance biométrique accrue (45 % en scénario stable et 20 % en scénario dégradé) fragilise les droits des sportifs et le modèle éthique français."
+    "score": -0.6,
+    "word": "assez négatif",
+    "text": "car le maintien probable d'une guerre d'usure (55 %) et le risque d'escalade sévère (25 %) font peser un surcoût durable sur le carburant des ménages français, face à seulement 20 % de chances d'un apaisement rapide."
   },
-  "phrase_a_retenir": "L'intelligence artificielle permet d'améliorer les performances sportives de 15 % à 20 %, mais pose la question du respect de la vie privée des athlètes face à la surveillance permanente.",
-  "phrase_a_retenir_stat": "15 % à 20 %",
+  "phrase_a_retenir": "Avec un débit tombé à 3,8 millions de barils/jour en juin 2026, le raffinage russe tourne bien en dessous de ses 6,5 millions de capacité sous la pression des drones ukrainiens.",
+  "phrase_a_retenir_stat": "3,8 millions de barils/jour",
   "lexique": [
     {
-      "slug": "donnees-biometriques",
-      "terme": "données biométriques",
-      "definition": "Informations numériques relatives aux caractéristiques physiques, physiologiques ou comportementales d'une personne, comme le rythme cardiaque ou la température, bénéficiant d'une protection juridique renforcée."
+      "slug": "raffinerie",
+      "terme": "raffineries",
+      "definition": "Usines industrielles complexes qui transforment le pétrole brut extrait du sol en carburants utilisables, comme l'essence, le gazole ou le kérosène."
     },
     {
-      "slug": "ai-act",
-      "terme": "AI Act",
-      "definition": "Règlement européen adopté en 2024 qui encadre le développement et l'usage des systèmes d'intelligence artificielle en imposant des obligations de transparence selon le niveau de risque des applications."
+      "slug": "opep-plus",
+      "terme": "OPEP+",
+      "definition": "Organisation des pays exportateurs de pétrole élargie à dix pays partenaires dont la Russie, qui fixe des quotas de production pour influencer les prix mondiaux."
     },
     {
-      "slug": "minimisation-des-donnees",
-      "terme": "minimisation des données",
-      "definition": "Principe fondamental du RGPD exigeant qu'un organisme ne collecte et ne traite que les informations strictement nécessaires et pertinentes par rapport à l'objectif précis annoncé à l'utilisateur."
-    },
-    {
-      "slug": "variabilite-cardiaque",
-      "terme": "variabilité de la fréquence cardiaque",
-      "definition": "Mesure scientifique des variations d'intervalles entre deux battements de cœur consécutifs, utilisée par les préparateurs physiques pour évaluer avec précision le niveau de fatigue du système nerveux."
+      "slug": "prime-de-risque",
+      "terme": "prime de risque",
+      "definition": "Surcoût financier intégré au prix d'un produit sur les marchés pour compenser l'incertitude liée à une menace politique, militaire ou climatique."
     }
   ],
   "sources_html": [
-    "<a href=\"https://www.ladepeche.fr/2026/07/02/tour-de-france-2026-cest-une-revolution-comment-lequipe-de-tadej-pogacar-utilise-lintelligence-artificielle-pour-ameliorer-ses-performances-13449444.php\" target=\"_blank\" rel=\"noopener noreferrer\">La Dépêche du Midi — Tour de France 2026 : comment l'équipe de Tadej Pogacar utilise l'IA pour améliorer ses performances ↗</a>",
-    "<a href=\"https://www.cnil.fr/fr/la-collecte-de-donnees-pour-la-mesure-de-la-performance-physique-individuelle-des-sportifs-de-haut\" target=\"_blank\" rel=\"noopener noreferrer\">CNIL — La CNIL sur la collecte de données pour la mesure de la performance physique des sportifs ↗</a>",
-    "<a href=\"https://artificialintelligenceact.eu/\" target=\"_blank\" rel=\"noopener noreferrer\">Union européenne — Règlement européen sur l'intelligence artificielle (AI Act) ↗</a>"
+    "<a href=\"https://www.lindependant.fr/2026/10/03/guerre-en-ukraine-nous-devrons-passer-a-lechelle-superieure-lukraine-va-intensifier-ses-frappes-sur-les-raffineries-russes-annonce-zelensky-13582396.php\" target=\"_blank\" rel=\"noopener noreferrer\">L'Indépendant — Guerre en Ukraine : « Nous devrons passer à l'échelle supérieure »… L'Ukraine va intensifier ses frappes sur les raffineries russes ↗</a>",
+    "<a href=\"https://www.lequotidien.re/article/national-et-international/2026/10/03/la-russie-appelle-les-diplomates-et-etrangers-a-quitter-kiev-ciblee-a-repetition-doc-d2649t4\" target=\"_blank\" rel=\"noopener noreferrer\">Le Quotidien de la Réunion — La Russie appelle les diplomates et étrangers à quitter Kiev, ciblée à répétition ↗</a>"
   ],
   "meta": {
-    "title": "Sport : peut-il rester humain face à l'IA et aux données ? — Scénario",
-    "meta_description": "Sport : peut-il rester humain face à l'IA et aux données ? 3 scénarios prospectifs pour 2030.",
-    "og_image_alt": "Un athlète s'entraînant avec des capteurs connectés et des analyses de données de performance",
+    "title": "Ukraine : l'intensification des frappes… — Scénario",
+    "meta_description": "Ukraine : l'intensification des frappes sur les raffineries russes peut-elle fai Enjeux géopolitiques et scénarios prospectifs.",
+    "og_image_alt": "Installation industrielle pétrolière et réservoirs de carburant sous tension géopolitique",
     "keywords": [
-      "Sport"
+      "international",
+      "tensions",
+      "alliances",
+      "Ukraine",
+      "géopolitique"
     ],
-    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-11-08.html\"\n  },\n  \"headline\": \"Sport : peut-il rester humain face à l'IA et aux données ? — Scénario\",\n  \"description\": \"Sport : peut-il rester humain face à l'IA et aux données ? 3 scénarios prospectifs pour 2030.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-11-08.png\"\n  ],\n  \"datePublished\": \"2026-11-08T00:00:00\",\n  \"dateModified\": \"2026-11-08T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"Sport\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Sport\"\n}",
-    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Sport : peut-il rester humain face à l'IA et aux données ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-11-08.html\"\n    }\n  ]\n}"
+    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-11-09.html\"\n  },\n  \"headline\": \"Ukraine : l'intensification des frappes… — Scénario\",\n  \"description\": \"Ukraine : l'intensification des frappes sur les raffineries russes peut-elle fai Enjeux géopolitiques et scénarios prospectifs.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-11-09.png\"\n  ],\n  \"datePublished\": \"2026-11-09T00:00:00\",\n  \"dateModified\": \"2026-11-09T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"international, tensions, alliances, Ukraine, géopolitique\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Géopolitique\"\n}",
+    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Ukraine : l'intensification des frappes sur les raffineries russes peut-elle faire basculer la guerre énergétique ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-11-09.html\"\n    }\n  ]\n}"
   }
 }

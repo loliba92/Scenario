@@ -1,0 +1,308 @@
+{
+  "date": "2026-11-09",
+  "registre": "geopolitique",
+  "sujet": {
+    "titre_propose": "Ukraine : l'intensification des frappes sur les raffineries russes peut-elle faire basculer la guerre énergétique ?",
+    "h1": "Ukraine : l'intensification des frappes sur les raffineries russes peut-elle faire basculer la guerre énergétique ?",
+    "question_posee": "L'escalade réciproque sur les infrastructures énergétiques peut-elle créer un choc pétrolier mondial, forcer la Russie à négocier, ou s'enliser dans une guerre d'usure énergétique sans vainqueur ?",
+    "eyebrow": "Lundi, géopolitique",
+    "angle": "Depuis le 3 octobre 2026, l'Ukraine intensifie ses frappes sur les raffineries russes en représailles aux attaques russes sur Kiev et le réseau électrique ukrainien. L'hiver approche, les marchés pétroliers sont nerveux, et la question est de savoir si cette escalade énergétique va déstabiliser les prix mondiaux, forcer Moscou à la négociation, ou s'enliser dans une guerre d'usure sans vainqueur.",
+    "tags": [
+      "géopolitique",
+      "énergie",
+      "guerre-ukraine"
+    ],
+    "domain": "geopolitique",
+    "image_keywords": "oil refinery attack drone",
+    "complexite": 4,
+    "origine_prioritaire": "Ukraine : l'intensification des frappes sur les raffineries russes peut-elle faire basculer la guerre énergétique ?",
+    "origine_id": "geopolitique-ukraine-l-intensification-des-frappes-sur-les",
+    "point_de_depart": {
+      "id": "geopolitique-ukraine-l-intensification-des-frappes-sur-les",
+      "registre": "geopolitique",
+      "titre": "Ukraine : l'intensification des frappes sur les raffineries russes peut-elle faire basculer la guerre énergétique ?",
+      "question": "Ukraine : l'intensification des frappes sur les raffineries russes peut-elle faire basculer la guerre énergétique ?",
+      "contexte": "Le 3 octobre 2026, Volodymyr Zelensky annonce l'intensification des frappes ukrainiennes sur les raffineries russes (« passer à l'échelle supérieure »), en représailles aux attaques massives de drones russes sur Kiev et les infrastructures énergétiques ukrainiennes. La contre-offensive « Vivaldi » aurait repris 140 km² dans le Donbass. Moscou a appelé les diplomates à quitter Kiev, promettant des « frappes de représailles massives ». Les raffineries russes visées cet été avaient déjà provoqué une crise carburant en Russie.",
+      "rationnel": "La question : l'escalade réciproque sur les infrastructures énergétiques (raffineries russes vs réseau électrique ukrainien) va-t-elle créer un choc pétrolier mondial, forcer la Russie à négocier, ou s'enliser dans une guerre d'usure énergétique sans vainqueur ? L'issue est ouverte car la capacité russe à absorber les pertes de raffinage est incertaine, l'hiver approche côté ukrainien, et les marchés pétroliers sont nerveux. Pour la France, l'enjeu est le prix du carburant, la sécurité d'approvisionnement et le risque d'élargissement du conflit.",
+      "mots_cles": [
+        "Ukraine raffineries russes",
+        "frappes drones Kiev",
+        "contre-offensive Vivaldi",
+        "crise carburant Russie",
+        "hiver 2026 Ukraine",
+        "marché pétrolier"
+      ],
+      "angle": null,
+      "a_verifier": "Capacité de raffinage russe hors service en % ; niveau des stocks stratégiques français ; position de l'OPEP+ sur d'éventuelles hausses de production.",
+      "scenarios_brouillon": {
+        "favorable": "Les frappes ukrainiennes dégradent durablement l'export russe de produits raffinés, faisant monter le brut. La Russie, sous pression économique et militaire, accepte un cessez-le-feu incluant l'arrêt des frappes sur infrastructures énergétiques des deux côtés.",
+        "stable": "Échanges de coups limités : l'Ukraine frappe 2-3 raffineries par mois, la Russie répond par des vagues de drones sur le réseau ukrainien. Les marchés intègrent une prime de risque de 5-10 $/baril. L'hiver passe sans effondrement majeur grâce aux stocks et aux importations.",
+        "degrade": "La Russie riposte par des frappes massives sur les dernières centrales ukrainiennes et les terminaux gaziers européens (ex. Revithoussa en Grèce). Le Brent dépasse 120 $. L'UE déclenche le mécanisme de solidarité gazière. La France subit des coupures ciblées et une inflation carburant > 2,50 €/L."
+      },
+      "echeance": {
+        "date": "2026-11-01",
+        "raison": "Début de la saison de chauffage en Europe ; réunion OPEP+ début novembre."
+      },
+      "sources_pistes": [
+        {
+          "titre": "Guerre en Ukraine : \"Nous devrons passer à l'échelle supérieure\"… L'Ukraine va intensifier ses frappes sur les raffineries russes",
+          "url": "https://www.lindependant.fr/2026/10/03/guerre-en-ukraine-nous-devrons-passer-a-lechelle-superieure-lukraine-va-intensifier-ses-frappes-sur-les-raffineries-russes-annonce-zelensky-13582396.php"
+        },
+        {
+          "titre": "La Russie appelle les diplomates et étrangers à quitter Kiev, ciblée à répétition",
+          "url": "https://www.lequotidien.re/article/national-et-international/2026/10/03/la-russie-appelle-les-diplomates-et-etrangers-a-quitter-kiev-ciblee-a-repetition-doc-d2649t4"
+        }
+      ],
+      "tag": "géopolitique & énergie",
+      "origine": "veille",
+      "note_editoriale": "Ajouté automatiquement le 2026-10-04 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
+      "donnees_graphique": "[relevé du 2026-10-26] Débit de raffinage russe (unité : millions de barils/jour). Capacité installée de référence = 6,5 (IEA 2026) ; Débit réel juin 2026 = 3,8 (IEA, plus bas niveau en 20 ans) ; Prévision IEA moyenne fin 2026 = 4,0 (IEA Oil Market Report oct. 2026) ; Estimation mi-octobre 2026 = 4,1 (Monitor the Situation citant IEA, 18 oct. 2026). Sources : https://www.iea.org/commentaries/russian-refining-sector-struggles-amid-intensifying-ukrainian-attacks ; https://monitor-the-situation.com/eastern-europe/russian-refining-runs-slip-to-ef58d15a",
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille du 8 novembre (sport, IA et données) sans lien. Registre géopolitique : dernière édition géopolitique du 27 octobre (Éthiopie-Érythrée) sans recoupement. Édition du 24 août 2026 (Ukraine : ni paix ni victoire) traite le conflit ukrainien mais sans angle raffineries/énergie. Édition du 13 août 2026 (Inflation : le pétrole rebat les cartes) traite le pétrole mais dans un contexte Ormuz/Iran, pas Ukraine. Aucun doublon bloquant."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Le 3 octobre 2026, Volodymyr Zelensky a annoncé l'intensification des frappes ukrainiennes sur les raffineries russes, avec la formule « passer à l'échelle supérieure ».",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "lindependant-20261003"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La Russie a appelé les diplomates et les étrangers à quitter Kiev le 3 octobre 2026, promettant des frappes de représailles massives.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "lequotidien-20261003"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "L'Ukraine a annoncé une contre-offensive « Vivaldi » ayant repris environ 140 km² dans le Donbass.",
+      "chiffre": "140 km²",
+      "date_du_chiffre": "2026-10-03",
+      "sources": [
+        "lindependant-20261003"
+      ],
+      "confiance": "moyenne"
+    },
+    {
+      "affirmation": "Les frappes sur les raffineries russes ont déjà provoqué une crise carburant en Russie lors des mois précédents.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "lindependant-20261003"
+      ],
+      "confiance": "moyenne"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Volodymyr Zelensky",
+      "role": "Président de l'Ukraine, annonceur de l'intensification des frappes sur les raffineries russes"
+    },
+    {
+      "nom": "Russie (Kremlin)",
+      "role": "Cible des frappes sur les raffineries, riposte par drones sur le réseau électrique ukrainien et menace de représailles massives"
+    },
+    {
+      "nom": "OPEP+",
+      "role": "Cartel pétrolier dont la décision sur les quotas début novembre 2026 influencera la réponse des marchés au choc"
+    },
+    {
+      "nom": "Union européenne",
+      "role": "Bénéficiaire potentielle des effets secondaires sur les prix du carburant et de l'énergie, avec mécanisme de solidarité gazière en cas de crise"
+    },
+    {
+      "nom": "France",
+      "role": "Lecteur cible : enjeu du prix du carburant, de la sécurité d'approvisionnement et du risque d'élargissement du conflit"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2026-10-03",
+      "evenement": "Zelensky annonce l'intensification des frappes sur les raffineries russes (« passer à l'échelle supérieure ») ; la Russie appelle les diplomates à quitter Kiev"
+    },
+    {
+      "date": "2026-10-03",
+      "evenement": "Annonce de la contre-offensive « Vivaldi » reprenant environ 140 km² dans le Donbass"
+    },
+    {
+      "date": "2026-11-01",
+      "evenement": "Début de la saison de chauffage en Europe — échéance sensible pour la demande énergétique et les stocks"
+    },
+    {
+      "date": "2026-11-09",
+      "evenement": "Date du brief — la réunion OPEP+ début novembre est attendue comme décision clé sur les quotas"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Les frappes ukrainiennes dégradent durablement le raffinage russe, réduisant les exportations de produits raffinés et faisant monter le brut. Sous pression économique et militaire, la Russie accepte un cessez-le-feu incluant l'arrêt des frappes sur les infrastructures énergétiques des deux côtés.",
+      "probabilite_suggeree": 20
+    },
+    "stable": {
+      "resume": "Échanges de coups limités : l'Ukraine frappe 2 à 3 raffineries par mois, la Russie riposte par des vagues de drones sur le réseau électrique ukrainien. Les marchés intègrent une prime de risque de 5 à 10 $/baril. L'hiver passe sans effondrement majeur grâce aux stocks stratégiques et aux importations de substitution.",
+      "probabilite_suggeree": 55
+    },
+    "degrade": {
+      "resume": "La Russie riposte par des frappes massives sur les dernières centrales ukrainiennes et les terminaux gaziers européens (ex. Revithoussa en Grèce). Le Brent dépasse 120 $/baril. L'UE déclenche le mécanisme de solidarité gazière. La France subit des coupures ciblées et une inflation carburant dépassant 2,50 €/L.",
+      "probabilite_suggeree": 25
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Débit de raffinage russe (juin 2026)",
+      "valeur": "3,8 millions de barils/jour",
+      "tendance": "en baisse — plus bas niveau depuis plusieurs années selon l'IEA"
+    },
+    {
+      "label": "Capacité installée de raffinage russe (référence IEA 2026)",
+      "valeur": "6,5 millions de barils/jour",
+      "tendance": "capacité théorique — débit réel nettement inférieur"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "La série du débit de raffinage russe publiée par l'IEA est payante ou difficilement accessible en données brutes libres de droits pour un tracé vérifié. Les points disponibles dans le dossier (6,5 capacité, 3,8 juin 2026, 4,0 prévision fin 2026, 4,1 mi-octobre 2026) sont au nombre de 4, ce qui est inférieur au seuil de 5 points réels requis. Critère (2) non satisfait : moins de 5 points réels vérifiés publiquement.",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "oui",
+    "raison": "Quatre chiffres comparables (en millions de barils/jour) sont disponibles dans les sources vérifiées et le dossier du sujet : capacité installée 6,5, débit juin 2026 3,8, prévision IEA fin 2026 4,0, estimation mi-octobre 2026 4,1. Ces quatre valeurs sont cohérentes en unité et permettent de visualiser l'écart entre la capacité théorique et le débit réel dégradé.",
+    "barres": {
+      "aria_label": "Comparaison du débit de raffinage russe en millions de barils par jour : capacité installée, débit réel juin 2026, prévision IEA fin 2026 et estimation mi-octobre 2026",
+      "lead": "Le débit de raffinage russe est nettement inférieur à la capacité installée, et la tendance reste sous les prévisions IEA.",
+      "caption": "Sources : IEA (capacité installée 6,5 Mbd, débit juin 2026 3,8 Mbd, prévision fin 2026 4,0 Mbd) ; Monitor the Situation citant IEA (estimation mi-octobre 2026 4,1 Mbd). Données vérifiées au moment du brief.",
+      "unite": "Mbarils/j",
+      "valeurs": [
+        {
+          "label": "Capacité installée (réf. IEA 2026)",
+          "valeur": 6.5,
+          "affichage": "6,5 Mbarils/j",
+          "mis_en_avant": false
+        },
+        {
+          "label": "Débit réel juin 2026",
+          "valeur": 3.8,
+          "affichage": "3,8 Mbarils/j",
+          "mis_en_avant": true
+        },
+        {
+          "label": "Prévision IEA fin 2026",
+          "valeur": 4.0,
+          "affichage": "4,0 Mbarils/j",
+          "mis_en_avant": false
+        },
+        {
+          "label": "Estimation mi-octobre 2026",
+          "valeur": 4.1,
+          "affichage": "4,1 Mbarils/j",
+          "mis_en_avant": false
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Pourquoi frapper les raffineries et pas les gisements ?",
+        "rattache_a": "fait sur l'intensification des frappes ukrainiennes sur les raffineries russes"
+      },
+      {
+        "focus": "Ce que signifie la prime de risque de 5 à 10 $/baril pour le carburant en France",
+        "rattache_a": "scénario stable et son impact sur les prix du carburant"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Le chiffre exact de 140 km² pour la contre-offensive « Vivaldi » provient d'une seule source (L'Indépendant, 3 octobre 2026) ; aucune confirmation indépendante n'a été trouvée.",
+    "La crise carburant en Russie mentionnée dans le contexte n'a pas été quantifiée : aucun chiffre précis sur les pénuries ou les prix du carburant en Russie n'a pu être vérifié dans les sources accessibles.",
+    "La date exacte de la réunion OPEP+ début novembre 2026 n'a pas été confirmée par une source officielle accessible dans les résultats de recherche.",
+    "L'ampleur réelle des pertes de raffinage russes depuis le 3 octobre 2026 (frappes post-annonce) n'est pas encore documentée publiquement au moment du brief."
+  ],
+  "a_ne_pas_affirmer": [
+    "La réunion OPEP+ de début novembre 2026 a déjà eu lieu au moment du brief (9 novembre) — son résultat exact n'a pas été vérifié, ne pas affirmer de décision prise.",
+    "Le Brent a dépassé ou non 120 $/baril dans le scénario dégradé — valeur prospective, pas un fait vérifié.",
+    "La France subit ou non des coupures d'électricité ou de gaz dans le scénario dégradé — hypothèse, pas un fait constaté.",
+    "Les stocks stratégiques français ont un niveau précis au moment du brief — non vérifié, ne pas citer de chiffre sans source."
+  ],
+  "sources": [
+    {
+      "id": "lindependant-20261003",
+      "title": "Guerre en Ukraine : « Nous devrons passer à l'échelle supérieure »… L'Ukraine va intensifier ses frappes sur les raffineries russes",
+      "source": "L'Indépendant",
+      "url": "https://www.lindependant.fr/2026/10/03/guerre-en-ukraine-nous-devrons-passer-a-lechelle-superieure-lukraine-va-intensifier-ses-frappes-sur-les-raffineries-russes-annonce-zelensky-13582396.php",
+      "image": null,
+      "lang": "fr",
+      "domain": "geopolitique",
+      "summary": "Article du 3 octobre 2026 annonçant que Zelensky a promis d'intensifier les frappes sur les raffineries russes en réponse aux attaques russes sur Kiev et les infrastructures énergétiques ukrainiennes, avec mention de la contre-offensive « Vivaldi » et de la crise carburant en Russie.",
+      "read_minutes": 3
+    },
+    {
+      "id": "lequotidien-20261003",
+      "title": "La Russie appelle les diplomates et étrangers à quitter Kiev, ciblée à répétition",
+      "source": "Le Quotidien de la Réunion",
+      "url": "https://www.lequotidien.re/article/national-et-international/2026/10/03/la-russie-appelle-les-diplomates-et-etrangers-a-quitter-kiev-ciblee-a-repetition-doc-d2649t4",
+      "image": null,
+      "lang": "fr",
+      "domain": "geopolitique",
+      "summary": "Article du 3 octobre 2026 rapportant que la Russie a appelé les diplomates et les étrangers à quitter Kiev, promettant des frappes de représailles massives après les frappes ukrainiennes sur les raffineries.",
+      "read_minutes": 3
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "Ukraine intensifie ses frappes sur les raffineries russes",
+      "source": "L'Indépendant",
+      "url": "https://www.lindependant.fr/2026/10/03/guerre-en-ukraine-nous-devrons-passer-a-lechelle-superieure-lukraine-va-intensifier-ses-frappes-sur-les-raffineries-russes-annonce-zelensky-13582396.php",
+      "image": null,
+      "lang": "fr",
+      "domain": "geopolitique",
+      "summary": "Article du 3 octobre 2026 : annonce de l'escalade des frappes ukrainiennes sur les raffineries russes, contexte de représailles et mention de la crise carburant en Russie.",
+      "read_minutes": 3
+    },
+    {
+      "title": "La Russie appelle les diplomates à quitter Kiev",
+      "source": "Le Quotidien de la Réunion",
+      "url": "https://www.lequotidien.re/article/national-et-international/2026/10/03/la-russie-appelle-les-diplomates-et-etrangers-a-quitter-kiev-ciblee-a-repetition-doc-d2649t4",
+      "image": null,
+      "lang": "fr",
+      "domain": "geopolitique",
+      "summary": "Article du 3 octobre 2026 : la Russie menace de frappes de représailles massives après les frappes ukrainiennes sur les raffineries, et appelle les diplomates et étrangers à quitter Kiev.",
+      "read_minutes": 3
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-09-24",
+      "titre": "Économie mondiale : BCE et Fed face au choc pétrolier",
+      "lien": "Même mécanisme de choc pétrolier mondial et réaction des banques centrales, mais dans un contexte Ormuz/Iran plutôt que Ukraine — contraste utile pour le lecteur sur la façon dont un choc énergétique se transmet aux marchés et aux taux."
+    },
+    {
+      "date": "2026-08-13",
+      "titre": "Inflation : le pétrole rebat les cartes",
+      "lien": "Même thème du choc pétrolier et de ses conséquences inflationnistes, avec la Fed et la BCE en réponse — lien sur le mécanisme économique du choc énergétique, même si l'acteur central est différent (Ormuz vs Ukraine)."
+    },
+    {
+      "date": "2026-08-24",
+      "titre": "Ukraine : ni paix ni victoire",
+      "lien": "Même conflit ukrainien, même acteur central (l'Ukraine face à la Russie), mais angle différent : à l'époque, aucune mention des frappes sur les raffineries ou de la guerre énergétique — lien sur le contexte général du conflit, pas sur le sous-thème énergétique."
+    }
+  ],
+  "recommandations_redaction": [
+    "Insérer un encart « Comprendre » sur la différence entre frapper les raffineries et frapper les gisements pétroliers : pourquoi l'Ukraine vise le raffinage plutôt que la production brute, et quel effet sur les exportations russes de produits finis (carburant, diesel) plutôt que sur le brut.",
+    "Insérer un second encart « Comprendre » sur la prime de risque de 5 à 10 $/baril : comment ce supplément se répercute sur le prix au pompe en France, et pourquoi même un scénario « stable » a un coût pour le lecteur français.",
+    "Mentionner explicitement que la réunion OPEP+ début novembre 2026 est une échéance clé, mais ne pas affirmer son résultat au moment du brief (date non confirmée, résultat non vérifié).",
+    "Préciser que les chiffres de débit de raffinage russe (3,8 Mbd en juin 2026, 6,5 Mbd de capacité) proviennent de l'IEA, et que les données post-3 octobre 2026 ne sont pas encore disponibles publiquement.",
+    "Éviter de citer un chiffre précis sur les stocks stratégiques français sans source vérifiée — ne pas inventer de nombre."
+  ]
+}
