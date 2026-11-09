@@ -546,6 +546,41 @@
       </div>
     </div>
 
+    <div class="version is-update">
+      <div class="version-head">
+        <span class="version-tag">V2 — Mise à jour</span>
+        <span class="version-date">9 novembre 2026</span>
+        <button type="button" class="version-toggle" aria-expanded="false" aria-controls="version-content-v2">Détails <span class="version-toggle-icon" aria-hidden="true">▾</span></button>
+      </div>
+      <div class="version-content" id="version-content-v2">
+        <div class="version-content-inner">
+        <p>Depuis le 27 août, la réponse espagnole et la coopération de fait avec le Maroc ont produit des retours importants : le gouvernement espagnol en comptabilisait 14 818 vers le Maroc au 3 novembre, dont 638 expulsions. Mais la crise a aussi débordé Ceuta : l’Italie a rétabli du 1er au 16 octobre des contrôles temporaires à ses frontières aériennes et maritimes avec l’Espagne, en invoquant le risque de mouvements secondaires dans Schengen. La situation reste donc contenue sans être durablement normalisée.</p>
+        <div class="mini-scenarios">
+          <div class="mini-scenario" data-kind="favorable">
+            <p class="mini-scenario-title">🤝 Maroc et Espagne referment la brèche</p>
+            <p class="mini-scenario-evolution"><span class="evo-current">34%</span> <span class="evo-arrow is-up">↑</span> <span class="evo-prev">(vs. 8% en V1)</span></p>
+            <p class="mini-scenario-text">monte, car les 14 818 retours comptabilisés par Madrid au 3 novembre et les opérations de retour menées depuis août démontrent que Madrid et Rabat sont de nouveau capables de réduire concrètement la pression à Ceuta ; cette coordination rend moins probable une brèche durablement ouverte.</p>
+          </div>
+          <div class="mini-scenario" data-kind="stable">
+            <p class="mini-scenario-title">⚖️ Les frontières se resserrent, sans rupture</p>
+            <p class="mini-scenario-evolution"><span class="evo-current">25%</span> <span class="evo-arrow is-down">↓</span> <span class="evo-prev">(vs. 30% en V1)</span></p>
+            <p class="mini-scenario-text">baisse légèrement, car l’Italie a effectivement rétabli des contrôles internes avec l’Espagne en octobre à cause de Ceuta : la crise n’est donc plus seulement une gestion locale de frontière extérieure, ce qui affaiblit l’hypothèse d’un simple resserrement sans effet sur Schengen.</p>
+          </div>
+          <div class="mini-scenario" data-kind="degrade">
+            <p class="mini-scenario-title">🔥 Une nouvelle vague fait vaciller Schengen</p>
+            <p class="mini-scenario-evolution"><span class="evo-current">41%</span> <span class="evo-arrow is-down">↓</span> <span class="evo-prev">(vs. 62% en V1)</span></p>
+            <p class="mini-scenario-text">baisse, car aucune nouvelle entrée massive comparable à celle de juillet n’a été signalée depuis le 27 août et les retours se poursuivent ; elle reste néanmoins la première issue, car l’activation de contrôles italiens et le maintien d’un dispositif exceptionnel espagnol montrent que le risque de diffusion européenne n’a pas disparu.</p>
+          </div>
+        </div>
+        <div class="conclusion">
+          <span class="conclusion-label">Conclusion vs V1</span>
+          <p><strong>🤝 Favorable, +26 points (34%)</strong> — C’est le scénario qui progresse le plus : les retours enregistrés depuis août apportent pour la première fois un indicateur concret d’une capacité hispano-marocaine à reprendre la main sur la frontière, même si cette reprise reste politiquement et juridiquement fragile..</p>
+        </div>
+        <p class="sources-note">Sources : <a href="https://www.rtve.es/noticias/20261103/gobierno-dice-14818-migrantes-han-vuelto-ceuta-a-marruecos-avanza-desmontar-centros-acogida/17297507.shtml" target="_blank" rel="noopener noreferrer">RTVE ↗</a>, <a href="https://home-affairs.ec.europa.eu/document/download/11934a69-6a45-4842-af94-18400fd274b7_en?filename=Full+list+of+notifications.pdf" target="_blank" rel="noopener noreferrer">Commission européenne ↗</a>, <a href="https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/politica-territorial-memoria-democratica/paginas/2026/201026-respuesta-requerimiento-previo-ceuta.aspx" target="_blank" rel="noopener noreferrer">La Moncloa ↗</a>, <a href="https://www.boe.es/boe/dias/2026/09/30/pdfs/BOE-A-2026-20267.pdf" target="_blank" rel="noopener noreferrer">Boletín Oficial del Estado ↗</a></p>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -607,7 +642,8 @@
   try{
     var evoData = [
       { label: "V0", date: "03.08", favorable: 20, stable: 50, degrade: 30 },
-      { label: "V1", date: "27.08", favorable: 8, stable: 30, degrade: 62 }
+      { label: "V1", date: "27.08", favorable: 8, stable: 30, degrade: 62 },
+      { label: "V2", date: "9 nov.", favorable: 34, stable: 25, degrade: 41 }
     ];
 
     (function renderEvoChart(){

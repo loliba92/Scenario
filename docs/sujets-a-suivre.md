@@ -180,7 +180,7 @@ mériter une page de suivi ou une mise à jour.
   surveiller, la levée ou non des contrôles réciproques Italie-Espagne,
   toute nouvelle vague de passages à Ceuta ou Melilla, et un éventuel
   élargissement à d'autres pays de l'espace Schengen.
-  Dernière vérification : 27 août 2026 (V1).
+  Dernière vérification : 9 novembre 2026 (V2).
 
 ---
 
