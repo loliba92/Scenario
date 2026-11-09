@@ -72,6 +72,16 @@
       "indexation": "INDEXING_ALLOWED"
     },
     {
+      "url": "https://lesscenarios.fr/archives/2026-11-09.html",
+      "verdict": "NEUTRAL",
+      "etat": "Google ne reconnaît pas cette URL",
+      "derniere_exploration": null,
+      "canonique_google": null,
+      "canonique_declaree": null,
+      "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexation": "INDEXING_STATE_UNSPECIFIED"
+    },
+    {
       "url": "https://lesscenarios.fr/archives/2026-11-08.html",
       "verdict": "NEUTRAL",
       "etat": "Google ne reconnaît pas cette URL",
@@ -262,12 +272,12 @@
       "indexation": "INDEXING_STATE_UNSPECIFIED"
     },
     {
-      "url": "https://lesscenarios.fr/archives/2026-10-20.html",
+      "url": "https://lesscenarios.fr/en/archives/2026-11-09.html",
       "verdict": "PASS",
       "etat": "Envoyée et indexée",
-      "derniere_exploration": "2026-10-20T10:26:49Z",
-      "canonique_google": "https://lesscenarios.fr/archives/2026-10-20.html",
-      "canonique_declaree": "https://lesscenarios.fr/archives/2026-10-20.html",
+      "derniere_exploration": "2026-11-09T12:40:46Z",
+      "canonique_google": "https://lesscenarios.fr/en/archives/2026-11-09.html",
+      "canonique_declaree": "https://lesscenarios.fr/en/archives/2026-11-09.html",
       "robots": "ALLOWED",
       "indexation": "INDEXING_ALLOWED"
     },
@@ -318,16 +328,6 @@
       "derniere_exploration": "2026-11-04T11:59:05Z",
       "canonique_google": "https://lesscenarios.fr/en/archives/2026-11-04.html",
       "canonique_declaree": "https://lesscenarios.fr/en/archives/2026-11-04.html",
-      "robots": "ALLOWED",
-      "indexation": "INDEXING_ALLOWED"
-    },
-    {
-      "url": "https://lesscenarios.fr/en/archives/2026-11-03.html",
-      "verdict": "PASS",
-      "etat": "Envoyée et indexée",
-      "derniere_exploration": "2026-11-03T11:49:47Z",
-      "canonique_google": "https://lesscenarios.fr/en/archives/2026-11-03.html",
-      "canonique_declaree": "https://lesscenarios.fr/en/archives/2026-11-03.html",
       "robots": "ALLOWED",
       "indexation": "INDEXING_ALLOWED"
     }
