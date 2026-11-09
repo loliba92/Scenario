@@ -192,6 +192,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 09.11.2026 — [Ukraine : la guerre des raffineries peut-elle faire basculer le conflit ?](../archives/2026-11-09.html)
 - 08.11.2026 — [Sport : peut-il rester humain face à l'IA et aux données ?](../archives/2026-11-08.html)
 - 07.11.2026 — [Netflix : le nouveau cinéma mondial ?](../archives/2026-11-07.html)
 - 06.11.2026 — [Robotique : les robots vont-ils vraiment entrer dans notre quotidien ?](../archives/2026-11-06.html)

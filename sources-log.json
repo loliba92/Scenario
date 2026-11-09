@@ -2,6 +2,31 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-11-09",
+      "articles": [
+        {
+          "title": "Ukraine intensifie ses frappes sur les raffineries russes",
+          "source": "L'Indépendant",
+          "url": "https://www.lindependant.fr/2026/10/03/guerre-en-ukraine-nous-devrons-passer-a-lechelle-superieure-lukraine-va-intensifier-ses-frappes-sur-les-raffineries-russes-annonce-zelensky-13582396.php",
+          "image": "https://images.lindependant.fr/api/v1/images/view/6ac1520f7088185eb506148a/hd/image.jpg?v=1",
+          "lang": "fr",
+          "domain": "geopolitique",
+          "summary": "Article du 3 octobre 2026 : annonce de l'escalade des frappes ukrainiennes sur les raffineries russes, contexte de représailles et mention de la crise carburant en Russie.",
+          "read_minutes": 3
+        },
+        {
+          "title": "La Russie appelle les diplomates à quitter Kiev",
+          "source": "Le Quotidien de la Réunion",
+          "url": "https://www.lequotidien.re/article/national-et-international/2026/10/03/la-russie-appelle-les-diplomates-et-etrangers-a-quitter-kiev-ciblee-a-repetition-doc-d2649t4",
+          "image": "https://www.lequotidien.re/assets/images/articles/2026/10/03/eef2f72c09260ddd120acf26c3ab7b1fdaaaed4c.jpg",
+          "lang": "fr",
+          "domain": "geopolitique",
+          "summary": "Article du 3 octobre 2026 : la Russie menace de frappes de représailles massives après les frappes ukrainiennes sur les raffineries, et appelle les diplomates et étrangers à quitter Kiev.",
+          "read_minutes": 3
+        }
+      ]
+    },
+    {
       "date": "2026-11-08",
       "articles": [
         {
