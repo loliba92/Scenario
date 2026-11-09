@@ -1,0 +1,387 @@
+{
+  "date": "2026-11-10",
+  "registre": "carte_blanche",
+  "sujet": {
+    "titre_propose": "Élections législatives russes : Poutine peut-il encore verrouiller le pouvoir sans provoquer de fissure ?",
+    "h1": "Russie : Poutine verrouille-t-il le pouvoir sans fissure après les législatives de septembre ?",
+    "question_posee": "Les législatives russes de septembre 2026 ont-elles verrouillé le pouvoir de Poutine jusqu'en 2031, ou des signes de fragilité apparaîtront-ils ?",
+    "eyebrow": "Mardi, carte blanche",
+    "angle": "Les Russes ont voté du 18 au 20 septembre 2026 pour renouveler la Douma. Le parti Russie unie de Poutine a remporté un record historique de 349 sièges sur 450, dépassant largement l'objectif de 45 % des voix fixé par le Kremlin. Mais la question n'est pas seulement le score : elle porte sur la résilience du verrouillage politique face aux attaques de drones ukrainiens pendant le vote, au vote électronique jugé non contrôlé, aux possibles contestations du KPRF et à la crainte d'une mobilisation générale. Le verrouillage tiendra-t-il jusqu'en 2031, ou des fissures apparaîtront-elles ?",
+    "tags": [
+      "géopolitique",
+      "Russie",
+      "élections",
+      "Poutine",
+      "Douma"
+    ],
+    "domain": "international",
+    "image_keywords": "russian parliament moscow election",
+    "complexite": 3,
+    "origine_prioritaire": "Élections législatives russes : Poutine peut-il encore verrouiller le pouvoir sans provoquer de fissure ?",
+    "origine_id": "carte-blanche-elections-legislatives-russes-poutine-peut-il",
+    "point_de_depart": {
+      "id": "carte-blanche-elections-legislatives-russes-poutine-peut-il",
+      "registre": "carte_blanche",
+      "titre": "Élections législatives russes : Poutine peut-il encore verrouiller le pouvoir sans provoquer de fissure ?",
+      "question": "Élections législatives russes : Poutine peut-il encore verrouiller le pouvoir sans provoquer de fissure ?",
+      "contexte": "Les Russes votent du 18 au 20 septembre 2026 pour renouveler les 450 sièges de la Douma, les premières législatives depuis le début de la guerre totale en Ukraine en février 2022. Le parti Russie unie de Vladimir Poutine devrait conserver sa supermajorité (au moins 300 sièges), mais l'enjeu est le score réel : le Kremlin aurait fixé un objectif de 45% des voix aux régions, selon des fuites. L'opposition antiguerre (Iabloko) a été exclue du scrutin. Les cinq partis autorisés soutiennent tous la guerre. L'élection se déroule sous la menace d'attaques de drones ukrainiens — 350 drones ont été détectés vers Moscou le 18 septembre, premier jour du vote. Le vote électronique, jugé non contrôlé par des observateurs, facilite les falsifications. La question est : le verrouillage politique tiendra-t-il jusqu'en 2031, ou des signes de fragilité apparaîtront-ils ?",
+      "rationnel": "La question : Le verrouillage du pouvoir par les urnes tiendra-t-il jusqu’en 2031, ou des signes de fragilité apparaîtront-ils ? L’issue demeure ouverte car, bien que Russie unie ait obtenu 349 sièges (~58 % des voix), dépassant l’objectif de 45 % fixé par le Kremlin, les incertitudes portent sur les attaques de drones ukrainiens détectées le 18 septembre, le vote électronique jugé non contrôlé, les possibles contestations du KPRF et la crainte d’une mobilisation générale qui pourraient révéler des fissures au sein de l’élite ou déclencher des manifestations locales. Pour un lecteur français, l’enjeu est d’évaluer si ces développements internes russes pourraient avoir des répercussions sur la stabilité régionale et les préoccupations de sécurité en Europe.",
+      "mots_cles": [
+        "élections législatives russes 2026",
+        "Douma résultats 349 sièges",
+        "Russie unie 57,85%",
+        "attaque drones Moscou 18-20 septembre 2026",
+        "Ella Pamfilova Commission électorale",
+        "mobilisation générale Russie octobre 2026",
+        "Iabloko exclu scrutin",
+        "KPRF contestation résultats"
+      ],
+      "angle": null,
+      "a_verifier": "À vérifier : le nombre exact de sièges varie légèrement selon les sources (347, 349 ou 355 selon le stade de décompte) — les résultats définitifs du 25 septembre donnent 349. À confirmer si des manifestations du KPRF ont effectivement eu lieu après le 25 septembre. À vérifier le nombre exact de Russes ayant fui le pays après les élections (chiffre de 113 000 vers la Géorgie cité par Politico). — ⚠ Peut-être dépassé (enrichissement du 2026-10-01) : Les élections législatives russes se sont déroulées du 18 au 20 septembre 2026 et les résultats définitifs ont été publiés le 25 septembre. Russie unie a obtenu 349 sièges sur 450 (record historique), soit une supermajorité écrasante. La question posée par le dossier — le verrouillage tiendra-t-il ou des fissures apparaîtront-elles ? — a été tranchée par le scrutin lui-même : le verrouillage a fonctionné au-delà des attentes. Les scénarios du dossier (basés sur des fourchettes de pourcentage de voix) sont caducs car le résultat réel (349 sièges, ~58% des voix) dépasse le scénario favorable. L'issue immédiate n'est plus ouverte.",
+      "scenarios_brouillon": {
+        "favorable": "Russie unie obtient plus de 45% des voix et conserve sa supermajorité (300+ sièges). Le pouvoir affiche une légitimité électorale, la guerre reste soutenue, aucune mobilisation générale n'est annoncée. Le système tient",
+        "stable": "Russie unie obtient 40-45% des voix, conserve une majorité absolue mais perd la supermajorité constitutionnelle. Le pouvoir doit composer avec d'autres partis pour les réformes majeures, mais la ligne politique ne change pas",
+        "degrade": "Le score de Russie unie tombe sous 40%, signe d'un mécontentement latent malgré le contrôle. Des manifestations locales éclatent, la crainte d'une mobilisation générale s'intensifie, des fissures apparaissent au sein de l'élite. Le verrouillage montre ses limites"
+      },
+      "echeance": {
+        "date": "2026-09-25",
+        "raison": "Publication des résultats définitifs par la Commission électorale centrale, clôturant l'incertitude sur l'issue du scrutin."
+      },
+      "sources_pistes": [
+        {
+          "titre": "Élections législatives russes de 2026 — Wikipédia",
+          "url": "https://fr.wikipedia.org/wiki/%C3%89lections_l%C3%A9gislatives_russes_de_2026"
+        },
+        {
+          "titre": "Russie. Élections législatives : le parti de Poutine gagne un nombre record de sièges — Le Dauphiné",
+          "url": "https://www.ledauphine.com/politique/2026/09/25/elections-legislatives-le-parti-de-poutine-gagne-un-nombre-record-de-sieges"
+        },
+        {
+          "titre": "Russia's ruling pro-Putin party wins wartime election — Reuters",
+          "url": "https://www.reuters.com/world/russias-ruling-pro-putin-party-wins-wartime-election-with-over-57-vote-near-2026-09-21/"
+        },
+        {
+          "titre": "CEC statements: 349 seats for United Russia — International Affairs",
+          "url": "https://en.interaffairs.ru/article/cec-statements-349-seats-for-united-russia-ukrainian-attacks-on-polling-stations-the-voter-turnou/"
+        }
+      ],
+      "tag": "géopolitique & Russie",
+      "origine": "veille",
+      "note_editoriale": "Ajouté automatiquement le 2026-09-18 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — validé. Repéré en veille sur le registre Géopolitique, remonté ici pour son urgence",
+      "donnees_graphique": "[relevé du 2026-10-31] Taux de participation aux élections législatives russes (%). 2026 = 59,8 % (2026) ; 2021 = 51,72 % (2021) ; 2016 = 47,88 % (2016) ; 2011 = 60,21 % (2011). Sources : https://tass.com/politics/2192899 ; https://ria.ru/20210924/yavka-1751602628.html ; https://www.vedomosti.ru/politics/articles/2026/09/26/1232008-itogi-viborov-gosdumu",
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille du 9 novembre (Ukraine : la guerre des raffineries) : sujet différent (infrastructures énergétiques ukrainiennes vs élections législatives russes). Aucun recoupement fort. Registre carte_blanche : aucune édition récente du même registre avec un sujet similaire. L'élection a eu lieu avant la date du brief (10 novembre), les résultats définitifs sont connus."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Le parti Russie unie (United Russia), soutenu par Vladimir Poutine, a remporté les élections législatives russes du 18 au 20 septembre 2026 avec 349 sièges sur 450 à la Douma, un record historique.",
+      "chiffre": "349 sièges sur 450",
+      "date_du_chiffre": "2026-09-25",
+      "sources": [
+        "source1"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Russie unie a obtenu environ 57,85 % des voix exprimées lors de ces élections, dépassant largement l'objectif de 45 % des voix fixé par le Kremlin.",
+      "chiffre": "57,85 %",
+      "date_du_chiffre": "2026-09-21",
+      "sources": [
+        "source1"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "L'opposition antiguerre, notamment le parti Iabloko, a été exclue du scrutin. Les cinq partis autorisés soutiennent tous la guerre en Ukraine.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "source1",
+        "source3"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le vote électronique a été largement utilisé lors de ces élections et est jugé non contrôlé par des observateurs indépendants, facilitant potentiellement des falsifications.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "source1",
+        "source3"
+      ],
+      "confiance": "moyenne"
+    },
+    {
+      "affirmation": "Des attaques de drones ukrainiens ont été détectées vers Moscou le 18 septembre 2026, premier jour du vote, avec environ 350 drones repérés.",
+      "chiffre": "350 drones",
+      "date_du_chiffre": "2026-09-18",
+      "sources": [
+        "source1",
+        "source3"
+      ],
+      "confiance": "moyenne"
+    },
+    {
+      "affirmation": "Le taux de participation aux élections législatives russes de 2026 a atteint 59,8 %, contre 51,72 % en 2021, 47,88 % en 2016 et 60,21 % en 2011.",
+      "chiffre": "59,8 % (2026), 51,72 % (2021), 47,88 % (2016), 60,21 % (2011)",
+      "date_du_chiffre": "2026-09-26",
+      "sources": [
+        "source4",
+        "source5",
+        "source6"
+      ],
+      "confiance": "haute"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Vladimir Poutine",
+      "role": "Président de la Russie, chef de l'État"
+    },
+    {
+      "nom": "Russie unie (United Russia)",
+      "role": "Parti au pouvoir, soutenu par Poutine, a remporté 349 sièges"
+    },
+    {
+      "nom": "Commission électorale centrale russe (CEC)",
+      "role": "Organe administratif chargé d'organiser et de certifier les élections, dirigé par Ella Pamfilova"
+    },
+    {
+      "nom": "KPRF (Parti communiste russe)",
+      "role": "Principal parti d'opposition autorisé, pourrait contester les résultats"
+    },
+    {
+      "nom": "Iabloko",
+      "role": "Parti d'opposition antiguerre, exclu du scrutin"
+    },
+    {
+      "nom": "Ukraine",
+      "role": "Opposant militaire, a mené des attaques de drones pendant le vote"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2026-09-18",
+      "evenement": "Début du scrutin législatif russe (premier tour). Détection de 350 drones ukrainiens vers Moscou."
+    },
+    {
+      "date": "2026-09-19",
+      "evenement": "Deuxième jour du vote."
+    },
+    {
+      "date": "2026-09-20",
+      "evenement": "Fin du scrutin législatif russe."
+    },
+    {
+      "date": "2026-09-21",
+      "evenement": "Reuters rapporte que Russie unie obtient plus de 57 % des voix avec 349 sièges."
+    },
+    {
+      "date": "2026-09-25",
+      "evenement": "Publication des résultats définitifs par la Commission électorale centrale : 349 sièges pour Russie unie, record historique."
+    },
+    {
+      "date": "2026-11-10",
+      "evenement": "Date du brief éditorial — les résultats sont connus, l'incertitude porte sur la résilience à long terme du verrouillage."
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Le verrouillage politique de Poutine tient sans fissure visible. Russie unie conserve sa supermajorité écrasante (349 sièges), le système électoral et le contrôle médiatique empêchent toute contestation effective. Aucune mobilisation générale n'éclate, le KPRF ne parvient pas à mobiliser une opposition significative. Le pouvoir affiche une légitimité électorale renforcée, et la guerre en Ukraine continue sans remettre en cause la stabilité intérieure. La Douma reste un instrument docile jusqu'en 2031.",
+      "probabilite_suggeree": 55
+    },
+    "stable": {
+      "resume": "Le verrouillage tient formellement mais des signes de fragilité apparaissent. Russie unie conserve sa majorité absolue mais le score réel (57,85 %) cache des abstentions massives ou des votes blancs dans certaines régions. Des contestations limitées du KPRF ou d'autres partis autorisés émergent, sans remettre en cause le système. La crainte d'une mobilisation générale persiste mais ne se concrétise pas. Le pouvoir doit composer avec des signaux de mécontentement latent, surtout si la guerre en Ukraine se prolonge ou si les sanctions s'aggravent.",
+      "probabilite_suggeree": 30
+    },
+    "degrade": {
+      "resume": "Des fissures apparaissent dans le verrouillage. Des manifestations locales éclatent après les élections, peut-être déclenchées par la crainte d'une mobilisation générale ou par des frustrations socio-économiques. Le KPRF ou d'autres partis contestent les résultats de manière plus agressive. Des signes de division au sein de l'élite russe émergent. Le vote électronique est contesté plus vivement, et une partie de l'opinion commence à remettre en cause la légitimité du système. Le verrouillage politique montre ses limites, même si le pouvoir conserve le contrôle.",
+      "probabilite_suggeree": 15
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Sièges de Russie unie à la Douma",
+      "valeur": "349 sur 450",
+      "tendance": "Record historique — supermajorité écrasante"
+    },
+    {
+      "label": "Part des voix pour Russie unie",
+      "valeur": "57,85 %",
+      "tendance": "Dépasse largement l'objectif Kremlin de 45 %"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "La série du taux de participation (2011, 2016, 2021, 2026) ne comporte que 4 points réels, ce qui est inférieur au seuil de 5 points requis par la grille de décision. De plus, la période couverte (15 ans) est courte pour un sujet dont l'âge est plus ancien. Le critère (2) n'est pas satisfait.",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "oui",
+    "raison": "Les taux de participation aux élections législatives russes sur 4 élections (2011, 2016, 2021, 2026) sont des chiffres réels, comparables, de même unité (%), déjà présents dans les sources vérifiées.",
+    "barres": {
+      "aria_label": "Taux de participation aux élections législatives russes de 2011 à 2026",
+      "lead": "Le taux de participation a connu des variations significatives d'une élection à l'autre, reflétant peut-être le niveau d'intérêt ou de mobilisation des électeurs russes.",
+      "caption": "Sources : TASS, RIA Novosti, Vedomosti — données officielles de la Commission électorale centrale russe",
+      "unite": "%",
+      "valeurs": [
+        {
+          "label": "2011",
+          "valeur": 60.21,
+          "affichage": "60,21 %",
+          "mis_en_avant": false
+        },
+        {
+          "label": "2016",
+          "valeur": 47.88,
+          "affichage": "47,88 %",
+          "mis_en_avant": false
+        },
+        {
+          "label": "2021",
+          "valeur": 51.72,
+          "affichage": "51,72 %",
+          "mis_en_avant": false
+        },
+        {
+          "label": "2026",
+          "valeur": 59.8,
+          "affichage": "59,8 %",
+          "mis_en_avant": true
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Le système électoral russe et le verrouillage du pouvoir",
+        "rattache_a": "Le score de Russie unie (349 sièges, 57,85 %) et le contexte électoral"
+      },
+      {
+        "focus": "Vote électronique et contrôle des élections en Russie",
+        "rattache_a": "Les incertitudes sur la fiabilité du vote électronique et les attaques de drones pendant le scrutin"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Le nombre exact de sièges obtenus par Russie unie varie légèrement selon les sources et le stade de décompte (347, 349 ou 355). Les résultats définitifs du 25 septembre donnent 349 sièges.",
+    "La fiabilité du vote électronique en Russie reste contestée par les observateurs indépendants — aucune validation externe indépendante n'est disponible.",
+    "Les éventuelles contestations du KPRF après le 25 septembre ne sont pas confirmées par des sources récentes fiables au moment du brief.",
+    "Le chiffre de 113 000 Russes ayant fui le pays après les élections (cité par Politico) n'a pas été vérifié par une source indépendante récente."
+  ],
+  "a_ne_pas_affirmer": [
+    "Que les élections ont été entièrement libres et transparentes — le vote électronique est jugé non contrôlé par des observateurs indépendants.",
+    "Que des manifestations ou une mobilisation générale ont effectivement eu lieu après les élections — aucune source récente ne confirme ces événements au moment du brief.",
+    "Que le verrouillage politique tiendra ou non jusqu'en 2031 — c'est précisément la question ouverte que les scénarios tentent d'explorer."
+  ],
+  "sources": [
+    {
+      "id": "source1",
+      "title": "Élections législatives russes de 2026 — Wikipédia",
+      "source": "Wikipédia",
+      "url": "https://fr.wikipedia.org/wiki/%C3%89lections_l%C3%A9gislatives_russes_de_2026",
+      "image": null,
+      "lang": "fr",
+      "domain": "international",
+      "summary": "Article de Wikipédia détaillant les élections législatives russes de septembre 2026 : contexte, déroulement, résultats (349 sièges pour Russie unie, 57,85 % des voix), exclusion de l'opposition antiguerre, vote électronique, attaques de drones pendant le scrutin.",
+      "read_minutes": 3
+    },
+    {
+      "id": "source3",
+      "title": "CEC statements: 349 seats for United Russia — International Affairs",
+      "source": "International Affairs",
+      "url": "https://en.interaffairs.ru/article/cec-statements-349-seats-for-united-russia-ukrainian-attacks-on-polling-stations-the-voter-turnou/",
+      "image": null,
+      "lang": "en",
+      "domain": "international",
+      "summary": "Article analysant les résultats des élections législatives russes : 349 sièges pour Russie unie, les attaques de drones ukrainiens sur les bureaux de vote, le taux de participation et les questions de contrôle du vote électronique.",
+      "read_minutes": 3
+    },
+    {
+      "id": "source4",
+      "title": "TASS — Taux de participation aux élections législatives russes 2026",
+      "source": "TASS",
+      "url": "https://tass.com/politics/2192899",
+      "image": null,
+      "lang": "en",
+      "domain": "international",
+      "summary": "Agence de presse russe TASS rapportant le taux de participation de 59,8 % lors des élections législatives de 2026, avec les chiffres historiques de 2011, 2016 et 2021.",
+      "read_minutes": 1
+    },
+    {
+      "id": "source5",
+      "title": "RIA Novosti — Taux de participation 2021",
+      "source": "RIA Novosti",
+      "url": "https://ria.ru/20210924/yavka-1751602628.html",
+      "image": null,
+      "lang": "ru",
+      "domain": "international",
+      "summary": "Agence RIA Novosti rapportant le taux de participation de 51,72 % lors des élections législatives russes de 2021.",
+      "read_minutes": 1
+    },
+    {
+      "id": "source6",
+      "title": "Vedomosti — Résultats des élections 2026",
+      "source": "Vedomosti",
+      "url": "https://www.vedomosti.ru/politics/articles/2026/09/26/1232008-itogi-viborov-gosdumu",
+      "image": null,
+      "lang": "ru",
+      "domain": "international",
+      "summary": "Agence Vedomosti analysant les résultats définitifs des élections législatives russes de septembre 2026, avec le taux de participation de 59,8 % et les données historiques.",
+      "read_minutes": 2
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "Russie. Élections législatives : le parti de Poutine gagne un nombre record de sièges",
+      "source": "Le Dauphiné",
+      "url": "https://www.ledauphine.com/politique/2026/09/25/elections-legislatives-le-parti-de-poutine-gagne-un-nombre-record-de-sieges",
+      "image": null,
+      "lang": "fr",
+      "domain": "international",
+      "summary": "Article du Dauphiné du 25 septembre 2026 confirmant que le parti de Poutine a remporté un nombre record de sièges (349 sur 450) lors des élections législatives russes, avec un taux de participation de 59,8 %.",
+      "read_minutes": 2
+    },
+    {
+      "title": "Élections législatives russes 2026 : analyse des résultats et perspectives",
+      "source": "Carnegie Endowment for International Peace",
+      "url": "https://carnegieendowment.org/russia-eurasia/politika/2026/09/russian-parliamentary-elections-2026-analysis",
+      "image": null,
+      "lang": "en",
+      "domain": "international",
+      "summary": "Analyse du Carnegie Endowment sur les élections législatives russes de 2026, examinant les implications du verrouillage du pouvoir, les limites de l'opposition autorisée et les signes de fragilité potentielles du système politique russe.",
+      "read_minutes": 4
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-09-28",
+      "titre": "Ordre mondial : la fin du règne occidental ?",
+      "lien": "Le même contexte géopolitique : la Russie en tant qu'acteur mondial challengant l'ordre occidental, avec les élections comme instrument de consolidation du pouvoir interne."
+    },
+    {
+      "date": "2026-10-06",
+      "titre": "Guerre hybride : la Russie sabote-t-elle l'Europe ?",
+      "lien": "La même menace hybride russe : les sabotages en Europe et les attaques de drones pendant les élections russes s'inscrivent dans la même stratégie de pression russe."
+    },
+    {
+      "date": "2026-09-14",
+      "titre": "Taïwan : Trump et Xi peuvent-ils calmer la pression chinoise ?",
+      "lien": "Même type de question géopolitique : un régime autoritaire (Chine/Russie) verrouille-t-il son pouvoir sans provoquer de crise, avec des élections ou des décisions stratégiques comme point de tension."
+    }
+  ],
+  "recommandations_redaction": [
+    "Mettre en perspective le record de 349 sièges avec le contexte de guerre en Ukraine et l'exclusion de l'opposition antiguerre (Iabloko).",
+    "Expliquer le système électoral russe : comment les 450 sièges sont répartis (mixtures de circonscriptions uninominales et de liste nationale), et pourquoi 349 sièges représentent une supermajorité qui permet à Russie unie de modifier la constitution seule.",
+    "Aborder la question du vote électronique et de son contrôle (ou absence de contrôle) par des observateurs indépendants, et les attaques de drones ukrainiens pendant le vote comme contexte de tension.",
+    "Préciser que les résultats définitifs sont connus (publiés le 25 septembre 2026), mais que la question du brief porte sur la résilience à long terme du verrouillage, pas sur l'issue du scrutin.",
+    "Lier les élections à la question plus large de la stabilité de la Russie et de ses répercussions potentielles sur la sécurité européenne."
+  ]
+}
