@@ -76,7 +76,6 @@ import connexes
 # revenu à Upstage Solar Pro 4 (optimisation coût, plus besoin de
 # contourner un problème qui n'était pas le sien).
 FALLBACK_MODEL = "upstage/solar-pro4"  # Phase 1 production (optimisation coût)
-SONNET_5_BACKUP = "anthropic/claude-sonnet-5"  # Rollback si besoin
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 ROUTINE_PROMPT_PATH = REPO_ROOT / "docs" / "routine-prompt.md"

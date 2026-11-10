@@ -28,7 +28,7 @@ on:
   workflow_dispatch:
     inputs:
       model:
-        description: "Modèle OpenRouter pour CE run uniquement (vide = DEFAULT_MODEL du script, anthropic/claude-sonnet-5)"
+        description: "Modèle OpenRouter pour CE run uniquement (vide = DEFAULT_MODEL du script, google/gemini-3.7-flash)"
         required: false
       dry_run:
         description: "true = ne rien écrire/committer, juste rapporter (test de modèle sans risque)"

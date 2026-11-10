@@ -31,7 +31,7 @@ Toute modification visuelle se vérifie à l'écran avant de la livrer, pas seul
 ## Modèles (OpenRouter)
 - Modèle par défaut de toute tâche automatisée nouvelle : **DeepSeek** (`deepseek/deepseek-v4-flash`) ou **Gemini** (`google/gemini-3.7-flash`). Jamais Claude (Sonnet ou autre) par défaut : seulement si le propriétaire le demande explicitement.
 - Changer le modèle d'une tâche est une décision du propriétaire : proposer, ne pas décider. Chaque modèle et sa raison sont notés dans `docs/modeles-openrouter.md`.
-- Les tâches déjà en place qui tournent encore sur Claude (rédaction, traduction, suivi) restent telles quelles tant que le propriétaire n'a pas tranché ; ne pas les basculer de sa propre initiative.
+- Jamais Claude Sonnet : aucune tâche automatique n'en utilise par défaut (état vérifié dans le code le 10 novembre 2026, tableau dans `docs/modeles-openrouter.md`). Ne jamais en remettre, ni dans un script, ni dans un workflow, ni dans la variable de dépôt `OPENROUTER_MODEL`.
 - Vérification des résultats de `a-venir.json` : recherche sur DeepSeek, confirmation sur Gemini (voir `docs/a-venir.md`).
 
 ## SEO

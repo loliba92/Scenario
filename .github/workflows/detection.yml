@@ -32,7 +32,7 @@ on:
   workflow_dispatch:
     inputs:
       model:
-        description: "Modèle OpenRouter pour CE run uniquement (vide = DETECTION_MODEL du script, anthropic/claude-sonnet-5)"
+        description: "Modèle OpenRouter pour CE run uniquement (vide = DETECTION_MODEL du script, openai/gpt-5.6-terra)"
         required: false
       dry_run:
         description: "true = liste les candidats sans appeler OpenRouter (mécanique seulement, jamais de test de qualité de modèle avec cette option)"
