@@ -229,7 +229,8 @@ def carte_passee(r, i, racine):
     x = r["resultat"]
     k = x.get("scenario") or "neutre"
     d = date.fromisoformat(x["date"])
-    h = f'<article class="signal passe" id="rv-{esc(r["id"])}" style="--i:{i}">{tuile_passee(r)}<div class="carte c-{k}">'
+    h = (f'<article class="signal passe" id="rv-{esc(r["id"])}" style="--i:{i}" data-periode="passe" '
+         f'data-domaine="{esc(r["domaine"])}" data-couleur="{k}">{tuile_passee(r)}<div class="carte c-{k}">')
     h += (f'<div class="entete"><span class="pastille"><svg viewBox="0 0 24 24" aria-hidden="true">{ICONES[r["domaine"]]}</svg>'
           f'{esc(r["domaine"])}</span><span class="statut {x["statut"]}">{STATUTS[x["statut"]]} le {d.day} {MOIS[d.month - 1]}</span></div>')
     h += f'<h2>{nbsp(r["question"])}</h2>'
@@ -270,7 +271,8 @@ def carte(r, i, jour, racine, verifier=False):
     texte_reste, pct = reste(r, jour)
     eds = [(iso, titre_edition(racine, iso)) for iso in r["editions"]]
     eds = [(iso, e) for iso, e in eds if e]
-    h = f'<article class="signal" id="rv-{esc(r["id"])}" style="--i:{i}">{tuile(r)}<div class="carte">'
+    h = (f'<article class="signal" id="rv-{esc(r["id"])}" style="--i:{i}" data-periode="{"passe" if verifier else "avenir"}" '
+         f'data-domaine="{esc(r["domaine"])}" data-couleur="{"verif" if verifier else "avenir"}">{tuile(r)}<div class="carte">')
     droite = ('<span class="statut verif">Date passée : réponse en cours de vérification</span>' if verifier else
               f'<span class="jauge"><span class="piste" aria-hidden="true"><i style="width:{pct}%"></i></span>'
               f'<b>{texte_reste}</b></span>')
@@ -287,16 +289,77 @@ def carte(r, i, jour, racine, verifier=False):
     return h + "</div></article>"
 
 
+COULEURS = [("favorable", "Vert · favorable"), ("stable", "Bleu · stable"), ("degrade", "Orange · dégradé"),
+            ("neutre", "Gris · ne tranche pas"), ("verif", "À vérifier")]
+
+JS_FILTRES = """<script>
+(function(){
+  var racine=document.querySelector('.av'); if(!racine) return;
+  var bar=racine.querySelector('.filtres'); if(!bar) return;
+  var etat={periode:'tous',domaine:'tous',couleur:'tous'};
+  try{ var q=new URLSearchParams(location.search); ['periode','domaine','couleur'].forEach(function(k){ if(q.get(k)) etat[k]=q.get(k); }); }catch(e){}
+  var arts=[].slice.call(racine.querySelectorAll('.signal,.passe-vide'));
+  function visible(a){
+    var p=a.getAttribute('data-periode'), d=a.getAttribute('data-domaine'), c=a.getAttribute('data-couleur');
+    if(a.classList.contains('passe-vide')) return (etat.periode!=='avenir') && etat.domaine==='tous' && etat.couleur==='tous' && !racine.querySelector('.signal.passe');
+    return (etat.periode==='tous'||etat.periode===p) && (etat.domaine==='tous'||etat.domaine===d) && (etat.couleur==='tous'||etat.couleur===c);
+  }
+  function appliquer(){
+    var n=0, avenir=0, passe=0;
+    arts.forEach(function(a){ var v=visible(a); a.hidden=!v; if(v && !a.classList.contains('passe-vide')){ n++; if(a.getAttribute('data-periode')==='avenir') avenir++; else passe++; } });
+    [].forEach.call(racine.querySelectorAll('.periode,.passes'),function(s){ s.hidden=!s.querySelector('.signal:not([hidden]),.passe-vide:not([hidden])'); });
+    var m=racine.querySelector('.aujourdhui'); if(m) m.hidden=!(avenir>0 && !racine.querySelector('.passes').hidden);
+    var r=racine.querySelector('.rien'); if(r) r.hidden=!(racine.querySelectorAll('.signal:not([hidden]),.passe-vide:not([hidden])').length===0);
+    var nb=bar.querySelector('.nb'); if(nb) nb.textContent=n+' rendez-vous affiché'+(n>1?'s':'');
+    [].forEach.call(bar.querySelectorAll('button[data-f]'),function(b){ b.setAttribute('aria-pressed', String(etat[b.getAttribute('data-f')]===b.getAttribute('data-v'))); });
+    try{ var u=new URLSearchParams(); Object.keys(etat).forEach(function(k){ if(etat[k]!=='tous') u.set(k,etat[k]); }); history.replaceState(null,'',location.pathname+(u.toString()?'?'+u:'')); }catch(e){}
+  }
+  bar.hidden=false;
+  bar.addEventListener('click',function(e){
+    var b=e.target.closest('button'); if(!b) return;
+    if(b.hasAttribute('data-reset')){ etat={periode:'tous',domaine:'tous',couleur:'tous'}; }
+    else if(b.hasAttribute('data-f')){ etat[b.getAttribute('data-f')]=b.getAttribute('data-v'); }
+    appliquer();
+  });
+  appliquer();
+})();
+</script>"""
+
+
+def filtres(prochains, a_verifier, resolus):
+    """Panneau de filtres (affiché par le script ; sans script, toute la page reste visible)."""
+    tous = list(prochains) + list(a_verifier) + list(resolus[:MAX_PASSES])
+    def bouton(f, v, libelle, n=None, icone=None, classe=""):
+        ic = f'<svg viewBox="0 0 24 24" aria-hidden="true">{icone}</svg>' if icone else ""
+        nn = f'<span class="n">{n}</span>' if n is not None else ""
+        return (f'<button type="button" class="{classe}" data-f="{f}" data-v="{esc(v)}" aria-pressed="false">{ic}{esc(libelle)}{nn}</button>')
+    h = ('<div class="filtres" hidden role="group" aria-label="Filtrer les rendez-vous">'
+         '<div class="fgroupe"><span class="flabel">Période</span><div class="fpuces">'
+         + bouton("periode", "tous", "Tous", len(tous)) + bouton("periode", "avenir", "À venir", len(prochains))
+         + bouton("periode", "passe", "Déjà arrivés", len(a_verifier) + len(resolus[:MAX_PASSES])) + '</div></div>')
+    doms = [d for d in ICONES if any(r["domaine"] == d for r in tous)]
+    h += ('<div class="fgroupe"><span class="flabel">Domaine</span><div class="fpuces">' + bouton("domaine", "tous", "Tous")
+          + "".join(bouton("domaine", d, d, sum(1 for r in tous if r["domaine"] == d), ICONES[d]) for d in doms) + '</div></div>')
+    if a_verifier or resolus:
+        cnt = {k: 0 for k, _ in COULEURS}
+        for r in resolus[:MAX_PASSES]:
+            cnt[r["resultat"].get("scenario") or "neutre"] += 1
+        cnt["verif"] = len(a_verifier)
+        h += ('<div class="fgroupe"><span class="flabel">Résultat</span><div class="fpuces">' + bouton("couleur", "tous", "Tous")
+              + "".join(bouton("couleur", k, lib, cnt[k], classe=f"pc c-{k}") for k, lib in COULEURS if cnt[k]) + '</div></div>')
+    return (h + '<div class="fpied"><span class="nb" aria-live="polite"></span>'
+            '<button type="button" class="reset" data-reset>Tout afficher</button></div></div>')
+
+
 def contenu(rendez_vous, jour, racine=RACINE):
     h = ('<section class="hero contact-hero"><div class="wrap"><p class="eyebrow">À venir</p>'
-         '<h1>Ce qui va arriver</h1><p class="dek">Les rendez-vous à surveiller, relevés dans nos éditions, '
-         'du plus proche au plus lointain. Une fois la réponse connue, le résultat reste affiché plus bas.</p></div></section>\n')
+         '<h1>Ce qui va arriver</h1><p class="dek">Les rendez-vous à surveiller, relevés dans nos éditions : '
+         'ceux qui arrivent, et ceux qui sont arrivés, avec la réponse.</p></div></section>\n')
     h += '<section class="body-section av"><div class="wrap">'
     prochains = a_venir(rendez_vous, jour)
     a_verifier, resolus = passes(rendez_vous, jour)
-    if not prochains:
-        h += '<div class="vide">Aucun rendez-vous à venir pour le moment.</div>'
-    else:
+    h += filtres(prochains, a_verifier, resolus)
+    if prochains:
         groupes, ordre = {}, []
         for r in prochains:
             p = periode(r["date"], jour)
@@ -313,22 +376,30 @@ def contenu(rendez_vous, jour, racine=RACINE):
                 n += 1
             h += "</section>"
         h += "</div>"
-    if a_verifier or resolus:
-        h += ('<section class="passes" id="deja-arrives"><p class="section-label">Déjà arrivés</p>'
-              '<p class="legende">Couleur de la réponse, selon nos scénarios : '
-              '<span class="c-favorable">vert, favorable</span> · <span class="c-stable">bleu, stable</span> · '
-              '<span class="c-degrade">orange, dégradé</span>.</p><div class="tl tl-passe">')
-        n = 0
-        for r in a_verifier:
-            h += carte_a_verifier(r, n, jour, racine)
-            n += 1
-        for r in resolus[:MAX_PASSES]:
-            h += carte_passee(r, n, racine)
-            n += 1
-        h += "</div></section>"
+    else:
+        h += '<div class="vide">Aucun rendez-vous à venir pour le moment.</div>'
+    h += (f'<div class="aujourdhui" role="separator"><span>Aujourd\'hui · {jour.day} {MOIS[jour.month - 1]} {jour.year}</span></div>')
+    h += ('<section class="passes" id="deja-arrives"><p class="section-label">Déjà arrivés</p>'
+          '<p class="legende">Couleur de la réponse, selon nos scénarios : '
+          '<span class="c-favorable">vert, favorable</span> · <span class="c-stable">bleu, stable</span> · '
+          '<span class="c-degrade">orange, dégradé</span>.</p><div class="tl tl-passe">')
+    n = 0
+    for r in a_verifier:
+        h += carte_a_verifier(r, n, jour, racine)
+        n += 1
+    for r in resolus[:MAX_PASSES]:
+        h += carte_passee(r, n, racine)
+        n += 1
+    if not a_verifier and not resolus:
+        premier = prochains[0] if prochains else None
+        quand = f" Le premier rendez-vous échoit le {date_longue(premier)}." if premier else ""
+        h += ('<div class="vide passe-vide" data-periode="passe" data-domaine="" data-couleur="vide">'
+              f'Aucun résultat pour l\'instant.{quand} Les réponses apparaîtront ici, avec leurs chiffres et leurs sources.</div>')
+    h += "</div></section>"
+    h += '<p class="rien" hidden>Aucun rendez-vous ne correspond à ces filtres. Utilisez « Tout afficher ».</p>'
     h += ('<p class="pied">Ces rendez-vous sont des repères, pas des prévisions. '
           'Nous ne recalculons pas de probabilités ici : à chacun de se faire son idée.</p>')
-    return h + "</div></section>"
+    return h + "</div></section>" + JS_FILTRES
 
 
 def css():

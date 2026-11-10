@@ -139,6 +139,21 @@ class TestPasses(unittest.TestCase):
         with self.assertRaises(ValueError):
             g.verifier_resultat(r)
 
+    def test_filtres_et_reperes(self):
+        h = g.contenu([resolu(), rv("v", "2026-11-20"), rv("f", "2026-12-20", dom="Culture")], self.J)
+        self.assertIn('class="filtres" hidden', h)           # affiché seulement par le script
+        self.assertIn('data-f="periode" data-v="passe"', h)
+        self.assertIn('data-f="domaine" data-v="Culture"', h)
+        self.assertIn('data-f="couleur" data-v="stable"', h)
+        self.assertIn('data-periode="avenir"', h)
+        self.assertIn('data-couleur="stable"', h)
+        self.assertIn("Aujourd'hui · 5 décembre 2026", h)
+
+    def test_etat_vide_du_passe(self):
+        h = g.contenu([rv("f", "2026-12-20")], date(2026, 11, 10))
+        self.assertIn("Aucun résultat pour l'instant", h)
+        self.assertIn("20 décembre 2026", h)
+
     def test_accueil_ignore_les_passes(self):
         import accueil
         self.assertEqual(accueil.bloc(date(2030, 1, 1)), "")
