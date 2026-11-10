@@ -60,7 +60,12 @@
 
   // Mêmes pictogrammes que le menu du haut, pour rester cohérent.
   var ICONS = {
-    home: svg('<path d="M4 11.5 12 4l8 7.5"/><path d="M6 10v9a1 1 0 0 0 1 1h3v-6h4v6h3a1 1 0 0 0 1-1v-9"/>'),
+    // Logo du site en couleur (assets/logo.svg, recadré) à la place de la maison.
+    home: '<svg aria-hidden="true" viewBox="28 26 64 74" width="26" height="26" fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">' +
+          '<path d="M57,96 L57,70 Q57,65 60,63 M63,96 L63,70 Q63,65 60,63 M60,63 L60,55 M60,63 L53.4,56.9 M60,63 L66.6,56.9" stroke="#cf9d4c"/>' +
+          '<path d="M60,55 L60,31 M55.8,38.9 L60,31 L64.2,38.9" stroke="#6f8fae"/>' +
+          '<path d="M53.4,56.9 L34,39 M36.97,47.5 L34,39 L42.69,41.3" stroke="#5e9c78"/>' +
+          '<path d="M66.6,56.9 L86,39 M83.03,47.5 L86,39 L77.31,41.3" stroke="#bd6248"/></svg>',
     archives: svg('<rect x="4" y="4.5" width="16" height="4" rx="1"/><path d="M5 8.5v9.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8.5"/><line x1="10" y1="13" x2="14" y2="13"/>'),
     search: svg('<circle cx="11" cy="11" r="6.5"/><line x1="16" y1="16" x2="20.5" y2="20.5"/>'),
     glossary: svg('<path d="M12 6.5c-1.6-1.2-3.7-1.7-6-1.7v13c2.3 0 4.4.5 6 1.7 1.6-1.2 3.7-1.7 6-1.7v-13c-2.3 0-4.4.5-6 1.7Z"/><line x1="12" y1="6.5" x2="12" y2="19.5"/>'),
@@ -114,24 +119,28 @@
     "#bottom-nav,#bottom-nav-sheet,#bottom-nav-backdrop{display:none}" +
     "@media (max-width:720px){" +
     "html.has-bottom-nav nav.topnav{display:none}" +
-    "html.has-bottom-nav body{padding-bottom:calc(68px + var(--bn-safe,0px))}" +
-    "#bottom-nav{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:9000;" +
-    "background:#1a212b;border-top:1px solid #2c3644;" +
-    "padding:0 4px var(--bn-safe,0px);font-family:inherit}" +
-    "#bottom-nav a,#bottom-nav button{flex:1 1 0;min-width:0;height:62px;display:flex;flex-direction:column;" +
-    "align-items:center;justify-content:center;gap:4px;position:relative;background:none;border:0;margin:0;" +
-    "padding:0;color:#a9a89c;text-decoration:none;font:inherit;cursor:pointer;" +
-    "-webkit-tap-highlight-color:transparent}" +
-    "#bottom-nav .bn-label{font-size:.72rem;letter-spacing:.01em;line-height:1.35;" +
+    "html.has-bottom-nav body{padding-bottom:calc(96px + var(--bn-safe,0px))}" +
+    // Capsule flottante : fond sombre translucide, bord fin, onglet actif sur un fond arrondi.
+    "#bottom-nav{display:flex;align-items:center;gap:2px;position:fixed;left:12px;right:12px;" +
+    "bottom:calc(12px + var(--bn-safe,0px));z-index:9000;height:68px;padding:6px;" +
+    "background:rgba(26,33,43,.94);border:1px solid #3a4656;border-radius:999px;" +
+    "box-shadow:0 10px 30px rgba(0,0,0,.55);font-family:inherit}" +
+    "@supports ((-webkit-backdrop-filter:blur(1px)) or (backdrop-filter:blur(1px))){" +
+    "#bottom-nav{background:rgba(26,33,43,.82);-webkit-backdrop-filter:blur(16px) saturate(1.2);backdrop-filter:blur(16px) saturate(1.2)}}" +
+    "#bottom-nav a,#bottom-nav button{flex:1 1 0;min-width:0;height:54px;display:flex;flex-direction:column;" +
+    "align-items:center;justify-content:center;gap:3px;position:relative;background:none;border:0;margin:0;" +
+    "padding:0 2px;border-radius:999px;color:#a9a89c;text-decoration:none;font:inherit;cursor:pointer;" +
+    "transition:background .2s,color .2s;-webkit-tap-highlight-color:transparent}" +
+    "#bottom-nav svg{width:22px;height:22px}#bottom-nav a:first-child svg{width:26px;height:26px}" +
+    "#bottom-nav .bn-label{font-size:.66rem;letter-spacing:.01em;line-height:1.2;" +
     "max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}" +
     "#bottom-nav a:active,#bottom-nav button:active{color:#ece7da}" +
-    "#bottom-nav [aria-current='page'],#bottom-nav button[aria-expanded='true']{color:#cf9d4c}" +
-    "#bottom-nav [aria-current='page']::before,#bottom-nav button.is-active::before{content:'';position:absolute;" +
-    "top:0;left:28%;right:28%;height:2px;border-radius:0 0 2px 2px;background:#cf9d4c}" +
+    "#bottom-nav [aria-current='page'],#bottom-nav button[aria-expanded='true']{color:#cf9d4c;background:#2f3a48}" +
+    "#bottom-nav.is-open a[aria-current='page']{color:#a9a89c;background:none}" +
     "#bottom-nav-backdrop{position:fixed;inset:0;z-index:8990;background:rgba(0,0,0,.45)}" +
     "#bottom-nav-backdrop.is-open{display:block}" +
     "#bottom-nav-sheet{position:fixed;left:12px;right:12px;z-index:8995;" +
-    "bottom:calc(72px + var(--bn-safe,0px));background:#1a212b;border:1px solid #2c3644;" +
+    "bottom:calc(92px + var(--bn-safe,0px));background:#1a212b;border:1px solid #2c3644;" +
     "border-top:3px solid #cf9d4c;border-radius:12px;padding:6px;box-shadow:0 10px 30px rgba(0,0,0,.5);" +
     "font-family:inherit}" +
     "#bottom-nav-sheet.is-open{display:block}" +
@@ -142,7 +151,7 @@
     "#bottom-nav-sheet a.is-gold{color:#cf9d4c}" +
     "#bottom-nav-sheet a[aria-current='page']{color:#cf9d4c}" +
     // Le bandeau « Installer l'application » ne doit pas passer sous la barre.
-    "html.has-bottom-nav .pwa-install-banner{margin-bottom:calc(68px + var(--bn-safe,0px))}" +
+    "html.has-bottom-nav .pwa-install-banner{margin-bottom:calc(96px + var(--bn-safe,0px))}" +
     "}" +
     "@media print{#bottom-nav,#bottom-nav-sheet,#bottom-nav-backdrop{display:none!important}}";
 
@@ -180,6 +189,7 @@
   function setOpen(open) {
     sheet.classList.toggle("is-open", open);
     backdrop.classList.toggle("is-open", open);
+    nav.classList.toggle("is-open", open);
     btn.setAttribute("aria-expanded", open ? "true" : "false");
   }
 
