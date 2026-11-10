@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "1ed12c9e5c2d3d4f45ff7ee98b1376c119cefec6a882ebe247f84aba83dafc5b"
+    "md_sha256": "f3ce9b3e320725ff6a555a0594b2de8c983347973985aa7c25f06be6ff35fca3"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -554,50 +554,6 @@
         {
           "type": "commentaire",
           "texte": "Registre scindé le 12 août (retour utilisateur) : la géopolitique dure (conflits, diplomatie, États) et l'économie mondiale (marchés, monnaies, dette, matières premières) partageaient jusque-là le même slot du lundi, ce qui tassait deux blocs très différents dans une seule file. L'économie mondiale a sa propre section dimanche (voir plus bas) — la case libérée vient de la fusion des deux jours culture (française + internationale) en un seul, samedi. **Règle de classement pour les sujets à cheval sur les deux** (ex. guerres commerciales, tarifs douaniers) : si l'enjeu central est un rapport de force entre États (qui menace qui, qui négocie quoi) → géopolitique/lundi ; si l'enjeu central est un indicateur chiffré ou un marché (prix, taux, dette, cours) → économie/dimanche. Cas tranchés le 12 août à titre d'exemple : \"Guerre commerciale USA-Chine\" reste ici (framing État contre État, guerre froide) ; \"Droits de douane de Trump\" part en économie (contenu réel = batailles judiciaires et chiffres de recettes tarifaires, pas un rapport de force diplomatique). Les vieilles éditions déjà publiées gardent leur tag d'origine (`geopolitique`), jamais retaggées rétroactivement — voir docs/tags.md."
-        },
-        {
-          "type": "sujet",
-          "id": "geopolitique-l-iran-conditionne-t-il-la-reouverture-du",
-          "titre": "L'Iran conditionne-t-il la réouverture du détroit d'Ormuz à un accord nucléaire avec les États-Unis ?",
-          "question": null,
-          "tag": "géopolitique & nucléaire",
-          "statut": "a_traiter",
-          "validation": "a_valider",
-          "contexte": "Le 7 novembre 2026, l'Iran a transmis une proposition nucléaire à sept conditions via le Qatar, exigeant leur respect avant toute négociation. Washington examine la proposition tandis que Donald Trump menace de nouvelles frappes. Dans le détroit d'Ormuz, deux pétroliers ont pris feu après avoir heurté des mines, exacerbant les tensions.",
-          "rationnel": "La question : l'Iran parviendra-t-il à imposer ses conditions pour rouvrir le détroit d'Ormuz, ou les États-Unis déclencheront-ils une escalade militaire ? Les forces en présence incluent la pression économique iranienne via le blocage du détroit et la menace militaire américaine. L'enjeu pour la France est la stabilité des approvisionnements énergétiques et la sécurité maritime.",
-          "angle": null,
-          "a_verifier": null,
-          "mots_cles": [
-            "Iran",
-            "États-Unis",
-            "détroit d'Ormuz",
-            "proposition nucléaire",
-            "pétroliers",
-            "Donald Trump"
-          ],
-          "scenarios": {
-            "favorable": "Un accord temporaire est trouvé, évitant une escalade militaire et permettant une reprise partielle du trafic maritime.",
-            "stable": "Les négociations patinent, prolongeant le statu quo avec des tensions persistantes mais contrôlées.",
-            "degrade": "Les États-Unis lancent des frappes militaires, déclenchant une crise régionale majeure et une flambée des prix du pétrole."
-          },
-          "echeance": null,
-          "sources": [
-            {
-              "titre": "Synthèse de l'actualité mondiale du 7 novembre 2026 | World Watch",
-              "url": "https://worldwatch.media/fr/digest/2026-11-07"
-            },
-            {
-              "titre": "Géopolitique & puissances — Yaktu",
-              "url": "https://yaktu.fr/focus/geopolitique-puissances/"
-            }
-          ],
-          "origine": "veille",
-          "note": "Ajouté automatiquement le 2026-11-08 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
-          "donnees": null,
-          "ajoute_le": "2026-11-08",
-          "publie_le": null,
-          "edition": null,
-          "enrichi_le": null
         },
         {
           "type": "sujet",
@@ -3496,7 +3452,7 @@
           "question": null,
           "tag": "sciences & IA",
           "statut": "a_traiter",
-          "validation": "a_valider",
+          "validation": "valide",
           "contexte": "Le 1er novembre 2026, OpenAI a produit une preuve de 1 147 pages sur la théorie de Yang-Mills, mais les physiciens refusent de la publier avant une vérification approfondie. Cette théorie, non résolue depuis des décennies, est cruciale pour la physique des particules.",
           "rationnel": "La question : la preuve d'OpenAI sera-t-elle validée, ouvrant une nouvelle ère pour la physique, ou révèlera-t-elle les limites de l'IA en recherche fondamentale ? Les enjeux incluent la crédibilité des découvertes assistées par IA et l'avenir de la collaboration humain-machine en science.",
           "angle": null,
@@ -3524,45 +3480,6 @@
           "note": "Ajouté automatiquement le 2026-11-08 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
           "donnees": null,
           "ajoute_le": "2026-11-08",
-          "publie_le": null,
-          "edition": null,
-          "enrichi_le": null
-        },
-        {
-          "type": "sujet",
-          "id": "sciences-les-nouveaux-traitements-contre-l-obesite-vont",
-          "titre": "Les nouveaux traitements contre l'obésité vont-ils bouleverser la santé publique ?",
-          "question": null,
-          "tag": "médecine & santé",
-          "statut": "a_traiter",
-          "validation": "a_valider",
-          "contexte": "Les médicaments comme l'Ozempic montrent des résultats prometteurs, mais leur coût et leur accessibilité divisent les experts.",
-          "rationnel": "La question : Ces traitements peuvent-ils réduire l'épidémie d'obésité, ou resteront-ils réservés aux plus riches ? Les scénarios dépendent des politiques de remboursement et des innovations concurrentes. L'enjeu est la réduction des coûts de santé liés à l'obésité.",
-          "angle": null,
-          "a_verifier": null,
-          "mots_cles": [
-            "obésité",
-            "Ozempic",
-            "traitements",
-            "santé publique",
-            "coût"
-          ],
-          "scenarios": {
-            "favorable": "Des génériques rendent les traitements accessibles à tous.",
-            "stable": "Seuls les pays riches en bénéficient.",
-            "degrade": "Les effets secondaires freinent leur adoption."
-          },
-          "echeance": null,
-          "sources": [
-            {
-              "titre": "Ozempic : révolution ou mirage ?",
-              "url": null
-            }
-          ],
-          "origine": "veille",
-          "note": "Ajouté automatiquement le 2026-11-02 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
-          "donnees": null,
-          "ajoute_le": "2026-11-02",
           "publie_le": null,
           "edition": null,
           "enrichi_le": null
@@ -4964,7 +4881,7 @@
           "question": null,
           "tag": "culture & numérique",
           "statut": "a_traiter",
-          "validation": "a_valider",
+          "validation": "valide",
           "contexte": "En novembre 2026, le groupe Madrigall (Gallimard, Flammarion) annonce l'utilisation d'un logiciel pour détecter les manuscrits générés par IA. Cette décision suit des polémiques sur des livres soupçonnés d'être écrits par des IA, comme l'affaire Thélyson Orélien.",
           "rationnel": "La question : les éditeurs parviendront-ils à filtrer les œuvres générées par IA, ou assistera-t-on à une crise de confiance dans la littérature ? Les défis incluent la fiabilité des détecteurs et l'évolution des techniques d'IA. L'enjeu est la préservation de la créativité humaine.",
           "angle": null,
@@ -6129,45 +6046,6 @@
         {
           "type": "commentaire",
           "texte": "Faire tourner les sous-thèmes : marchés financiers, monnaies (dollar, or, bitcoin), dette et taux d'intérêt, matières premières (pétrole, énergie), entreprises et secteurs à l'échelle mondiale, inégalités, démographie économique, luxe et consommation… Nouveau registre créé le 12 août (retour utilisateur), scindé de l'ancien slot \"Géopolitique / international — lundi\" qui mélangeait géopolitique dure et économie mondiale — voir la note dans la section Géopolitique — lundi pour la règle de classement des sujets à cheval sur les deux."
-        },
-        {
-          "type": "sujet",
-          "id": "economie-la-bulle-de-l-ia-sur-les-marches-financiers-va",
-          "titre": "La bulle de l'IA sur les marchés financiers va-t-elle éclater ?",
-          "question": null,
-          "tag": "économie & finance",
-          "statut": "a_traiter",
-          "validation": "a_valider",
-          "contexte": "En novembre 2026, les investisseurs se détournent des actions liées à l'intelligence artificielle, provoquant une chute de 2 500 milliards de dollars de capitalisation pour le Nasdaq 100. Les entreprises technologiques se tournent vers le marché obligataire européen, augmentant les coûts de financement.",
-          "rationnel": "La question : les valorisations excessives des entreprises liées à l'IA vont-elles se corriger brutalement, ou le marché retrouvera-t-il un équilibre ? Les facteurs incluent la régulation américaine et la demande réelle en technologies IA. L'enjeu pour la France est l'exposition de ses fonds d'investissement et startups.",
-          "angle": null,
-          "a_verifier": null,
-          "mots_cles": [
-            "bulle IA",
-            "Nasdaq",
-            "marchés financiers",
-            "obligations",
-            "régulation"
-          ],
-          "scenarios": {
-            "favorable": "Les corrections sont limitées et le marché se stabilise autour de valorisations réalistes.",
-            "stable": "Une correction modérée a lieu, sans impact systémique sur l'économie.",
-            "degrade": "Un krach technologique déclenche une crise financière mondiale."
-          },
-          "echeance": null,
-          "sources": [
-            {
-              "titre": "Monde – L'actualité de la semaine – 6 novembre 2026 | Etudes économiques - Crédit Agricole",
-              "url": "https://etudes-economiques.credit-agricole.com/fr/monde-lactualite-de-la-semaine-6-novembre-2026"
-            }
-          ],
-          "origine": "veille",
-          "note": "Ajouté automatiquement le 2026-11-08 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
-          "donnees": null,
-          "ajoute_le": "2026-11-08",
-          "publie_le": null,
-          "edition": null,
-          "enrichi_le": null
         },
         {
           "type": "sujet",

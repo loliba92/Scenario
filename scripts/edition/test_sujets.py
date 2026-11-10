@@ -616,9 +616,14 @@ class SujetDuJourTest(unittest.TestCase):
         # La file doit couvrir la semaine à venir (demain inclus). Ce test ancrait autrefois
         # la vérification sur la première semaine d'octobre 2026, déjà passée : il échouait
         # pour une raison sans rapport avec la file d'aujourd'hui.
+        # La section « carte blanche » (le mardi) ne reçoit que des sujets urgents : elle peut
+        # être vide sans anomalie. On vérifie donc les jours dont le registre est alimenté
+        # par la veille régulière.
         aujourd_hui = datetime.date.today()
         for jour in range(1, 8):
             day = aujourd_hui + datetime.timedelta(days=jour)
+            if sj.REGISTRE_DU_JOUR[day.weekday()] == "carte_blanche":
+                continue
             r = sj.sujet_du_jour(data, jour=day)
             self.assertIsNotNone(r, f"{day} : un sujet éligible doit exister")
 
