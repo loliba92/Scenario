@@ -1,12 +1,13 @@
 name: Événements à surveiller
 
-# Contrôle quotidien des échéances de data/signaux.json (scripts/detection/verifier_signaux.py)
-# et régénération de a-venir.html depuis data/a-venir.json (scripts/a_venir/generate_a_venir.py),
-# avec l'encadré « Ce qui va arriver » de l'accueil (scripts/a_venir/accueil.py).
-# Déclenché par cron-job.org (event_type : trigger-signaux). Aucun appel payant ni requête externe.
-# Écrit data/signaux-rapport.md (gratuit) et data/signaux-verification.md (recherche web, modèle
-# bon marché, uniquement pour les événements échus ou à 7 jours ; plafond de 3 par passage).
-# Ne modifie ni signaux.json ni les sujets. Secret requis : OPENROUTER_API_KEY.
+# Point quotidien déclenché par cron-job.org (event_type : trigger-signaux, ou workflow_dispatch).
+#  1. data/signaux-rapport.md : contrôle gratuit des échéances de data/signaux.json (scripts/detection/verifier_signaux.py).
+#  2. Résultats des rendez-vous échus : scripts/a_venir/verifier_resultats.py (modèle bon marché avec recherche web +
+#     confirmation indépendante), puis contrôles stricts en code (scripts/a_venir/controles.py : citations retrouvées dans les
+#     pages, chiffres, dates, 2 sources de domaines différents). Rien n'est publié si un seul contrôle échoue.
+#     Plafond : 3 rendez-vous par passage. Aucun appel s'il n'y a rien à vérifier.
+#  3. Régénération de a-venir.html et de l'encadré de l'accueil (le décompte change chaque jour).
+# Secret requis : OPENROUTER_API_KEY.
 
 on:
   repository_dispatch:
@@ -27,19 +28,18 @@ jobs:
           python-version: '3.12'
 
       - name: Tests
-        run: python3 -m unittest scripts/detection/test_verifier_signaux.py scripts/detection/test_verifier_signaux_web.py scripts/a_venir/test_generate_a_venir.py
+        run: python3 -m unittest scripts/detection/test_verifier_signaux.py scripts/a_venir/test_generate_a_venir.py scripts/a_venir/test_controles.py
 
-      - name: Générer les deux rapports
+      - name: Rapport gratuit des échéances
+        run: python3 scripts/detection/verifier_signaux.py --sortie "$RUNNER_TEMP/rapport.md" > /dev/null
+
+      - name: Vérifier les résultats des rendez-vous échus
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: |
-          python3 scripts/detection/verifier_signaux.py --sortie "$RUNNER_TEMP/rapport.md" > /dev/null
-          # Un échec de la recherche web ne doit pas empêcher le rapport gratuit.
-          python3 scripts/detection/verifier_signaux_web.py --sortie "$RUNNER_TEMP/verification.md" > /dev/null \
-            || echo "Vérification web ignorée (voir journal)."
-
-      - name: Générer la page « À venir »
-        run: python3 scripts/a_venir/generate_a_venir.py --sortie "$RUNNER_TEMP/a-venir.html"
+          # Un échec de cette étape ne doit jamais empêcher la mise à jour de la page.
+          python3 scripts/a_venir/verifier_resultats.py --sortie "$RUNNER_TEMP/patch.json" --rapport "$RUNNER_TEMP/verification.md" \
+            || echo '{"resultats": {}, "journal": {}}' > "$RUNNER_TEMP/patch.json"
 
       - name: Committer et pousser
         run: |
@@ -49,15 +49,16 @@ jobs:
             git fetch origin main
             git reset --hard origin/main
             cp "$RUNNER_TEMP/rapport.md" data/signaux-rapport.md
-            [ -f "$RUNNER_TEMP/verification.md" ] && cp "$RUNNER_TEMP/verification.md" data/signaux-verification.md
-            cp "$RUNNER_TEMP/a-venir.html" a-venir.html
+            [ -f "$RUNNER_TEMP/verification.md" ] && cp "$RUNNER_TEMP/verification.md" data/a-venir-verification.md
+            python3 scripts/a_venir/appliquer_resultats.py "$RUNNER_TEMP/patch.json"
+            python3 scripts/a_venir/generate_a_venir.py
             python3 scripts/a_venir/accueil.py
-            git add data/signaux-*.md a-venir.html index.html
+            git add data/ a-venir.html index.html
             if git diff --cached --quiet; then
               echo "Aucun changement."
               exit 0
             fi
-            git commit -m "[signaux] point quotidien et page À venir"
+            git commit -m "[signaux] point quotidien, résultats vérifiés et page À venir"
             if git push origin HEAD:main; then
               exit 0
             fi

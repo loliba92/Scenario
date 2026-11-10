@@ -19,8 +19,13 @@ class T(unittest.TestCase):
         r = g.charger()
         self.assertGreaterEqual(len(r), 1)
         for x in r:
+            self.assertTrue(x["editions"], x["id"])
             for iso in x["editions"]:
                 self.assertTrue((g.RACINE / "archives" / f"{iso}.html").exists(), iso)
+            # un rendez-vous « à venir » ne peut pas précéder l'édition qui l'annonce
+            self.assertGreaterEqual(x["date"], min(x["editions"]), x["id"])
+        ids = [x["id"] for x in r]
+        self.assertEqual(len(ids), len(set(ids)), "identifiants en double")
 
     def test_tri_et_filtre(self):
         j = date(2026, 11, 10)
@@ -163,7 +168,7 @@ class TestAccueil(unittest.TestCase):
     def test_bloc_trois_cartes_max(self):
         import accueil
         h = accueil.bloc(date(2026, 11, 10))
-        self.assertEqual(h.count('class="avh-carte"'), 3)
+        self.assertEqual(h.count('class="avh-point"'), 3)
         self.assertIn('href="a-venir.html#rv-', h)
         self.assertTrue(h.startswith(accueil.START) and h.endswith(accueil.END))
 

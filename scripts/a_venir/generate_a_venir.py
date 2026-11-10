@@ -145,6 +145,22 @@ def fiche(r):
             f'<dt>Calendrier</dt><dd>{esc(texte_calendrier(r))}</dd></dl>')
 
 
+def quand_court(r):
+    """Date en toutes petites lettres pour l'accueil : « 30 nov. », « Fin nov. », « D'ici le 31 déc. »."""
+    d = date.fromisoformat(r["date"])
+    court = MOIS_COURT[d.month - 1]
+    p = r["precision"]
+    if p == "jour":
+        return f"{d.day} {court}"
+    if p == "limite":
+        return f"D'ici le {d.day} {court}"
+    if p == "fin_mois":
+        return f"Fin {court}"
+    if p == "fin_annee":
+        return f"D'ici fin {d.year}"
+    return f"{court.capitalize()} {d.year}"
+
+
 def tuile(r):
     d = date.fromisoformat(r["date"])
     court = MOIS_COURT[d.month - 1].capitalize() if r["precision"] == "mois" else MOIS_COURT[d.month - 1]
