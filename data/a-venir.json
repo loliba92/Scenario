@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "description": "Rendez-vous à surveiller affichés sur a-venir.html. precision : jour | limite (« D'ici le … ») | fin_mois | mois | fin_annee. date = date limite (JJ), servie au tri et au décompte. editions : dates des éditions concernées (archives/AAAA-MM-JJ.html).",
+  "rendez_vous": [
+    {
+      "id": "ethiopie-erythree-cessez-le-feu",
+      "date": "2026-11-30",
+      "precision": "jour",
+      "domaine": "Géopolitique",
+      "question": "Un cessez-le-feu est-il annoncé entre l'Éthiopie et l'Érythrée ?",
+      "commentaire": "Depuis la rupture diplomatique du 1er octobre et les frappes de drones près d'Adigrat, la région craint un retour à la guerre de 2020-2022. Une annonce sous médiation régionale calmerait le jeu, sans régler le fond du conflit.",
+      "editions": [
+        "2026-10-27"
+      ]
+    },
+    {
+      "id": "facturation-electronique-taux-designation",
+      "date": "2026-11-30",
+      "precision": "fin_mois",
+      "domaine": "Économie",
+      "question": "Quel est le taux de désignation officiel publié pour la facturation électronique ?",
+      "commentaire": "La DGFiP publie ce taux fin novembre. On regarde aussi si les factures rejetées augmentent à l'approche de l'échéance de décembre.",
+      "editions": [
+        "2026-11-04"
+      ]
+    },
+    {
+      "id": "budget-2027-vote-sans-censure",
+      "date": "2026-12-31",
+      "precision": "limite",
+      "domaine": "Politique",
+      "question": "Le budget 2027 est-il voté sans que le gouvernement soit renversé ?",
+      "commentaire": "Le gouvernement Lecornu doit faire adopter le budget cet automne. Une motion de censure est un vote des députés qui peut le renverser. Si elle aboutit, ou si le vote est repoussé, c'est une crise budgétaire.",
+      "editions": [
+        "2026-09-13"
+      ]
+    },
+    {
+      "id": "robot-neo-livraisons",
+      "date": "2026-12-31",
+      "precision": "limite",
+      "domaine": "Technologie",
+      "question": "Les premiers robots NEO sont-ils livrés à des particuliers américains ?",
+      "commentaire": "Il s'agit du robot NEO de 1X, affiché à 20 000 dollars. On attend la confirmation de premières livraisons effectives.",
+      "editions": [
+        "2026-11-06"
+      ]
+    },
+    {
+      "id": "clubs-sportifs-reglement-ia",
+      "date": "2026-12-31",
+      "precision": "fin_annee",
+      "domaine": "Sport",
+      "question": "Les clubs sportifs se mettent-ils en conformité avec le règlement européen sur l'IA ?",
+      "commentaire": "On suit la mise en conformité des clubs, et les premières décisions de la CNIL sur les contrats de joueurs.",
+      "editions": [
+        "2026-11-08"
+      ]
+    },
+    {
+      "id": "narnia-box-office",
+      "date": "2027-02-01",
+      "precision": "mois",
+      "domaine": "Culture",
+      "question": "Quelles recettes pour « Narnia : Le Neveu du magicien » lors de son premier week-end ?",
+      "commentaire": "On regarde le niveau des recettes au box-office mondial lors du premier week-end d'exploitation.",
+      "editions": [
+        "2026-11-07"
+      ]
+    }
+  ]
+}

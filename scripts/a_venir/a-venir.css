@@ -1,0 +1,56 @@
+  /* ---- Page « À venir » ---- */
+  .av{ --tile:76px; --gap:20px; padding-top:32px; }
+  .av .wrap{ max-width:900px; }
+  .av .sr{ position:absolute; left:-9999px; }
+  .av .tl{ position:relative; }
+  .av .tl::before{ content:""; position:absolute; left:calc(var(--tile) / 2); top:0; bottom:0; width:2px; margin-left:-1px;
+    background:linear-gradient(to bottom,var(--gold),#6b5430 45%,var(--hairline)); border-radius:2px; }
+  .av .periode + .periode{ margin-top:10px; }
+  .av .periode > .section-label{ position:sticky; top:0; z-index:5; background:var(--ink);
+    margin:0 0 4px calc(var(--tile) + var(--gap)); padding:8px 0; }
+  .av .periode > .section-label::after{ content:""; position:absolute; left:calc(-1 * (var(--tile) / 2 + var(--gap)) - 6px); top:50%;
+    width:12px; height:12px; margin-top:-6px; border-radius:50%; background:var(--ink); border:2px solid var(--gold); }
+  .av .signal{ display:grid; grid-template-columns:var(--tile) 1fr; gap:var(--gap); padding:8px 0 12px; align-items:start; }
+  .av .tuile{ position:relative; z-index:1; width:var(--tile); border-radius:12px; overflow:hidden; text-align:center;
+    background:var(--surface-2); border:1px solid #3a4656; box-shadow:0 4px 12px rgba(0,0,0,.35); }
+  .av .tuile .haut{ display:block; background:var(--gold); color:var(--ink); font-family:"JetBrains Mono",monospace; font-weight:500;
+    font-size:.62rem; letter-spacing:.08em; text-transform:uppercase; padding:4px 2px; line-height:1.2; white-space:nowrap; }
+  .av .tuile .gros{ display:block; font-family:Fraunces,serif; font-weight:600; font-size:2rem; line-height:1; padding:9px 2px 4px; color:var(--paper); }
+  .av .tuile .bas{ display:block; font-family:"JetBrains Mono",monospace; font-size:.62rem; letter-spacing:.1em; text-transform:uppercase; color:var(--paper-dim); padding:0 2px 8px; line-height:1.2; }
+  .av .tuile .gros.moy{ font-size:1.45rem; padding-top:11px; }
+  .av .tuile .gros.moy:last-child{ padding-bottom:12px; }
+  .av .tuile .gros.sans-bas{ padding-bottom:10px; }
+  .av .tuile.flou{ background:var(--surface); border:1.5px dashed var(--gold); }
+  .av .tuile.flou .haut{ background:transparent; color:var(--gold); padding-top:6px; }
+  .av .carte{ background:var(--surface); border:1px solid var(--hairline); border-radius:14px; padding:14px 18px 6px; min-width:0; }
+  .av .entete{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px 16px; margin-bottom:10px; }
+  .av .pastille{ display:inline-flex; align-items:center; gap:8px; padding:5px 12px 5px 8px; border-radius:999px; background:var(--surface-2);
+    border:1px solid var(--hairline); font-family:"JetBrains Mono",monospace; font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; color:var(--paper); }
+  .av .pastille svg{ width:24px; height:24px; flex:none; stroke:var(--gold); fill:none; stroke-width:1.4; stroke-linecap:round; stroke-linejoin:round; }
+  .av .jauge{ display:inline-flex; align-items:center; gap:10px; font-family:"JetBrains Mono",monospace; font-size:.76rem; color:var(--paper-dim); white-space:nowrap; }
+  .av .jauge .piste{ position:relative; width:96px; height:6px; border-radius:6px; background:var(--hairline); overflow:hidden; }
+  .av .jauge .piste i{ position:absolute; left:0; top:0; bottom:0; border-radius:6px; background:linear-gradient(90deg,#8a6a33,var(--gold)); }
+  .av .jauge b{ font-weight:500; color:var(--paper); }
+  .av .carte h2{ font-family:Fraunces,serif; font-weight:500; font-size:1.15rem; line-height:1.3; margin:0 0 6px; text-wrap:balance; }
+  .av .comm{ margin:0 0 8px; color:var(--paper); max-width:62ch; font-size:.95rem; }
+  .av .eds{ margin:0; padding:8px 0 0; list-style:none; font-size:.86rem; color:var(--paper-dim); border-top:1px solid var(--hairline); }
+  .av .eds b{ font-family:"JetBrains Mono",monospace; font-weight:500; font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--paper-dim); display:block; }
+  .av .eds a{ display:flex; align-items:center; min-height:44px; color:var(--gold); text-underline-offset:3px; padding:2px 0; }
+  .av .eds a .d{ color:var(--paper-dim); margin-left:.4em; white-space:nowrap; }
+  .av .eds a span.t{ min-width:0; }
+  .av .pied{ margin:32px 0 0; padding:14px 16px; border-left:3px solid var(--gold); background:var(--surface); border-radius:0 8px 8px 0; font-size:.92rem; max-width:64ch; }
+  .av .vide{ padding:22px; border:1px dashed var(--hairline); border-radius:10px; color:var(--paper-dim); text-align:center; }
+  @keyframes av-apparait{ from{ opacity:0; transform:translateY(10px); } to{ opacity:1; transform:none; } }
+  @keyframes av-remplit{ from{ width:0; } }
+  .av .signal{ animation:av-apparait .5s ease both; animation-delay:calc(var(--i,0) * 70ms); }
+  .av .jauge .piste i{ animation:av-remplit .9s ease both; animation-delay:calc(var(--i,0) * 70ms + 250ms); }
+  @media (prefers-reduced-motion:reduce){ .av .signal, .av .jauge .piste i{ animation:none; } }
+  @media (max-width:640px){
+    .av{ --tile:62px; --gap:14px; padding-top:24px; }
+    .av .tuile{ border-radius:10px; }
+    .av .tuile .gros{ font-size:1.6rem; padding-top:7px; }
+    .av .tuile .gros.moy{ font-size:1.15rem; padding-top:9px; }
+    .av .tuile .haut, .av .tuile .bas{ font-size:.55rem; letter-spacing:.05em; }
+    .av .carte{ padding:12px 14px 4px; }
+    .av .jauge .piste{ width:72px; }
+  }

@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Ce qui va arriver — les rendez-vous à surveiller — Scénario</title>
+<link rel="canonical" href="https://lesscenarios.fr/a-venir.html">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#10151c">
+<link rel="apple-touch-icon" href="assets/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Scénario">
+<link rel="stylesheet" href="assets/pwa-install.css">
+<meta name="description" content="Les rendez-vous à surveiller relevés dans nos éditions, du plus proche au plus lointain, avec les éditions concernées.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Scénario">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://lesscenarios.fr/a-venir.html">
+<meta property="og:title" content="Ce qui va arriver — les rendez-vous à surveiller — Scénario">
+<meta property="og:description" content="Les rendez-vous à surveiller relevés dans nos éditions, du plus proche au plus lointain, avec les éditions concernées.">
+<meta property="og:image" content="https://lesscenarios.fr/assets/social/og-image-v2.png">
+<meta property="og:image:width" content="2508">
+<meta property="og:image:height" content="1412">
+<meta property="og:image:alt" content="Scénario — trois scénarios chiffrés pour chaque actualité : favorable, stable, dégradé.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ce qui va arriver — les rendez-vous à surveiller — Scénario">
+<meta name="twitter:description" content="Les rendez-vous à surveiller relevés dans nos éditions, du plus proche au plus lointain, avec les éditions concernées.">
+<meta name="twitter:image" content="https://lesscenarios.fr/assets/social/og-image-v2.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #10151c;
+    --surface: #1a212b;
+    --surface-2: #212a35;
+    --hairline: #2c3644;
+    --paper: #ece7da;
+    --paper-dim: #a9a89c;
+    --gold: #cf9d4c;
+    --favorable: #5e9c78;
+    --stable: #6f8fae;
+    --degrade: #bd6248;
+  }
+
+  *,*::before,*::after{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: "Inter", system-ui, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: inherit; }
+
+  ::selection{ background: var(--gold); color: var(--ink); }
+
+  :focus-visible{
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+
+  .wrap{
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  header.masthead{
+    border-bottom: 1px solid var(--hairline);
+    padding: 28px 0 22px;
+  }
+
+  .masthead-row{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .wordmark{
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+  }
+
+  .wordmark span{ color: var(--gold); }
+
+  .brand-rio{ color: var(--gold); }
+
+  .brand{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .brand-row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: 4px;
+    gap: 11px;
+  }
+
+
+  .brand-mark{
+    width: 30px;
+    height: 30px;
+    display: block;
+    flex: none;
+  }
+
+  nav.topnav{
+    background: var(--surface);
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  nav.topnav .wrap{
+    display: flex;
+    gap: 16px;
+    padding: 12px 24px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  nav.topnav .wrap::-webkit-scrollbar{ display: none; }
+
+  .topnav a{ flex-shrink: 0; }
+
+  .topnav a{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--paper-dim);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+  }
+
+  .topnav a svg{ display: block; flex-shrink: 0; }
+
+  .topnav a:hover{ color: var(--paper); }
+
+  .topnav a[aria-current="page"]{
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+
+  .hero{
+    padding: 64px 0 40px;
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .eyebrow{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gold);
+    margin: 0 0 18px;
+  }
+
+  h1{
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: clamp(2.1rem, 5vw, 3.4rem);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 16px;
+  }
+
+  .dek{
+    font-size: 1.1rem;
+    color: var(--paper-dim);
+    max-width: 62ch;
+    margin: 0;
+  }
+
+  section.body-section{ padding: 48px 0; border-bottom: 1px solid var(--hairline); }
+  section.body-section:last-of-type{ border-bottom: none; }
+
+  .section-label{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--paper-dim);
+    margin: 0 0 8px;
+  }
+
+  .section-title{
+    font-family: "Fraunces", serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 0 0 20px;
+  }
+
+  .body-section p{
+    max-width: 62ch;
+    color: var(--paper-dim);
+    margin: 0 0 16px;
+  }
+
+  .body-section p:last-child{ margin-bottom: 0; }
+
+  .body-section strong{ color: var(--paper); font-weight: 500; }
+
+  .contact-form{
+    max-width: 62ch;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 4px 0 0;
+  }
+
+  .form-row{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .form-row label{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--gold);
+  }
+
+  .form-row input,
+  .form-row textarea{
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 8px;
+    padding: 11px 14px;
+    color: var(--paper);
+    font-family: "Inter", system-ui, sans-serif;
+    font-size: 0.95rem;
+  }
+
+  .form-row textarea{ min-height: 140px; resize: vertical; }
+
+  .form-row input:focus,
+  .form-row textarea:focus{ outline: 2px solid var(--gold); outline-offset: 2px; }
+
+  .form-row input::placeholder,
+  .form-row textarea::placeholder{ color: var(--paper-dim); }
+
+  .submit-btn{
+    align-self: flex-start;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink);
+    background: var(--gold);
+    border: 1px solid var(--gold);
+    border-radius: 100px;
+    padding: 10px 24px;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+
+  .submit-btn:hover{ opacity: 0.9; }
+
+  .form-hint{ font-size: 0.8rem; color: var(--paper-dim); margin: 0; }
+
+  .form-sent{ font-size: 0.9rem; color: var(--favorable); margin: 0 0 8px; display: none; }
+
+  .hp{ position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+  .cross-link{
+    display: inline-block;
+    margin-top: 28px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.82rem;
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--gold);
+    padding-bottom: 1px;
+  }
+
+  .cross-link:hover{ color: var(--paper); border-bottom-color: var(--paper); }
+
+  .channel-buttons{
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+  }
+
+  .btn-outline{
+    display: inline-block;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    color: var(--gold);
+    background: transparent;
+    border: 1px solid var(--gold);
+    border-radius: 100px;
+    padding: 9px 22px;
+    transition: background .15s, color .15s;
+  }
+
+  .btn-outline:hover{
+    background: var(--gold);
+    color: var(--ink);
+  }
+
+  footer{
+    border-top: 1px solid var(--hairline);
+    padding: 32px 0 48px;
+  }
+
+
+  .legal-links{
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin: 24px 0 0;
+  }
+
+  .legal-links a{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.76rem;
+    color: var(--paper-dim);
+    text-decoration: none;
+    border-bottom: 1px dotted transparent;
+  }
+
+  .legal-links a:hover{ color: var(--paper); border-bottom-color: var(--paper-dim); }
+
+  footer .caveat{
+    font-size: 0.84rem;
+    color: var(--paper-dim);
+    max-width: 62ch;
+    margin: 0;
+  }
+
+  /* ---------- Nous suivre (ancre du menu #nous-suivre) ---------- */
+  section.follow-block{
+    padding: 28px 0 32px;
+    border-top: 1px dashed var(--hairline);
+  }
+  .follow-block-label{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    margin: 0 0 14px;
+  }
+  .follow-block-row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .follow-btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    color: var(--gold);
+    background: transparent;
+    border: 1px solid var(--gold);
+    border-radius: 100px;
+    padding: 8px 16px;
+    flex-shrink: 0;
+    transition: background .15s, color .15s;
+  }
+  .follow-btn:hover{ background: var(--gold); color: var(--ink); }
+  .follow-btn svg{ display: block; flex-shrink: 0; }
+
+  /* ---- Hero avec photo de fond [AJOUTÉ le 31 août 2026, même traitement que
+     archives.html/le-projet.html/glossaire.html/newsletter.html] —
+     .contact-hero s'ajoute à .hero partagé, ne le modifie pas. Couloir sombre
+     à l'éclairage chaleureux (licence Pexels, crédit dans
+     assets/social/pub-photos/credits.json) — le haut est déjà quasi noir
+     nativement, dégradé léger seulement. */
+  .hero.contact-hero{
+    position: relative;
+    padding: 96px 0 60px;
+    background:
+      linear-gradient(180deg, rgba(16,21,28,0.3) 0%, rgba(16,21,28,0.78) 70%, var(--ink) 100%),
+      url('assets/social/pub-photos/contact.jpg') center 25% / cover no-repeat;
+  }
+
+  .hero.contact-hero .eyebrow,
+  .hero.contact-hero h1,
+  .hero.contact-hero .dek{
+    position: relative;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  }
+
+  @media (max-width: 600px){
+    .hero.contact-hero{ padding: 64px 0 44px; }
+  }
+
+  /* ---- Devise du site (5 oct. 2026) ---- */
+  .devise-footer{
+    flex: 1 0 100%; margin: 0 0 14px;
+    font-family: "Fraunces", Georgia, serif; font-style: italic; font-size: 1.05rem;
+    color: var(--gold, #cf9d4c);
+  }
+  /* ---- Page « À venir » ---- */
+  .av{ --tile:76px; --gap:20px; padding-top:32px; }
+  .av .wrap{ max-width:900px; }
+  .av .sr{ position:absolute; left:-9999px; }
+  .av .tl{ position:relative; }
+  .av .tl::before{ content:""; position:absolute; left:calc(var(--tile) / 2); top:0; bottom:0; width:2px; margin-left:-1px;
+    background:linear-gradient(to bottom,var(--gold),#6b5430 45%,var(--hairline)); border-radius:2px; }
+  .av .periode + .periode{ margin-top:10px; }
+  .av .periode > .section-label{ position:sticky; top:0; z-index:5; background:var(--ink);
+    margin:0 0 4px calc(var(--tile) + var(--gap)); padding:8px 0; }
+  .av .periode > .section-label::after{ content:""; position:absolute; left:calc(-1 * (var(--tile) / 2 + var(--gap)) - 6px); top:50%;
+    width:12px; height:12px; margin-top:-6px; border-radius:50%; background:var(--ink); border:2px solid var(--gold); }
+  .av .signal{ display:grid; grid-template-columns:var(--tile) 1fr; gap:var(--gap); padding:8px 0 12px; align-items:start; }
+  .av .tuile{ position:relative; z-index:1; width:var(--tile); border-radius:12px; overflow:hidden; text-align:center;
+    background:var(--surface-2); border:1px solid #3a4656; box-shadow:0 4px 12px rgba(0,0,0,.35); }
+  .av .tuile .haut{ display:block; background:var(--gold); color:var(--ink); font-family:"JetBrains Mono",monospace; font-weight:500;
+    font-size:.62rem; letter-spacing:.08em; text-transform:uppercase; padding:4px 2px; line-height:1.2; white-space:nowrap; }
+  .av .tuile .gros{ display:block; font-family:Fraunces,serif; font-weight:600; font-size:2rem; line-height:1; padding:9px 2px 4px; color:var(--paper); }
+  .av .tuile .bas{ display:block; font-family:"JetBrains Mono",monospace; font-size:.62rem; letter-spacing:.1em; text-transform:uppercase; color:var(--paper-dim); padding:0 2px 8px; line-height:1.2; }
+  .av .tuile .gros.moy{ font-size:1.45rem; padding-top:11px; }
+  .av .tuile .gros.moy:last-child{ padding-bottom:12px; }
+  .av .tuile .gros.sans-bas{ padding-bottom:10px; }
+  .av .tuile.flou{ background:var(--surface); border:1.5px dashed var(--gold); }
+  .av .tuile.flou .haut{ background:transparent; color:var(--gold); padding-top:6px; }
+  .av .carte{ background:var(--surface); border:1px solid var(--hairline); border-radius:14px; padding:14px 18px 6px; min-width:0; }
+  .av .entete{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px 16px; margin-bottom:10px; }
+  .av .pastille{ display:inline-flex; align-items:center; gap:8px; padding:5px 12px 5px 8px; border-radius:999px; background:var(--surface-2);
+    border:1px solid var(--hairline); font-family:"JetBrains Mono",monospace; font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; color:var(--paper); }
+  .av .pastille svg{ width:24px; height:24px; flex:none; stroke:var(--gold); fill:none; stroke-width:1.4; stroke-linecap:round; stroke-linejoin:round; }
+  .av .jauge{ display:inline-flex; align-items:center; gap:10px; font-family:"JetBrains Mono",monospace; font-size:.76rem; color:var(--paper-dim); white-space:nowrap; }
+  .av .jauge .piste{ position:relative; width:96px; height:6px; border-radius:6px; background:var(--hairline); overflow:hidden; }
+  .av .jauge .piste i{ position:absolute; left:0; top:0; bottom:0; border-radius:6px; background:linear-gradient(90deg,#8a6a33,var(--gold)); }
+  .av .jauge b{ font-weight:500; color:var(--paper); }
+  .av .carte h2{ font-family:Fraunces,serif; font-weight:500; font-size:1.15rem; line-height:1.3; margin:0 0 6px; text-wrap:balance; }
+  .av .comm{ margin:0 0 8px; color:var(--paper); max-width:62ch; font-size:.95rem; }
+  .av .eds{ margin:0; padding:8px 0 0; list-style:none; font-size:.86rem; color:var(--paper-dim); border-top:1px solid var(--hairline); }
+  .av .eds b{ font-family:"JetBrains Mono",monospace; font-weight:500; font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--paper-dim); display:block; }
+  .av .eds a{ display:flex; align-items:center; min-height:44px; color:var(--gold); text-underline-offset:3px; padding:2px 0; }
+  .av .eds a .d{ color:var(--paper-dim); margin-left:.4em; white-space:nowrap; }
+  .av .eds a span.t{ min-width:0; }
+  .av .pied{ margin:32px 0 0; padding:14px 16px; border-left:3px solid var(--gold); background:var(--surface); border-radius:0 8px 8px 0; font-size:.92rem; max-width:64ch; }
+  .av .vide{ padding:22px; border:1px dashed var(--hairline); border-radius:10px; color:var(--paper-dim); text-align:center; }
+  @keyframes av-apparait{ from{ opacity:0; transform:translateY(10px); } to{ opacity:1; transform:none; } }
+  @keyframes av-remplit{ from{ width:0; } }
+  .av .signal{ animation:av-apparait .5s ease both; animation-delay:calc(var(--i,0) * 70ms); }
+  .av .jauge .piste i{ animation:av-remplit .9s ease both; animation-delay:calc(var(--i,0) * 70ms + 250ms); }
+  @media (prefers-reduced-motion:reduce){ .av .signal, .av .jauge .piste i{ animation:none; } }
+  @media (max-width:640px){
+    .av{ --tile:62px; --gap:14px; padding-top:24px; }
+    .av .tuile{ border-radius:10px; }
+    .av .tuile .gros{ font-size:1.6rem; padding-top:7px; }
+    .av .tuile .gros.moy{ font-size:1.15rem; padding-top:9px; }
+    .av .tuile .haut, .av .tuile .bas{ font-size:.55rem; letter-spacing:.05em; }
+    .av .carte{ padding:12px 14px 4px; }
+    .av .jauge .piste{ width:72px; }
+  }
+
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap masthead-row">
+    <div class="brand">
+      <div class="brand-row">
+        <img class="brand-mark" src="assets/logo.svg" alt="">
+        <a class="wordmark" href="/">Scéna<span>rio</span></a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="topnav">
+  <div class="wrap">
+    <a href="/"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11.5 12 4l8 7.5"/><path d="M6 10v9a1 1 0 0 0 1 1h3v-6h4v6h3a1 1 0 0 0 1-1v-9"/></svg> Accueil</a>
+    <a href="archives.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4.5" width="16" height="4" rx="1"/><path d="M5 8.5v9.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8.5"/><line x1="10" y1="13" x2="14" y2="13"/></svg> Éditions</a>
+    <a href="a-venir.html" aria-current="page"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5.5" width="16" height="14" rx="2"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/></svg> À venir</a>
+    <a href="glossaire.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5c-1.6-1.2-3.7-1.7-6-1.7v13c2.3 0 4.4.5 6 1.7 1.6-1.2 3.7-1.7 6-1.7v-13c-2.3 0-4.4.5-6 1.7Z"/><line x1="12" y1="6.5" x2="12" y2="19.5"/></svg> Glossaire</a>
+    <a href="sources.html"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><rect height="14" rx="1.5" width="13" x="3.5" y="5.5"></rect><path d="M16.5 8.5h2.5a1.5 1.5 0 0 1 1.5 1.5v9a1.5 1.5 0 0 1-1.5 1.5h-13"></path><line x1="7" x2="13" y1="9.5" y2="9.5"></line><line x1="7" x2="13" y1="13" y2="13"></line><line x1="7" x2="11" y1="16.5" y2="16.5"></line></svg> Revue de presse</a>
+    <a href="le-projet.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 8 4.5-8 4.5-8-4.5Z"/><path d="m4 12 8 4.5 8-4.5"/><path d="m4 16.5 8 4.5 8-4.5"/></svg> Le projet</a>
+    <a href="#nous-suivre"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"/><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"/></svg> Nous suivre</a>
+  </div>
+</nav>
+
+<section class="hero contact-hero"><div class="wrap"><p class="eyebrow">À venir</p><h1>Ce qui va arriver</h1><p class="dek">Les rendez-vous à surveiller, relevés dans nos éditions, du plus proche au plus lointain.</p></div></section>
+<section class="body-section av"><div class="wrap"><div class="tl"><section class="periode" aria-label="Novembre 2026"><p class="section-label">Novembre 2026</p><article class="signal" style="--i:0"><div class="tuile" aria-hidden="true"><span class="haut">nov.</span><span class="gros sans-bas">30</span></div><div class="carte"><div class="entete"><span class="pastille"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M5 7.5c2 1 4.3 1.5 7 1.5s5-.5 7-1.5M5 16.5c2-1 4.3-1.5 7-1.5s5 .5 7 1.5"/></svg>Géopolitique</span><span class="jauge"><span class="piste" aria-hidden="true"><i style="width:78%"></i></span><b>dans 20 jours</b></span></div><h2><span class="sr">30 novembre : </span>Un cessez-le-feu est-il annoncé entre l&#x27;Éthiopie et l&#x27;Érythrée&nbsp;?</h2><p class="comm">Depuis la rupture diplomatique du 1er octobre et les frappes de drones près d&#x27;Adigrat, la région craint un retour à la guerre de 2020-2022. Une annonce sous médiation régionale calmerait le jeu, sans régler le fond du conflit.</p><ul class="eds"><b>Édition concernée</b><li><a href="archives/2026-10-27.html"><span class="t">Éthiopie-Érythrée : vers une nouvelle guerre régionale ?<span class="d">— 27 octobre</span></span></a></li></ul></div></article><article class="signal" style="--i:1"><div class="tuile flou" aria-hidden="true"><span class="haut">Fin</span><span class="gros moy sans-bas">nov.</span></div><div class="carte"><div class="entete"><span class="pastille"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4v16h16"/><path d="M8 15l3.5-4 3 2.5L20 7"/><path d="M16 7h4v4"/></svg>Économie</span><span class="jauge"><span class="piste" aria-hidden="true"><i style="width:78%"></i></span><b>dans 20 jours</b></span></div><h2><span class="sr">Fin novembre : </span>Quel est le taux de désignation officiel publié pour la facturation électronique&nbsp;?</h2><p class="comm">La DGFiP publie ce taux fin novembre. On regarde aussi si les factures rejetées augmentent à l&#x27;approche de l&#x27;échéance de décembre.</p><ul class="eds"><b>Édition concernée</b><li><a href="archives/2026-11-04.html"><span class="t">Facturation électronique : les entreprises prêtes pour l&#x27;échéance de décembre ?<span class="d">— 4 novembre</span></span></a></li></ul></div></article></section><section class="periode" aria-label="Décembre 2026"><p class="section-label">Décembre 2026</p><article class="signal" style="--i:2"><div class="tuile flou" aria-hidden="true"><span class="haut">D&#x27;ici le</span><span class="gros">31</span><span class="bas">déc.</span></div><div class="carte"><div class="entete"><span class="pastille"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-5 9 5z"/><path d="M5.5 12v6M10 12v6M14 12v6M18.5 12v6M3 20.5h18"/></svg>Politique</span><span class="jauge"><span class="piste" aria-hidden="true"><i style="width:43%"></i></span><b>dans 51 jours</b></span></div><h2><span class="sr">D&#x27;ici le 31 décembre : </span>Le budget 2027 est-il voté sans que le gouvernement soit renversé&nbsp;?</h2><p class="comm">Le gouvernement Lecornu doit faire adopter le budget cet automne. Une motion de censure est un vote des députés qui peut le renverser. Si elle aboutit, ou si le vote est repoussé, c&#x27;est une crise budgétaire.</p><ul class="eds"><b>Édition concernée</b><li><a href="archives/2026-09-13.html"><span class="t">Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?<span class="d">— 13 septembre</span></span></a></li></ul></div></article><article class="signal" style="--i:3"><div class="tuile flou" aria-hidden="true"><span class="haut">D&#x27;ici fin</span><span class="gros moy sans-bas">2026</span></div><div class="carte"><div class="entete"><span class="pastille"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H5.5a2.5 2.5 0 0 0 2.7 3.8M16 6h2.5a2.5 2.5 0 0 1-2.7 3.8"/><path d="M12 13v4M9 20h6M10 17h4"/></svg>Sport</span><span class="jauge"><span class="piste" aria-hidden="true"><i style="width:43%"></i></span><b>dans 51 jours</b></span></div><h2><span class="sr">D&#x27;ici fin 2026 : </span>Les clubs sportifs se mettent-ils en conformité avec le règlement européen sur l&#x27;IA&nbsp;?</h2><p class="comm">On suit la mise en conformité des clubs, et les premières décisions de la CNIL sur les contrats de joueurs.</p><ul class="eds"><b>Édition concernée</b><li><a href="archives/2026-11-08.html"><span class="t">Sport : peut-il rester humain face à l&#x27;IA et aux données ?<span class="d">— 8 novembre</span></span></a></li></ul></div></article><article class="signal" style="--i:4"><div class="tuile flou" aria-hidden="true"><span class="haut">D&#x27;ici le</span><span class="gros">31</span><span class="bas">déc.</span></div><div class="carte"><div class="entete"><span class="pastille"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M10 10.5h4v3h-4zM9.5 3.5v3.5M14.5 3.5v3.5M9.5 17v3.5M14.5 17v3.5M3.5 9.5H7M3.5 14.5H7M17 9.5h3.5M17 14.5h3.5"/></svg>Technologie</span><span class="jauge"><span class="piste" aria-hidden="true"><i style="width:43%"></i></span><b>dans 51 jours</b></span></div><h2><span class="sr">D&#x27;ici le 31 décembre : </span>Les premiers robots NEO sont-ils livrés à des particuliers américains&nbsp;?</h2><p class="comm">Il s&#x27;agit du robot NEO de 1X, affiché à 20 000 dollars. On attend la confirmation de premières livraisons effectives.</p><ul class="eds"><b>Édition concernée</b><li><a href="archives/2026-11-06.html"><span class="t">Robotique : les robots vont-ils vraiment entrer dans notre quotidien ?<span class="d">— 6 novembre</span></span></a></li></ul></div></article></section><section class="periode" aria-label="En 2027"><p class="section-label">En 2027</p><article class="signal" style="--i:5"><div class="tuile flou" aria-hidden="true"><span class="haut">2027</span><span class="gros moy sans-bas">Févr.</span></div><div class="carte"><div class="entete"><span class="pastille"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M10 9l5 3-5 3z"/><path d="M7 5v14M17 5v14" opacity=".35"/></svg>Culture</span><span class="jauge"><span class="piste" aria-hidden="true"><i style="width:8%"></i></span><b>dans 83 jours</b></span></div><h2><span class="sr">Février 2027 : </span>Quelles recettes pour « Narnia : Le Neveu du magicien » lors de son premier week&#8209;end&nbsp;?</h2><p class="comm">On regarde le niveau des recettes au box-office mondial lors du premier week-end d&#x27;exploitation.</p><ul class="eds"><b>Édition concernée</b><li><a href="archives/2026-11-07.html"><span class="t">Netflix : le nouveau cinéma mondial ?<span class="d">— 7 novembre</span></span></a></li></ul></div></article></section></div><p class="pied">Ces rendez-vous sont des repères, pas des prévisions. Nous ne recalculons pas de probabilités ici : à chacun de se faire son idée.</p></div></section>
+
+<footer>
+  <div class="wrap">
+    <p class="caveat"><strong>Scéna<span class="brand-rio">rio</span></strong> publie une édition chaque jour. Chaque édition reste figée à sa date de publication.</p>
+    <p class="devise-footer">Rien n'est écrit à l'avance.</p>
+<div class="legal-links">
+      <a href="contact.html">Contact</a>
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
+      <a href="cookies.html">Politique de cookies</a>
+    </div>
+  </div>
+</footer>
+
+<script data-goatcounter="https://scenario.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+<script src="assets/pwa-install.js" defer></script>
+<script src="assets/google-source-banner.js" defer></script>
+<script defer src="assets/bottom-nav.js"></script>
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(function (OneSignal) {
+    OneSignal.init({
+      appId: "1f47412d-5688-4ce7-8288-df1ed44bdad3",
+      serviceWorkerPath: "OneSignalSDKWorker.js",
+    });
+  });
+</script>
+</body>
+</html>
