@@ -468,10 +468,57 @@ def insert_entries(data, heading, entries, today):
     ajoutes = []
     for e, origin_label in reversed(entries):
         champs = dossier_depuis_reponse(e, e.get("_cited_urls"))
+        score = score_solidite(e)
+        # Au-dessus du seuil : validé d'office ; en dessous : à valider par le propriétaire.
+        validation = "valide" if score >= SEUIL_VALIDATION_AUTO else "a_valider"
+        note = build_note(e, today, origin_label) + f" Solidité : {score}/100."
         ajoutes.append(sj.ajouter(data, sec["cle"], e["accroche"].strip(), tag=(e.get("tag") or "").strip() or None,
-                                  validation="a_valider", origine="veille", ajoute_le=today.isoformat(),
-                                  note=build_note(e, today, origin_label), **champs)["id"])
+                                  validation=validation, origine="veille", ajoute_le=today.isoformat(),
+                                  note=note, **champs)["id"])
     return ajoutes
+
+
+# Score de solidité (0 à 100) d'une proposition de la veille. Au-dessus de ce seuil, la
+# proposition est validée d'office et entre dans la file ; en dessous, elle reste « à valider ».
+SEUIL_VALIDATION_AUTO = 80
+
+
+def score_solidite(e):
+    """Score de solidité d'une proposition brute de la veille.
+
+    - Dossier complet (question, contexte, rationnel, mots-clés) : 40 points, retirés par
+      manque de champ.
+    - Sources annoncées : 30 points avec deux sources ou plus, dont au moins deux domaines
+      différents ; 15 avec une seule source. Les adresses ne sont pas vérifiées ici.
+    - Point à vérifier : 20 points si le modèle n'en signale aucun. S'il en signale un, il
+      doute : le score est plafonné sous le seuil, donc le propriétaire valide.
+    - Mots-clés : 10 points à partir de trois mots-clés.
+    """
+    from urllib.parse import urlparse
+    score = 40
+    manquants = sj.manquants({
+        "question": e.get("question") or e.get("accroche"),
+        "titre": e.get("accroche"),
+        "contexte": e.get("contexte"),
+        "rationnel": e.get("rationnel"),
+        "mots_cles": e.get("mots_cles") or [],
+    })
+    score -= 10 * len(manquants)
+    urls = [s.get("url", "") for s in e.get("sources") or [] if isinstance(s, dict)]
+    urls = [u for u in urls if u.startswith("https://") or u.startswith("http://")]
+    domaines = {urlparse(u).netloc.lower().removeprefix("www.") for u in urls}
+    if len(domaines) >= 2:
+        score += 30
+    elif urls:
+        score += 15
+    a_verifier = str(e.get("a_verifier") or "").strip()
+    score += 5 if a_verifier else 20
+    if len([k for k in e.get("mots_cles") or [] if str(k).strip()]) >= 3:
+        score += 10
+    # Un doute explicite du modèle renvoie toujours au propriétaire, quel que soit le reste.
+    if a_verifier:
+        score = min(score, SEUIL_VALIDATION_AUTO - 1)
+    return max(0, min(100, score))
 
 
 # Nombre de sujets DÉJÀ en file mais incomplets que chaque passage de la veille complète, en
