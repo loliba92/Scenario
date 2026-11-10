@@ -162,6 +162,39 @@ def _normalize_title(text):
     return re.sub(r"\s+", " ", text).strip()
 
 
+# Mots vides : ils ne disent rien du sujet, ils ne doivent pas faire un « même sujet ».
+_MOTS_VIDES = {
+    "les", "des", "une", "est", "son", "ses", "sur", "dans", "pour", "que", "qui", "quoi",
+    "par", "avec", "sans", "entre", "comme", "plus", "mais", "aussi", "tout", "tous", "leur",
+    "leurs", "nous", "vous", "elle", "elles", "ils", "peut", "peuvent", "faire", "fait", "font",
+    "sont", "sera", "seront", "cette", "cet", "ces", "the", "and", "for", "with", "from",
+    "into", "what", "will", "can", "could", "would", "how", "why", "are", "has", "have",
+    "not", "its", "after", "before", "about", "their", "they", "his", "her",
+}
+# Deux titres traitent du même sujet s'ils partagent au moins ce nombre de racines
+# et si ces racines couvrent au moins cette part du plus court des deux titres.
+MIN_RACINES_COMMUNES = 3
+PART_RACINES_COMMUNES = 0.5
+
+
+def _racines(text):
+    """Racines de 4 lettres des mots porteurs de sens : « russes » et « russie »
+    deviennent « russ » ; « raffineries » et « raffinage » deviennent « raff »."""
+    return {w[:4] for w in _normalize_title(text).split()
+            if len(w) >= 4 and w not in _MOTS_VIDES}
+
+
+def meme_sujet(a, b):
+    """Vrai si deux titres partagent assez de racines pour traiter du même sujet,
+    même formulés différemment (ce que la similarité de caractères rate)."""
+    ra, rb = _racines(a), _racines(b)
+    if not ra or not rb:
+        return False
+    communes = ra & rb
+    return (len(communes) >= MIN_RACINES_COMMUNES
+            and len(communes) / min(len(ra), len(rb)) >= PART_RACINES_COMMUNES)
+
+
 def find_near_duplicate(candidate_title, known_titles):
     """Renvoie le titre de `known_titles` le plus proche de
     `candidate_title` s'il dépasse DUPLICATE_SIMILARITY_THRESHOLD, sinon
@@ -175,7 +208,7 @@ def find_near_duplicate(candidate_title, known_titles):
     for known in known_titles:
         known_norm = _normalize_title(known)
         ratio = difflib.SequenceMatcher(None, candidate_norm, known_norm).ratio()
-        if ratio >= DUPLICATE_SIMILARITY_THRESHOLD:
+        if ratio >= DUPLICATE_SIMILARITY_THRESHOLD or meme_sujet(candidate_title, known):
             return known
     return None
 
@@ -201,6 +234,16 @@ def titles_in_section(data, heading):
 def parse_existing_titles(data):
     """Même chose que titles_in_section(), pour chacun des 6 registres."""
     return {key: titles_in_section(data, heading) for key, heading in REGISTRE_HEADINGS.items()}
+
+
+def tous_titres_publies():
+    """Titres de TOUTES les éditions déjà publiées (docs/sujets-a-suivre.md), sans
+    fenêtre : le filtre anti-doublon doit voir aussi les sujets d'août ou de septembre."""
+    if not SUJETS_A_SUIVRE.exists():
+        return []
+    text = SUJETS_A_SUIVRE.read_text(encoding="utf-8")
+    return [m.group(1).strip() for m in re.finditer(
+        r"^- \d{2}\.\d{2}\.\d{4} — \[(.+?)\]\(\.\./archives/\d{4}-\d{2}-\d{2}\.html\)", text, re.M)]
 
 
 def recent_journal_titles(today):
@@ -600,7 +643,7 @@ def main():
     # d'un filtre qui n'aurait comparé qu'au fichier déjà sur disque).
     known_titles = (
         [t for titles in existing.values() for t in titles]
-        + priorite_absolue_titles + carte_blanche_titles + recent
+        + priorite_absolue_titles + carte_blanche_titles + recent + tous_titres_publies()
     )
 
     total = 0
