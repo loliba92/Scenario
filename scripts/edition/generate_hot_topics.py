@@ -504,7 +504,7 @@ def score_solidite(e):
         "mots_cles": e.get("mots_cles") or [],
     })
     score -= 10 * len(manquants)
-    urls = [s.get("url", "") for s in e.get("sources") or [] if isinstance(s, dict)]
+    urls = [str(s.get("url") or "") for s in e.get("sources") or [] if isinstance(s, dict)]
     urls = [u for u in urls if u.startswith("https://") or u.startswith("http://")]
     domaines = {urlparse(u).netloc.lower().removeprefix("www.") for u in urls}
     if len(domaines) >= 2:

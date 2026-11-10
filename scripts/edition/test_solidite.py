@@ -50,6 +50,11 @@ class ScoreSoliditeTest(unittest.TestCase):
         s = ht.score_solidite(proposition(sources=[]))
         self.assertLess(s, ht.SEUIL_VALIDATION_AUTO)
 
+    def test_source_sans_adresse_ne_plante_pas(self):
+        s = ht.score_solidite(proposition(sources=[{"titre": "A", "url": None}, {"titre": "B"}]))
+        self.assertTrue(0 <= s <= 100)
+        self.assertLess(s, ht.SEUIL_VALIDATION_AUTO)
+
     def test_score_borne_entre_0_et_100(self):
         s = ht.score_solidite({})
         self.assertTrue(0 <= s <= 100)

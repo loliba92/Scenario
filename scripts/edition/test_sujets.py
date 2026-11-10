@@ -613,9 +613,14 @@ class SujetDuJourTest(unittest.TestCase):
 
     def test_cli_prochain_et_sujet_du_jour_reel(self):
         data = json.loads((ROOT / "data" / "sujets.json").read_text(encoding="utf-8"))
-        for jour in range(7):
-            r = sj.sujet_du_jour(data, jour=datetime.date(2026, 10, 5 + jour))
-            self.assertIsNotNone(r, f"jour {jour} : un sujet éligible doit exister")
+        # La file doit couvrir la semaine à venir (demain inclus). Ce test ancrait autrefois
+        # la vérification sur la première semaine d'octobre 2026, déjà passée : il échouait
+        # pour une raison sans rapport avec la file d'aujourd'hui.
+        aujourd_hui = datetime.date.today()
+        for jour in range(1, 8):
+            day = aujourd_hui + datetime.timedelta(days=jour)
+            r = sj.sujet_du_jour(data, jour=day)
+            self.assertIsNotNone(r, f"{day} : un sujet éligible doit exister")
 
 
 class VerificationTest(unittest.TestCase):
