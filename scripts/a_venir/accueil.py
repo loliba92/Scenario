@@ -29,7 +29,8 @@ def carte(r, jour):
             f'<span class="avh-meta"><span class="pastille"><svg viewBox="0 0 24 24" aria-hidden="true">{g.ICONES[r["domaine"]]}</svg>'
             f'{g.esc(r["domaine"])}</span><span class="avh-reste"><b>{texte}</b></span></span>'
             f'<span class="avh-question"><span class="sr" style="position:absolute;left:-9999px">{g.esc(g.texte_quand(r))} : </span>'
-            f'{g.nbsp(r["question"])}</span></a></li>')
+            f'{g.nbsp(r["question"])}</span>'
+            f'<span class="avh-qui">{g.esc(r["qui"].split(" (")[0])} · {"officiel" if r["officiel"] else "non officiel"}</span></a></li>')
 
 
 def bloc(jour=None, racine=RACINE):

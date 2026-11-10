@@ -10,7 +10,8 @@ import generate_a_venir as g
 
 def rv(i, d, p="jour", dom="Sport", eds=()):
     return {"id": i, "date": d, "precision": p, "domaine": dom, "question": f"Q {i} ?",
-            "commentaire": "c", "editions": list(eds)}
+            "commentaire": "c", "editions": list(eds), "qui": "Qui (détail)", "nature": "Vote officiel",
+            "officiel": True, "calendrier": "date_limite"}
 
 
 class T(unittest.TestCase):
@@ -55,6 +56,24 @@ class T(unittest.TestCase):
         self.assertIn('href="a-venir.html" aria-current="page"', h)
         visible = re.sub(r"<[^>]+>", " ", g.contenu(g.charger(), date(2026, 11, 10)))
         self.assertNotIn("%", visible)
+
+    def test_fiche_qui_nature_calendrier(self):
+        r = rv("x", "2026-12-31", "limite")
+        h = g.fiche(r)
+        self.assertIn("<dt>Qui</dt>", h)
+        self.assertIn("Officiel", h)
+        self.assertEqual(g.texte_calendrier(r), "Pas de date fixée, avant le 31 décembre 2026")
+        r.update(calendrier="date_fixee", date="2027-02-12", officiel=False)
+        self.assertEqual(g.texte_calendrier(r), "Date fixée : 12 février 2027")
+        self.assertIn("Non officiel", g.fiche(r))
+        r.update(calendrier="non_programme", date="2026-11-30")
+        self.assertEqual(g.texte_calendrier(r), "Non programmé, surveillé jusqu'au 30 novembre 2026")
+        r.update(calendrier="periode_annoncee", precision="fin_mois")
+        self.assertEqual(g.texte_calendrier(r), "Période annoncée : fin novembre")
+
+    def test_donnees_completes(self):
+        for r in g.charger():
+            self.assertTrue(r["qui"].strip() and r["nature"].strip())
 
     def test_echappement(self):
         r = rv("x", "2026-12-31")
