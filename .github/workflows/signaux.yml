@@ -2,7 +2,9 @@ name: Événements à surveiller
 
 # Contrôle quotidien des échéances de data/signaux.json (scripts/detection/verifier_signaux.py).
 # Déclenché par cron-job.org (event_type : trigger-signaux). Aucun appel payant ni requête externe.
-# Écrit seulement data/signaux-rapport.md ; ne modifie ni signaux.json ni les sujets.
+# Écrit data/signaux-rapport.md (gratuit) et data/signaux-verification.md (recherche web, modèle
+# bon marché, uniquement pour les événements échus ou à 7 jours ; plafond de 3 par passage).
+# Ne modifie ni signaux.json ni les sujets. Secret requis : OPENROUTER_API_KEY.
 
 on:
   repository_dispatch:
@@ -23,7 +25,16 @@ jobs:
           python-version: '3.12'
 
       - name: Tests
-        run: python3 -m unittest scripts/detection/test_verifier_signaux.py
+        run: python3 -m unittest scripts/detection/test_verifier_signaux.py scripts/detection/test_verifier_signaux_web.py
+
+      - name: Générer les deux rapports
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          python3 scripts/detection/verifier_signaux.py --sortie "$RUNNER_TEMP/rapport.md" > /dev/null
+          # Un échec de la recherche web ne doit pas empêcher le rapport gratuit.
+          python3 scripts/detection/verifier_signaux_web.py --sortie "$RUNNER_TEMP/verification.md" > /dev/null \
+            || echo "Vérification web ignorée (voir journal)."
 
       - name: Committer et pousser
         run: |
@@ -32,8 +43,9 @@ jobs:
           for i in 1 2 3; do
             git fetch origin main
             git reset --hard origin/main
-            python3 scripts/detection/verifier_signaux.py > /dev/null
-            git add data/signaux-rapport.md
+            cp "$RUNNER_TEMP/rapport.md" data/signaux-rapport.md
+            [ -f "$RUNNER_TEMP/verification.md" ] && cp "$RUNNER_TEMP/verification.md" data/signaux-verification.md
+            git add data/signaux-*.md
             if git diff --cached --quiet; then
               echo "Aucun changement."
               exit 0
