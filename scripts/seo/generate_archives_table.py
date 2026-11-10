@@ -1426,7 +1426,7 @@ def build_shared_pieces():
 
 def render_page(articles, weekly_recaps, style_block, masthead_nav, follow_footer, tail_scripts):
     """Rend la page archives.html complète."""
-    title = "Archives — Scénario"
+    title = "Toutes les éditions : l'actualité en scénarios — Scénario"
     description = f"Archives complètes de Scénario : {len(articles)} éditions avec chacune 3 scénarios chiffrés (favorable, stable, dégradé)."
     url = f"{SITE_URL}/archives.html"
 

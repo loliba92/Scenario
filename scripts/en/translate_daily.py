@@ -945,8 +945,8 @@ def build_home_head_en(date_str, edition_number):
     en/index.html, jamais lié à une édition précise (og:type=website,
     canonical vers en/, pas de NewsArticle)."""
     title = "Scénario — three scenarios for tomorrow, every day"
-    description = ("Every day, one key story and its three numbered scenarios: "
-                    "favorable, stable, degraded.")
+    description = ("Every day, one news story from France and the world, analyzed in three "
+                    "numbered scenarios: favorable, stable, degraded. Sources cited, also in French.")
     return f"""<title>{title}</title>
 <link rel="canonical" href="https://lesscenarios.fr/en/">
 <meta name="description" content="{description}">
@@ -1493,6 +1493,10 @@ def update_sitemap(date_str):
         r"<loc>https://lesscenarios\.fr/en/</loc>.*?</url>\n", xml, re.S
     )
     xml = xml[:marker.end()] + new_entry + xml[marker.end():]
+    # liens hreflang fr/en (idempotent) : voir scripts/seo/hreflang_sitemap.py
+    sys.path.insert(0, str(REPO_ROOT / "scripts" / "seo"))
+    from hreflang_sitemap import ajouter_hreflang
+    xml = ajouter_hreflang(xml)
     path.write_text(xml, encoding="utf-8")
 
 

@@ -95,6 +95,24 @@ class TestDescription(unittest.TestCase):
         self.assertLessEqual(len(d), 160)
         self.assertTrue(d.endswith("…"))
 
+    def test_complement_varie_d_une_edition_a_l_autre(self):
+        # Sans fin de phrase entre 100 et 160 caractères : on tombe sur h1 + complément.
+        q = "x" * 200
+        h1 = "Dépistage du cancer du sein : le modèle va-t-il basculer ?"
+        fins = set()
+        for jour in range(1, 21):
+            b = {"date": f"2026-11-{jour:02d}", "sujet": {"h1": h1, "question_posee": q}}
+            d = g._build_description(b)
+            self.assertTrue(100 <= len(d) <= 160, (jour, len(d)))
+            self.assertTrue(d.startswith(h1 + " Trois scénarios chiffrés"), d)
+            fins.add(d)
+        self.assertGreater(len(fins), 1, "toutes les éditions reçoivent la même description")
+
+    def test_complement_stable_pour_une_meme_edition(self):
+        q = "x" * 200
+        b = {"date": "2026-11-09", "sujet": {"h1": "Big Tech face à la justice", "question_posee": q}}
+        self.assertEqual(g._build_description(b), g._build_description(b))
+
 
 if __name__ == "__main__":
     unittest.main()

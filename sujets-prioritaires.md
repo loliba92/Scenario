@@ -147,7 +147,7 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 ## Géopolitique — lundi
 <!-- Registre scindé le 12 août (retour utilisateur) : la géopolitique dure (conflits, diplomatie, États) et l'économie mondiale (marchés, monnaies, dette, matières premières) partageaient jusque-là le même slot du lundi, ce qui tassait deux blocs très différents dans une seule file. L'économie mondiale a sa propre section dimanche (voir plus bas) — la case libérée vient de la fusion des deux jours culture (française + internationale) en un seul, samedi. **Règle de classement pour les sujets à cheval sur les deux** (ex. guerres commerciales, tarifs douaniers) : si l'enjeu central est un rapport de force entre États (qui menace qui, qui négocie quoi) → géopolitique/lundi ; si l'enjeu central est un indicateur chiffré ou un marché (prix, taux, dette, cours) → économie/dimanche. Cas tranchés le 12 août à titre d'exemple : "Guerre commerciale USA-Chine" reste ici (framing État contre État, guerre froide) ; "Droits de douane de Trump" part en économie (contenu réel = batailles judiciaires et chiffres de recettes tarifaires, pas un rapport de force diplomatique). Les vieilles éditions déjà publiées gardent leur tag d'origine (`geopolitique`), jamais retaggées rétroactivement — voir docs/tags.md. -->
-- [ ] 🔍 Les pourparlers entre l'Ukraine et la Russie à Abou Dhabi peuvent-ils aboutir à un accord de paix ? [géopolitique & Ukraine]
+- [ ] Les pourparlers entre l'Ukraine et la Russie à Abou Dhabi peuvent-ils aboutir à un accord de paix ? [géopolitique & Ukraine]
   <!-- id: geopolitique-les-pourparlers-entre-l-ukraine-et-la-russie-a -->
   <!-- contexte: Les premières discussions directes entre l'Ukraine et la Russie depuis plus de huit mois ont repris le 10 novembre 2026 à Abou Dhabi, sous médiation américaine. Les questions humanitaires et les garanties de sécurité sont au cœur des négociations. Volodymyr Zelensky a qualifié les échanges de "constructifs et substantiels". Les Européens et les Américains ont réaffirmé leur engagement pour une sécurité européenne solide après la guerre. -->
   <!-- rationnel: La question : ces pourparlers peuvent-ils déboucher sur un accord de paix durable, ou resteront-ils sans issue concrète ? Les forces en présence incluent la volonté ukrainienne de garantir sa souveraineté, la pression russe pour des concessions, et le rôle médiateur des États-Unis. Un scénario favorable verrait un cadre de sécurité crédible pour l'Ukraine, un scénario stable maintiendrait le statu quo, et un scénario dégradé pourrait entraîner une reprise des hostilités. -->
@@ -156,16 +156,7 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
   <!-- sources: DIRECT. Guerre en Ukraine : début des pourparlers à Abou Dhabi entre Kiev et Moscou <https://www.franceinfo.fr/monde/europe/manifestations-en-ukraine/direct-guerre-en-ukraine-reprise-des-negociations-directes-entre-kiev-et-moscou-apres-plus-de-huit-mois-d-interruption_8275967.html> -->
   <!-- origine: veille -->
   <!-- note: Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
-- [ ] 🔍 L'Iran conditionne-t-il la réouverture du détroit d'Ormuz à un accord nucléaire avec les États-Unis ? [géopolitique & nucléaire]
-  <!-- id: geopolitique-l-iran-conditionne-t-il-la-reouverture-du -->
-  <!-- contexte: Le 7 novembre 2026, l'Iran a transmis une proposition nucléaire à sept conditions via le Qatar, exigeant leur respect avant toute négociation. Washington examine la proposition tandis que Donald Trump menace de nouvelles frappes. Dans le détroit d'Ormuz, deux pétroliers ont pris feu après avoir heurté des mines, exacerbant les tensions. -->
-  <!-- rationnel: La question : l'Iran parviendra-t-il à imposer ses conditions pour rouvrir le détroit d'Ormuz, ou les États-Unis déclencheront-ils une escalade militaire ? Les forces en présence incluent la pression économique iranienne via le blocage du détroit et la menace militaire américaine. L'enjeu pour la France est la stabilité des approvisionnements énergétiques et la sécurité maritime. -->
-  <!-- mots-clés: Iran ; États-Unis ; détroit d'Ormuz ; proposition nucléaire ; pétroliers ; Donald Trump -->
-  <!-- scénarios (brouillon): favorable = Un accord temporaire est trouvé, évitant une escalade militaire et permettant une reprise partielle du trafic maritime. ; stable = Les négociations patinent, prolongeant le statu quo avec des tensions persistantes mais contrôlées. ; dégradé = Les États-Unis lancent des frappes militaires, déclenchant une crise régionale majeure et une flambée des prix du pétrole. -->
-  <!-- sources: Synthèse de l'actualité mondiale du 7 novembre 2026 | World Watch <https://worldwatch.media/fr/digest/2026-11-07> ; Géopolitique & puissances — Yaktu <https://yaktu.fr/focus/geopolitique-puissances/> -->
-  <!-- origine: veille -->
-  <!-- note: Ajouté automatiquement le 2026-11-08 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
-- [ ] 🔍 Le conflit au Yémen peut-il déstabiliser davantage la région du Golfe ? [géopolitique & Golfe]
+- [ ] Le conflit au Yémen peut-il déstabiliser davantage la région du Golfe ? [géopolitique & Golfe]
   <!-- id: geopolitique-le-conflit-au-yemen-peut-il-destabiliser -->
   <!-- contexte: Les récentes frappes aériennes des Houthis contre des navires dans la mer Rouge et les attaques contre des infrastructures pétrolières en Arabie saoudite ont exacerbé les tensions dans la région. Les États-Unis et l'UE ont renforcé leur présence militaire pour sécuriser les voies maritimes. -->
   <!-- rationnel: La question : Les Houthis peuvent-ils perturber durablement le commerce maritime et les exportations pétrolières, ou les efforts internationaux vont-ils contenir la crise ? Les scénarios dépendent de la capacité des Houthis à maintenir leur pression et de la réponse des acteurs régionaux. L'enjeu pour la France est la stabilité des approvisionnements énergétiques et la sécurité de ses intérêts économiques dans la région. -->
@@ -346,7 +337,7 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 ## Sport — dimanche
 <!-- Enjeux sportifs & économiques, jamais la vie privée des sportifs. Sous-thèmes : football, rugby, tennis, JO, cyclisme, sports méca… -->
-- [ ] 🔍 Tom Laperche peut-il dominer la voile mondiale après sa victoire record à la Route du Rhum ? [sport & voile]
+- [ ] Tom Laperche peut-il dominer la voile mondiale après sa victoire record à la Route du Rhum ? [sport & voile]
   <!-- id: sport-tom-laperche-peut-il-dominer-la-voile-mondiale -->
   <!-- contexte: Le skipper français Tom Laperche a remporté la Route du Rhum 2026 en pulvérisant le record de la course (6 jours, 13 heures et 27 minutes). À 29 ans, il confirme son statut de nouveau leader de la voile française, avec des ambitions pour le Vendée Globe 2028. -->
   <!-- rationnel: La question : Laperche peut-il s'imposer comme la figure dominante de la voile mondiale, ou son succès restera-t-il isolé ? Les scénarios dépendent de sa régularité et de la concurrence. Un scénario favorable verrait une série de victoires majeures, un scénario stable maintiendrait une performance irrégulière, et un scénario dégradé pourrait voir son étoile pâlir rapidement. -->
@@ -355,7 +346,7 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
   <!-- sources: Alcaraz vainqueur, Laperche triomphe, l'OM enfonce Lens : les infos sport du week-end <https://www.france24.com/fr/sports/20261109-alcaraz-laperche-om-lens-infos-sport-week-end> -->
   <!-- origine: veille -->
   <!-- note: Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
-- [ ] 🔍 Le football féminin peut-il devenir aussi rentable que le masculin ? [sport & financement]
+- [ ] Le football féminin peut-il devenir aussi rentable que le masculin ? [sport & financement]
   <!-- id: sport-le-football-feminin-peut-il-devenir-aussi -->
   <!-- contexte: Les audiences TV du foot féminin ont progressé de 30 % en 2026, mais les écarts de rémunération restent énormes. -->
   <!-- rationnel: La question : Les investisseurs vont-ils combler le gap, ou le modèle reste-t-il déséquilibré ? Les scénarios dépendent des sponsors et des droits TV. L'enjeu est l'équité dans le sport. -->
@@ -488,7 +479,7 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 
 ## Actualité & politique française — mercredi
-- [ ] 🔍 La pétition contre CNews peut-elle aboutir à sa suppression ? [médias & politique]
+- [ ] La pétition contre CNews peut-elle aboutir à sa suppression ? [médias & politique]
   <!-- id: actualite-francaise-la-petition-contre-cnews-peut-elle-aboutir-a-sa -->
   <!-- contexte: Une pétition demandant la suppression de CNews a dépassé les 900 000 signatures le 10 novembre 2026. Lancée en juin, elle accuse la chaîne d'inciter à la haine et à la discrimination. CNews, propriété de Vincent Bolloré, a déjà été sanctionnée à plusieurs reprises par l'Arcom pour des manquements à ses obligations. -->
   <!-- rationnel: La question : cette pétition peut-elle conduire à des sanctions concrètes contre CNews, ou restera-t-elle symbolique ? Les forces en présence incluent la pression de l'opinion publique, la défense de la liberté d'expression par CNews, et le rôle régulateur de l'Arcom. Un scénario favorable verrait des sanctions renforcées contre la chaîne, un scénario stable maintiendrait le statu quo, et un scénario dégradé pourrait entraîner une polarisation accrue du débat médiatique. -->
@@ -497,7 +488,7 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
   <!-- sources: Les lauréats littéraires 2026, une pétition contre CNews et la tournée de The Weeknd… <https://www.rtbf.be/article/les-laureats-litteraires-2026-une-petition-contre-cnews-et-la-tournee-de-the-weeknd-retrouvez-l-actu-culturelle-de-la-semaine-11811727> -->
   <!-- origine: veille -->
   <!-- note: Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
-- [ ] 🔍 La hausse du SMIC peut-elle relancer la consommation sans nuire à l'emploi ? [économie & pouvoir d'achat]
+- [ ] La hausse du SMIC peut-elle relancer la consommation sans nuire à l'emploi ? [économie & pouvoir d'achat]
   <!-- id: actualite-francaise-la-hausse-du-smic-peut-elle-relancer-la -->
   <!-- contexte: Le gouvernement a annoncé une hausse de 1,6 % du SMIC le 10 novembre 2026, portant le salaire minimum à 1 502 euros. Cette mesure vise à soutenir le pouvoir d'achat des ménages, mais elle est critiquée par certains économistes qui craignent un impact négatif sur l'emploi, notamment dans les PME. -->
   <!-- rationnel: La question : cette hausse du SMIC peut-elle stimuler la consommation sans peser sur l'emploi, ou aggravera-t-elle les difficultés des entreprises ? Les scénarios dépendent de la réaction des entreprises (embauches, hausses de prix) et de la consommation des ménages. Un scénario favorable verrait une relance de la consommation sans pertes d'emploi, un scénario stable maintiendrait un équilibre fragile, et un scénario dégradé pourrait entraîner une hausse du chômage. -->
@@ -506,7 +497,7 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
   <!-- sources: BFM Business : « Nous estimons que la croissance sera modérément positive au quatrième trimestre » <https://www.banque-france.fr/fr/interventions-gouverneur/bfm-business-nous-estimons-que-la-croissance-sera-moderement-positive-au-quatrieme-trimestre> -->
   <!-- origine: veille -->
   <!-- note: Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
-- [ ] 🔍 La réforme des retraites peut-elle revenir dans le débat présidentiel ? [politique & retraites]
+- [ ] La réforme des retraites peut-elle revenir dans le débat présidentiel ? [politique & retraites]
   <!-- id: actualite-francaise-la-reforme-des-retraites-peut-elle-revenir-dans -->
   <!-- contexte: Le gouvernement a annoncé un gel des discussions sur les retraites jusqu'après les élections de 2027, mais des syndicats et partis d'opposition relancent le débat. Les dernières projections montrent un déficit accru du système. -->
   <!-- rationnel: La question : Les candidats à la présidentielle vont-ils être forcés de prendre position sur une réforme impopulaire, ou le sujet restera-t-il tabou ? Les scénarios dépendent de la pression syndicale et des sondages. L'enjeu est l'équilibre financier du système et son impact sur le pouvoir d'achat. -->
@@ -719,7 +710,7 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 
 ## Sciences — vendredi (climat & écologie, espace, IA, médecine, énergie…)
-- [ ] 🔍 La découverte d'une désintégration rare de particule ouvre-t-elle la voie à une nouvelle physique ? [sciences & physique]
+- [ ] La découverte d'une désintégration rare de particule ouvre-t-elle la voie à une nouvelle physique ? [sciences & physique]
   <!-- id: sciences-la-decouverte-d-une-desintegration-rare-de -->
   <!-- contexte: Le 3 novembre 2026, le CERN a annoncé avoir observé la désintégration extrêmement rare d'un méson Bd en deux muons, un phénomène qui ne se produit qu'une fois sur dix milliards. Cette découverte pourrait remettre en question le Modèle Standard de la physique des particules. -->
   <!-- rationnel: La question : cette observation confirme-t-elle le Modèle Standard, ou révèle-t-elle l'existence de nouvelles particules ou forces ? Les scénarios dépendent des analyses ultérieures. Un scénario favorable verrait la confirmation d'une nouvelle physique, un scénario stable validerait le Modèle Standard, et un scénario dégradé laisserait les questions en suspens. -->
@@ -728,7 +719,7 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
   <!-- sources: La désintégration extrêmement rare d’une particule suscite l’espoir de découvrir une nouvelle physique <https://www.lemonde.fr/sciences/article/2026/11/10/la-desintegration-extremement-rare-d-une-particule-suscite-l-espoir-de-decouvrir-une-nouvelle-physique_6808823_1650684.html> -->
   <!-- origine: veille -->
   <!-- note: Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
-- [ ] 🔍 Le refroidissement record d'atomes dans l'espace peut-il révolutionner la physique quantique ? [sciences & espace]
+- [ ] Le refroidissement record d'atomes dans l'espace peut-il révolutionner la physique quantique ? [sciences & espace]
   <!-- id: sciences-le-refroidissement-record-d-atomes-dans-l -->
   <!-- contexte: Des chercheurs chinois ont refroidi des atomes à 9,7 picokelvins à bord de la station spatiale Tiangong, un record absolu dans l'espace. Cette avancée permet d'étudier des phénomènes quantiques inaccessibles sur Terre. -->
   <!-- rationnel: La question : cette technologie peut-elle conduire à des applications concrètes, comme des interféromètres quantiques ou des ordinateurs quantiques spatiaux ? Les scénarios dépendent des progrès techniques et des investissements. Un scénario favorable verrait des applications industrielles d'ici une décennie, un scénario stable maintiendrait des avancées théoriques, et un scénario dégradé pourrait buter sur des limites pratiques. -->
@@ -737,7 +728,7 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
   <!-- sources: À bord de Tiangong, des chercheurs chinois ont atteint un froid jamais vu dans l'espace <https://sciencepost.fr/a-bord-de-tiangong-des-chercheurs-chinois-ont-atteint-un-froid-jamais-vu-dans-lespace/> -->
   <!-- origine: veille -->
   <!-- note: Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
-- [ ] 🔍 La percée d'OpenAI sur la théorie de Yang-Mills va-t-elle révolutionner la physique ? [sciences & IA]
+- [ ] La percée d'OpenAI sur la théorie de Yang-Mills va-t-elle révolutionner la physique ? [sciences & IA]
   <!-- id: sciences-la-percee-d-openai-sur-la-theorie-de-yang-mills -->
   <!-- contexte: Le 1er novembre 2026, OpenAI a produit une preuve de 1 147 pages sur la théorie de Yang-Mills, mais les physiciens refusent de la publier avant une vérification approfondie. Cette théorie, non résolue depuis des décennies, est cruciale pour la physique des particules. -->
   <!-- rationnel: La question : la preuve d'OpenAI sera-t-elle validée, ouvrant une nouvelle ère pour la physique, ou révèlera-t-elle les limites de l'IA en recherche fondamentale ? Les enjeux incluent la crédibilité des découvertes assistées par IA et l'avenir de la collaboration humain-machine en science. -->
@@ -746,15 +737,6 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
   <!-- sources: Percée d'OpenAI sur la théorie de Yang-Mills, mort du télescope Swift et un sas de l'ISS condamné – le récap’ sciences de la semaine - Numerama <https://www.numerama.com/sciences/2364619-percee-dopenai-sur-la-theorie-de-yang-mills-mort-du-telescope-swift-et-un-sas-de-liss-condamne-le-recap-sciences-de-la-semaine.html> -->
   <!-- origine: veille -->
   <!-- note: Ajouté automatiquement le 2026-11-08 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
-- [ ] 🔍 Les nouveaux traitements contre l'obésité vont-ils bouleverser la santé publique ? [médecine & santé]
-  <!-- id: sciences-les-nouveaux-traitements-contre-l-obesite-vont -->
-  <!-- contexte: Les médicaments comme l'Ozempic montrent des résultats prometteurs, mais leur coût et leur accessibilité divisent les experts. -->
-  <!-- rationnel: La question : Ces traitements peuvent-ils réduire l'épidémie d'obésité, ou resteront-ils réservés aux plus riches ? Les scénarios dépendent des politiques de remboursement et des innovations concurrentes. L'enjeu est la réduction des coûts de santé liés à l'obésité. -->
-  <!-- mots-clés: obésité ; Ozempic ; traitements ; santé publique ; coût -->
-  <!-- scénarios (brouillon): favorable = Des génériques rendent les traitements accessibles à tous. ; stable = Seuls les pays riches en bénéficient. ; dégradé = Les effets secondaires freinent leur adoption. -->
-  <!-- sources: Ozempic : révolution ou mirage ? -->
-  <!-- origine: veille -->
-  <!-- note: Ajouté automatiquement le 2026-11-02 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
 - [x] Robotique : les robots vont-ils vraiment entrer dans notre quotidien ? [IA & numérique]
   <!-- id: sciences-robotique-les-robots-vont-ils-vraiment-entrer -->
   <!-- contexte: En 2026, la robotique domestique connaît une accélération sans précédent mais reste à un stade embryonnaire pour les robots polyvalents. Le marché mondial des robots de service grand public a atteint environ 19,15 milliards de dollars en 2025 et devrait atteindre 24,42 milliards en 2026, avec une croissance portée par les robots spécialisés (aspirateurs, tondeuses) qui représentent plus de 40 % du segment. Côté humanoïdes, le norvégien 1X a ouvert les précommandes de son robot NEO à 20 000 dollars l'unité ou 499 dollars par mois en abonnement, avec des premières livraisons aux États-Unis annoncées pour fin 2026 et plus de 10 000 précommandes revendiquées. Au CES 2026 (janvier), LG a dévoilé CLOiD et SwitchBot l'Onero H1, deux robots domestiques à bras articulés capables de tâches ménagères (plier le linge, ranger, préparer un café), mais sans date de commercialisation ferme. Figure AI a présenté en septembre 2026 Helix 2.5, un modèle d'IA permettant à son robot Figure 03 d'effectuer zéro-shot trois tâches domestiques dans 30 foyers américains jamais visités, et vise une disponibilité grand public fin 2026. En France, le marché de la robotique de service est évalué à 1,1 milliard d'euros en 2026, mais les robots humanoïdes restent quasi absents des foyers : seuls 2 % des foyers français possédaient un robot aspirateur au milieu des années 2010, et les robots compagnons comme Pepper ont été retirés de la production. L'IFR (Fédération internationale de robotique) estime que l'adoption massive des humanoïdes exigera encore des progrès en programmation intuitive, manipulation robuste, coûts compatibles et normes de sécurité harmonisées. -->
@@ -794,7 +776,7 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
   <!-- sources: Une alliance entre IA et cosmologie pour mieux comprendre l'Univers sombre <https://www.cea.fr/drf/Pages/Actualites/En-direct-des-labos/2026/une-alliance-entre-IA-et-cosmologie-pour-mieux-comprendre-l-Univers-sombre.aspx> -->
   <!-- origine: veille -->
   <!-- note: Ajouté automatiquement le 2026-10-11 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
-- [ ] 🔍 Robot-chercheur Eve : l'IA autonome qui découvre un effet protecteur inédit sur la levure préfigure-t-elle la fin de la recherche humaine ? [IA & recherche scientifique]
+- [ ] Robot-chercheur Eve : l'IA autonome qui découvre un effet protecteur inédit sur la levure préfigure-t-elle la fin de la recherche humaine ? [IA & recherche scientifique]
   <!-- id: sciences-robot-chercheur-eve-l-ia-autonome-qui-decouvre -->
   <!-- question: Le système Eve (Chalmers/KTH, publié début octobre 2026 dans J. R. Soc. Interface) qui formule hypothèses, pilote des robots de laboratoire, analyse les métabolites et a découvert un effet protecteur de l'aminoadipate (+7 % croissance sous stress acide formique) jamais documenté, marque-t-il l'avènement du scientifique IA autonome ou reste-t-il un démonstrateur encadré ? -->
   <!-- contexte: Début octobre 2026, des chercheurs de Chalmers (Göteborg) et KTH (Stockholm) publient une étude sur Eve, robot scientifique de 3e génération. Eve : base de connaissances 60 000 relations levure → 2 000 hypothèses → 3 agents LLM (GPT-4o) pour planifier, arbitrer, traduire en instructions robots → exécution en chémostats → métabolomique (spectrométrie de masse) → réinjection dans graphe de connaissances. Découverte : aminoadipate protège partiellement la levure sous stress acide formique (+7 %/mM), effet non prévu, non documenté. Humains encore nécessaires pour préparation matériaux, sécurité, validation. -->
@@ -1003,7 +985,7 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 ## Culture — samedi
 <!-- Faire tourner les domaines : cinéma, musique, jeux vidéo, littérature, spectacle, séries, art… Registre fusionné le 12 août (retour utilisateur) : "Culture française" (samedi) et "Culture internationale" (dimanche) couvraient les mêmes domaines avec une frontière souvent artificielle (un sujet français a presque toujours une dimension internationale, et inversement) et étaient tous les deux clairsemés — fusionnés en un seul registre plus riche, sans distinction française/internationale à l'entrée. La case libérée par la fusion sert au nouveau registre "Économie & finance mondiale — dimanche" (voir plus bas). -->
-- [ ] 🔍 L'IA dans l'édition : les maisons d'édition françaises peuvent-elles se protéger ? [culture & numérique]
+- [ ] L'IA dans l'édition : les maisons d'édition françaises peuvent-elles se protéger ? [culture & numérique]
   <!-- id: culture-l-ia-dans-l-edition-les-maisons-d-edition -->
   <!-- contexte: En novembre 2026, le groupe Madrigall (Gallimard, Flammarion) annonce l'utilisation d'un logiciel pour détecter les manuscrits générés par IA. Cette décision suit des polémiques sur des livres soupçonnés d'être écrits par des IA, comme l'affaire Thélyson Orélien. -->
   <!-- rationnel: La question : les éditeurs parviendront-ils à filtrer les œuvres générées par IA, ou assistera-t-on à une crise de confiance dans la littérature ? Les défis incluent la fiabilité des détecteurs et l'évolution des techniques d'IA. L'enjeu est la préservation de la créativité humaine. -->
@@ -1012,7 +994,7 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
   <!-- sources: L’IA dans l’édition, le Mois du Doc et la dernière sélection des prix littéraires ont fait l’actu culturelle cette semaine - RTBF Actus <https://www.rtbf.be/article/l-ia-dans-l-edition-le-mois-du-doc-et-la-derniere-selection-des-prix-litteraires-ont-fait-l-actu-culturelle-cette-semaine-11808151> -->
   <!-- origine: veille -->
   <!-- note: Ajouté automatiquement le 2026-11-08 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
-- [ ] 🔍 Le cinéma français peut-il rivaliser avec les plateformes ? [cinéma & streaming]
+- [ ] Le cinéma français peut-il rivaliser avec les plateformes ? [cinéma & streaming]
   <!-- id: culture-le-cinema-francais-peut-il-rivaliser-avec-les -->
   <!-- contexte: Les entrées en salles chutent de 20 % en 2026, tandis que les abonnements Netflix explosent. -->
   <!-- rationnel: La question : Les salles peuvent-elles se réinventer, ou le modèle traditionnel est-il condamné ? Les scénarios dépendent des politiques culturelles et des innovations. L'enjeu est la survie d'un pan de la culture française. -->
@@ -1218,7 +1200,7 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 ## Économie & finance mondiale — jeudi
 <!-- Faire tourner les sous-thèmes : marchés financiers, monnaies (dollar, or, bitcoin), dette et taux d'intérêt, matières premières (pétrole, énergie), entreprises et secteurs à l'échelle mondiale, inégalités, démographie économique, luxe et consommation… Nouveau registre créé le 12 août (retour utilisateur), scindé de l'ancien slot "Géopolitique / international — lundi" qui mélangeait géopolitique dure et économie mondiale — voir la note dans la section Géopolitique — lundi pour la règle de classement des sujets à cheval sur les deux. -->
-- [ ] 🔍 La BCE peut-elle maintenir ses taux élevés sans provoquer une récession en zone euro ? [économie & banque centrale]
+- [ ] La BCE peut-elle maintenir ses taux élevés sans provoquer une récession en zone euro ? [économie & banque centrale]
   <!-- id: economie-la-bce-peut-elle-maintenir-ses-taux-eleves-sans -->
   <!-- contexte: Le 10 novembre 2026, la BCE a confirmé sa politique de taux directeurs élevés pour lutter contre l'inflation, malgré des signes de ralentissement économique en zone euro. L'inflation reste à 3,8 %, tandis que la croissance stagne. Les marchés anticipent une possible hausse supplémentaire des taux en décembre. -->
   <!-- rationnel: La question : la BCE peut-elle continuer à resserrer sa politique monétaire sans plonger la zone euro en récession ? Les scénarios dépendent de l'évolution de l'inflation et de la résilience des entreprises. Un scénario favorable verrait une inflation maîtrisée sans récession, un scénario stable maintiendrait un équilibre précaire, et un scénario dégradé pourrait déclencher une crise économique. -->
@@ -1227,7 +1209,7 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
   <!-- sources: L'Europe finit en hausse, tumulte à Wall Street après l'inflation <https://www.boursorama.com/bourse/actualites/l-europe-finit-en-hausse-tumulte-a-wall-street-apres-l-inflation-91fe46dc5a4dc37def19f7796cd825f2> -->
   <!-- origine: veille -->
   <!-- note: Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
-- [ ] 🔍 La Chine peut-elle maintenir son excédent commercial record malgré les tensions avec l'UE ? [économie & commerce international]
+- [ ] La Chine peut-elle maintenir son excédent commercial record malgré les tensions avec l'UE ? [économie & commerce international]
   <!-- id: economie-la-chine-peut-elle-maintenir-son-excedent -->
   <!-- contexte: La Chine a enregistré un excédent commercial record de 1 040 milliards de dollars sur les dix premiers mois de 2026, tiré par les exportations de produits high-tech. L'UE envisage des restrictions sur les importations de véhicules hybrides chinois pour réduire son déficit commercial. -->
   <!-- rationnel: La question : la Chine peut-elle poursuivre sa croissance exportatrice face aux mesures protectionnistes de l'UE ? Les scénarios dépendent des négociations commerciales et de la diversification des marchés chinois. Un scénario favorable verrait un accord commercial avec l'UE, un scénario stable maintiendrait des tensions contrôlées, et un scénario dégradé pourrait déclencher une guerre commerciale. -->
@@ -1236,16 +1218,7 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
   <!-- sources: Principaux points de l'actualité économique mondiale du 10 novembre 2026 <https://www.vietnam.vn/fr/diem-tin-kinh-te-the-gioi-noi-bat-ngay-10-11-2026> -->
   <!-- origine: veille -->
   <!-- note: Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
-- [ ] 🔍 La bulle de l'IA sur les marchés financiers va-t-elle éclater ? [économie & finance]
-  <!-- id: economie-la-bulle-de-l-ia-sur-les-marches-financiers-va -->
-  <!-- contexte: En novembre 2026, les investisseurs se détournent des actions liées à l'intelligence artificielle, provoquant une chute de 2 500 milliards de dollars de capitalisation pour le Nasdaq 100. Les entreprises technologiques se tournent vers le marché obligataire européen, augmentant les coûts de financement. -->
-  <!-- rationnel: La question : les valorisations excessives des entreprises liées à l'IA vont-elles se corriger brutalement, ou le marché retrouvera-t-il un équilibre ? Les facteurs incluent la régulation américaine et la demande réelle en technologies IA. L'enjeu pour la France est l'exposition de ses fonds d'investissement et startups. -->
-  <!-- mots-clés: bulle IA ; Nasdaq ; marchés financiers ; obligations ; régulation -->
-  <!-- scénarios (brouillon): favorable = Les corrections sont limitées et le marché se stabilise autour de valorisations réalistes. ; stable = Une correction modérée a lieu, sans impact systémique sur l'économie. ; dégradé = Un krach technologique déclenche une crise financière mondiale. -->
-  <!-- sources: Monde – L'actualité de la semaine – 6 novembre 2026 | Etudes économiques - Crédit Agricole <https://etudes-economiques.credit-agricole.com/fr/monde-lactualite-de-la-semaine-6-novembre-2026> -->
-  <!-- origine: veille -->
-  <!-- note: Ajouté automatiquement le 2026-11-08 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
-- [ ] 🔍 La bulle immobilière commerciale va-t-elle éclater en Europe ? [économie & immobilier]
+- [ ] La bulle immobilière commerciale va-t-elle éclater en Europe ? [économie & immobilier]
   <!-- id: economie-la-bulle-immobiliere-commerciale-va-t-elle -->
   <!-- contexte: Les prix des bureaux et centres commerciaux chutent de 15 % en un an dans plusieurs capitales européennes. La demande en baisse et les taux élevés fragilisent les investisseurs. -->
   <!-- rationnel: La question : Les marchés peuvent-ils absorber la correction sans crise systémique, ou va-t-on vers une vague de faillites ? Les scénarios dépendent de la flexibilité des acteurs et des politiques monétaires. L'enjeu pour la France est la stabilité financière et l'emploi dans le secteur. -->

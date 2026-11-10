@@ -162,6 +162,39 @@ def _normalize_title(text):
     return re.sub(r"\s+", " ", text).strip()
 
 
+# Mots vides : ils ne disent rien du sujet, ils ne doivent pas faire un « même sujet ».
+_MOTS_VIDES = {
+    "les", "des", "une", "est", "son", "ses", "sur", "dans", "pour", "que", "qui", "quoi",
+    "par", "avec", "sans", "entre", "comme", "plus", "mais", "aussi", "tout", "tous", "leur",
+    "leurs", "nous", "vous", "elle", "elles", "ils", "peut", "peuvent", "faire", "fait", "font",
+    "sont", "sera", "seront", "cette", "cet", "ces", "the", "and", "for", "with", "from",
+    "into", "what", "will", "can", "could", "would", "how", "why", "are", "has", "have",
+    "not", "its", "after", "before", "about", "their", "they", "his", "her",
+}
+# Deux titres traitent du même sujet s'ils partagent au moins ce nombre de racines
+# et si ces racines couvrent au moins cette part du plus court des deux titres.
+MIN_RACINES_COMMUNES = 3
+PART_RACINES_COMMUNES = 0.5
+
+
+def _racines(text):
+    """Racines de 4 lettres des mots porteurs de sens : « russes » et « russie »
+    deviennent « russ » ; « raffineries » et « raffinage » deviennent « raff »."""
+    return {w[:4] for w in _normalize_title(text).split()
+            if len(w) >= 4 and w not in _MOTS_VIDES}
+
+
+def meme_sujet(a, b):
+    """Vrai si deux titres partagent assez de racines pour traiter du même sujet,
+    même formulés différemment (ce que la similarité de caractères rate)."""
+    ra, rb = _racines(a), _racines(b)
+    if not ra or not rb:
+        return False
+    communes = ra & rb
+    return (len(communes) >= MIN_RACINES_COMMUNES
+            and len(communes) / min(len(ra), len(rb)) >= PART_RACINES_COMMUNES)
+
+
 def find_near_duplicate(candidate_title, known_titles):
     """Renvoie le titre de `known_titles` le plus proche de
     `candidate_title` s'il dépasse DUPLICATE_SIMILARITY_THRESHOLD, sinon
@@ -175,7 +208,7 @@ def find_near_duplicate(candidate_title, known_titles):
     for known in known_titles:
         known_norm = _normalize_title(known)
         ratio = difflib.SequenceMatcher(None, candidate_norm, known_norm).ratio()
-        if ratio >= DUPLICATE_SIMILARITY_THRESHOLD:
+        if ratio >= DUPLICATE_SIMILARITY_THRESHOLD or meme_sujet(candidate_title, known):
             return known
     return None
 
@@ -203,6 +236,16 @@ def parse_existing_titles(data):
     return {key: titles_in_section(data, heading) for key, heading in REGISTRE_HEADINGS.items()}
 
 
+def tous_titres_publies():
+    """Titres de TOUTES les éditions déjà publiées (docs/sujets-a-suivre.md), sans
+    fenêtre : le filtre anti-doublon doit voir aussi les sujets d'août ou de septembre."""
+    if not SUJETS_A_SUIVRE.exists():
+        return []
+    text = SUJETS_A_SUIVRE.read_text(encoding="utf-8")
+    return [m.group(1).strip() for m in re.finditer(
+        r"^- \d{2}\.\d{2}\.\d{4} — \[(.+?)\]\(\.\./archives/\d{4}-\d{2}-\d{2}\.html\)", text, re.M)]
+
+
 def recent_journal_titles(today):
     """Titres des éditions publiées dans les JOURNAL_WINDOW_DAYS derniers
     jours (docs/sujets-a-suivre.md) — anti-doublon avec l'actu déjà
@@ -221,7 +264,7 @@ def recent_journal_titles(today):
     return titles
 
 
-def build_prompt(existing_by_registre, priorite_absolue_titles, carte_blanche_titles, recent_titles, today):
+def build_prompt(existing_by_registre, priorite_absolue_titles, carte_blanche_titles, recent_titles, today, tendances=None):
     lines = [
         "Tu alimentes le backlog de sujets du site d'actualité Scénario "
         "(lesscenarios.fr, chaque édition détaille une question à 3 issues "
@@ -281,6 +324,12 @@ def build_prompt(existing_by_registre, priorite_absolue_titles, carte_blanche_ti
         lines.append(f"Sujets déjà publiés dans les {JOURNAL_WINDOW_DAYS} derniers jours "
                       "(éviter aussi, même angle proche) :")
         lines.append("; ".join(recent_titles))
+    # Recherches en hausse sur Google (flux Google Trends), voir tendances_google.py.
+    # Vide si le flux est indisponible : le prompt reste celui d'avant.
+    import tendances_google as tg
+    bloc = tg.bloc_prompt(tendances or [])
+    if bloc:
+        lines += ["", bloc]
     lines += [
         "",
         f"Date d'aujourd'hui : {today.isoformat()}.",
@@ -417,12 +466,71 @@ def insert_entries(data, heading, entries, today):
         raise HotTopicsError(f"section introuvable pour insertion : {heading!r}")
     # On insère un à un en tête de section : dans l'ordre inverse pour garder l'ordre reçu.
     ajoutes = []
+    publies = tous_titres_publies() + [e2["titre"] for _, e2 in sj.sujets(data) if e2.get("statut") == "publie"]
     for e, origin_label in reversed(entries):
         champs = dossier_depuis_reponse(e, e.get("_cited_urls"))
+        score = score_solidite(e)
+        validation, motif = decider_validation(score, e["accroche"], publies)
+        note = build_note(e, today, origin_label) + f" Solidité : {score}/100. {motif}"
         ajoutes.append(sj.ajouter(data, sec["cle"], e["accroche"].strip(), tag=(e.get("tag") or "").strip() or None,
-                                  validation="a_valider", origine="veille", ajoute_le=today.isoformat(),
-                                  note=build_note(e, today, origin_label), **champs)["id"])
+                                  validation=validation, origine="veille", ajoute_le=today.isoformat(),
+                                  note=note, **champs)["id"])
     return ajoutes
+
+
+def decider_validation(score, titre, publies):
+    """Validation d'office si le score atteint le seuil ET que le sujet ne recycle pas un
+    sujet déjà publié (même sujet, même racines — voir meme_sujet). Sinon « à valider ».
+    Renvoie (validation, motif affiché dans la note)."""
+    recycle = next((p for p in publies if meme_sujet(titre, p)), None)
+    if recycle:
+        return "a_valider", f"Recyclage possible : proche de « {recycle} »."
+    if score >= SEUIL_VALIDATION_AUTO:
+        return "valide", "Validé d'office : score suffisant, aucun recyclage de sujet publié."
+    return "a_valider", "À valider : score insuffisant."
+
+
+# Score de solidité (0 à 100) d'une proposition de la veille. Au-dessus de ce seuil, la
+# proposition est validée d'office et entre dans la file ; en dessous, elle reste « à valider ».
+SEUIL_VALIDATION_AUTO = 80
+
+
+def score_solidite(e):
+    """Score de solidité d'une proposition brute de la veille.
+
+    - Dossier complet (question, contexte, rationnel, mots-clés) : 40 points, retirés par
+      manque de champ.
+    - Sources annoncées : 30 points avec deux sources ou plus, dont au moins deux domaines
+      différents ; 15 avec une seule source. Les adresses ne sont pas vérifiées ici.
+    - Point à vérifier : 20 points si le modèle n'en signale aucun. S'il en signale un, il
+      doute : le score est plafonné sous le seuil, donc le propriétaire valide.
+    - Mots-clés : 10 points à partir de trois mots-clés.
+    """
+    from urllib.parse import urlparse
+    score = 40
+    manquants = sj.manquants({
+        "question": e.get("question") or e.get("accroche"),
+        "titre": e.get("accroche"),
+        "contexte": e.get("contexte"),
+        "rationnel": e.get("rationnel"),
+        "mots_cles": e.get("mots_cles") or [],
+    })
+    score -= 10 * len(manquants)
+    urls = [str(s.get("url") or "") for s in e.get("sources") or [] if isinstance(s, dict)]
+    urls = [u for u in urls if u.startswith("https://") or u.startswith("http://")]
+    domaines = {urlparse(u).netloc.lower().removeprefix("www.") for u in urls}
+    if len(domaines) >= 2:
+        score += 30
+    elif urls:
+        score += 15
+    a_verifier = str(e.get("a_verifier") or "").strip()
+    score += 5 if a_verifier else 20
+    if len([k for k in e.get("mots_cles") or [] if str(k).strip()]) >= 3:
+        score += 10
+    # Un doute explicite du modèle renvoie toujours au propriétaire, quel que soit le reste.
+    if a_verifier:
+        score = min(score, SEUIL_VALIDATION_AUTO - 1)
+    return max(0, min(100, score))
 
 
 # Nombre de sujets DÉJÀ en file mais incomplets que chaque passage de la veille complète, en
@@ -566,7 +674,10 @@ def main():
     carte_blanche_titles = titles_in_section(data, CARTE_BLANCHE_HEADING)
     recent = recent_journal_titles(today)
 
-    prompt = build_prompt(existing, priorite_absolue_titles, carte_blanche_titles, recent, today)
+    import tendances_google as tg
+    tendances = tg.lire_tendances()
+    print(f"[tendances] {len(tendances)} recherche(s) en hausse en France")
+    prompt = build_prompt(existing, priorite_absolue_titles, carte_blanche_titles, recent, today, tendances)
     tools = [{"type": "openrouter:web_search", "parameters": {"engine": "auto", "max_results": 8}}]
     try:
         import enrich_sujets as en  # import tardif : enrich_sujets importe ce module
@@ -591,7 +702,7 @@ def main():
     # d'un filtre qui n'aurait comparé qu'au fichier déjà sur disque).
     known_titles = (
         [t for titles in existing.values() for t in titles]
-        + priorite_absolue_titles + carte_blanche_titles + recent
+        + priorite_absolue_titles + carte_blanche_titles + recent + tous_titres_publies()
     )
 
     total = 0

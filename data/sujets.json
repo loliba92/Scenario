@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "458e0e97b59747a4f8562ef8a38d1870bf5c092ed0363e415e4f1446f8376c4e"
+    "md_sha256": "db5ad28a0903800492207184b4ed223f43aa0cb9d8de9f924a448d9b7ee47f10"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -562,7 +562,7 @@
           "question": null,
           "tag": "géopolitique & Ukraine",
           "statut": "a_traiter",
-          "validation": "a_valider",
+          "validation": "valide",
           "contexte": "Les premières discussions directes entre l'Ukraine et la Russie depuis plus de huit mois ont repris le 10 novembre 2026 à Abou Dhabi, sous médiation américaine. Les questions humanitaires et les garanties de sécurité sont au cœur des négociations. Volodymyr Zelensky a qualifié les échanges de \"constructifs et substantiels\". Les Européens et les Américains ont réaffirmé leur engagement pour une sécurité européenne solide après la guerre.",
           "rationnel": "La question : ces pourparlers peuvent-ils déboucher sur un accord de paix durable, ou resteront-ils sans issue concrète ? Les forces en présence incluent la volonté ukrainienne de garantir sa souveraineté, la pression russe pour des concessions, et le rôle médiateur des États-Unis. Un scénario favorable verrait un cadre de sécurité crédible pour l'Ukraine, un scénario stable maintiendrait le statu quo, et un scénario dégradé pourrait entraîner une reprise des hostilités.",
           "angle": null,
@@ -596,56 +596,12 @@
         },
         {
           "type": "sujet",
-          "id": "geopolitique-l-iran-conditionne-t-il-la-reouverture-du",
-          "titre": "L'Iran conditionne-t-il la réouverture du détroit d'Ormuz à un accord nucléaire avec les États-Unis ?",
-          "question": null,
-          "tag": "géopolitique & nucléaire",
-          "statut": "a_traiter",
-          "validation": "a_valider",
-          "contexte": "Le 7 novembre 2026, l'Iran a transmis une proposition nucléaire à sept conditions via le Qatar, exigeant leur respect avant toute négociation. Washington examine la proposition tandis que Donald Trump menace de nouvelles frappes. Dans le détroit d'Ormuz, deux pétroliers ont pris feu après avoir heurté des mines, exacerbant les tensions.",
-          "rationnel": "La question : l'Iran parviendra-t-il à imposer ses conditions pour rouvrir le détroit d'Ormuz, ou les États-Unis déclencheront-ils une escalade militaire ? Les forces en présence incluent la pression économique iranienne via le blocage du détroit et la menace militaire américaine. L'enjeu pour la France est la stabilité des approvisionnements énergétiques et la sécurité maritime.",
-          "angle": null,
-          "a_verifier": null,
-          "mots_cles": [
-            "Iran",
-            "États-Unis",
-            "détroit d'Ormuz",
-            "proposition nucléaire",
-            "pétroliers",
-            "Donald Trump"
-          ],
-          "scenarios": {
-            "favorable": "Un accord temporaire est trouvé, évitant une escalade militaire et permettant une reprise partielle du trafic maritime.",
-            "stable": "Les négociations patinent, prolongeant le statu quo avec des tensions persistantes mais contrôlées.",
-            "degrade": "Les États-Unis lancent des frappes militaires, déclenchant une crise régionale majeure et une flambée des prix du pétrole."
-          },
-          "echeance": null,
-          "sources": [
-            {
-              "titre": "Synthèse de l'actualité mondiale du 7 novembre 2026 | World Watch",
-              "url": "https://worldwatch.media/fr/digest/2026-11-07"
-            },
-            {
-              "titre": "Géopolitique & puissances — Yaktu",
-              "url": "https://yaktu.fr/focus/geopolitique-puissances/"
-            }
-          ],
-          "origine": "veille",
-          "note": "Ajouté automatiquement le 2026-11-08 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
-          "donnees": null,
-          "ajoute_le": "2026-11-08",
-          "publie_le": null,
-          "edition": null,
-          "enrichi_le": null
-        },
-        {
-          "type": "sujet",
           "id": "geopolitique-le-conflit-au-yemen-peut-il-destabiliser",
           "titre": "Le conflit au Yémen peut-il déstabiliser davantage la région du Golfe ?",
           "question": null,
           "tag": "géopolitique & Golfe",
           "statut": "a_traiter",
-          "validation": "a_valider",
+          "validation": "valide",
           "contexte": "Les récentes frappes aériennes des Houthis contre des navires dans la mer Rouge et les attaques contre des infrastructures pétrolières en Arabie saoudite ont exacerbé les tensions dans la région. Les États-Unis et l'UE ont renforcé leur présence militaire pour sécuriser les voies maritimes.",
           "rationnel": "La question : Les Houthis peuvent-ils perturber durablement le commerce maritime et les exportations pétrolières, ou les efforts internationaux vont-ils contenir la crise ? Les scénarios dépendent de la capacité des Houthis à maintenir leur pression et de la réponse des acteurs régionaux. L'enjeu pour la France est la stabilité des approvisionnements énergétiques et la sécurité de ses intérêts économiques dans la région.",
           "angle": null,
@@ -1612,7 +1568,7 @@
           "question": null,
           "tag": "sport & voile",
           "statut": "a_traiter",
-          "validation": "a_valider",
+          "validation": "valide",
           "contexte": "Le skipper français Tom Laperche a remporté la Route du Rhum 2026 en pulvérisant le record de la course (6 jours, 13 heures et 27 minutes). À 29 ans, il confirme son statut de nouveau leader de la voile française, avec des ambitions pour le Vendée Globe 2028.",
           "rationnel": "La question : Laperche peut-il s'imposer comme la figure dominante de la voile mondiale, ou son succès restera-t-il isolé ? Les scénarios dépendent de sa régularité et de la concurrence. Un scénario favorable verrait une série de victoires majeures, un scénario stable maintiendrait une performance irrégulière, et un scénario dégradé pourrait voir son étoile pâlir rapidement.",
           "angle": null,
@@ -1651,7 +1607,7 @@
           "question": null,
           "tag": "sport & financement",
           "statut": "a_traiter",
-          "validation": "a_valider",
+          "validation": "valide",
           "contexte": "Les audiences TV du foot féminin ont progressé de 30 % en 2026, mais les écarts de rémunération restent énormes.",
           "rationnel": "La question : Les investisseurs vont-ils combler le gap, ou le modèle reste-t-il déséquilibré ? Les scénarios dépendent des sponsors et des droits TV. L'enjeu est l'équité dans le sport.",
           "angle": null,
@@ -2369,7 +2325,7 @@
           "question": null,
           "tag": "médias & politique",
           "statut": "a_traiter",
-          "validation": "a_valider",
+          "validation": "valide",
           "contexte": "Une pétition demandant la suppression de CNews a dépassé les 900 000 signatures le 10 novembre 2026. Lancée en juin, elle accuse la chaîne d'inciter à la haine et à la discrimination. CNews, propriété de Vincent Bolloré, a déjà été sanctionnée à plusieurs reprises par l'Arcom pour des manquements à ses obligations.",
           "rationnel": "La question : cette pétition peut-elle conduire à des sanctions concrètes contre CNews, ou restera-t-elle symbolique ? Les forces en présence incluent la pression de l'opinion publique, la défense de la liberté d'expression par CNews, et le rôle régulateur de l'Arcom. Un scénario favorable verrait des sanctions renforcées contre la chaîne, un scénario stable maintiendrait le statu quo, et un scénario dégradé pourrait entraîner une polarisation accrue du débat médiatique.",
           "angle": null,
@@ -2408,7 +2364,7 @@
           "question": null,
           "tag": "économie & pouvoir d'achat",
           "statut": "a_traiter",
-          "validation": "a_valider",
+          "validation": "valide",
           "contexte": "Le gouvernement a annoncé une hausse de 1,6 % du SMIC le 10 novembre 2026, portant le salaire minimum à 1 502 euros. Cette mesure vise à soutenir le pouvoir d'achat des ménages, mais elle est critiquée par certains économistes qui craignent un impact négatif sur l'emploi, notamment dans les PME.",
           "rationnel": "La question : cette hausse du SMIC peut-elle stimuler la consommation sans peser sur l'emploi, ou aggravera-t-elle les difficultés des entreprises ? Les scénarios dépendent de la réaction des entreprises (embauches, hausses de prix) et de la consommation des ménages. Un scénario favorable verrait une relance de la consommation sans pertes d'emploi, un scénario stable maintiendrait un équilibre fragile, et un scénario dégradé pourrait entraîner une hausse du chômage.",
           "angle": null,
@@ -2447,7 +2403,7 @@
           "question": null,
           "tag": "politique & retraites",
           "statut": "a_traiter",
-          "validation": "a_valider",
+          "validation": "valide",
           "contexte": "Le gouvernement a annoncé un gel des discussions sur les retraites jusqu'après les élections de 2027, mais des syndicats et partis d'opposition relancent le débat. Les dernières projections montrent un déficit accru du système.",
           "rationnel": "La question : Les candidats à la présidentielle vont-ils être forcés de prendre position sur une réforme impopulaire, ou le sujet restera-t-il tabou ? Les scénarios dépendent de la pression syndicale et des sondages. L'enjeu est l'équilibre financier du système et son impact sur le pouvoir d'achat.",
           "angle": null,
@@ -3652,7 +3608,7 @@
           "question": null,
           "tag": "sciences & physique",
           "statut": "a_traiter",
-          "validation": "a_valider",
+          "validation": "valide",
           "contexte": "Le 3 novembre 2026, le CERN a annoncé avoir observé la désintégration extrêmement rare d'un méson Bd en deux muons, un phénomène qui ne se produit qu'une fois sur dix milliards. Cette découverte pourrait remettre en question le Modèle Standard de la physique des particules.",
           "rationnel": "La question : cette observation confirme-t-elle le Modèle Standard, ou révèle-t-elle l'existence de nouvelles particules ou forces ? Les scénarios dépendent des analyses ultérieures. Un scénario favorable verrait la confirmation d'une nouvelle physique, un scénario stable validerait le Modèle Standard, et un scénario dégradé laisserait les questions en suspens.",
           "angle": null,
@@ -3691,7 +3647,7 @@
           "question": null,
           "tag": "sciences & espace",
           "statut": "a_traiter",
-          "validation": "a_valider",
+          "validation": "valide",
           "contexte": "Des chercheurs chinois ont refroidi des atomes à 9,7 picokelvins à bord de la station spatiale Tiangong, un record absolu dans l'espace. Cette avancée permet d'étudier des phénomènes quantiques inaccessibles sur Terre.",
           "rationnel": "La question : cette technologie peut-elle conduire à des applications concrètes, comme des interféromètres quantiques ou des ordinateurs quantiques spatiaux ? Les scénarios dépendent des progrès techniques et des investissements. Un scénario favorable verrait des applications industrielles d'ici une décennie, un scénario stable maintiendrait des avancées théoriques, et un scénario dégradé pourrait buter sur des limites pratiques.",
           "angle": null,
@@ -3730,7 +3686,7 @@
           "question": null,
           "tag": "sciences & IA",
           "statut": "a_traiter",
-          "validation": "a_valider",
+          "validation": "valide",
           "contexte": "Le 1er novembre 2026, OpenAI a produit une preuve de 1 147 pages sur la théorie de Yang-Mills, mais les physiciens refusent de la publier avant une vérification approfondie. Cette théorie, non résolue depuis des décennies, est cruciale pour la physique des particules.",
           "rationnel": "La question : la preuve d'OpenAI sera-t-elle validée, ouvrant une nouvelle ère pour la physique, ou révèlera-t-elle les limites de l'IA en recherche fondamentale ? Les enjeux incluent la crédibilité des découvertes assistées par IA et l'avenir de la collaboration humain-machine en science.",
           "angle": null,
@@ -3758,45 +3714,6 @@
           "note": "Ajouté automatiquement le 2026-11-08 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
           "donnees": null,
           "ajoute_le": "2026-11-08",
-          "publie_le": null,
-          "edition": null,
-          "enrichi_le": null
-        },
-        {
-          "type": "sujet",
-          "id": "sciences-les-nouveaux-traitements-contre-l-obesite-vont",
-          "titre": "Les nouveaux traitements contre l'obésité vont-ils bouleverser la santé publique ?",
-          "question": null,
-          "tag": "médecine & santé",
-          "statut": "a_traiter",
-          "validation": "a_valider",
-          "contexte": "Les médicaments comme l'Ozempic montrent des résultats prometteurs, mais leur coût et leur accessibilité divisent les experts.",
-          "rationnel": "La question : Ces traitements peuvent-ils réduire l'épidémie d'obésité, ou resteront-ils réservés aux plus riches ? Les scénarios dépendent des politiques de remboursement et des innovations concurrentes. L'enjeu est la réduction des coûts de santé liés à l'obésité.",
-          "angle": null,
-          "a_verifier": null,
-          "mots_cles": [
-            "obésité",
-            "Ozempic",
-            "traitements",
-            "santé publique",
-            "coût"
-          ],
-          "scenarios": {
-            "favorable": "Des génériques rendent les traitements accessibles à tous.",
-            "stable": "Seuls les pays riches en bénéficient.",
-            "degrade": "Les effets secondaires freinent leur adoption."
-          },
-          "echeance": null,
-          "sources": [
-            {
-              "titre": "Ozempic : révolution ou mirage ?",
-              "url": null
-            }
-          ],
-          "origine": "veille",
-          "note": "Ajouté automatiquement le 2026-11-02 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
-          "donnees": null,
-          "ajoute_le": "2026-11-02",
           "publie_le": null,
           "edition": null,
           "enrichi_le": null
@@ -4007,7 +3924,7 @@
           "question": "Le système Eve (Chalmers/KTH, publié début octobre 2026 dans J. R. Soc. Interface) qui formule hypothèses, pilote des robots de laboratoire, analyse les métabolites et a découvert un effet protecteur de l'aminoadipate (+7 % croissance sous stress acide formique) jamais documenté, marque-t-il l'avènement du scientifique IA autonome ou reste-t-il un démonstrateur encadré ?",
           "tag": "IA & recherche scientifique",
           "statut": "a_traiter",
-          "validation": "a_valider",
+          "validation": "valide",
           "contexte": "Début octobre 2026, des chercheurs de Chalmers (Göteborg) et KTH (Stockholm) publient une étude sur Eve, robot scientifique de 3e génération. Eve : base de connaissances 60 000 relations levure → 2 000 hypothèses → 3 agents LLM (GPT-4o) pour planifier, arbitrer, traduire en instructions robots → exécution en chémostats → métabolomique (spectrométrie de masse) → réinjection dans graphe de connaissances. Découverte : aminoadipate protège partiellement la levure sous stress acide formique (+7 %/mM), effet non prévu, non documenté. Humains encore nécessaires pour préparation matériaux, sécurité, validation.",
           "rationnel": "La question : la boucle hypothèse-expérimentation-apprentissage close par une IA (avec échafaudage logique symbolique) peut-elle s'étendre au-delà de la levure (mammifères, clinique) et accélérer la découverte de médicaments, ou la complexité biologique et la régulation (sécurité, éthique) maintiendront-elles l'humain au centre ? L'issue est ouverte car : 1) démonstration sur un modèle simple (levure, métabolisme connu) ; 2) mais architecture générique (LLM + logique symbolique + robotique) transposable ; 3) course mondiale (USA, Chine) aux « AI scientists » (cf. Sakana AI, FutureHouse). Enjeu pour un lecteur français : souveraineté de la recherche française/européenne face aux Big Tech US/Chine ; emploi des chercheurs ; délais et coûts de la R&D pharma (10 ans, 2 Md$).",
           "angle": null,
@@ -5198,7 +5115,7 @@
           "question": null,
           "tag": "culture & numérique",
           "statut": "a_traiter",
-          "validation": "a_valider",
+          "validation": "valide",
           "contexte": "En novembre 2026, le groupe Madrigall (Gallimard, Flammarion) annonce l'utilisation d'un logiciel pour détecter les manuscrits générés par IA. Cette décision suit des polémiques sur des livres soupçonnés d'être écrits par des IA, comme l'affaire Thélyson Orélien.",
           "rationnel": "La question : les éditeurs parviendront-ils à filtrer les œuvres générées par IA, ou assistera-t-on à une crise de confiance dans la littérature ? Les défis incluent la fiabilité des détecteurs et l'évolution des techniques d'IA. L'enjeu est la préservation de la créativité humaine.",
           "angle": null,
@@ -5237,7 +5154,7 @@
           "question": null,
           "tag": "cinéma & streaming",
           "statut": "a_traiter",
-          "validation": "a_valider",
+          "validation": "valide",
           "contexte": "Les entrées en salles chutent de 20 % en 2026, tandis que les abonnements Netflix explosent.",
           "rationnel": "La question : Les salles peuvent-elles se réinventer, ou le modèle traditionnel est-il condamné ? Les scénarios dépendent des politiques culturelles et des innovations. L'enjeu est la survie d'un pan de la culture française.",
           "angle": null,
@@ -6371,7 +6288,7 @@
           "question": null,
           "tag": "économie & banque centrale",
           "statut": "a_traiter",
-          "validation": "a_valider",
+          "validation": "valide",
           "contexte": "Le 10 novembre 2026, la BCE a confirmé sa politique de taux directeurs élevés pour lutter contre l'inflation, malgré des signes de ralentissement économique en zone euro. L'inflation reste à 3,8 %, tandis que la croissance stagne. Les marchés anticipent une possible hausse supplémentaire des taux en décembre.",
           "rationnel": "La question : la BCE peut-elle continuer à resserrer sa politique monétaire sans plonger la zone euro en récession ? Les scénarios dépendent de l'évolution de l'inflation et de la résilience des entreprises. Un scénario favorable verrait une inflation maîtrisée sans récession, un scénario stable maintiendrait un équilibre précaire, et un scénario dégradé pourrait déclencher une crise économique.",
           "angle": null,
@@ -6410,7 +6327,7 @@
           "question": null,
           "tag": "économie & commerce international",
           "statut": "a_traiter",
-          "validation": "a_valider",
+          "validation": "valide",
           "contexte": "La Chine a enregistré un excédent commercial record de 1 040 milliards de dollars sur les dix premiers mois de 2026, tiré par les exportations de produits high-tech. L'UE envisage des restrictions sur les importations de véhicules hybrides chinois pour réduire son déficit commercial.",
           "rationnel": "La question : la Chine peut-elle poursuivre sa croissance exportatrice face aux mesures protectionnistes de l'UE ? Les scénarios dépendent des négociations commerciales et de la diversification des marchés chinois. Un scénario favorable verrait un accord commercial avec l'UE, un scénario stable maintiendrait des tensions contrôlées, et un scénario dégradé pourrait déclencher une guerre commerciale.",
           "angle": null,
@@ -6444,51 +6361,12 @@
         },
         {
           "type": "sujet",
-          "id": "economie-la-bulle-de-l-ia-sur-les-marches-financiers-va",
-          "titre": "La bulle de l'IA sur les marchés financiers va-t-elle éclater ?",
-          "question": null,
-          "tag": "économie & finance",
-          "statut": "a_traiter",
-          "validation": "a_valider",
-          "contexte": "En novembre 2026, les investisseurs se détournent des actions liées à l'intelligence artificielle, provoquant une chute de 2 500 milliards de dollars de capitalisation pour le Nasdaq 100. Les entreprises technologiques se tournent vers le marché obligataire européen, augmentant les coûts de financement.",
-          "rationnel": "La question : les valorisations excessives des entreprises liées à l'IA vont-elles se corriger brutalement, ou le marché retrouvera-t-il un équilibre ? Les facteurs incluent la régulation américaine et la demande réelle en technologies IA. L'enjeu pour la France est l'exposition de ses fonds d'investissement et startups.",
-          "angle": null,
-          "a_verifier": null,
-          "mots_cles": [
-            "bulle IA",
-            "Nasdaq",
-            "marchés financiers",
-            "obligations",
-            "régulation"
-          ],
-          "scenarios": {
-            "favorable": "Les corrections sont limitées et le marché se stabilise autour de valorisations réalistes.",
-            "stable": "Une correction modérée a lieu, sans impact systémique sur l'économie.",
-            "degrade": "Un krach technologique déclenche une crise financière mondiale."
-          },
-          "echeance": null,
-          "sources": [
-            {
-              "titre": "Monde – L'actualité de la semaine – 6 novembre 2026 | Etudes économiques - Crédit Agricole",
-              "url": "https://etudes-economiques.credit-agricole.com/fr/monde-lactualite-de-la-semaine-6-novembre-2026"
-            }
-          ],
-          "origine": "veille",
-          "note": "Ajouté automatiquement le 2026-11-08 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
-          "donnees": null,
-          "ajoute_le": "2026-11-08",
-          "publie_le": null,
-          "edition": null,
-          "enrichi_le": null
-        },
-        {
-          "type": "sujet",
           "id": "economie-la-bulle-immobiliere-commerciale-va-t-elle",
           "titre": "La bulle immobilière commerciale va-t-elle éclater en Europe ?",
           "question": null,
           "tag": "économie & immobilier",
           "statut": "a_traiter",
-          "validation": "a_valider",
+          "validation": "valide",
           "contexte": "Les prix des bureaux et centres commerciaux chutent de 15 % en un an dans plusieurs capitales européennes. La demande en baisse et les taux élevés fragilisent les investisseurs.",
           "rationnel": "La question : Les marchés peuvent-ils absorber la correction sans crise systémique, ou va-t-on vers une vague de faillites ? Les scénarios dépendent de la flexibilité des acteurs et des politiques monétaires. L'enjeu pour la France est la stabilité financière et l'emploi dans le secteur.",
           "angle": null,
