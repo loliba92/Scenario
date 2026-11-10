@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "a9a1b81e16abf8b50393fa7ff745b66e1471409f375a0248f27ef28d13bfb270"
+    "md_sha256": "1ed12c9e5c2d3d4f45ff7ee98b1376c119cefec6a882ebe247f84aba83dafc5b"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -493,7 +493,7 @@
           "titre": "Élections législatives russes : Poutine peut-il encore verrouiller le pouvoir sans provoquer de fissure ?",
           "question": null,
           "tag": "géopolitique & Russie",
-          "statut": "a_traiter",
+          "statut": "publie",
           "validation": "valide",
           "contexte": "Les Russes votent du 18 au 20 septembre 2026 pour renouveler les 450 sièges de la Douma, les premières législatives depuis le début de la guerre totale en Ukraine en février 2022. Le parti Russie unie de Vladimir Poutine devrait conserver sa supermajorité (au moins 300 sièges), mais l'enjeu est le score réel : le Kremlin aurait fixé un objectif de 45% des voix aux régions, selon des fuites. L'opposition antiguerre (Iabloko) a été exclue du scrutin. Les cinq partis autorisés soutiennent tous la guerre. L'élection se déroule sous la menace d'attaques de drones ukrainiens — 350 drones ont été détectés vers Moscou le 18 septembre, premier jour du vote. Le vote électronique, jugé non contrôlé par des observateurs, facilite les falsifications. La question est : le verrouillage politique tiendra-t-il jusqu'en 2031, ou des signes de fragilité apparaîtront-ils ?",
           "rationnel": "La question : Le verrouillage du pouvoir par les urnes tiendra-t-il jusqu’en 2031, ou des signes de fragilité apparaîtront-ils ? L’issue demeure ouverte car, bien que Russie unie ait obtenu 349 sièges (~58 % des voix), dépassant l’objectif de 45 % fixé par le Kremlin, les incertitudes portent sur les attaques de drones ukrainiens détectées le 18 septembre, le vote électronique jugé non contrôlé, les possibles contestations du KPRF et la crainte d’une mobilisation générale qui pourraient révéler des fissures au sein de l’élite ou déclencher des manifestations locales. Pour un lecteur français, l’enjeu est d’évaluer si ces développements internes russes pourraient avoir des répercussions sur la stabilité régionale et les préoccupations de sécurité en Europe.",
@@ -540,8 +540,8 @@
           "note": "Ajouté automatiquement le 2026-09-18 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — validé. Repéré en veille sur le registre Géopolitique, remonté ici pour son urgence",
           "donnees": "[relevé du 2026-10-31] Taux de participation aux élections législatives russes (%). 2026 = 59,8 % (2026) ; 2021 = 51,72 % (2021) ; 2016 = 47,88 % (2016) ; 2011 = 60,21 % (2011). Sources : https://tass.com/politics/2192899 ; https://ria.ru/20210924/yavka-1751602628.html ; https://www.vedomosti.ru/politics/articles/2026/09/26/1232008-itogi-viborov-gosdumu",
           "ajoute_le": "2026-09-18",
-          "publie_le": null,
-          "edition": null,
+          "publie_le": "2026-11-10",
+          "edition": "2026-11-10",
           "enrichi_le": "2026-10-31"
         }
       ]
