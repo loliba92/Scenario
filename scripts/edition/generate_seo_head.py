@@ -13,6 +13,7 @@ Tout hardcodé (règles + données du brief) — aucun modèle AI.
 import json
 import html
 import re
+import zlib
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, Any, Optional
@@ -145,10 +146,21 @@ _MOTS_OUTILS = {
 }
 
 
+# Compléments du dernier recours (titre h1 + complément). Ils commencent tous par
+# « Trois scénarios chiffrés » et varient à la fin, pour ne pas répéter la même
+# formule d'une édition à l'autre (constat du 10 novembre 2026, rapport seo-content).
 _COMPLEMENTS = (
     "Trois scénarios chiffrés — favorable, stable, dégradé — pour comprendre la suite.",
     "Trois scénarios chiffrés, à court, moyen et long terme.",
+    "Trois scénarios chiffrés, du plus favorable au plus sombre.",
+    "Trois scénarios chiffrés, pour voir ce qui peut suivre.",
 )
+
+
+def _ordre_complements(cle):
+    """Même ordre pour une même édition ; départ différent d'une édition à l'autre."""
+    depart = zlib.crc32(cle.encode("utf-8")) % len(_COMPLEMENTS)
+    return _COMPLEMENTS[depart:] + _COMPLEMENTS[:depart]
 
 
 def _build_description(brief: Dict[str, Any]) -> str:
@@ -172,7 +184,8 @@ def _build_description(brief: Dict[str, Any]) -> str:
     h1 = (sujet.get("h1") or "").replace("\xa0", " ").strip()
     if h1:
         base = h1 if h1[-1] in ".?!" else h1 + "."
-        for complement in _COMPLEMENTS:
+        cle = str(brief.get("date") or h1)
+        for complement in _ordre_complements(cle):
             if len(base) + 1 + len(complement) <= 160:
                 return f"{base} {complement}"
     return _truncate_at_word_boundary(question, 160)
