@@ -466,16 +466,28 @@ def insert_entries(data, heading, entries, today):
         raise HotTopicsError(f"section introuvable pour insertion : {heading!r}")
     # On insère un à un en tête de section : dans l'ordre inverse pour garder l'ordre reçu.
     ajoutes = []
+    publies = tous_titres_publies() + [e2["titre"] for _, e2 in sj.sujets(data) if e2.get("statut") == "publie"]
     for e, origin_label in reversed(entries):
         champs = dossier_depuis_reponse(e, e.get("_cited_urls"))
         score = score_solidite(e)
-        # Au-dessus du seuil : validé d'office ; en dessous : à valider par le propriétaire.
-        validation = "valide" if score >= SEUIL_VALIDATION_AUTO else "a_valider"
-        note = build_note(e, today, origin_label) + f" Solidité : {score}/100."
+        validation, motif = decider_validation(score, e["accroche"], publies)
+        note = build_note(e, today, origin_label) + f" Solidité : {score}/100. {motif}"
         ajoutes.append(sj.ajouter(data, sec["cle"], e["accroche"].strip(), tag=(e.get("tag") or "").strip() or None,
                                   validation=validation, origine="veille", ajoute_le=today.isoformat(),
                                   note=note, **champs)["id"])
     return ajoutes
+
+
+def decider_validation(score, titre, publies):
+    """Validation d'office si le score atteint le seuil ET que le sujet ne recycle pas un
+    sujet déjà publié (même sujet, même racines — voir meme_sujet). Sinon « à valider ».
+    Renvoie (validation, motif affiché dans la note)."""
+    recycle = next((p for p in publies if meme_sujet(titre, p)), None)
+    if recycle:
+        return "a_valider", f"Recyclage possible : proche de « {recycle} »."
+    if score >= SEUIL_VALIDATION_AUTO:
+        return "valide", "Validé d'office : score suffisant, aucun recyclage de sujet publié."
+    return "a_valider", "À valider : score insuffisant."
 
 
 # Score de solidité (0 à 100) d'une proposition de la veille. Au-dessus de ce seuil, la

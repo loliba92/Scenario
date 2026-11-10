@@ -60,5 +60,22 @@ class ScoreSoliditeTest(unittest.TestCase):
         self.assertTrue(0 <= s <= 100)
 
 
+class DeciderValidationTest(unittest.TestCase):
+    PUBLIES = ["Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?"]
+
+    def test_score_suffisant_et_sujet_nouveau_valide(self):
+        v, _ = ht.decider_validation(90, "La percée d'OpenAI sur la théorie de Yang-Mills va-t-elle révolutionner la physique ?", self.PUBLIES)
+        self.assertEqual(v, "valide")
+
+    def test_recyclage_bloque_la_validation_meme_avec_bon_score(self):
+        v, motif = ht.decider_validation(100, "Budget 2027 : Lecornu peut-il faire tenir le gouvernement cet automne ?", self.PUBLIES)
+        self.assertEqual(v, "a_valider")
+        self.assertIn("Recyclage", motif)
+
+    def test_score_insuffisant_reste_a_valider(self):
+        v, _ = ht.decider_validation(70, "La percée d'OpenAI sur la théorie de Yang-Mills va-t-elle révolutionner la physique ?", self.PUBLIES)
+        self.assertEqual(v, "a_valider")
+
+
 if __name__ == "__main__":
     unittest.main()
