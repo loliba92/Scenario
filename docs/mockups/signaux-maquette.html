@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Signaux — maquette</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#10151c; --surface:#1a212b; --surface-2:#212a35; --hairline:#2c3644;
+  --paper:#ece7da; --paper-dim:#a9a89c; --gold:#cf9d4c;
+  --favorable:#5e9c78; --stable:#6f8fae; --degrade:#bd6248;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:auto}
+body{margin:0;background:var(--ink);color:var(--paper);font-family:Inter,system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{max-width:920px;margin:0 auto;padding:0 24px}
+
+/* En-tête collant */
+.topnav{position:sticky;top:0;z-index:10;background:var(--ink);border-bottom:1px solid var(--hairline)}
+.topnav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:56px}
+.wordmark{font-family:Fraunces,serif;font-weight:600;font-size:1.35rem;text-decoration:none}
+.wordmark span{color:var(--gold)}
+.topnav nav{display:flex;gap:18px;font-size:.88rem}
+.topnav nav a{text-decoration:none;color:var(--paper-dim);padding:6px 0;border-bottom:2px solid transparent}
+.topnav nav a[aria-current="page"]{color:var(--paper);border-bottom-color:var(--gold)}
+
+.section-label{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:0 0 10px;display:flex;align-items:center;gap:10px}
+.section-label::before{content:"";width:22px;height:1px;background:var(--gold)}
+h1{font-family:Fraunces,serif;font-weight:500;font-size:clamp(1.7rem,4.6vw,2.4rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+h2{font-family:Fraunces,serif;font-weight:500;font-size:1.25rem;line-height:1.25;margin:0 0 8px}
+.lead{color:var(--paper-dim);margin:0;max-width:62ch}
+main{padding:36px 0 72px}
+.clair{margin:22px 0 0;padding:14px 16px;border-left:3px solid var(--gold);background:var(--surface);border-radius:0 8px 8px 0;max-width:68ch}
+.clair b{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:4px;font-weight:500}
+.clair p{margin:0;font-size:.95rem}
+
+/* Filtres */
+.filtres{display:flex;gap:8px;flex-wrap:wrap;margin:30px 0 16px}
+.filtres button{font:inherit;font-size:.88rem;color:var(--paper);background:var(--surface);border:1px solid var(--hairline);border-radius:999px;padding:7px 14px;cursor:pointer;min-height:40px;white-space:nowrap}
+.filtres button .n{font-family:"JetBrains Mono",monospace;color:var(--paper-dim);margin-left:6px}
+.filtres button[aria-pressed="true"]{border-color:var(--gold);color:var(--gold)}
+
+/* Liste */
+.liste{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.carte{display:block;text-decoration:none;background:var(--surface);border:1px solid var(--hairline);border-radius:10px;padding:16px 18px}
+.carte:hover{border-color:var(--gold)}
+.ligne1{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:6px}
+.date{font-family:"JetBrains Mono",monospace;font-size:.78rem;color:var(--paper-dim);white-space:nowrap}
+.statut{font-size:.78rem;font-weight:600;border:1px solid var(--hairline);border-radius:999px;padding:2px 10px;white-space:nowrap}
+.statut.avenir{color:var(--stable);border-color:var(--stable)}
+.statut.proche{color:var(--gold);border-color:var(--gold)}
+.statut.realise{color:var(--favorable);border-color:var(--favorable)}
+.statut.manque{color:var(--degrade);border-color:var(--degrade)}
+.carte h2{margin:0 0 8px}
+.edition{font-size:.85rem;color:var(--paper-dim);margin:0 0 10px}
+.issues{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.issue{background:var(--surface-2);border-radius:8px;padding:8px 10px;font-size:.84rem;line-height:1.35}
+.issue small{display:block;font-family:"JetBrains Mono",monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--paper-dim);margin-bottom:2px}
+.pastille{display:inline-block;font-weight:600}
+.p-favorable{color:var(--favorable)} .p-stable{color:var(--stable)} .p-degrade{color:var(--degrade)}
+.effet{margin:10px 0 0;font-size:.88rem}
+.vide{padding:22px;border:1px dashed var(--hairline);border-radius:10px;color:var(--paper-dim);text-align:center}
+
+/* Fiche */
+.retour{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--gold);font-size:.9rem;min-height:44px;margin:0 0 14px}
+.fiche-meta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:0 0 14px}
+.bloc{margin:28px 0 0}
+.bloc .section-label{margin-bottom:12px}
+.deux{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cas{background:var(--surface);border:1px solid var(--hairline);border-radius:10px;padding:14px 16px}
+.cas small{font-family:"JetBrains Mono",monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--paper-dim);display:block;margin-bottom:4px}
+.cas p{margin:0 0 6px;font-size:.92rem}
+.barres{display:grid;gap:10px}
+.barre{display:grid;grid-template-columns:92px 1fr auto;align-items:center;gap:10px;font-size:.85rem}
+.barre .piste{height:10px;background:var(--surface-2);border-radius:999px;position:relative;overflow:hidden}
+.barre .rempli{position:absolute;inset:0 auto 0 0;border-radius:999px}
+.f-favorable{background:var(--favorable)} .f-stable{background:var(--stable)} .f-degrade{background:var(--degrade)}
+.barre .val{font-family:"JetBrains Mono",monospace;font-size:.8rem;white-space:nowrap}
+.source{margin:0;padding-left:18px;font-size:.88rem}
+.note{font-size:.82rem;color:var(--paper-dim);margin-top:10px}
+.bandeau-maquette{background:var(--surface-2);border-bottom:1px solid var(--hairline);font-size:.78rem;color:var(--paper-dim);padding:6px 0}
+.bandeau-maquette .wrap{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.bandeau-maquette a{color:var(--gold)}
+
+@media (max-width:640px){
+  .wrap{padding:0 16px}
+  main{padding:26px 0 56px}
+  .topnav nav{gap:12px;font-size:.82rem}
+  .issues,.deux{grid-template-columns:1fr}
+  .barre{grid-template-columns:78px 1fr auto}
+}
+</style>
+</head>
+<body>
+<div class="bandeau-maquette"><div class="wrap">
+  <span><b>Maquette</b> — données réelles (2 événements) + exemples marqués « exemple ». États :</span>
+  <a href="?etat=reel">réel</a> · <a href="?etat=mixte">mélange</a> · <a href="?etat=vide">aucun</a> · <a href="?etat=long">libellé long</a> · <a href="?etat=absent">données absentes</a>
+</div></div>
+
+<header class="topnav"><div class="wrap">
+  <a class="wordmark" href="#/">Scénario<span>.</span></a>
+  <nav aria-label="Navigation principale">
+    <a href="#">Éditions</a><a href="#" aria-current="page">Signaux</a><a href="#">Le projet</a>
+  </nav>
+</div></header>
+
+<main><div class="wrap" id="app"></div></main>
+
+<script>
+(function(){
+  var ETATS = {
+    stable:"stable", degrade:"dégradé", favorable:"favorable"
+  };
+  var BASE = [
+    {id:"ethiopie-erythree-cessez-le-feu", date:"2026-11-30", libelle:"Annonce d'un cessez-le-feu entre l'Éthiopie et l'Érythrée sous médiation régionale",
+     statut:"avenir", edition:"Éthiopie–Érythrée : la Corne de l'Afrique va-t-elle basculer ? (27 octobre)",
+     oui:{renforce:"stable", effet:"Une médiation régionale ouvre une désescalade, sans règlement du fond."},
+     non:{renforce:"degrade", effet:"Les combats reprennent ou s'étendent à une troisième partie."},
+     avant:{favorable:25, stable:45, degrade:30}},
+    {id:"budget-2027-vote-assemblee", date:"2026-12-31", libelle:"Vote du budget 2027 à l'Assemblée sans motion de censure",
+     statut:"avenir", edition:"Budget 2027 : l'Assemblée peut-elle voter sans censure ? (13 septembre)",
+     oui:{renforce:"stable", effet:"Le budget est adopté, la visibilité politique revient pour l'exécutif."},
+     non:{renforce:"degrade", effet:"Le vote est reporté ou une motion aboutit : crise budgétaire."},
+     avant:{favorable:20, stable:50, degrade:30}}
+  ];
+  var EXEMPLES = [
+    {id:"exemple-realise", date:"2026-11-12", libelle:"Exemple — Réunion d'urgence du Conseil de sécurité de l'ONU tenue",
+     statut:"realise", edition:"Exemple d'édition liée (15 octobre)", exemple:true,
+     oui:{renforce:"stable", effet:"Le dossier passe par la voie diplomatique."},
+     non:{renforce:"degrade", effet:"L'absence de réunion laisse la crise sans cadre."},
+     avant:{favorable:25, stable:45, degrade:30}, apres:{favorable:25, stable:50, degrade:25},
+     raison:"Réunion tenue : le statu quo se confirme et le risque d'escalade recule d'un cran.",
+     sources:["Source A (exemple)", "Source B (exemple)"]},
+    {id:"exemple-manque", date:"2026-11-05", libelle:"Exemple — Accord sur le calendrier du référendum annoncé",
+     statut:"manque", edition:"Exemple d'édition liée (2 octobre)", exemple:true,
+     oui:{renforce:"favorable", effet:"Le calendrier est fixé."},
+     non:{renforce:"degrade", effet:"Le dossier s'enlise."},
+     avant:{favorable:30, stable:40, degrade:30}, apres:{favorable:25, stable:40, degrade:35},
+     raison:"Pas d'annonce à la date limite : le scénario dégradé gagne un cran.",
+     sources:["Source A (exemple)", "Source B (exemple)"]}
+  ];
+  var LONG = "Annonce, sous l'égide conjointe de l'Union africaine, de l'IGAD et de plusieurs médiateurs régionaux, d'un cessez-le-feu durable et vérifiable entre l'Éthiopie et l'Érythrée incluant le retrait des troupes des zones frontalières";
+
+  var params = new URLSearchParams(location.search);
+  var etat = params.get("etat") || "reel";
+  var DATA = BASE.map(function(x){return Object.assign({},x)});
+  if (etat === "mixte") DATA = BASE.concat(EXEMPLES);
+  if (etat === "vide") DATA = [];
+  if (etat === "long") DATA[0].libelle = LONG;
+  if (etat === "absent") DATA = BASE.map(function(x){return Object.assign({},x,{edition:null, avant:null})});
+
+  var app = document.getElementById("app");
+  var filtre = "avenir";
+  var JOURS = 1000*60*60*24;
+
+  function fmt(d){ var p=d.split("-"); return p[2]+"/"+p[1]+"/"+p[0]; }
+  function libStatut(s){
+    if (s.statut==="realise") return ["realise","S'est produit"];
+    if (s.statut==="manque") return ["manque","Ne s'est pas produit"];
+    var j = Math.round((new Date(s.date) - new Date("2026-11-10"))/JOURS);
+    if (j < 0) return ["proche","Date passée, en attente de vérification"];
+    if (j <= 7) return ["proche","Dans moins de 7 jours"];
+    return ["avenir","À venir"];
+  }
+  function groupe(s){ return s.statut==="realise" ? "realise" : s.statut==="manque" ? "manque" : "avenir"; }
+  function pastille(k){ return '<span class="pastille p-'+k+'">'+ETATS[k]+'</span>'; }
+  function esc(t){ return String(t).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]}); }
+
+  function sauver(){ try{ sessionStorage.setItem("sig-liste", JSON.stringify({y:window.scrollY, f:filtre})); }catch(e){} }
+  function charger(){ try{ return JSON.parse(sessionStorage.getItem("sig-liste")||"null"); }catch(e){ return null; } }
+
+  function carte(s){
+    var st = libStatut(s), tranche = s.statut!=="avenir";
+    var h = '<li><a class="carte" href="#/signal/'+s.id+'" data-id="'+s.id+'">';
+    h += '<div class="ligne1"><span class="date">'+fmt(s.date)+'</span><span class="statut '+st[0]+'">'+st[1]+'</span></div>';
+    h += '<h2>'+esc(s.libelle)+'</h2>';
+    h += '<p class="edition">Édition liée : '+(s.edition?esc(s.edition):'…')+'</p>';
+    if (tranche && s.avant && s.apres){
+      var k = s.statut==="realise" ? s.oui.renforce : s.non.renforce;
+      h += '<p class="effet">Effet : '+pastille(k)+' '+s.avant[k]+' → '+s.apres[k]+' %</p>';
+    } else {
+      h += '<div class="issues"><div class="issue"><small>S\'il a lieu</small>Renforce le scénario '+pastille(s.oui.renforce)+'</div>'+
+           '<div class="issue"><small>Sinon</small>Renforce le scénario '+pastille(s.non.renforce)+'</div></div>';
+    }
+    return h+'</a></li>';
+  }
+
+  function vueListe(){
+    var n = {avenir:0, realise:0, manque:0};
+    DATA.forEach(function(s){ n[groupe(s)]++; });
+    var items = DATA.filter(function(s){ return groupe(s)===filtre; })
+                    .sort(function(a,b){ return a.date.localeCompare(b.date); });
+    var h = '<p class="section-label">Signaux</p>';
+    h += '<h1>Ce qui peut changer nos éditions</h1>';
+    h += '<p class="lead">Les rendez-vous que nous guettons, et l\'effet de chacun sur nos scénarios.</p>';
+    h += '<div class="clair"><b>En clair</b><p>Un signal est un fait précis, daté, que l\'on attend : un vote, une annonce, un accord. Il peut avoir lieu ou non, et dans les deux cas on apprend quelque chose. Ce n\'est pas une prévision, c\'est un repère.</p></div>';
+    h += '<div class="filtres" role="group" aria-label="Filtrer les signaux">';
+    [["avenir","À venir"],["realise","Réalisés"],["manque","Manqués"]].forEach(function(f){
+      h += '<button type="button" data-f="'+f[0]+'" aria-pressed="'+(filtre===f[0])+'">'+f[1]+'<span class="n">'+n[f[0]]+'</span></button>';
+    });
+    h += '</div>';
+    if (!items.length){
+      h += '<div class="vide">'+(DATA.length? 'Aucun signal dans cette catégorie.' : 'Aucun signal à surveiller pour le moment.')+'</div>';
+    } else {
+      h += '<ul class="liste">'+items.map(carte).join("")+'</ul>';
+    }
+    app.innerHTML = h;
+    app.querySelectorAll(".filtres button").forEach(function(b){
+      b.addEventListener("click", function(){ filtre=b.getAttribute("data-f"); vueListe(); sauver(); });
+    });
+    app.querySelectorAll("a.carte").forEach(function(a){ a.addEventListener("click", sauver); });
+  }
+
+  function barres(o){
+    return '<div class="barres">'+["favorable","stable","degrade"].map(function(k){
+      return '<div class="barre"><span class="p-'+k+'">'+ETATS[k]+'</span><span class="piste"><span class="rempli f-'+k+'" style="width:'+o.apres[k]+'%"></span></span><span class="val">'+o.avant[k]+' → '+o.apres[k]+' %</span></div>';
+    }).join("")+'</div>';
+  }
+
+  function vueFiche(id){
+    var s = DATA.filter(function(x){return x.id===id;})[0];
+    if (!s){ location.hash="#/"; return; }
+    var st = libStatut(s), tranche = s.statut!=="avenir";
+    var h = '<a class="retour" href="#/" id="retour">← Retour aux signaux</a>';
+    h += '<p class="section-label">Signal</p><h1>'+esc(s.libelle)+'</h1>';
+    h += '<div class="fiche-meta"><span class="statut '+st[0]+'">'+st[1]+'</span><span class="date">Date limite : '+fmt(s.date)+'</span></div>';
+    h += '<p class="lead">Édition concernée : '+(s.edition?'<a href="#" style="color:var(--gold)">'+esc(s.edition)+'</a>':'…')+'</p>';
+    h += '<section class="bloc"><p class="section-label">Ce que cela changerait</p><div class="deux">'+
+         '<div class="cas"><small>S\'il a lieu</small><p>Renforce le scénario '+pastille(s.oui.renforce)+'.</p><p>'+esc(s.oui.effet)+'</p></div>'+
+         '<div class="cas"><small>Sinon</small><p>Renforce le scénario '+pastille(s.non.renforce)+'.</p><p>'+esc(s.non.effet)+'</p></div></div></section>';
+    if (tranche && s.apres){
+      h += '<section class="bloc"><p class="section-label">Effet sur les pourcentages</p>'+barres(s)+
+           '<p class="note">'+esc(s.raison)+'</p></section>';
+      h += '<section class="bloc"><p class="section-label">Sources</p><ul class="source">'+s.sources.map(function(x){return '<li><a href="#">'+esc(x)+'</a></li>';}).join("")+'</ul></section>';
+    } else if (s.avant){
+      h += '<section class="bloc"><p class="section-label">Répartition actuelle</p><div class="barres">'+["favorable","stable","degrade"].map(function(k){
+        return '<div class="barre"><span class="p-'+k+'">'+ETATS[k]+'</span><span class="piste"><span class="rempli f-'+k+'" style="width:'+s.avant[k]+'%"></span></span><span class="val">'+s.avant[k]+' %</span></div>';}).join("")+'</div>'+
+        '<p class="note">Aucun verdict tant que le signal n\'est pas tranché. Le déplacement maximal sera de 5 points.</p></section>';
+    } else {
+      h += '<section class="bloc"><p class="section-label">Répartition actuelle</p><p class="lead">…</p></section>';
+    }
+    app.innerHTML = h;
+    window.scrollTo(0,0);
+  }
+
+  function route(){
+    var m = location.hash.match(/^#\/signal\/(.+)$/);
+    if (m){ vueFiche(m[1]); return; }
+    var memo = charger();
+    if (memo && memo.f) filtre = memo.f;
+    vueListe();
+    if (memo && typeof memo.y==="number") window.scrollTo(0, memo.y);
+  }
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  window.addEventListener("hashchange", route);
+  route();
+})();
+</script>
+</body>
+</html>
