@@ -11,4 +11,15 @@
       <news:title>Ukraine: Could the refinery war shift the balance of the conflict?</news:title>
     </news:news>
   </url>
-<url><loc>https://lesscenarios.fr/archives/2026-11-10.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-11-10T06:01:45+01:00</news:publication_date><news:title>Russie : Poutine verrouille-t-il le pouvoir sans fissure après les législatives de septembre ?</news:title></news:news></url></urlset>
+<url><loc>https://lesscenarios.fr/archives/2026-11-10.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-11-10T06:01:45+01:00</news:publication_date><news:title>Russie : Poutine verrouille-t-il le pouvoir sans fissure après les législatives de septembre ?</news:title></news:news></url>  <url>
+    <loc>https://lesscenarios.fr/en/archives/2026-11-10.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Scénario</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-11-10T06:01:45+01:00</news:publication_date>
+      <news:title>Russia: Has Putin locked down power without a crack after the September legislative elections?</news:title>
+    </news:news>
+  </url>
+</urlset>
