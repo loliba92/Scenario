@@ -63,5 +63,34 @@ class T(unittest.TestCase):
         self.assertNotIn("<b>&</b>", h)
 
 
+class TestAccueil(unittest.TestCase):
+    def test_bloc_trois_cartes_max(self):
+        import accueil
+        h = accueil.bloc(date(2026, 11, 10))
+        self.assertEqual(h.count('class="avh-carte"'), 3)
+        self.assertIn('href="a-venir.html#rv-', h)
+        self.assertTrue(h.startswith(accueil.START) and h.endswith(accueil.END))
+
+    def test_bloc_vide_sans_rendez_vous(self):
+        import accueil
+        self.assertEqual(accueil.bloc(date(2030, 1, 1)), "")
+
+    def test_injection_remplace_ancien_bloc_et_est_idempotente(self):
+        import accueil
+        base = ('<section class="featured-article"><p>ed</p></section>\n'
+                '<!-- dernier-suivi:start -->\n<section>vieux</section>\n<!-- dernier-suivi:end -->\n<footer></footer>')
+        b = accueil.bloc(date(2026, 11, 10))
+        un = accueil.injecter(base, b)
+        self.assertNotIn("vieux", un)
+        self.assertEqual(un.count(accueil.START), 1)
+        self.assertEqual(accueil.injecter(un, b), un)
+        self.assertLess(un.index("featured-article"), un.index(accueil.START))
+
+    def test_traits_d_union_insecables(self):
+        self.assertIn("est&#8209;il", g.nbsp("Le budget est-il voté ?"))
+        self.assertIn("a&#8209;t&#8209;il", g.nbsp("Va-t-il tenir ?"))
+        self.assertIn("cessez-le-feu", g.nbsp("cessez-le-feu"))
+
+
 if __name__ == "__main__":
     unittest.main()

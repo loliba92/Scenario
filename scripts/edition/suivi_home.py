@@ -323,19 +323,10 @@ def injecter(index_html: str, bloc: str) -> str:
 
 
 def main(argv=None) -> int:
-    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--check", action="store_true", help="ne rien écrire ; code 1 si index.html n'est pas à jour")
-    args = ap.parse_args(argv)
-    ancien = INDEX_PATH.read_text(encoding="utf-8")
-    nouveau = injecter(ancien, bloc_dernier_suivi())
-    if nouveau == ancien:
-        print("index.html : bloc « Le dernier suivi » déjà à jour")
-        return 0
-    if args.check:
-        print("index.html : bloc « Le dernier suivi » à mettre à jour")
-        return 1
-    INDEX_PATH.write_text(nouveau, encoding="utf-8")
-    print("index.html : bloc « Le dernier suivi » mis à jour")
+    """L'accueil n'affiche plus « Le dernier suivi » (remplacé par l'encadré « À venir », scripts/a_venir/accueil.py).
+    Les cartes de la page Éditions (bloc_suivis_edition) restent alimentées par ce module."""
+    argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter).parse_args(argv)
+    print("index.html : plus de bloc « Le dernier suivi » (remplacé par « À venir »), rien à faire")
     return 0
 
 

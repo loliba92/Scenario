@@ -97,7 +97,7 @@ Une routine hebdomadaire sur Claude fait ce travail automatiquement chaque lundi
 | Version anglaise | `scripts/en/translate_daily.py` | titres et descriptions traduits à partir du français |
 | Page Éditions, cartes | `scripts/seo/generate_archives_table.py`, `scripts/edition/suivi_home.py` | pages régénérées par script |
 | Pages de suivi | `scripts/seo/align_suivi_design.py` | la carte « à l'origine / aujourd'hui » vient de là |
-| Accueil | `index.html` (modèle), `scripts/edition/build_html.py` | `suivi_home.py --check` doit passer |
+| Accueil | `index.html` (modèle), `scripts/edition/build_html.py` | `python3 scripts/a_venir/accueil.py --check` doit passer (encadré « À venir ») |
 | Plan du site | `sitemap.xml`, `sitemap-news.xml` | `lastmod` = vraie date de modification |
 | Guide pédagogique | `guide-pedagogique.html` | page vivante, modifiable |
 

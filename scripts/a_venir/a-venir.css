@@ -10,7 +10,7 @@
     margin:0 0 4px calc(var(--tile) + var(--gap)); padding:8px 0; }
   .av .periode > .section-label::after{ content:""; position:absolute; left:calc(-1 * (var(--tile) / 2 + var(--gap)) - 6px); top:50%;
     width:12px; height:12px; margin-top:-6px; border-radius:50%; background:var(--ink); border:2px solid var(--gold); }
-  .av .signal{ display:grid; grid-template-columns:var(--tile) 1fr; gap:var(--gap); padding:8px 0 12px; align-items:start; }
+  .av .signal{ scroll-margin-top:64px; display:grid; grid-template-columns:var(--tile) 1fr; gap:var(--gap); padding:8px 0 12px; align-items:start; }
   .av .tuile{ position:relative; z-index:1; width:var(--tile); border-radius:12px; overflow:hidden; text-align:center;
     background:var(--surface-2); border:1px solid #3a4656; box-shadow:0 4px 12px rgba(0,0,0,.35); }
   .av .tuile .haut{ display:block; background:var(--gold); color:var(--ink); font-family:"JetBrains Mono",monospace; font-weight:500;

@@ -121,14 +121,17 @@ def titre_edition(racine, iso):
 
 
 def nbsp(t):
-    return esc(t).replace(" ?", "&nbsp;?").replace("week-end", "week&#8209;end")
+    """Espace insécable avant « ? » ; traits d'union insécables (« est-il », « va-t-il », « week-end »)."""
+    s = esc(t).replace(" ?", "&nbsp;?").replace("week-end", "week&#8209;end")
+    return re.sub(r"(?<=\w)-(t-)?(il|ils|elle|elles|on)\b",
+                  lambda m: "&#8209;" + ("t&#8209;" if m.group(1) else "") + m.group(2), s)
 
 
 def carte(r, i, jour, racine):
     texte_reste, pct = reste(r, jour)
     eds = [(iso, titre_edition(racine, iso)) for iso in r["editions"]]
     eds = [(iso, e) for iso, e in eds if e]
-    h = f'<article class="signal" style="--i:{i}">{tuile(r)}<div class="carte">'
+    h = f'<article class="signal" id="rv-{esc(r["id"])}" style="--i:{i}">{tuile(r)}<div class="carte">'
     h += (f'<div class="entete"><span class="pastille"><svg viewBox="0 0 24 24" aria-hidden="true">'
           f'{ICONES[r["domaine"]]}</svg>{esc(r["domaine"])}</span>'
           f'<span class="jauge"><span class="piste" aria-hidden="true"><i style="width:{pct}%"></i></span>'
