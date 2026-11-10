@@ -289,9 +289,12 @@ def carte(r, i, jour, racine, verifier=False):
     eds = [(iso, e) for iso, e in eds if e]
     h = (f'<article class="signal" id="rv-{esc(r["id"])}" style="--i:{i}" data-periode="{"passe" if verifier else "avenir"}" '
          f'data-domaine="{esc(r["domaine"])}" data-couleur="{"verif" if verifier else "avenir"}">{tuile(r)}<div class="carte">')
+    jours = max(0, (date.fromisoformat(r["date"]) - jour).days)
+    anneau = (f'<span class="anneau" style="--p:{pct}" aria-hidden="true"><b>{jours}</b>'
+              f'<small>jour{"s" if jours > 1 else ""}</small></span>')
     droite = ('<span class="statut verif">Date passée : réponse en cours de vérification</span>' if verifier else
               f'<span class="jauge"><span class="piste" aria-hidden="true"><i style="width:{pct}%"></i></span>'
-              f'<b>{texte_reste}</b></span>')
+              f'<b>{texte_reste}</b>{anneau}</span>')
     h += (f'<div class="entete"><span class="pastille"><svg viewBox="0 0 24 24" aria-hidden="true">'
           f'{ICONES[r["domaine"]]}</svg>{esc(r["domaine"])}</span>{droite}</div>')
     h += (f'<h2><span class="sr">{esc(texte_quand(r))} : </span>{nbsp(r["question"])}</h2>'

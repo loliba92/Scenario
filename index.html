@@ -2472,14 +2472,42 @@
   .av-home .avh-question{ display:block; font-family:"Fraunces",serif; font-weight:500; font-size:1rem; line-height:1.3; text-wrap:balance; transition:color .2s; }
   .av-home .avh-point a:hover .avh-question{ color:var(--gold); }
   .av-home .avh-qui{ display:block; margin-top:6px; font-family:"JetBrains Mono",monospace; font-size:.62rem; letter-spacing:.06em; text-transform:uppercase; color:var(--paper-dim); }
+  .av-home .avh-tuile{ display:none; }
+  .av-home .avh-dom{ position:absolute; left:-9999px; }
   @media (max-width:760px){
-    section.av-home{ padding:18px 0 22px; }
-    .av-home .avh-frise{ grid-template-columns:1fr; gap:0; padding-left:22px; }
-    .av-home .avh-frise::before{ left:5px; right:auto; top:6px; bottom:12px; width:1px; height:auto;
-      background:linear-gradient(180deg, var(--gold), rgba(207,157,76,.35) 70%, transparent); }
-    .av-home .avh-point a{ padding:0 0 16px; }
-    .av-home .avh-noeud{ left:-22px; top:3px; }
-    .av-home .avh-point:last-child a{ padding-bottom:2px; }
+    section.av-home{ padding:22px 0 26px; overflow:hidden; }
+    .av-home .avh-entete{ padding:0 14px; }
+    /* Carrousel : cartes pleine hauteur qu'on fait glisser, la suivante dépasse pour inviter au geste. */
+    .av-home .avh-frise{ display:flex; gap:12px; overflow-x:auto; scroll-snap-type:x mandatory; padding:4px 14px 12px; margin:0;
+      scrollbar-width:none; -webkit-overflow-scrolling:touch; scroll-padding-inline:14px; }
+    .av-home .avh-frise::-webkit-scrollbar{ display:none; }
+    .av-home .avh-frise::before{ display:none; }
+    .av-home .avh-point{ flex:0 0 min(84%, 330px); scroll-snap-align:start; }
+    .av-home .avh-point a{ position:relative; display:grid; grid-template-columns:58px minmax(0,1fr); gap:6px 14px; align-content:start; height:100%;
+      padding:16px; border:1px solid var(--hairline); border-radius:18px; overflow:hidden;
+      background:radial-gradient(130% 90% at 0% 0%, rgba(207,157,76,.14), transparent 60%), var(--surface); }
+    .av-home .avh-point a::before{ content:""; position:absolute; left:0; right:0; top:0; height:2px; background:linear-gradient(90deg, var(--gold), transparent 75%); }
+    .av-home .avh-noeud{ display:none; }
+    .av-home .avh-tuile{ display:block; grid-row:1 / span 2; }
+    .av-home .tuile{ width:58px; border-radius:10px; overflow:hidden; text-align:center; background:var(--surface-2); border:1px solid #3a4656; }
+    .av-home .tuile .haut{ display:block; background:var(--gold); color:var(--ink); font-family:"JetBrains Mono",monospace; font-weight:500; font-size:.55rem;
+      letter-spacing:.05em; text-transform:uppercase; padding:3px 2px; line-height:1.2; white-space:nowrap; }
+    .av-home .tuile .gros{ display:block; font-family:"Fraunces",serif; font-weight:600; font-size:1.5rem; line-height:1; padding:7px 2px 3px; color:var(--paper); }
+    .av-home .tuile .bas{ display:block; font-family:"JetBrains Mono",monospace; font-size:.55rem; letter-spacing:.08em; text-transform:uppercase; color:var(--paper-dim); padding:0 2px 6px; line-height:1.2; }
+    .av-home .tuile .gros.moy{ font-size:1.1rem; padding-top:9px; }
+    .av-home .tuile .gros.moy:last-child{ padding-bottom:10px; }
+    .av-home .tuile .gros.sans-bas{ padding-bottom:8px; }
+    .av-home .tuile.flou{ background:var(--surface); border:1.5px dashed var(--gold); }
+    .av-home .tuile.flou .haut{ background:transparent; color:var(--gold); padding-top:5px; }
+    .av-home .avh-date{ margin:0; align-self:center; }
+    .av-home .avh-date{ flex-wrap:wrap; row-gap:3px; }
+    .av-home .avh-dom{ position:static; font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); }
+    .av-home .avh-date i{ flex:0 0 100%; }
+    .av-home .avh-q{ display:none; }
+    .av-home .avh-date i::before{ display:none; }
+    .av-home .avh-date i{ color:var(--paper); font-family:"JetBrains Mono",monospace; font-size:.72rem; }
+    .av-home .avh-question{ grid-column:1 / -1; font-size:1.12rem; line-height:1.28; margin-top:6px; }
+    .av-home .avh-qui{ grid-column:1 / -1; margin-top:8px; }
   }
   @media (prefers-reduced-motion:reduce){ .av-home .avh-noeud, .av-home .avh-question{ transition:none; } }
   /* a-venir-accueil:end */
@@ -2559,7 +2587,7 @@
 <section class="av-home" id="a-venir"><div class="wrap">
 <div class="avh-bande">
 <div class="avh-entete"><p class="section-label">À venir</p><a class="avh-tout" href="a-venir.html">Tous les rendez-vous →</a></div>
-<ol class="avh-frise"><li class="avh-point"><a href="a-venir.html#rv-ethiopie-erythree-cessez-le-feu"><span class="avh-noeud" aria-hidden="true"></span><span class="avh-date"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M5 7.5c2 1 4.3 1.5 7 1.5s5-.5 7-1.5M5 16.5c2-1 4.3-1.5 7-1.5s5 .5 7 1.5"/></svg><span class="sr" style="position:absolute;left:-9999px">Géopolitique : </span>D&#x27;ici le 30 nov.<i>dans 20 jours</i></span><span class="avh-question">Un cessez-le-feu est&#8209;il annoncé entre l&#x27;Éthiopie et l&#x27;Érythrée&nbsp;?</span><span class="avh-qui">Gouvernements éthiopien et érythréen · officiel</span></a></li><li class="avh-point"><a href="a-venir.html#rv-facturation-electronique-taux-designation"><span class="avh-noeud" aria-hidden="true"></span><span class="avh-date"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4v16h16"/><path d="M8 15l3.5-4 3 2.5L20 7"/><path d="M16 7h4v4"/></svg><span class="sr" style="position:absolute;left:-9999px">Économie : </span>Fin nov.<i>dans 20 jours</i></span><span class="avh-question">Quel est le taux de désignation officiel publié pour la facturation électronique&nbsp;?</span><span class="avh-qui">DGFiP · officiel</span></a></li><li class="avh-point"><a href="a-venir.html#rv-budget-2027-vote-sans-censure"><span class="avh-noeud" aria-hidden="true"></span><span class="avh-date"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-5 9 5z"/><path d="M5.5 12v6M10 12v6M14 12v6M18.5 12v6M3 20.5h18"/></svg><span class="sr" style="position:absolute;left:-9999px">Politique : </span>D&#x27;ici le 31 déc.<i>dans 51 jours</i></span><span class="avh-question">Le budget 2027 est&#8209;il voté sans que le gouvernement soit renversé&nbsp;?</span><span class="avh-qui">Assemblée nationale · officiel</span></a></li></ol>
+<ol class="avh-frise"><li class="avh-point"><a href="a-venir.html#rv-ethiopie-erythree-cessez-le-feu"><span class="avh-noeud" aria-hidden="true"></span><span class="avh-tuile" aria-hidden="true"><div class="tuile flou" aria-hidden="true"><span class="haut">D&#x27;ici le</span><span class="gros">30</span><span class="bas">nov.</span></div></span><span class="avh-date"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M5 7.5c2 1 4.3 1.5 7 1.5s5-.5 7-1.5M5 16.5c2-1 4.3-1.5 7-1.5s5 .5 7 1.5"/></svg><span class="avh-dom">Géopolitique</span><span class="avh-q">D&#x27;ici le 30 nov.</span><i>dans 20 jours</i></span><span class="avh-question">Un cessez-le-feu est&#8209;il annoncé entre l&#x27;Éthiopie et l&#x27;Érythrée&nbsp;?</span><span class="avh-qui">Gouvernements éthiopien et érythréen · officiel</span></a></li><li class="avh-point"><a href="a-venir.html#rv-facturation-electronique-taux-designation"><span class="avh-noeud" aria-hidden="true"></span><span class="avh-tuile" aria-hidden="true"><div class="tuile flou" aria-hidden="true"><span class="haut">Fin</span><span class="gros moy sans-bas">nov.</span></div></span><span class="avh-date"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4v16h16"/><path d="M8 15l3.5-4 3 2.5L20 7"/><path d="M16 7h4v4"/></svg><span class="avh-dom">Économie</span><span class="avh-q">Fin nov.</span><i>dans 20 jours</i></span><span class="avh-question">Quel est le taux de désignation officiel publié pour la facturation électronique&nbsp;?</span><span class="avh-qui">DGFiP · officiel</span></a></li><li class="avh-point"><a href="a-venir.html#rv-budget-2027-vote-sans-censure"><span class="avh-noeud" aria-hidden="true"></span><span class="avh-tuile" aria-hidden="true"><div class="tuile flou" aria-hidden="true"><span class="haut">D&#x27;ici le</span><span class="gros">31</span><span class="bas">déc.</span></div></span><span class="avh-date"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-5 9 5z"/><path d="M5.5 12v6M10 12v6M14 12v6M18.5 12v6M3 20.5h18"/></svg><span class="avh-dom">Politique</span><span class="avh-q">D&#x27;ici le 31 déc.</span><i>dans 51 jours</i></span><span class="avh-question">Le budget 2027 est&#8209;il voté sans que le gouvernement soit renversé&nbsp;?</span><span class="avh-qui">Assemblée nationale · officiel</span></a></li></ol>
 </div></div></section>
 <!-- a-venir:end -->
 
