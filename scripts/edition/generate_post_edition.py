@@ -692,7 +692,11 @@ def update_sitemap_xml(sitemap_text, edition_id, bump_glossaire=False):
     marker = f"<loc>{SITE_URL}/archives.html</loc>"
     idx = text.index(marker)
     insert_at = text.index("</url>", idx) + len("</url>\n")
-    return text[:insert_at] + new_entry + text[insert_at:]
+    text = text[:insert_at] + new_entry + text[insert_at:]
+    # liens hreflang fr/en (idempotent) : voir scripts/seo/hreflang_sitemap.py
+    sys.path.insert(0, str(REPO_ROOT / "scripts" / "seo"))
+    from hreflang_sitemap import ajouter_hreflang
+    return ajouter_hreflang(text)
 
 
 def update_sitemap_news_xml(sitemap_news_text, edition_id, title):

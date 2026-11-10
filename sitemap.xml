@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://lesscenarios.fr/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/"/>
     <lastmod>2026-11-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -14,18 +18,27 @@
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-11-10.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-11-10.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-11-10.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-11-10.html"/>
     <lastmod>2026-11-10</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-11-09.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-11-09.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-11-09.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-11-09.html"/>
     <lastmod>2026-11-09</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-11-08.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-11-08.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-11-08.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-11-08.html"/>
     <lastmod>2026-11-08</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
@@ -38,42 +51,63 @@
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-11-07.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-11-07.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-11-07.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-11-07.html"/>
     <lastmod>2026-11-07</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-11-06.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-11-06.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-11-06.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-11-06.html"/>
     <lastmod>2026-11-06</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-11-05.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-11-05.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-11-05.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-11-05.html"/>
     <lastmod>2026-11-05</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-11-04.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-11-04.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-11-04.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-11-04.html"/>
     <lastmod>2026-11-04</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-11-03.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-11-03.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-11-03.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-11-03.html"/>
     <lastmod>2026-11-03</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-11-02.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-11-02.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-11-02.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-11-02.html"/>
     <lastmod>2026-11-02</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-11-01.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-11-01.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-11-01.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-11-01.html"/>
     <lastmod>2026-11-01</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
@@ -86,42 +120,63 @@
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-10-31.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-31.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-31.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-31.html"/>
     <lastmod>2026-10-31</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-10-30.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-30.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-30.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-30.html"/>
     <lastmod>2026-10-30</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-10-29.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-29.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-29.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-29.html"/>
     <lastmod>2026-10-29</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-10-28.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-28.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-28.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-28.html"/>
     <lastmod>2026-10-28</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-10-27.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-27.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-27.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-27.html"/>
     <lastmod>2026-10-27</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-10-26.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-26.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-26.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-26.html"/>
     <lastmod>2026-10-26</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-10-25.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-25.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-25.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-25.html"/>
     <lastmod>2026-10-25</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
@@ -134,42 +189,63 @@
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-10-24.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-24.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-24.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-24.html"/>
     <lastmod>2026-10-24</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-10-23.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-23.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-23.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-23.html"/>
     <lastmod>2026-10-23</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-10-22.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-22.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-22.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-22.html"/>
     <lastmod>2026-10-22</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-10-21.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-21.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-21.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-21.html"/>
     <lastmod>2026-10-21</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-10-20.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-20.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-20.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-20.html"/>
     <lastmod>2026-10-20</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-10-19.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-19.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-19.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-19.html"/>
     <lastmod>2026-10-19</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-10-18.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-18.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-18.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-18.html"/>
     <lastmod>2026-10-18</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
@@ -182,18 +258,27 @@
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-10-17.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-17.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-17.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-17.html"/>
     <lastmod>2026-10-17</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-10-16.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-16.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-16.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-16.html"/>
     <lastmod>2026-10-16</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-10-15.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-15.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-15.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-15.html"/>
     <lastmod>2026-10-15</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
@@ -206,18 +291,27 @@
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-10-13.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-13.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-13.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-13.html"/>
     <lastmod>2026-10-13</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-10-12.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-12.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-12.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-12.html"/>
     <lastmod>2026-10-12</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-10-11.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-11.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-11.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-11.html"/>
     <lastmod>2026-10-11</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
@@ -230,42 +324,63 @@
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-10-10.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-10.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-10.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-10.html"/>
     <lastmod>2026-10-10</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-10-09.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-09.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-09.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-09.html"/>
     <lastmod>2026-10-09</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-10-08.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-08.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-08.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-08.html"/>
     <lastmod>2026-10-08</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-10-07.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-07.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-07.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-07.html"/>
     <lastmod>2026-10-07</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-10-06.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-06.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-06.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-06.html"/>
     <lastmod>2026-10-06</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-10-05.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-05.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-05.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-05.html"/>
     <lastmod>2026-10-05</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-10-04.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-04.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-04.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-04.html"/>
     <lastmod>2026-10-04</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
@@ -278,42 +393,63 @@
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-10-03.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-03.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-03.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-03.html"/>
     <lastmod>2026-10-03</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-10-02.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-02.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-02.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-02.html"/>
     <lastmod>2026-10-02</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-10-01.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-01.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-01.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-01.html"/>
     <lastmod>2026-10-01</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-09-30.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-30.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-30.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-30.html"/>
     <lastmod>2026-09-30</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-09-29.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-29.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-29.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-29.html"/>
     <lastmod>2026-09-29</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-09-28.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-28.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-28.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-28.html"/>
     <lastmod>2026-09-28</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-09-27.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-27.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-27.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-27.html"/>
     <lastmod>2026-09-27</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
@@ -326,42 +462,63 @@
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-09-26.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-26.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-26.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-26.html"/>
     <lastmod>2026-09-26</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-09-25.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-25.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-25.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-25.html"/>
     <lastmod>2026-09-25</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-09-24.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-24.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-24.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-24.html"/>
     <lastmod>2026-09-24</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-09-23.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-23.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-23.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-23.html"/>
     <lastmod>2026-09-23</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-09-22.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-22.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-22.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-22.html"/>
     <lastmod>2026-09-22</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-09-21.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-21.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-21.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-21.html"/>
     <lastmod>2026-09-21</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-09-20.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-20.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-20.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-20.html"/>
     <lastmod>2026-09-20</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
@@ -374,42 +531,63 @@
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-09-19.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-19.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-19.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-19.html"/>
     <lastmod>2026-09-19</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-09-18.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-18.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-18.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-18.html"/>
     <lastmod>2026-09-18</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-09-17.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-17.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-17.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-17.html"/>
     <lastmod>2026-09-17</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-09-16.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-16.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-16.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-16.html"/>
     <lastmod>2026-09-16</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-09-15.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-15.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-15.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-15.html"/>
     <lastmod>2026-09-15</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-09-14.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-14.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-14.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-14.html"/>
     <lastmod>2026-09-14</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-09-13.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-13.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-13.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-13.html"/>
     <lastmod>2026-09-13</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
@@ -422,462 +600,693 @@
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/"/>
     <lastmod>2026-11-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-11-10.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-11-10.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-11-10.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-11-10.html"/>
     <lastmod>2026-11-10</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-11-09.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-11-09.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-11-09.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-11-09.html"/>
     <lastmod>2026-11-09</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-11-08.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-11-08.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-11-08.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-11-08.html"/>
     <lastmod>2026-11-08</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-11-07.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-11-07.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-11-07.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-11-07.html"/>
     <lastmod>2026-11-07</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-11-06.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-11-06.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-11-06.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-11-06.html"/>
     <lastmod>2026-11-06</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-11-05.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-11-05.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-11-05.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-11-05.html"/>
     <lastmod>2026-11-05</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-11-04.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-11-04.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-11-04.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-11-04.html"/>
     <lastmod>2026-11-04</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-11-03.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-11-03.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-11-03.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-11-03.html"/>
     <lastmod>2026-11-03</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-11-02.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-11-02.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-11-02.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-11-02.html"/>
     <lastmod>2026-11-02</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-11-01.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-11-01.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-11-01.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-11-01.html"/>
     <lastmod>2026-11-01</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-10-31.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-31.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-31.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-31.html"/>
     <lastmod>2026-10-31</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-10-30.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-30.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-30.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-30.html"/>
     <lastmod>2026-10-30</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-10-29.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-29.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-29.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-29.html"/>
     <lastmod>2026-10-29</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-10-28.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-28.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-28.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-28.html"/>
     <lastmod>2026-10-28</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-10-27.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-27.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-27.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-27.html"/>
     <lastmod>2026-10-27</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-10-26.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-26.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-26.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-26.html"/>
     <lastmod>2026-10-26</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-10-25.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-25.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-25.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-25.html"/>
     <lastmod>2026-10-25</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-10-24.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-24.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-24.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-24.html"/>
     <lastmod>2026-10-24</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-10-23.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-23.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-23.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-23.html"/>
     <lastmod>2026-10-23</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-10-22.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-22.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-22.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-22.html"/>
     <lastmod>2026-10-22</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-10-21.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-21.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-21.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-21.html"/>
     <lastmod>2026-10-21</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-10-20.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-20.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-20.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-20.html"/>
     <lastmod>2026-10-20</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-10-19.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-19.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-19.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-19.html"/>
     <lastmod>2026-10-19</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-10-18.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-18.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-18.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-18.html"/>
     <lastmod>2026-10-18</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-10-17.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-17.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-17.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-17.html"/>
     <lastmod>2026-10-17</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-10-16.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-16.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-16.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-16.html"/>
     <lastmod>2026-10-16</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-10-15.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-15.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-15.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-15.html"/>
     <lastmod>2026-10-15</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-10-13.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-13.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-13.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-13.html"/>
     <lastmod>2026-10-13</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-10-12.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-12.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-12.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-12.html"/>
     <lastmod>2026-10-12</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-10-11.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-11.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-11.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-11.html"/>
     <lastmod>2026-10-11</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-10-10.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-10.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-10.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-10.html"/>
     <lastmod>2026-10-10</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-10-09.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-09.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-09.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-09.html"/>
     <lastmod>2026-10-09</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-10-08.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-08.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-08.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-08.html"/>
     <lastmod>2026-10-08</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-10-07.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-07.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-07.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-07.html"/>
     <lastmod>2026-10-07</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-10-06.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-06.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-06.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-06.html"/>
     <lastmod>2026-10-06</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-10-05.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-05.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-05.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-05.html"/>
     <lastmod>2026-10-05</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-10-04.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-04.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-04.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-04.html"/>
     <lastmod>2026-10-04</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-10-03.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-03.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-03.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-03.html"/>
     <lastmod>2026-10-03</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-10-02.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-02.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-02.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-02.html"/>
     <lastmod>2026-10-02</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-10-01.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-10-01.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-10-01.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-10-01.html"/>
     <lastmod>2026-10-01</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-09-30.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-30.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-30.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-30.html"/>
     <lastmod>2026-09-30</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-09-29.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-29.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-29.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-29.html"/>
     <lastmod>2026-09-29</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-09-28.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-28.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-28.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-28.html"/>
     <lastmod>2026-09-28</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-09-27.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-27.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-27.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-27.html"/>
     <lastmod>2026-09-27</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-09-26.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-26.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-26.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-26.html"/>
     <lastmod>2026-09-26</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-09-25.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-25.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-25.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-25.html"/>
     <lastmod>2026-09-25</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-09-24.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-24.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-24.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-24.html"/>
     <lastmod>2026-09-24</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-09-23.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-23.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-23.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-23.html"/>
     <lastmod>2026-09-23</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-09-22.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-22.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-22.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-22.html"/>
     <lastmod>2026-09-22</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-09-21.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-21.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-21.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-21.html"/>
     <lastmod>2026-09-21</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-09-20.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-20.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-20.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-20.html"/>
     <lastmod>2026-09-20</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-09-19.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-19.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-19.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-19.html"/>
     <lastmod>2026-09-19</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-09-18.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-18.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-18.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-18.html"/>
     <lastmod>2026-09-18</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-09-17.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-17.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-17.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-17.html"/>
     <lastmod>2026-09-17</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-09-16.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-16.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-16.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-16.html"/>
     <lastmod>2026-09-16</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-09-15.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-15.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-15.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-15.html"/>
     <lastmod>2026-09-15</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-09-14.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-14.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-14.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-14.html"/>
     <lastmod>2026-09-14</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-09-13.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-13.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-13.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-13.html"/>
     <lastmod>2026-09-13</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-09-11.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-11.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-11.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-11.html"/>
     <lastmod>2026-09-11</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-09-12.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-12.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-12.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-12.html"/>
     <lastmod>2026-09-12</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-09-10.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-10.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-10.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-10.html"/>
     <lastmod>2026-09-10</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-09-09.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-09.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-09.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-09.html"/>
     <lastmod>2026-09-09</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-09-08.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-08.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-08.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-08.html"/>
     <lastmod>2026-09-08</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-09-07.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-07.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-07.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-07.html"/>
     <lastmod>2026-09-07</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-09-06.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-06.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-06.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-06.html"/>
     <lastmod>2026-09-06</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-09-05.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-05.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-05.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-05.html"/>
     <lastmod>2026-09-05</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-09-04.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-04.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-04.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-04.html"/>
     <lastmod>2026-09-04</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-09-03.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-03.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-03.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-03.html"/>
     <lastmod>2026-09-03</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-08-08.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-08-08.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-08-08.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-08-08.html"/>
     <lastmod>2026-08-08</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-08-22.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-08-22.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-08-22.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-08-22.html"/>
     <lastmod>2026-08-29</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-08-20.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-08-20.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-08-20.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-08-20.html"/>
     <lastmod>2026-09-03</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-08-29.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-08-29.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-08-29.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-08-29.html"/>
     <lastmod>2026-08-29</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-09-02.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-02.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-02.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-02.html"/>
     <lastmod>2026-09-02</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-09-01.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-01.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-01.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-01.html"/>
     <lastmod>2026-09-01</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-08-31.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-08-31.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-08-31.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-08-31.html"/>
     <lastmod>2026-08-31</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-08-30.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-08-30.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-08-30.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-08-30.html"/>
     <lastmod>2026-08-30</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
@@ -1004,12 +1413,18 @@
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-07-29.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-07-29.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-07-29.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-07-29.html"/>
     <lastmod>2026-07-29</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-07-29.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-07-29.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-07-29.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-07-29.html"/>
     <lastmod>2026-07-29</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
@@ -1070,6 +1485,9 @@
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-08-08.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-08-08.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-08-08.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-08-08.html"/>
     <lastmod>2026-08-08</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
@@ -1160,6 +1578,9 @@
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-08-20.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-08-20.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-08-20.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-08-20.html"/>
     <lastmod>2026-08-20</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
@@ -1172,6 +1593,9 @@
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-08-22.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-08-22.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-08-22.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-08-22.html"/>
     <lastmod>2026-08-22</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
@@ -1184,12 +1608,18 @@
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-08-29.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-08-29.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-08-29.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-08-29.html"/>
     <lastmod>2026-08-29</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-08-30.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-08-30.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-08-30.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-08-30.html"/>
     <lastmod>2026-08-30</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
@@ -1202,42 +1632,63 @@
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-09-06.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-06.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-06.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-06.html"/>
     <lastmod>2026-09-06</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-09-07.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-07.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-07.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-07.html"/>
     <lastmod>2026-09-07</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-09-08.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-08.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-08.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-08.html"/>
     <lastmod>2026-09-08</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-09-09.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-09.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-09.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-09.html"/>
     <lastmod>2026-09-09</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-09-10.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-10.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-10.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-10.html"/>
     <lastmod>2026-09-10</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-09-11.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-11.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-11.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-11.html"/>
     <lastmod>2026-09-11</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-09-12.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-12.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-12.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-12.html"/>
     <lastmod>2026-09-12</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
@@ -1250,36 +1701,54 @@
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-09-05.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-05.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-05.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-05.html"/>
     <lastmod>2026-09-05</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-09-04.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-04.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-04.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-04.html"/>
     <lastmod>2026-09-04</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-09-03.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-03.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-03.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-03.html"/>
     <lastmod>2026-09-03</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-09-02.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-02.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-02.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-02.html"/>
     <lastmod>2026-09-02</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-09-01.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-09-01.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-09-01.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-09-01.html"/>
     <lastmod>2026-09-01</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-08-31.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-08-31.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-08-31.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-08-31.html"/>
     <lastmod>2026-08-31</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>

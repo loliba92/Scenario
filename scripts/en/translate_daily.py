@@ -1493,6 +1493,10 @@ def update_sitemap(date_str):
         r"<loc>https://lesscenarios\.fr/en/</loc>.*?</url>\n", xml, re.S
     )
     xml = xml[:marker.end()] + new_entry + xml[marker.end():]
+    # liens hreflang fr/en (idempotent) : voir scripts/seo/hreflang_sitemap.py
+    sys.path.insert(0, str(REPO_ROOT / "scripts" / "seo"))
+    from hreflang_sitemap import ajouter_hreflang
+    xml = ajouter_hreflang(xml)
     path.write_text(xml, encoding="utf-8")
 
 
