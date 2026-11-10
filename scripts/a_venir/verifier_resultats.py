@@ -24,6 +24,7 @@ MODELE_CONFIRMATION = "anthropic/claude-sonnet-5"
 MAX_PAR_PASSAGE = 3
 MAX_ESSAIS_ECHUS = 10
 INTERVALLE_AVANT_ECHEANCE = 7  # jours entre deux recherches pour un rendez-vous pas encore échu
+PANNES = ("appel du modèle impossible", "confirmation impossible")
 JOURNAL = RACINE / "data" / "a-venir-journal.json"
 OUTILS = [{"type": "openrouter:web_search", "parameters": {"engine": "auto", "max_results": 8}}]
 
@@ -136,6 +137,10 @@ def main():
             continue
         res, motifs, c = traiter(r, jour, RACINE, cle)
         cout += c
+        if not res and motifs and motifs[0].startswith(PANNES):
+            # Panne technique (modèle injoignable, dépendance absente) : pas un essai, on réessaiera au prochain passage.
+            lignes.append((r["id"], r["question"], "**Non vérifié (panne technique, nouvel essai au prochain passage)** : " + " ; ".join(motifs)))
+            continue
         essais[r["id"]] = {"dernier_essai": jour.isoformat(), "essais": journal.get(r["id"], {}).get("essais", 0) + 1,
                            "motif": "; ".join(motifs)[:400] if motifs else "accepté"}
         if res:
