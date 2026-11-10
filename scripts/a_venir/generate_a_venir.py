@@ -315,7 +315,7 @@ JS_FILTRES = """<script>
 (function(){
   var racine=document.querySelector('.av'); if(!racine) return;
   var bar=racine.querySelector('.filtres'); if(!bar) return;
-  var etat={periode:'tous',domaine:'tous',couleur:'tous'};
+  var etat={periode:'tous',domaine:'tous',couleur:'tous'}, ouvert=false;
   try{ var q=new URLSearchParams(location.search); ['periode','domaine','couleur'].forEach(function(k){ if(q.get(k)) etat[k]=q.get(k); }); }catch(e){}
   var arts=[].slice.call(racine.querySelectorAll('.signal,.passe-vide'));
   function visible(a){
@@ -330,13 +330,20 @@ JS_FILTRES = """<script>
     var m=racine.querySelector('.aujourdhui'); if(m) m.hidden=!(avenir>0 && !racine.querySelector('.passes').hidden);
     var r=racine.querySelector('.rien'); if(r) r.hidden=!(racine.querySelectorAll('.signal:not([hidden]),.passe-vide:not([hidden])').length===0);
     var nb=bar.querySelector('.nb'); if(nb) nb.textContent=n+' rendez-vous affiché'+(n>1?'s':'');
+    bar.classList.toggle('actif', etat.periode!=='tous'||etat.domaine!=='tous'||etat.couleur!=='tous');
+    var nf=(etat.domaine!=='tous'?1:0)+(etat.couleur!=='tous'?1:0), fb=bar.querySelector('.fb'), fbtn=bar.querySelector('.fbtn'), det=bar.querySelector('.fdetails');
+    if(fb){ fb.textContent=nf; fb.hidden=!nf; }
+    if(fbtn&&det){ fbtn.setAttribute('aria-expanded', String(!!ouvert)); det.hidden=!ouvert; }
+    bar.setAttribute('data-p', etat.periode);
     [].forEach.call(bar.querySelectorAll('button[data-f]'),function(b){ b.setAttribute('aria-pressed', String(etat[b.getAttribute('data-f')]===b.getAttribute('data-v'))); });
     try{ var u=new URLSearchParams(); Object.keys(etat).forEach(function(k){ if(etat[k]!=='tous') u.set(k,etat[k]); }); history.replaceState(null,'',location.pathname+(u.toString()?'?'+u:'')); }catch(e){}
   }
+  ouvert = etat.domaine!=='tous' || etat.couleur!=='tous';
   bar.hidden=false;
   bar.addEventListener('click',function(e){
     var b=e.target.closest('button'); if(!b) return;
-    if(b.hasAttribute('data-reset')){ etat={periode:'tous',domaine:'tous',couleur:'tous'}; }
+    if(b.classList.contains('fbtn')){ ouvert=!ouvert; appliquer(); return; }
+    if(b.hasAttribute('data-reset')){ etat={periode:'tous',domaine:'tous',couleur:'tous'}; ouvert=false; }
     else if(b.hasAttribute('data-f')){ etat[b.getAttribute('data-f')]=b.getAttribute('data-v'); }
     appliquer();
   });
@@ -346,34 +353,38 @@ JS_FILTRES = """<script>
 
 
 def filtres(prochains, a_verifier, resolus):
-    """Panneau de filtres (affiché par le script ; sans script, toute la page reste visible)."""
+    """Filtres discrets (affichés par le script ; sans script, toute la page reste visible)."""
     tous = list(prochains) + list(a_verifier) + list(resolus[:MAX_PASSES])
-    def bouton(f, v, libelle, n=None, icone=None, classe=""):
+    def bouton(f, v, libelle, n=None, icone=None, classe="puce"):
         ic = f'<svg viewBox="0 0 24 24" aria-hidden="true">{icone}</svg>' if icone else ""
         nn = f'<span class="n">{n}</span>' if n is not None else ""
         return (f'<button type="button" class="{classe}" data-f="{f}" data-v="{esc(v)}" aria-pressed="false">{ic}{esc(libelle)}{nn}</button>')
-    h = ('<div class="filtres" hidden role="group" aria-label="Filtrer les rendez-vous">'
-         '<div class="fgroupe"><span class="flabel">Période</span><div class="fpuces">'
-         + bouton("periode", "tous", "Tous", len(tous)) + bouton("periode", "avenir", "À venir", len(prochains))
-         + bouton("periode", "passe", "Déjà arrivés", len(a_verifier) + len(resolus[:MAX_PASSES])) + '</div></div>')
+    entonnoir = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16l-6 7.5V19l-4-2v-4.5z"/></svg>'
+    h = ('<div class="filtres" hidden role="group" aria-label="Filtrer les rendez-vous"><div class="frang"><div class="onglets">'
+         + bouton("periode", "tous", "Tous", len(tous), classe="onglet")
+         + bouton("periode", "avenir", "À venir", len(prochains), classe="onglet")
+         + bouton("periode", "passe", "Déjà arrivés", len(a_verifier) + len(resolus[:MAX_PASSES]), classe="onglet")
+         + '</div><button type="button" class="fbtn" aria-expanded="false" aria-controls="fdetails">'
+         + entonnoir + 'Filtrer<span class="fb" hidden></span></button></div>'
+         '<div class="fdetails" id="fdetails" hidden>')
     doms = [d for d in ICONES if any(r["domaine"] == d for r in tous)]
-    h += ('<div class="fgroupe"><span class="flabel">Domaine</span><div class="fpuces">' + bouton("domaine", "tous", "Tous")
+    h += ('<div class="fgroupe fg-domaine"><div class="fpuces">' + bouton("domaine", "tous", "Tous les domaines")
           + "".join(bouton("domaine", d, d, sum(1 for r in tous if r["domaine"] == d), ICONES[d]) for d in doms) + '</div></div>')
     if a_verifier or resolus:
         cnt = {k: 0 for k, _ in COULEURS}
         for r in resolus[:MAX_PASSES]:
             cnt[r["resultat"].get("scenario") or "neutre"] += 1
         cnt["verif"] = len(a_verifier)
-        h += ('<div class="fgroupe"><span class="flabel">Résultat</span><div class="fpuces">' + bouton("couleur", "tous", "Tous")
-              + "".join(bouton("couleur", k, lib, cnt[k], classe=f"pc c-{k}") for k, lib in COULEURS if cnt[k]) + '</div></div>')
-    return (h + '<div class="fpied"><span class="nb" aria-live="polite"></span>'
-            '<button type="button" class="reset" data-reset>Tout afficher</button></div></div>')
+        h += ('<div class="fgroupe fg-couleur"><div class="fpuces">' + bouton("couleur", "tous", "Tous les résultats")
+              + "".join(bouton("couleur", k, lib, cnt[k], classe=f"puce pc c-{k}") for k, lib in COULEURS if cnt[k]) + '</div></div>')
+    return (h + '<button type="button" class="reset" data-reset>Tout afficher</button></div>'
+            '<span class="nb" aria-live="polite"></span></div>')
 
 
 def contenu(rendez_vous, jour, racine=RACINE):
     h = ('<section class="hero contact-hero"><div class="wrap"><p class="eyebrow">À venir</p>'
-         '<h1>Ce qui va arriver</h1><p class="dek">Les rendez-vous à surveiller, relevés dans nos éditions : '
-         'ceux qui arrivent, et ceux qui sont arrivés, avec la réponse.</p></div></section>\n')
+         '<h1>Ce qui va arriver</h1><p class="dek">Les rendez-vous que nos éditions nous demandent de surveiller. '
+         'Quand la date passe, la réponse s\'affiche ici.</p></div></section>\n')
     h += '<section class="body-section av"><div class="wrap">'
     prochains = a_venir(rendez_vous, jour)
     a_verifier, resolus = passes(rendez_vous, jour)

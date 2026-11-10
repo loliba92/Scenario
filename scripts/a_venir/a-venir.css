@@ -49,24 +49,39 @@
   .av .pied{ margin:32px 0 0; padding:14px 16px; border-left:3px solid var(--gold); background:var(--surface); border-radius:0 8px 8px 0; font-size:.92rem; max-width:64ch; }
   .av .vide{ padding:22px; border:1px dashed var(--hairline); border-radius:10px; color:var(--paper-dim); text-align:center; }
   .av [hidden]{ display:none !important; }
-  .av .filtres{ margin:0 0 30px; padding:16px 18px 12px; border:1px solid var(--hairline); border-radius:16px;
-    background:radial-gradient(120% 160% at 0% 0%, rgba(207,157,76,.10), transparent 55%), var(--surface); display:grid; gap:12px; }
-  .av .fgroupe{ display:grid; grid-template-columns:84px minmax(0,1fr); gap:6px 12px; align-items:start; }
-  .av .flabel{ font-family:"JetBrains Mono",monospace; font-size:.66rem; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); padding-top:11px; }
-  .av .fpuces{ display:flex; flex-wrap:wrap; gap:8px; }
-  .av .filtres button{ font:inherit; font-size:.86rem; color:var(--paper); background:var(--surface-2); border:1px solid var(--hairline); border-radius:999px;
-    padding:0 14px 0 10px; min-height:44px; display:inline-flex; align-items:center; gap:8px; cursor:pointer; transition:border-color .2s, background .2s; }
-  .av .filtres button:hover{ border-color:var(--gold); }
-  .av .filtres button[aria-pressed="true"]{ border-color:var(--gold); background:rgba(207,157,76,.16); color:var(--gold); }
-  .av .filtres button svg{ width:20px; height:20px; flex:none; stroke:currentColor; fill:none; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
-  .av .filtres button:not(:has(svg)){ padding-left:14px; }
-  .av .filtres button .n{ font-family:"JetBrains Mono",monospace; font-size:.72rem; color:var(--paper-dim); }
-  .av .filtres button[aria-pressed="true"] .n{ color:var(--gold); }
-  .av .filtres button.pc::before{ content:""; width:10px; height:10px; border-radius:50%; background:var(--c); flex:none; }
-  .av .filtres button.c-verif{ --c:var(--gold); }
-  .av .fpied{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:6px 16px; padding-top:8px; border-top:1px solid var(--hairline); }
-  .av .nb{ font-family:"JetBrains Mono",monospace; font-size:.74rem; color:var(--paper-dim); }
-  .av .filtres button.reset{ border:0; background:transparent; color:var(--gold); padding:0 4px; text-decoration:underline; text-underline-offset:3px; min-height:44px; }
+  /* Filtres discrets : onglets soulignés pour la période, bouton « Filtrer » qui déplie les domaines. */
+  .av .filtres{ margin:0 0 22px; border-bottom:1px solid var(--hairline); }
+  .av .frang{ display:flex; align-items:center; justify-content:space-between; gap:10px; }
+  .av .onglets{ display:flex; gap:2px; min-width:0; }
+  .av .filtres button{ font:inherit; cursor:pointer; }
+  .av .onglet{ background:none; border:0; border-bottom:2px solid transparent; border-radius:0; margin-bottom:-1px; padding:0 10px; min-height:44px;
+    font-size:.88rem; color:var(--paper-dim); white-space:nowrap; transition:color .2s,border-color .2s; }
+  .av .onglet:hover{ color:var(--paper); }
+  .av .onglet[aria-pressed="true"]{ color:var(--gold); border-bottom-color:var(--gold); }
+  .av .onglet .n{ font-family:"JetBrains Mono",monospace; font-size:.68rem; margin-left:5px; color:var(--paper-dim); }
+  .av .onglet[aria-pressed="true"] .n{ color:var(--gold); }
+  .av .fbtn{ display:inline-flex; align-items:center; gap:6px; min-height:36px; padding:0 12px 0 10px; border:1px solid var(--hairline); border-radius:999px;
+    background:none; color:var(--paper-dim); font-size:.8rem; flex:none; transition:color .2s,border-color .2s; }
+  .av .fbtn:hover, .av .fbtn[aria-expanded="true"]{ color:var(--gold); border-color:var(--gold); }
+  .av .fbtn svg{ width:16px; height:16px; stroke:currentColor; fill:none; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+  .av .fb{ display:inline-grid; place-items:center; min-width:17px; height:17px; padding:0 4px; border-radius:999px; background:var(--gold); color:var(--ink);
+    font-family:"JetBrains Mono",monospace; font-size:.62rem; font-weight:500; }
+  .av .fdetails{ padding:10px 0 14px; display:grid; gap:8px; }
+  .av .fgroupe{ display:block; }
+  .av .fpuces{ display:flex; flex-wrap:wrap; gap:6px; }
+  .av .puce{ display:inline-flex; align-items:center; gap:6px; min-height:34px; padding:0 11px 0 9px; border:1px solid var(--hairline); border-radius:999px;
+    background:transparent; color:var(--paper-dim); font-size:.8rem; transition:color .2s,border-color .2s,background .2s; }
+  .av .puce:hover{ color:var(--paper); border-color:#3a4656; }
+  .av .puce[aria-pressed="true"]{ color:var(--gold); border-color:var(--gold); background:rgba(207,157,76,.1); }
+  .av .puce svg{ width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+  .av .puce .n{ font-family:"JetBrains Mono",monospace; font-size:.66rem; opacity:.75; }
+  .av .puce.pc::before{ content:""; width:9px; height:9px; border-radius:50%; background:var(--c); flex:none; }
+  .av .puce.c-verif{ --c:var(--gold); }
+  .av .fg-couleur{ display:none; }
+  .av .filtres[data-p="passe"] .fg-couleur{ display:block; }
+  .av .reset{ justify-self:start; background:none; border:0; color:var(--gold); font-size:.8rem; text-decoration:underline; text-underline-offset:3px; min-height:34px; padding:0; }
+  .av .filtres:not(.actif) .reset{ display:none; }
+  .av .nb{ position:absolute; left:-9999px; }
   .av .aujourdhui{ position:relative; display:flex; align-items:center; justify-content:center; margin:34px 0 8px; }
   .av .aujourdhui::before{ content:""; position:absolute; left:0; right:0; top:50%; height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent); }
   .av .aujourdhui span{ position:relative; padding:6px 16px; border-radius:999px; background:var(--ink); border:1px solid var(--gold); color:var(--gold);
@@ -136,11 +151,18 @@
     .av .fiche{ grid-template-columns:78px minmax(0,1fr); gap:8px 12px; padding:12px; font-size:.88rem; }
     .av .comm{ font-size:.95rem; }
     .av .eds a{ min-height:48px; }
-    /* Panneau de filtres compact : une ligne par groupe, qui défile côte à côte. */
-    .av .filtres{ padding:14px 0 8px 14px; gap:10px; border-radius:18px; }
-    .av .fgroupe{ grid-template-columns:1fr; gap:6px; }
-    .av .fpuces{ flex-wrap:nowrap; overflow-x:auto; scroll-snap-type:x proximity; padding:0 14px 4px 0; scrollbar-width:none; -webkit-overflow-scrolling:touch; }
-    .av .fpuces::-webkit-scrollbar{ display:none; }
-    .av .filtres button{ flex:none; scroll-snap-align:start; }
-    .av .fpied{ padding-right:14px; }
+    /* En-tête resserré : on doit voir la première carte sans défiler. */
+    .contact-hero{ padding:26px 0 18px; }
+    .contact-hero .eyebrow{ display:none; }
+    .contact-hero h1{ font-size:1.9rem; margin:0 0 8px; }
+    .contact-hero .dek{ font-size:.98rem; line-height:1.45; }
+    section.body-section.av{ padding:14px 0 36px; }
+    /* Filtres : onglets sur toute la largeur, détails qui défilent côte à côte. */
+    .av .filtres{ margin:0 0 6px; }
+    .av .onglet{ padding:0 8px; font-size:.84rem; }
+    .av .fdetails{ padding:8px 0 10px; }
+    .av .fg-domaine .fpuces, .av .fg-couleur .fpuces{ flex-wrap:nowrap; overflow-x:auto; margin:0 -14px; padding:0 14px 2px; scrollbar-width:none;
+      -webkit-overflow-scrolling:touch; scroll-snap-type:x proximity; }
+    .av .fg-domaine .fpuces::-webkit-scrollbar, .av .fg-couleur .fpuces::-webkit-scrollbar{ display:none; }
+    .av .puce{ flex:none; scroll-snap-align:start; }
   }
