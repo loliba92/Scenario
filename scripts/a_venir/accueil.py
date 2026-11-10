@@ -32,9 +32,10 @@ def carte(r, jour):
     texte, _ = g.reste(r, jour)
     return (f'<li class="avh-point"><a href="a-venir.html#rv-{g.esc(r["id"])}">'
             '<span class="avh-noeud" aria-hidden="true"></span>'
+            f'<span class="avh-tuile" aria-hidden="true">{g.tuile(r)}</span>'
             f'<span class="avh-date"><svg viewBox="0 0 24 24" aria-hidden="true">{g.ICONES[r["domaine"]]}</svg>'
-            f'<span class="sr" style="position:absolute;left:-9999px">{g.esc(r["domaine"])} : </span>'
-            f'{g.esc(g.quand_court(r))}<i>{texte}</i></span>'
+            f'<span class="avh-dom">{g.esc(r["domaine"])}</span>'
+            f'<span class="avh-q">{g.esc(g.quand_court(r))}</span><i>{texte}</i></span>'
             f'<span class="avh-question">{g.nbsp(r["question"])}</span>'
             f'<span class="avh-qui">{g.esc(qui_court(r))} · {"officiel" if r["officiel"] else "non officiel"}</span></a></li>')
 
