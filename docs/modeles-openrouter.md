@@ -57,7 +57,7 @@ ticket B152 pour l'historique complet des deux décisions.
 | `edition.yml` | manuel seulement (prototype Phase 1, sans publication) | `generate_daily_edition.py` | `anthropic/claude-sonnet-5` | Non |
 | `translate-en.yml` | manuel + auto-déclenché en fin de `post-edition.yml` | `translate_daily.py` | `anthropic/claude-sonnet-5` | Non dans le workflow (le script accepte `--model` en local) |
 | `detection.yml` | lun/jeu/ven/sam, 1h UTC | `generate_suivi_update.py` | `anthropic/claude-sonnet-5` | Non |
-| `signaux.yml` | quotidien (cron-job.org) | `verifier_signaux_web.py` | `deepseek/deepseek-v4-flash` (choix provisoire du propriétaire, à revoir) | Oui — `--model` en local |
+| `signaux.yml` | quotidien (cron-job.org) | `scripts/a_venir/verifier_resultats.py` | recherche : `deepseek/deepseek-v4-flash` (choix provisoire du propriétaire) ; confirmation indépendante : `google/gemini-3.7-flash` (jamais Claude, décision du propriétaire) | Non — constantes `MODELE` et `MODELE_CONFIRMATION` du script |
 | `hot-topics.yml` | mar/ven, 19h UTC (~21h Paris été) | `generate_hot_topics.py` | `gratuits` (6 modèles gratuits en relais, voir `enrich_sujets.py`, comme l'enrichissement des dossiers ; depuis le 2 octobre 2026) | Non — `--model` en local |
 | `hebdo.yml` | dimanche, 12h UTC | `generate_weekly_recap.py` | `openai/gpt-5` (DeepSeek jusqu'au 16 septembre) | Oui — input `model` |
 | `daily-preview.yml` — critique | quotidien, juste après génération du preview | `critique_preview.py` | `deepseek/deepseek-v4-flash` | Oui — `--model` en local, pas d'input dans le workflow |

@@ -20,7 +20,7 @@ import generate_a_venir as g  # noqa: E402
 
 RACINE = g.RACINE
 MODELE = "deepseek/deepseek-v4-flash"
-MODELE_CONFIRMATION = "anthropic/claude-sonnet-5"
+MODELE_CONFIRMATION = "google/gemini-3.7-flash"   # raisonnement imposé : max_tokens large ci-dessous
 MAX_PAR_PASSAGE = 3
 MAX_ESSAIS_ECHUS = 10
 INTERVALLE_AVANT_ECHEANCE = 7  # jours entre deux recherches pour un rendez-vous pas encore échu
@@ -74,7 +74,7 @@ def prompt_confirmation(r, jour, prop):
 
 def appel_modele(prompt, modele, cle):
     from generate_daily_edition import call_openrouter
-    res, usage = call_openrouter(prompt, modele, cle, temperature=0.1, max_tokens=4000, timeout=200, tools=OUTILS)
+    res, usage = call_openrouter(prompt, modele, cle, temperature=0.1, max_tokens=12000, timeout=220, tools=OUTILS)
     return res, (usage or {}).get("cost") or 0.0
 
 
