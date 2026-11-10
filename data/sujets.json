@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "5a0705e3baf35b1e0984036f3ecc0a59b1d5ff21b433624eda1e7d1ab64eecfc"
+    "md_sha256": "a9a1b81e16abf8b50393fa7ff745b66e1471409f375a0248f27ef28d13bfb270"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -2171,11 +2171,11 @@
           ],
           "origine": null,
           "note": "Idée du même lot gardée seule : axe vraiment distinct des deux entrées ci-dessus — celles-ci portent sur l'athlète (équité, humanité), celle-ci sur le spectateur (l'émotion du sport tient-elle à ne pas connaître l'issue). Opposition prévisibilité/émotion, comme formulée par l'utilisateur",
-          "donnees": null,
+          "donnees": "[relevé du 2026-11-10] Confiance dans les prédictions IA pendant un match de football (unité : pourcentage). Supporters français = 18 (2026) ; supporters américains = 38 (2026) ; supporters allemands = 45 (2026). Sources : https://www.kantar.com/fr/inspirations/publicite-medias-et-rp/-/media/FD25422A7F2E499589C3B20E2B24C2F3.ashx ; https://www.ouest-france.fr/sport/coupe-du-monde/coupe-du-monde-2026-les-ia-nouvelles-stars-dans-la-course-aux-pronostics-9da16848-6666-11f1-99fc-6db54956824f",
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": "2026-10-03"
+          "enrichi_le": "2026-11-10"
         },
         {
           "type": "sujet",
