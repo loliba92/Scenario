@@ -1,6 +1,7 @@
 name: Événements à surveiller
 
-# Contrôle quotidien des échéances de data/signaux.json (scripts/detection/verifier_signaux.py).
+# Contrôle quotidien des échéances de data/signaux.json (scripts/detection/verifier_signaux.py)
+# et régénération de a-venir.html depuis data/a-venir.json (scripts/a_venir/generate_a_venir.py).
 # Déclenché par cron-job.org (event_type : trigger-signaux). Aucun appel payant ni requête externe.
 # Écrit data/signaux-rapport.md (gratuit) et data/signaux-verification.md (recherche web, modèle
 # bon marché, uniquement pour les événements échus ou à 7 jours ; plafond de 3 par passage).
@@ -25,7 +26,7 @@ jobs:
           python-version: '3.12'
 
       - name: Tests
-        run: python3 -m unittest scripts/detection/test_verifier_signaux.py scripts/detection/test_verifier_signaux_web.py
+        run: python3 -m unittest scripts/detection/test_verifier_signaux.py scripts/detection/test_verifier_signaux_web.py scripts/a_venir/test_generate_a_venir.py
 
       - name: Générer les deux rapports
         env:
@@ -36,6 +37,9 @@ jobs:
           python3 scripts/detection/verifier_signaux_web.py --sortie "$RUNNER_TEMP/verification.md" > /dev/null \
             || echo "Vérification web ignorée (voir journal)."
 
+      - name: Générer la page « À venir »
+        run: python3 scripts/a_venir/generate_a_venir.py --sortie "$RUNNER_TEMP/a-venir.html"
+
       - name: Committer et pousser
         run: |
           git config user.name "scenario-signaux-bot"
@@ -45,12 +49,13 @@ jobs:
             git reset --hard origin/main
             cp "$RUNNER_TEMP/rapport.md" data/signaux-rapport.md
             [ -f "$RUNNER_TEMP/verification.md" ] && cp "$RUNNER_TEMP/verification.md" data/signaux-verification.md
-            git add data/signaux-*.md
+            cp "$RUNNER_TEMP/a-venir.html" a-venir.html
+            git add data/signaux-*.md a-venir.html
             if git diff --cached --quiet; then
               echo "Aucun changement."
               exit 0
             fi
-            git commit -m "[signaux] point quotidien des événements à surveiller"
+            git commit -m "[signaux] point quotidien et page À venir"
             if git push origin HEAD:main; then
               exit 0
             fi

@@ -51,7 +51,7 @@
         revised: "Updated topic", spotify: "Listen on Spotify", private: "Private access", close: "Close" }
     : { nav: "Navigation principale", home: "Accueil", archives: "Éditions", search: "Recherche", glossary: "Glossaire", project: "Le projet",
         more: "Plus", press: "Revue de presse", newsletter: "Newsletter", contact: "Contact", follow: "Nous suivre", support: "Soutenir",
-        revised: "Sujet révisé", spotify: "Écouter sur Spotify", private: "Accès privé", close: "Fermer", themes: "Matières" };
+        revised: "Sujet révisé", spotify: "Écouter sur Spotify", private: "Accès privé", close: "Fermer", themes: "Matières", upcoming: "À venir" };
 
   function svg(paths) {
     return '<svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" ' +
@@ -71,6 +71,7 @@
     contact: svg('<path d="M4 6.5A1.5 1.5 0 0 1 5.5 5h13A1.5 1.5 0 0 1 20 6.5v8a1.5 1.5 0 0 1-1.5 1.5H10l-4 3.5V16H5.5A1.5 1.5 0 0 1 4 14.5Z"/>'),
     follow: svg('<path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"/><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"/>'),
     themes: svg('<path d="M4 4h7l9 9-7 7-9-9Z"/><circle cx="8.5" cy="8.5" r="1.2"/>'),
+    upcoming: svg('<rect x="4" y="5.5" width="16" height="14" rx="2"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/>'),
     support: svg('<path d="M5 9h11v6a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4Z"/><path d="M16 10.5h1.5a2 2 0 0 1 0 4H16"/><path d="M8.5 4.5c-.6.7-.6 1.3 0 2M12 4.5c-.6.7-.6 1.3 0 2"/>'),
     revised: svg('<path d="M4 12a8 8 0 0 1 13.7-5.7L20 8"/><path d="M20 4v4h-4"/><path d="M20 12a8 8 0 0 1-13.7 5.7L4 16"/><path d="M4 20v-4h4"/>'),
     spotify: svg('<circle cx="12" cy="12" r="9.5"/><path d="M7 9.6c3.4-1 7-.7 10 1"/><path d="M7.6 12.7c2.9-.8 5.7-.5 8.1.9"/><path d="M8.2 15.5c2.2-.6 4.4-.4 6.2.7"/>'),
@@ -88,7 +89,7 @@
   else if (file === "recherche.html") active = "archives";  // la recherche se lance depuis « Éditions »
   else if (file === "le-projet.html") active = "project";
   else if (file === "glossaire.html") active = "glossary";
-  else if (file === "newsletter.html" || file === "contact.html" || file === "sources.html") active = "more";
+  else if (file === "newsletter.html" || file === "contact.html" || file === "sources.html" || file === "a-venir.html") active = "more";
 
   var tabs = [
     { id: "home", href: root + "index.html", label: T.home },
@@ -98,6 +99,8 @@
   ];
   var more = [
     { id: "press", href: root + "sources.html", label: T.press },
+    // La page « À venir » n'existe qu'en français.
+    LANG === "fr" ? { id: "upcoming", href: root + "a-venir.html", label: T.upcoming } : null,
     { id: "newsletter", href: root + "newsletter.html", label: T.newsletter },
     { id: "contact", href: root + "contact.html", label: T.contact },
     { id: "follow", href: root + "index.html#nous-suivre", label: T.follow },
@@ -105,7 +108,7 @@
     { id: "spotify", href: "https://open.spotify.com/show/1eycE00I2egdNO50oqeDFQ", label: T.spotify, external: true },
     { id: "private", href: root + "dashboard.html", label: T.private },
     { id: "support", href: "https://buymeacoffee.com/scenario", label: T.support, external: true, gold: true }
-  ];
+  ].filter(Boolean);
 
   var css =
     "#bottom-nav,#bottom-nav-sheet,#bottom-nav-backdrop{display:none}" +

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Signaux — maquette</title>
+<title>Ce qui va arriver — calendrier illustré (A)</title>
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,101 +12,111 @@
 :root{
   --ink:#10151c; --surface:#1a212b; --surface-2:#212a35; --hairline:#2c3644;
   --paper:#ece7da; --paper-dim:#a9a89c; --gold:#cf9d4c;
-  --favorable:#5e9c78; --stable:#6f8fae; --degrade:#bd6248;
+  --tile:76px; --gap:20px;
 }
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:auto}
-body{margin:0;background:var(--ink);color:var(--paper);font-family:Inter,system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--ink);color:var(--paper);font-family:Inter,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--gold);outline-offset:3px}
-.wrap{max-width:920px;margin:0 auto;padding:0 24px}
+.wrap{max-width:900px;margin:0 auto;padding:0 24px}
 
-/* En-tête collant */
 .topnav{position:sticky;top:0;z-index:10;background:var(--ink);border-bottom:1px solid var(--hairline)}
 .topnav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:56px}
-.wordmark{font-family:Fraunces,serif;font-weight:600;font-size:1.35rem;text-decoration:none}
+.wordmark{font-family:Fraunces,serif;font-weight:600;font-size:1.35rem;text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
 .wordmark span{color:var(--gold)}
-.topnav nav{display:flex;gap:18px;font-size:.88rem}
-.topnav nav a{text-decoration:none;color:var(--paper-dim);padding:6px 0;border-bottom:2px solid transparent}
+.topnav nav{display:flex;gap:6px;font-size:.88rem}
+.topnav nav a{text-decoration:none;color:var(--paper-dim);padding:0 8px;min-height:44px;display:inline-flex;align-items:center;border-bottom:2px solid transparent}
 .topnav nav a[aria-current="page"]{color:var(--paper);border-bottom-color:var(--gold)}
 
 .section-label{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:0 0 10px;display:flex;align-items:center;gap:10px}
 .section-label::before{content:"";width:22px;height:1px;background:var(--gold)}
-h1{font-family:Fraunces,serif;font-weight:500;font-size:clamp(1.7rem,4.6vw,2.4rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
-h2{font-family:Fraunces,serif;font-weight:500;font-size:1.25rem;line-height:1.25;margin:0 0 8px}
-.lead{color:var(--paper-dim);margin:0;max-width:62ch}
-main{padding:36px 0 72px}
-.clair{margin:22px 0 0;padding:14px 16px;border-left:3px solid var(--gold);background:var(--surface);border-radius:0 8px 8px 0;max-width:68ch}
-.clair b{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:4px;font-weight:500}
-.clair p{margin:0;font-size:.95rem}
+h1{font-family:Fraunces,serif;font-weight:500;font-size:clamp(1.8rem,5vw,2.5rem);line-height:1.15;margin:0 0 14px}
+h2{font-family:Fraunces,serif;font-weight:500;font-size:1.15rem;line-height:1.3;margin:0 0 6px;text-wrap:balance}
+.lead{color:var(--paper-dim);margin:0;max-width:60ch}
+main{padding:32px 0 64px}
 
-/* Filtres */
-.filtres{display:flex;gap:8px;flex-wrap:wrap;margin:30px 0 16px}
-.filtres button{font:inherit;font-size:.88rem;color:var(--paper);background:var(--surface);border:1px solid var(--hairline);border-radius:999px;padding:7px 14px;cursor:pointer;min-height:40px;white-space:nowrap}
-.filtres button .n{font-family:"JetBrains Mono",monospace;color:var(--paper-dim);margin-left:6px}
-.filtres button[aria-pressed="true"]{border-color:var(--gold);color:var(--gold)}
+/* chronologie */
+.tl{position:relative;margin-top:30px}
+.tl::before{content:"";position:absolute;left:calc(var(--tile) / 2);top:0;bottom:0;width:2px;margin-left:-1px;
+  background:linear-gradient(to bottom,var(--gold),#6b5430 45%,var(--hairline));border-radius:2px}
+.periode{margin:0}
+.periode + .periode{margin-top:10px}
+.periode > .section-label{position:sticky;top:56px;z-index:5;background:var(--ink);
+  margin:0 0 4px calc(var(--tile) + var(--gap));padding:8px 0}
+.periode > .section-label::after{content:"";position:absolute;left:calc(-1 * (var(--tile) / 2 + var(--gap)) - 6px);top:50%;
+  width:12px;height:12px;margin-top:-6px;border-radius:50%;background:var(--ink);border:2px solid var(--gold)}
 
-/* Liste */
-.liste{list-style:none;margin:0;padding:0;display:grid;gap:12px}
-.carte{display:block;text-decoration:none;background:var(--surface);border:1px solid var(--hairline);border-radius:10px;padding:16px 18px}
-.carte:hover{border-color:var(--gold)}
-.ligne1{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:6px}
-.date{font-family:"JetBrains Mono",monospace;font-size:.78rem;color:var(--paper-dim);white-space:nowrap}
-.statut{font-size:.78rem;font-weight:600;border:1px solid var(--hairline);border-radius:999px;padding:2px 10px;white-space:nowrap}
-.statut.avenir{color:var(--stable);border-color:var(--stable)}
-.statut.proche{color:var(--gold);border-color:var(--gold)}
-.statut.realise{color:var(--favorable);border-color:var(--favorable)}
-.statut.manque{color:var(--degrade);border-color:var(--degrade)}
-.carte h2{margin:0 0 8px}
-.edition{font-size:.85rem;color:var(--paper-dim);margin:0 0 10px}
-.issues{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.issue{background:var(--surface-2);border-radius:8px;padding:8px 10px;font-size:.84rem;line-height:1.35}
-.issue small{display:block;font-family:"JetBrains Mono",monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--paper-dim);margin-bottom:2px}
-.pastille{display:inline-block;font-weight:600}
-.p-favorable{color:var(--favorable)} .p-stable{color:var(--stable)} .p-degrade{color:var(--degrade)}
-.effet{margin:10px 0 0;font-size:.88rem}
-.vide{padding:22px;border:1px dashed var(--hairline);border-radius:10px;color:var(--paper-dim);text-align:center}
+.signal{display:grid;grid-template-columns:var(--tile) 1fr;gap:var(--gap);padding:8px 0 12px;align-items:start}
 
-/* Fiche */
-.retour{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--gold);font-size:.9rem;min-height:44px;margin:0 0 14px}
-.fiche-meta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:0 0 14px}
-.bloc{margin:28px 0 0}
-.bloc .section-label{margin-bottom:12px}
-.deux{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.cas{background:var(--surface);border:1px solid var(--hairline);border-radius:10px;padding:14px 16px}
-.cas small{font-family:"JetBrains Mono",monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--paper-dim);display:block;margin-bottom:4px}
-.cas p{margin:0 0 6px;font-size:.92rem}
-.barres{display:grid;gap:10px}
-.barre{display:grid;grid-template-columns:92px 1fr auto;align-items:center;gap:10px;font-size:.85rem}
-.barre .piste{height:10px;background:var(--surface-2);border-radius:999px;position:relative;overflow:hidden}
-.barre .rempli{position:absolute;inset:0 auto 0 0;border-radius:999px}
-.f-favorable{background:var(--favorable)} .f-stable{background:var(--stable)} .f-degrade{background:var(--degrade)}
-.barre .val{font-family:"JetBrains Mono",monospace;font-size:.8rem;white-space:nowrap}
-.source{margin:0;padding-left:18px;font-size:.88rem}
-.note{font-size:.82rem;color:var(--paper-dim);margin-top:10px}
-.bandeau-maquette{background:var(--surface-2);border-bottom:1px solid var(--hairline);font-size:.78rem;color:var(--paper-dim);padding:6px 0}
-.bandeau-maquette .wrap{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-.bandeau-maquette a{color:var(--gold)}
+/* tuile calendrier */
+.tuile{position:relative;z-index:1;width:var(--tile);border-radius:12px;overflow:hidden;text-align:center;
+  background:var(--surface-2);border:1px solid #3a4656;box-shadow:0 4px 12px rgba(0,0,0,.35)}
+.tuile .haut{display:block;background:var(--gold);color:var(--ink);font-family:"JetBrains Mono",monospace;font-weight:500;
+  font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;padding:4px 2px;line-height:1.2;white-space:nowrap}
+.tuile .gros{display:block;font-family:Fraunces,serif;font-weight:600;font-size:2rem;line-height:1;padding:9px 2px 4px;color:var(--paper)}
+.tuile .bas{display:block;font-family:"JetBrains Mono",monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--paper-dim);padding:0 2px 8px;line-height:1.2}
+.tuile .gros.moy{font-size:1.45rem;padding-top:11px}
+.tuile .gros.moy:last-child{padding-bottom:12px}
+.tuile .gros.sans-bas{padding-bottom:10px}
+.tuile.flou{background:var(--surface);border:1.5px dashed var(--gold)}
+.tuile.flou .haut{background:transparent;color:var(--gold);padding-top:6px}
+
+/* carte */
+.carte{background:var(--surface);border:1px solid var(--hairline);border-radius:14px;padding:14px 18px 6px;min-width:0}
+.entete{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px;margin-bottom:10px}
+.pastille{display:inline-flex;align-items:center;gap:8px;padding:5px 12px 5px 8px;border-radius:999px;background:var(--surface-2);border:1px solid var(--hairline);
+  font-family:"JetBrains Mono",monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--paper)}
+.pastille svg{width:24px;height:24px;flex:none;stroke:var(--gold);fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.jauge{display:inline-flex;align-items:center;gap:10px;font-family:"JetBrains Mono",monospace;font-size:.76rem;color:var(--paper-dim);white-space:nowrap}
+.jauge .piste{position:relative;width:96px;height:6px;border-radius:6px;background:var(--hairline);overflow:hidden}
+.jauge .piste i{position:absolute;left:0;top:0;bottom:0;border-radius:6px;background:linear-gradient(90deg,#8a6a33,var(--gold))}
+.jauge b{font-weight:500;color:var(--paper)}
+.comm{margin:0 0 8px;color:var(--paper);max-width:62ch;font-size:.95rem}
+.eds{margin:0;padding:8px 0 0;list-style:none;font-size:.86rem;color:var(--paper-dim);border-top:1px solid var(--hairline)}
+.eds b{font-family:"JetBrains Mono",monospace;font-weight:500;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--paper-dim);display:block;margin-bottom:0}
+.eds a{display:flex;align-items:center;min-height:44px;color:var(--gold);text-underline-offset:3px;padding:2px 0}
+.eds a .d{color:var(--paper-dim);margin-left:.4em;white-space:nowrap}
+.eds a span.t{min-width:0}
+
+.pied{margin:32px 0 0;padding:14px 16px;border-left:3px solid var(--gold);background:var(--surface);border-radius:0 8px 8px 0;font-size:.92rem;max-width:64ch}
+.vide{padding:22px;border:1px dashed var(--hairline);border-radius:10px;color:var(--paper-dim);text-align:center;margin-top:30px}
+.bandeau-maquette{background:var(--surface-2);border-bottom:1px solid var(--hairline);font-size:.78rem;color:var(--paper-dim);padding:2px 0}
+.bandeau-maquette .wrap{display:flex;gap:2px 10px;flex-wrap:wrap;align-items:center}
+.bandeau-maquette a{color:var(--gold);display:inline-flex;align-items:center;min-height:44px;padding:0 4px}
+
+/* apparition douce */
+@keyframes apparait{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes remplit{from{width:0}}
+.signal{animation:apparait .5s ease both;animation-delay:calc(var(--i,0) * 70ms)}
+.jauge .piste i{animation:remplit .9s ease both;animation-delay:calc(var(--i,0) * 70ms + 250ms)}
+@media (prefers-reduced-motion:reduce){
+  .signal,.jauge .piste i{animation:none}
+}
 
 @media (max-width:640px){
+  :root{--tile:62px;--gap:14px}
   .wrap{padding:0 16px}
-  main{padding:26px 0 56px}
-  .topnav nav{gap:12px;font-size:.82rem}
-  .issues,.deux{grid-template-columns:1fr}
-  .barre{grid-template-columns:78px 1fr auto}
+  main{padding:24px 0 52px}
+  .topnav nav{gap:0;font-size:.82rem}
+  .tuile{border-radius:10px}
+  .tuile .gros{font-size:1.6rem;padding-top:7px}
+  .tuile .gros.moy{font-size:1.15rem;padding-top:9px}
+  .tuile .haut,.tuile .bas{font-size:.55rem;letter-spacing:.05em}
+  .carte{padding:12px 14px 4px}
+  .jauge .piste{width:72px}
 }
 </style>
 </head>
 <body>
 <div class="bandeau-maquette"><div class="wrap">
-  <span><b>Maquette</b> — données réelles (2 événements) + exemples marqués « exemple ». États :</span>
-  <a href="?etat=reel">réel</a> · <a href="?etat=mixte">mélange</a> · <a href="?etat=vide">aucun</a> · <a href="?etat=long">libellé long</a> · <a href="?etat=absent">données absentes</a>
+  <span><b>Calendrier illustré (A)</b> — états :</span>
+  <a href="?etat=reel">réel</a> · <a href="?etat=vide">aucun signal</a> · <a href="?etat=long">texte long</a>
 </div></div>
 
 <header class="topnav"><div class="wrap">
-  <a class="wordmark" href="#/">Scénario<span>.</span></a>
+  <a class="wordmark" href="#">Scénario<span>.</span></a>
   <nav aria-label="Navigation principale">
-    <a href="#">Éditions</a><a href="#" aria-current="page">Signaux</a><a href="#">Le projet</a>
+    <a href="#">Éditions</a><a href="#" aria-current="page">À venir</a><a href="#">Le projet</a>
   </nav>
 </div></header>
 
@@ -114,152 +124,126 @@ main{padding:36px 0 72px}
 
 <script>
 (function(){
-  var ETATS = {
-    stable:"stable", degrade:"dégradé", favorable:"favorable"
-  };
-  var BASE = [
-    {id:"ethiopie-erythree-cessez-le-feu", date:"2026-11-30", libelle:"Annonce d'un cessez-le-feu entre l'Éthiopie et l'Érythrée sous médiation régionale",
-     statut:"avenir", edition:"Éthiopie–Érythrée : la Corne de l'Afrique va-t-elle basculer ? (27 octobre)",
-     oui:{renforce:"stable", effet:"Une médiation régionale ouvre une désescalade, sans règlement du fond."},
-     non:{renforce:"degrade", effet:"Les combats reprennent ou s'étendent à une troisième partie."},
-     avant:{favorable:25, stable:45, degrade:30}},
-    {id:"budget-2027-vote-assemblee", date:"2026-12-31", libelle:"Vote du budget 2027 à l'Assemblée sans motion de censure",
-     statut:"avenir", edition:"Budget 2027 : l'Assemblée peut-elle voter sans censure ? (13 septembre)",
-     oui:{renforce:"stable", effet:"Le budget est adopté, la visibilité politique revient pour l'exécutif."},
-     non:{renforce:"degrade", effet:"Le vote est reporté ou une motion aboutit : crise budgétaire."},
-     avant:{favorable:20, stable:50, degrade:30}}
-  ];
-  var EXEMPLES = [
-    {id:"exemple-realise", date:"2026-11-12", libelle:"Exemple — Réunion d'urgence du Conseil de sécurité de l'ONU tenue",
-     statut:"realise", edition:"Exemple d'édition liée (15 octobre)", exemple:true,
-     oui:{renforce:"stable", effet:"Le dossier passe par la voie diplomatique."},
-     non:{renforce:"degrade", effet:"L'absence de réunion laisse la crise sans cadre."},
-     avant:{favorable:25, stable:45, degrade:30}, apres:{favorable:25, stable:50, degrade:25},
-     raison:"Réunion tenue : le statu quo se confirme et le risque d'escalade recule d'un cran.",
-     sources:["Source A (exemple)", "Source B (exemple)"]},
-    {id:"exemple-manque", date:"2026-11-05", libelle:"Exemple — Accord sur le calendrier du référendum annoncé",
-     statut:"manque", edition:"Exemple d'édition liée (2 octobre)", exemple:true,
-     oui:{renforce:"favorable", effet:"Le calendrier est fixé."},
-     non:{renforce:"degrade", effet:"Le dossier s'enlise."},
-     avant:{favorable:30, stable:40, degrade:30}, apres:{favorable:25, stable:40, degrade:35},
-     raison:"Pas d'annonce à la date limite : le scénario dégradé gagne un cran.",
-     sources:["Source A (exemple)", "Source B (exemple)"]}
-  ];
-  var LONG = "Annonce, sous l'égide conjointe de l'Union africaine, de l'IGAD et de plusieurs médiateurs régionaux, d'un cessez-le-feu durable et vérifiable entre l'Éthiopie et l'Érythrée incluant le retrait des troupes des zones frontalières";
+  var AUJ = new Date("2026-11-10");
+  var MOIS = ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"];
 
-  var params = new URLSearchParams(location.search);
-  var etat = params.get("etat") || "reel";
-  var DATA = BASE.map(function(x){return Object.assign({},x)});
-  if (etat === "mixte") DATA = BASE.concat(EXEMPLES);
+  // Éditions (titres réels, liens vers les archives).
+  var ED = {
+    "2026-09-13":{t:"Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?", d:"13 septembre"},
+    "2026-10-27":{t:"Éthiopie-Érythrée : vers une nouvelle guerre régionale ?", d:"27 octobre"},
+    "2026-11-04":{t:"Facturation électronique : les entreprises prêtes pour l'échéance de décembre ?", d:"4 novembre"},
+    "2026-11-06":{t:"Robotique : les robots vont-ils vraiment entrer dans notre quotidien ?", d:"6 novembre"},
+    "2026-11-07":{t:"Netflix : le nouveau cinéma mondial ?", d:"7 novembre"},
+    "2026-11-08":{t:"Sport : peut-il rester humain face à l'IA et aux données ?", d:"8 novembre"}
+  };
+
+  // date = date limite (tri) ; quand = texte affiché ; periode = regroupement.
+  var SIGNAUX = [
+    {date:"2026-11-30", quand:"30 novembre", precis:true,
+     titre:"Un cessez-le-feu est-il annoncé entre l'Éthiopie et l'Érythrée ?",
+     comm:"Depuis la rupture diplomatique du 1er octobre et les frappes de drones près d'Adigrat, la région craint un retour à la guerre de 2020-2022. Une annonce sous médiation régionale calmerait le jeu, sans régler le fond du conflit.",
+     eds:["2026-10-27"]},
+    {date:"2026-11-30", quand:"Fin novembre", precis:false,
+     titre:"Quel est le taux de désignation officiel publié pour la facturation électronique ?",
+     comm:"La DGFiP publie ce taux fin novembre. On regarde aussi si les factures rejetées augmentent à l'approche de l'échéance de décembre.",
+     eds:["2026-11-04"]},
+    {date:"2026-12-31", quand:"D'ici le 31 décembre", precis:false,
+     titre:"Le budget 2027 est-il voté sans que le gouvernement soit renversé ?",
+     comm:"Le gouvernement Lecornu doit faire adopter le budget cet automne. Une motion de censure est un vote des députés qui peut le renverser. Si elle aboutit, ou si le vote est repoussé, c'est une crise budgétaire.",
+     eds:["2026-09-13"]},
+    {date:"2026-12-31", quand:"D'ici le 31 décembre", precis:false,
+     titre:"Les premiers robots NEO sont-ils livrés à des particuliers américains ?",
+     comm:"Il s'agit du robot NEO de 1X, affiché à 20 000 dollars. On attend la confirmation de premières livraisons effectives.",
+     eds:["2026-11-06"]},
+    {date:"2026-12-31", quand:"D'ici fin 2026", precis:false,
+     titre:"Les clubs sportifs se mettent-ils en conformité avec le règlement européen sur l'IA ?",
+     comm:"On suit la mise en conformité des clubs, et les premières décisions de la CNIL sur les contrats de joueurs.",
+     eds:["2026-11-08"]},
+    {date:"2027-02-01", quand:"Février 2027", precis:false,
+     titre:"Quelles recettes pour « Narnia : Le Neveu du magicien » lors de son premier week-end ?",
+     comm:"On regarde le niveau des recettes au box-office mondial lors du premier week-end d'exploitation.",
+     eds:["2026-11-07"]}
+  ];
+
+  var etat = new URLSearchParams(location.search).get("etat") || "reel";
+  var DATA = SIGNAUX.slice();
   if (etat === "vide") DATA = [];
-  if (etat === "long") DATA[0].libelle = LONG;
-  if (etat === "absent") DATA = BASE.map(function(x){return Object.assign({},x,{edition:null, avant:null})});
+  if (etat === "long") {
+    DATA = SIGNAUX.slice();
+    DATA[0] = Object.assign({}, DATA[0], {
+      titre:"Un cessez-le-feu durable et vérifiable est-il annoncé, sous l'égide de l'Union africaine et de plusieurs médiateurs régionaux, entre l'Éthiopie et l'Érythrée ?",
+      eds:["2026-10-27","2026-09-13","2026-11-06"]});
+  }
+
+  var ICONES = {
+    "Géopolitique":'<circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M5 7.5c2 1 4.3 1.5 7 1.5s5-.5 7-1.5M5 16.5c2-1 4.3-1.5 7-1.5s5 .5 7 1.5"/>',
+    "Économie":'<path d="M4 4v16h16"/><path d="M8 15l3.5-4 3 2.5L20 7"/><path d="M16 7h4v4"/>',
+    "Politique":'<path d="M3 9l9-5 9 5z"/><path d="M5.5 12v6M10 12v6M14 12v6M18.5 12v6M3 20.5h18"/>',
+    "Technologie":'<rect x="7" y="7" width="10" height="10" rx="2"/><path d="M10 10.5h4v3h-4zM9.5 3.5v3.5M14.5 3.5v3.5M9.5 17v3.5M14.5 17v3.5M3.5 9.5H7M3.5 14.5H7M17 9.5h3.5M17 14.5h3.5"/>',
+    "Sport":'<path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H5.5a2.5 2.5 0 0 0 2.700 3.800M16 6h2.5a2.5 2.5 0 0 1-2.700 3.800"/><path d="M12 13v4M9 20h6M10 17h4"/>',
+    "Culture":'<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M10 9l5 3-5 3z"/><path d="M7 5v14M17 5v14" opacity=".35"/>'
+  };
+  // tuile : haut / gros / bas ; flou = date approximative.
+  var META = [
+    {dom:"Géopolitique", tuile:{h:"nov.", g:"30"}},
+    {dom:"Économie", tuile:{h:"Fin", g:"nov.", m:1}, flou:1},
+    {dom:"Politique", tuile:{h:"D'ici le", g:"31", b:"déc."}, flou:1},
+    {dom:"Technologie", tuile:{h:"D'ici le", g:"31", b:"déc."}, flou:1},
+    {dom:"Sport", tuile:{h:"D'ici fin", g:"2026", m:1}, flou:1},
+    {dom:"Culture", tuile:{h:"2027", g:"Fév.", m:1}, flou:1}
+  ];
+  DATA.forEach(function(s,i){ var m = META[SIGNAUX.findIndex(function(x){return x.titre===s.titre || x.eds[0]===s.eds[0];})] || META[i]; s.meta = m; });
+
+  function esc(t){ return String(t).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]}); }
+  function periode(d){
+    var x = new Date(d);
+    if (x.getFullYear()===AUJ.getFullYear()) return MOIS[x.getMonth()].charAt(0).toUpperCase()+MOIS[x.getMonth()].slice(1)+" "+x.getFullYear();
+    return "En "+x.getFullYear();
+  }
+  function jours(s){ return Math.round((new Date(s.date)-AUJ)/86400000); }
+  function reste(s){
+    var j = jours(s);
+    if (j < 0) return "date passée";
+    if (j === 0) return "aujourd'hui";
+    return "dans "+j+" jour"+(j>1?"s":"");
+  }
+  function tuile(s){
+    var t = s.meta.tuile;
+    var cls = "tuile"+(s.meta.flou?" flou":"");
+    return '<div class="'+cls+'" aria-hidden="true"><span class="haut">'+esc(t.h)+'</span><span class="gros'+(t.m?' moy':'')+(t.b?'':' sans-bas')+'">'+esc(t.g)+'</span>'+(t.b?'<span class="bas">'+esc(t.b)+'</span>':'')+'</div>';
+  }
+  function jauge(s){
+    var j = Math.max(0, jours(s)), p = Math.max(4, Math.round((1 - Math.min(j,90)/90)*100));
+    return '<span class="jauge" title="Barre sur 90 jours : plus elle est remplie, plus l\'échéance est proche"><span class="piste" aria-hidden="true"><i style="width:'+p+'%"></i></span><b>'+reste(s)+'</b></span>';
+  }
 
   var app = document.getElementById("app");
-  var filtre = "avenir";
-  var JOURS = 1000*60*60*24;
-
-  function fmt(d){ var p=d.split("-"); return p[2]+"/"+p[1]+"/"+p[0]; }
-  function libStatut(s){
-    if (s.statut==="realise") return ["realise","S'est produit"];
-    if (s.statut==="manque") return ["manque","Ne s'est pas produit"];
-    var j = Math.round((new Date(s.date) - new Date("2026-11-10"))/JOURS);
-    if (j < 0) return ["proche","Date passée, en attente de vérification"];
-    if (j <= 7) return ["proche","Dans moins de 7 jours"];
-    return ["avenir","À venir"];
-  }
-  function groupe(s){ return s.statut==="realise" ? "realise" : s.statut==="manque" ? "manque" : "avenir"; }
-  function pastille(k){ return '<span class="pastille p-'+k+'">'+ETATS[k]+'</span>'; }
-  function esc(t){ return String(t).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]}); }
-
-  function sauver(){ try{ sessionStorage.setItem("sig-liste", JSON.stringify({y:window.scrollY, f:filtre})); }catch(e){} }
-  function charger(){ try{ return JSON.parse(sessionStorage.getItem("sig-liste")||"null"); }catch(e){ return null; } }
-
-  function carte(s){
-    var st = libStatut(s), tranche = s.statut!=="avenir";
-    var h = '<li><a class="carte" href="#/signal/'+s.id+'" data-id="'+s.id+'">';
-    h += '<div class="ligne1"><span class="date">'+fmt(s.date)+'</span><span class="statut '+st[0]+'">'+st[1]+'</span></div>';
-    h += '<h2>'+esc(s.libelle)+'</h2>';
-    h += '<p class="edition">Édition liée : '+(s.edition?esc(s.edition):'…')+'</p>';
-    if (tranche && s.avant && s.apres){
-      var k = s.statut==="realise" ? s.oui.renforce : s.non.renforce;
-      h += '<p class="effet">Effet : '+pastille(k)+' '+s.avant[k]+' → '+s.apres[k]+' %</p>';
-    } else {
-      h += '<div class="issues"><div class="issue"><small>S\'il a lieu</small>Renforce le scénario '+pastille(s.oui.renforce)+'</div>'+
-           '<div class="issue"><small>Sinon</small>Renforce le scénario '+pastille(s.non.renforce)+'</div></div>';
-    }
-    return h+'</a></li>';
-  }
-
-  function vueListe(){
-    var n = {avenir:0, realise:0, manque:0};
-    DATA.forEach(function(s){ n[groupe(s)]++; });
-    var items = DATA.filter(function(s){ return groupe(s)===filtre; })
-                    .sort(function(a,b){ return a.date.localeCompare(b.date); });
-    var h = '<p class="section-label">Signaux</p>';
-    h += '<h1>Ce qui peut changer nos éditions</h1>';
-    h += '<p class="lead">Les rendez-vous que nous guettons, et l\'effet de chacun sur nos scénarios.</p>';
-    h += '<div class="clair"><b>En clair</b><p>Un signal est un fait précis, daté, que l\'on attend : un vote, une annonce, un accord. Il peut avoir lieu ou non, et dans les deux cas on apprend quelque chose. Ce n\'est pas une prévision, c\'est un repère.</p></div>';
-    h += '<div class="filtres" role="group" aria-label="Filtrer les signaux">';
-    [["avenir","À venir"],["realise","Réalisés"],["manque","Manqués"]].forEach(function(f){
-      h += '<button type="button" data-f="'+f[0]+'" aria-pressed="'+(filtre===f[0])+'">'+f[1]+'<span class="n">'+n[f[0]]+'</span></button>';
+  var h = '<p class="section-label">À venir</p><h1>Ce qui va arriver</h1>';
+  h += '<p class="lead">Les rendez-vous à surveiller, relevés dans nos éditions, du plus proche au plus lointain.</p>';
+  if (!DATA.length){
+    h += '<div class="vide">Aucun rendez-vous à surveiller pour le moment.</div>';
+  } else {
+    var groupes = {}, ordre = [], n = 0;
+    DATA.slice().sort(function(a,b){return a.date.localeCompare(b.date);}).forEach(function(s){
+      var p = periode(s.date); if(!groupes[p]){groupes[p]=[]; ordre.push(p);} groupes[p].push(s);
     });
-    h += '</div>';
-    if (!items.length){
-      h += '<div class="vide">'+(DATA.length? 'Aucun signal dans cette catégorie.' : 'Aucun signal à surveiller pour le moment.')+'</div>';
-    } else {
-      h += '<ul class="liste">'+items.map(carte).join("")+'</ul>';
-    }
-    app.innerHTML = h;
-    app.querySelectorAll(".filtres button").forEach(function(b){
-      b.addEventListener("click", function(){ filtre=b.getAttribute("data-f"); vueListe(); sauver(); });
+    h += '<div class="tl">';
+    ordre.forEach(function(p){
+      h += '<section class="periode" aria-label="'+esc(p)+'"><p class="section-label">'+esc(p)+'</p>';
+      groupes[p].forEach(function(s){
+        h += '<article class="signal" style="--i:'+(n++)+'">'+tuile(s)+'<div class="carte">'+
+             '<div class="entete"><span class="pastille"><svg viewBox="0 0 24 24" aria-hidden="true">'+ICONES[s.meta.dom]+'</svg>'+esc(s.meta.dom)+'</span>'+jauge(s)+'</div>'+
+             '<h2><span class="sr" style="position:absolute;left:-9999px">'+esc(s.quand)+' : </span>'+esc(s.titre).replace(/ \?/g,'\u00a0?').replace(/week-end/g,'week\u2011end')+'</h2><p class="comm">'+esc(s.comm)+'</p>'+
+             '<ul class="eds"><b>'+(s.eds.length>1?'Éditions concernées':'Édition concernée')+'</b>'+
+             s.eds.map(function(k){ var e = ED[k] || {t:"…", d:"…"};
+               return '<li><a href="../../archives/'+k+'.html"><span class="t">'+esc(e.t)+'<span class="d">— '+e.d+'</span></span></a></li>'; }).join("")+
+             '</ul></div></article>';
+      });
+      h += '</section>';
     });
-    app.querySelectorAll("a.carte").forEach(function(a){ a.addEventListener("click", sauver); });
+    h += '</div><p class="pied">Ces rendez-vous sont des repères, pas des prévisions. Nous ne recalculons pas de probabilités ici : à chacun de se faire son idée.</p>';
   }
-
-  function barres(o){
-    return '<div class="barres">'+["favorable","stable","degrade"].map(function(k){
-      return '<div class="barre"><span class="p-'+k+'">'+ETATS[k]+'</span><span class="piste"><span class="rempli f-'+k+'" style="width:'+o.apres[k]+'%"></span></span><span class="val">'+o.avant[k]+' → '+o.apres[k]+' %</span></div>';
-    }).join("")+'</div>';
-  }
-
-  function vueFiche(id){
-    var s = DATA.filter(function(x){return x.id===id;})[0];
-    if (!s){ location.hash="#/"; return; }
-    var st = libStatut(s), tranche = s.statut!=="avenir";
-    var h = '<a class="retour" href="#/" id="retour">← Retour aux signaux</a>';
-    h += '<p class="section-label">Signal</p><h1>'+esc(s.libelle)+'</h1>';
-    h += '<div class="fiche-meta"><span class="statut '+st[0]+'">'+st[1]+'</span><span class="date">Date limite : '+fmt(s.date)+'</span></div>';
-    h += '<p class="lead">Édition concernée : '+(s.edition?'<a href="#" style="color:var(--gold)">'+esc(s.edition)+'</a>':'…')+'</p>';
-    h += '<section class="bloc"><p class="section-label">Ce que cela changerait</p><div class="deux">'+
-         '<div class="cas"><small>S\'il a lieu</small><p>Renforce le scénario '+pastille(s.oui.renforce)+'.</p><p>'+esc(s.oui.effet)+'</p></div>'+
-         '<div class="cas"><small>Sinon</small><p>Renforce le scénario '+pastille(s.non.renforce)+'.</p><p>'+esc(s.non.effet)+'</p></div></div></section>';
-    if (tranche && s.apres){
-      h += '<section class="bloc"><p class="section-label">Effet sur les pourcentages</p>'+barres(s)+
-           '<p class="note">'+esc(s.raison)+'</p></section>';
-      h += '<section class="bloc"><p class="section-label">Sources</p><ul class="source">'+s.sources.map(function(x){return '<li><a href="#">'+esc(x)+'</a></li>';}).join("")+'</ul></section>';
-    } else if (s.avant){
-      h += '<section class="bloc"><p class="section-label">Répartition actuelle</p><div class="barres">'+["favorable","stable","degrade"].map(function(k){
-        return '<div class="barre"><span class="p-'+k+'">'+ETATS[k]+'</span><span class="piste"><span class="rempli f-'+k+'" style="width:'+s.avant[k]+'%"></span></span><span class="val">'+s.avant[k]+' %</span></div>';}).join("")+'</div>'+
-        '<p class="note">Aucun verdict tant que le signal n\'est pas tranché. Le déplacement maximal sera de 5 points.</p></section>';
-    } else {
-      h += '<section class="bloc"><p class="section-label">Répartition actuelle</p><p class="lead">…</p></section>';
-    }
-    app.innerHTML = h;
-    window.scrollTo(0,0);
-  }
-
-  function route(){
-    var m = location.hash.match(/^#\/signal\/(.+)$/);
-    if (m){ vueFiche(m[1]); return; }
-    var memo = charger();
-    if (memo && memo.f) filtre = memo.f;
-    vueListe();
-    if (memo && typeof memo.y==="number") window.scrollTo(0, memo.y);
-  }
-  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
-  window.addEventListener("hashchange", route);
-  route();
+  app.innerHTML = h;
 })();
 </script>
 </body>
