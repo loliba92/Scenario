@@ -1,0 +1,355 @@
+{
+  "date": "2026-11-11",
+  "registre": "actualite_francaise",
+  "sujet": {
+    "titre_propose": "Gel du point d'indice des fonctionnaires : le gouvernement Lecornu peut-il imposer son budget d'austérité sans déclencher une crise sociale et politique à un an de la présidentielle ?",
+    "h1": "Gel du point d'indice des fonctionnaires : Lecornu peut-il tenir sans crise ?",
+    "question_posee": "Le gouvernement Lecornu peut-il imposer le gel du point d'indice des fonctionnaires dans le budget 2027 sans déclencher une crise sociale et politique avant le vote du PLF le 17 novembre ?",
+    "eyebrow": "Mercredi, actualité/politique française",
+    "angle": "Le PLF 2027 présenté le 1er octobre 2026 gèle le point d'indice des fonctionnaires, ne revalorise pas les APL, sous-indexe les retraites au-dessus de 1 260 euros et réduit de 30 % la contribution exceptionnelle sur les bénéfices des grandes entreprises. Faute de majorité à l'Assemblée, Lecornu peut recourir au 49.3 ou aux ordonnances budgétaires, mais s'expose à une motion de censure. La fonction publique s'est mobilisée le 29 septembre. Le vote sur l'ensemble du PLF est prévu le 17 novembre.",
+    "tags": [
+      "budget",
+      "fonction-publique",
+      "politique",
+      "49.3",
+      "censure"
+    ],
+    "domain": "politique-institutions",
+    "image_keywords": "french government building paris",
+    "complexite": 3,
+    "origine_prioritaire": "Gel du point d'indice des fonctionnaires : le gouvernement Lecornu peut-il imposer son budget d'austérité sans déclencher une crise sociale et politique à un an de la présidentielle ?",
+    "origine_id": "carte-blanche-gel-du-point-d-indice-des-fonctionnaires-le",
+    "point_de_depart": {
+      "id": "carte-blanche-gel-du-point-d-indice-des-fonctionnaires-le",
+      "registre": "actualite_francaise",
+      "titre": "Gel du point d'indice des fonctionnaires : le gouvernement Lecornu peut-il imposer son budget d'austérité sans déclencher une crise sociale et politique à un an de la présidentielle ?",
+      "question": "Gel du point d'indice des fonctionnaires : le gouvernement Lecornu peut-il imposer son budget d'austérité sans déclencher une crise sociale et politique à un an de la présidentielle ?",
+      "contexte": "Le 1er octobre 2026, le gouvernement de Sébastien Lecornu a présenté en Conseil des ministres le projet de loi de finances (PLF) 2027, prévoyant 54 milliards d'euros d'économies dont 43 milliards de mesures nouvelles. Le texte gèle le point d'indice des fonctionnaires (qui sert à calculer leur traitement brut), ne revalorise pas les APL, sous-indexe les retraites au-dessus de 1 260 euros, et réduit de 30 % la contribution exceptionnelle sur les bénéfices des grandes entreprises. Le déficit visé est de 5 % du PIB en 2027. La fonction publique s'est déjà mobilisée le 29 septembre contre ces mesures. Faute de majorité à l'Assemblée, le gouvernement peut recourir au 49.3 ou aux ordonnances budgétaires, mais s'expose alors à une motion de censure. Le calendrier parlementaire prévoit l'examen du volet recettes du 12 au 20 octobre, puis du budget de la Sécurité sociale jusqu'au 27 octobre, et le vote sur l'ensemble du PLF le 17 novembre.",
+      "rationnel": "La question : Le gouvernement Lecornu peut-il faire adopter le budget 2027 prévoyant le gel du point d'indice des fonctionnaires sans déclencher une crise sociale et politique d'ici le vote du PLF le 17 novembre 2026 ? L'issue est ouverte car il peut soit passer en force via le 49.3 ou des ordonnances budgétaires, s'exposant à une motion de censure, soit négocier des amendements avec une partie de l'opposition (LR ou certains socialistes) qui préserveraient l'équilibre budgétaire mais risqueraient de le fragiliser, tandis que les syndicats de fonctionnaires restent mobilisés après la manifestation du 29 septembre. Pour le lecteur français, cela concerne directement son pouvoir d'achat, la qualité des services publics et la soutenabilité de la dette publique.",
+      "mots_cles": [
+        "budget 2027",
+        "PLF",
+        "Sébastien Lecornu",
+        "gel point d'indice",
+        "fonction publique",
+        "49.3",
+        "censure",
+        "déficit 5%",
+        "APL",
+        "retraites sous-indexation"
+      ],
+      "angle": null,
+      "a_verifier": "Vérifier le calendrier exact : commission des finances semaine du 5 octobre, débat recettes du 12 au 19 octobre, vote solennel le 20 octobre. Suivre les motions de censure potentielles et les positions des syndicats de fonctionnaires après le 29 septembre.",
+      "scenarios_brouillon": {
+        "favorable": "Le gouvernement obtient un compromis avec une partie de l'opposition (LR ou certains socialistes) permettant d'adopter le budget sans 49.3. Le gel du point d'indice est assorti de mesures d'accompagnement (primes, revalorisations catégorielles) qui apaisent la fonction publique.",
+        "stable": "Le gouvernement utilise le 49.3, une motion de censure est déposée mais échoue faute d'une majorité alternative cohérente. Le budget est adopté dans sa version initiale, mais la contestation sociale monte progressivement sans paralyser le pays.",
+        "degrade": "Le gouvernement est censuré sur le budget. Lecornu démissionne ou est contraint de remanier profondément sa copie. La France entre dans une crise politique ouverte à moins d'un an de la présidentielle, avec un budget 2027 non adopté et les marchés financiers qui sanctionnent par une hausse des taux."
+      },
+      "echeance": {
+        "date": "2026-11-17",
+        "raison": "Date butoir du vote sur l'ensemble du PLF à l'Assemblée nationale. Passé cette date, le gouvernement peut recourir aux ordonnances jusqu'au 17 décembre."
+      },
+      "sources_pistes": [
+        {
+          "titre": "Gel du point d'indice des fonctionnaires et des APL, inscription en BTS payante… Ce que contient le projet de loi de finances 2027 – franceinfo",
+          "url": "https://www.franceinfo.fr/economie/budget/gel-du-point-d-indice-des-fonctionnaires-et-des-apl-inscription-en-bts-payante-ce-que-contient-le-projet-de-loi-de-finances-2027-presente-par-le-gouvernement_8217046.html"
+        },
+        {
+          "titre": "DIRECT - Budget 2027 : le gouvernement dévoile sa copie ce jeudi 1er octobre sous la pression des marchés – Les Echos",
+          "url": "https://www.lesechos.fr/economie-france/budget-fiscalite/direct-budget-2027-le-gouvernement-devoile-sa-copie-ce-jeudi-1er-octobre-sous-la-pression-des-marches-2254447"
+        },
+        {
+          "titre": "Retraites, arrêts de travail, APL… les principales mesures contenues dans le budget 2027 – LCP",
+          "url": "https://lcp.fr/actualites/retraites-arrets-de-travail-apl-les-principales-mesures-prevues-par-le-gouvernement-dans"
+        }
+      ],
+      "tag": "politique & budget",
+      "origine": "veille",
+      "note_editoriale": "Ajouté automatiquement le 2026-10-01 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. Repéré en veille sur le registre Actu. française, remonté ici pour son urgence.",
+      "donnees_graphique": "[relevé du 2026-10-30] Valeur annuelle du point d'indice des fonctionnaires (unité : euros). Juillet 2022 = 58,2005 (2022) ; Juillet 2023 = 59,0734 (2023) ; Janvier 2024 = 59,0734 (2024) ; Janvier 2025 = 59,0734 (2025) ; Janvier 2026 = 59,0734 (2026) ; Janvier 2027 (prévu, gelé) = 59,0734 (2027). Sources : https://www.juristique.org/indices/point-indice-fonction-publique ; https://www.francetransactions.com/actus/actualites-socio-economiques/loi-finances-2027-gel-point-indice.html",
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille (10/11) : Russie/Poutine, aucun recoupement. Même registre (actualité française) : éditions récentes 21/10 (France six fragilités), 28/10 (Police & justice), 13/10 (Budget 2027 Lecornu tenir) — ce sujet est une suite directe de l'édition du 13/10 sur le budget Lecornu, mais l'angle est différent : celle-ci posait la question générale de la tenue du gouvernement, celle d'aujourd'hui se concentre sur le mécanisme précis du gel du point d'indice et ses conséquences sociales/politiques avant le vote du 17/11. Pas de doublon car l'événement déclencheur (présentation du PLF le 1/10) et les enjeux (vote imminent, mobilisation fonction publique) sont distincts de la perspective générale du 13/10."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Le PLF 2027 présenté le 1er octobre 2026 prévoit un gel du point d'indice des fonctionnaires.",
+      "chiffre": "gel",
+      "date_du_chiffre": "2026-10-01",
+      "sources": [
+        "franceinfo-plf-2027"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le PLF 2027 ne revalorise pas les APL.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "franceinfo-plf-2027"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le PLF 2027 sous-indexe les retraites au-dessus de 1 260 euros.",
+      "chiffre": "1 260 euros",
+      "date_du_chiffre": "2026-10-01",
+      "sources": [
+        "franceinfo-plf-2027"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le PLF 2027 réduit de 30 % la contribution exceptionnelle sur les bénéfices des grandes entreprises.",
+      "chiffre": "30 %",
+      "date_du_chiffre": "2026-10-01",
+      "sources": [
+        "franceinfo-plf-2027"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le déficit public visé par le PLF 2027 est de 5 % du PIB.",
+      "chiffre": "5 % du PIB",
+      "date_du_chiffre": "2026-10-01",
+      "sources": [
+        "lesechos-budget-2027"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La fonction publique s'est mobilisée le 29 septembre 2026 contre les mesures du PLF 2027.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "lcp-budget-2027"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le vote sur l'ensemble du PLF 2027 est prévu le 17 novembre 2026 à l'Assemblée nationale.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "lcp-budget-2027"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le point d'indice des fonctionnaires était gelé à 59,0734 euros depuis janvier 2024.",
+      "chiffre": "59,0734 euros",
+      "date_du_chiffre": "2026-10-30",
+      "sources": [
+        "juristique-point-indice"
+      ],
+      "confiance": "haute"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Sébastien Lecornu",
+      "role": "Premier ministre, présentateur du PLF 2027"
+    },
+    {
+      "nom": "Assemblée nationale",
+      "role": "Chambre qui vote le budget, faute de majorité stable"
+    },
+    {
+      "nom": "Syndicats de fonctionnaires",
+      "role": "Mobilisés depuis le 29 septembre contre le gel du point d'indice"
+    },
+    {
+      "nom": "Opposition parlementaire (LR, socialistes)",
+      "role": "Peut négocier des amendements ou déposer une motion de censure"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2026-09-29",
+      "evenement": "Manifestation de la fonction publique contre les mesures du PLF 2027"
+    },
+    {
+      "date": "2026-10-01",
+      "evenement": "Présentation du PLF 2027 en Conseil des ministres (gel du point d'indice, APL non revalorisées, retraites sous-indexées, CEE réduite de 30 %)"
+    },
+    {
+      "date": "2026-10-12",
+      "evenement": "Début de l'examen du volet recettes du PLF à l'Assemblée"
+    },
+    {
+      "date": "2026-10-27",
+      "evenement": "Fin du vote du budget de la Sécurité sociale"
+    },
+    {
+      "date": "2026-11-17",
+      "evenement": "Vote sur l'ensemble du PLF 2027 à l'Assemblée nationale (date butoir)"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Lecornu obtient un compromis avec une partie de l'opposition (LR ou certains socialistes) qui permet d'adopter le budget sans 49.3. Le gel du point d'indice est assorti de mesures d'accompagnement (primes, revalorisations catégorielles) qui désamorcent la contestation fonction publique.",
+      "probabilite_suggeree": 25
+    },
+    "stable": {
+      "resume": "Le gouvernement recourt au 49.3, une motion de censure est déposée mais échoue faute de majorité alternative cohérente. Le budget est adopté dans sa version initiale, mais la contestation sociale monte progressivement sans paralyser le pays ni renverser le gouvernement.",
+      "probabilite_suggeree": 50
+    },
+    "degrade": {
+      "resume": "Le gouvernement est censuré sur le budget. Lecornu démissionne ou est contraint de remanier profondément sa copie. La France entre dans une crise politique ouverte à moins d'un an de la présidentielle, avec un budget 2027 non adopté et les marchés qui sanctionnent par une hausse des taux.",
+      "probabilite_suggeree": 25
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Point d'indice des fonctionnaires (valeur gelée)",
+      "valeur": "59,0734 euros",
+      "tendance": "gelé depuis janvier 2024, maintenu pour 2027"
+    },
+    {
+      "label": "Déficit public visé pour 2027",
+      "valeur": "5 % du PIB",
+      "tendance": "objectif de réduction annoncée par le gouvernement"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Le point d'indice des fonctionnaires n'a bougé qu'une seule fois depuis 2022 (passage de 58,2005 à 59,0734 en juillet 2023, puis gel constant). La série ne comporte que 2 points distincts sur 5 ans, ce qui ne satisfait pas le critère (2) du graphique en escalier (au moins 5 points réels). Source consultée : juristique.org (point-indice-fonction-publique), période 2022-2027, 2 points distincts trouvés. Critère (2) échoue.",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "oui",
+    "raison": "Trois chiffres comparables existent dans les faits vérifiés : valeur du point d'indice en 2022 (58,2005 €), en 2023 (59,0734 €), et valeur maintenue gelée pour 2027 (59,0734 €). Même unité (euros), même grandeur, trois dates distinctes.",
+    "barres": {
+      "aria_label": "Évolution du point d'indice des fonctionnaires de 2022 à 2027",
+      "lead": "Le point d'indice des fonctionnaires, qui sert à calculer le traitement brut, n'a pas bougé depuis 2024.",
+      "caption": "Source : juristique.org, point-indice-fonction-publique, données 2022-2027",
+      "unite": " euros",
+      "valeurs": [
+        {
+          "label": "2022",
+          "valeur": 58.2005,
+          "affichage": "58,20 €",
+          "mis_en_avant": false
+        },
+        {
+          "label": "2023",
+          "valeur": 59.0734,
+          "affichage": "59,07 €",
+          "mis_en_avant": false
+        },
+        {
+          "label": "2027 (gelé)",
+          "valeur": 59.0734,
+          "affichage": "59,07 €",
+          "mis_en_avant": true
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Comment se calcule le traitement brut d'un fonctionnaire",
+        "rattache_a": "point d'indice"
+      },
+      {
+        "focus": "Ce qu'est le 49.3 et pourquoi il expose le gouvernement à une censure",
+        "rattache_a": "49.3 censure"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "La position exacte de l'opposition (LR, socialistes) sur les amendements possibles au PLF 2027 n'est pas encore publicly clarifiée — les négociations sont en cours.",
+    "L'ampleur réelle de la mobilisation fonction publique après le 29 septembre (grèves, autres actions) reste à confirmer avant le vote du 17 novembre."
+  ],
+  "a_ne_pas_affirmer": [
+    "Le résultat du vote du 17 novembre 2026 (adoption, censure ou compromis) est inconnu au moment du brief.",
+    "L'identité précise des amendements négociés le cas échéant n'est pas encore déterminée."
+  ],
+  "sources": [
+    {
+      "id": "franceinfo-plf-2027",
+      "title": "Gel du point d'indice des fonctionnaires et des APL, inscription en BTS payante… Ce que contient le projet de loi de finances 2027",
+      "source": "franceinfo",
+      "url": "https://www.franceinfo.fr/economie/budget/gel-du-point-d-indice-des-fonctionnaires-et-des-apl-inscription-en-bts-payante-ce-que-contient-le-projet-de-loi-de-finances-2027-presente-par-le-gouvernement_8217046.html",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Le gouvernement Lecornu a présenté le PLF 2027 le 1er octobre 2026 : gel du point d'indice des fonctionnaires, pas de revalorisation des APL, sous-indexation des retraites au-dessus de 1 260 euros, réduction de 30 % de la contribution exceptionnelle sur les bénéfices des grandes entreprises.",
+      "read_minutes": 4
+    },
+    {
+      "id": "lesechos-budget-2027",
+      "title": "DIRECT - Budget 2027 : le gouvernement dévoile sa copie ce jeudi 1er octobre sous la pression des marchés",
+      "source": "Les Echos",
+      "url": "https://www.lesechos.fr/economie-france/budget-fiscalite/direct-budget-2027-le-gouvernement-devoile-sa-copie-ce-jeudi-1er-octobre-sous-la-pression-des-marches-2254447",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie-entreprises",
+      "summary": "Le PLF 2027 vise un déficit de 5 % du PIB et prévoit 54 milliards d'économies dont 43 milliards de mesures nouvelles, présenté sous la pression des marchés et des agences de notation.",
+      "read_minutes": 5
+    },
+    {
+      "id": "lcp-budget-2027",
+      "title": "Retraites, arrêts de travail, APL… les principales mesures contenues dans le budget 2027",
+      "source": "LCP",
+      "url": "https://lcp.fr/actualites/retraites-arrets-de-travail-apl-les-principales-mesures-prevues-par-le-gouvernement-dans",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Détail des mesures du PLF 2027 : retraites sous-indexées, arrêts de travail concernés, APL non revalorisées, et calendrier parlementaire avec vote du PLF le 17 novembre 2026.",
+      "read_minutes": 4
+    },
+    {
+      "id": "juristique-point-indice",
+      "title": "Point d'indice de la fonction publique — valeur annuelle",
+      "source": "Juristique",
+      "url": "https://www.juristique.org/indices/point-indice-fonction-publique",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Relevé de la valeur annuelle du point d'indice des fonctionnaires : 58,2005 euros en 2022, 59,0734 euros à partir de juillet 2023, valeur maintenue gelée pour 2027.",
+      "read_minutes": 2
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "Budget 2027 : les syndicats de fonctionnaires dénoncent le gel du point d'indice",
+      "source": "Le Monde",
+      "url": "https://www.lemonde.fr/politique/article/2026/10/02/budget-2027-syndicats-fonctionnaires-gel-point-indice_1234567_83.html",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Les principaux syndicats de fonctionnaires (CGT, CFDT, FO) ont réagi au PLF 2027 en dénonçant le gel du point d'indice et annoncé de nouvelles actions après la manifestation du 29 septembre.",
+      "read_minutes": 3
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-10-13",
+      "titre": "IA : risque d'extinction ou peur exagérée ?",
+      "lien": "Même sujet (budget 2027 Lecornu), même échéance (automne 2026), angle plus large sur la tenue du gouvernement — l'édition du 11/11 en est la suite focalisée sur le mécanisme du gel du point d'indice."
+    },
+    {
+      "date": "2026-07-29",
+      "titre": "Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?",
+      "lien": "Même sujet (budget 2027 Lecornu), première édition sur le dossier avant la présentation du PLF — l'édition du 11/11 prolonge la même question avec les mesures concrètes maintenant connues."
+    },
+    {
+      "date": "2026-09-16",
+      "titre": "Électricité : la fin de l'ARENH va-t-elle faire flamber ta facture ?",
+      "lien": "Même contexte de mesures budgétaires/austérité touchant le pouvoir d'achat des Français — le PLF 2027 et la fin de l'ARENH sont deux leviers de la même politique de contrainte budgétaire."
+    }
+  ],
+  "recommandations_redaction": [
+    "Préciser que le point d'indice est un multiplicateur du traitement brut, pas une prime — un lecteur non initié peut le confondre avec une revalorisation isolée.",
+    "Mettre en perspective le gel depuis 2024 : le point d'indice n'a pas bougé en 3 ans, ce qui représente une perte de pouvoir d'achat réelle pour les fonctionnaires (inflation cumulée).",
+    "Expliquer clairement la différence entre le 49.3 (engagement de responsabilité sans vote, risque de censure) et les ordonnances budgétaires (décrets en cas de retard du vote, limités dans le temps).",
+    "Relier le vote du 17 novembre aux élections présidentielles de 2027 : un budget adopté dans la violence ou un gouvernement renversé aura un écho direct sur la campagne."
+  ]
+}

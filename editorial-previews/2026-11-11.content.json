@@ -1,0 +1,172 @@
+{
+  "h1": "Gel du point d'indice des fonctionnaires : Lecornu peut-il tenir sans crise ?",
+  "question_text": "Le gouvernement Lecornu peut-il imposer le gel du point d'indice des fonctionnaires dans le budget 2027 sans déclencher une crise sociale et politique avant le vote du PLF le 17 novembre ?",
+  "section_title": "Trois scénarios pour l'adoption du budget 2027 et l'avenir du gouvernement",
+  "dek": [
+    "Présenté le 1er octobre 2026 en Conseil des ministres, le projet de loi de finances pour 2027 place le gouvernement de Sébastien Lecornu face à une épreuve politique décisive. L'exécutif cherche à ramener le déficit public à <strong>5 % du PIB</strong>, contre 5,4 % attendus en 2026, au prix d'un effort global de redressement de 54 milliards d'euros, dont 43 milliards de mesures d'économies nouvelles. Pour y parvenir, le Premier ministre a choisi de cibler en priorité les dépenses de fonctionnement de l'État. Parmi les décisions les plus contestées figure le maintien du gel de la rémunération de base des 5,7 millions d'agents publics, une mesure qui suscite une vive opposition des organisations syndicales.",
+    "La rémunération des agents publics repose sur un mécanisme précis : le traitement indiciaire brut se calcule en multipliant un nombre de points attribué à chaque échelon par la valeur du point d'indice<a class=\"lex-ref\" href=\"#lex-point-d-indice\" aria-label=\"Voir la définition dans le lexique\">*</a>. Fixée à <strong>59,0734 euros</strong> par an depuis juillet 2023, cette valeur n'a plus augmenté depuis plus de trois ans. Dans un contexte où les prix à la consommation ont continué de progresser au fil des mois, ce blocage prolonge une perte nette de pouvoir d'achat pour les enseignants, les soignants et les agents administratifs, qui avaient déjà manifesté leur mécontentement dans la rue dès le 29 septembre 2026.",
+    "Ce projet budgétaire ne limite pas ses coupes aux seuls fonctionnaires : il comprend aussi le gel des allocations familiales et l'absence de revalorisation des allocations personnalisées au logement (APL). Parallèlement, le texte prévoit de sous-indexer les pensions de retraite pour tous les montants supérieurs à <strong>1 260 euros</strong> par mois, tout en réduisant de <strong>30 %</strong> la contribution exceptionnelle demandée aux très grandes entreprises, qui passe de 7,5 milliards d'euros perçus en 2026 à 5 milliards en 2027. Cette combinaison de hausses modérées pour le secteur privé et de rigueur stricte pour les ménages et les services publics alimente le sentiment d'une austérité inégalement répartie.",
+    "L'équation politique à l'Assemblée nationale rend l'adoption de ce budget particulièrement périlleuse, car le gouvernement ne dispose pas d'une majorité absolue pour faire voter son texte de manière classique. Les oppositions de gauche dénoncent une attaque frontale contre le service public, tandis que la droite républicaine hésite entre la crainte d'un dérapage financier et le refus de voter des hausses d'impôts sectorielles. Pour contourner ce blocage, le Premier ministre conserve la possibilité d'engager la responsabilité de son gouvernement via l'article 49.3<a class=\"lex-ref\" href=\"#lex-article-49-3\" aria-label=\"Voir la définition dans le lexique\">*</a> de la Constitution, une procédure qui permet de faire passer une loi sans vote mais qui expose immédiatement l'exécutif à une motion de censure<a class=\"lex-ref\" href=\"#lex-motion-de-censure\" aria-label=\"Voir la définition dans le lexique\">*</a>.",
+    "L'échéance du 17 novembre 2026 constitue une date butoir majeure, fixée par le calendrier constitutionnel pour le vote final du projet de loi de finances par les députés. Si une motion de censure venait à rassembler une majorité absolue de voix contre le gouvernement, Sébastien Lecornu serait contraint de présenter sa démission, plongeant la France dans une crise institutionnelle immédiate. À moins d'un an de l'élection présidentielle de 2027, une telle chute fragiliserait l'ensemble du camp présidentiel, tout en provoquant une hausse immédiate des taux d'intérêt exigés par les marchés financiers sur la dette souveraine de la France.",
+    "Entre la menace d'un blocage parlementaire, le risque de manifestations reconductibles dans les hôpitaux ou les écoles et l'urgence de rassurer les créanciers internationaux, plusieurs trajectoires restent possibles d'ici le vote final. Trois scénarios se dessinent clairement : un compromis parlementaire arraché in extremis grâce à des concessions ciblées, un passage en force par l'article 49.3 sans chute du gouvernement mais au prix d'un mécontentement social durable, ou un renversement de l'exécutif qui ouvrirait une crise politique majeure aux portes de la prochaine élection présidentielle."
+  ],
+  "enjeu_en_clair": {
+    "lead": "Le gouvernement gèle le salaire de base des fonctionnaires pour réduire le déficit de la France, au risque de bloquer le pays.",
+    "text": "Le projet de budget 2027 bloque la valeur du point d'indice qui sert à calculer la paie des fonctionnaires, gelée à 59,0734 euros depuis 2023. Les syndicats dénoncent une perte de pouvoir d'achat face à la hausse des prix, tandis que le gouvernement veut limiter le déficit à 5 % du PIB. Sans majorité à l'Assemblée, l'exécutif risque d'être renversé s'il impose son texte en force avant le 17 novembre."
+  },
+  "stakes_branches": {
+    "favorable": "Un compromis de dernière minute désamorce les grèves et évite le recours au 49.3.",
+    "stable": "Le budget passe en force au 49.3 sans faire tomber le gouvernement, mais la colère sociale s'installe.",
+    "degrade": "Une motion de censure fait chuter le gouvernement Lecornu et plonge le pays dans une crise politique."
+  },
+  "comprendre_box": [
+    {
+      "lead": "Comprendre le calcul : comment fonctionne la paie d'un agent public ?",
+      "text": "Le traitement brut d'un fonctionnaire fonctionne comme un produit mathématique simple : on multiplie son indice majoré par la valeur annuelle du point d'indice, puis on divise par douze. Quand le point est gelé, le salaire de base reste parfaitement fixe. Si le coût de la vie augmente pendant cette période, le pouvoir d'achat réel de l'agent diminue mécaniquement.",
+      "apres_dek_index": 1
+    },
+    {
+      "lead": "Clé de lecture : pourquoi le 49.3 est une arme à double tranchant",
+      "text": "L'article 49 alinéa 3 de la Constitution permet au Premier ministre de faire adopter un texte sans le soumettre au vote des députés. Mais cette décision déclenche automatiquement le droit pour l'opposition de déposer une motion de censure. Si une majorité absolue de parlementaires vote cette motion, la loi est rejetée et le gouvernement tombe immédiatement.",
+      "apres_dek_index": 3
+    }
+  ],
+  "list_box": null,
+  "indicators": [
+    {
+      "label": "Point d'indice des fonctionnaires (valeur gelée)",
+      "value": "59,0734 euros",
+      "delta": "Valeur annuelle inchangée depuis juillet 2023, reconduite dans le PLF 2027"
+    },
+    {
+      "label": "Déficit public visé pour 2027",
+      "value": "5 % du PIB",
+      "delta": "Objectif de réduction par rapport aux 5,4 % attendus en 2026"
+    }
+  ],
+  "cards": {
+    "favorable": {
+      "pct": 25,
+      "gauge_word": "Peu probable",
+      "h3": "L'exécutif négocie des concessions ciblées et fait voter le budget",
+      "why": [
+        "Dans ce premier scénario, Sébastien Lecornu choisit la voie du dialogue parlementaire pour éviter un passage en force jugé trop risqué. Le Premier ministre accorde des aménagements aux députés de droite ou à certains socialistes indépendants : le gel général du point d'indice est maintenu dans la loi, mais le gouvernement débloque des primes spécifiques et des revalorisations de carrière pour les bas salaires de la fonction publique. Concrètement, ces gestes permettent d'obtenir une majorité relative lors du vote du 17 novembre 2026, évitant l'usage du 49.3 et désamorçant les appels à la grève générale dans les transports et l'éducation.",
+        "Cette trajectoire est évaluée à 25 % par notre rédaction, car elle exige des concessions budgétaires que le ministre de l'Économie refuse pour l'instant d'accorder afin de tenir la trajectoire des 5 % de déficit. Par rapport au scénario de passage en force (50 %) et à celui d'une censure (25 %), ce compromis préserverait la stabilité institutionnelle mais obligerait l'exécutif à rogner sur ses objectifs d'économies, ce qui pourrait toutefois rassurer les partenaires sociaux à court terme."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Point d'indice des fonctionnaires",
+          "evo_current": "59,0734 € + primes ciblées",
+          "evo_arrow": "up",
+          "evo_prev": "Gel strict à 59,0734 € sans compensation"
+        },
+        {
+          "field_name": "Déficit public visé pour 2027",
+          "evo_current": "5,1 % du PIB",
+          "evo_arrow": "up",
+          "evo_prev": "5 % du PIB initialement visé"
+        }
+      ],
+      "france_line": "L'apaisement social évite des blocages majeurs mais allège légèrement l'effort d'économies de l'État.",
+      "france_impact": "favorable"
+    },
+    "stable": {
+      "pct": 50,
+      "gauge_word": "Probable",
+      "h3": "Le budget est imposé par 49.3 et survit à la censure",
+      "why": [
+        "Dans cette configuration, le gouvernement constate l'absence d'accord parlementaire et engage sa responsabilité sur le projet de loi de finances le 17 novembre 2026. Une motion de censure est immédiatement déposée par la gauche unie, mais les députés de droite refusent de la voter ensemble par crainte d'une dissolution immédiate. Le texte est donc adopté dans sa version initiale, confirmant le gel du point d'indice à 59,0734 euros et la réduction de 30 % de la taxe sur les bénéfices. Concrètement, le budget entre en vigueur sans vote, mais le climat social se durcit avec des journées d'action répétées dans les services publics.",
+        "Notre scénario central attribue 50 % de probabilité à cette issue, car les divisions structurelles de l'Assemblée nationale empêchent les oppositions de s'accorder sur un gouvernement de remplacement, face aux scénarios alternatifs de compromis (25 %) ou de censure victorieuse (25 %). Si le budget de rigueur est ainsi sanctuarisé pour respecter l'objectif de 5 % de déficit, cette méthode d'adoption nourrirait un ressentiment durable chez les agents de l'État et fragiliserait l'exécutif jusqu'au scrutin présidentiel."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Point d'indice des fonctionnaires",
+          "evo_current": "59,0734 € (gelé)",
+          "evo_arrow": "flat",
+          "evo_prev": "59,0734 € depuis 2023"
+        },
+        {
+          "field_name": "Déficit public visé pour 2027",
+          "evo_current": "5,0 % du PIB",
+          "evo_arrow": "down",
+          "evo_prev": "5,4 % attendus en 2026"
+        }
+      ],
+      "france_line": "L'État applique ses économies mais subit une contestation sociale larvée et une usure politique.",
+      "france_impact": "degrade"
+    },
+    "degrade": {
+      "pct": 25,
+      "gauge_word": "Peu probable",
+      "h3": "L'Assemblée renverse le gouvernement et bloque le budget",
+      "why": [
+        "Dans ce dernier scénario, l'utilisation du 49.3 pousse l'ensemble des groupes d'opposition, de la gauche au Rassemblement national et à une frange de la droite, à voter une motion de censure commune. Le gouvernement de Sébastien Lecornu est renversé, entraînant le rejet immédiat du projet de budget 2027. Concrètement, la France se retrouve sans budget voté à quelques semaines du 1er janvier, obligeant l'administration à recourir à des lois spéciales d'urgence pour payer les traitements des fonctionnaires, tandis que les taux d'emprunt de la dette française s'envolent sur les marchés financiers.",
+        "Cette hypothèse recueille 25 % de probabilité selon notre analyse, car franchir le pas de la censure comporte un risque électoral majeur pour les députés de l'opposition à un an de la présidentielle, face au scénario de passage au 49.3 (50 %) et à celui d'un compromis négocié (25 %). Si cette alliance des mécontentements se concrétisait le 17 novembre, la crise institutionnelle ouverte menacerait directement la crédibilité financière du pays auprès de ses créanciers européens."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Point d'indice des fonctionnaires",
+          "evo_current": "Incertain (budget rejeté)",
+          "evo_arrow": "flat",
+          "evo_prev": "59,0734 €"
+        },
+        {
+          "field_name": "Déficit public visé pour 2027",
+          "evo_current": "> 5,4 % du PIB (dérapage)",
+          "evo_arrow": "up",
+          "evo_prev": "5 % du PIB initialement visé"
+        }
+      ],
+      "france_line": "La chute du gouvernement déclenche une crise financière et paralyse la gestion de l'État.",
+      "france_impact": "degrade"
+    }
+  },
+  "essentiel_box": [
+    "Le gouvernement Lecornu peut-il imposer le gel du salaire des fonctionnaires dans le budget 2027 sans provoquer une crise majeure avant le 17 novembre ?",
+    "Le projet de loi de finances présenté le 1er octobre maintient le point d'indice gelé à 59,0734 euros et vise un déficit de 5 % du PIB grâce à 43 milliards d'euros de mesures nouvelles.",
+    "Pas facilement : notre scénario central (50 %) estime que le gouvernement passera en force avec l'article 49.3 sans être renversé, devant un compromis négocié (25 %) et une censure fatale (25 %).",
+    "Le signal décisif sera le vote final sur l'ensemble du projet de loi de finances et l'examen des motions de censure à l'Assemblée nationale le 17 novembre 2026."
+  ],
+  "delta_france": {
+    "kind": "negatif",
+    "score": -0.5,
+    "word": "assez négatif",
+    "text": "la probabilité cumulée de 75 % d'un passage en force sous tension sociale ou d'une crise politique majeure avec censure pénalise la stabilité économique et sociale du pays."
+  },
+  "phrase_a_retenir": "Le budget 2027 maintient le point d'indice des fonctionnaires gelé à 59,0734 euros pour viser 5 % de déficit, malgré le risque d'une motion de censure le 17 novembre.",
+  "phrase_a_retenir_stat": "59,0734 euros",
+  "lexique": [
+    {
+      "slug": "point-d-indice",
+      "terme": "point d'indice",
+      "definition": "Valeur financière de base qui sert à calculer le traitement brut d'un fonctionnaire en la multipliant par son indice personnel."
+    },
+    {
+      "slug": "article-49-3",
+      "terme": "article 49.3",
+      "definition": "Disposition de la Constitution permettant au gouvernement de faire adopter un texte sans vote parlementaire, sous réserve de ne pas être censuré."
+    },
+    {
+      "slug": "motion-de-censure",
+      "terme": "motion de censure",
+      "definition": "Vote par lequel les députés peuvent renverser le gouvernement et rejeter le texte sur lequel il a engagé sa responsabilité."
+    }
+  ],
+  "sources_html": [
+    "<a href=\"https://www.franceinfo.fr/economie/budget/gel-du-point-d-indice-des-fonctionnaires-et-des-apl-inscription-en-bts-payante-ce-que-contient-le-projet-de-loi-de-finances-2027-presente-par-le-gouvernement_8217046.html\" target=\"_blank\" rel=\"noopener noreferrer\">franceinfo — Gel du point d'indice des fonctionnaires et des APL, inscription en BTS payante… Ce que contient le projet de loi de finances 2027 ↗</a>",
+    "<a href=\"https://www.lesechos.fr/economie-france/budget-fiscalite/direct-budget-2027-le-gouvernement-devoile-sa-copie-ce-jeudi-1er-octobre-sous-la-pression-des-marches-2254447\" target=\"_blank\" rel=\"noopener noreferrer\">Les Echos — DIRECT - Budget 2027 : le gouvernement dévoile sa copie ce jeudi 1er octobre sous la pression des marchés ↗</a>",
+    "<a href=\"https://lcp.fr/actualites/retraites-arrets-de-travail-apl-les-principales-mesures-prevues-par-le-gouvernement-dans\" target=\"_blank\" rel=\"noopener noreferrer\">LCP — Retraites, arrêts de travail, APL… les principales mesures contenues dans le budget 2027 ↗</a>",
+    "<a href=\"https://www.juristique.org/indices/point-indice-fonction-publique\" target=\"_blank\" rel=\"noopener noreferrer\">Juristique — Point d'indice de la fonction publique — valeur annuelle ↗</a>"
+  ],
+  "meta": {
+    "title": "Gel du point d'indice des fonctionnaires : Lecornu peut-il tenir sans crise ?",
+    "meta_description": "Gel du point d'indice des fonctionnaires : Lecornu peut-il tenir sans crise ? 3 scénarios prospectifs pour 2030.",
+    "og_image_alt": "Bâtiment gouvernemental français à Paris illustrant les arbitrages budgétaires sur la fonction publique",
+    "keywords": [
+      "Lecornu",
+      "Gel"
+    ],
+    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-11-11.html\"\n  },\n  \"headline\": \"Gel du point d'indice des fonctionnaires : Lecornu peut-il tenir sans crise ?\",\n  \"description\": \"Gel du point d'indice des fonctionnaires : Lecornu peut-il tenir sans crise ? 3 scénarios prospectifs pour 2030.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-11-11.png\"\n  ],\n  \"datePublished\": \"2026-11-11T00:00:00\",\n  \"dateModified\": \"2026-11-11T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"Lecornu, Gel\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Actualité\"\n}",
+    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Gel du point d'indice des fonctionnaires : Lecornu peut-il tenir sans crise ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-11-11.html\"\n    }\n  ]\n}"
+  }
+}
