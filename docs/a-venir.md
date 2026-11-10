@@ -6,7 +6,7 @@ Page `a-venir.html` + frise de l'accueil. Données : `data/a-venir.json`. Géné
 `id`, `date` (date limite), `precision`, `domaine`, `question`, `commentaire`, `qui`, `nature`, `officiel`, `calendrier`, `editions`. Le script refuse un rendez-vous incomplet. Résultat facultatif : `resultat` (statut, date, réponse, chiffres, scénario, sources) ; schéma décrit dans le champ `description` du fichier.
 
 ## Résultats : rien n'est publié sans contrôle
-Personne ne valide à la main. Chaque matin, pour les rendez-vous échus (3 au plus par passage ; ceux pas encore échus une fois par semaine) :
+Personne ne valide à la main. Chaque matin, pour les rendez-vous échus (3 au plus par passage ; ceux pas encore échus une fois par mois) :
 1. `verifier_resultats.py` : un modèle bon marché avec recherche web PROPOSE un constat, avec des citations exactes.
 2. `controles.py` (code, sans modèle) VÉRIFIE, et refuse au moindre échec :
    - statut ferme (pas « incertain ») ; réponse courte, au passé, sans conditionnel ;

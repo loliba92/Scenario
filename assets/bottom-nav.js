@@ -7,7 +7,7 @@
  * l'adresse de ce fichier, ce qui fonctionne aussi bien depuis la racine
  * que depuis archives/, hebdo/ ou en/.
  *
- * 4 onglets directs (Accueil, Archives, Recherche, Le projet) + « Plus »
+ * 3 onglets directs en français (Accueil, Éditions, À venir) + « Plus » (4 éléments ; 4 onglets + « Plus » en anglais)
  * qui ouvre un petit panneau (Revue de presse, Newsletter, Contact, Nous suivre, Soutenir).
  * Sur mobile, le menu du haut est masqué pour éviter un double menu ;
  * sur ordinateur, rien ne change.
@@ -92,20 +92,30 @@
   if (file === "index.html" && !inArchives && !/\/(hebdo|themes|suivi)\//.test(path)) active = "home";
   else if (inArchives || /\/(hebdo|themes|suivi)\//.test(path)) active = "archives";
   else if (file === "recherche.html") active = "archives";  // la recherche se lance depuis « Éditions »
+  else if (file === "a-venir.html" && LANG === "fr") active = "upcoming";
+  else if (LANG === "fr" && (file === "le-projet.html" || file === "glossaire.html")) active = "more";
   else if (file === "le-projet.html") active = "project";
   else if (file === "glossaire.html") active = "glossary";
-  else if (file === "newsletter.html" || file === "contact.html" || file === "sources.html" || file === "a-venir.html") active = "more";
+  else if (file === "newsletter.html" || file === "contact.html" || file === "sources.html") active = "more";
 
-  var tabs = [
-    { id: "home", href: root + "index.html", label: T.home },
-    { id: "archives", href: root + "archives.html", label: T.archives },
-    { id: "glossary", href: root + "glossaire.html", label: T.glossary },
-    { id: "project", href: root + "le-projet.html", label: T.project }
-  ];
+  // Français : 4 éléments (Accueil, Éditions, À venir, Plus) ; Glossaire et Le projet passent dans « Plus ».
+  // Anglais : pas de page « À venir », on garde les 4 onglets d'origine.
+  var tabs = LANG === "fr"
+    ? [
+        { id: "home", href: root + "index.html", label: T.home },
+        { id: "archives", href: root + "archives.html", label: T.archives },
+        { id: "upcoming", href: root + "a-venir.html", label: T.upcoming }
+      ]
+    : [
+        { id: "home", href: root + "index.html", label: T.home },
+        { id: "archives", href: root + "archives.html", label: T.archives },
+        { id: "glossary", href: root + "glossaire.html", label: T.glossary },
+        { id: "project", href: root + "le-projet.html", label: T.project }
+      ];
   var more = [
+    LANG === "fr" ? { id: "glossary", href: root + "glossaire.html", label: T.glossary } : null,
+    LANG === "fr" ? { id: "project", href: root + "le-projet.html", label: T.project } : null,
     { id: "press", href: root + "sources.html", label: T.press },
-    // La page « À venir » n'existe qu'en français.
-    LANG === "fr" ? { id: "upcoming", href: root + "a-venir.html", label: T.upcoming } : null,
     { id: "newsletter", href: root + "newsletter.html", label: T.newsletter },
     { id: "contact", href: root + "contact.html", label: T.contact },
     { id: "follow", href: root + "index.html#nous-suivre", label: T.follow },
@@ -131,7 +141,7 @@
     "align-items:center;justify-content:center;gap:3px;position:relative;background:none;border:0;margin:0;" +
     "padding:0 2px;border-radius:999px;color:#a9a89c;text-decoration:none;font:inherit;cursor:pointer;" +
     "transition:background .2s,color .2s;-webkit-tap-highlight-color:transparent}" +
-    "#bottom-nav svg{width:22px;height:22px}#bottom-nav a:first-child svg{width:26px;height:26px}" +
+    "#bottom-nav svg{width:22px;height:22px}#bottom-nav a:first-child svg{width:26px;height:26px;margin:-2px 0}" +
     "#bottom-nav .bn-label{font-size:.66rem;letter-spacing:.01em;line-height:1.2;" +
     "max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}" +
     "#bottom-nav a:active,#bottom-nav button:active{color:#ece7da}" +
