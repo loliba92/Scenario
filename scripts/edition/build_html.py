@@ -1536,16 +1536,16 @@ def assemble_home_page(shell, date_str, edition_number, repo_root, today_entry=N
         featured_entry, previous = previous[0], previous[1:]
 
     featured = build_featured_article(featured_entry, lang, theme_link_base=theme_link_base) if featured_entry else ""
-    # « Le dernier suivi », sous la dernière édition (9 octobre 2026) : FR seulement, et jamais bloquant —
-    # suivi_home.bloc_dernier_suivi() renvoie "" au moindre problème plutôt que de lever une exception.
+    # Encadré « Ce qui va arriver » (remplace « Le dernier suivi ») : FR seulement, et jamais bloquant —
+    # accueil.bloc() renvoie "" au moindre problème plutôt que de lever une exception.
     dernier_suivi = ""
     if lang == "fr":
         try:
-            sys.path.insert(0, str(Path(__file__).resolve().parent))
-            from suivi_home import bloc_dernier_suivi
-            dernier_suivi = bloc_dernier_suivi()
+            sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "a_venir"))
+            from accueil import bloc as bloc_a_venir
+            dernier_suivi = bloc_a_venir()
         except Exception as e:  # noqa: BLE001
-            print(f"[build_html] bloc « dernier suivi » ignoré : {e}", file=sys.stderr)
+            print(f"[build_html] encadré « À venir » ignoré : {e}", file=sys.stderr)
     also_today = build_home_cards(
         other_today, lang, section_id="aussi-aujourdhui",
         section_label="Le même jour", section_title="Aussi aujourd'hui",

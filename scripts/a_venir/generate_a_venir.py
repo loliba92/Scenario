@@ -19,6 +19,7 @@ MOIS = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août
 MOIS_COURT = ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août",
               "sept.", "oct.", "nov.", "déc."]
 PRECISIONS = {"jour", "limite", "fin_mois", "mois", "fin_annee"}
+CALENDRIERS = {"date_fixee", "date_limite", "periode_annoncee", "non_programme"}
 ICONES = {
     "Géopolitique": '<circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M5 7.5c2 1 4.3 1.5 7 1.5s5-.5 7-1.5M5 16.5c2-1 4.3-1.5 7-1.5s5 .5 7 1.5"/>',
     "Économie": '<path d="M4 4v16h16"/><path d="M8 15l3.5-4 3 2.5L20 7"/><path d="M16 7h4v4"/>',
@@ -48,6 +49,13 @@ def charger(racine=RACINE):
             raise ValueError(f"precision inconnue pour {r['id']} : {r['precision']}")
         if r["domaine"] not in ICONES:
             raise ValueError(f"domaine inconnu pour {r['id']} : {r['domaine']}")
+        if r.get("calendrier") not in CALENDRIERS:
+            raise ValueError(f"calendrier inconnu pour {r['id']} : {r.get('calendrier')}")
+        for champ in ("qui", "nature"):
+            if not str(r.get(champ, "")).strip():
+                raise ValueError(f"{champ} manquant pour {r['id']}")
+        if not isinstance(r.get("officiel"), bool):
+            raise ValueError(f"officiel doit être vrai ou faux pour {r['id']}")
     return donnees["rendez_vous"]
 
 
@@ -76,6 +84,32 @@ def texte_quand(r):
     if p == "fin_annee":
         return f"D'ici fin {d.year}"
     return f"{MOIS[d.month - 1].capitalize()} {d.year}"
+
+
+def date_longue(r):
+    d = date.fromisoformat(r["date"])
+    return f"{d.day}{'er' if d.day == 1 else ''} {MOIS[d.month - 1]} {d.year}"
+
+
+def texte_calendrier(r):
+    """Dit si la date est fixée, annoncée, ou seulement une échéance de surveillance."""
+    c = r["calendrier"]
+    if c == "date_fixee":
+        return f"Date fixée : {date_longue(r)}"
+    if c == "date_limite":
+        return f"Pas de date fixée, avant le {date_longue(r)}"
+    if c == "periode_annoncee":
+        q = texte_quand(r)
+        return f"Période annoncée : {q[0].lower() + q[1:]}"
+    return f"Non programmé, surveillé jusqu'au {date_longue(r)}"
+
+
+def fiche(r):
+    chip = ('<span class="off oui">Officiel</span>' if r["officiel"] else '<span class="off non">Non officiel</span>')
+    return ('<dl class="fiche">'
+            f'<dt>Qui</dt><dd>{esc(r["qui"])}</dd>'
+            f'<dt>Nature</dt><dd>{chip}{esc(r["nature"])}</dd>'
+            f'<dt>Calendrier</dt><dd>{esc(texte_calendrier(r))}</dd></dl>')
 
 
 def tuile(r):
@@ -121,20 +155,23 @@ def titre_edition(racine, iso):
 
 
 def nbsp(t):
-    return esc(t).replace(" ?", "&nbsp;?").replace("week-end", "week&#8209;end")
+    """Espace insécable avant « ? » ; traits d'union insécables (« est-il », « va-t-il », « week-end »)."""
+    s = esc(t).replace(" ?", "&nbsp;?").replace("week-end", "week&#8209;end")
+    return re.sub(r"(?<=\w)-(t-)?(il|ils|elle|elles|on)\b",
+                  lambda m: "&#8209;" + ("t&#8209;" if m.group(1) else "") + m.group(2), s)
 
 
 def carte(r, i, jour, racine):
     texte_reste, pct = reste(r, jour)
     eds = [(iso, titre_edition(racine, iso)) for iso in r["editions"]]
     eds = [(iso, e) for iso, e in eds if e]
-    h = f'<article class="signal" style="--i:{i}">{tuile(r)}<div class="carte">'
+    h = f'<article class="signal" id="rv-{esc(r["id"])}" style="--i:{i}">{tuile(r)}<div class="carte">'
     h += (f'<div class="entete"><span class="pastille"><svg viewBox="0 0 24 24" aria-hidden="true">'
           f'{ICONES[r["domaine"]]}</svg>{esc(r["domaine"])}</span>'
           f'<span class="jauge"><span class="piste" aria-hidden="true"><i style="width:{pct}%"></i></span>'
           f'<b>{texte_reste}</b></span></div>')
     h += (f'<h2><span class="sr">{esc(texte_quand(r))} : </span>{nbsp(r["question"])}</h2>'
-          f'<p class="comm">{esc(r["commentaire"])}</p>')
+          f'{fiche(r)}<p class="comm">{esc(r["commentaire"])}</p>')
     if eds:
         h += f'<ul class="eds"><b>{"Éditions concernées" if len(eds) > 1 else "Édition concernée"}</b>'
         for iso, (t, d) in eds:

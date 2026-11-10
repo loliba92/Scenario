@@ -1,17 +1,21 @@
 {
   "version": 1,
-  "description": "Rendez-vous à surveiller affichés sur a-venir.html. precision : jour | limite (« D'ici le … ») | fin_mois | mois | fin_annee. date = date limite (JJ), servie au tri et au décompte. editions : dates des éditions concernées (archives/AAAA-MM-JJ.html).",
+  "description": "Rendez-vous à surveiller affichés sur a-venir.html et sur l'accueil. precision : jour | limite (« D'ici le … ») | fin_mois | mois | fin_annee. date = date limite (JJ), servie au tri et au décompte. editions : dates des éditions concernées (archives/AAAA-MM-JJ.html). qui = institution ou acteur responsable ; nature = ce qu'est l'événement ; officiel = true si l'événement émane d'une institution publique ; calendrier : date_fixee | date_limite | periode_annoncee | non_programme.",
   "rendez_vous": [
     {
       "id": "ethiopie-erythree-cessez-le-feu",
       "date": "2026-11-30",
-      "precision": "jour",
+      "precision": "limite",
       "domaine": "Géopolitique",
       "question": "Un cessez-le-feu est-il annoncé entre l'Éthiopie et l'Érythrée ?",
       "commentaire": "Depuis la rupture diplomatique du 1er octobre et les frappes de drones près d'Adigrat, la région craint un retour à la guerre de 2020-2022. Une annonce sous médiation régionale calmerait le jeu, sans régler le fond du conflit.",
       "editions": [
         "2026-10-27"
-      ]
+      ],
+      "qui": "Gouvernements éthiopien et érythréen, sous médiation régionale",
+      "nature": "Annonce officielle d'un cessez-le-feu",
+      "officiel": true,
+      "calendrier": "non_programme"
     },
     {
       "id": "facturation-electronique-taux-designation",
@@ -22,7 +26,11 @@
       "commentaire": "La DGFiP publie ce taux fin novembre. On regarde aussi si les factures rejetées augmentent à l'approche de l'échéance de décembre.",
       "editions": [
         "2026-11-04"
-      ]
+      ],
+      "qui": "DGFiP (Direction générale des Finances publiques)",
+      "nature": "Publication officielle de chiffres",
+      "officiel": true,
+      "calendrier": "periode_annoncee"
     },
     {
       "id": "budget-2027-vote-sans-censure",
@@ -33,7 +41,11 @@
       "commentaire": "Le gouvernement Lecornu doit faire adopter le budget cet automne. Une motion de censure est un vote des députés qui peut le renverser. Si elle aboutit, ou si le vote est repoussé, c'est une crise budgétaire.",
       "editions": [
         "2026-09-13"
-      ]
+      ],
+      "qui": "Assemblée nationale",
+      "nature": "Vote officiel des députés",
+      "officiel": true,
+      "calendrier": "date_limite"
     },
     {
       "id": "robot-neo-livraisons",
@@ -44,7 +56,11 @@
       "commentaire": "Il s'agit du robot NEO de 1X, affiché à 20 000 dollars. On attend la confirmation de premières livraisons effectives.",
       "editions": [
         "2026-11-06"
-      ]
+      ],
+      "qui": "1X (entreprise norvégienne de robotique)",
+      "nature": "Annonce d'une entreprise privée",
+      "officiel": false,
+      "calendrier": "periode_annoncee"
     },
     {
       "id": "clubs-sportifs-reglement-ia",
@@ -55,18 +71,26 @@
       "commentaire": "On suit la mise en conformité des clubs, et les premières décisions de la CNIL sur les contrats de joueurs.",
       "editions": [
         "2026-11-08"
-      ]
+      ],
+      "qui": "CNIL (autorité française de protection des données)",
+      "nature": "Décisions d'une autorité publique, après la mise en conformité des clubs",
+      "officiel": true,
+      "calendrier": "non_programme"
     },
     {
       "id": "narnia-box-office",
-      "date": "2027-02-01",
-      "precision": "mois",
+      "date": "2027-02-12",
+      "precision": "jour",
       "domaine": "Culture",
       "question": "Quelles recettes pour « Narnia : Le Neveu du magicien » lors de son premier week-end ?",
-      "commentaire": "On regarde le niveau des recettes au box-office mondial lors du premier week-end d'exploitation.",
+      "commentaire": "Le film sort en salles dans le monde le 12 février 2027. On regarde le niveau des recettes au box-office mondial lors de son premier week-end.",
       "editions": [
         "2026-11-07"
-      ]
+      ],
+      "qui": "Netflix (sortie en salles du film de Greta Gerwig)",
+      "nature": "Sortie commerciale d'un film et premiers chiffres de fréquentation",
+      "officiel": false,
+      "calendrier": "date_fixee"
     }
   ]
 }

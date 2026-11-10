@@ -2448,6 +2448,55 @@
     margin: 4px 0 22px; font-family: "Fraunces", Georgia, serif; font-style: italic;
     font-size: 1.15rem; color: var(--gold);
   }
+  /* a-venir-accueil:start */
+  /* ---- Accueil : encadré « Ce qui va arriver » ---- */
+  section.av-home{ padding:36px 0 44px; border-top:1px dashed var(--hairline); }
+  .av-home .section-label{ color:var(--gold); }
+  .av-home .avh-cadre{ position:relative; overflow:hidden; border:1px solid var(--hairline); border-radius:18px; padding:26px 26px 20px;
+    background:radial-gradient(120% 140% at 0% 0%, rgba(207,157,76,.14), transparent 55%), var(--surface); }
+  .av-home .avh-cadre::after{ content:""; position:absolute; right:-40px; top:-40px; width:180px; height:180px; border-radius:50%;
+    border:1px solid rgba(207,157,76,.18); box-shadow:0 0 0 22px rgba(207,157,76,.05), 0 0 0 44px rgba(207,157,76,.03); pointer-events:none; }
+  .av-home .avh-tete{ position:relative; z-index:1; display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:8px 20px; margin-bottom:18px; }
+  .av-home .avh-titre{ font-family:"Fraunces",serif; font-weight:600; font-size:clamp(1.35rem,3.6vw,1.8rem); line-height:1.15; margin:0; text-wrap:balance; }
+  .av-home .avh-tout{ font-family:"JetBrains Mono",monospace; font-size:.78rem; letter-spacing:.06em; text-transform:uppercase; color:var(--gold);
+    text-decoration:none; border-bottom:1px solid transparent; padding:12px 0; }
+  .av-home .avh-tout:hover{ border-bottom-color:var(--gold); }
+  .av-home .avh-liste{ position:relative; z-index:1; list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+  .av-home .avh-carte{ display:grid; grid-template-columns:58px minmax(0,1fr); gap:12px; align-content:start; align-items:start; height:100%; padding:14px; border-radius:14px; text-decoration:none; color:inherit;
+    background:rgba(16,21,28,.55); border:1px solid var(--hairline); transition:border-color .2s, transform .2s; }
+  .av-home .avh-carte:hover{ border-color:var(--gold); transform:translateY(-2px); }
+  .av-home .tuile{ flex:none; width:58px; border-radius:10px; overflow:hidden; text-align:center; background:var(--surface-2); border:1px solid #3a4656; }
+  .av-home .tuile .haut{ display:block; background:var(--gold); color:var(--ink); font-family:"JetBrains Mono",monospace; font-weight:500; font-size:.55rem;
+    letter-spacing:.06em; text-transform:uppercase; padding:3px 2px; line-height:1.2; white-space:nowrap; }
+  .av-home .tuile .gros{ display:block; font-family:"Fraunces",serif; font-weight:600; font-size:1.5rem; line-height:1; padding:7px 2px 3px; color:var(--paper); }
+  .av-home .tuile .bas{ display:block; font-family:"JetBrains Mono",monospace; font-size:.55rem; letter-spacing:.08em; text-transform:uppercase; color:var(--paper-dim); padding:0 2px 6px; line-height:1.2; }
+  .av-home .tuile .gros.moy{ font-size:1.1rem; padding-top:9px; }
+  .av-home .tuile .gros.moy:last-child{ padding-bottom:10px; }
+  .av-home .tuile .gros.sans-bas{ padding-bottom:8px; }
+  .av-home .tuile.flou{ background:var(--surface); border:1.5px dashed var(--gold); }
+  .av-home .tuile.flou .haut{ background:transparent; color:var(--gold); padding-top:5px; }
+  .av-home .avh-meta{ min-width:0; display:flex; flex-direction:column; gap:6px; }
+  .av-home .pastille{ display:inline-flex; align-items:center; gap:6px; align-self:flex-start; padding:3px 10px 3px 6px; border-radius:999px; background:var(--surface-2);
+    border:1px solid var(--hairline); font-family:"JetBrains Mono",monospace; font-size:.62rem; letter-spacing:.1em; text-transform:uppercase; color:var(--paper); }
+  .av-home .pastille svg{ width:18px; height:18px; flex:none; stroke:var(--gold); fill:none; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+  .av-home .avh-reste{ font-family:"JetBrains Mono",monospace; font-size:.72rem; color:var(--paper-dim); }
+  .av-home .avh-reste b{ color:var(--paper); font-weight:500; }
+  .av-home .avh-question{ grid-column:1 / -1; font-family:"Fraunces",serif; font-weight:500; font-size:1.02rem; line-height:1.3; margin:0; text-wrap:balance; }
+  .av-home .avh-qui{ grid-column:1 / -1; font-family:"JetBrains Mono",monospace; font-size:.66rem; letter-spacing:.06em; text-transform:uppercase; color:var(--paper-dim); line-height:1.4; }
+  .av-home .avh-note{ position:relative; z-index:1; margin:14px 0 0; font-size:.84rem; color:var(--paper-dim); }
+  @media (max-width:820px){
+    .av-home .avh-liste{ grid-template-columns:1fr; }
+    .av-home .avh-carte{ height:auto; }
+    .av-home .avh-carte .tuile{ grid-row:1 / span 2; }
+    .av-home .avh-question, .av-home .avh-qui{ grid-column:2; }
+  }
+  @media (max-width:640px){
+    section.av-home{ padding:28px 0 36px; }
+    .av-home .avh-cadre{ padding:20px 16px 14px; border-radius:16px; }
+    .av-home .avh-carte{ padding:12px; gap:8px 12px; }
+  }
+  @media (prefers-reduced-motion:reduce){ .av-home .avh-carte{ transition:none; } .av-home .avh-carte:hover{ transform:none; } }
+  /* a-venir-accueil:end */
 </style>
 </head>
 <body>
@@ -2520,26 +2569,15 @@
   </div>
 </section>
 
-<!-- dernier-suivi:start -->
-<section class="featured-article" id="dernier-suivi">
-  <div class="wrap">
-    <p class="section-label">Le dernier suivi</p>
-    <a href="suivi/ceuta-schengen.html" class="featured-article-link">
-      <div class="featured-article-image-wrap">
-        <img class="featured-article-image" src="assets/social/topic-images/suivi-ceuta-schengen-wide.jpg" alt="Ceuta : la frontière qui a craqué">
-      </div>
-      <div>
-        <span class="featured-article-date">International · mis à jour le 9 nov.</span>
-        <h2 class="featured-article-title">Ceuta&nbsp;: la frontière qui a craqué</h2>
-        <p class="featured-article-question">Depuis le 27 août, la réponse espagnole et la coopération de fait avec le Maroc ont produit des retours importants&nbsp;: le gouvernement espagnol en comptabilisait 14 818 vers le Maroc au 3 novembre, dont 638 expulsions.</p>
-        <span class="mini-probas"><span class="mini-probas-legend">Barre : aujourd’hui · repère : à l’origine</span><span class="mini-proba" data-kind="favorable"><span class="mini-proba-name">Favorable</span><span class="mini-proba-track" aria-hidden="true"><span class="mini-proba-fill" style="width:34%"></span><span class="mini-proba-tick" style="left:20%"></span></span><span class="mini-proba-val">20&nbsp;→&nbsp;34&nbsp;%</span></span><span class="mini-proba" data-kind="stable"><span class="mini-proba-name">Stable</span><span class="mini-proba-track" aria-hidden="true"><span class="mini-proba-fill" style="width:25%"></span><span class="mini-proba-tick" style="left:50%"></span></span><span class="mini-proba-val">50&nbsp;→&nbsp;25&nbsp;%</span></span><span class="mini-proba" data-kind="degrade"><span class="mini-proba-name">Dégradé</span><span class="mini-proba-track" aria-hidden="true"><span class="mini-proba-fill" style="width:41%"></span><span class="mini-proba-tick" style="left:30%"></span></span><span class="mini-proba-val">30&nbsp;→&nbsp;41&nbsp;%</span></span></span>
-        <span class="featured-article-cta">Lire le suivi →</span>
-      </div>
-    </a>
-    <a class="cross-link" href="archives.html?tag=revise">Voir tous les sujets révisés&nbsp;→</a>
-  </div>
-</section>
-<!-- dernier-suivi:end -->
+<!-- a-venir:start -->
+<section class="av-home" id="a-venir"><div class="wrap">
+<p class="section-label">À venir</p>
+<div class="avh-cadre">
+<div class="avh-tete"><h2 class="avh-titre">Ce qui va arriver</h2><a class="avh-tout" href="a-venir.html">Tous les rendez-vous →</a></div>
+<ol class="avh-liste"><li><a class="avh-carte" href="a-venir.html#rv-ethiopie-erythree-cessez-le-feu"><div class="tuile flou" aria-hidden="true"><span class="haut">D&#x27;ici le</span><span class="gros">30</span><span class="bas">nov.</span></div><span class="avh-meta"><span class="pastille"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M5 7.5c2 1 4.3 1.5 7 1.5s5-.5 7-1.5M5 16.5c2-1 4.3-1.5 7-1.5s5 .5 7 1.5"/></svg>Géopolitique</span><span class="avh-reste"><b>dans 20 jours</b></span></span><span class="avh-question"><span class="sr" style="position:absolute;left:-9999px">D&#x27;ici le 30 novembre : </span>Un cessez-le-feu est&#8209;il annoncé entre l&#x27;Éthiopie et l&#x27;Érythrée&nbsp;?</span><span class="avh-qui">Gouvernements éthiopien et érythréen, sous médiation régionale · officiel</span></a></li><li><a class="avh-carte" href="a-venir.html#rv-facturation-electronique-taux-designation"><div class="tuile flou" aria-hidden="true"><span class="haut">Fin</span><span class="gros moy sans-bas">nov.</span></div><span class="avh-meta"><span class="pastille"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4v16h16"/><path d="M8 15l3.5-4 3 2.5L20 7"/><path d="M16 7h4v4"/></svg>Économie</span><span class="avh-reste"><b>dans 20 jours</b></span></span><span class="avh-question"><span class="sr" style="position:absolute;left:-9999px">Fin novembre : </span>Quel est le taux de désignation officiel publié pour la facturation électronique&nbsp;?</span><span class="avh-qui">DGFiP · officiel</span></a></li><li><a class="avh-carte" href="a-venir.html#rv-budget-2027-vote-sans-censure"><div class="tuile flou" aria-hidden="true"><span class="haut">D&#x27;ici le</span><span class="gros">31</span><span class="bas">déc.</span></div><span class="avh-meta"><span class="pastille"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-5 9 5z"/><path d="M5.5 12v6M10 12v6M14 12v6M18.5 12v6M3 20.5h18"/></svg>Politique</span><span class="avh-reste"><b>dans 51 jours</b></span></span><span class="avh-question"><span class="sr" style="position:absolute;left:-9999px">D&#x27;ici le 31 décembre : </span>Le budget 2027 est&#8209;il voté sans que le gouvernement soit renversé&nbsp;?</span><span class="avh-qui">Assemblée nationale · officiel</span></a></li></ol>
+<p class="avh-note">Des repères à surveiller, pas des prévisions.</p>
+</div></div></section>
+<!-- a-venir:end -->
 
 <section class="matieres" id="matieres" aria-label="Parcourir par matière">
   <div class="wrap">

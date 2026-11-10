@@ -1,7 +1,8 @@
 name: Événements à surveiller
 
 # Contrôle quotidien des échéances de data/signaux.json (scripts/detection/verifier_signaux.py)
-# et régénération de a-venir.html depuis data/a-venir.json (scripts/a_venir/generate_a_venir.py).
+# et régénération de a-venir.html depuis data/a-venir.json (scripts/a_venir/generate_a_venir.py),
+# avec l'encadré « Ce qui va arriver » de l'accueil (scripts/a_venir/accueil.py).
 # Déclenché par cron-job.org (event_type : trigger-signaux). Aucun appel payant ni requête externe.
 # Écrit data/signaux-rapport.md (gratuit) et data/signaux-verification.md (recherche web, modèle
 # bon marché, uniquement pour les événements échus ou à 7 jours ; plafond de 3 par passage).
@@ -50,7 +51,8 @@ jobs:
             cp "$RUNNER_TEMP/rapport.md" data/signaux-rapport.md
             [ -f "$RUNNER_TEMP/verification.md" ] && cp "$RUNNER_TEMP/verification.md" data/signaux-verification.md
             cp "$RUNNER_TEMP/a-venir.html" a-venir.html
-            git add data/signaux-*.md a-venir.html
+            python3 scripts/a_venir/accueil.py
+            git add data/signaux-*.md a-venir.html index.html
             if git diff --cached --quiet; then
               echo "Aucun changement."
               exit 0
