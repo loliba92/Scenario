@@ -486,7 +486,9 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
   <!-- mots-clés: CNews ; pétition ; Arcom ; Vincent Bolloré ; liberté d'expression -->
   <!-- scénarios (brouillon): favorable = L'Arcom impose des sanctions sévères à CNews, limitant son influence. ; stable = La pétition reste sans effet concret, mais relance le débat sur la régulation des médias. ; dégradé = La polarisation s'accentue, avec des manifestations ou contre-manifestations autour de la chaîne. -->
   <!-- sources: Les lauréats littéraires 2026, une pétition contre CNews et la tournée de The Weeknd… <https://www.rtbf.be/article/les-laureats-litteraires-2026-une-petition-contre-cnews-et-la-tournee-de-the-weeknd-retrouvez-l-actu-culturelle-de-la-semaine-11811727> -->
+  <!-- données chiffrées: [relevé du 2026-11-10] Nombre de signatures de la pétition contre CNews (unité : signatures). Signatures le 2 novembre 2026 = 500 000 ; signatures le 8 novembre 2026 = 1 000 000 ; signatures le 10 novembre 2026 = 1 066 909. Sources : https://www.franceinfo.fr/politique/la-petition-appelant-a-supprimer-cnews-de-l-audiovisuel-francais-classee-par-la-commission-de-l-assemblee-nationale_8276303.html ; https://www.leparisien.fr/sports/cest-de-la-dictature-raymond-domenech-furieux-contre-les-deputes-qui-ont-decide-denterrer-la-petition-contre-cnews-10-11-2026-VVFCQ5A54NCCZE3MQKJ5Y6N5BM.php ; https://petitions.assemblee-nationale.fr/initiatives/i-5820?locale= -->
   <!-- origine: veille -->
+  <!-- enrichi: 2026-11-10 -->
   <!-- note: Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
 - [ ] La hausse du SMIC peut-elle relancer la consommation sans nuire à l'emploi ? [économie & pouvoir d'achat]
   <!-- id: actualite-francaise-la-hausse-du-smic-peut-elle-relancer-la -->
