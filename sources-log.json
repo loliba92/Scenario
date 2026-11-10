@@ -2,6 +2,31 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-11-10",
+      "articles": [
+        {
+          "title": "Russie. Élections législatives : le parti de Poutine gagne un nombre record de sièges",
+          "source": "Le Dauphiné",
+          "url": "https://www.ledauphine.com/politique/2026/09/25/elections-legislatives-le-parti-de-poutine-gagne-un-nombre-record-de-sieges",
+          "image": "https://cdn-s-www.ledauphine.com/images/813DA38D-80AD-4A7B-BDF4-134B61A7BA60/FB1200/photo-1790335051.jpg",
+          "lang": "fr",
+          "domain": "international",
+          "summary": "Article du Dauphiné du 25 septembre 2026 confirmant que le parti de Poutine a remporté un nombre record de sièges (349 sur 450) lors des élections législatives russes, avec un taux de participation de 59,8 %.",
+          "read_minutes": 2
+        },
+        {
+          "title": "Élections législatives russes 2026 : analyse des résultats et perspectives",
+          "source": "Carnegie Endowment for International Peace",
+          "url": "https://carnegieendowment.org/russia-eurasia/politika/2026/09/russian-parliamentary-elections-2026-analysis",
+          "image": null,
+          "lang": "en",
+          "domain": "international",
+          "summary": "Analyse du Carnegie Endowment sur les élections législatives russes de 2026, examinant les implications du verrouillage du pouvoir, les limites de l'opposition autorisée et les signes de fragilité potentielles du système politique russe.",
+          "read_minutes": 4
+        }
+      ]
+    },
+    {
       "date": "2026-11-09",
       "articles": [
         {
