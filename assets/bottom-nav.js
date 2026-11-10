@@ -114,24 +114,28 @@
     "#bottom-nav,#bottom-nav-sheet,#bottom-nav-backdrop{display:none}" +
     "@media (max-width:720px){" +
     "html.has-bottom-nav nav.topnav{display:none}" +
-    "html.has-bottom-nav body{padding-bottom:calc(68px + var(--bn-safe,0px))}" +
-    "#bottom-nav{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:9000;" +
-    "background:#1a212b;border-top:1px solid #2c3644;" +
-    "padding:0 4px var(--bn-safe,0px);font-family:inherit}" +
-    "#bottom-nav a,#bottom-nav button{flex:1 1 0;min-width:0;height:62px;display:flex;flex-direction:column;" +
-    "align-items:center;justify-content:center;gap:4px;position:relative;background:none;border:0;margin:0;" +
-    "padding:0;color:#a9a89c;text-decoration:none;font:inherit;cursor:pointer;" +
-    "-webkit-tap-highlight-color:transparent}" +
-    "#bottom-nav .bn-label{font-size:.72rem;letter-spacing:.01em;line-height:1.35;" +
+    "html.has-bottom-nav body{padding-bottom:calc(96px + var(--bn-safe,0px))}" +
+    // Capsule flottante : fond sombre translucide, bord fin, onglet actif sur un fond arrondi.
+    "#bottom-nav{display:flex;align-items:center;gap:2px;position:fixed;left:12px;right:12px;" +
+    "bottom:calc(12px + var(--bn-safe,0px));z-index:9000;height:68px;padding:6px;" +
+    "background:rgba(26,33,43,.94);border:1px solid #3a4656;border-radius:999px;" +
+    "box-shadow:0 10px 30px rgba(0,0,0,.55);font-family:inherit}" +
+    "@supports ((-webkit-backdrop-filter:blur(1px)) or (backdrop-filter:blur(1px))){" +
+    "#bottom-nav{background:rgba(26,33,43,.82);-webkit-backdrop-filter:blur(16px) saturate(1.2);backdrop-filter:blur(16px) saturate(1.2)}}" +
+    "#bottom-nav a,#bottom-nav button{flex:1 1 0;min-width:0;height:54px;display:flex;flex-direction:column;" +
+    "align-items:center;justify-content:center;gap:3px;position:relative;background:none;border:0;margin:0;" +
+    "padding:0 2px;border-radius:999px;color:#a9a89c;text-decoration:none;font:inherit;cursor:pointer;" +
+    "transition:background .2s,color .2s;-webkit-tap-highlight-color:transparent}" +
+    "#bottom-nav svg{width:22px;height:22px}" +
+    "#bottom-nav .bn-label{font-size:.66rem;letter-spacing:.01em;line-height:1.2;" +
     "max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}" +
     "#bottom-nav a:active,#bottom-nav button:active{color:#ece7da}" +
-    "#bottom-nav [aria-current='page'],#bottom-nav button[aria-expanded='true']{color:#cf9d4c}" +
-    "#bottom-nav [aria-current='page']::before,#bottom-nav button.is-active::before{content:'';position:absolute;" +
-    "top:0;left:28%;right:28%;height:2px;border-radius:0 0 2px 2px;background:#cf9d4c}" +
+    "#bottom-nav [aria-current='page'],#bottom-nav button[aria-expanded='true']{color:#cf9d4c;background:#2f3a48}" +
+    "#bottom-nav.is-open a[aria-current='page']{color:#a9a89c;background:none}" +
     "#bottom-nav-backdrop{position:fixed;inset:0;z-index:8990;background:rgba(0,0,0,.45)}" +
     "#bottom-nav-backdrop.is-open{display:block}" +
     "#bottom-nav-sheet{position:fixed;left:12px;right:12px;z-index:8995;" +
-    "bottom:calc(72px + var(--bn-safe,0px));background:#1a212b;border:1px solid #2c3644;" +
+    "bottom:calc(92px + var(--bn-safe,0px));background:#1a212b;border:1px solid #2c3644;" +
     "border-top:3px solid #cf9d4c;border-radius:12px;padding:6px;box-shadow:0 10px 30px rgba(0,0,0,.5);" +
     "font-family:inherit}" +
     "#bottom-nav-sheet.is-open{display:block}" +
@@ -142,7 +146,7 @@
     "#bottom-nav-sheet a.is-gold{color:#cf9d4c}" +
     "#bottom-nav-sheet a[aria-current='page']{color:#cf9d4c}" +
     // Le bandeau « Installer l'application » ne doit pas passer sous la barre.
-    "html.has-bottom-nav .pwa-install-banner{margin-bottom:calc(68px + var(--bn-safe,0px))}" +
+    "html.has-bottom-nav .pwa-install-banner{margin-bottom:calc(96px + var(--bn-safe,0px))}" +
     "}" +
     "@media print{#bottom-nav,#bottom-nav-sheet,#bottom-nav-backdrop{display:none!important}}";
 
@@ -180,6 +184,7 @@
   function setOpen(open) {
     sheet.classList.toggle("is-open", open);
     backdrop.classList.toggle("is-open", open);
+    nav.classList.toggle("is-open", open);
     btn.setAttribute("aria-expanded", open ? "true" : "false");
   }
 
