@@ -48,6 +48,33 @@
   .av .eds a span.t{ min-width:0; }
   .av .pied{ margin:32px 0 0; padding:14px 16px; border-left:3px solid var(--gold); background:var(--surface); border-radius:0 8px 8px 0; font-size:.92rem; max-width:64ch; }
   .av .vide{ padding:22px; border:1px dashed var(--hairline); border-radius:10px; color:var(--paper-dim); text-align:center; }
+  .av .passes{ margin-top:48px; padding-top:8px; border-top:1px dashed var(--hairline); }
+  .av .passes > .section-label{ margin-bottom:6px; }
+  .av .legende{ margin:0 0 18px; font-size:.86rem; color:var(--paper-dim); }
+  .av .legende span{ font-weight:600; }
+  .av .c-favorable{ --c:var(--favorable); } .av .c-stable{ --c:var(--stable); } .av .c-degrade{ --c:var(--degrade); } .av .c-neutre{ --c:#7b8594; }
+  .av .legende .c-favorable{ color:var(--favorable); } .av .legende .c-stable{ color:var(--stable); } .av .legende .c-degrade{ color:var(--degrade); }
+  .av .eds.src{ display:flex; flex-wrap:wrap; gap:0 18px; }
+  .av .eds.src b{ flex:0 0 100%; }
+  .av .tl-passe{ margin-top:6px; }
+  .av .tl-passe::before{ background:var(--hairline); }
+  .av .signal.passe .carte{ border-left:4px solid var(--c,var(--hairline)); }
+  .av .tuile.fait{ background:var(--surface); border-color:var(--hairline); box-shadow:none; }
+  .av .tuile.fait .haut{ background:var(--hairline); color:var(--paper); }
+  .av .statut{ font-family:"JetBrains Mono",monospace; font-size:.7rem; letter-spacing:.04em; padding:3px 10px; border-radius:999px; border:1px solid var(--hairline); color:var(--paper); }
+  .av .statut.arrive{ border-color:var(--paper-dim); } .av .statut.pas_arrive{ border-color:var(--paper-dim); color:var(--paper-dim); }
+  .av .statut.verif{ border-color:var(--gold); color:var(--gold); }
+  .av .reponse{ margin:0 0 10px; }
+  .av .reponse > b{ font-family:"JetBrains Mono",monospace; font-weight:500; font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); }
+  .av .reponse p{ margin:2px 0 8px; font-size:.96rem; max-width:62ch; }
+  .av .chiffres{ list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:8px; }
+  .av .chiffres li{ display:flex; flex-direction:column; padding:6px 12px; border-radius:10px; background:var(--surface-2); border:1px solid var(--hairline); min-width:0; }
+  .av .chiffres li span{ font-size:.72rem; color:var(--paper-dim); }
+  .av .chiffres li b{ font-family:Fraunces,serif; font-weight:600; font-size:1.2rem; }
+  .av .scen{ margin:0 0 10px; padding:10px 12px; border-radius:10px; font-size:.9rem; border:1px solid var(--c,var(--hairline));
+    background:color-mix(in srgb, var(--c,#7b8594) 14%, transparent); }
+  .av .scen b{ color:var(--c); }
+  .av .scen.neutre{ color:var(--paper-dim); }
   @keyframes av-apparait{ from{ opacity:0; transform:translateY(10px); } to{ opacity:1; transform:none; } }
   @keyframes av-remplit{ from{ width:0; } }
   .av .signal{ animation:av-apparait .5s ease both; animation-delay:calc(var(--i,0) * 70ms); }

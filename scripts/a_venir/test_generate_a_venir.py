@@ -47,7 +47,7 @@ class T(unittest.TestCase):
 
     def test_page_sans_rendez_vous(self):
         h = g.contenu([], date(2026, 11, 10))
-        self.assertIn("Aucun rendez-vous à surveiller", h)
+        self.assertIn("Aucun rendez-vous à venir", h)
 
     def test_page_complete_sans_probabilite(self):
         h = g.page(g.charger(), date(2026, 11, 10))
@@ -80,6 +80,68 @@ class T(unittest.TestCase):
         r["question"] = "A <b>&</b> B ?"
         h = g.carte(r, 0, date(2026, 11, 10), g.RACINE)
         self.assertNotIn("<b>&</b>", h)
+
+
+def resolu(i="r", scen="stable", sources=None, statut="arrive"):
+    r = rv(i, "2026-11-30", eds=["2026-10-27"])
+    r["resultat"] = {"statut": statut, "date": "2026-11-28", "reponse": "Réponse en une phrase.",
+                     "chiffres": [{"libelle": "Taux", "valeur": "88 %"}], "scenario": scen,
+                     "sources": sources if sources is not None else [{"titre": "S", "url": "https://exemple.fr/a"}]}
+    return r
+
+
+class TestPasses(unittest.TestCase):
+    J = date(2026, 12, 5)
+
+    def test_classement(self):
+        verif = rv("v", "2026-11-20")
+        a_venir = rv("f", "2026-12-20")
+        r = resolu()
+        av, res = g.passes([verif, a_venir, r], self.J)
+        self.assertEqual([x["id"] for x in av], ["v"])
+        self.assertEqual([x["id"] for x in res], ["r"])
+        self.assertEqual([x["id"] for x in g.a_venir([verif, a_venir, r], self.J)], ["f"])
+
+    def test_couleur_et_scenario_reel_de_l_edition(self):
+        h = g.carte_passee(resolu(scen="stable"), 0, g.RACINE)
+        self.assertIn("c-stable", h)
+        self.assertIn("Un statu quo militarisé", h)   # titre réel du scénario, lu dans l'édition du 27 octobre
+        self.assertIn("45", h)                        # pourcentage de l'édition, pas recalculé
+        self.assertIn("bleu", h)
+        self.assertIn("orange", g.carte_passee(resolu(scen="degrade"), 0, g.RACINE))
+        self.assertIn("vert", g.carte_passee(resolu(scen="favorable"), 0, g.RACINE))
+
+    def test_sans_scenario(self):
+        h = g.carte_passee(resolu(scen=None), 0, g.RACINE)
+        self.assertIn("ne tranche pas", h)
+        self.assertIn("c-neutre", h)
+
+    def test_statuts_en_toutes_lettres(self):
+        self.assertIn("S'est produit le 28 novembre", g.carte_passee(resolu(), 0, g.RACINE))
+        self.assertIn("Ne s'est pas produit", g.carte_passee(resolu(statut="pas_arrive"), 0, g.RACINE))
+
+    def test_page_affiche_passes_et_legende(self):
+        h = g.contenu([resolu(), rv("v", "2026-11-20")], self.J)
+        self.assertIn("Déjà arrivés", h)
+        self.assertIn("vert, favorable", h)
+        self.assertIn("réponse en cours de vérification", h)
+        self.assertIn("La réponse", h)
+        self.assertIn("88 %", h)
+
+    def test_validation_du_resultat(self):
+        for mauvais in (resolu(sources=[]), resolu(sources=[{"url": "pas-un-lien"}])):
+            with self.assertRaises(ValueError):
+                g.verifier_resultat(mauvais)
+        r = resolu(); r["resultat"]["scenario"] = "rose"
+        with self.assertRaises(ValueError):
+            g.verifier_resultat(r)
+        r = resolu(); r["resultat"]["reponse"] = " "
+        with self.assertRaises(ValueError):
+            g.verifier_resultat(r)
+
+    def test_accueil_ignore_les_passes(self):
+        import accueil
+        self.assertEqual(accueil.bloc(date(2030, 1, 1)), "")
 
 
 class TestAccueil(unittest.TestCase):
