@@ -221,7 +221,7 @@ def recent_journal_titles(today):
     return titles
 
 
-def build_prompt(existing_by_registre, priorite_absolue_titles, carte_blanche_titles, recent_titles, today):
+def build_prompt(existing_by_registre, priorite_absolue_titles, carte_blanche_titles, recent_titles, today, tendances=None):
     lines = [
         "Tu alimentes le backlog de sujets du site d'actualité Scénario "
         "(lesscenarios.fr, chaque édition détaille une question à 3 issues "
@@ -281,6 +281,12 @@ def build_prompt(existing_by_registre, priorite_absolue_titles, carte_blanche_ti
         lines.append(f"Sujets déjà publiés dans les {JOURNAL_WINDOW_DAYS} derniers jours "
                       "(éviter aussi, même angle proche) :")
         lines.append("; ".join(recent_titles))
+    # Recherches en hausse sur Google (flux Google Trends), voir tendances_google.py.
+    # Vide si le flux est indisponible : le prompt reste celui d'avant.
+    import tendances_google as tg
+    bloc = tg.bloc_prompt(tendances or [])
+    if bloc:
+        lines += ["", bloc]
     lines += [
         "",
         f"Date d'aujourd'hui : {today.isoformat()}.",
@@ -566,7 +572,10 @@ def main():
     carte_blanche_titles = titles_in_section(data, CARTE_BLANCHE_HEADING)
     recent = recent_journal_titles(today)
 
-    prompt = build_prompt(existing, priorite_absolue_titles, carte_blanche_titles, recent, today)
+    import tendances_google as tg
+    tendances = tg.lire_tendances()
+    print(f"[tendances] {len(tendances)} recherche(s) en hausse en France")
+    prompt = build_prompt(existing, priorite_absolue_titles, carte_blanche_titles, recent, today, tendances)
     tools = [{"type": "openrouter:web_search", "parameters": {"engine": "auto", "max_results": 8}}]
     try:
         import enrich_sujets as en  # import tardif : enrich_sujets importe ce module
