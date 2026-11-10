@@ -23,14 +23,20 @@ CSS_START, CSS_END = "/* a-venir-accueil:start */", "/* a-venir-accueil:end */"
 NB = 3
 
 
+def qui_court(r):
+    """« DGFiP (Direction…) » → « DGFiP » ; « Gouvernements …, sous médiation » → « Gouvernements … »."""
+    return re.split(r" \(|, ", r["qui"])[0]
+
+
 def carte(r, jour):
     texte, _ = g.reste(r, jour)
-    return (f'<li><a class="avh-carte" href="a-venir.html#rv-{g.esc(r["id"])}">{g.tuile(r)}'
-            f'<span class="avh-meta"><span class="pastille"><svg viewBox="0 0 24 24" aria-hidden="true">{g.ICONES[r["domaine"]]}</svg>'
-            f'{g.esc(r["domaine"])}</span><span class="avh-reste"><b>{texte}</b></span></span>'
-            f'<span class="avh-question"><span class="sr" style="position:absolute;left:-9999px">{g.esc(g.texte_quand(r))} : </span>'
-            f'{g.nbsp(r["question"])}</span>'
-            f'<span class="avh-qui">{g.esc(r["qui"].split(" (")[0])} · {"officiel" if r["officiel"] else "non officiel"}</span></a></li>')
+    return (f'<li class="avh-point"><a href="a-venir.html#rv-{g.esc(r["id"])}">'
+            '<span class="avh-noeud" aria-hidden="true"></span>'
+            f'<span class="avh-date"><svg viewBox="0 0 24 24" aria-hidden="true">{g.ICONES[r["domaine"]]}</svg>'
+            f'<span class="sr" style="position:absolute;left:-9999px">{g.esc(r["domaine"])} : </span>'
+            f'{g.esc(g.quand_court(r))}<i>{texte}</i></span>'
+            f'<span class="avh-question">{g.nbsp(r["question"])}</span>'
+            f'<span class="avh-qui">{g.esc(qui_court(r))} · {"officiel" if r["officiel"] else "non officiel"}</span></a></li>')
 
 
 def bloc(jour=None, racine=RACINE):
@@ -40,12 +46,10 @@ def bloc(jour=None, racine=RACINE):
         prochains = g.a_venir(g.charger(racine), jour)[:NB]
         if not prochains:
             return ""
-        return (f'{START}\n<section class="av-home" id="a-venir"><div class="wrap">\n'
-                '<p class="section-label">À venir</p>\n<div class="avh-cadre">\n'
-                '<div class="avh-tete"><h2 class="avh-titre">Ce qui va arriver</h2>'
+        return (f'{START}\n<section class="av-home" id="a-venir"><div class="wrap">\n<div class="avh-bande">\n'
+                '<div class="avh-entete"><p class="section-label">À venir</p>'
                 '<a class="avh-tout" href="a-venir.html">Tous les rendez-vous →</a></div>\n'
-                '<ol class="avh-liste">' + "".join(carte(r, jour) for r in prochains) + '</ol>\n'
-                '<p class="avh-note">Des repères à surveiller, pas des prévisions.</p>\n'
+                '<ol class="avh-frise">' + "".join(carte(r, jour) for r in prochains) + '</ol>\n'
                 '</div></div></section>\n' + END)
     except Exception as e:  # noqa: BLE001 — l'accueil ne doit jamais dépendre de ce bloc
         print(f"[a_venir] bloc ignoré : {e}", file=sys.stderr)

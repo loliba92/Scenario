@@ -28,6 +28,7 @@ ICONES = {
     "Sport": '<path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H5.5a2.5 2.5 0 0 0 2.7 3.8M16 6h2.5a2.5 2.5 0 0 1-2.7 3.8"/><path d="M12 13v4M9 20h6M10 17h4"/>',
     "Culture": '<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M10 9l5 3-5 3z"/><path d="M7 5v14M17 5v14" opacity=".35"/>',
 }
+MAX_PASSES = 12
 TITRE = "Ce qui va arriver — les rendez-vous à surveiller — Scénario"
 DESCRIPTION = ("Les rendez-vous à surveiller relevés dans nos éditions, du plus proche au plus lointain, "
                "avec les éditions concernées.")
@@ -56,12 +57,44 @@ def charger(racine=RACINE):
                 raise ValueError(f"{champ} manquant pour {r['id']}")
         if not isinstance(r.get("officiel"), bool):
             raise ValueError(f"officiel doit être vrai ou faux pour {r['id']}")
+        if "resultat" in r:
+            verifier_resultat(r)
     return donnees["rendez_vous"]
+
+
+STATUTS = {"arrive": "S'est produit", "pas_arrive": "Ne s'est pas produit"}
+SCENARIOS = {"favorable": "Favorable", "stable": "Stable", "degrade": "Dégradé"}
+
+
+def verifier_resultat(r):
+    """Un résultat exige : statut, date, réponse, au moins une source (lien http), scénario (ou null)."""
+    x = r["resultat"]
+    if x.get("statut") not in STATUTS:
+        raise ValueError(f"resultat.statut inconnu pour {r['id']}")
+    date.fromisoformat(x["date"])
+    if not str(x.get("reponse", "")).strip():
+        raise ValueError(f"resultat.reponse manquante pour {r['id']}")
+    if x.get("scenario") is not None and x["scenario"] not in SCENARIOS:
+        raise ValueError(f"resultat.scenario inconnu pour {r['id']}")
+    if not [s for s in x.get("sources", []) if re.match(r"^https?://", str(s.get("url", "")))]:
+        raise ValueError(f"resultat.sources : au moins un lien http est exigé pour {r['id']}")
+    for c in x.get("chiffres", []):
+        if not (str(c.get("libelle", "")).strip() and str(c.get("valeur", "")).strip()):
+            raise ValueError(f"resultat.chiffres incomplet pour {r['id']}")
+
+
+def passes(rendez_vous, jour):
+    """(à vérifier, résolus) : date dépassée sans résultat ; résultat connu (le plus récent d'abord)."""
+    a_verifier = sorted((r for r in rendez_vous if "resultat" not in r and date.fromisoformat(r["date"]) < jour),
+                        key=lambda r: r["date"])
+    resolus = sorted((r for r in rendez_vous if "resultat" in r),
+                     key=lambda r: r["resultat"]["date"], reverse=True)
+    return a_verifier, resolus
 
 
 def a_venir(rendez_vous, jour):
     """Rendez-vous dont la date limite n'est pas passée, triés par date."""
-    return sorted((r for r in rendez_vous if date.fromisoformat(r["date"]) >= jour),
+    return sorted((r for r in rendez_vous if "resultat" not in r and date.fromisoformat(r["date"]) >= jour),
                   key=lambda r: (r["date"], r["id"]))
 
 
@@ -112,6 +145,22 @@ def fiche(r):
             f'<dt>Calendrier</dt><dd>{esc(texte_calendrier(r))}</dd></dl>')
 
 
+def quand_court(r):
+    """Date en toutes petites lettres pour l'accueil : « 30 nov. », « Fin nov. », « D'ici le 31 déc. »."""
+    d = date.fromisoformat(r["date"])
+    court = MOIS_COURT[d.month - 1]
+    p = r["precision"]
+    if p == "jour":
+        return f"{d.day} {court}"
+    if p == "limite":
+        return f"D'ici le {d.day} {court}"
+    if p == "fin_mois":
+        return f"Fin {court}"
+    if p == "fin_annee":
+        return f"D'ici fin {d.year}"
+    return f"{court.capitalize()} {d.year}"
+
+
 def tuile(r):
     d = date.fromisoformat(r["date"])
     court = MOIS_COURT[d.month - 1].capitalize() if r["precision"] == "mois" else MOIS_COURT[d.month - 1]
@@ -154,6 +203,79 @@ def titre_edition(racine, iso):
     return titre, f"{d.day}{'er' if d.day == 1 else ''} {MOIS[d.month - 1]}"
 
 
+def scenarios_edition(racine, iso):
+    """{'favorable': (titre, pct), …} lus dans archives/AAAA-MM-JJ.html, ou {} si illisible."""
+    f = racine / "archives" / f"{iso}.html"
+    if not f.exists():
+        return {}
+    out = {}
+    for m in re.finditer(r'<article class="card" data-kind="(favorable|stable|degrade)">(.*?)</article>',
+                         f.read_text(encoding="utf-8"), re.S):
+        pct = re.search(r'data-pct="(\d+)"', m.group(2))
+        h3 = re.search(r"<h3[^>]*>(.*?)</h3>", m.group(2), re.S)
+        if pct and h3:
+            out[m.group(1)] = (html.unescape(re.sub(r"<[^>]+>", "", h3.group(1))).strip(), int(pct.group(1)))
+    return out
+
+
+def tuile_passee(r):
+    d = date.fromisoformat(r["resultat"]["date"])
+    return (f'<div class="tuile fait" aria-hidden="true"><span class="haut">{MOIS_COURT[d.month - 1]}</span>'
+            f'<span class="gros sans-bas">{d.day}</span></div>')
+
+
+def bloc_scenario(r, racine):
+    x = r["resultat"]
+    k = x.get("scenario")
+    if not k:
+        return '<p class="scen neutre">Cette réponse ne tranche pas entre les trois scénarios de l\'édition.</p>'
+    eds = [i for i in r["editions"] if scenarios_edition(racine, i).get(k)]
+    mot = {"favorable": "vert", "stable": "bleu", "degrade": "orange"}[k]
+    if not eds:
+        return (f'<p class="scen c-{k}"><b>{SCENARIOS[k]}</b> ({mot}) : la réponse correspond à notre scénario '
+                f'« {SCENARIOS[k].lower()} ».</p>')
+    iso = eds[0]
+    titre, pct = scenarios_edition(racine, iso)[k]
+    d = date.fromisoformat(iso)
+    return (f'<p class="scen c-{k}"><b>{SCENARIOS[k]}</b> ({mot}) : la réponse correspond à notre scénario '
+            f'« {esc(titre)} », annoncé à {pct}&nbsp;% dans l\'édition du {d.day} {MOIS[d.month - 1]}.</p>')
+
+
+def carte_passee(r, i, racine):
+    x = r["resultat"]
+    k = x.get("scenario") or "neutre"
+    d = date.fromisoformat(x["date"])
+    h = (f'<article class="signal passe" id="rv-{esc(r["id"])}" style="--i:{i}" data-periode="passe" '
+         f'data-domaine="{esc(r["domaine"])}" data-couleur="{k}">{tuile_passee(r)}<div class="carte c-{k}">')
+    h += (f'<div class="entete"><span class="pastille"><svg viewBox="0 0 24 24" aria-hidden="true">{ICONES[r["domaine"]]}</svg>'
+          f'{esc(r["domaine"])}</span><span class="statut {x["statut"]}">{STATUTS[x["statut"]]} le {d.day} {MOIS[d.month - 1]}</span></div>')
+    h += f'<h2>{nbsp(r["question"])}</h2>'
+    h += ('<dl class="fiche">' f'<dt>Qui</dt><dd>{esc(r["qui"])}</dd>'
+          f'<dt>Nature</dt><dd>{"<span class=\"off oui\">Officiel</span>" if r["officiel"] else "<span class=\"off non\">Non officiel</span>"}{esc(r["nature"])}</dd></dl>')
+    h += f'<div class="reponse"><b>La réponse</b><p>{esc(x["reponse"])}</p>'
+    if x.get("chiffres"):
+        h += '<ul class="chiffres">' + "".join(
+            f'<li><span>{esc(c["libelle"])}</span><b>{esc(c["valeur"])}</b></li>' for c in x["chiffres"]) + "</ul>"
+    h += "</div>" + bloc_scenario(r, racine)
+    srcs = [s for s in x["sources"] if re.match(r"^https?://", str(s.get("url", "")))]
+    h += ('<ul class="eds src"><b>Sources</b>' + "".join(
+        f'<li><a href="{esc(s["url"])}" rel="noopener noreferrer" target="_blank"><span class="t">{esc(s.get("titre") or s["url"])}</span></a></li>'
+        for s in srcs) + "</ul>")
+    eds = [(iso, titre_edition(racine, iso)) for iso in r["editions"]]
+    eds = [(iso, e) for iso, e in eds if e]
+    if eds:
+        h += '<ul class="eds"><b>' + ("Éditions concernées" if len(eds) > 1 else "Édition concernée") + "</b>"
+        for iso, (tt, dd) in eds:
+            h += f'<li><a href="archives/{iso}.html"><span class="t">{esc(tt)}<span class="d">— {esc(dd)}</span></span></a></li>'
+        h += "</ul>"
+    return h + "</div></article>"
+
+
+def carte_a_verifier(r, i, jour, racine):
+    """Date dépassée, pas encore de résultat : carte sobre, sans décompte."""
+    return carte(r, i, jour, racine, verifier=True)
+
+
 def nbsp(t):
     """Espace insécable avant « ? » ; traits d'union insécables (« est-il », « va-t-il », « week-end »)."""
     s = esc(t).replace(" ?", "&nbsp;?").replace("week-end", "week&#8209;end")
@@ -161,15 +283,17 @@ def nbsp(t):
                   lambda m: "&#8209;" + ("t&#8209;" if m.group(1) else "") + m.group(2), s)
 
 
-def carte(r, i, jour, racine):
+def carte(r, i, jour, racine, verifier=False):
     texte_reste, pct = reste(r, jour)
     eds = [(iso, titre_edition(racine, iso)) for iso in r["editions"]]
     eds = [(iso, e) for iso, e in eds if e]
-    h = f'<article class="signal" id="rv-{esc(r["id"])}" style="--i:{i}">{tuile(r)}<div class="carte">'
+    h = (f'<article class="signal" id="rv-{esc(r["id"])}" style="--i:{i}" data-periode="{"passe" if verifier else "avenir"}" '
+         f'data-domaine="{esc(r["domaine"])}" data-couleur="{"verif" if verifier else "avenir"}">{tuile(r)}<div class="carte">')
+    droite = ('<span class="statut verif">Date passée : réponse en cours de vérification</span>' if verifier else
+              f'<span class="jauge"><span class="piste" aria-hidden="true"><i style="width:{pct}%"></i></span>'
+              f'<b>{texte_reste}</b></span>')
     h += (f'<div class="entete"><span class="pastille"><svg viewBox="0 0 24 24" aria-hidden="true">'
-          f'{ICONES[r["domaine"]]}</svg>{esc(r["domaine"])}</span>'
-          f'<span class="jauge"><span class="piste" aria-hidden="true"><i style="width:{pct}%"></i></span>'
-          f'<b>{texte_reste}</b></span></div>')
+          f'{ICONES[r["domaine"]]}</svg>{esc(r["domaine"])}</span>{droite}</div>')
     h += (f'<h2><span class="sr">{esc(texte_quand(r))} : </span>{nbsp(r["question"])}</h2>'
           f'{fiche(r)}<p class="comm">{esc(r["commentaire"])}</p>')
     if eds:
@@ -181,15 +305,77 @@ def carte(r, i, jour, racine):
     return h + "</div></article>"
 
 
+COULEURS = [("favorable", "Vert · favorable"), ("stable", "Bleu · stable"), ("degrade", "Orange · dégradé"),
+            ("neutre", "Gris · ne tranche pas"), ("verif", "À vérifier")]
+
+JS_FILTRES = """<script>
+(function(){
+  var racine=document.querySelector('.av'); if(!racine) return;
+  var bar=racine.querySelector('.filtres'); if(!bar) return;
+  var etat={periode:'tous',domaine:'tous',couleur:'tous'};
+  try{ var q=new URLSearchParams(location.search); ['periode','domaine','couleur'].forEach(function(k){ if(q.get(k)) etat[k]=q.get(k); }); }catch(e){}
+  var arts=[].slice.call(racine.querySelectorAll('.signal,.passe-vide'));
+  function visible(a){
+    var p=a.getAttribute('data-periode'), d=a.getAttribute('data-domaine'), c=a.getAttribute('data-couleur');
+    if(a.classList.contains('passe-vide')) return (etat.periode!=='avenir') && etat.domaine==='tous' && etat.couleur==='tous' && !racine.querySelector('.signal.passe');
+    return (etat.periode==='tous'||etat.periode===p) && (etat.domaine==='tous'||etat.domaine===d) && (etat.couleur==='tous'||etat.couleur===c);
+  }
+  function appliquer(){
+    var n=0, avenir=0, passe=0;
+    arts.forEach(function(a){ var v=visible(a); a.hidden=!v; if(v && !a.classList.contains('passe-vide')){ n++; if(a.getAttribute('data-periode')==='avenir') avenir++; else passe++; } });
+    [].forEach.call(racine.querySelectorAll('.periode,.passes'),function(s){ s.hidden=!s.querySelector('.signal:not([hidden]),.passe-vide:not([hidden])'); });
+    var m=racine.querySelector('.aujourdhui'); if(m) m.hidden=!(avenir>0 && !racine.querySelector('.passes').hidden);
+    var r=racine.querySelector('.rien'); if(r) r.hidden=!(racine.querySelectorAll('.signal:not([hidden]),.passe-vide:not([hidden])').length===0);
+    var nb=bar.querySelector('.nb'); if(nb) nb.textContent=n+' rendez-vous affiché'+(n>1?'s':'');
+    [].forEach.call(bar.querySelectorAll('button[data-f]'),function(b){ b.setAttribute('aria-pressed', String(etat[b.getAttribute('data-f')]===b.getAttribute('data-v'))); });
+    try{ var u=new URLSearchParams(); Object.keys(etat).forEach(function(k){ if(etat[k]!=='tous') u.set(k,etat[k]); }); history.replaceState(null,'',location.pathname+(u.toString()?'?'+u:'')); }catch(e){}
+  }
+  bar.hidden=false;
+  bar.addEventListener('click',function(e){
+    var b=e.target.closest('button'); if(!b) return;
+    if(b.hasAttribute('data-reset')){ etat={periode:'tous',domaine:'tous',couleur:'tous'}; }
+    else if(b.hasAttribute('data-f')){ etat[b.getAttribute('data-f')]=b.getAttribute('data-v'); }
+    appliquer();
+  });
+  appliquer();
+})();
+</script>"""
+
+
+def filtres(prochains, a_verifier, resolus):
+    """Panneau de filtres (affiché par le script ; sans script, toute la page reste visible)."""
+    tous = list(prochains) + list(a_verifier) + list(resolus[:MAX_PASSES])
+    def bouton(f, v, libelle, n=None, icone=None, classe=""):
+        ic = f'<svg viewBox="0 0 24 24" aria-hidden="true">{icone}</svg>' if icone else ""
+        nn = f'<span class="n">{n}</span>' if n is not None else ""
+        return (f'<button type="button" class="{classe}" data-f="{f}" data-v="{esc(v)}" aria-pressed="false">{ic}{esc(libelle)}{nn}</button>')
+    h = ('<div class="filtres" hidden role="group" aria-label="Filtrer les rendez-vous">'
+         '<div class="fgroupe"><span class="flabel">Période</span><div class="fpuces">'
+         + bouton("periode", "tous", "Tous", len(tous)) + bouton("periode", "avenir", "À venir", len(prochains))
+         + bouton("periode", "passe", "Déjà arrivés", len(a_verifier) + len(resolus[:MAX_PASSES])) + '</div></div>')
+    doms = [d for d in ICONES if any(r["domaine"] == d for r in tous)]
+    h += ('<div class="fgroupe"><span class="flabel">Domaine</span><div class="fpuces">' + bouton("domaine", "tous", "Tous")
+          + "".join(bouton("domaine", d, d, sum(1 for r in tous if r["domaine"] == d), ICONES[d]) for d in doms) + '</div></div>')
+    if a_verifier or resolus:
+        cnt = {k: 0 for k, _ in COULEURS}
+        for r in resolus[:MAX_PASSES]:
+            cnt[r["resultat"].get("scenario") or "neutre"] += 1
+        cnt["verif"] = len(a_verifier)
+        h += ('<div class="fgroupe"><span class="flabel">Résultat</span><div class="fpuces">' + bouton("couleur", "tous", "Tous")
+              + "".join(bouton("couleur", k, lib, cnt[k], classe=f"pc c-{k}") for k, lib in COULEURS if cnt[k]) + '</div></div>')
+    return (h + '<div class="fpied"><span class="nb" aria-live="polite"></span>'
+            '<button type="button" class="reset" data-reset>Tout afficher</button></div></div>')
+
+
 def contenu(rendez_vous, jour, racine=RACINE):
     h = ('<section class="hero contact-hero"><div class="wrap"><p class="eyebrow">À venir</p>'
-         '<h1>Ce qui va arriver</h1><p class="dek">Les rendez-vous à surveiller, relevés dans nos éditions, '
-         'du plus proche au plus lointain.</p></div></section>\n')
+         '<h1>Ce qui va arriver</h1><p class="dek">Les rendez-vous à surveiller, relevés dans nos éditions : '
+         'ceux qui arrivent, et ceux qui sont arrivés, avec la réponse.</p></div></section>\n')
     h += '<section class="body-section av"><div class="wrap">'
     prochains = a_venir(rendez_vous, jour)
-    if not prochains:
-        h += '<div class="vide">Aucun rendez-vous à surveiller pour le moment.</div>'
-    else:
+    a_verifier, resolus = passes(rendez_vous, jour)
+    h += filtres(prochains, a_verifier, resolus)
+    if prochains:
         groupes, ordre = {}, []
         for r in prochains:
             p = periode(r["date"], jour)
@@ -205,9 +391,31 @@ def contenu(rendez_vous, jour, racine=RACINE):
                 h += carte(r, n, jour, racine)
                 n += 1
             h += "</section>"
-        h += ('</div><p class="pied">Ces rendez-vous sont des repères, pas des prévisions. '
-              'Nous ne recalculons pas de probabilités ici : à chacun de se faire son idée.</p>')
-    return h + "</div></section>"
+        h += "</div>"
+    else:
+        h += '<div class="vide">Aucun rendez-vous à venir pour le moment.</div>'
+    h += (f'<div class="aujourdhui" role="separator"><span>Aujourd\'hui · {jour.day} {MOIS[jour.month - 1]} {jour.year}</span></div>')
+    h += ('<section class="passes" id="deja-arrives"><p class="section-label">Déjà arrivés</p>'
+          '<p class="legende">Couleur de la réponse, selon nos scénarios : '
+          '<span class="c-favorable">vert, favorable</span> · <span class="c-stable">bleu, stable</span> · '
+          '<span class="c-degrade">orange, dégradé</span>.</p><div class="tl tl-passe">')
+    n = 0
+    for r in a_verifier:
+        h += carte_a_verifier(r, n, jour, racine)
+        n += 1
+    for r in resolus[:MAX_PASSES]:
+        h += carte_passee(r, n, racine)
+        n += 1
+    if not a_verifier and not resolus:
+        premier = prochains[0] if prochains else None
+        quand = f" Le premier rendez-vous échoit le {date_longue(premier)}." if premier else ""
+        h += ('<div class="vide passe-vide" data-periode="passe" data-domaine="" data-couleur="vide">'
+              f'Aucun résultat pour l\'instant.{quand} Les réponses apparaîtront ici, avec leurs chiffres et leurs sources.</div>')
+    h += "</div></section>"
+    h += '<p class="rien" hidden>Aucun rendez-vous ne correspond à ces filtres. Utilisez « Tout afficher ».</p>'
+    h += ('<p class="pied">Ces rendez-vous sont des repères, pas des prévisions. '
+          'Nous ne recalculons pas de probabilités ici : à chacun de se faire son idée.</p>')
+    return h + "</div></section>" + JS_FILTRES
 
 
 def css():

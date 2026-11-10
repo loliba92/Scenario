@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "description": "Rendez-vous à surveiller affichés sur a-venir.html et sur l'accueil. precision : jour | limite (« D'ici le … ») | fin_mois | mois | fin_annee. date = date limite (JJ), servie au tri et au décompte. editions : dates des éditions concernées (archives/AAAA-MM-JJ.html). qui = institution ou acteur responsable ; nature = ce qu'est l'événement ; officiel = true si l'événement émane d'une institution publique ; calendrier : date_fixee | date_limite | periode_annoncee | non_programme.",
+  "description": "Rendez-vous à surveiller affichés sur a-venir.html et sur l'accueil. precision : jour | limite (« D'ici le … ») | fin_mois | mois | fin_annee. date = date limite (JJ), servie au tri et au décompte. editions : dates des éditions concernées (archives/AAAA-MM-JJ.html). qui = institution ou acteur responsable ; nature = ce qu'est l'événement ; officiel = true si l'événement émane d'une institution publique ; calendrier : date_fixee | date_limite | periode_annoncee | non_programme. resultat (facultatif, ajouté quand la réponse est connue ; le rendez-vous passe alors dans « Déjà arrivés ») : {statut: arrive|pas_arrive, date: JJ de la réponse, reponse: une phrase, chiffres: [{libelle, valeur}], scenario: favorable|stable|degrade|null (le scénario de l'édition vers lequel pointe la réponse ; couleur vert/bleu/orange), sources: [{titre, url}] (au moins une)}. Sans resultat et date dépassée, le rendez-vous s'affiche « réponse en cours de vérification ».",
   "rendez_vous": [
     {
       "id": "ethiopie-erythree-cessez-le-feu",
