@@ -20,10 +20,11 @@ import generate_a_venir as g  # noqa: E402
 
 RACINE = g.RACINE
 MODELE = "deepseek/deepseek-v4-flash"
-MODELE_CONFIRMATION = "anthropic/claude-sonnet-5"
+MODELE_CONFIRMATION = "google/gemini-3.7-flash"   # raisonnement imposé : max_tokens large ci-dessous
 MAX_PAR_PASSAGE = 3
 MAX_ESSAIS_ECHUS = 10
 INTERVALLE_AVANT_ECHEANCE = 7  # jours entre deux recherches pour un rendez-vous pas encore échu
+PANNES = ("appel du modèle impossible", "confirmation impossible")
 JOURNAL = RACINE / "data" / "a-venir-journal.json"
 OUTILS = [{"type": "openrouter:web_search", "parameters": {"engine": "auto", "max_results": 8}}]
 
@@ -73,7 +74,7 @@ def prompt_confirmation(r, jour, prop):
 
 def appel_modele(prompt, modele, cle):
     from generate_daily_edition import call_openrouter
-    res, usage = call_openrouter(prompt, modele, cle, temperature=0.1, max_tokens=4000, timeout=200, tools=OUTILS)
+    res, usage = call_openrouter(prompt, modele, cle, temperature=0.1, max_tokens=12000, timeout=220, tools=OUTILS)
     return res, (usage or {}).get("cost") or 0.0
 
 
@@ -136,6 +137,10 @@ def main():
             continue
         res, motifs, c = traiter(r, jour, RACINE, cle)
         cout += c
+        if not res and motifs and motifs[0].startswith(PANNES):
+            # Panne technique (modèle injoignable, dépendance absente) : pas un essai, on réessaiera au prochain passage.
+            lignes.append((r["id"], r["question"], "**Non vérifié (panne technique, nouvel essai au prochain passage)** : " + " ; ".join(motifs)))
+            continue
         essais[r["id"]] = {"dernier_essai": jour.isoformat(), "essais": journal.get(r["id"], {}).get("essais", 0) + 1,
                            "motif": "; ".join(motifs)[:400] if motifs else "accepté"}
         if res:

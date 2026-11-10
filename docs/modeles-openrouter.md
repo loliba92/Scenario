@@ -22,48 +22,31 @@ est absent, ce qui est le cas en continu tant que le trigger reste
 éteint. La recherche tourne donc bien sur OpenRouter/GitHub Actions
 aujourd'hui, pas hors périmètre.
 
-Trois modèles OpenRouter sont utilisés aujourd'hui :
+**État réel, vérifié dans le code le 10 novembre 2026 : aucune tâche automatique n'utilise Claude Sonnet par défaut**
+(décision du propriétaire : jamais Claude Sonnet ; modèle par défaut DeepSeek ou Gemini, voir `CLAUDE.md`).
+Les modèles sont des constantes en tête de chaque script ; l'historique des décisions plus bas date d'avant ce constat.
 
-- **`anthropic/claude-sonnet-5`** — rédaction quotidienne, recherche
-  quotidienne (repli, voir ci-dessus), détection de sujets à suivre,
-  traduction anglaise.
-- **`openai/gpt-5`** — récap hebdomadaire uniquement, depuis le
-  16 septembre 2026.
-- **`deepseek/deepseek-v4-flash`** — posts « pub » courts (génération +
-  réparation/banque de chiffres), repérage de sujets chauds, et critique
-  automatique du preview depuis le 22 septembre 2026 (voir ci-dessous) —
-  choisi à dessein différent d'`anthropic/claude-sonnet-5` (qui rédige
-  l'édition) pour cette dernière tâche, un second regard ayant plus de
-  chances de repérer les angles morts du modèle rédacteur qu'une
-  relecture par le même modèle ; retenu plutôt qu'`openai/gpt-5` pour le
-  coût (retour utilisateur explicite, cette critique tourne tous les
-  jours, jamais une fois par semaine comme le récap hebdo) — voir la
-  mitigation appliquée dans `critique_preview.py` (brief réduit au
-  strict nécessaire avant l'appel) pour compenser sa faiblesse connue
-  sur le texte long, détaillée plus bas.
-
-**Opus abandonné le 20 septembre 2026** (retour utilisateur explicite :
-« opus sur openrouter dans la recherche n'apporte rien ») — il n'avait
-qu'un seul usage dans ce dépôt (recherche quotidienne, depuis le
-18 septembre) et n'est plus utilisé nulle part. Voir `docs/BACKLOG.md`
-ticket B152 pour l'historique complet des deux décisions.
-
-## Les 11 workflows
+## Les workflows et leur modèle par défaut
 
 | Workflow | Fréquence | Script | Modèle par défaut | Changeable au run ? |
 | --- | --- | --- | --- | --- |
-| `post-edition.yml` — rédaction | quotidien, 4h30 et 5h30 UTC (2 créneaux) | `generate_daily_edition.py` | `anthropic/claude-sonnet-5` | Oui — input `model` ou variable de dépôt `OPENROUTER_MODEL` |
-| `post-edition.yml` — repli recherche | quotidien tant que le trigger CCR reste désactivé (voir ci-dessus) | `generate_fallback_brief.py` | `anthropic/claude-sonnet-5` (Opus du 18 au 20 septembre 2026, abandonné — voir plus bas) | Oui — même input `model`/`OPENROUTER_MODEL` que la rédaction (partagé, voir note ci-dessous) |
-| `edition.yml` | manuel seulement (prototype Phase 1, sans publication) | `generate_daily_edition.py` | `anthropic/claude-sonnet-5` | Non |
-| `translate-en.yml` | manuel + auto-déclenché en fin de `post-edition.yml` | `translate_daily.py` | `anthropic/claude-sonnet-5` | Non dans le workflow (le script accepte `--model` en local) |
-| `detection.yml` | lun/jeu/ven/sam, 1h UTC | `generate_suivi_update.py` | `anthropic/claude-sonnet-5` | Non |
-| `signaux.yml` | quotidien (cron-job.org) | `verifier_signaux_web.py` | `deepseek/deepseek-v4-flash` (choix provisoire du propriétaire, à revoir) | Oui — `--model` en local |
-| `hot-topics.yml` | mar/ven, 19h UTC (~21h Paris été) | `generate_hot_topics.py` | `gratuits` (6 modèles gratuits en relais, voir `enrich_sujets.py`, comme l'enrichissement des dossiers ; depuis le 2 octobre 2026) | Non — `--model` en local |
-| `hebdo.yml` | dimanche, 12h UTC | `generate_weekly_recap.py` | `openai/gpt-5` (DeepSeek jusqu'au 16 septembre) | Oui — input `model` |
-| `daily-preview.yml` — critique | quotidien, juste après génération du preview | `critique_preview.py` | `deepseek/deepseek-v4-flash` | Oui — `--model` en local, pas d'input dans le workflow |
-| `pub.yml` | quotidien, 2h UTC | `generate_daily_pub.py` | `deepseek/deepseek-v4-flash` (traduction EN seulement depuis le 19 septembre 2026 — la catégorie `chiffre` elle-même n'appelle plus aucun modèle, voir `docs/ARCHITECTURE.md`) | Non |
-| `audience.yml` | quotidien, 5h UTC | `update_audience.py` | — (lit le coût OpenRouter, n'appelle aucun modèle) | — |
-| `reads.yml` | horaire | `update_reads_json.py` | — (GoatCounter uniquement) | — |
+| `post-edition.yml` — rédaction | quotidien, 4h30 et 5h30 UTC | `generate_daily_edition.py` | `google/gemini-3.7-flash` | Oui — input `model` ou variable de dépôt `OPENROUTER_MODEL` (à garder hors Claude) |
+| `post-edition.yml` — repli recherche | tant que le trigger CCR reste désactivé | `generate_fallback_brief.py` | `upstage/solar-pro4` | Oui — même input `model`/`OPENROUTER_MODEL` |
+| `edition.yml` | manuel (prototype, sans publication) | `generate_daily_edition.py` | `google/gemini-3.7-flash` | Non |
+| `translate-en.yml` | manuel + fin de `post-edition.yml` | `translate_daily.py` | `google/gemini-3.7-flash` | Non dans le workflow (`--model` en local) |
+| `detection.yml` | lun/jeu/ven/sam, 1h UTC | `generate_suivi_update.py` | `openai/gpt-5.6-terra` (choix du propriétaire, 21 septembre 2026) | Non |
+| `signaux.yml` | quotidien (cron-job.org) | `scripts/a_venir/verifier_resultats.py` | recherche : `deepseek/deepseek-v4-flash` ; confirmation indépendante : `google/gemini-3.7-flash` | Non — constantes `MODELE` et `MODELE_CONFIRMATION` |
+| `hot-topics.yml` | mar/ven, 19h UTC | `generate_hot_topics.py` | DeepSeek et Gemini (constante `HOT_TOPICS_MODEL`) | Non — `--model` en local |
+| `hebdo.yml` | dimanche, 12h UTC | `generate_weekly_recap.py` | `google/gemini-3.7-flash` | Oui — input `model` |
+| `daily-preview.yml` — critique | quotidien, après le preview | `critique_preview.py` | `google/gemini-3.7-flash` | `--model` en local |
+| `pub.yml` | quotidien, 2h UTC | `generate_daily_pub.py` | `deepseek/deepseek-v4-flash` | Non |
+| revue de presse | quotidien | `revue_de_presse.py` | `upstage/solar-pro4` | `--model` |
+| podcast | quotidien | `generate_podcast.py` | modèles gratuits en relais ; en tout dernier recours `anthropic/claude-haiku-4-5` (Haiku, pas Sonnet) | `--modele` |
+| `audience.yml`, `reads.yml` | quotidien, horaire | — | aucun modèle | — |
+
+**Opus abandonné le 20 septembre 2026** (retour utilisateur explicite :
+« opus sur openrouter dans la recherche n'apporte rien »). Voir
+`docs/BACKLOG.md` ticket B152 pour l'historique des décisions antérieures.
 
 Secret commun : `OPENROUTER_API_KEY` (les 7 workflows qui génèrent du
 texte + `audience.yml` pour le KPI de coût — `bank-chiffre.yml` et

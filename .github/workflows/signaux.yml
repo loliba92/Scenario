@@ -27,6 +27,9 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Installer les dépendances
+        run: pip install beautifulsoup4
+
       - name: Tests
         run: python3 -m unittest scripts/detection/test_verifier_signaux.py scripts/a_venir/test_generate_a_venir.py scripts/a_venir/test_controles.py
 

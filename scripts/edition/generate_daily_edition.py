@@ -50,7 +50,6 @@ OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 # NVIDIA Nemotron rejeté: JSON invalide pour rédaction
 # Voir docs/alternatives-tests/ et scripts/edition/test-alternatives.py
 DEFAULT_MODEL = "google/gemini-3.7-flash"  # Phase 2 production (qualité + validité garantie)
-SONNET_5_BACKUP = "anthropic/claude-sonnet-5"  # Rollback si besoin
 REDACTION_PROMPT_PATH = REPO_ROOT / "docs" / "routine-redaction-prompt.md"
 MIN_WORDS = 1100
 MIN_ESSENTIEL_WORDS = 110  # essentiel_box (4 paragraphes) — voir validate_content_schema()

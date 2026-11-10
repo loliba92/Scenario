@@ -157,6 +157,13 @@ class TestPipeline(unittest.TestCase):
         res, motifs, _ = v.traiter(R, J, g.RACINE, "k", appel, pages)
         self.assertIsNone(res)
 
+    def test_panne_technique_ne_compte_pas_comme_essai(self):
+        self.assertTrue(v.PANNES[0].startswith("appel du modèle"))
+        def appel(*a):
+            raise RuntimeError("panne")
+        res, motifs, _ = v.traiter(R, J, g.RACINE, "k", appel, pages)
+        self.assertTrue(motifs[0].startswith(v.PANNES))
+
     def test_candidats_echus_d_abord_et_plafonnes(self):
         rvs = [dict(R, id=f"r{i}", date=d) for i, d in enumerate(["2026-12-20", "2026-11-10", "2026-11-20", "2026-11-25", "2026-11-28"])]
         cands = v.candidats(rvs, {}, J)
