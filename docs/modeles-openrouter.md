@@ -41,7 +41,7 @@ Les modèles sont des constantes en tête de chaque script ; l'historique des d�
 | `daily-preview.yml` — critique | quotidien, après le preview | `critique_preview.py` | `google/gemini-3.7-flash` | `--model` en local |
 | `pub.yml` | quotidien, 2h UTC | `generate_daily_pub.py` | `deepseek/deepseek-v4-flash` | Non |
 | revue de presse | quotidien | `revue_de_presse.py` | `upstage/solar-pro4` | `--model` |
-| podcast | quotidien | `generate_podcast.py` | modèles gratuits en relais ; en tout dernier recours `anthropic/claude-haiku-4-5` (Haiku, pas Sonnet) | `--modele` |
+| podcast | quotidien | `generate_podcast.py` | modèles gratuits en relais ; en tout dernier recours `deepseek/deepseek-v4-flash` (plus de Claude : décision du propriétaire, 10 novembre 2026) | `--modele` |
 | `audience.yml`, `reads.yml` | quotidien, horaire | — | aucun modèle | — |
 
 **Opus abandonné le 20 septembre 2026** (retour utilisateur explicite :

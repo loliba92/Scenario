@@ -193,7 +193,7 @@ MODELES_DIALOGUE = "google/gemma-4-31b-it:free,google/gemma-4-26b-a4b-it:free,qw
 
 # Texte parlé quotidien : les modèles gratuits sont souvent limités en débit (429 sur tous, run du 3 octobre 2026),
 # donc un modèle payant bon marché (quelques centimes par épisode) ferme la liste pour que l'épisode sorte chaque jour.
-MODELES_NARRATION = MODELES_DIALOGUE + ",anthropic/claude-haiku-4-5"
+MODELES_NARRATION = MODELES_DIALOGUE + ",deepseek/deepseek-v4-flash"
 
 
 def generer_dialogue(ed: dict, modele: str, cle: str, essais: int = 3) -> tuple[list[dict], list[str]]:

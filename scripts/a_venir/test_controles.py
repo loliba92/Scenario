@@ -175,11 +175,11 @@ class TestPipeline(unittest.TestCase):
         self.assertEqual(v.candidats([r], {"a": {"dernier_essai": J.isoformat(), "essais": 1}}, J), [])
         self.assertEqual(v.candidats([r], {"a": {"dernier_essai": "2026-12-01", "essais": v.MAX_ESSAIS_ECHUS}}, J), [])
 
-    def test_avant_echeance_une_fois_par_semaine(self):
-        r = dict(R, id="a", date="2026-12-20")
+    def test_avant_echeance_une_fois_par_mois(self):
+        r = dict(R, id="a", date="2027-03-20")
         self.assertEqual(len(v.candidats([r], {}, J)), 1)
-        self.assertEqual(v.candidats([r], {"a": {"dernier_essai": "2026-11-30"}}, J), [])
-        self.assertEqual(len(v.candidats([r], {"a": {"dernier_essai": "2026-11-20"}}, J)), 1)
+        self.assertEqual(v.candidats([r], {"a": {"dernier_essai": "2026-11-20"}}, J), [])      # 12 jours : trop tôt
+        self.assertEqual(len(v.candidats([r], {"a": {"dernier_essai": "2026-11-01"}}, J)), 1)  # 31 jours
 
 
 class TestAppliquer(unittest.TestCase):
