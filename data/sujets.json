@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "1ed12c9e5c2d3d4f45ff7ee98b1376c119cefec6a882ebe247f84aba83dafc5b"
+    "md_sha256": "458e0e97b59747a4f8562ef8a38d1870bf5c092ed0363e415e4f1446f8376c4e"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -554,6 +554,45 @@
         {
           "type": "commentaire",
           "texte": "Registre scindé le 12 août (retour utilisateur) : la géopolitique dure (conflits, diplomatie, États) et l'économie mondiale (marchés, monnaies, dette, matières premières) partageaient jusque-là le même slot du lundi, ce qui tassait deux blocs très différents dans une seule file. L'économie mondiale a sa propre section dimanche (voir plus bas) — la case libérée vient de la fusion des deux jours culture (française + internationale) en un seul, samedi. **Règle de classement pour les sujets à cheval sur les deux** (ex. guerres commerciales, tarifs douaniers) : si l'enjeu central est un rapport de force entre États (qui menace qui, qui négocie quoi) → géopolitique/lundi ; si l'enjeu central est un indicateur chiffré ou un marché (prix, taux, dette, cours) → économie/dimanche. Cas tranchés le 12 août à titre d'exemple : \"Guerre commerciale USA-Chine\" reste ici (framing État contre État, guerre froide) ; \"Droits de douane de Trump\" part en économie (contenu réel = batailles judiciaires et chiffres de recettes tarifaires, pas un rapport de force diplomatique). Les vieilles éditions déjà publiées gardent leur tag d'origine (`geopolitique`), jamais retaggées rétroactivement — voir docs/tags.md."
+        },
+        {
+          "type": "sujet",
+          "id": "geopolitique-les-pourparlers-entre-l-ukraine-et-la-russie-a",
+          "titre": "Les pourparlers entre l'Ukraine et la Russie à Abou Dhabi peuvent-ils aboutir à un accord de paix ?",
+          "question": null,
+          "tag": "géopolitique & Ukraine",
+          "statut": "a_traiter",
+          "validation": "a_valider",
+          "contexte": "Les premières discussions directes entre l'Ukraine et la Russie depuis plus de huit mois ont repris le 10 novembre 2026 à Abou Dhabi, sous médiation américaine. Les questions humanitaires et les garanties de sécurité sont au cœur des négociations. Volodymyr Zelensky a qualifié les échanges de \"constructifs et substantiels\". Les Européens et les Américains ont réaffirmé leur engagement pour une sécurité européenne solide après la guerre.",
+          "rationnel": "La question : ces pourparlers peuvent-ils déboucher sur un accord de paix durable, ou resteront-ils sans issue concrète ? Les forces en présence incluent la volonté ukrainienne de garantir sa souveraineté, la pression russe pour des concessions, et le rôle médiateur des États-Unis. Un scénario favorable verrait un cadre de sécurité crédible pour l'Ukraine, un scénario stable maintiendrait le statu quo, et un scénario dégradé pourrait entraîner une reprise des hostilités.",
+          "angle": null,
+          "a_verifier": null,
+          "mots_cles": [
+            "Ukraine",
+            "Russie",
+            "pourparlers Abou Dhabi",
+            "guerre en Ukraine",
+            "médiation américaine"
+          ],
+          "scenarios": {
+            "favorable": "Un accord de paix est signé, avec des garanties de sécurité pour l'Ukraine et un retrait partiel des troupes russes.",
+            "stable": "Les pourparlers se poursuivent sans avancée majeure, mais sans reprise immédiate des combats.",
+            "degrade": "Les négociations échouent, entraînant une intensification des frappes russes et une escalade du conflit."
+          },
+          "echeance": null,
+          "sources": [
+            {
+              "titre": "DIRECT. Guerre en Ukraine : début des pourparlers à Abou Dhabi entre Kiev et Moscou",
+              "url": "https://www.franceinfo.fr/monde/europe/manifestations-en-ukraine/direct-guerre-en-ukraine-reprise-des-negociations-directes-entre-kiev-et-moscou-apres-plus-de-huit-mois-d-interruption_8275967.html"
+            }
+          ],
+          "origine": "veille",
+          "note": "Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
+          "donnees": null,
+          "ajoute_le": "2026-11-10",
+          "publie_le": null,
+          "edition": null,
+          "enrichi_le": null
         },
         {
           "type": "sujet",
@@ -1568,6 +1607,45 @@
         },
         {
           "type": "sujet",
+          "id": "sport-tom-laperche-peut-il-dominer-la-voile-mondiale",
+          "titre": "Tom Laperche peut-il dominer la voile mondiale après sa victoire record à la Route du Rhum ?",
+          "question": null,
+          "tag": "sport & voile",
+          "statut": "a_traiter",
+          "validation": "a_valider",
+          "contexte": "Le skipper français Tom Laperche a remporté la Route du Rhum 2026 en pulvérisant le record de la course (6 jours, 13 heures et 27 minutes). À 29 ans, il confirme son statut de nouveau leader de la voile française, avec des ambitions pour le Vendée Globe 2028.",
+          "rationnel": "La question : Laperche peut-il s'imposer comme la figure dominante de la voile mondiale, ou son succès restera-t-il isolé ? Les scénarios dépendent de sa régularité et de la concurrence. Un scénario favorable verrait une série de victoires majeures, un scénario stable maintiendrait une performance irrégulière, et un scénario dégradé pourrait voir son étoile pâlir rapidement.",
+          "angle": null,
+          "a_verifier": null,
+          "mots_cles": [
+            "Tom Laperche",
+            "Route du Rhum",
+            "voile",
+            "record",
+            "Vendée Globe"
+          ],
+          "scenarios": {
+            "favorable": "Laperche enchaîne les victoires et devient une légende de la voile.",
+            "stable": "Il reste compétitif sans dominer, avec des hauts et des bas.",
+            "degrade": "Il peine à confirmer, éclipsé par de nouveaux talents."
+          },
+          "echeance": null,
+          "sources": [
+            {
+              "titre": "Alcaraz vainqueur, Laperche triomphe, l'OM enfonce Lens : les infos sport du week-end",
+              "url": "https://www.france24.com/fr/sports/20261109-alcaraz-laperche-om-lens-infos-sport-week-end"
+            }
+          ],
+          "origine": "veille",
+          "note": "Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
+          "donnees": null,
+          "ajoute_le": "2026-11-10",
+          "publie_le": null,
+          "edition": null,
+          "enrichi_le": null
+        },
+        {
+          "type": "sujet",
           "id": "sport-le-football-feminin-peut-il-devenir-aussi",
           "titre": "Le football féminin peut-il devenir aussi rentable que le masculin ?",
           "question": null,
@@ -2284,6 +2362,84 @@
       "titre": "Actualité & politique française — mercredi",
       "jour": "mercredi",
       "entrees": [
+        {
+          "type": "sujet",
+          "id": "actualite-francaise-la-petition-contre-cnews-peut-elle-aboutir-a-sa",
+          "titre": "La pétition contre CNews peut-elle aboutir à sa suppression ?",
+          "question": null,
+          "tag": "médias & politique",
+          "statut": "a_traiter",
+          "validation": "a_valider",
+          "contexte": "Une pétition demandant la suppression de CNews a dépassé les 900 000 signatures le 10 novembre 2026. Lancée en juin, elle accuse la chaîne d'inciter à la haine et à la discrimination. CNews, propriété de Vincent Bolloré, a déjà été sanctionnée à plusieurs reprises par l'Arcom pour des manquements à ses obligations.",
+          "rationnel": "La question : cette pétition peut-elle conduire à des sanctions concrètes contre CNews, ou restera-t-elle symbolique ? Les forces en présence incluent la pression de l'opinion publique, la défense de la liberté d'expression par CNews, et le rôle régulateur de l'Arcom. Un scénario favorable verrait des sanctions renforcées contre la chaîne, un scénario stable maintiendrait le statu quo, et un scénario dégradé pourrait entraîner une polarisation accrue du débat médiatique.",
+          "angle": null,
+          "a_verifier": null,
+          "mots_cles": [
+            "CNews",
+            "pétition",
+            "Arcom",
+            "Vincent Bolloré",
+            "liberté d'expression"
+          ],
+          "scenarios": {
+            "favorable": "L'Arcom impose des sanctions sévères à CNews, limitant son influence.",
+            "stable": "La pétition reste sans effet concret, mais relance le débat sur la régulation des médias.",
+            "degrade": "La polarisation s'accentue, avec des manifestations ou contre-manifestations autour de la chaîne."
+          },
+          "echeance": null,
+          "sources": [
+            {
+              "titre": "Les lauréats littéraires 2026, une pétition contre CNews et la tournée de The Weeknd…",
+              "url": "https://www.rtbf.be/article/les-laureats-litteraires-2026-une-petition-contre-cnews-et-la-tournee-de-the-weeknd-retrouvez-l-actu-culturelle-de-la-semaine-11811727"
+            }
+          ],
+          "origine": "veille",
+          "note": "Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
+          "donnees": null,
+          "ajoute_le": "2026-11-10",
+          "publie_le": null,
+          "edition": null,
+          "enrichi_le": null
+        },
+        {
+          "type": "sujet",
+          "id": "actualite-francaise-la-hausse-du-smic-peut-elle-relancer-la",
+          "titre": "La hausse du SMIC peut-elle relancer la consommation sans nuire à l'emploi ?",
+          "question": null,
+          "tag": "économie & pouvoir d'achat",
+          "statut": "a_traiter",
+          "validation": "a_valider",
+          "contexte": "Le gouvernement a annoncé une hausse de 1,6 % du SMIC le 10 novembre 2026, portant le salaire minimum à 1 502 euros. Cette mesure vise à soutenir le pouvoir d'achat des ménages, mais elle est critiquée par certains économistes qui craignent un impact négatif sur l'emploi, notamment dans les PME.",
+          "rationnel": "La question : cette hausse du SMIC peut-elle stimuler la consommation sans peser sur l'emploi, ou aggravera-t-elle les difficultés des entreprises ? Les scénarios dépendent de la réaction des entreprises (embauches, hausses de prix) et de la consommation des ménages. Un scénario favorable verrait une relance de la consommation sans pertes d'emploi, un scénario stable maintiendrait un équilibre fragile, et un scénario dégradé pourrait entraîner une hausse du chômage.",
+          "angle": null,
+          "a_verifier": null,
+          "mots_cles": [
+            "SMIC",
+            "pouvoir d'achat",
+            "emploi",
+            "gouvernement",
+            "PME"
+          ],
+          "scenarios": {
+            "favorable": "La consommation repart, soutenant la croissance sans impact majeur sur l'emploi.",
+            "stable": "L'impact est neutre, avec une légère hausse des prix compensée par une consommation stable.",
+            "degrade": "Les PME réduisent leurs effectifs pour compenser la hausse des coûts, aggravant le chômage."
+          },
+          "echeance": null,
+          "sources": [
+            {
+              "titre": "BFM Business : « Nous estimons que la croissance sera modérément positive au quatrième trimestre »",
+              "url": "https://www.banque-france.fr/fr/interventions-gouverneur/bfm-business-nous-estimons-que-la-croissance-sera-moderement-positive-au-quatrieme-trimestre"
+            }
+          ],
+          "origine": "veille",
+          "note": "Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
+          "donnees": null,
+          "ajoute_le": "2026-11-10",
+          "publie_le": null,
+          "edition": null,
+          "enrichi_le": null
+        },
         {
           "type": "sujet",
           "id": "actualite-francaise-la-reforme-des-retraites-peut-elle-revenir-dans",
@@ -3489,6 +3645,84 @@
       "titre": "Sciences — vendredi (climat & écologie, espace, IA, médecine, énergie…)",
       "jour": "vendredi",
       "entrees": [
+        {
+          "type": "sujet",
+          "id": "sciences-la-decouverte-d-une-desintegration-rare-de",
+          "titre": "La découverte d'une désintégration rare de particule ouvre-t-elle la voie à une nouvelle physique ?",
+          "question": null,
+          "tag": "sciences & physique",
+          "statut": "a_traiter",
+          "validation": "a_valider",
+          "contexte": "Le 3 novembre 2026, le CERN a annoncé avoir observé la désintégration extrêmement rare d'un méson Bd en deux muons, un phénomène qui ne se produit qu'une fois sur dix milliards. Cette découverte pourrait remettre en question le Modèle Standard de la physique des particules.",
+          "rationnel": "La question : cette observation confirme-t-elle le Modèle Standard, ou révèle-t-elle l'existence de nouvelles particules ou forces ? Les scénarios dépendent des analyses ultérieures. Un scénario favorable verrait la confirmation d'une nouvelle physique, un scénario stable validerait le Modèle Standard, et un scénario dégradé laisserait les questions en suspens.",
+          "angle": null,
+          "a_verifier": null,
+          "mots_cles": [
+            "CERN",
+            "méson Bd",
+            "muons",
+            "Modèle Standard",
+            "physique des particules"
+          ],
+          "scenarios": {
+            "favorable": "La découverte conduit à une révision majeure du Modèle Standard, ouvrant de nouvelles perspectives en physique.",
+            "stable": "Le Modèle Standard est confirmé, sans avancée révolutionnaire.",
+            "degrade": "Les résultats restent ambigus, nécessitant des années de recherches supplémentaires."
+          },
+          "echeance": null,
+          "sources": [
+            {
+              "titre": "La désintégration extrêmement rare d’une particule suscite l’espoir de découvrir une nouvelle physique",
+              "url": "https://www.lemonde.fr/sciences/article/2026/11/10/la-desintegration-extremement-rare-d-une-particule-suscite-l-espoir-de-decouvrir-une-nouvelle-physique_6808823_1650684.html"
+            }
+          ],
+          "origine": "veille",
+          "note": "Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
+          "donnees": null,
+          "ajoute_le": "2026-11-10",
+          "publie_le": null,
+          "edition": null,
+          "enrichi_le": null
+        },
+        {
+          "type": "sujet",
+          "id": "sciences-le-refroidissement-record-d-atomes-dans-l",
+          "titre": "Le refroidissement record d'atomes dans l'espace peut-il révolutionner la physique quantique ?",
+          "question": null,
+          "tag": "sciences & espace",
+          "statut": "a_traiter",
+          "validation": "a_valider",
+          "contexte": "Des chercheurs chinois ont refroidi des atomes à 9,7 picokelvins à bord de la station spatiale Tiangong, un record absolu dans l'espace. Cette avancée permet d'étudier des phénomènes quantiques inaccessibles sur Terre.",
+          "rationnel": "La question : cette technologie peut-elle conduire à des applications concrètes, comme des interféromètres quantiques ou des ordinateurs quantiques spatiaux ? Les scénarios dépendent des progrès techniques et des investissements. Un scénario favorable verrait des applications industrielles d'ici une décennie, un scénario stable maintiendrait des avancées théoriques, et un scénario dégradé pourrait buter sur des limites pratiques.",
+          "angle": null,
+          "a_verifier": null,
+          "mots_cles": [
+            "Tiangong",
+            "atomes froids",
+            "picokelvins",
+            "physique quantique",
+            "condensat de Bose-Einstein"
+          ],
+          "scenarios": {
+            "favorable": "Des interféromètres quantiques spatiaux sont développés, révolutionnant la mesure et la communication.",
+            "stable": "Les recherches avancent sans percée immédiate, mais avec des retombées à long terme.",
+            "degrade": "Les défis techniques ralentissent considérablement les applications pratiques."
+          },
+          "echeance": null,
+          "sources": [
+            {
+              "titre": "À bord de Tiangong, des chercheurs chinois ont atteint un froid jamais vu dans l'espace",
+              "url": "https://sciencepost.fr/a-bord-de-tiangong-des-chercheurs-chinois-ont-atteint-un-froid-jamais-vu-dans-lespace/"
+            }
+          ],
+          "origine": "veille",
+          "note": "Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
+          "donnees": null,
+          "ajoute_le": "2026-11-10",
+          "publie_le": null,
+          "edition": null,
+          "enrichi_le": null
+        },
         {
           "type": "sujet",
           "id": "sciences-la-percee-d-openai-sur-la-theorie-de-yang-mills",
@@ -6129,6 +6363,84 @@
         {
           "type": "commentaire",
           "texte": "Faire tourner les sous-thèmes : marchés financiers, monnaies (dollar, or, bitcoin), dette et taux d'intérêt, matières premières (pétrole, énergie), entreprises et secteurs à l'échelle mondiale, inégalités, démographie économique, luxe et consommation… Nouveau registre créé le 12 août (retour utilisateur), scindé de l'ancien slot \"Géopolitique / international — lundi\" qui mélangeait géopolitique dure et économie mondiale — voir la note dans la section Géopolitique — lundi pour la règle de classement des sujets à cheval sur les deux."
+        },
+        {
+          "type": "sujet",
+          "id": "economie-la-bce-peut-elle-maintenir-ses-taux-eleves-sans",
+          "titre": "La BCE peut-elle maintenir ses taux élevés sans provoquer une récession en zone euro ?",
+          "question": null,
+          "tag": "économie & banque centrale",
+          "statut": "a_traiter",
+          "validation": "a_valider",
+          "contexte": "Le 10 novembre 2026, la BCE a confirmé sa politique de taux directeurs élevés pour lutter contre l'inflation, malgré des signes de ralentissement économique en zone euro. L'inflation reste à 3,8 %, tandis que la croissance stagne. Les marchés anticipent une possible hausse supplémentaire des taux en décembre.",
+          "rationnel": "La question : la BCE peut-elle continuer à resserrer sa politique monétaire sans plonger la zone euro en récession ? Les scénarios dépendent de l'évolution de l'inflation et de la résilience des entreprises. Un scénario favorable verrait une inflation maîtrisée sans récession, un scénario stable maintiendrait un équilibre précaire, et un scénario dégradé pourrait déclencher une crise économique.",
+          "angle": null,
+          "a_verifier": null,
+          "mots_cles": [
+            "BCE",
+            "taux d'intérêt",
+            "inflation",
+            "zone euro",
+            "récession"
+          ],
+          "scenarios": {
+            "favorable": "L'inflation baisse sans impact majeur sur la croissance, permettant à la BCE d'assouplir sa politique.",
+            "stable": "La croissance ralentit légèrement, mais sans entrer en récession.",
+            "degrade": "Une récession technique est déclenchée, avec une hausse du chômage et un creusement des déficits."
+          },
+          "echeance": null,
+          "sources": [
+            {
+              "titre": "L'Europe finit en hausse, tumulte à Wall Street après l'inflation",
+              "url": "https://www.boursorama.com/bourse/actualites/l-europe-finit-en-hausse-tumulte-a-wall-street-apres-l-inflation-91fe46dc5a4dc37def19f7796cd825f2"
+            }
+          ],
+          "origine": "veille",
+          "note": "Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
+          "donnees": null,
+          "ajoute_le": "2026-11-10",
+          "publie_le": null,
+          "edition": null,
+          "enrichi_le": null
+        },
+        {
+          "type": "sujet",
+          "id": "economie-la-chine-peut-elle-maintenir-son-excedent",
+          "titre": "La Chine peut-elle maintenir son excédent commercial record malgré les tensions avec l'UE ?",
+          "question": null,
+          "tag": "économie & commerce international",
+          "statut": "a_traiter",
+          "validation": "a_valider",
+          "contexte": "La Chine a enregistré un excédent commercial record de 1 040 milliards de dollars sur les dix premiers mois de 2026, tiré par les exportations de produits high-tech. L'UE envisage des restrictions sur les importations de véhicules hybrides chinois pour réduire son déficit commercial.",
+          "rationnel": "La question : la Chine peut-elle poursuivre sa croissance exportatrice face aux mesures protectionnistes de l'UE ? Les scénarios dépendent des négociations commerciales et de la diversification des marchés chinois. Un scénario favorable verrait un accord commercial avec l'UE, un scénario stable maintiendrait des tensions contrôlées, et un scénario dégradé pourrait déclencher une guerre commerciale.",
+          "angle": null,
+          "a_verifier": null,
+          "mots_cles": [
+            "Chine",
+            "excédent commercial",
+            "UE",
+            "véhicules hybrides",
+            "protectionnisme"
+          ],
+          "scenarios": {
+            "favorable": "Un compromis est trouvé avec l'UE, permettant à la Chine de maintenir ses exportations.",
+            "stable": "Les tensions commerciales persistent sans escalade majeure.",
+            "degrade": "Des mesures restrictives de l'UE entraînent une baisse significative des exportations chinoises."
+          },
+          "echeance": null,
+          "sources": [
+            {
+              "titre": "Principaux points de l'actualité économique mondiale du 10 novembre 2026",
+              "url": "https://www.vietnam.vn/fr/diem-tin-kinh-te-the-gioi-noi-bat-ngay-10-11-2026"
+            }
+          ],
+          "origine": "veille",
+          "note": "Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
+          "donnees": null,
+          "ajoute_le": "2026-11-10",
+          "publie_le": null,
+          "edition": null,
+          "enrichi_le": null
         },
         {
           "type": "sujet",

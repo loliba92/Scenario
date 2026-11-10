@@ -1,5 +1,61 @@
 [
   {
+    "date": "2026-11-10",
+    "registre": "Géopolitique",
+    "section": "Géopolitique",
+    "accroche": "Les pourparlers entre l'Ukraine et la Russie à Abou Dhabi peuvent-ils aboutir à un accord de paix ?",
+    "tag": "géopolitique & Ukraine"
+  },
+  {
+    "date": "2026-11-10",
+    "registre": "Actu. française",
+    "section": "Actu. française",
+    "accroche": "La pétition contre CNews peut-elle aboutir à sa suppression ?",
+    "tag": "médias & politique"
+  },
+  {
+    "date": "2026-11-10",
+    "registre": "Actu. française",
+    "section": "Actu. française",
+    "accroche": "La hausse du SMIC peut-elle relancer la consommation sans nuire à l'emploi ?",
+    "tag": "économie & pouvoir d'achat"
+  },
+  {
+    "date": "2026-11-10",
+    "registre": "Économie & finance",
+    "section": "Économie & finance",
+    "accroche": "La BCE peut-elle maintenir ses taux élevés sans provoquer une récession en zone euro ?",
+    "tag": "économie & banque centrale"
+  },
+  {
+    "date": "2026-11-10",
+    "registre": "Économie & finance",
+    "section": "Économie & finance",
+    "accroche": "La Chine peut-elle maintenir son excédent commercial record malgré les tensions avec l'UE ?",
+    "tag": "économie & commerce international"
+  },
+  {
+    "date": "2026-11-10",
+    "registre": "Sciences",
+    "section": "Sciences",
+    "accroche": "La découverte d'une désintégration rare de particule ouvre-t-elle la voie à une nouvelle physique ?",
+    "tag": "sciences & physique"
+  },
+  {
+    "date": "2026-11-10",
+    "registre": "Sciences",
+    "section": "Sciences",
+    "accroche": "Le refroidissement record d'atomes dans l'espace peut-il révolutionner la physique quantique ?",
+    "tag": "sciences & espace"
+  },
+  {
+    "date": "2026-11-10",
+    "registre": "Sport",
+    "section": "Sport",
+    "accroche": "Tom Laperche peut-il dominer la voile mondiale après sa victoire record à la Route du Rhum ?",
+    "tag": "sport & voile"
+  },
+  {
     "date": "2026-11-08",
     "registre": "Géopolitique",
     "section": "Géopolitique",
@@ -152,61 +208,5 @@
     "section": "Économie & finance",
     "accroche": "France : 340 Md€ d'émissions d'OAT en 2027, un record — le marché peut-il absorber sans crise ?",
     "tag": "économie & finance"
-  },
-  {
-    "date": "2026-10-04",
-    "registre": "Sciences",
-    "section": "Sciences",
-    "accroche": "Un « scientifique IA » autonome conçoit et mène ses propres expériences : la recherche va-t-elle s'accélérer ou s'emballer ?",
-    "tag": "IA & recherche"
-  },
-  {
-    "date": "2026-10-04",
-    "registre": "Sciences",
-    "section": "Sciences",
-    "accroche": "Google lance « Project Suncatcher » : les centres de données d'IA vont-ils migrer dans l'espace ?",
-    "tag": "IA & espace"
-  },
-  {
-    "date": "2026-10-01",
-    "registre": "Géopolitique",
-    "section": "Carte blanche",
-    "accroche": "Kaliningrad : la menace nucléaire russe peut-elle faire reculer l'OTAN, ou au contraire précipiter un affrontement direct entre Moscou et l'Alliance ?",
-    "tag": "géopolitique & sécurité"
-  },
-  {
-    "date": "2026-10-01",
-    "registre": "Actu. française",
-    "section": "Carte blanche",
-    "accroche": "Gel du point d'indice des fonctionnaires : le gouvernement Lecornu peut-il imposer son budget d'austérité sans déclencher une crise sociale et politique à un an de la présidentielle ?",
-    "tag": "politique & budget"
-  },
-  {
-    "date": "2026-10-01",
-    "registre": "Économie & finance",
-    "section": "Économie & finance",
-    "accroche": "L'OAT française frôle les 5 %, le pétrole à 100 dollars, l'inflation repart : l'économie mondiale peut-elle encaisser une nouvelle tempête obligataire sans basculer en récession ?",
-    "tag": "économie & finance"
-  },
-  {
-    "date": "2026-10-01",
-    "registre": "Sport",
-    "section": "Sport",
-    "accroche": "Le Championnat des Nations de rugby peut-il s'imposer comme la nouvelle compétition reine du rugby mondial, ou va-t-il cannibaliser les tournois historiques sans convaincre le public ?",
-    "tag": "rugby & gouvernance"
-  },
-  {
-    "date": "2026-09-18",
-    "registre": "Géopolitique",
-    "section": "Carte blanche",
-    "accroche": "Les Houthis prennent le contrôle de Bab el-Mandeb : un tiers du commerce maritime mondial passe-t-il sous contrôle hostile ?",
-    "tag": "géopolitique & commerce maritime"
-  },
-  {
-    "date": "2026-09-18",
-    "registre": "Actu. française",
-    "section": "Carte blanche",
-    "accroche": "Carburants à prix record et menaces hybrides : Macron réunit les candidats à l'Élysée — le gouvernement peut-il éviter l'explosion sociale cet automne ?",
-    "tag": "politique & énergie"
   }
 ]

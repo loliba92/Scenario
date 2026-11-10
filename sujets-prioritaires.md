@@ -147,6 +147,15 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 ## Géopolitique — lundi
 <!-- Registre scindé le 12 août (retour utilisateur) : la géopolitique dure (conflits, diplomatie, États) et l'économie mondiale (marchés, monnaies, dette, matières premières) partageaient jusque-là le même slot du lundi, ce qui tassait deux blocs très différents dans une seule file. L'économie mondiale a sa propre section dimanche (voir plus bas) — la case libérée vient de la fusion des deux jours culture (française + internationale) en un seul, samedi. **Règle de classement pour les sujets à cheval sur les deux** (ex. guerres commerciales, tarifs douaniers) : si l'enjeu central est un rapport de force entre États (qui menace qui, qui négocie quoi) → géopolitique/lundi ; si l'enjeu central est un indicateur chiffré ou un marché (prix, taux, dette, cours) → économie/dimanche. Cas tranchés le 12 août à titre d'exemple : "Guerre commerciale USA-Chine" reste ici (framing État contre État, guerre froide) ; "Droits de douane de Trump" part en économie (contenu réel = batailles judiciaires et chiffres de recettes tarifaires, pas un rapport de force diplomatique). Les vieilles éditions déjà publiées gardent leur tag d'origine (`geopolitique`), jamais retaggées rétroactivement — voir docs/tags.md. -->
+- [ ] 🔍 Les pourparlers entre l'Ukraine et la Russie à Abou Dhabi peuvent-ils aboutir à un accord de paix ? [géopolitique & Ukraine]
+  <!-- id: geopolitique-les-pourparlers-entre-l-ukraine-et-la-russie-a -->
+  <!-- contexte: Les premières discussions directes entre l'Ukraine et la Russie depuis plus de huit mois ont repris le 10 novembre 2026 à Abou Dhabi, sous médiation américaine. Les questions humanitaires et les garanties de sécurité sont au cœur des négociations. Volodymyr Zelensky a qualifié les échanges de "constructifs et substantiels". Les Européens et les Américains ont réaffirmé leur engagement pour une sécurité européenne solide après la guerre. -->
+  <!-- rationnel: La question : ces pourparlers peuvent-ils déboucher sur un accord de paix durable, ou resteront-ils sans issue concrète ? Les forces en présence incluent la volonté ukrainienne de garantir sa souveraineté, la pression russe pour des concessions, et le rôle médiateur des États-Unis. Un scénario favorable verrait un cadre de sécurité crédible pour l'Ukraine, un scénario stable maintiendrait le statu quo, et un scénario dégradé pourrait entraîner une reprise des hostilités. -->
+  <!-- mots-clés: Ukraine ; Russie ; pourparlers Abou Dhabi ; guerre en Ukraine ; médiation américaine -->
+  <!-- scénarios (brouillon): favorable = Un accord de paix est signé, avec des garanties de sécurité pour l'Ukraine et un retrait partiel des troupes russes. ; stable = Les pourparlers se poursuivent sans avancée majeure, mais sans reprise immédiate des combats. ; dégradé = Les négociations échouent, entraînant une intensification des frappes russes et une escalade du conflit. -->
+  <!-- sources: DIRECT. Guerre en Ukraine : début des pourparlers à Abou Dhabi entre Kiev et Moscou <https://www.franceinfo.fr/monde/europe/manifestations-en-ukraine/direct-guerre-en-ukraine-reprise-des-negociations-directes-entre-kiev-et-moscou-apres-plus-de-huit-mois-d-interruption_8275967.html> -->
+  <!-- origine: veille -->
+  <!-- note: Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
 - [ ] 🔍 L'Iran conditionne-t-il la réouverture du détroit d'Ormuz à un accord nucléaire avec les États-Unis ? [géopolitique & nucléaire]
   <!-- id: geopolitique-l-iran-conditionne-t-il-la-reouverture-du -->
   <!-- contexte: Le 7 novembre 2026, l'Iran a transmis une proposition nucléaire à sept conditions via le Qatar, exigeant leur respect avant toute négociation. Washington examine la proposition tandis que Donald Trump menace de nouvelles frappes. Dans le détroit d'Ormuz, deux pétroliers ont pris feu après avoir heurté des mines, exacerbant les tensions. -->
@@ -337,6 +346,15 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 ## Sport — dimanche
 <!-- Enjeux sportifs & économiques, jamais la vie privée des sportifs. Sous-thèmes : football, rugby, tennis, JO, cyclisme, sports méca… -->
+- [ ] 🔍 Tom Laperche peut-il dominer la voile mondiale après sa victoire record à la Route du Rhum ? [sport & voile]
+  <!-- id: sport-tom-laperche-peut-il-dominer-la-voile-mondiale -->
+  <!-- contexte: Le skipper français Tom Laperche a remporté la Route du Rhum 2026 en pulvérisant le record de la course (6 jours, 13 heures et 27 minutes). À 29 ans, il confirme son statut de nouveau leader de la voile française, avec des ambitions pour le Vendée Globe 2028. -->
+  <!-- rationnel: La question : Laperche peut-il s'imposer comme la figure dominante de la voile mondiale, ou son succès restera-t-il isolé ? Les scénarios dépendent de sa régularité et de la concurrence. Un scénario favorable verrait une série de victoires majeures, un scénario stable maintiendrait une performance irrégulière, et un scénario dégradé pourrait voir son étoile pâlir rapidement. -->
+  <!-- mots-clés: Tom Laperche ; Route du Rhum ; voile ; record ; Vendée Globe -->
+  <!-- scénarios (brouillon): favorable = Laperche enchaîne les victoires et devient une légende de la voile. ; stable = Il reste compétitif sans dominer, avec des hauts et des bas. ; dégradé = Il peine à confirmer, éclipsé par de nouveaux talents. -->
+  <!-- sources: Alcaraz vainqueur, Laperche triomphe, l'OM enfonce Lens : les infos sport du week-end <https://www.france24.com/fr/sports/20261109-alcaraz-laperche-om-lens-infos-sport-week-end> -->
+  <!-- origine: veille -->
+  <!-- note: Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
 - [ ] 🔍 Le football féminin peut-il devenir aussi rentable que le masculin ? [sport & financement]
   <!-- id: sport-le-football-feminin-peut-il-devenir-aussi -->
   <!-- contexte: Les audiences TV du foot féminin ont progressé de 30 % en 2026, mais les écarts de rémunération restent énormes. -->
@@ -470,6 +488,24 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 
 ## Actualité & politique française — mercredi
+- [ ] 🔍 La pétition contre CNews peut-elle aboutir à sa suppression ? [médias & politique]
+  <!-- id: actualite-francaise-la-petition-contre-cnews-peut-elle-aboutir-a-sa -->
+  <!-- contexte: Une pétition demandant la suppression de CNews a dépassé les 900 000 signatures le 10 novembre 2026. Lancée en juin, elle accuse la chaîne d'inciter à la haine et à la discrimination. CNews, propriété de Vincent Bolloré, a déjà été sanctionnée à plusieurs reprises par l'Arcom pour des manquements à ses obligations. -->
+  <!-- rationnel: La question : cette pétition peut-elle conduire à des sanctions concrètes contre CNews, ou restera-t-elle symbolique ? Les forces en présence incluent la pression de l'opinion publique, la défense de la liberté d'expression par CNews, et le rôle régulateur de l'Arcom. Un scénario favorable verrait des sanctions renforcées contre la chaîne, un scénario stable maintiendrait le statu quo, et un scénario dégradé pourrait entraîner une polarisation accrue du débat médiatique. -->
+  <!-- mots-clés: CNews ; pétition ; Arcom ; Vincent Bolloré ; liberté d'expression -->
+  <!-- scénarios (brouillon): favorable = L'Arcom impose des sanctions sévères à CNews, limitant son influence. ; stable = La pétition reste sans effet concret, mais relance le débat sur la régulation des médias. ; dégradé = La polarisation s'accentue, avec des manifestations ou contre-manifestations autour de la chaîne. -->
+  <!-- sources: Les lauréats littéraires 2026, une pétition contre CNews et la tournée de The Weeknd… <https://www.rtbf.be/article/les-laureats-litteraires-2026-une-petition-contre-cnews-et-la-tournee-de-the-weeknd-retrouvez-l-actu-culturelle-de-la-semaine-11811727> -->
+  <!-- origine: veille -->
+  <!-- note: Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
+- [ ] 🔍 La hausse du SMIC peut-elle relancer la consommation sans nuire à l'emploi ? [économie & pouvoir d'achat]
+  <!-- id: actualite-francaise-la-hausse-du-smic-peut-elle-relancer-la -->
+  <!-- contexte: Le gouvernement a annoncé une hausse de 1,6 % du SMIC le 10 novembre 2026, portant le salaire minimum à 1 502 euros. Cette mesure vise à soutenir le pouvoir d'achat des ménages, mais elle est critiquée par certains économistes qui craignent un impact négatif sur l'emploi, notamment dans les PME. -->
+  <!-- rationnel: La question : cette hausse du SMIC peut-elle stimuler la consommation sans peser sur l'emploi, ou aggravera-t-elle les difficultés des entreprises ? Les scénarios dépendent de la réaction des entreprises (embauches, hausses de prix) et de la consommation des ménages. Un scénario favorable verrait une relance de la consommation sans pertes d'emploi, un scénario stable maintiendrait un équilibre fragile, et un scénario dégradé pourrait entraîner une hausse du chômage. -->
+  <!-- mots-clés: SMIC ; pouvoir d'achat ; emploi ; gouvernement ; PME -->
+  <!-- scénarios (brouillon): favorable = La consommation repart, soutenant la croissance sans impact majeur sur l'emploi. ; stable = L'impact est neutre, avec une légère hausse des prix compensée par une consommation stable. ; dégradé = Les PME réduisent leurs effectifs pour compenser la hausse des coûts, aggravant le chômage. -->
+  <!-- sources: BFM Business : « Nous estimons que la croissance sera modérément positive au quatrième trimestre » <https://www.banque-france.fr/fr/interventions-gouverneur/bfm-business-nous-estimons-que-la-croissance-sera-moderement-positive-au-quatrieme-trimestre> -->
+  <!-- origine: veille -->
+  <!-- note: Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
 - [ ] 🔍 La réforme des retraites peut-elle revenir dans le débat présidentiel ? [politique & retraites]
   <!-- id: actualite-francaise-la-reforme-des-retraites-peut-elle-revenir-dans -->
   <!-- contexte: Le gouvernement a annoncé un gel des discussions sur les retraites jusqu'après les élections de 2027, mais des syndicats et partis d'opposition relancent le débat. Les dernières projections montrent un déficit accru du système. -->
@@ -683,6 +719,24 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 
 ## Sciences — vendredi (climat & écologie, espace, IA, médecine, énergie…)
+- [ ] 🔍 La découverte d'une désintégration rare de particule ouvre-t-elle la voie à une nouvelle physique ? [sciences & physique]
+  <!-- id: sciences-la-decouverte-d-une-desintegration-rare-de -->
+  <!-- contexte: Le 3 novembre 2026, le CERN a annoncé avoir observé la désintégration extrêmement rare d'un méson Bd en deux muons, un phénomène qui ne se produit qu'une fois sur dix milliards. Cette découverte pourrait remettre en question le Modèle Standard de la physique des particules. -->
+  <!-- rationnel: La question : cette observation confirme-t-elle le Modèle Standard, ou révèle-t-elle l'existence de nouvelles particules ou forces ? Les scénarios dépendent des analyses ultérieures. Un scénario favorable verrait la confirmation d'une nouvelle physique, un scénario stable validerait le Modèle Standard, et un scénario dégradé laisserait les questions en suspens. -->
+  <!-- mots-clés: CERN ; méson Bd ; muons ; Modèle Standard ; physique des particules -->
+  <!-- scénarios (brouillon): favorable = La découverte conduit à une révision majeure du Modèle Standard, ouvrant de nouvelles perspectives en physique. ; stable = Le Modèle Standard est confirmé, sans avancée révolutionnaire. ; dégradé = Les résultats restent ambigus, nécessitant des années de recherches supplémentaires. -->
+  <!-- sources: La désintégration extrêmement rare d’une particule suscite l’espoir de découvrir une nouvelle physique <https://www.lemonde.fr/sciences/article/2026/11/10/la-desintegration-extremement-rare-d-une-particule-suscite-l-espoir-de-decouvrir-une-nouvelle-physique_6808823_1650684.html> -->
+  <!-- origine: veille -->
+  <!-- note: Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
+- [ ] 🔍 Le refroidissement record d'atomes dans l'espace peut-il révolutionner la physique quantique ? [sciences & espace]
+  <!-- id: sciences-le-refroidissement-record-d-atomes-dans-l -->
+  <!-- contexte: Des chercheurs chinois ont refroidi des atomes à 9,7 picokelvins à bord de la station spatiale Tiangong, un record absolu dans l'espace. Cette avancée permet d'étudier des phénomènes quantiques inaccessibles sur Terre. -->
+  <!-- rationnel: La question : cette technologie peut-elle conduire à des applications concrètes, comme des interféromètres quantiques ou des ordinateurs quantiques spatiaux ? Les scénarios dépendent des progrès techniques et des investissements. Un scénario favorable verrait des applications industrielles d'ici une décennie, un scénario stable maintiendrait des avancées théoriques, et un scénario dégradé pourrait buter sur des limites pratiques. -->
+  <!-- mots-clés: Tiangong ; atomes froids ; picokelvins ; physique quantique ; condensat de Bose-Einstein -->
+  <!-- scénarios (brouillon): favorable = Des interféromètres quantiques spatiaux sont développés, révolutionnant la mesure et la communication. ; stable = Les recherches avancent sans percée immédiate, mais avec des retombées à long terme. ; dégradé = Les défis techniques ralentissent considérablement les applications pratiques. -->
+  <!-- sources: À bord de Tiangong, des chercheurs chinois ont atteint un froid jamais vu dans l'espace <https://sciencepost.fr/a-bord-de-tiangong-des-chercheurs-chinois-ont-atteint-un-froid-jamais-vu-dans-lespace/> -->
+  <!-- origine: veille -->
+  <!-- note: Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
 - [ ] 🔍 La percée d'OpenAI sur la théorie de Yang-Mills va-t-elle révolutionner la physique ? [sciences & IA]
   <!-- id: sciences-la-percee-d-openai-sur-la-theorie-de-yang-mills -->
   <!-- contexte: Le 1er novembre 2026, OpenAI a produit une preuve de 1 147 pages sur la théorie de Yang-Mills, mais les physiciens refusent de la publier avant une vérification approfondie. Cette théorie, non résolue depuis des décennies, est cruciale pour la physique des particules. -->
@@ -1164,6 +1218,24 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 ## Économie & finance mondiale — jeudi
 <!-- Faire tourner les sous-thèmes : marchés financiers, monnaies (dollar, or, bitcoin), dette et taux d'intérêt, matières premières (pétrole, énergie), entreprises et secteurs à l'échelle mondiale, inégalités, démographie économique, luxe et consommation… Nouveau registre créé le 12 août (retour utilisateur), scindé de l'ancien slot "Géopolitique / international — lundi" qui mélangeait géopolitique dure et économie mondiale — voir la note dans la section Géopolitique — lundi pour la règle de classement des sujets à cheval sur les deux. -->
+- [ ] 🔍 La BCE peut-elle maintenir ses taux élevés sans provoquer une récession en zone euro ? [économie & banque centrale]
+  <!-- id: economie-la-bce-peut-elle-maintenir-ses-taux-eleves-sans -->
+  <!-- contexte: Le 10 novembre 2026, la BCE a confirmé sa politique de taux directeurs élevés pour lutter contre l'inflation, malgré des signes de ralentissement économique en zone euro. L'inflation reste à 3,8 %, tandis que la croissance stagne. Les marchés anticipent une possible hausse supplémentaire des taux en décembre. -->
+  <!-- rationnel: La question : la BCE peut-elle continuer à resserrer sa politique monétaire sans plonger la zone euro en récession ? Les scénarios dépendent de l'évolution de l'inflation et de la résilience des entreprises. Un scénario favorable verrait une inflation maîtrisée sans récession, un scénario stable maintiendrait un équilibre précaire, et un scénario dégradé pourrait déclencher une crise économique. -->
+  <!-- mots-clés: BCE ; taux d'intérêt ; inflation ; zone euro ; récession -->
+  <!-- scénarios (brouillon): favorable = L'inflation baisse sans impact majeur sur la croissance, permettant à la BCE d'assouplir sa politique. ; stable = La croissance ralentit légèrement, mais sans entrer en récession. ; dégradé = Une récession technique est déclenchée, avec une hausse du chômage et un creusement des déficits. -->
+  <!-- sources: L'Europe finit en hausse, tumulte à Wall Street après l'inflation <https://www.boursorama.com/bourse/actualites/l-europe-finit-en-hausse-tumulte-a-wall-street-apres-l-inflation-91fe46dc5a4dc37def19f7796cd825f2> -->
+  <!-- origine: veille -->
+  <!-- note: Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
+- [ ] 🔍 La Chine peut-elle maintenir son excédent commercial record malgré les tensions avec l'UE ? [économie & commerce international]
+  <!-- id: economie-la-chine-peut-elle-maintenir-son-excedent -->
+  <!-- contexte: La Chine a enregistré un excédent commercial record de 1 040 milliards de dollars sur les dix premiers mois de 2026, tiré par les exportations de produits high-tech. L'UE envisage des restrictions sur les importations de véhicules hybrides chinois pour réduire son déficit commercial. -->
+  <!-- rationnel: La question : la Chine peut-elle poursuivre sa croissance exportatrice face aux mesures protectionnistes de l'UE ? Les scénarios dépendent des négociations commerciales et de la diversification des marchés chinois. Un scénario favorable verrait un accord commercial avec l'UE, un scénario stable maintiendrait des tensions contrôlées, et un scénario dégradé pourrait déclencher une guerre commerciale. -->
+  <!-- mots-clés: Chine ; excédent commercial ; UE ; véhicules hybrides ; protectionnisme -->
+  <!-- scénarios (brouillon): favorable = Un compromis est trouvé avec l'UE, permettant à la Chine de maintenir ses exportations. ; stable = Les tensions commerciales persistent sans escalade majeure. ; dégradé = Des mesures restrictives de l'UE entraînent une baisse significative des exportations chinoises. -->
+  <!-- sources: Principaux points de l'actualité économique mondiale du 10 novembre 2026 <https://www.vietnam.vn/fr/diem-tin-kinh-te-the-gioi-noi-bat-ngay-10-11-2026> -->
+  <!-- origine: veille -->
+  <!-- note: Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
 - [ ] 🔍 La bulle de l'IA sur les marchés financiers va-t-elle éclater ? [économie & finance]
   <!-- id: economie-la-bulle-de-l-ia-sur-les-marches-financiers-va -->
   <!-- contexte: En novembre 2026, les investisseurs se détournent des actions liées à l'intelligence artificielle, provoquant une chute de 2 500 milliards de dollars de capitalisation pour le Nasdaq 100. Les entreprises technologiques se tournent vers le marché obligataire européen, augmentant les coûts de financement. -->
