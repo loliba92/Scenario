@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Signaux — maquette v2</title>
+<title>Ce qui va arriver — maquette v3</title>
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,10 +12,8 @@
 :root{
   --ink:#10151c; --surface:#1a212b; --surface-2:#212a35; --hairline:#2c3644;
   --paper:#ece7da; --paper-dim:#a9a89c; --gold:#cf9d4c;
-  --favorable:#5e9c78; --stable:#6f8fae; --degrade:#bd6248;
 }
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:auto}
 body{margin:0;background:var(--ink);color:var(--paper);font-family:Inter,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--gold);outline-offset:3px}
@@ -31,65 +29,25 @@ a{color:inherit}
 
 .section-label{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:0 0 10px;display:flex;align-items:center;gap:10px}
 .section-label::before{content:"";width:22px;height:1px;background:var(--gold)}
-h1{font-family:Fraunces,serif;font-weight:500;font-size:clamp(1.65rem,4.4vw,2.3rem);line-height:1.18;margin:0 0 14px;text-wrap:balance}
+h1{font-family:Fraunces,serif;font-weight:500;font-size:clamp(1.8rem,5vw,2.5rem);line-height:1.15;margin:0 0 14px}
 h2{font-family:Fraunces,serif;font-weight:500;font-size:1.2rem;line-height:1.3;margin:0 0 8px}
-.lead{color:var(--paper-dim);margin:0;max-width:62ch}
+.lead{color:var(--paper-dim);margin:0;max-width:60ch}
 main{padding:36px 0 72px}
 
-/* Mode d'emploi en 3 étapes */
-.etapes{list-style:none;margin:24px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;counter-reset:e}
-.etapes li{counter-increment:e;background:var(--surface);border:1px solid var(--hairline);border-radius:10px;padding:14px 16px;font-size:.92rem}
-.etapes li::before{content:counter(e);display:block;font-family:"JetBrains Mono",monospace;font-size:.75rem;color:var(--gold);margin-bottom:4px}
-.etapes b{display:block;font-weight:600;margin-bottom:2px}
+.periode{margin:40px 0 0}
+.periode > .section-label{position:sticky;top:56px;background:var(--ink);padding:8px 0;margin:0 0 6px;z-index:5}
 
-.filtres{display:flex;gap:8px;flex-wrap:wrap;margin:30px 0 16px}
-.filtres button{font:inherit;font-size:.88rem;color:var(--paper);background:var(--surface);border:1px solid var(--hairline);border-radius:999px;padding:7px 14px;cursor:pointer;min-height:40px;white-space:nowrap}
-.filtres button .n{font-family:"JetBrains Mono",monospace;color:var(--paper-dim);margin-left:6px}
-.filtres button[aria-pressed="true"]{border-color:var(--gold);color:var(--gold)}
-
-.liste{list-style:none;margin:0;padding:0;display:grid;gap:14px}
-.carte{display:block;text-decoration:none;background:var(--surface);border:1px solid var(--hairline);border-radius:10px;padding:18px 20px}
-.carte:hover{border-color:var(--gold)}
-.ligne1{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px;flex-wrap:wrap}
-.echeance{font-size:.85rem;color:var(--paper-dim)}
-.echeance b{color:var(--paper);font-weight:600}
-.statut{font-size:.78rem;font-weight:600;border:1px solid var(--hairline);border-radius:999px;padding:2px 10px;white-space:nowrap}
-.statut.avenir{color:var(--stable);border-color:var(--stable)}
-.statut.proche{color:var(--gold);border-color:var(--gold)}
-.statut.realise{color:var(--favorable);border-color:var(--favorable)}
-.statut.manque{color:var(--degrade);border-color:var(--degrade)}
-.exemple{font-size:.72rem;font-weight:600;color:var(--ink);background:var(--gold);border-radius:4px;padding:1px 6px;margin-right:6px}
-.carte h2{margin:0 0 12px}
-.reponses{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.rep{background:var(--surface-2);border-radius:8px;padding:10px 12px;font-size:.88rem;line-height:1.45}
-.rep small{display:block;font-family:"JetBrains Mono",monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--paper-dim);margin-bottom:3px}
-.lien-ed{font-size:.84rem;color:var(--paper-dim);margin:12px 0 0}
-.vide{padding:22px;border:1px dashed var(--hairline);border-radius:10px;color:var(--paper-dim);text-align:center}
-.effet{margin:0;font-size:.92rem}
-
-/* Chips de scénario (couleur = scénario de l'édition) */
-.chip{display:inline-block;font-size:.82rem;font-weight:600;border-left:3px solid;padding:1px 0 1px 8px;margin:2px 0}
-.c-favorable{border-color:var(--favorable)} .c-stable{border-color:var(--stable)} .c-degrade{border-color:var(--degrade)}
-
-/* Fiche */
-.retour{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--gold);font-size:.9rem;min-height:44px;margin:0 0 14px}
-.decompte{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:0 0 6px}
-.bloc{margin:34px 0 0}
-.bloc .section-label{margin-bottom:12px}
-.bloc p{margin:0 0 8px;max-width:64ch}
-.deux{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.cas{background:var(--surface);border:1px solid var(--hairline);border-radius:10px;padding:16px 18px}
-.cas h3{font-family:Fraunces,serif;font-weight:500;font-size:1.05rem;margin:0 0 8px}
-.cas p{font-size:.95rem}
-.cas .change{margin-top:12px;padding-top:12px;border-top:1px solid var(--hairline);font-size:.88rem;color:var(--paper-dim)}
-.cas .change .chip{color:var(--paper)}
-.analyse{display:grid;gap:10px}
-.ligne-a{display:grid;grid-template-columns:1fr 64px;gap:12px;align-items:center;font-size:.92rem}
-.ligne-a .t{border-left:3px solid;padding-left:10px}
-.ligne-a .pct{font-family:"JetBrains Mono",monospace;text-align:right;white-space:nowrap}
-.ligne-a.vise .t{font-weight:600}
-.note{font-size:.84rem;color:var(--paper-dim);margin-top:10px}
-.source{margin:0;padding-left:18px;font-size:.9rem}
+.signal{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:20px 0;border-top:1px solid var(--hairline)}
+.quand{font-family:"JetBrains Mono",monospace;font-size:.85rem;color:var(--paper)}
+.quand small{display:block;margin-top:3px;font-size:.74rem;color:var(--paper-dim)}
+.signal h2{margin:0 0 6px}
+.comm{margin:0 0 12px;color:var(--paper);max-width:62ch;font-size:.96rem}
+.eds{margin:0;padding:0;list-style:none;font-size:.86rem;color:var(--paper-dim)}
+.eds b{font-family:"JetBrains Mono",monospace;font-weight:500;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--paper-dim);display:block;margin-bottom:4px}
+.eds li{margin:2px 0}
+.eds a{color:var(--gold);text-underline-offset:3px}
+.pied{margin-top:40px;padding:14px 16px;border-left:3px solid var(--gold);background:var(--surface);border-radius:0 8px 8px 0;font-size:.92rem;max-width:64ch}
+.vide{padding:22px;border:1px dashed var(--hairline);border-radius:10px;color:var(--paper-dim);text-align:center;margin-top:30px}
 .bandeau-maquette{background:var(--surface-2);border-bottom:1px solid var(--hairline);font-size:.78rem;color:var(--paper-dim);padding:6px 0}
 .bandeau-maquette .wrap{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .bandeau-maquette a{color:var(--gold)}
@@ -98,22 +56,21 @@ main{padding:36px 0 72px}
   .wrap{padding:0 16px}
   main{padding:26px 0 56px}
   .topnav nav{gap:12px;font-size:.82rem}
-  .etapes,.reponses,.deux{grid-template-columns:1fr}
-  .carte{padding:16px}
-  .ligne-a{grid-template-columns:1fr 52px}
+  .signal{grid-template-columns:1fr;gap:8px}
+  .quand small{display:inline;margin-left:8px}
 }
 </style>
 </head>
 <body>
 <div class="bandeau-maquette"><div class="wrap">
-  <span><b>Maquette v2</b> — états :</span>
-  <a href="?etat=reel">réel</a> · <a href="?etat=mixte">avec signaux tranchés (exemples fictifs)</a> · <a href="?etat=vide">aucun</a> · <a href="?etat=absent">données absentes</a>
+  <span><b>Maquette v3</b> — états :</span>
+  <a href="?etat=reel">réel</a> · <a href="?etat=vide">aucun signal</a> · <a href="?etat=long">texte long</a>
 </div></div>
 
 <header class="topnav"><div class="wrap">
-  <a class="wordmark" href="#/">Scénario<span>.</span></a>
+  <a class="wordmark" href="#">Scénario<span>.</span></a>
   <nav aria-label="Navigation principale">
-    <a href="#">Éditions</a><a href="#" aria-current="page">Signaux</a><a href="#">Le projet</a>
+    <a href="#">Éditions</a><a href="#" aria-current="page">À venir</a><a href="#">Le projet</a>
   </nav>
 </div></header>
 
@@ -121,186 +78,95 @@ main{padding:36px 0 72px}
 
 <script>
 (function(){
-  var PCT_UNIT = " %";
-  // Les titres et pourcentages viennent des éditions d'origine (13 sept. et 27 oct.).
-  var ED_BUDGET = {titre:"Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?", date:"13 septembre", url:"../../archives/2026-09-13.html",
-    scen:{
-      favorable:{t:"Un compromis budgétaire permet à Lecornu de tenir", p:10},
-      stable:{t:"Un nouveau 49.3 fait passer le budget, le gouvernement survit affaibli", p:40},
-      degrade:{t:"La censure fait tomber le gouvernement, ou bloque le budget", p:50}}};
-  var ED_ETH = {titre:"Éthiopie-Érythrée : vers une nouvelle guerre régionale ?", date:"27 octobre", url:"../../archives/2026-10-27.html",
-    scen:{
-      favorable:{t:"Une médiation internationale impose un cessez-le-feu et rouvre les discussions", p:25},
-      stable:{t:"Un statu quo militarisé s'installe avec des escarmouches régulières sans offensive majeure", p:45},
-      degrade:{t:"Une guerre ouverte éclate et embrase l'ensemble de la région", p:30}}};
-
-  var BASE = [
-    {id:"ethiopie-erythree-cessez-le-feu", date:"2026-11-30", statut:"avenir", ed:ED_ETH,
-     question:"Un cessez-le-feu sera-t-il annoncé entre l'Éthiopie et l'Érythrée d'ici le 30 novembre ?",
-     pourquoi:"Depuis la rupture diplomatique du 1er octobre et les frappes de drones près d'Adigrat, la région craint un retour à la guerre de 2020-2022, qui avait fait environ 600 000 morts.",
-     oui:{court:"Une médiation régionale calme le jeu, sans régler le fond.", titre:"Oui, un cessez-le-feu est annoncé",
-          texte:"Une médiation régionale ouvre une désescalade, mais sans régler le fond du conflit.", scen:"stable"},
-     non:{court:"Les combats reprennent ou s'étendent.", titre:"Non, pas de cessez-le-feu",
-          texte:"Les combats reprennent ou s'étendent à une troisième partie.", scen:"degrade"}},
-    {id:"budget-2027-vote-assemblee", date:"2026-12-31", statut:"avenir", ed:ED_BUDGET,
-     question:"Le budget 2027 sera-t-il voté sans que le gouvernement soit renversé par une motion de censure ?",
-     pourquoi:"Le gouvernement Lecornu doit faire adopter le budget 2027 cet automne. Une motion de censure est un vote des députés qui peut le renverser.",
-     oui:{court:"Le budget est adopté, le gouvernement reste en place.", titre:"Oui, budget adopté sans censure",
-          texte:"Le budget est adopté et la visibilité politique revient pour le gouvernement.", scen:"stable"},
-     non:{court:"Le vote est repoussé, ou une motion de censure aboutit.", titre:"Non, censure ou vote repoussé",
-          texte:"Le vote est reporté ou une motion de censure aboutit : c'est la crise budgétaire.", scen:"degrade"}}
-  ];
-  var EX = [
-    {id:"exemple-arrive", date:"2026-11-12", statut:"realise", exemple:true, ed:ED_ETH,
-     question:"Exemple fictif : la réunion d'urgence du Conseil de sécurité de l'ONU aura-t-elle lieu ?",
-     pourquoi:"Exemple fictif, pour montrer l'affichage d'un signal arrivé.",
-     oui:{court:"La voie diplomatique s'ouvre.", titre:"Oui, la réunion a lieu", texte:"La voie diplomatique s'ouvre.", scen:"stable"},
-     non:{court:"La crise reste sans cadre.", titre:"Non", texte:"La crise reste sans cadre.", scen:"degrade"},
-     apres:{favorable:25, stable:50, degrade:25},
-     raison:"La réunion a eu lieu : le statu quo se confirme et le risque de guerre ouverte recule d'un cran.",
-     sources:["Source A (exemple)", "Source B (exemple)"]},
-    {id:"exemple-pas-arrive", date:"2026-11-05", statut:"manque", exemple:true, ed:ED_BUDGET,
-     question:"Exemple fictif : un accord entre les partis sera-t-il annoncé avant le 5 novembre ?",
-     pourquoi:"Exemple fictif, pour montrer l'affichage d'un signal qui ne s'est pas produit.",
-     oui:{court:"Le compromis se précise.", titre:"Oui", texte:"Le compromis se précise.", scen:"favorable"},
-     non:{court:"Le dossier s'enlise.", titre:"Non, pas d'accord", texte:"Le dossier s'enlise.", scen:"degrade"},
-     apres:{favorable:5, stable:40, degrade:55},
-     raison:"Pas d'accord à la date limite : la crise devient un peu plus probable.",
-     sources:["Source A (exemple)", "Source B (exemple)"]}
-  ];
-
-  var params = new URLSearchParams(location.search);
-  var etat = params.get("etat") || "reel";
-  var DATA = BASE.slice();
-  if (etat === "mixte") DATA = BASE.concat(EX);
-  if (etat === "vide") DATA = [];
-  if (etat === "absent") DATA = BASE.map(function(x){ return Object.assign({}, x, {ed:null}); });
-
-  var app = document.getElementById("app");
-  var filtre = "avenir";
   var AUJ = new Date("2026-11-10");
-  var JOURS = 86400000;
   var MOIS = ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"];
 
+  // Éditions (titres réels, liens vers les archives).
+  var ED = {
+    "2026-09-13":{t:"Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?", d:"13 septembre"},
+    "2026-10-27":{t:"Éthiopie-Érythrée : vers une nouvelle guerre régionale ?", d:"27 octobre"},
+    "2026-11-04":{t:"Facturation électronique : les entreprises prêtes pour l'échéance de décembre ?", d:"4 novembre"},
+    "2026-11-06":{t:"Robotique : les robots vont-ils vraiment entrer dans notre quotidien ?", d:"6 novembre"},
+    "2026-11-07":{t:"Netflix : le nouveau cinéma mondial ?", d:"7 novembre"},
+    "2026-11-08":{t:"Sport : peut-il rester humain face à l'IA et aux données ?", d:"8 novembre"}
+  };
+
+  // date = date limite (tri) ; quand = texte affiché ; periode = regroupement.
+  var SIGNAUX = [
+    {date:"2026-11-30", quand:"30 novembre", precis:true,
+     titre:"Un cessez-le-feu est-il annoncé entre l'Éthiopie et l'Érythrée ?",
+     comm:"Depuis la rupture diplomatique du 1er octobre et les frappes de drones près d'Adigrat, la région craint un retour à la guerre de 2020-2022. Une annonce sous médiation régionale calmerait le jeu, sans régler le fond du conflit.",
+     eds:["2026-10-27"]},
+    {date:"2026-11-30", quand:"Fin novembre", precis:false,
+     titre:"Quel est le taux de désignation officiel publié pour la facturation électronique ?",
+     comm:"La DGFiP publie ce taux fin novembre. On regarde aussi si les factures rejetées augmentent à l'approche de l'échéance de décembre.",
+     eds:["2026-11-04"]},
+    {date:"2026-12-31", quand:"D'ici le 31 décembre", precis:false,
+     titre:"Le budget 2027 est-il voté sans que le gouvernement soit renversé ?",
+     comm:"Le gouvernement Lecornu doit faire adopter le budget cet automne. Une motion de censure est un vote des députés qui peut le renverser. Si elle aboutit, ou si le vote est repoussé, c'est une crise budgétaire.",
+     eds:["2026-09-13"]},
+    {date:"2026-12-31", quand:"D'ici le 31 décembre", precis:false,
+     titre:"Les premiers robots NEO sont-ils livrés à des particuliers américains ?",
+     comm:"Il s'agit du robot NEO de 1X, affiché à 20 000 dollars. On attend la confirmation de premières livraisons effectives.",
+     eds:["2026-11-06"]},
+    {date:"2026-12-31", quand:"D'ici fin 2026", precis:false,
+     titre:"Les clubs sportifs se mettent-ils en conformité avec le règlement européen sur l'IA ?",
+     comm:"On suit la mise en conformité des clubs, et les premières décisions de la CNIL sur les contrats de joueurs.",
+     eds:["2026-11-08"]},
+    {date:"2027-02-01", quand:"Février 2027", precis:false,
+     titre:"Quelles recettes pour « Narnia : Le Neveu du magicien » lors de son premier week-end ?",
+     comm:"On regarde le niveau des recettes au box-office mondial lors du premier week-end d'exploitation.",
+     eds:["2026-11-07"]}
+  ];
+
+  var etat = new URLSearchParams(location.search).get("etat") || "reel";
+  var DATA = SIGNAUX.slice();
+  if (etat === "vide") DATA = [];
+  if (etat === "long") {
+    DATA = SIGNAUX.slice();
+    DATA[0] = Object.assign({}, DATA[0], {
+      titre:"Un cessez-le-feu durable et vérifiable est-il annoncé, sous l'égide de l'Union africaine et de plusieurs médiateurs régionaux, entre l'Éthiopie et l'Érythrée ?",
+      eds:["2026-10-27","2026-09-13","2026-11-06"]});
+  }
+
   function esc(t){ return String(t).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]}); }
-  function dateLongue(d){ var p=d.split("-"); return parseInt(p[2],10)+(p[2]==="01"?"er":"")+" "+MOIS[parseInt(p[1],10)-1]; }
-  function jours(s){ return Math.round((new Date(s.date) - AUJ)/JOURS); }
-  function libStatut(s){
-    if (s.statut==="realise") return ["realise","Oui, c'est arrivé"];
-    if (s.statut==="manque") return ["manque","Non, ce n'est pas arrivé"];
-    var j = jours(s);
-    if (j < 0) return ["proche","Date passée, réponse à vérifier"];
-    if (j <= 7) return ["proche","Réponse très bientôt"];
-    return ["avenir","En attente"];
+  function periode(d){
+    var x = new Date(d), j = Math.round((x-AUJ)/86400000);
+    if (x.getFullYear()===AUJ.getFullYear()) return MOIS[x.getMonth()].charAt(0).toUpperCase()+MOIS[x.getMonth()].slice(1)+" "+x.getFullYear();
+    return "En "+x.getFullYear();
   }
-  function groupe(s){ return s.statut==="realise" ? "realise" : s.statut==="manque" ? "manque" : "avenir"; }
-  function echeance(s){
-    if (s.statut!=="avenir") return 'Date limite : <b>'+dateLongue(s.date)+'</b>';
-    var j = jours(s);
-    return 'Réponse attendue d\'ici le <b>'+dateLongue(s.date)+'</b>'+(j>=0?' · dans '+j+' jour'+(j>1?'s':''):'');
-  }
-  function chip(s, k){
-    return '<span class="chip c-'+k+'">'+esc(s.ed.scen[k].t)+'</span>';
+  function reste(s){
+    var j = Math.round((new Date(s.date)-AUJ)/86400000);
+    if (j < 0) return "date passée";
+    if (j === 0) return "aujourd'hui";
+    return "dans "+j+" jour"+(j>1?"s":"");
   }
 
-  function sauver(){ try{ sessionStorage.setItem("sig-liste", JSON.stringify({y:window.scrollY, f:filtre})); }catch(e){} }
-  function charger(){ try{ return JSON.parse(sessionStorage.getItem("sig-liste")||"null"); }catch(e){ return null; } }
-
-  function carte(s){
-    var st = libStatut(s);
-    var h = '<li><a class="carte" href="#/signal/'+s.id+'">';
-    h += '<div class="ligne1"><span class="echeance">'+(s.exemple?'<span class="exemple">Exemple</span>':'')+echeance(s)+'</span><span class="statut '+st[0]+'">'+st[1]+'</span></div>';
-    h += '<h2>'+esc(s.question)+'</h2>';
-    if (s.statut==="avenir"){
-      h += '<div class="reponses"><div class="rep"><small>Si oui</small>'+esc(s.oui.court)+'</div><div class="rep"><small>Si non</small>'+esc(s.non.court)+'</div></div>';
-    } else {
-      var k = s.statut==="realise" ? s.oui.scen : s.non.scen;
-      h += '<p class="effet">Notre analyse a changé : « '+esc(s.ed.scen[k].t)+' » passe de '+s.ed.scen[k].p+' à '+s.apres[k]+PCT_UNIT+'.</p>';
-    }
-    h += '<p class="lien-ed">'+(s.ed?'Sujet : '+esc(s.ed.titre)+' (édition du '+s.ed.date+')':'Sujet : …')+'</p>';
-    return h+'</a></li>';
-  }
-
-  function vueListe(){
-    var n = {avenir:0, realise:0, manque:0};
-    DATA.forEach(function(s){ n[groupe(s)]++; });
-    var items = DATA.filter(function(s){ return groupe(s)===filtre; }).sort(function(a,b){ return a.date.localeCompare(b.date); });
-    var h = '<p class="section-label">Signaux</p>';
-    h += '<h1>Les rendez-vous qui peuvent faire changer nos analyses</h1>';
-    h += '<p class="lead">Dans chaque édition, nous décrivons trois issues possibles. Ici, nous suivons les événements qui vont départager ces issues.</p>';
-    h += '<ol class="etapes"><li><b>Une question</b>Un fait précis que l\'on attend, avec une date.</li>'+
-         '<li><b>Deux réponses</b>Oui ou non : on dit d\'avance ce que chacune voudrait dire.</li>'+
-         '<li><b>Notre analyse bouge</b>Une fois la réponse connue, nous ajustons les probabilités de l\'édition.</li></ol>';
-    h += '<div class="filtres" role="group" aria-label="Filtrer les signaux">';
-    [["avenir","En attente"],["realise","Arrivés"],["manque","Pas arrivés"]].forEach(function(f){
-      h += '<button type="button" data-f="'+f[0]+'" aria-pressed="'+(filtre===f[0])+'">'+f[1]+'<span class="n">'+n[f[0]]+'</span></button>';
+  var app = document.getElementById("app");
+  var h = '<p class="section-label">À venir</p><h1>Ce qui va arriver</h1>';
+  h += '<p class="lead">Les rendez-vous à surveiller, relevés dans nos éditions, du plus proche au plus lointain.</p>';
+  if (!DATA.length){
+    h += '<div class="vide">Aucun rendez-vous à surveiller pour le moment.</div>';
+  } else {
+    var groupes = {}, ordre = [];
+    DATA.slice().sort(function(a,b){return a.date.localeCompare(b.date);}).forEach(function(s){
+      var p = periode(s.date); if(!groupes[p]){groupes[p]=[]; ordre.push(p);} groupes[p].push(s);
     });
-    h += '</div>';
-    if (!items.length){
-      h += '<div class="vide">'+(DATA.length? 'Aucun signal dans cette catégorie.' : 'Aucun signal à surveiller pour le moment.')+'</div>';
-    } else {
-      h += '<ul class="liste">'+items.map(carte).join("")+'</ul>';
-    }
-    app.innerHTML = h;
-    app.querySelectorAll(".filtres button").forEach(function(b){
-      b.addEventListener("click", function(){ filtre=b.getAttribute("data-f"); vueListe(); sauver(); });
-    });
-    app.querySelectorAll("a.carte").forEach(function(a){ a.addEventListener("click", sauver); });
-  }
-
-  function lignesAnalyse(s, vise, apres){
-    return '<div class="analyse">'+["favorable","stable","degrade"].map(function(k){
-      var sc = s.ed.scen[k];
-      var val = apres ? sc.p+' → '+apres[k]+PCT_UNIT : sc.p+PCT_UNIT;
-      return '<div class="ligne-a'+(vise===k?' vise':'')+'"><span class="t c-'+k+'" style="border-color:var(--'+k+')">'+esc(sc.t)+'</span><span class="pct">'+val+'</span></div>';
-    }).join("")+'</div>';
-  }
-
-  function vueFiche(id){
-    var s = DATA.filter(function(x){return x.id===id;})[0];
-    if (!s){ location.hash="#/"; return; }
-    var st = libStatut(s), tranche = s.statut!=="avenir";
-    var h = '<a class="retour" href="#/" id="retour">← Retour aux signaux</a>';
-    h += '<p class="section-label">Signal à surveiller</p><h1>'+esc(s.question)+'</h1>';
-    h += '<div class="decompte"><span class="statut '+st[0]+'">'+st[1]+'</span><span class="echeance">'+echeance(s)+'</span></div>';
-
-    h += '<section class="bloc"><p class="section-label">Pourquoi ce signal compte</p><p>'+esc(s.pourquoi)+'</p></section>';
-
-    if (!tranche){
-      h += '<section class="bloc"><p class="section-label">Selon la réponse</p><div class="deux">';
-      [["oui","Si oui"],["non","Si non"]].forEach(function(r){
-        var c = s[r[0]];
-        h += '<div class="cas"><h3>'+esc(c.titre)+'</h3><p>'+esc(c.texte)+'</p>'+
-             (s.ed?'<div class="change">Dans notre analyse, cela rendrait <b>plus probable</b> ce scénario :<br>'+chip(s,c.scen)+'</div>':'<div class="change">…</div>')+'</div>';
+    ordre.forEach(function(p){
+      h += '<section class="periode" aria-label="'+esc(p)+'"><p class="section-label">'+esc(p)+'</p>';
+      groupes[p].forEach(function(s){
+        h += '<article class="signal"><div class="quand">'+esc(s.quand)+'<small>'+reste(s)+'</small></div><div>'+
+             '<h2>'+esc(s.titre)+'</h2><p class="comm">'+esc(s.comm)+'</p>'+
+             '<ul class="eds"><b>'+(s.eds.length>1?'Éditions concernées':'Édition concernée')+'</b>'+
+             s.eds.map(function(k){ var e = ED[k] || {t:"…", d:"…"};
+               return '<li><a href="../../archives/'+k+'.html">'+esc(e.t)+'</a> — '+e.d+'</li>'; }).join("")+
+             '</ul></div></article>';
       });
-      h += '</div></section>';
-      h += '<section class="bloc"><p class="section-label">Notre analyse aujourd\'hui</p>'+
-           (s.ed?lignesAnalyse(s,null,null)+'<p class="note">Probabilités publiées dans l\'édition du '+s.ed.date+'. Aucun changement tant que le signal n\'est pas tranché.</p>':'<p>…</p>')+'</section>';
-    } else {
-      var k = s.statut==="realise" ? s.oui.scen : s.non.scen;
-      h += '<section class="bloc"><p class="section-label">Ce qui s\'est passé</p><p>'+esc(s.raison)+'</p></section>';
-      h += '<section class="bloc"><p class="section-label">Ce que cela change dans notre analyse</p>'+lignesAnalyse(s,k,s.apres)+
-           '<p class="note">Un signal déplace les probabilités de 5 points au maximum. Les éditions déjà publiées ne sont pas modifiées.</p></section>';
-      h += '<section class="bloc"><p class="section-label">Sources</p><ul class="source">'+s.sources.map(function(x){return '<li><a href="#">'+esc(x)+'</a></li>';}).join("")+'</ul></section>';
-    }
-    if (s.ed){
-      h += '<section class="bloc"><p class="section-label">Pour comprendre le sujet</p><p><a href="'+s.ed.url+'" style="color:var(--gold)">Lire l\'édition du '+s.ed.date+' : '+esc(s.ed.titre)+'</a></p></section>';
-    }
-    app.innerHTML = h;
-    window.scrollTo(0,0);
+      h += '</section>';
+    });
+    h += '<p class="pied">Ces rendez-vous sont des repères, pas des prévisions. Nous ne recalculons pas de probabilités ici : à chacun de se faire son idée.</p>';
   }
-
-  function route(){
-    var m = location.hash.match(/^#\/signal\/(.+)$/);
-    if (m){ vueFiche(m[1]); return; }
-    var memo = charger();
-    if (memo && memo.f) filtre = memo.f;
-    vueListe();
-    if (memo && typeof memo.y==="number") window.scrollTo(0, memo.y);
-  }
-  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
-  window.addEventListener("hashchange", route);
-  route();
+  app.innerHTML = h;
 })();
 </script>
 </body>
