@@ -772,7 +772,8 @@
     var svgWrap = svg.parentElement;
 
     weekly.forEach(function (d, i) {
-      var isFirst = i === 0;
+      // Le lancement (semaine du 27 juillet) n'est pas dans la fenêtre des 12 dernières semaines.
+      var isFirst = false;
       var isLast = i === weekly.length - 1;
       var isPartial = isFirst || isLast;
       var x = padL + i * slot + (slot - barW) / 2;
