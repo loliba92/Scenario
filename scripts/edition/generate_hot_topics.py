@@ -604,7 +604,19 @@ def update_hot_topics_history(new_records):
     return history
 
 
-def update_dashboard_card(today, history):
+def _boutons_tri(ident):
+    """Trois boutons de tri pour un sujet de la file (vide si l'identifiant est inconnu ou déjà publié)."""
+    if not ident:
+        return ""
+    btn = ('<button type="button" class="ht-btn" data-action="{action}">{libelle}</button>')
+    return ('<span class="ht-actions" data-id="' + html.escape(ident, quote=True) + '">'
+            + btn.format(action="monter", libelle="Prochain")
+            + btn.format(action="mardi", libelle="Carte blanche · mardi")
+            + btn.format(action="prioriser", libelle="Priorité absolue")
+            + "</span>")
+
+
+def update_dashboard_card(today, history, data=None):
     """Régénère la carte "Derniers sujets identifiés" de dashboard.html
     (mêmes marqueurs HTML que ceux posés dans le fichier), même principe
     de templating direct que update_dashboard() dans
@@ -628,11 +640,17 @@ def update_dashboard_card(today, history):
         shown.append(r)
         if len(shown) == 10:
             break
+    # Identifiant de la file pour chaque accroche encore à traiter : sert aux boutons de tri.
+    par_titre = {}
+    for _, e in (sj.sujets(data) if data is not None else []):
+        if e.get("statut") == "a_traiter":
+            par_titre[re.sub(r"\W+", " ", sj.bare(e["titre"]).lower()).strip()] = e["id"]
     if shown:
         items = "\n".join(
             f'        <li><span class="agenda-later-tag">{html.escape(r.get("section", r["registre"]), quote=False)}</span>'
             f'{html.escape(r["accroche"], quote=False)} '
-            f'<span class="agenda-later-empty">({date.fromisoformat(r["date"]).strftime("%d/%m")})</span></li>'
+            f'<span class="agenda-later-empty">({date.fromisoformat(r["date"]).strftime("%d/%m")})</span>'
+            f'{_boutons_tri(par_titre.get(re.sub(r"\W+", " ", r["accroche"].lower()).strip()))}</li>'
             for r in shown
         )
     else:
@@ -779,7 +797,7 @@ def main():
         print(f"Aucun sujet retenu ce passage-ci{dup_suffix} — file inchangée.")
         # La date « Dernier passage » avance même sans ajout.
         history = update_hot_topics_history([])
-        update_dashboard_card(today, history)
+        update_dashboard_card(today, history, data)
         return 0
 
     ids_ajoutes = []
@@ -793,7 +811,7 @@ def main():
             sj.save_both(data)
     write_run_summary(added_records, today)
     history = update_hot_topics_history(added_records)
-    update_dashboard_card(today, history)
+    update_dashboard_card(today, history, data)
     print(f"\n{total} sujet(s) ajouté(s) à la file de sujets{dup_suffix} "
           f"(coût OpenRouter ≈ {usage.get('cost', '?')} $).")
     return 0

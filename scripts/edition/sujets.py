@@ -804,6 +804,32 @@ def monter(data: dict, ids: list[str]) -> tuple[list[str], list[str], list[str]]
     return faits, inconnus, ignores
 
 
+def mardi(data: dict, ids: list[str]) -> tuple[list[str], list[str], list[str]]:
+    """Range des sujets « à traiter » à la fin de « Carte blanche » (traités le mardi, après les
+    autres sujets libres déjà en file) et les valide. Ignore les sujets publiés, en « Priorité
+    absolue », ou déjà en dernière place. Renvoie (ids déplacés, ids inconnus, ids ignorés)."""
+    par_id = {e["id"]: (sec, e) for sec, e in sujets(data)}
+    cible = next(s for s in data["sections"] if s["cle"] == "carte_blanche")
+    faits, inconnus, ignores = [], [], []
+    for i in ids:
+        if i not in par_id:
+            inconnus.append(i)
+            continue
+        sec, e = par_id[i]
+        if sec["cle"] == "priorite_absolue" or e["statut"] != "a_traiter":
+            ignores.append(i)
+            continue
+        derniers = [x for x in cible["entrees"] if x["type"] == "sujet"]
+        if sec is cible and derniers and derniers[-1] is e and e["validation"] == "valide":
+            ignores.append(i)
+            continue
+        _retirer(data, i)
+        e["validation"] = "valide"
+        cible["entrees"].append(e)
+        faits.append(i)
+    return faits, inconnus, ignores
+
+
 # --------------------------------------------------------------------------- sujet du jour et dossier
 def eligible(e: dict) -> bool:
     return e["statut"] == "a_traiter" and e["validation"] == "valide"
@@ -1061,7 +1087,7 @@ def incomplets(data: dict, seulement_a_traiter: bool = True) -> list[tuple[dict,
 # --------------------------------------------------------------------------- ligne de commande
 def _main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("commande", choices=["check", "sync", "stats", "import", "incomplets", "prochain", "timbrer", "valider", "prioriser", "deprioriser", "monter"])
+    ap.add_argument("commande", choices=["check", "sync", "stats", "import", "incomplets", "prochain", "timbrer", "valider", "prioriser", "deprioriser", "monter", "mardi"])
     ap.add_argument("brief", nargs="*", default=[],
                     help="timbrer : chemin du brief (editorial-briefs/AAAA-MM-JJ.json) ; valider / prioriser / deprioriser / monter : identifiants (séparés par des espaces ou des virgules)")
     ap.add_argument("--json", action="store_true", help="prochain : affiche le dossier en JSON (point de départ du brief)")
@@ -1128,13 +1154,13 @@ def _main(argv=None) -> int:
         print(f"valider : {len(faits)} validé(s), {len(ids) - len(faits) - len(inconnus)} déjà validé(s), {len(inconnus)} inconnu(s)")
         return 1 if inconnus and not faits and len(inconnus) == len(ids) else 0
 
-    if args.commande in ("prioriser", "deprioriser", "monter"):
+    if args.commande in ("prioriser", "deprioriser", "monter", "mardi"):
         ids = [i.strip() for a in args.brief for i in a.split(",") if i.strip()]
         if not ids:
             print(f"ERREUR : {args.commande} demande au moins un identifiant", file=sys.stderr)
             return 1
         data, _ = load_synced()
-        faits, inconnus, ignores = {"prioriser": prioriser, "deprioriser": deprioriser, "monter": monter}[args.commande](data, ids)
+        faits, inconnus, ignores = {"prioriser": prioriser, "deprioriser": deprioriser, "monter": monter, "mardi": mardi}[args.commande](data, ids)
         for i in inconnus:
             print(f"::warning::{args.commande} : identifiant inconnu {i!r}")
         for i in ignores:

@@ -309,6 +309,20 @@ class AjoutEtEnrichissementTest(unittest.TestCase):
                          complet["titre"])
         self.assertEqual(sj.monter(d, [ident]), ([], [], [ident]), "déjà en tête et validé : ignoré")
 
+    def test_mardi_range_a_la_fin_de_la_carte_blanche(self):
+        d = sj.parse_md(self.CARTE_BLANCHE_MD)
+        cb = next(s for s in d["sections"] if s["cle"] == "carte_blanche")
+        avant = [x["id"] for x in cb["entrees"] if x["type"] == "sujet"]
+        proposition = par_debut(d, "Sujet chaud")          # sujet d'un autre domaine, rangé ailleurs
+        faits, inconnus, ignores = sj.mardi(d, [proposition["id"], "n-existe-pas"])
+        self.assertEqual((faits, inconnus, ignores), ([proposition["id"]], ["n-existe-pas"], []))
+        apres = [x["id"] for x in cb["entrees"] if x["type"] == "sujet"]
+        self.assertEqual(apres[-1], proposition["id"], "à la fin de la carte blanche")
+        self.assertEqual(apres[:-1], [i for i in avant if i != proposition["id"]], "les autres ne bougent pas")
+        self.assertEqual(proposition["validation"], "valide", "validé du même coup")
+        self.assertEqual(sj.mardi(d, [proposition["id"]]), ([], [], [proposition["id"]]), "déjà dernier et validé : ignoré")
+        self.assertEqual(verif(d), [])
+
     def test_monter_ignore_publie_et_priorite_absolue(self):
         d = sj.parse_md(mini_md())
         publie = next(e for _, e in sj.sujets(d) if e["statut"] == "publie")
