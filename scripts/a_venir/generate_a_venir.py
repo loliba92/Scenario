@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Génère a-venir.html (« Ce qui va arriver ») à partir de data/a-venir.json.
+"""Génère a-venir.html (« Du scénario au réel ») à partir de data/a-venir.json.
 
 Rendez-vous classés par date, sans probabilité. Une édition passée n'est jamais modifiée.
 Usage : python3 scripts/a_venir/generate_a_venir.py [--date AAAA-MM-JJ] [--sortie fichier]
@@ -29,7 +29,7 @@ ICONES = {
     "Culture": '<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M10 9l5 3-5 3z"/><path d="M7 5v14M17 5v14" opacity=".35"/>',
 }
 MAX_PASSES = 12
-TITRE = "Ce qui va arriver — les rendez-vous à surveiller — Scénario"
+TITRE = "Du scénario au réel — les rendez-vous à surveiller — Scénario"
 DESCRIPTION = ("Les rendez-vous à surveiller relevés dans nos éditions, du plus proche au plus lointain, "
                "avec les éditions concernées.")
 
@@ -383,7 +383,7 @@ def filtres(prochains, a_verifier, resolus):
 
 def contenu(rendez_vous, jour, racine=RACINE):
     h = ('<section class="hero contact-hero"><div class="wrap"><p class="eyebrow">À venir</p>'
-         '<h1>Ce qui va arriver</h1><p class="dek">Les rendez-vous que nos éditions nous demandent de surveiller. '
+         '<h1>Du scénario au réel</h1><p class="dek">Les rendez-vous que nos éditions nous demandent de surveiller. '
          'Quand la date passe, la réponse s\'affiche ici.</p></div></section>\n')
     h += '<section class="body-section av"><div class="wrap">'
     prochains = a_venir(rendez_vous, jour)

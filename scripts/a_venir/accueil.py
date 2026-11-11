@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Encadré « Ce qui va arriver » de l'accueil : les 3 prochains rendez-vous de data/a-venir.json.
+"""Encadré « À venir » de l'accueil : les 3 prochains rendez-vous de data/a-venir.json.
 
 Remplace l'ancien bloc « Le dernier suivi ». Le bloc est placé juste après « La dernière édition »,
 entre <!-- a-venir:start --> et <!-- a-venir:end -->. Il ne lève jamais d'exception (accueil jamais bloqué).
