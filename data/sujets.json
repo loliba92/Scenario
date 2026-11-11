@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "39e7c763ccf9eea676cd285fd1ee1322707fb6377818672624e37157aa68a57b"
+    "md_sha256": "8d4cc2fd6698e5cf861ecc9c9e04515aa76c10e109e41290f70117f3cf8120e5"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -2544,7 +2544,7 @@
           "titre": "Gel du point d'indice des fonctionnaires : le gouvernement Lecornu peut-il imposer son budget d'austérité sans déclencher une crise sociale et politique à un an de la présidentielle ?",
           "question": null,
           "tag": "politique & budget",
-          "statut": "a_traiter",
+          "statut": "publie",
           "validation": "valide",
           "contexte": "Le 1er octobre 2026, le gouvernement de Sébastien Lecornu a présenté en Conseil des ministres le projet de loi de finances (PLF) 2027, prévoyant 54 milliards d'euros d'économies dont 43 milliards de mesures nouvelles. Le texte gèle le point d'indice des fonctionnaires (qui sert à calculer leur traitement brut), ne revalorise pas les APL, sous-indexe les retraites au-dessus de 1 260 euros, et réduit de 30 % la contribution exceptionnelle sur les bénéfices des grandes entreprises. Le déficit visé est de 5 % du PIB en 2027. La fonction publique s'est déjà mobilisée le 29 septembre contre ces mesures. Faute de majorité à l'Assemblée, le gouvernement peut recourir au 49.3 ou aux ordonnances budgétaires, mais s'expose alors à une motion de censure. Le calendrier parlementaire prévoit l'examen du volet recettes du 12 au 20 octobre, puis du budget de la Sécurité sociale jusqu'au 27 octobre, et le vote sur l'ensemble du PLF le 17 novembre.",
           "rationnel": "La question : Le gouvernement Lecornu peut-il faire adopter le budget 2027 prévoyant le gel du point d'indice des fonctionnaires sans déclencher une crise sociale et politique d'ici le vote du PLF le 17 novembre 2026 ? L'issue est ouverte car il peut soit passer en force via le 49.3 ou des ordonnances budgétaires, s'exposant à une motion de censure, soit négocier des amendements avec une partie de l'opposition (LR ou certains socialistes) qui préserveraient l'équilibre budgétaire mais risqueraient de le fragiliser, tandis que les syndicats de fonctionnaires restent mobilisés après la manifestation du 29 septembre. Pour le lecteur français, cela concerne directement son pouvoir d'achat, la qualité des services publics et la soutenabilité de la dette publique.",
@@ -2589,8 +2589,8 @@
           "note": "Ajouté automatiquement le 2026-10-01 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. Repéré en veille sur le registre Actu. française, remonté ici pour son urgence.",
           "donnees": "[relevé du 2026-10-30] Valeur annuelle du point d'indice des fonctionnaires (unité : euros). Juillet 2022 = 58,2005 (2022) ; Juillet 2023 = 59,0734 (2023) ; Janvier 2024 = 59,0734 (2024) ; Janvier 2025 = 59,0734 (2025) ; Janvier 2026 = 59,0734 (2026) ; Janvier 2027 (prévu, gelé) = 59,0734 (2027). Sources : https://www.juristique.org/indices/point-indice-fonction-publique ; https://www.francetransactions.com/actus/actualites-socio-economiques/loi-finances-2027-gel-point-indice.html",
           "ajoute_le": "2026-10-01",
-          "publie_le": null,
-          "edition": null,
+          "publie_le": "2026-11-11",
+          "edition": "2026-11-11",
           "enrichi_le": "2026-10-30"
         },
         {
