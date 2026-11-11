@@ -192,6 +192,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 11.11.2026 — [Gel du point d'indice des fonctionnaires : Lecornu peut-il tenir sans crise ?](../archives/2026-11-11.html)
 - 10.11.2026 — [Russie : Poutine verrouille-t-il le pouvoir sans fissure après les législatives de septembre ?](../archives/2026-11-10.html)
 - 09.11.2026 — [Ukraine : la guerre des raffineries peut-elle faire basculer le conflit ?](../archives/2026-11-09.html)
 - 08.11.2026 — [Sport : peut-il rester humain face à l'IA et aux données ?](../archives/2026-11-08.html)

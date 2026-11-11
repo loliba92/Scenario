@@ -6,15 +6,21 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/"/>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives.html</loc>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lesscenarios.fr/archives/2026-11-11.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-11-10.html</loc>
@@ -1305,7 +1311,7 @@
   </url>
   <url>
     <loc>https://lesscenarios.fr/glossaire.html</loc>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.4</priority>
   </url>
