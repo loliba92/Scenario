@@ -336,7 +336,7 @@ JS_FILTRES = """<script>
     if(fbtn&&det){ fbtn.setAttribute('aria-expanded', String(!!ouvert)); det.hidden=!ouvert; }
     bar.setAttribute('data-p', etat.periode);
     [].forEach.call(bar.querySelectorAll('button[data-f]'),function(b){ b.setAttribute('aria-pressed', String(etat[b.getAttribute('data-f')]===b.getAttribute('data-v'))); });
-    try{ var u=new URLSearchParams(); Object.keys(etat).forEach(function(k){ if(etat[k]!=='tous') u.set(k,etat[k]); }); history.replaceState(null,'',location.pathname+(u.toString()?'?'+u:'')); }catch(e){}
+    try{ var u=new URLSearchParams(); Object.keys(etat).forEach(function(k){ if(etat[k]!=='tous') u.set(k,etat[k]); }); history.replaceState(null,'',location.pathname+(u.toString()?'?'+u:'')+location.hash); }catch(e){}
   }
   ouvert = etat.domaine!=='tous' || etat.couleur!=='tous';
   bar.hidden=false;
