@@ -415,6 +415,13 @@
     .dsec-info{ display:none; }
     .dsec-body{ padding:4px 12px 14px; }
   }
+  .ht-actions{ display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+  .ht-btn{ font: inherit; font-size: 0.72rem; line-height: 1.2; padding: 4px 9px; border-radius: 999px;
+    border: 1px solid var(--hairline); background: var(--surface-2); color: var(--paper); cursor: pointer; }
+  .ht-btn:hover{ border-color: var(--gold); color: var(--gold); }
+  .ht-btn:disabled{ opacity: 0.5; cursor: default; }
+  .ht-msg{ font-size: 0.78rem; color: var(--paper-dim); margin: 8px 0 0; min-height: 1em; }
+  .ht-msg.is-erreur{ color: var(--degrade); }
 </style>
 </head>
 <body>
@@ -582,18 +589,19 @@
       <p class="chart-lead">Dernier passage : <!-- HOT-TOPICS:DATE_START -->10 novembre 2026<!-- HOT-TOPICS:DATE_END --><!-- HOT-TOPICS:STALE_START --><!-- HOT-TOPICS:STALE_END --></p>
       <ul class="agenda-later-list">
         <!-- HOT-TOPICS:LIST_START -->
-        <li><span class="agenda-later-tag">Géopolitique</span>Les pourparlers entre l'Ukraine et la Russie à Abou Dhabi peuvent-ils aboutir à un accord de paix ? <span class="agenda-later-empty">(10/11)</span></li>
-        <li><span class="agenda-later-tag">Actu. française</span>La pétition contre CNews peut-elle aboutir à sa suppression ? <span class="agenda-later-empty">(10/11)</span></li>
-        <li><span class="agenda-later-tag">Actu. française</span>La hausse du SMIC peut-elle relancer la consommation sans nuire à l'emploi ? <span class="agenda-later-empty">(10/11)</span></li>
-        <li><span class="agenda-later-tag">Économie &amp; finance</span>La BCE peut-elle maintenir ses taux élevés sans provoquer une récession en zone euro ? <span class="agenda-later-empty">(10/11)</span></li>
-        <li><span class="agenda-later-tag">Économie &amp; finance</span>La Chine peut-elle maintenir son excédent commercial record malgré les tensions avec l'UE ? <span class="agenda-later-empty">(10/11)</span></li>
-        <li><span class="agenda-later-tag">Sciences</span>La découverte d'une désintégration rare de particule ouvre-t-elle la voie à une nouvelle physique ? <span class="agenda-later-empty">(10/11)</span></li>
-        <li><span class="agenda-later-tag">Sciences</span>Le refroidissement record d'atomes dans l'espace peut-il révolutionner la physique quantique ? <span class="agenda-later-empty">(10/11)</span></li>
-        <li><span class="agenda-later-tag">Sport</span>Tom Laperche peut-il dominer la voile mondiale après sa victoire record à la Route du Rhum ? <span class="agenda-later-empty">(10/11)</span></li>
+        <li><span class="agenda-later-tag">Géopolitique</span>Les pourparlers entre l'Ukraine et la Russie à Abou Dhabi peuvent-ils aboutir à un accord de paix ? <span class="agenda-later-empty">(10/11)</span><span class="ht-actions" data-id="geopolitique-les-pourparlers-entre-l-ukraine-et-la-russie-a"><button type="button" class="ht-btn" data-action="monter">Prochain</button><button type="button" class="ht-btn" data-action="mardi">Carte blanche · mardi</button><button type="button" class="ht-btn" data-action="prioriser">Priorité absolue</button></span></li>
+        <li><span class="agenda-later-tag">Actu. française</span>La pétition contre CNews peut-elle aboutir à sa suppression ? <span class="agenda-later-empty">(10/11)</span><span class="ht-actions" data-id="actualite-francaise-la-petition-contre-cnews-peut-elle-aboutir-a-sa"><button type="button" class="ht-btn" data-action="monter">Prochain</button><button type="button" class="ht-btn" data-action="mardi">Carte blanche · mardi</button><button type="button" class="ht-btn" data-action="prioriser">Priorité absolue</button></span></li>
+        <li><span class="agenda-later-tag">Actu. française</span>La hausse du SMIC peut-elle relancer la consommation sans nuire à l'emploi ? <span class="agenda-later-empty">(10/11)</span><span class="ht-actions" data-id="actualite-francaise-la-hausse-du-smic-peut-elle-relancer-la"><button type="button" class="ht-btn" data-action="monter">Prochain</button><button type="button" class="ht-btn" data-action="mardi">Carte blanche · mardi</button><button type="button" class="ht-btn" data-action="prioriser">Priorité absolue</button></span></li>
+        <li><span class="agenda-later-tag">Économie &amp; finance</span>La BCE peut-elle maintenir ses taux élevés sans provoquer une récession en zone euro ? <span class="agenda-later-empty">(10/11)</span><span class="ht-actions" data-id="economie-la-bce-peut-elle-maintenir-ses-taux-eleves-sans"><button type="button" class="ht-btn" data-action="monter">Prochain</button><button type="button" class="ht-btn" data-action="mardi">Carte blanche · mardi</button><button type="button" class="ht-btn" data-action="prioriser">Priorité absolue</button></span></li>
+        <li><span class="agenda-later-tag">Économie &amp; finance</span>La Chine peut-elle maintenir son excédent commercial record malgré les tensions avec l'UE ? <span class="agenda-later-empty">(10/11)</span><span class="ht-actions" data-id="economie-la-chine-peut-elle-maintenir-son-excedent"><button type="button" class="ht-btn" data-action="monter">Prochain</button><button type="button" class="ht-btn" data-action="mardi">Carte blanche · mardi</button><button type="button" class="ht-btn" data-action="prioriser">Priorité absolue</button></span></li>
+        <li><span class="agenda-later-tag">Sciences</span>La découverte d'une désintégration rare de particule ouvre-t-elle la voie à une nouvelle physique ? <span class="agenda-later-empty">(10/11)</span><span class="ht-actions" data-id="sciences-la-decouverte-d-une-desintegration-rare-de"><button type="button" class="ht-btn" data-action="monter">Prochain</button><button type="button" class="ht-btn" data-action="mardi">Carte blanche · mardi</button><button type="button" class="ht-btn" data-action="prioriser">Priorité absolue</button></span></li>
+        <li><span class="agenda-later-tag">Sciences</span>Le refroidissement record d'atomes dans l'espace peut-il révolutionner la physique quantique ? <span class="agenda-later-empty">(10/11)</span><span class="ht-actions" data-id="sciences-le-refroidissement-record-d-atomes-dans-l"><button type="button" class="ht-btn" data-action="monter">Prochain</button><button type="button" class="ht-btn" data-action="mardi">Carte blanche · mardi</button><button type="button" class="ht-btn" data-action="prioriser">Priorité absolue</button></span></li>
+        <li><span class="agenda-later-tag">Sport</span>Tom Laperche peut-il dominer la voile mondiale après sa victoire record à la Route du Rhum ? <span class="agenda-later-empty">(10/11)</span><span class="ht-actions" data-id="sport-tom-laperche-peut-il-dominer-la-voile-mondiale"><button type="button" class="ht-btn" data-action="monter">Prochain</button><button type="button" class="ht-btn" data-action="mardi">Carte blanche · mardi</button><button type="button" class="ht-btn" data-action="prioriser">Priorité absolue</button></span></li>
         <li><span class="agenda-later-tag">Géopolitique</span>L'Iran conditionne-t-il la réouverture du détroit d'Ormuz à un accord nucléaire avec les États-Unis ? <span class="agenda-later-empty">(08/11)</span></li>
         <li><span class="agenda-later-tag">Économie &amp; finance</span>La bulle de l'IA sur les marchés financiers va-t-elle éclater ? <span class="agenda-later-empty">(08/11)</span></li>
         <!-- HOT-TOPICS:LIST_END -->
       </ul>
+      <p class="ht-msg" aria-live="polite"></p>
     </div></details>
     <details class="chart-box dsec"><summary><span class="chart-label">Autonomie par registre — sujets non cochés</span><span class="dsec-info" data-info="auto"></span><span class="dsec-f" aria-hidden="true"></span></summary><div class="dsec-body">
       <table class="rank-table">
@@ -1084,6 +1092,52 @@
   var dash = document.getElementById('dashboard');
   if (!dash.hidden) demarrer();
   else new MutationObserver(function (m, o) { if (!dash.hidden) { o.disconnect(); demarrer(); } }).observe(dash, { attributes: true, attributeFilter: ['hidden'] });
+})();
+</script>
+<script>
+// Boutons de tri des « Derniers sujets identifiés » : même jeton et même appel que la page de la file (file-sujets.js).
+(function () {
+  var DEPOT = "loliba92/Scenario", WORKFLOW = "valider-sujets.yml", BRANCHE = "main";
+  var JETON_KEY = "scenario-gh-token";
+  var TEXTES = { monter: "Mis en tête de sa section (prochain passage).", mardi: "Rangé à la fin de la carte blanche (mardi).", prioriser: "Mis en priorité absolue." };
+  function lire() { try { return localStorage.getItem(JETON_KEY); } catch (e) { return null; } }
+  function ecrire(v) { try { if (v == null) localStorage.removeItem(JETON_KEY); else localStorage.setItem(JETON_KEY, v); } catch (e) {} }
+  function jeton() {
+    var j = lire();
+    if (j) return j;
+    j = (window.prompt("Collez un jeton GitHub personnel (une seule fois ; il reste dans ce navigateur). Droits : dépôt " + DEPOT + ", « Actions : Read and write ».") || "").trim();
+    if (j) ecrire(j);
+    return j;
+  }
+  document.addEventListener("click", function (ev) {
+    var b = ev.target.closest && ev.target.closest(".ht-btn");
+    if (!b) return;
+    var bloc = b.closest(".ht-actions");
+    var id = bloc && bloc.getAttribute("data-id");
+    var action = b.getAttribute("data-action");
+    var msg = b.closest("details").querySelector(".ht-msg");
+    function dire(t, err) { msg.textContent = t; msg.classList.toggle("is-erreur", !!err); }
+    if (!id || !TEXTES[action]) return;
+    var j = jeton();
+    if (!j) { dire("Action annulée : aucun jeton enregistré.", true); return; }
+    var groupe = bloc.querySelectorAll(".ht-btn");
+    groupe.forEach(function (x) { x.disabled = true; });
+    dire("Envoi…");
+    fetch("https://api.github.com/repos/" + DEPOT + "/actions/workflows/" + WORKFLOW + "/dispatches", {
+      method: "POST",
+      headers: { "Accept": "application/vnd.github+json", "Authorization": "Bearer " + j, "X-GitHub-Api-Version": "2022-11-28", "Content-Type": "application/json" },
+      body: JSON.stringify({ ref: BRANCHE, inputs: { action: action, ids: id } })
+    }).then(function (r) {
+      groupe.forEach(function (x) { x.disabled = false; });
+      if (r.status === 204) { dire(TEXTES[action] + " Le site est mis à jour dans une à deux minutes."); return; }
+      if (r.status === 401) { ecrire(null); dire("Jeton refusé : il a été effacé, recliquez pour en saisir un nouveau.", true); return; }
+      if (r.status === 403 || r.status === 404) { dire("Accès refusé : le jeton doit couvrir le dépôt " + DEPOT + " avec « Actions : Read and write ».", true); return; }
+      dire("GitHub a répondu " + r.status + " : action non envoyée.", true);
+    }).catch(function () {
+      groupe.forEach(function (x) { x.disabled = false; });
+      dire("Réseau indisponible : action non envoyée.", true);
+    });
+  });
 })();
 </script>
 </body>
