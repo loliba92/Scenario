@@ -447,7 +447,10 @@
   .av .tuile .gros.sans-bas{ padding-bottom:10px; }
   .av .tuile.flou{ background:var(--surface); border:1.5px dashed var(--gold); }
   .av .tuile.flou .haut{ background:transparent; color:var(--gold); padding-top:6px; }
-  .av .carte{ background:var(--surface); border:1px solid var(--hairline); border-radius:14px; padding:14px 18px 6px; min-width:0; }
+  .av .carte{ position:relative; overflow:hidden; background:radial-gradient(130% 90% at 0% 0%, rgba(207,157,76,.10), transparent 60%), var(--surface); border:1px solid var(--hairline); border-radius:14px; padding:14px 18px 6px; min-width:0; }
+  .av .carte::before{ content:""; position:absolute; left:0; right:0; top:0; height:3px;
+    background:linear-gradient(90deg, var(--favorable) 0 33.33%, var(--stable) 33.33% 66.66%, var(--degrade) 66.66%); }
+  .av .signal.passe .carte::before{ background:var(--c, var(--hairline)); }
   .av .entete{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px 16px; margin-bottom:10px; }
   .av .pastille{ display:inline-flex; align-items:center; gap:8px; padding:5px 12px 5px 8px; border-radius:999px; background:var(--surface-2);
     border:1px solid var(--hairline); font-family:"JetBrains Mono",monospace; font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; color:var(--paper); }
@@ -561,7 +564,6 @@
     .av .tuile .haut, .av .tuile .bas{ font-size:.55rem; letter-spacing:.05em; }
     .av .carte{ position:relative; overflow:hidden; border-radius:18px; padding:16px 16px 6px;
       background:radial-gradient(130% 90% at 0% 0%, rgba(207,157,76,.13), transparent 60%), var(--surface); }
-    .av .carte::before{ content:""; position:absolute; left:0; right:0; top:0; height:2px; background:linear-gradient(90deg, var(--gold), transparent 75%); }
     .av .entete{ min-height:68px; margin:0 0 12px; padding-left:72px; display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:6px 10px; }
     .av .pastille{ justify-self:start; max-width:100%; }
     .av .jauge{ gap:0; }
