@@ -666,8 +666,9 @@ def update_sitemap_xml(sitemap_text, edition_id, bump_glossaire=False):
     date_str = edition_id[:10]
 
     def bump_lastmod(text, loc):
+        # <lastmod> dans le même bloc <url>, pas forcément juste après <loc> (liens hreflang entre les deux).
         pattern = re.compile(
-            rf'(<loc>{re.escape(loc)}</loc>\s*<lastmod>)\d{{4}}-\d{{2}}-\d{{2}}(</lastmod>)'
+            rf'(<loc>{re.escape(loc)}</loc>(?:(?!</url>)[\s\S])*?<lastmod>)\d{{4}}-\d{{2}}-\d{{2}}(</lastmod>)'
         )
         new_text, n = pattern.subn(rf"\g<1>{date_str}\g<2>", text, count=1)
         if n != 1:

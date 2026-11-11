@@ -24,6 +24,10 @@ on:
       - "scripts/edition/test_gras_markdown.py"
       - "scripts/edition/test_photo_manuelle.py"
       - "scripts/edition/generate_post_edition.py"
+      - "scripts/edition/test_sitemap_lastmod.py"
+      - "scripts/seo/hreflang_sitemap.py"
+      - "scripts/seo/test_hreflang_sitemap.py"
+      - "sitemap.xml"
       - "scripts/social/photo_manuelle.py"
       - "scripts/social/use_topic_image.py"
       - "scripts/edition/suivi_home.py"
@@ -46,6 +50,10 @@ on:
       - "scripts/edition/test_gras_markdown.py"
       - "scripts/edition/test_photo_manuelle.py"
       - "scripts/edition/generate_post_edition.py"
+      - "scripts/edition/test_sitemap_lastmod.py"
+      - "scripts/seo/hreflang_sitemap.py"
+      - "scripts/seo/test_hreflang_sitemap.py"
+      - "sitemap.xml"
       - "scripts/social/photo_manuelle.py"
       - "scripts/social/use_topic_image.py"
       - "scripts/edition/suivi_home.py"
@@ -101,3 +109,10 @@ jobs:
         run: |
           pip install pillow
           python3 -m unittest discover -s scripts/edition -p "test_photo_manuelle.py" -v
+
+      # <lastmod> repéré dans le bloc <url>, même avec des liens hreflang.
+      - name: Mise à jour du sitemap à la publication (accueil, hreflang)
+        run: python3 -m unittest discover -s scripts/edition -p "test_sitemap_lastmod.py" -v
+
+      - name: Liens hreflang fr/en du sitemap
+        run: python3 -m unittest discover -s scripts/seo -p "test_hreflang_sitemap.py" -v
