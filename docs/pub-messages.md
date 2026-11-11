@@ -1390,6 +1390,16 @@ préférée pour son registre déjà simplifié.*
 
 *Phrase à retenir de l'édition du 2026-11-10 (archives/2026-11-10.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
 
+### chiffre-2026-11-11
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 59,0734 euros
+- message: Le budget 2027 maintient le point d'indice des fonctionnaires gelé à 59,0734 euros pour viser 5 % de déficit, malgré le risque d'une motion de censure le 17 novembre.
+- attribution: — lesscenarios.fr, 11 novembre 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-11-11.html
+
+*Phrase à retenir de l'édition du 2026-11-11 (archives/2026-11-11.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
