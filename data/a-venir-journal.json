@@ -13,5 +13,15 @@
     "dernier_essai": "2026-11-10",
     "essais": 1,
     "motif": "statut « incertain » : pas de réponse ferme"
+  },
+  "facturation-electronique-taux-designation": {
+    "dernier_essai": "2026-11-11",
+    "essais": 1,
+    "motif": "date de la réponse antérieure à l'édition; 1 source(s) vérifiée(s) sur 2 exigées (citation introuvable dans la page, domaine répété, refusé ou page inaccessible)"
+  },
+  "robot-neo-livraisons": {
+    "dernier_essai": "2026-11-11",
+    "essais": 1,
+    "motif": "statut « incertain » : pas de réponse ferme"
   }
 }
