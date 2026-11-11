@@ -154,6 +154,11 @@ class TestPasses(unittest.TestCase):
         self.assertIn('data-couleur="stable"', h)
         self.assertIn("Aujourd'hui · 5 décembre 2026", h)
 
+    def test_ancre_conservee_par_les_filtres(self):
+        # Le lien depuis l'accueil (#rv-…) doit survivre à la réécriture de l'URL par le script.
+        h = g.contenu([resolu(), rv("v", "2026-11-20")], self.J)
+        self.assertIn("+location.hash", h)
+
     def test_etat_vide_du_passe(self):
         h = g.contenu([rv("f", "2026-12-20")], date(2026, 11, 10))
         self.assertIn("Aucun résultat pour l'instant", h)
