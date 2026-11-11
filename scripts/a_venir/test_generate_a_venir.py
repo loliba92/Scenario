@@ -56,7 +56,7 @@ class T(unittest.TestCase):
 
     def test_page_complete_sans_probabilite(self):
         h = g.page(g.charger(), date(2026, 11, 10))
-        self.assertIn("<h1>Ce qui va arriver</h1>", h)
+        self.assertIn("<h1>Du scénario au réel</h1>", h)
         self.assertNotIn("{{", h)
         self.assertIn('href="a-venir.html" aria-current="page"', h)
         visible = re.sub(r"<[^>]+>", " ", g.contenu(g.charger(), date(2026, 11, 10)))
