@@ -143,6 +143,17 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
   <!-- origine: veille -->
   <!-- enrichi: 2026-10-31 -->
   <!-- note: Ajouté automatiquement le 2026-09-18 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — validé. Repéré en veille sur le registre Géopolitique, remonté ici pour son urgence -->
+- [ ] La pétition contre CNews peut-elle aboutir à sa suppression ? [médias & politique]
+  <!-- id: actualite-francaise-la-petition-contre-cnews-peut-elle-aboutir-a-sa -->
+  <!-- contexte: Une pétition demandant la suppression de CNews a dépassé les 900 000 signatures le 10 novembre 2026. Lancée en juin, elle accuse la chaîne d'inciter à la haine et à la discrimination. CNews, propriété de Vincent Bolloré, a déjà été sanctionnée à plusieurs reprises par l'Arcom pour des manquements à ses obligations. -->
+  <!-- rationnel: La question : cette pétition peut-elle conduire à des sanctions concrètes contre CNews, ou restera-t-elle symbolique ? Les forces en présence incluent la pression de l'opinion publique, la défense de la liberté d'expression par CNews, et le rôle régulateur de l'Arcom. Un scénario favorable verrait des sanctions renforcées contre la chaîne, un scénario stable maintiendrait le statu quo, et un scénario dégradé pourrait entraîner une polarisation accrue du débat médiatique. -->
+  <!-- mots-clés: CNews ; pétition ; Arcom ; Vincent Bolloré ; liberté d'expression -->
+  <!-- scénarios (brouillon): favorable = L'Arcom impose des sanctions sévères à CNews, limitant son influence. ; stable = La pétition reste sans effet concret, mais relance le débat sur la régulation des médias. ; dégradé = La polarisation s'accentue, avec des manifestations ou contre-manifestations autour de la chaîne. -->
+  <!-- sources: Les lauréats littéraires 2026, une pétition contre CNews et la tournée de The Weeknd… <https://www.rtbf.be/article/les-laureats-litteraires-2026-une-petition-contre-cnews-et-la-tournee-de-the-weeknd-retrouvez-l-actu-culturelle-de-la-semaine-11811727> -->
+  <!-- données chiffrées: [relevé du 2026-11-10] Nombre de signatures de la pétition contre CNews (unité : signatures). Signatures le 2 novembre 2026 = 500 000 ; signatures le 8 novembre 2026 = 1 000 000 ; signatures le 10 novembre 2026 = 1 066 909. Sources : https://www.franceinfo.fr/politique/la-petition-appelant-a-supprimer-cnews-de-l-audiovisuel-francais-classee-par-la-commission-de-l-assemblee-nationale_8276303.html ; https://www.leparisien.fr/sports/cest-de-la-dictature-raymond-domenech-furieux-contre-les-deputes-qui-ont-decide-denterrer-la-petition-contre-cnews-10-11-2026-VVFCQ5A54NCCZE3MQKJ5Y6N5BM.php ; https://petitions.assemblee-nationale.fr/initiatives/i-5820?locale= -->
+  <!-- origine: veille -->
+  <!-- enrichi: 2026-11-10 -->
+  <!-- note: Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
 
 
 ## Géopolitique — lundi
@@ -479,17 +490,6 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 
 ## Actualité & politique française — mercredi
-- [ ] La pétition contre CNews peut-elle aboutir à sa suppression ? [médias & politique]
-  <!-- id: actualite-francaise-la-petition-contre-cnews-peut-elle-aboutir-a-sa -->
-  <!-- contexte: Une pétition demandant la suppression de CNews a dépassé les 900 000 signatures le 10 novembre 2026. Lancée en juin, elle accuse la chaîne d'inciter à la haine et à la discrimination. CNews, propriété de Vincent Bolloré, a déjà été sanctionnée à plusieurs reprises par l'Arcom pour des manquements à ses obligations. -->
-  <!-- rationnel: La question : cette pétition peut-elle conduire à des sanctions concrètes contre CNews, ou restera-t-elle symbolique ? Les forces en présence incluent la pression de l'opinion publique, la défense de la liberté d'expression par CNews, et le rôle régulateur de l'Arcom. Un scénario favorable verrait des sanctions renforcées contre la chaîne, un scénario stable maintiendrait le statu quo, et un scénario dégradé pourrait entraîner une polarisation accrue du débat médiatique. -->
-  <!-- mots-clés: CNews ; pétition ; Arcom ; Vincent Bolloré ; liberté d'expression -->
-  <!-- scénarios (brouillon): favorable = L'Arcom impose des sanctions sévères à CNews, limitant son influence. ; stable = La pétition reste sans effet concret, mais relance le débat sur la régulation des médias. ; dégradé = La polarisation s'accentue, avec des manifestations ou contre-manifestations autour de la chaîne. -->
-  <!-- sources: Les lauréats littéraires 2026, une pétition contre CNews et la tournée de The Weeknd… <https://www.rtbf.be/article/les-laureats-litteraires-2026-une-petition-contre-cnews-et-la-tournee-de-the-weeknd-retrouvez-l-actu-culturelle-de-la-semaine-11811727> -->
-  <!-- données chiffrées: [relevé du 2026-11-10] Nombre de signatures de la pétition contre CNews (unité : signatures). Signatures le 2 novembre 2026 = 500 000 ; signatures le 8 novembre 2026 = 1 000 000 ; signatures le 10 novembre 2026 = 1 066 909. Sources : https://www.franceinfo.fr/politique/la-petition-appelant-a-supprimer-cnews-de-l-audiovisuel-francais-classee-par-la-commission-de-l-assemblee-nationale_8276303.html ; https://www.leparisien.fr/sports/cest-de-la-dictature-raymond-domenech-furieux-contre-les-deputes-qui-ont-decide-denterrer-la-petition-contre-cnews-10-11-2026-VVFCQ5A54NCCZE3MQKJ5Y6N5BM.php ; https://petitions.assemblee-nationale.fr/initiatives/i-5820?locale= -->
-  <!-- origine: veille -->
-  <!-- enrichi: 2026-11-10 -->
-  <!-- note: Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
 - [ ] La hausse du SMIC peut-elle relancer la consommation sans nuire à l'emploi ? [économie & pouvoir d'achat]
   <!-- id: actualite-francaise-la-hausse-du-smic-peut-elle-relancer-la -->
   <!-- contexte: Le gouvernement a annoncé une hausse de 1,6 % du SMIC le 10 novembre 2026, portant le salaire minimum à 1 502 euros. Cette mesure vise à soutenir le pouvoir d'achat des ménages, mais elle est critiquée par certains économistes qui craignent un impact négatif sur l'emploi, notamment dans les PME. -->
