@@ -1,17 +1,14 @@
-# Vérification des résultats — 11/11/2026
+# Vérification des résultats — 12/11/2026
 
-Modèles : `deepseek/deepseek-v4-flash` (recherche), `google/gemini-3.7-flash` (confirmation) · coût : 0.0913 $
+Modèles : `deepseek/deepseek-v4-flash` (recherche), `google/gemini-3.7-flash` (confirmation) · coût : 0.1278 $
 Un résultat n'est publié que si tous les contrôles passent (citations retrouvées dans les pages, chiffres, dates, 2 sources de domaines différents, confirmation indépendante).
 
-## Quel est le taux de désignation officiel publié pour la facturation électronique ? (`facturation-electronique-taux-designation`)
-**Refusé, reste à vérifier** : date de la réponse antérieure à l'édition ; 1 source(s) vérifiée(s) sur 2 exigées (citation introuvable dans la page, domaine répété, refusé ou page inaccessible)
+## Date butoir du règlement sur l'euro numérique : 31 décembre 2026 (`evt-date-butoir-du-reglement-sur-l-euro-numerique-2026-12-31`)
+**Refusé, reste à vérifier** : statut « incertain » : pas de réponse ferme
 
-## Quelles recettes pour « Narnia : Le Neveu du magicien » lors de son premier week-end ? (`narnia-box-office`)
-**Non vérifié (panne technique, nouvel essai au prochain passage)** : appel du modèle impossible : Expecting value: line 1 column 1 (char 0)
+## Date butoir du vote sur le PLF 2027 à l'Assemblée : 17 novembre 2026 (`evt-date-butoir-du-vote-sur-le-plf-2027-a-l-assemblee-2026-11-17`)
+**Accepté** : arrive — Le 4 novembre 2026, l'Assemblée nationale a rejeté la première partie du PLF 2027 (recettes) par 458 voix contre 0, ce qui a entraîné le rejet de l'ensemble du texte en première lecture et l'annulation du vote solennel prévu le 17 novembre 2026.
 
-
-Je vais rechercher les informations sur les recettes du premier week-end de 
-
-## Les premiers robots NEO sont-ils livrés à des particuliers américains ? (`robot-neo-livraisons`)
+## Date limite de transposition de la directive 2024/2853 : 9 décembre 2026 (`evt-date-limite-de-transposition-de-la-directive-2024-2026-12-09`)
 **Refusé, reste à vérifier** : statut « incertain » : pas de réponse ferme
 

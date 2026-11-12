@@ -14,6 +14,21 @@
     "essais": 1,
     "motif": "statut « incertain » : pas de réponse ferme"
   },
+  "evt-date-butoir-du-reglement-sur-l-euro-numerique-2026-12-31": {
+    "dernier_essai": "2026-11-12",
+    "essais": 1,
+    "motif": "statut « incertain » : pas de réponse ferme"
+  },
+  "evt-date-butoir-du-vote-sur-le-plf-2027-a-l-assemblee-2026-11-17": {
+    "dernier_essai": "2026-11-12",
+    "essais": 1,
+    "motif": "accepté"
+  },
+  "evt-date-limite-de-transposition-de-la-directive-2024-2026-12-09": {
+    "dernier_essai": "2026-11-12",
+    "essais": 1,
+    "motif": "statut « incertain » : pas de réponse ferme"
+  },
   "facturation-electronique-taux-designation": {
     "dernier_essai": "2026-11-11",
     "essais": 1,

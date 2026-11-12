@@ -151,7 +151,57 @@
       "nature": "Vote sur l'ensemble du projet de loi de finances",
       "officiel": true,
       "calendrier": "date_limite",
-      "source": "sujets"
+      "source": "sujets",
+      "resultat": {
+        "statut": "arrive",
+        "date": "2026-11-12",
+        "reponse": "Le 4 novembre 2026, l'Assemblée nationale a rejeté la première partie du PLF 2027 (recettes) par 458 voix contre 0, ce qui a entraîné le rejet de l'ensemble du texte en première lecture et l'annulation du vote solennel prévu le 17 novembre 2026.",
+        "scenario": "degrade",
+        "sources": [
+          {
+            "titre": "Rejet, en première lecture, du projet de loi de finances pour 2027 - Assemblée nationale",
+            "url": "https://www.assemblee-nationale.fr/dyn/actualites-accueil-hub/rejet-en-premiere-lecture-du-projet-de-loi-de-finances-pour-2027"
+          },
+          {
+            "titre": "Budget 2027 : le calendrier de l'Assemblée, date par date — NosParlementaires",
+            "url": "https://nosparlementaires.fr/actualites/budget-2027-calendrier-assemblee-cinq-semaines"
+          },
+          {
+            "titre": "Budget 2027 : l'Assemblée nationale rejette le texte à l'unanimité | Euronews",
+            "url": "https://fr.euronews.com/2026/11/05/budget-2027-lassemblee-nationale-rejette-le-texte-a-lunanimite"
+          }
+        ],
+        "chiffres": [
+          {
+            "libelle": "Voix contre le rejet de la première partie du PLF 2027",
+            "valeur": "458"
+          },
+          {
+            "libelle": "Voix pour",
+            "valeur": "0"
+          },
+          {
+            "libelle": "Abstentions",
+            "valeur": "2"
+          },
+          {
+            "libelle": "Déficit budgétaire après amendements (estimation du ministre)",
+            "valeur": "177,1 milliards d'euros"
+          },
+          {
+            "libelle": "Déficit public en % du PIB après amendements (estimation)",
+            "valeur": "5,9 %"
+          }
+        ],
+        "controle": {
+          "date": "2026-11-12",
+          "modeles": [
+            "deepseek/deepseek-v4-flash",
+            "google/gemini-3.7-flash"
+          ],
+          "sources_verifiees": 3
+        }
+      }
     },
     {
       "id": "evt-sortie-mondiale-en-salles-de-narnia-2027-02-12",
