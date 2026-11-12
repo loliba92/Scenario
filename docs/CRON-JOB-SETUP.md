@@ -14,27 +14,39 @@ fiable, un seul endroit pour tout voir/modifier.
    - ✅ `workflow` (update GitHub Action workflows)
 5. Génère et **copie le token** (ne le perds pas !)
 
-## 2. Les 4 jobs à créer sur cron-job.org
+## 2. Les jobs sur cron-job.org (relevé du 12 novembre 2026)
 
-Chaque job = même structure (`POST` vers `dispatches`), seul `event_type`
-et l'heure changent.
+Chaque job = même structure (`POST` vers `dispatches`), seuls le workflow et
+l'heure changent. Les horaires ci-dessous sont ceux configurés sur cron-job.org.
 
 ```
-URL to call:          https://api.github.com/repos/loliba92/Scenario/dispatches
+URL to call:          https://api.github.com/repos/loliba92/Scenario/actions/workflows/NOM.yml/dispatches
 Request method:       POST
 Custom HTTP headers:
   Authorization:       token YOUR_GITHUB_TOKEN
-  Accept:               application/vnd.github.v3+json
-Request body (JSON):  {"event_type": "EVENT_TYPE_ICI"}
+  Accept:               application/vnd.github+json
+Request body (JSON):  {"ref": "main"}
 ```
 
-| # | Job | event_type | Heure UTC | Heure Paris (été) | Rôle |
-|---|-----|-----------|-----------|---------------------|------|
-| 1 | 🔍 Preview | `trigger-preview` | **14:00** | 16h | Génère brief + `preview.html` pour DEMAIN — fenêtre de validation avant publication |
-| 2 | 🚀 Publication (prod) | `trigger-post-edition` | **05:00** | 7h | Publie le vrai site (index.html, archives, feed.xml) du jour |
-| 3 | 📱 Pub réseaux sociaux | `trigger-pub` | **06:00** | 8h | Post Telegram/X/LinkedIn/Instagram — APRÈS que le site soit en ligne |
-| 4 | 📰 Récap hebdo | `trigger-hebdo` | **11:00** dimanche uniquement | 13h | Récap de la semaine + email Buttondown |
-| 5 | 🔭 Événements à surveiller | `trigger-signaux` (ou adresse `.../actions/workflows/signaux.yml/dispatches`, corps `{"ref": "main"}`) | **05:30** | 6h30 | Contrôle des échéances de `data/signaux.json`, écrit `data/signaux-rapport.md` (`signaux.yml`) |
+| Job cron-job.org | Workflow (`.github/workflows/`) | Heure UTC | Fréquence | Rôle |
+|---|---|---|---|---|
+| Generation du Preview | `daily-preview.yml` | **13:15** | chaque jour | Génère le brief et `preview.html` pour DEMAIN |
+| Redaction et publication | `post-edition.yml` | **06:00** | chaque jour | Publie l'édition du jour (index, archives, flux) |
+| Pub | `pub.yml` | **08:00** | chaque jour | Post sur les réseaux, après la mise en ligne |
+| Dashboard / Mise a jour audience | `audience.yml` | **08:00** et **12:00** | chaque jour | Tableau de bord, données d'audience |
+| Mise a jour audience (reads) | `reads.yml` | **11:00** et **12:00** | chaque jour | Lectures par édition |
+| Mise a Jour SEO Google Search Console | `gsc.yml` | **05:05** | chaque jour | Données Search Console |
+| Signaux | `signaux.yml` | **16:00** | chaque jour | Point quotidien des échéances, résultats vérifiés, page « À venir » |
+| Generation du Scenario de la semaine | `hebdo.yml` | **12:00** | dimanche | Récap hebdomadaire |
+| Recherche des Sujets Priroitaires | `hot-topics.yml` | **05:00** | **dimanche seulement** | Veille des sujets chauds (cartes « Derniers sujets », échéances fermes) |
+| Detection de sujets a réviser | `detection.yml` | **03:00** | lundi | Détection des sujets à suivre |
+
+**Attention :** `hot-topics.yml` ne tourne que le dimanche. Les sujets chauds et
+les nouvelles échéances fermes ne sont donc mis à jour qu'une fois par semaine.
+`signaux.yml` tourne à 16h00 UTC, et non à 05h30 comme indiqué auparavant.
+
+Les workflows `enrich-sujets.yml` (chaque soir à 18h23 UTC) et `valider-sujets.yml`
+(manuel) sont déclenchés par GitHub ou à la main, sans job cron-job.org.
 
 La traduction anglaise (`translate-en.yml`) n'a **pas besoin** de job cron :
 elle se déclenche automatiquement dès que `index.html` est publié (push
