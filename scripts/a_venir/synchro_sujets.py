@@ -104,6 +104,32 @@ def synchroniser(donnees, voulus, sujets_ids):
     return ajoutes, maj, retires
 
 
+CHAMPS_FIXES = ("evenement", "precision", "qui", "nature", "officiel", "calendrier")
+PRECISIONS = {"jour", "limite", "fin_mois", "mois", "fin_annee"}
+CALENDRIERS = {"date_fixee", "date_limite", "periode_annoncee", "non_programme"}
+
+
+def valider_fixe(champs):
+    """Renvoie les champs « fermes » normalisés, ou None si un champ manque ou est douteux.
+    Règle : une échéance n'est ferme que si toutes les informations sont claires."""
+    if not isinstance(champs, dict) or champs.get("ferme") is not True:
+        return None
+    if any(not str(champs.get(c, "")).strip() for c in ("evenement", "qui", "nature")):
+        return None
+    if champs.get("precision") not in PRECISIONS or champs.get("calendrier") not in CALENDRIERS:
+        return None
+    if not isinstance(champs.get("officiel"), bool):
+        return None
+    return {"ferme": True, **{c: champs[c] for c in CHAMPS_FIXES}}
+
+
+def enregistrer_fixe(ident, champs):
+    """Écrit (ou remplace) les champs fermes d'un sujet dans data/echeances-fermes.json."""
+    fermes = json.loads(FERMES.read_text(encoding="utf-8")) if FERMES.exists() else {}
+    fermes[ident] = champs
+    FERMES.write_text(json.dumps(dict(sorted(fermes.items())), ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--date", default=None, help="AAAA-MM-JJ (défaut : aujourd'hui, Paris)")
