@@ -2,6 +2,21 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-11-12",
+      "articles": [
+        {
+          "title": "Zone euro : évolution et perspectives des taux directeurs",
+          "source": "Raisin",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG2YYxTLrW1GbyOWnATPDlseY3g_NYoXqI8yiAM59nJfxIbvXnZKq-WsuwoIJkMHaL8WsH_1Zi4zGxek_yvYxY6bXanrMrKde-HeZpjIpY_8hS3ovT6UPePbLJXLnnZDIZNr8pk-cqFWso0vQ==",
+          "image": null,
+          "lang": "fr",
+          "domain": "economie-entreprises",
+          "summary": "Point synthétique sur les trois taux de la BCE au lendemain de la réunion du 29 octobre et le calendrier monétaire 2026-2027.",
+          "read_minutes": 2
+        }
+      ]
+    },
+    {
       "date": "2026-11-11",
       "articles": [
         {
