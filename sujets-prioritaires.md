@@ -1204,7 +1204,7 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 ## Économie & finance mondiale — jeudi
 <!-- Faire tourner les sous-thèmes : marchés financiers, monnaies (dollar, or, bitcoin), dette et taux d'intérêt, matières premières (pétrole, énergie), entreprises et secteurs à l'échelle mondiale, inégalités, démographie économique, luxe et consommation… Nouveau registre créé le 12 août (retour utilisateur), scindé de l'ancien slot "Géopolitique / international — lundi" qui mélangeait géopolitique dure et économie mondiale — voir la note dans la section Géopolitique — lundi pour la règle de classement des sujets à cheval sur les deux. -->
-- [ ] La BCE peut-elle maintenir ses taux élevés sans provoquer une récession en zone euro ? [économie & banque centrale]
+- [x] La BCE peut-elle maintenir ses taux élevés sans provoquer une récession en zone euro ? [économie & banque centrale]
   <!-- id: economie-la-bce-peut-elle-maintenir-ses-taux-eleves-sans -->
   <!-- contexte: Le 10 novembre 2026, la BCE a confirmé sa politique de taux directeurs élevés pour lutter contre l'inflation, malgré des signes de ralentissement économique en zone euro. L'inflation reste à 3,8 %, tandis que la croissance stagne. Les marchés anticipent une possible hausse supplémentaire des taux en décembre. -->
   <!-- rationnel: La question : la BCE peut-elle continuer à resserrer sa politique monétaire sans plonger la zone euro en récession ? Les scénarios dépendent de l'évolution de l'inflation et de la résilience des entreprises. Un scénario favorable verrait une inflation maîtrisée sans récession, un scénario stable maintiendrait un équilibre précaire, et un scénario dégradé pourrait déclencher une crise économique. -->
