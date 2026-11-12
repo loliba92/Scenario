@@ -1,0 +1,110 @@
+{
+  "carte-blanche-gel-du-point-d-indice-des-fonctionnaires-le": {
+    "evenement": "Date butoir du vote sur le PLF 2027 à l'Assemblée",
+    "precision": "limite",
+    "qui": "Assemblée nationale",
+    "nature": "Vote sur l'ensemble du projet de loi de finances",
+    "officiel": true,
+    "calendrier": "date_limite",
+    "ferme": true
+  },
+  "culture-disney-peut-il-encore-dominer-la-culture": {
+    "evenement": "Sortie d'Avengers: Doomsday en salles",
+    "precision": "jour",
+    "qui": "Walt Disney Studios",
+    "nature": "Sortie commerciale en salles",
+    "officiel": false,
+    "calendrier": "date_fixee",
+    "ferme": true
+  },
+  "culture-le-jeu-video-peut-il-devenir-le-premier-art": {
+    "evenement": "Sortie mondiale de GTA VI",
+    "precision": "jour",
+    "qui": "Rockstar Games",
+    "nature": "Sortie commerciale du jeu",
+    "officiel": false,
+    "calendrier": "date_fixee",
+    "ferme": true
+  },
+  "culture-netflix-peut-il-devenir-le-nouveau-cinema": {
+    "evenement": "Sortie mondiale en salles de Narnia",
+    "precision": "jour",
+    "qui": "Netflix",
+    "nature": "Sortie commerciale en salles",
+    "officiel": false,
+    "calendrier": "date_fixee",
+    "ferme": true
+  },
+  "economie-assurance-construction-le-marche-va-t-il-se": {
+    "evenement": "Date limite de transposition de la directive 2024/2853",
+    "precision": "limite",
+    "qui": "Parlement français",
+    "nature": "Transposition de la directive européenne sur la responsabilité du fait des produits",
+    "officiel": true,
+    "calendrier": "date_limite",
+    "ferme": true
+  },
+  "economie-assureurs-europeens-vers-une-vague-de-fusions": {
+    "evenement": "Entrée en application de Solvabilité II révisée",
+    "precision": "jour",
+    "qui": "Commission européenne et assureurs",
+    "nature": "Entrée en application de la directive Solvabilité II révisée",
+    "officiel": true,
+    "calendrier": "date_fixee",
+    "ferme": true
+  },
+  "economie-bce-l-inflation-a-3-8-force-t-elle-une-hausse": {
+    "evenement": "Réunion de politique monétaire de la BCE",
+    "precision": "jour",
+    "qui": "Banque centrale européenne",
+    "nature": "Décision de politique monétaire et nouvelles projections",
+    "officiel": true,
+    "calendrier": "date_fixee",
+    "ferme": true
+  },
+  "economie-solvabilite-des-assureurs-europeens-les-ratios": {
+    "evenement": "Entrée en application de Solvabilité II révisée",
+    "precision": "jour",
+    "qui": "Commission européenne et assureurs",
+    "nature": "Entrée en application de la directive Solvabilité II révisée",
+    "officiel": true,
+    "calendrier": "date_fixee",
+    "ferme": true
+  },
+  "geopolitique-la-monnaie-peut-elle-devenir-une-arme": {
+    "evenement": "Date butoir du règlement sur l'euro numérique",
+    "precision": "limite",
+    "qui": "Parlement européen et Conseil de l'UE",
+    "nature": "Adoption du règlement sur l'euro numérique",
+    "officiel": true,
+    "calendrier": "date_limite",
+    "ferme": true
+  },
+  "geopolitique-un-pays-est-il-encore-souverain-s-il-ne": {
+    "evenement": "Mise en conformité au DPDP Act indien",
+    "precision": "limite",
+    "qui": "Gouvernement indien",
+    "nature": "Mise en conformité des transferts de données",
+    "officiel": true,
+    "calendrier": "date_limite",
+    "ferme": true
+  },
+  "sport-le-championnat-des-nations-de-rugby-peut-il-s": {
+    "evenement": "Grande finale du Championnat des Nations de rugby",
+    "precision": "jour",
+    "qui": "Organisateurs du Championnat des Nations",
+    "nature": "Finale",
+    "officiel": true,
+    "calendrier": "date_fixee",
+    "ferme": true
+  },
+  "sport-zidane-devoile-sa-premiere-liste-des-bleus-cinq": {
+    "evenement": "Dernier match de la phase de groupes de Ligue des nations",
+    "precision": "jour",
+    "qui": "Fédération française de football",
+    "nature": "Dernier match de la phase de groupes (France-Turquie)",
+    "officiel": true,
+    "calendrier": "date_fixee",
+    "ferme": true
+  }
+}
