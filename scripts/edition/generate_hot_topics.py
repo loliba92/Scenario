@@ -82,6 +82,8 @@ SUJETS_PRIORITAIRES = ROOT / "sujets-prioritaires.md"
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import sujets as sj  # noqa: E402  (file de sujets structurée, voir scripts/edition/sujets.py)
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts" / "a_venir"))
+import synchro_sujets as sa  # noqa: E402  (échéances à date ferme, data/echeances-fermes.json)
 SUJETS_A_SUIVRE = ROOT / "docs" / "sujets-a-suivre.md"
 ARCHIVES_DIR = ROOT / "archives"
 DASHBOARD = ROOT / "dashboard.html"
@@ -368,7 +370,11 @@ def build_prompt(existing_by_registre, priorite_absolue_titles, carte_blanche_ti
         "- 'a_verifier' (optionnel) : ce qu'il reste à vérifier ou chiffrer avant rédaction.",
         "- 'echeance' (optionnel) : {\"date\":\"AAAA-MM-JJ\",\"raison\":\"...\"} SEULEMENT s'il "
         "existe une vraie date butoir (vote, sommet, échéance légale) qui change l'intérêt "
-        "du sujet.",
+        "du sujet. Ajoute aussi, SEULEMENT si la date est officielle ou légale et qu'une source "
+        "citée la confirme : \"ferme\":true, \"evenement\" (intitulé court de l'événement), "
+        "\"precision\" (jour|limite|fin_mois|mois|fin_annee), \"qui\" (organisme), \"nature\" "
+        "(ce qui se passe), \"officiel\" (true|false), \"calendrier\" (date_fixee|date_limite|"
+        "periode_annoncee|non_programme). Sinon, n'ajoute que date et raison.",
         "- 'scenarios' : un brouillon des 3 issues (favorable/stable/dégradé), "
         "2-3 phrases chacune.",
         "- 'urgence' (optionnel, 'normal' par défaut — l'immense majorité des cas) : "
@@ -431,6 +437,11 @@ def dossier_depuis_reponse(entry, cited_urls=None):
     ec = entry.get("echeance")
     echeance = ({"date": ec["date"], "raison": str(ec.get("raison") or "").strip()}
                 if isinstance(ec, dict) and re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(ec.get("date", ""))) else None)
+    echeance_fixe = None
+    if echeance and sa.valider_fixe(ec):
+        fixe = sa.valider_fixe(ec)
+        if fixe and any(src for src in (cited or [])):
+            echeance_fixe = dict(fixe, date=echeance["date"])
     sources = []
     for src in entry.get("sources") or []:
         if not isinstance(src, dict) or not str(src.get("titre") or "").strip():
@@ -444,6 +455,7 @@ def dossier_depuis_reponse(entry, cited_urls=None):
         "angle": _texte_ou_none(entry.get("angle")),
         "a_verifier": _texte_ou_none(entry.get("a_verifier")),
         "mots_cles": mots, "scenarios": scenarios, "echeance": echeance, "sources": sources,
+        "echeance_fixe": echeance_fixe,
     }
 
 
@@ -469,12 +481,16 @@ def insert_entries(data, heading, entries, today):
     publies = tous_titres_publies() + [e2["titre"] for _, e2 in sj.sujets(data) if e2.get("statut") == "publie"]
     for e, origin_label in reversed(entries):
         champs = dossier_depuis_reponse(e, e.get("_cited_urls"))
+        fixe = champs.pop("echeance_fixe", None)
         score = score_solidite(e)
         validation, motif = decider_validation(score, e["accroche"], publies)
         note = build_note(e, today, origin_label) + f" Solidité : {score}/100. {motif}"
-        ajoutes.append(sj.ajouter(data, sec["cle"], e["accroche"].strip(), tag=(e.get("tag") or "").strip() or None,
-                                  validation=validation, origine="veille", ajoute_le=today.isoformat(),
-                                  note=note, **champs)["id"])
+        ident = sj.ajouter(data, sec["cle"], e["accroche"].strip(), tag=(e.get("tag") or "").strip() or None,
+                           validation=validation, origine="veille", ajoute_le=today.isoformat(),
+                           note=note, **champs)["id"]
+        ajoutes.append(ident)
+        if fixe:
+            sa.enregistrer_fixe(ident, fixe)
     return ajoutes
 
 

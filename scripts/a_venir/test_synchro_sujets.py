@@ -91,5 +91,23 @@ class SynchroTest(unittest.TestCase):
         self.assertEqual([r["id"] for r in donnees["rendez_vous"]], ["ancien-verifie"])
 
 
+class ValiderFixeTest(unittest.TestCase):
+    BON = {"ferme": True, "evenement": "Réunion BCE", "precision": "jour", "qui": "BCE",
+           "nature": "Décision de taux", "officiel": True, "calendrier": "date_fixee"}
+
+    def test_complet_accepte(self):
+        self.assertEqual(ss.valider_fixe(dict(self.BON))["evenement"], "Réunion BCE")
+
+    def test_refuse_si_pas_ferme_ou_champ_manquant(self):
+        self.assertIsNone(ss.valider_fixe(dict(self.BON, ferme=False)))
+        self.assertIsNone(ss.valider_fixe(dict(self.BON, qui="")))
+        self.assertIsNone(ss.valider_fixe({k: v for k, v in self.BON.items() if k != "nature"}))
+
+    def test_refuse_valeurs_inconnues(self):
+        self.assertIsNone(ss.valider_fixe(dict(self.BON, precision="bientot")))
+        self.assertIsNone(ss.valider_fixe(dict(self.BON, calendrier="peut-etre")))
+        self.assertIsNone(ss.valider_fixe(dict(self.BON, officiel="oui")))
+
+
 if __name__ == "__main__":
     unittest.main()
