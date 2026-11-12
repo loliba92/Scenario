@@ -1400,6 +1400,16 @@ préférée pour son registre déjà simplifié.*
 
 *Phrase à retenir de l'édition du 2026-11-11 (archives/2026-11-11.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
 
+### chiffre-2026-11-12
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 4,0 %
+- message: Avec une inflation à 4,0 % tirée par l'énergie et une croissance limitée à 0,9 %, la BCE maintient ses taux à 2,50 % et hésite à durcir encore le crédit.
+- attribution: — lesscenarios.fr, 12 novembre 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-11-12.html
+
+*Phrase à retenir de l'édition du 2026-11-12 (archives/2026-11-12.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
