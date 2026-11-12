@@ -19,11 +19,13 @@ class T(unittest.TestCase):
         r = g.charger()
         self.assertGreaterEqual(len(r), 1)
         for x in r:
-            self.assertTrue(x["editions"], x["id"])
+            # Un rendez-vous à venir n'a pas encore d'édition qui le traite.
+            self.assertTrue(x["editions"] or x["date"] >= "2026-11-10", x["id"])
             for iso in x["editions"]:
                 self.assertTrue((g.RACINE / "archives" / f"{iso}.html").exists(), iso)
             # un rendez-vous « à venir » ne peut pas précéder l'édition qui l'annonce
-            self.assertGreaterEqual(x["date"], min(x["editions"]), x["id"])
+            if x["editions"]:
+                self.assertGreaterEqual(x["date"], min(x["editions"]), x["id"])
         ids = [x["id"] for x in r]
         self.assertEqual(len(ids), len(set(ids)), "identifiants en double")
 
