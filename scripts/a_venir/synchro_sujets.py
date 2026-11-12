@@ -34,6 +34,17 @@ def sans_pourcent(texte):
     return re.sub(r"(\d) %", r"\1 pour cent", texte).replace("%", " pour cent")
 
 
+MOIS = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août",
+        "septembre", "octobre", "novembre", "décembre"]
+
+
+def titre_evenement(ech):
+    """Titre de la carte : l'intitulé de l'événement et sa date. Jamais le titre du sujet,
+    qui est un titre d'article ou d'édition."""
+    d = date.fromisoformat(ech["date"])
+    return sans_pourcent(f"{ech['evenement'].rstrip('.')} : {d.day} {MOIS[d.month - 1]} {d.year}")
+
+
 def domaine_de(sec_cle, e, table):
     if sec_cle == "carte_blanche":
         cle = sj.registre_du_sujet(e, table)
@@ -64,8 +75,8 @@ def desires(data, aujourdhui, fermes=None):
                 "date": ech["date"],
                 "precision": ech["precision"],
                 "domaine": domaine_de(sec_cle, e, table),
-                "question": sans_pourcent(sj.bare(e["titre"])),
-                "commentaire": sans_pourcent(ech.get("raison") or ech["evenement"]),
+                "question": titre_evenement(ech),
+                "commentaire": sans_pourcent(ech["nature"].rstrip(".") + "."),
                 "editions": [],
                 "qui": ech["qui"],
                 "nature": ech["nature"],
