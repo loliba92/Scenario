@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "b8358f67a64405f8a0a86669c4d4de8f27b670028428fe008fe8b6575a59c852"
+    "md_sha256": "4a1758d9709e64d7ca57ffa796f04685ec5b9e56135dd4cbe933498f780f172a"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -593,6 +593,46 @@
         {
           "type": "commentaire",
           "texte": "Registre scindé le 12 août (retour utilisateur) : la géopolitique dure (conflits, diplomatie, États) et l'économie mondiale (marchés, monnaies, dette, matières premières) partageaient jusque-là le même slot du lundi, ce qui tassait deux blocs très différents dans une seule file. L'économie mondiale a sa propre section dimanche (voir plus bas) — la case libérée vient de la fusion des deux jours culture (française + internationale) en un seul, samedi. **Règle de classement pour les sujets à cheval sur les deux** (ex. guerres commerciales, tarifs douaniers) : si l'enjeu central est un rapport de force entre États (qui menace qui, qui négocie quoi) → géopolitique/lundi ; si l'enjeu central est un indicateur chiffré ou un marché (prix, taux, dette, cours) → économie/dimanche. Cas tranchés le 12 août à titre d'exemple : \"Guerre commerciale USA-Chine\" reste ici (framing État contre État, guerre froide) ; \"Droits de douane de Trump\" part en économie (contenu réel = batailles judiciaires et chiffres de recettes tarifaires, pas un rapport de force diplomatique). Les vieilles éditions déjà publiées gardent leur tag d'origine (`geopolitique`), jamais retaggées rétroactivement — voir docs/tags.md."
+        },
+        {
+          "type": "sujet",
+          "id": "geopolitique-les-attaques-des-houthistes-contre-l-arabie",
+          "titre": "Les attaques des Houthistes contre l'Arabie saoudite peuvent-elles déclencher une escalade régionale ?",
+          "question": null,
+          "tag": "géopolitique & Moyen-Orient",
+          "statut": "a_traiter",
+          "validation": "valide",
+          "contexte": "Le 11 novembre 2026, des missiles houthistes ont visé Riyad et Aden, endommageant des infrastructures pétrolières saoudiennes. L'Iran a menacé l'Europe de représailles si des bases américaines sur son sol étaient utilisées pour frapper l'Iran.",
+          "rationnel": "La question : les attaques des Houthistes, soutenus par l'Iran, vont-elles provoquer une intervention militaire élargie ou rester contenues ? Les scénarios dépendent de la réaction saoudienne et de l'implication des États-Unis. Enjeu pour la France : stabilité des approvisionnements énergétiques et risques pour ses bases militaires au Moyen-Orient.",
+          "angle": null,
+          "a_verifier": null,
+          "mots_cles": [
+            "Houthistes",
+            "Arabie saoudite",
+            "Iran",
+            "Aden",
+            "Riyad",
+            "pétrole"
+          ],
+          "scenarios": {
+            "favorable": "Médiation réussie, cessez-le-feu.",
+            "stable": "Attaques sporadiques sans escalade majeure.",
+            "degrade": "Intervention militaire saoudienne ou américaine."
+          },
+          "echeance": null,
+          "sources": [
+            {
+              "titre": "Ouest-France",
+              "url": "https://www.ouest-france.fr/monde/iran/guerre-au-moyen-orient-explosions-a-aden-riyad-a-nouveau-visee-teheran-met-leurope-en-garde-les-dernieres-infos-9d30ab4e-dd99-11f1-a62b-776e3051b0df"
+            }
+          ],
+          "origine": "veille",
+          "note": "Ajouté automatiquement le 2026-11-12 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. Solidité : 85/100. Validé d'office : score suffisant, aucun recyclage de sujet publié.",
+          "donnees": null,
+          "ajoute_le": "2026-11-12",
+          "publie_le": null,
+          "edition": null,
+          "enrichi_le": null
         },
         {
           "type": "sujet",
@@ -5107,6 +5147,44 @@
         {
           "type": "commentaire",
           "texte": "Faire tourner les domaines : cinéma, musique, jeux vidéo, littérature, spectacle, séries, art… Registre fusionné le 12 août (retour utilisateur) : \"Culture française\" (samedi) et \"Culture internationale\" (dimanche) couvraient les mêmes domaines avec une frontière souvent artificielle (un sujet français a presque toujours une dimension internationale, et inversement) et étaient tous les deux clairsemés — fusionnés en un seul registre plus riche, sans distinction française/internationale à l'entrée. La case libérée par la fusion sert au nouveau registre \"Économie & finance mondiale — dimanche\" (voir plus bas)."
+        },
+        {
+          "type": "sujet",
+          "id": "culture-the-weeknd-bat-le-record-de-recettes-pour-une",
+          "titre": "The Weeknd bat le record de recettes pour une tournée masculine : le live peut-il surpasser le streaming ?",
+          "question": null,
+          "tag": "musique & économie",
+          "statut": "a_traiter",
+          "validation": "valide",
+          "contexte": "Sa tournée 'After Hours Til Dawn' a généré 1,3 milliard de dollars, clôturée le 5 novembre.",
+          "rationnel": "La question : ce succès marque-t-il un retour vers le spectacle vivant ou reste-t-il une exception ? Enjeu pour l'industrie musicale post-pandémie.",
+          "angle": null,
+          "a_verifier": null,
+          "mots_cles": [
+            "The Weeknd",
+            "tournée",
+            "streaming",
+            "live"
+          ],
+          "scenarios": {
+            "favorable": "Explosion des revenus live, déclin du streaming.",
+            "stable": "Coexistence des deux modèles.",
+            "degrade": "Retour à la domination du streaming post-tournée."
+          },
+          "echeance": null,
+          "sources": [
+            {
+              "titre": "RTBF",
+              "url": "https://www.rtbf.be/article/les-laureats-litteraires-2026-une-petition-contre-cnews-et-la-tournee-de-the-weeknd-retrouvez-l-actu-culturelle-de-la-semaine-11811727"
+            }
+          ],
+          "origine": "veille",
+          "note": "Ajouté automatiquement le 2026-11-12 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. Solidité : 85/100. Validé d'office : score suffisant, aucun recyclage de sujet publié.",
+          "donnees": null,
+          "ajoute_le": "2026-11-12",
+          "publie_le": null,
+          "edition": null,
+          "enrichi_le": null
         },
         {
           "type": "sujet",

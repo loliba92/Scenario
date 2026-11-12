@@ -1,5 +1,19 @@
 [
   {
+    "date": "2026-11-12",
+    "registre": "Géopolitique",
+    "section": "Géopolitique",
+    "accroche": "Les attaques des Houthistes contre l'Arabie saoudite peuvent-elles déclencher une escalade régionale ?",
+    "tag": "géopolitique & Moyen-Orient"
+  },
+  {
+    "date": "2026-11-12",
+    "registre": "Culture",
+    "section": "Culture",
+    "accroche": "The Weeknd bat le record de recettes pour une tournée masculine : le live peut-il surpasser le streaming ?",
+    "tag": "musique & économie"
+  },
+  {
     "date": "2026-11-10",
     "registre": "Géopolitique",
     "section": "Géopolitique",
@@ -194,19 +208,5 @@
     "section": "Culture",
     "accroche": "Budget culture 2027 : le spectacle vivant peut-il survivre à une baisse de 4 % des crédits à la création ?",
     "tag": "culture & budget"
-  },
-  {
-    "date": "2026-10-04",
-    "registre": "Économie & finance",
-    "section": "Économie & finance",
-    "accroche": "BCE : les marchés parient sur trois hausses de taux d'ici fin 2027 — l'inflation est-elle vraiment revenue ?",
-    "tag": "économie & finance"
-  },
-  {
-    "date": "2026-10-04",
-    "registre": "Économie & finance",
-    "section": "Économie & finance",
-    "accroche": "France : 340 Md€ d'émissions d'OAT en 2027, un record — le marché peut-il absorber sans crise ?",
-    "tag": "économie & finance"
   }
 ]

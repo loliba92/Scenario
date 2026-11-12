@@ -158,6 +158,15 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 ## Géopolitique — lundi
 <!-- Registre scindé le 12 août (retour utilisateur) : la géopolitique dure (conflits, diplomatie, États) et l'économie mondiale (marchés, monnaies, dette, matières premières) partageaient jusque-là le même slot du lundi, ce qui tassait deux blocs très différents dans une seule file. L'économie mondiale a sa propre section dimanche (voir plus bas) — la case libérée vient de la fusion des deux jours culture (française + internationale) en un seul, samedi. **Règle de classement pour les sujets à cheval sur les deux** (ex. guerres commerciales, tarifs douaniers) : si l'enjeu central est un rapport de force entre États (qui menace qui, qui négocie quoi) → géopolitique/lundi ; si l'enjeu central est un indicateur chiffré ou un marché (prix, taux, dette, cours) → économie/dimanche. Cas tranchés le 12 août à titre d'exemple : "Guerre commerciale USA-Chine" reste ici (framing État contre État, guerre froide) ; "Droits de douane de Trump" part en économie (contenu réel = batailles judiciaires et chiffres de recettes tarifaires, pas un rapport de force diplomatique). Les vieilles éditions déjà publiées gardent leur tag d'origine (`geopolitique`), jamais retaggées rétroactivement — voir docs/tags.md. -->
+- [ ] Les attaques des Houthistes contre l'Arabie saoudite peuvent-elles déclencher une escalade régionale ? [géopolitique & Moyen-Orient]
+  <!-- id: geopolitique-les-attaques-des-houthistes-contre-l-arabie -->
+  <!-- contexte: Le 11 novembre 2026, des missiles houthistes ont visé Riyad et Aden, endommageant des infrastructures pétrolières saoudiennes. L'Iran a menacé l'Europe de représailles si des bases américaines sur son sol étaient utilisées pour frapper l'Iran. -->
+  <!-- rationnel: La question : les attaques des Houthistes, soutenus par l'Iran, vont-elles provoquer une intervention militaire élargie ou rester contenues ? Les scénarios dépendent de la réaction saoudienne et de l'implication des États-Unis. Enjeu pour la France : stabilité des approvisionnements énergétiques et risques pour ses bases militaires au Moyen-Orient. -->
+  <!-- mots-clés: Houthistes ; Arabie saoudite ; Iran ; Aden ; Riyad ; pétrole -->
+  <!-- scénarios (brouillon): favorable = Médiation réussie, cessez-le-feu. ; stable = Attaques sporadiques sans escalade majeure. ; dégradé = Intervention militaire saoudienne ou américaine. -->
+  <!-- sources: Ouest-France <https://www.ouest-france.fr/monde/iran/guerre-au-moyen-orient-explosions-a-aden-riyad-a-nouveau-visee-teheran-met-leurope-en-garde-les-dernieres-infos-9d30ab4e-dd99-11f1-a62b-776e3051b0df> -->
+  <!-- origine: veille -->
+  <!-- note: Ajouté automatiquement le 2026-11-12 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. Solidité : 85/100. Validé d'office : score suffisant, aucun recyclage de sujet publié. -->
 - [ ] Les pourparlers entre l'Ukraine et la Russie à Abou Dhabi peuvent-ils aboutir à un accord de paix ? [géopolitique & Ukraine]
   <!-- id: geopolitique-les-pourparlers-entre-l-ukraine-et-la-russie-a -->
   <!-- contexte: Les premières discussions directes entre l'Ukraine et la Russie depuis plus de huit mois ont repris le 10 novembre 2026 à Abou Dhabi, sous médiation américaine. Les questions humanitaires et les garanties de sécurité sont au cœur des négociations. Volodymyr Zelensky a qualifié les échanges de "constructifs et substantiels". Les Européens et les Américains ont réaffirmé leur engagement pour une sécurité européenne solide après la guerre. -->
@@ -989,6 +998,15 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 ## Culture — samedi
 <!-- Faire tourner les domaines : cinéma, musique, jeux vidéo, littérature, spectacle, séries, art… Registre fusionné le 12 août (retour utilisateur) : "Culture française" (samedi) et "Culture internationale" (dimanche) couvraient les mêmes domaines avec une frontière souvent artificielle (un sujet français a presque toujours une dimension internationale, et inversement) et étaient tous les deux clairsemés — fusionnés en un seul registre plus riche, sans distinction française/internationale à l'entrée. La case libérée par la fusion sert au nouveau registre "Économie & finance mondiale — dimanche" (voir plus bas). -->
+- [ ] The Weeknd bat le record de recettes pour une tournée masculine : le live peut-il surpasser le streaming ? [musique & économie]
+  <!-- id: culture-the-weeknd-bat-le-record-de-recettes-pour-une -->
+  <!-- contexte: Sa tournée 'After Hours Til Dawn' a généré 1,3 milliard de dollars, clôturée le 5 novembre. -->
+  <!-- rationnel: La question : ce succès marque-t-il un retour vers le spectacle vivant ou reste-t-il une exception ? Enjeu pour l'industrie musicale post-pandémie. -->
+  <!-- mots-clés: The Weeknd ; tournée ; streaming ; live -->
+  <!-- scénarios (brouillon): favorable = Explosion des revenus live, déclin du streaming. ; stable = Coexistence des deux modèles. ; dégradé = Retour à la domination du streaming post-tournée. -->
+  <!-- sources: RTBF <https://www.rtbf.be/article/les-laureats-litteraires-2026-une-petition-contre-cnews-et-la-tournee-de-the-weeknd-retrouvez-l-actu-culturelle-de-la-semaine-11811727> -->
+  <!-- origine: veille -->
+  <!-- note: Ajouté automatiquement le 2026-11-12 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. Solidité : 85/100. Validé d'office : score suffisant, aucun recyclage de sujet publié. -->
 - [ ] L'IA dans l'édition : les maisons d'édition françaises peuvent-elles se protéger ? [culture & numérique]
   <!-- id: culture-l-ia-dans-l-edition-les-maisons-d-edition -->
   <!-- contexte: En novembre 2026, le groupe Madrigall (Gallimard, Flammarion) annonce l'utilisation d'un logiciel pour détecter les manuscrits générés par IA. Cette décision suit des polémiques sur des livres soupçonnés d'être écrits par des IA, comme l'affaire Thélyson Orélien. -->
