@@ -497,7 +497,9 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
   <!-- mots-clés: SMIC ; pouvoir d'achat ; emploi ; gouvernement ; PME -->
   <!-- scénarios (brouillon): favorable = La consommation repart, soutenant la croissance sans impact majeur sur l'emploi. ; stable = L'impact est neutre, avec une légère hausse des prix compensée par une consommation stable. ; dégradé = Les PME réduisent leurs effectifs pour compenser la hausse des coûts, aggravant le chômage. -->
   <!-- sources: BFM Business : « Nous estimons que la croissance sera modérément positive au quatrième trimestre » <https://www.banque-france.fr/fr/interventions-gouverneur/bfm-business-nous-estimons-que-la-croissance-sera-moderement-positive-au-quatrieme-trimestre> -->
+  <!-- données chiffrées: [relevé du 2026-11-12] Hausse du SMIC en France (unité : euros net mensuels). SMIC avant hausse = 1 478 (novembre 2026) ; SMIC après hausse = 1 502 (décembre 2026) ; hausse annuelle totale du SMIC en 2026 = 5,6% (2026). Sources : https://www.bfmtv.com/economie/economie-social/le-gouvernement-annonce-une-hausse-du-smic-de-1-6-des-le-mois-de-decembre-est-ce-une-fausse-bonne-idee-qui-risque-de-relever-encore-les-prix-et-de-detruire-des-emplois_AV-202611090486.html ; https://www.franceinfo.fr/economie/greve/augmentation-du-smic-allegements-de-charges-pour-les-entreprises-ce-qu-il-faut-retenir-des-annonces-du-gouvernement-a-l-issue-de-la-conference-sociale_8274527.html -->
   <!-- origine: veille -->
+  <!-- enrichi: 2026-11-12 -->
   <!-- note: Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
 - [ ] La réforme des retraites peut-elle revenir dans le débat présidentiel ? [politique & retraites]
   <!-- id: actualite-francaise-la-reforme-des-retraites-peut-elle-revenir-dans -->
