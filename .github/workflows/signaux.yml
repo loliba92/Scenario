@@ -31,7 +31,7 @@ jobs:
         run: pip install beautifulsoup4
 
       - name: Tests
-        run: python3 -m unittest scripts/detection/test_verifier_signaux.py scripts/a_venir/test_generate_a_venir.py scripts/a_venir/test_controles.py
+        run: python3 -m unittest scripts/detection/test_verifier_signaux.py scripts/a_venir/test_generate_a_venir.py scripts/a_venir/test_controles.py scripts/a_venir/test_synchro_sujets.py
 
       - name: Rapport gratuit des échéances
         run: python3 scripts/detection/verifier_signaux.py --sortie "$RUNNER_TEMP/rapport.md" > /dev/null
@@ -54,6 +54,7 @@ jobs:
             cp "$RUNNER_TEMP/rapport.md" data/signaux-rapport.md
             [ -f "$RUNNER_TEMP/verification.md" ] && cp "$RUNNER_TEMP/verification.md" data/a-venir-verification.md
             python3 scripts/a_venir/appliquer_resultats.py "$RUNNER_TEMP/patch.json"
+            python3 scripts/a_venir/synchro_sujets.py
             python3 scripts/a_venir/generate_a_venir.py
             python3 scripts/a_venir/accueil.py
             git add data/ a-venir.html index.html
