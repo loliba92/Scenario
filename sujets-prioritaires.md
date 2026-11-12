@@ -1005,7 +1005,9 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
   <!-- mots-clés: The Weeknd ; tournée ; streaming ; live -->
   <!-- scénarios (brouillon): favorable = Explosion des revenus live, déclin du streaming. ; stable = Coexistence des deux modèles. ; dégradé = Retour à la domination du streaming post-tournée. -->
   <!-- sources: RTBF <https://www.rtbf.be/article/les-laureats-litteraires-2026-une-petition-contre-cnews-et-la-tournee-de-the-weeknd-retrouvez-l-actu-culturelle-de-la-semaine-11811727> -->
+  <!-- données chiffrées: [relevé du 2026-11-12] Revenus des tournées mondiales (unité : milliards de dollars). The Weeknd After Hours Til Dawn Tour = 1.3 (2026) ; Taylor Swift Eras Tour = 2 (2023-2024) ; Coldplay Music of the Spheres Tour = 1.52 (2022-2026). Sources : https://variety.com/2026/music/news/the-weeknd-breaks-tour-record-billion-gross-1236940441/ ; https://ca.billboard.com/business/touring/the-weeknd-highest-grossing-male-tour ; https://news.pollstar.com/2026/09/21/top-tours-the-weeknd-adds-378m-to-world-tours-4-year-gross-now-at-1-07b/ -->
   <!-- origine: veille -->
+  <!-- enrichi: 2026-11-12 -->
   <!-- note: Ajouté automatiquement le 2026-11-12 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. Solidité : 85/100. Validé d'office : score suffisant, aucun recyclage de sujet publié. -->
 - [ ] L'IA dans l'édition : les maisons d'édition françaises peuvent-elles se protéger ? [culture & numérique]
   <!-- id: culture-l-ia-dans-l-edition-les-maisons-d-edition -->

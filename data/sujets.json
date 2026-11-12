@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "4a1758d9709e64d7ca57ffa796f04685ec5b9e56135dd4cbe933498f780f172a"
+    "md_sha256": "7fa204d60684a30f0c9369641bbc94004c4fa07720e95aec6bb94e87f36cae44"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -5180,11 +5180,11 @@
           ],
           "origine": "veille",
           "note": "Ajouté automatiquement le 2026-11-12 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. Solidité : 85/100. Validé d'office : score suffisant, aucun recyclage de sujet publié.",
-          "donnees": null,
+          "donnees": "[relevé du 2026-11-12] Revenus des tournées mondiales (unité : milliards de dollars). The Weeknd After Hours Til Dawn Tour = 1.3 (2026) ; Taylor Swift Eras Tour = 2 (2023-2024) ; Coldplay Music of the Spheres Tour = 1.52 (2022-2026). Sources : https://variety.com/2026/music/news/the-weeknd-breaks-tour-record-billion-gross-1236940441/ ; https://ca.billboard.com/business/touring/the-weeknd-highest-grossing-male-tour ; https://news.pollstar.com/2026/09/21/top-tours-the-weeknd-adds-378m-to-world-tours-4-year-gross-now-at-1-07b/",
           "ajoute_le": "2026-11-12",
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-11-12"
         },
         {
           "type": "sujet",
