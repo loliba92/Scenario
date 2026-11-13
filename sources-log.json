@@ -2,6 +2,21 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-11-13",
+      "articles": [
+        {
+          "title": "Les émissions mondiales de CO2 devraient reculer en 2026 selon le Global Carbon Budget",
+          "source": "Nouvelles du Monde",
+          "url": "https://www.nouvelles-du-monde.com/le-cern-identifie-une-desintegration-de-particule-extremement-rare/",
+          "image": "https://www.nouvelles-du-monde.com/wp-content/uploads/2026/11/1920_profchrisparkeswiththelhcbexperiment.png",
+          "lang": "fr",
+          "domain": "sciences-environnement",
+          "summary": "Le rapport Global Carbon Budget 2026 anticiperait un recul des émissions mondiales de CO2 pour la première année depuis plusieurs décennies, selon un article croisé lors de la recherche.",
+          "read_minutes": 3
+        }
+      ]
+    },
+    {
       "date": "2026-11-12",
       "articles": [
         {
