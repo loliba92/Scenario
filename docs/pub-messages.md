@@ -1410,6 +1410,16 @@ préférée pour son registre déjà simplifié.*
 
 *Phrase à retenir de l'édition du 2026-11-12 (archives/2026-11-12.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
 
+### chiffre-2026-11-13
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 3,2 sigma
+- message: Une désintégration attendue une fois sur dix milliards, traquée depuis 1984, vient d'être repérée par le CERN avec une confiance de 3,2 sigma — loin encore des 5 sigma requis pour parler de découverte.
+- attribution: — lesscenarios.fr, 13 novembre 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-11-13.html
+
+*Phrase à retenir de l'édition du 2026-11-13 (archives/2026-11-13.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
