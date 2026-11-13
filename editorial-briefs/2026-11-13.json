@@ -1,0 +1,492 @@
+{
+  "date": "2026-11-13",
+  "registre": "sciences",
+  "sujet": {
+    "titre_propose": "CERN : la désintégration la plus rare jamais vue ouvre-t-elle la voie à une nouvelle physique ?",
+    "h1": "CERN : la désintégration rare qui divise les physiciens",
+    "question_posee": "La désintégration ultra-rare d'une particule observée par le CERN confirme-t-elle le Modèle Standard, ou cache-t-elle une physique encore inconnue ?",
+    "eyebrow": "Vendredi, sciences",
+    "angle": "Le 3 novembre 2026, la collaboration LHCb du CERN a annoncé les premiers indices expérimentaux d'une désintégration attendue une fois sur dix milliards — chassée depuis 1984. Le signal colle au Modèle Standard, ce qui referme certaines pistes de nouvelle physique sans les exclure totalement, pendant que le financement britannique du futur détecteur, qui seul permettrait de trancher, est suspendu.",
+    "tags": [
+      "physique",
+      "CERN",
+      "LHC",
+      "modèle standard",
+      "recherche fondamentale"
+    ],
+    "domain": "sciences-environnement",
+    "image_keywords": "particle physics laboratory, scientific research facility",
+    "complexite": 5,
+    "origine_prioritaire": "La découverte d'une désintégration rare de particule ouvre-t-elle la voie à une nouvelle physique ?",
+    "origine_id": "sciences-la-decouverte-d-une-desintegration-rare-de",
+    "point_de_depart": {
+      "id": "sciences-la-decouverte-d-une-desintegration-rare-de",
+      "registre": "sciences",
+      "titre": "La découverte d'une désintégration rare de particule ouvre-t-elle la voie à une nouvelle physique ?",
+      "question": "La découverte d'une désintégration rare de particule ouvre-t-elle la voie à une nouvelle physique ?",
+      "contexte": "Le 3 novembre 2026, le CERN a annoncé avoir observé la désintégration extrêmement rare d'un méson Bd en deux muons, un phénomène qui ne se produit qu'une fois sur dix milliards. Cette découverte pourrait remettre en question le Modèle Standard de la physique des particules.",
+      "rationnel": "La question : cette observation confirme-t-elle le Modèle Standard, ou révèle-t-elle l'existence de nouvelles particules ou forces ? Les scénarios dépendent des analyses ultérieures. Un scénario favorable verrait la confirmation d'une nouvelle physique, un scénario stable validerait le Modèle Standard, et un scénario dégradé laisserait les questions en suspens.",
+      "mots_cles": [
+        "CERN",
+        "méson Bd",
+        "muons",
+        "Modèle Standard",
+        "physique des particules"
+      ],
+      "angle": null,
+      "a_verifier": null,
+      "scenarios_brouillon": {
+        "favorable": "La découverte conduit à une révision majeure du Modèle Standard, ouvrant de nouvelles perspectives en physique.",
+        "stable": "Le Modèle Standard est confirmé, sans avancée révolutionnaire.",
+        "degrade": "Les résultats restent ambigus, nécessitant des années de recherches supplémentaires."
+      },
+      "echeance": null,
+      "sources_pistes": [
+        {
+          "titre": "La désintégration extrêmement rare d’une particule suscite l’espoir de découvrir une nouvelle physique",
+          "url": "https://www.lemonde.fr/sciences/article/2026/11/10/la-desintegration-extremement-rare-d-une-particule-suscite-l-espoir-de-decouvrir-une-nouvelle-physique_6808823_1650684.html"
+        }
+      ],
+      "tag": "sciences & physique",
+      "origine": "veille",
+      "note_editoriale": "Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
+      "donnees_graphique": null,
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Édition de la veille (12.11.2026, économie/BCE) sans lien. Dernières éditions du registre sciences-environnement (06.11 robotique, 30.10 IA et emploi, 23.10 eau) : aucune ne porte sur la physique des particules, le CERN ou le Modèle Standard — sujet inédit sur ce créneau."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "La collaboration LHCb du CERN a annoncé lors d'un séminaire le 3 novembre 2026 avoir trouvé les premiers indices, par une seule expérience, qu'un méson B neutre (Bd) peut se désintégrer en un muon et un antimuon.",
+      "chiffre": "3,2 sigma",
+      "date_du_chiffre": "2026-11-03",
+      "sources": [
+        "s1",
+        "s2"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le Modèle Standard prédit que cette désintégration ne se produit qu'environ une fois sur dix milliards de désintégrations du méson Bd ; la mesure combinée de LHCb donne environ 1,14 fois sur dix milliards, compatible avec la prédiction théorique d'environ 1,03 sur dix milliards.",
+      "chiffre": "1,14 sur 10 milliards (prédiction : 1,03 sur 10 milliards)",
+      "date_du_chiffre": "2026-11-03",
+      "sources": [
+        "s3"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le résultat atteint une significativité statistique de 3,2 sigma, au-dessus du seuil de 3 sigma qui permet de parler d'« indice » en physique des particules, mais encore loin des 5 sigma requis pour parler de « découverte » confirmée.",
+      "chiffre": "3,2 sigma (seuil de découverte : 5 sigma)",
+      "date_du_chiffre": "2026-11-03",
+      "sources": [
+        "s2",
+        "s4"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La recherche de cette désintégration a commencé en 1984, quand l'expérience CLEO a fixé la première limite supérieure de son taux ; cela fait donc plus de 40 ans que les physiciens la traquent.",
+      "chiffre": "plus de 40 ans",
+      "date_du_chiffre": "2026-11-03",
+      "sources": [
+        "s4"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Dans la même analyse, LHCb a mesuré avec une précision record la désintégration apparentée d'un méson Bs (plus lourd) en deux muons, déjà observée en 2015, avec un taux de 3,31 pour un milliard contre une prédiction théorique de 3,66 pour un milliard.",
+      "chiffre": "3,31 pour un milliard (prédiction : 3,66 pour un milliard)",
+      "date_du_chiffre": "2026-11-03",
+      "sources": [
+        "s4"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La durée de vie effective du méson Bs dans cette désintégration a été mesurée à 1,60 picoseconde, un résultat là aussi conforme à la prédiction du Modèle Standard.",
+      "chiffre": "1,60 picoseconde",
+      "date_du_chiffre": "2026-11-03",
+      "sources": [
+        "s4"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Cette capacité à isoler un signal aussi rare résulte d'une modernisation du détecteur LHCb en 2024, qui lui permet de collecter des données cinq fois plus vite qu'entre 2010 et 2018, combinée à des techniques d'apprentissage automatique pour filtrer le bruit de fond.",
+      "chiffre": "5 fois plus vite",
+      "date_du_chiffre": "2026-11-03",
+      "sources": [
+        "s5"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Les résultats, non encore relus par les pairs, ont été déposés en préimpression sur arXiv le 30 octobre 2026 et soumis à la revue Physical Review X.",
+      "chiffre": null,
+      "date_du_chiffre": "2026-10-30",
+      "sources": [
+        "s1"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Les chercheurs restent prudents : à ce stade, les résultats n'ouvrent aucune brèche confirmée vers une nouvelle physique, mais resserrent l'étau autour de théories qui prédiraient des particules ou forces encore inconnues (matière noire, asymétrie matière-antimatière).",
+      "chiffre": null,
+      "date_du_chiffre": "2026-11-03",
+      "sources": [
+        "s2",
+        "s6"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le Royaume-Uni a retiré en janvier 2026 le financement prévu (environ 45 à 49,4 millions de livres) pour la deuxième phase de modernisation du détecteur LHCb (LHCb Upgrade II), qui devait justement permettre d'accumuler assez de données pour confirmer ou infirmer ce signal au niveau de découverte.",
+      "chiffre": "environ 45-49,4 millions £",
+      "date_du_chiffre": "2026-01",
+      "sources": [
+        "s7",
+        "s8"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Plus de 400 physiciens, dont les prix Nobel David Politzer et Giorgio Parisi, ont signé une lettre ouverte dénonçant ce retrait de financement comme menaçant la capacité de LHCb à trancher définitivement la question.",
+      "chiffre": "plus de 400 signataires",
+      "date_du_chiffre": "2026-11",
+      "sources": [
+        "s9"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Sans cette modernisation, le détecteur LHCb devrait cesser de fonctionner vers 2033, après avoir atteint la fin de sa durée de vie du fait des dommages liés à l'irradiation.",
+      "chiffre": "2033",
+      "date_du_chiffre": "2026-02",
+      "sources": [
+        "s10"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Un futur démarrage du LHC à haute luminosité (HiLumi LHC) est prévu en 2030, avec une nouvelle modernisation de LHCb dans la seconde moitié de la décennie, qui pourrait multiplier par dix le volume de données disponibles pour étudier ces désintégrations rares.",
+      "chiffre": "x10",
+      "date_du_chiffre": "2026-11-03",
+      "sources": [
+        "s11"
+      ],
+      "confiance": "haute"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "CERN / collaboration LHCb",
+      "role": "Organisation qui a mené et annoncé la découverte le 3 novembre 2026"
+    },
+    {
+      "nom": "Marco Santimaria (INFN Frascati)",
+      "role": "Co-responsable de l'analyse de 19 chercheurs ayant produit le résultat"
+    },
+    {
+      "nom": "Harry Cliff (Université de Cambridge)",
+      "role": "Physicien ayant publiquement commenté et vulgarisé la découverte"
+    },
+    {
+      "nom": "Tim Gershon (Université de Warwick)",
+      "role": "Porte-parole international de la collaboration LHCb, alerte sur le risque pour l'avenir du programme"
+    },
+    {
+      "nom": "UK Research and Innovation (UKRI) / STFC",
+      "role": "Organisme britannique ayant retiré le financement prévu pour la modernisation du détecteur LHCb"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "1984",
+      "evenement": "L'expérience CLEO fixe la première limite supérieure sur le taux de cette désintégration, point de départ de la recherche"
+    },
+    {
+      "date": "2012",
+      "evenement": "LHCb obtient les premiers indices (3,5 sigma) de la désintégration apparentée du méson Bs en deux muons"
+    },
+    {
+      "date": "2015",
+      "evenement": "Première observation conjointe LHCb-CMS de la désintégration du méson Bs en deux muons (6,2 sigma)"
+    },
+    {
+      "date": "2024",
+      "evenement": "Modernisation du détecteur LHCb, qui multiplie par cinq la vitesse de collecte de données"
+    },
+    {
+      "date": "2026-01",
+      "evenement": "UKRI retire le financement prévu pour la modernisation LHCb Upgrade II"
+    },
+    {
+      "date": "2026-10-30",
+      "evenement": "Dépôt de la préimpression des résultats sur arXiv, soumission à Physical Review X"
+    },
+    {
+      "date": "2026-11-03",
+      "evenement": "Annonce officielle par la collaboration LHCb lors d'un séminaire au CERN"
+    },
+    {
+      "date": "2030",
+      "evenement": "Démarrage prévu du LHC à haute luminosité (HiLumi LHC), qui doit démultiplier les données disponibles"
+    },
+    {
+      "date": "2033",
+      "evenement": "Fin de vie prévue du détecteur LHCb actuel si la modernisation Upgrade II n'est pas financée"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Des données supplémentaires (accumulées via le LHC puis le HiLumi LHC dès 2030) font grimper la significativité statistique au-delà de 5 sigma tout en révélant un écart avec la prédiction du Modèle Standard, ouvrant la voie confirmée à une nouvelle physique (particules ou forces inconnues).",
+      "probabilite_suggeree": 15
+    },
+    "stable": {
+      "resume": "Les mesures futures confirment le résultat actuel sans aucun écart : la désintégration est établie au niveau découverte (5 sigma) mais colle exactement au Modèle Standard, fermant plusieurs pistes de nouvelle physique sans en ouvrir de nouvelle.",
+      "probabilite_suggeree": 55
+    },
+    "degrade": {
+      "resume": "Faute de financement suffisant pour la modernisation du détecteur (LHCb Upgrade II compromis) et de données additionnelles, le signal reste bloqué à 3,2 sigma pendant plusieurs années, dans une zone grise ni confirmée ni infirmée.",
+      "probabilite_suggeree": 30
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Significativité statistique du signal",
+      "valeur": "3,2 sigma (seuil découverte : 5 sigma)",
+      "tendance": "en hausse depuis la 1ère preuve à 3,0 sigma sur les seules données 2024-2025"
+    },
+    {
+      "label": "Rareté de la désintégration observée",
+      "valeur": "environ 1 fois sur 10 milliards de désintégrations",
+      "tendance": "conforme à la prédiction théorique de 1,03 sur 10 milliards"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Recherche effectuée (physicsworld.com, phys.org, sci.news, lhcb-outreach.web.cern.ch) : la série existante porte sur la significativité statistique du signal à chaque étape de la recherche (2012 : 3,5 sigma pour le Bs ; 2015 : 6,2 sigma observation Bs ; 2017 : 7,8 sigma Bs seul ; 2026 : 3,0 sigma puis 3,2 sigma pour le Bd). Cela ne fait que 4 points utilisables pour le Bd (la désintégration du jour), et ils ne forment pas une grandeur cotée en continu ni un historique de mesure physique répétée à intervalles réguliers (ce sont des étapes d'analyse disparates, pas une série annuelle) — critère (2) 'au moins 5 points réels sur une période cohérente' non rempli pour le sujet précis du jour (Bd→μμ). Pas de série plus longue et pertinente trouvée qui éclaire directement la question (nouvelle physique oui/non)."
+  },
+  "graphique_chiffres": {
+    "decision": "oui",
+    "raison": null,
+    "barres": {
+      "aria_label": "Comparaison de la fréquence mesurée et prédite de deux désintégrations rares de mésons B, en nombre d'occurrences pour dix milliards de désintégrations",
+      "lead": "Deux désintégrations ultra-rares de mésons de beauté, mesurées par LHCb en 2026, collent de très près aux prédictions du Modèle Standard.",
+      "caption": "Source : collaboration LHCb (CERN), résultats annoncés le 3 novembre 2026, repris par Physics World et Sci.News.",
+      "unite": "pour 10 milliards de désintégrations",
+      "valeurs": [
+        {
+          "label": "Bd→μμ, prédiction Modèle Standard",
+          "valeur": 1.03,
+          "affichage": "1,03",
+          "mis_en_avant": false
+        },
+        {
+          "label": "Bd→μμ, mesure LHCb 2026",
+          "valeur": 1.14,
+          "affichage": "1,14",
+          "mis_en_avant": true
+        },
+        {
+          "label": "Bs→μμ, prédiction Modèle Standard",
+          "valeur": 36.6,
+          "affichage": "36,6",
+          "mis_en_avant": false
+        },
+        {
+          "label": "Bs→μμ, mesure LHCb 2026",
+          "valeur": 33.1,
+          "affichage": "33,1",
+          "mis_en_avant": false
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Ce qu'est un méson, un quark « beauté » et pourquoi une désintégration en deux muons est si rare et si révélatrice (mécanisme physique)",
+        "rattache_a": "faits_verifies[0] et faits_verifies[1] — la désintégration elle-même et sa rareté prédite"
+      },
+      {
+        "focus": "La différence entre « indice » (3 sigma) et « découverte » (5 sigma) en physique des particules, et pourquoi 3,2 sigma ne suffit pas encore à trancher",
+        "rattache_a": "faits_verifies[2] — le seuil statistique et son interprétation"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Le résultat n'a pas encore été relu par les pairs (preprint arXiv du 30 octobre 2026, soumis à Physical Review X) : une révision pourrait modifier la significativité ou l'interprétation.",
+    "L'issue de la procédure de financement britannique (UKRI/STFC) pour LHCb Upgrade II reste ouverte au moment du brief : plusieurs lettres ouvertes et pressions politiques récentes (novembre 2026) demandent un réexamen, sans décision connue de renversement à ce jour.",
+    "Le calendrier exact de l'augmentation x10 des données via le HiLumi LHC dépend à la fois du calendrier technique du CERN (démarrage visé 2030) et du sort de la modernisation LHCb elle-même, aujourd'hui incertain."
+  ],
+  "a_ne_pas_affirmer": [
+    "Ne jamais présenter ce résultat comme une « découverte » confirmée de nouvelle physique : c'est un indice statistique (3,2 sigma), en dessous du seuil de 5 sigma requis en physique des particules.",
+    "Ne jamais affirmer que le retrait du financement britannique a déjà annulé la modernisation LHCb Upgrade II de façon définitive : au moment du brief, la situation reste contestée (lettres ouvertes de novembre 2026), sans décision finale confirmée de réintégration ou d'annulation ferme à ce jour.",
+    "Ne jamais dire que le résultat contredit le Modèle Standard : au contraire, toutes les sources confirment qu'il y est conforme, ce qui referme certaines pistes de nouvelle physique sans toutefois les exclure totalement."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Ce phénomène avait une chance sur 10 milliards de se produire : des scientifiques du CERN viennent enfin de le détecter",
+      "source": "Presse-citron",
+      "url": "https://www.presse-citron.net/phenomene-une-chance-10-milliards-produire-scientifiques-cern-viennent-enfin-detecter/",
+      "image": null,
+      "lang": "fr",
+      "domain": "sciences-environnement",
+      "summary": "Présente en détail la découverte LHCb du 3 novembre 2026 sur la désintégration du méson Bd en deux muons, le contexte historique et les aspects techniques du détecteur.",
+      "read_minutes": 6
+    },
+    {
+      "id": "s2",
+      "title": "LHCb finds evidence for a one-in-10-billion B-meson decay",
+      "source": "Physics World",
+      "url": "https://physicsworld.com/a/lhcb-finds-evidence-for-a-one-in-10-billion-b-meson-decay/",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences-environnement",
+      "summary": "Rapporte les chiffres précis de significativité (3,2 sigma), les réactions des physiciens, et le lien avec les tensions de financement britannique UKRI.",
+      "read_minutes": 5
+    },
+    {
+      "id": "s3",
+      "title": "Des physiciens du CERN découvrent des preuves de désintégration de particules ultra-rares",
+      "source": "GDTI Mag",
+      "url": "https://www.gdtimag.com/des-physiciens-du-cern-decouvrent-des-preuves-de-desintegration-de-particules-ultra-rares/",
+      "image": null,
+      "lang": "fr",
+      "domain": "sciences-environnement",
+      "summary": "Donne les chiffres de fraction de branchement mesurée (1,26 puis 1,14 sur 10 milliards) comparés à la prédiction théorique (1,03 sur 10 milliards).",
+      "read_minutes": 4
+    },
+    {
+      "id": "s4",
+      "title": "CERN Physicists Find Evidence of Ultra-Rare Particle Decay",
+      "source": "Sci.News",
+      "url": "https://www.sci.news/physics/cern-ultra-rare-particle-decay-15171.html",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences-environnement",
+      "summary": "Détaille les citations des chercheurs (Cliff, Santimaria, Wilkinson, Gershon) et les chiffres précis des deux désintégrations mesurées (Bd et Bs).",
+      "read_minutes": 5
+    },
+    {
+      "id": "s5",
+      "title": "Après 40 ans de recherche, le Cern entrouvre grâce à l'IA la porte du mystérieux « zeptoverse »",
+      "source": "Futura-Sciences",
+      "url": "https://www.futura-sciences.com/sciences/actualites/physique-apres-40-ans-recherche-cern-entrouvre-grace-ia-porte-mysterieux-zeptoverse-139179/",
+      "image": null,
+      "lang": "fr",
+      "domain": "sciences-environnement",
+      "summary": "Explique le rôle de l'apprentissage automatique et de la modernisation du détecteur dans la détection du signal, et le concept de « zeptoverse ».",
+      "read_minutes": 5
+    },
+    {
+      "id": "s6",
+      "title": "After 40 years, CERN finds evidence of an extraordinarily rare particle decay",
+      "source": "Yahoo News (AP)",
+      "url": "https://www.yahoo.com/news/science/articles/40-years-cern-finds-evidence-233550578.html",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences-environnement",
+      "summary": "Rappelle que les analyses précédentes (2015) n'avaient pas confirmé la désintégration et resitue le résultat 2026 dans la continuité de décennies de recherche.",
+      "read_minutes": 4
+    },
+    {
+      "id": "s7",
+      "title": "Cern LHCb upgrade 'still under threat' after UK pulled funds",
+      "source": "Research Professional News",
+      "url": "https://www.researchprofessionalnews.com/rr-news-europe-infrastructure-2026-8-lhcb-upgrade-still-under-threat-months-after-uk-pulled-funds/",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences-environnement",
+      "summary": "Détaille le retrait de financement britannique pour l'upgrade LHCb (environ un tiers du coût total) et les appels à le rétablir.",
+      "read_minutes": 4
+    },
+    {
+      "id": "s8",
+      "title": "CERN upgrade to LHCb experiment threatened by UK funding cuts",
+      "source": "Physics World",
+      "url": "https://physicsworld.com/a/cern-upgrade-to-lhcb-experiment-threatened-by-uk-funding-cuts/",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences-environnement",
+      "summary": "Précise les montants exacts (49,4 millions de livres attribués en 2022, 5 millions déjà dépensés) et la date butoir de 2033 pour la fin de vie du détecteur sans modernisation.",
+      "read_minutes": 5
+    },
+    {
+      "id": "s9",
+      "title": "Nobelists urge reversal of UKRI's Cern funding withdrawal",
+      "source": "Times Higher Education",
+      "url": "https://www.timeshighereducation.com/news/nobelists-urge-reversal-ukris-cern-funding-withdrawal",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences-environnement",
+      "summary": "Rapporte la lettre ouverte signée par plus de 400 physiciens dont deux prix Nobel, demandant la republication des raisons scientifiques de la coupe budgétaire.",
+      "read_minutes": 4
+    },
+    {
+      "id": "s10",
+      "title": "Future of UK physics threatened by 'ruinous' funding cuts, says Institute of Physics",
+      "source": "Physics World",
+      "url": "https://physicsworld.com/a/future-of-uk-physics-threatened-by-ruinous-funding-cuts-says-institute-of-physics/",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences-environnement",
+      "summary": "Décrit l'ampleur des coupes STFC/UKRI touchant plusieurs grands projets scientifiques britanniques, dont la modernisation LHCb.",
+      "read_minutes": 5
+    },
+    {
+      "id": "s11",
+      "title": "CERN's LHCb Finds 3.2-Sigma Evidence for Extremely Rare Beauty-Particle Decay",
+      "source": "EuropaWire",
+      "url": "https://news.europawire.eu/cerns-lhcb-finds-3-2-sigma-evidence-for-extremely-rare-beauty-particle-decay/eu-press-release/2026/11/03/18/27/07/185728/",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences-environnement",
+      "summary": "Communiqué officiel détaillant le calendrier du HiLumi LHC (2030) et de la future modernisation LHCb qui pourrait multiplier par dix le volume de données.",
+      "read_minutes": 3
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "Les émissions mondiales de CO2 devraient reculer en 2026 selon le Global Carbon Budget",
+      "source": "Nouvelles du Monde",
+      "url": "https://www.nouvelles-du-monde.com/le-cern-identifie-une-desintegration-de-particule-extremement-rare/",
+      "image": null,
+      "lang": "fr",
+      "domain": "sciences-environnement",
+      "summary": "Le rapport Global Carbon Budget 2026 anticiperait un recul des émissions mondiales de CO2 pour la première année depuis plusieurs décennies, selon un article croisé lors de la recherche.",
+      "read_minutes": 3
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-10-16",
+      "titre": "Énergie sombre : l'IA du CEA cartographie 100 millions de galaxies",
+      "lien": "Même terrain de recherche fondamentale en physique (tester les limites du Modèle Standard/de la cosmologie actuelle avec des outils de pointe, dont l'IA)."
+    },
+    {
+      "date": "2026-10-13",
+      "titre": "IA : risque d'extinction ou peur exagérée ?",
+      "lien": "Même usage central de l'intelligence artificielle comme outil pour extraire un signal faible d'une masse de données (apprentissage automatique appliqué à la recherche de pointe)."
+    },
+    {
+      "date": "2026-08-21",
+      "titre": "Le Grand Filtre",
+      "lien": "Même registre d'interrogation scientifique ouverte sur les lois fondamentales de l'univers et les limites actuelles de la connaissance humaine."
+    }
+  ],
+  "recommandations_redaction": [
+    "Insister sur la nuance '3,2 sigma = indice, pas découverte' dès le début de l'article : c'est le cœur de la tension journalistique du sujet, à ne jamais arrondir en 'découverte confirmée'.",
+    "Le fil UKRI/financement britannique est un angle fort et sous-exploité par la presse française : il relie directement la question 'cette avancée ouvre-t-elle la voie à une nouvelle physique' à une contrainte très concrète (sans argent, pas plus de données, donc jamais de réponse définitive) — à développer dans le corps de l'article, pas seulement en encart.",
+    "Le lien avec l'édition du 16 octobre 2026 sur l'énergie sombre et l'IA au CEA peut être mentionné comme illustration que plusieurs grandes questions de physique fondamentale restent ouvertes en parallèle en 2026, toutes aidées par l'IA pour traiter des volumes de données énormes.",
+    "Éviter tout vocabulaire sensationnaliste ('la physique va être réécrite', 'une nouvelle ère commence') : toutes les sources insistent sur la prudence et la conformité actuelle au Modèle Standard."
+  ]
+}
