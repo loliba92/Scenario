@@ -723,7 +723,7 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 
 ## Sciences — vendredi (climat & écologie, espace, IA, médecine, énergie…)
-- [ ] La découverte d'une désintégration rare de particule ouvre-t-elle la voie à une nouvelle physique ? [sciences & physique]
+- [x] La découverte d'une désintégration rare de particule ouvre-t-elle la voie à une nouvelle physique ? [sciences & physique]
   <!-- id: sciences-la-decouverte-d-une-desintegration-rare-de -->
   <!-- contexte: Le 3 novembre 2026, le CERN a annoncé avoir observé la désintégration extrêmement rare d'un méson Bd en deux muons, un phénomène qui ne se produit qu'une fois sur dix milliards. Cette découverte pourrait remettre en question le Modèle Standard de la physique des particules. -->
   <!-- rationnel: La question : cette observation confirme-t-elle le Modèle Standard, ou révèle-t-elle l'existence de nouvelles particules ou forces ? Les scénarios dépendent des analyses ultérieures. Un scénario favorable verrait la confirmation d'une nouvelle physique, un scénario stable validerait le Modèle Standard, et un scénario dégradé laisserait les questions en suspens. -->
