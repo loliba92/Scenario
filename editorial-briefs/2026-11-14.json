@@ -1,0 +1,313 @@
+{
+  "date": "2026-11-14",
+  "registre": "culture",
+  "sujet": {
+    "titre_propose": "The Weeknd bat le record de recettes pour une tournée masculine : le live peut-il surpasser le streaming ?",
+    "h1": "The Weeknd : 1,3 milliard de dollars de tournée, un record masculin",
+    "question_posee": "The Weeknd a généré 1,3 milliard de dollars avec sa tournée After Hours Til Dawn : le spectacle vivant peut-il durablement surpasser le streaming comme moteur de revenus pour une star masculine ?",
+    "eyebrow": "Samedi, culture",
+    "angle": "La tournée After Hours Til Dawn de The Weeknd, clôturée le 5 novembre 2026, a généré 1,3 milliard de dollars, un record pour une tournée masculine. Ce chiffre redessine-t-il les équilibres de l'industrie musicale entre spectacle live et streaming, ou reste-t-il une exception portée par un catalogue de 15 ans et une fenêtre post-pandémie unique ?",
+    "tags": [
+      "musique",
+      "économie-culturelle",
+      "tournee",
+      "streaming"
+    ],
+    "domain": "culture-divertissement",
+    "image_keywords": "concert stage crowd lights",
+    "complexite": 3,
+    "origine_prioritaire": "The Weeknd bat le record de recettes pour une tournée masculine : le live peut-il surpasser le streaming ?",
+    "origine_id": "culture-the-weeknd-bat-le-record-de-recettes-pour-une",
+    "point_de_depart": {
+      "id": "culture-the-weeknd-bat-le-record-de-recettes-pour-une",
+      "registre": "culture",
+      "titre": "The Weeknd bat le record de recettes pour une tournée masculine : le live peut-il surpasser le streaming ?",
+      "question": "The Weeknd bat le record de recettes pour une tournée masculine : le live peut-il surpasser le streaming ?",
+      "contexte": "Sa tournée 'After Hours Til Dawn' a généré 1,3 milliard de dollars, clôturée le 5 novembre.",
+      "rationnel": "La question : ce succès marque-t-il un retour vers le spectacle vivant ou reste-t-il une exception ? Enjeu pour l'industrie musicale post-pandémie.",
+      "mots_cles": [
+        "The Weeknd",
+        "tournée",
+        "streaming",
+        "live"
+      ],
+      "angle": null,
+      "a_verifier": null,
+      "scenarios_brouillon": {
+        "favorable": "Explosion des revenus live, déclin du streaming.",
+        "stable": "Coexistence des deux modèles.",
+        "degrade": "Retour à la domination du streaming post-tournée."
+      },
+      "echeance": null,
+      "sources_pistes": [
+        {
+          "titre": "RTBF",
+          "url": "https://www.rtbf.be/article/les-laureats-litteraires-2026-une-petition-contre-cnews-et-la-tournee-de-the-weeknd-retrouvez-l-actu-culturelle-de-la-semaine-11811727"
+        }
+      ],
+      "tag": "musique & économie",
+      "origine": "veille",
+      "note_editoriale": "Ajouté automatiquement le 2026-11-12 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. Solidité : 85/100. Validé d'office : score suffisant, aucun recyclage de sujet publié.",
+      "donnees_graphique": "[relevé du 2026-11-12] Revenus des tournées mondiales (unité : milliards de dollars). The Weeknd After Hours Til Dawn Tour = 1.3 (2026) ; Taylor Swift Eras Tour = 2 (2023-2024) ; Coldplay Music of the Spheres Tour = 1.52 (2022-2026). Sources : https://variety.com/2026/music/news/the-weeknd-breaks-tour-record-billion-gross-1236940441/ ; https://ca.billboard.com/business/touring/the-weeknd-highest-grossing-male-tour ; https://news.pollstar.com/2026/09/21/top-tours-the-weeknd-adds-378m-to-world-tours-4-year-gross-now-at-1-07b/",
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille (13/11) : CERN, physique des particules, aucun lien. Registre culture, 2-3 dernières occurrences : 07/11 Netflix/cinéma mondial (streaming vs salles, même tension live vs plateforme mais acteur et mécanisme différents — Netflix est une plateforme de streaming, pas une tournée live ; lien gardé comme article connexe, pas doublon) ; 24/10 Spotify/album (format musical, pas tournée live) ; 17/10 jeu vidéo (art mondial, pas musique live). Aucun doublon fort retenu."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "La tournée After Hours Til Dawn de The Weeknd a généré 1,3 milliard de dollars de recettes mondiales, clôturée le 5 novembre 2026.",
+      "chiffre": "1,3 milliard de dollars",
+      "date_du_chiffre": "2026-11-05",
+      "sources": [
+        "src-weeknd-variety"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "The Weeknd est devenu le premier artiste masculin à générer plus d'un milliard de dollars avec une seule tournée, battant le précédent record masculin.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "src-weeknd-variety",
+        "src-weeknd-billboard"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La tournée Eras Tour de Taylor Swift a généré environ 2 milliards de dollars entre 2023 et 2024, le record absolu mondial de l'ère récente.",
+      "chiffre": "2 milliards de dollars",
+      "date_du_chiffre": "2024",
+      "sources": [
+        "src-graphique-variety"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La tournée Music of the Spheres de Coldplay a généré environ 1,52 milliard de dollars entre 2022 et 2026.",
+      "chiffre": "1,52 milliard de dollars",
+      "date_du_chiffre": "2026",
+      "sources": [
+        "src-graphique-variety"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le revenu moyen par entrée dans les salles de concert aux États-Unis a augmenté de manière significative depuis 2021, porté par les grosses tournées et l'inflation des prix.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "src-pollstar"
+      ],
+      "confiance": "moyenne"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "The Weeknd (Abel Tesfaye)",
+      "role": "Artiste principal, organisateur de la tournée After Hours Til Dawn"
+    },
+    {
+      "nom": "Taylor Swift",
+      "role": "Artiste détenteur du record mondial de recettes de tournée (Eras Tour, ~2 Md$)"
+    },
+    {
+      "nom": "Coldplay",
+      "role": "Artiste dont la tournée Music of the Spheres est la troisième plus grosse de la période (1,52 Md$)"
+    },
+    {
+      "nom": "Pollstar",
+      "role": "Observatoire des revenus de tournée, source des classements mondiaux"
+    },
+    {
+      "nom": "Variety",
+      "role": "Presse spécialisée ayant documenté le record de The Weeknd"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2022-09-09",
+      "evenement": "Début de la tournée After Hours Til Dawn de The Weeknd (première date à Phoenix, Arizona)"
+    },
+    {
+      "date": "2023-03-17",
+      "evenement": "Début de la tournée Eras Tour de Taylor Swift (first leg, Arrowhead Stadium, Kansas City)"
+    },
+    {
+      "date": "2023-07-07",
+      "evenement": "Début de la tournée Music of the Spheres de Coldplay (second leg, Copenhague)"
+    },
+    {
+      "date": "2026-11-05",
+      "evenement": "Clôture de la tournée After Hours Til Dawn de The Weeknd (dernière date, Mexico) — record de 1,3 milliard de dollars atteint"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Les revenus live deviennent le principal moteur de revenus des grandes stars, durablement supérieur au streaming, avec des tournées qui se multiplient et se rentirent sur plusieurs années.",
+      "probabilite_suggeree": 25
+    },
+    "stable": {
+      "resume": "Live et streaming coexistent : les tournées génèrent des sommes record pour les rares stars capables de remplir des stades, mais le streaming reste la base du revenu pour la majorité des artistes et la découverte de nouveaux talents.",
+      "probabilite_suggeree": 55
+    },
+    "degrade": {
+      "resume": "Le record de The Weeknd reste une exception portée par un catalogue mature et une fenêtre post-pandémie unique ; après lui, les revenus live se normalisent à la baisse et le streaming reprend sa dominance sur les revenus totaux.",
+      "probabilite_suggeree": 20
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Recettes mondiales de la tournée After Hours Til Dawn",
+      "valeur": "1,3 milliard de dollars",
+      "tendance": "Record masculin — clôturée le 5 novembre 2026"
+    },
+    {
+      "label": "Recettes mondiales de la tournée Eras Tour (Taylor Swift)",
+      "valeur": "~2 milliards de dollars",
+      "tendance": "Record absolu mondial (2023-2024)"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Les revenus de tournée par artiste sont des chiffres ponctuels, pas une série longue continue sur un même indicateur : chaque tournée est un événement discret avec peu de points historiques comparables (3 à 4 grosses tournées récentes documentées). Critère (1) série complète publique non satisfait — aucune source ne publie un historique continu des recettes de tournée par artiste sur 10+ ans avec 5+ points. Critère (2) 5 points réels sur période longue non satisfait (3-4 points maximum disponibles). Critère (3) éclairage direct de la question partiellement satisfait mais insuffisant au regard des deux autres. Recherche effectuée : Variety (2026), Pollstar (2026) — seules les 3-4 plus grosses tournées récentes sont documentées avec un chiffre mondial.",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "oui",
+    "raison": "Trois chiffres réels et comparables (recettes mondiales de tournées, en milliards de dollars) déjà présents dans les sources lues : The Weeknd 1,3 (2026), Taylor Swift ~2 (2023-2024), Coldplay 1,52 (2022-2026). Trois barres de même unité, suffisant pour le minimum de 3.",
+    "barres": {
+      "aria_label": "Graphique comparatif des recettes mondiales de trois grandes tournées récentes, en milliards de dollars",
+      "lead": "Les trois plus grosses tournées mondiales de l'ère récente, en recettes totales :",
+      "caption": "Sources : Variety (2026), Pollstar (2026) — chiffres de recettes mondiales publiés après clôture de chaque tournée",
+      "unite": "milliards de dollars",
+      "valeurs": [
+        {
+          "label": "Taylor Swift — Eras Tour",
+          "valeur": 2.0,
+          "affichage": "~2,0 Md$ (2023-2024)",
+          "mis_en_avant": false
+        },
+        {
+          "label": "Coldplay — Music of the Spheres",
+          "valeur": 1.52,
+          "affichage": "1,52 Md$ (2022-2026)",
+          "mis_en_avant": false
+        },
+        {
+          "label": "The Weeknd — After Hours Til Dawn",
+          "valeur": 1.3,
+          "affichage": "1,3 Md$ (2022-2026)",
+          "mis_en_avant": true
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Pourquoi une tournée peut générer plus de revenus que des années de streaming pour une même star",
+        "rattache_a": "fait record 1,3 milliard de dollars"
+      },
+      {
+        "focus": "Ce qui distingue une tournée record d'une tendance générale de l'industrie",
+        "rattache_a": "scénarios prospectifs"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Le chiffre exact de 1,3 milliard de dollars est celui publié par Variety après la clôture de la tournée le 5 novembre 2026 ; Pollstar peut publier un chiffre légèrement différent dans son classement officiel — les deux sources seront croisées dans la rédaction.",
+    "Le précédent record masculin exact (artiste et montant) n'a pas été confirmé par une source unique fiable dans cette recherche ; la rédaction vérifiera s'il s'agit du record absolu masculin ou du record par rapport aux tournées masculines récentes."
+  ],
+  "a_ne_pas_affirmer": [
+    "Que le record de The Weeknd marque un changement structurel durable de l'industrie musicale — c'est l'un des trois scénarios, pas un fait établi.",
+    "Que le streaming est en déclin absolu — les sources confirment un record live, pas un déclin du streaming.",
+    "Que toutes les grandes stars peuvent atteindre ce niveau de recettes live — le sujet distingue explicitement les exceptions (Taylor Swift, Coldplay, The Weeknd) du reste de l'industrie."
+  ],
+  "sources": [
+    {
+      "id": "src-weeknd-variety",
+      "title": "The Weeknd Breaks Tour Record With $1.3 Billion Gross for After Hours Til Dawn Tour",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/news/the-weeknd-breaks-tour-record-billion-gross-1236940441/",
+      "image": null,
+      "lang": "en",
+      "domain": "culture-divertissement",
+      "summary": "Variety confirme que la tournée After Hours Til Dawn de The Weeknd a généré 1,3 milliard de dollars de recettes mondiales, clôturée le 5 novembre 2026, faisant de lui le premier artiste masculin à dépasser ce seuil avec une seule tournée.",
+      "read_minutes": 3
+    },
+    {
+      "id": "src-weeknd-billboard",
+      "title": "The Weeknd Highest Grossing Male Tour of All Time",
+      "source": "Billboard",
+      "url": "https://ca.billboard.com/business/touring/the-weeknd-highest-grossing-male-tour",
+      "image": null,
+      "lang": "en",
+      "domain": "culture-divertissement",
+      "summary": "Billboard confirme que The Weeknd est devenu le premier artiste masculin à générer plus d'un milliard de dollars avec une seule tournée, avec la clôture de After Hours Til Dawn en novembre 2026.",
+      "read_minutes": 3
+    },
+    {
+      "id": "src-pollstar",
+      "title": "Top Tours: The Weeknd Adds $378M to World Tours, 4-Year Gross Now at $1.07B",
+      "source": "Pollstar",
+      "url": "https://news.pollstar.com/2026/09/21/top-tours-the-weeknd-adds-378m-to-world-tours-4-year-gross-now-at-1-07b/",
+      "image": null,
+      "lang": "en",
+      "domain": "culture-divertissement",
+      "summary": "Pollstar documente l'accumulation des recettes de la tournée de The Weeknd au fil des années, avec un total de 1,07 milliard de dollars au 4e année avant la clôture finale à 1,3 milliard.",
+      "read_minutes": 3
+    },
+    {
+      "id": "src-graphique-variety",
+      "title": "The Weeknd Breaks Tour Record With $1.3 Billion Gross for After Hours Til Dawn Tour",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/news/the-weeknd-breaks-tour-record-billion-gross-1236940441/",
+      "image": null,
+      "lang": "en",
+      "domain": "culture-divertissement",
+      "summary": "Variety fournit les chiffres comparatifs des tournées Eras Tour (Taylor Swift, ~2 milliards) et Music of the Spheres (Coldplay, 1,52 milliard) utilisés pour le graphique de repli.",
+      "read_minutes": 3
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "Les lauréats littéraires 2026 : une pétition contre CNews et la tournée de The Weeknd, retrouvez l'actu culturelle de la semaine",
+      "source": "RTBF",
+      "url": "https://www.rtbf.be/article/les-laureats-litteraires-2026-une-petition-contre-cnews-et-la-tournee-de-the-weeknd-retrouvez-l-actu-culturelle-de-la-semaine-11811727",
+      "image": null,
+      "lang": "fr",
+      "domain": "culture-divertissement",
+      "summary": "La RTBF fait le point sur l'actu culturelle de la semaine en Belgique, dont la tournée de The Weeknd et des questions autour de la presse culturelle et des médias.",
+      "read_minutes": 2
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-11-07",
+      "titre": "Netflix : le nouveau cinéma mondial ?",
+      "lien": "Même tension structurelle entre spectacle live/salles et plateforme de streaming — Netflix comme lieu de lancement de gros films vs salles, à l'opposé de la tournée live de The Weeknd qui incarne le revenu spectacle vivant."
+    },
+    {
+      "date": "2026-10-24",
+      "titre": "Spotify peut-il tuer l'album ?",
+      "lien": "Même question de l'économie de la musique et du format qui génère les revenus (single/streaming vs album vs live) — Spotify comme modèle de streaming au centre de la tension avec le live."
+    },
+    {
+      "date": "2026-09-19",
+      "titre": "Sheeran-Macklemore : la neutralité impossible",
+      "lien": "Même registre musique live et tournée mondiale — la tournée de Sheeran et ses risques (boycott, carrière) vs la tournée record de The Weeknd, deux faces du spectacle vivant masculin."
+    }
+  ],
+  "recommandations_redaction": [
+    "Croiser Variety et Pollstar pour le chiffre final exact de 1,3 milliard de dollars et le précédent record masculin — ne pas l'affirmer sans la source précise.",
+    "Préciser que le record de The Weeknd est un record masculin, pas le record absolu mondial (Taylor Swift, Eras Tour, ~2 Md$, détient ce record) — éviter toute confusion dans le h1 et la question.",
+    "Insister sur le fait que The Weeknd, Coldplay et Taylor Swift sont des exceptions de stars capables de remplir des stades mondiaux, pas la norme de l'industrie — ce point est central pour les scénarios.",
+    "Le graphique de repli compare trois tournées (The Weeknd, Coldplay, Taylor Swift) en milliards de dollars — présenter clairement qu'il s'agit de trois exceptions, pas d'une moyenne de l'industrie.",
+    "Lien avec l'édition du 7 novembre (Netflix vs salles) : même tension live vs streaming, mais à des échelles et acteurs différents — faire le lien sans confondre les deux."
+  ]
+}
