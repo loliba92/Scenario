@@ -192,6 +192,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 14.11.2026 — [The Weeknd : 1,3 milliard de dollars de tournée, un record masculin](../archives/2026-11-14.html)
 - 13.11.2026 — [CERN : la désintégration rare qui divise les physiciens](../archives/2026-11-13.html)
 - 12.11.2026 — [Taux en zone euro : la BCE risque-t-elle la récession ?](../archives/2026-11-12.html)
 - 11.11.2026 — [Gel du point d'indice des fonctionnaires : Lecornu peut-il tenir sans crise ?](../archives/2026-11-11.html)

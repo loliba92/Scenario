@@ -2,6 +2,21 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-11-14",
+      "articles": [
+        {
+          "title": "Les lauréats littéraires 2026 : une pétition contre CNews et la tournée de The Weeknd, retrouvez l'actu culturelle de la semaine",
+          "source": "RTBF",
+          "url": "https://www.rtbf.be/article/les-laureats-litteraires-2026-une-petition-contre-cnews-et-la-tournee-de-the-weeknd-retrouvez-l-actu-culturelle-de-la-semaine-11811727",
+          "image": "https://static-content.rtbf.be/article/image/1920x1080/9/f/7/3dc8509cbb0263799f2d6dcb589a9d2f.jpg",
+          "lang": "fr",
+          "domain": "culture-divertissement",
+          "summary": "La RTBF fait le point sur l'actu culturelle de la semaine en Belgique, dont la tournée de The Weeknd et des questions autour de la presse culturelle et des médias.",
+          "read_minutes": 2
+        }
+      ]
+    },
+    {
       "date": "2026-11-13",
       "articles": [
         {
