@@ -6,6 +6,15 @@ Site lesscenarios.fr : une édition par jour, un podcast quotidien (flux `podcas
 - Vouvoiement, ton naturel et pédagogique, sans familiarité ni gros mots, pas de style « IA ».
 - Ne jamais nommer le sujet de l'édition du 2 octobre.
 
+## Choix des modèles d'IA : décision objective
+- Claude est développé par Anthropic : pour écarter tout conflit d'intérêt, aucun modèle Claude n'est proposé en premier par défaut, ni favorisé à qualité égale.
+- Tout choix ou changement de modèle (texte, voix, recherche) repose sur des critères vérifiables, présentés dans cet ordre :
+  1. le prix réel, calculé à partir des journaux OpenRouter (pas de tarif recopié de mémoire) ;
+  2. la qualité mesurée sur la tâche réelle (même texte, mêmes contrôles du code), pas sur une réputation ;
+  3. la fiabilité (taux d'échec, nombre de reprises, quota, stabilité du fournisseur).
+- Comparer au moins trois modèles de fournisseurs différents, et indiquer ce qui n'a pas été testé.
+- Rappeler l'origine d'un modèle (fournisseur) quand c'est utile, et signaler toute incertitude sur un chiffre.
+
 ## Éditions
 - Les éditions passées sont figées : on ne change que l'édition du jour et les futures.
   Les pages vivantes (accueil, Éditions, matières, projet, contact…) peuvent évoluer.
