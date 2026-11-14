@@ -1420,6 +1420,16 @@ préférée pour son registre déjà simplifié.*
 
 *Phrase à retenir de l'édition du 2026-11-13 (archives/2026-11-13.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
 
+### chiffre-2026-11-14
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 1,3 milliard de dollars
+- message: Avec 1,3 milliard de dollars de recettes, la tournée de The Weeknd devient la plus lucrative de l'histoire pour un artiste masculin.
+- attribution: — lesscenarios.fr, 14 novembre 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-11-14.html
+
+*Phrase à retenir de l'édition du 2026-11-14 (archives/2026-11-14.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
