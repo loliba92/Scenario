@@ -1016,7 +1016,9 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
   <!-- mots-clés: IA ; édition ; Madrigall ; manuscrits ; détection -->
   <!-- scénarios (brouillon): favorable = Les éditeurs adaptent leurs processus, préservant la qualité littéraire tout en intégrant l'IA comme outil. ; stable = Des controverses persistent, mais le marché s'ajuste progressivement. ; dégradé = Une crise de confiance s'installe, avec un effondrement des ventes de livres suspects. -->
   <!-- sources: L’IA dans l’édition, le Mois du Doc et la dernière sélection des prix littéraires ont fait l’actu culturelle cette semaine - RTBF Actus <https://www.rtbf.be/article/l-ia-dans-l-edition-le-mois-du-doc-et-la-derniere-selection-des-prix-litteraires-ont-fait-l-actu-culturelle-cette-semaine-11808151> -->
+  <!-- données chiffrées: [relevé du 2026-11-14] Taux de détection d'IA dans les manuscrits (unité : pourcentage). Thélyson Orélien = 84 (2026) ; Lilia Hassaine = 21 (2026) ; Pangram (faux positifs) = 0,0041 (2025). Sources : https://apar.tv/gossip-brief-489-gallimard-madrigall-detecteur-ia-manuscrits-janvier-2027-pangram-orelien/ ; https://www.lebrief.ma/madrigall-manuscrits-soumis-a-un-detecteur-dia-100172074/ -->
   <!-- origine: veille -->
+  <!-- enrichi: 2026-11-14 -->
   <!-- note: Ajouté automatiquement le 2026-11-08 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
 - [ ] Le cinéma français peut-il rivaliser avec les plateformes ? [cinéma & streaming]
   <!-- id: culture-le-cinema-francais-peut-il-rivaliser-avec-les -->
