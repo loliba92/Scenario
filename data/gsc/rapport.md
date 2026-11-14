@@ -2,18 +2,18 @@
 
 Site `sc-domain:lesscenarios.fr` · données Google du 2026-10-15 au 2026-11-11 · synchronisé le 2026-11-14 (les chiffres de Google ont ~3 jours de retard).
 
-**Verdict : CRITIQUE** — 13 éditions de plus de 7 jours sont inconnues de Google (sur 33 pages inspectées). Demander l'indexation dans Search Console, vérifier un lien interne depuis une page déjà indexée, patienter si la page a moins de 7 jours.
+**Verdict : CRITIQUE** — 12 éditions de plus de 7 jours sont inconnues de Google (sur 33 pages inspectées). Demander l'indexation dans Search Console, vérifier un lien interne depuis une page déjà indexée, patienter si la page a moins de 7 jours.
 
 ## Chiffres (28 jours)
 
 - 4 clics, 415 impressions, taux de clic 1,0 %, position moyenne 10,2.
-- Pages indexées : 12 sur 33 inspectées ; éditions inconnues de Google : 20 (dont 13 de plus de 7 jours).
+- Pages indexées : 12 sur 33 inspectées ; éditions inconnues de Google : 20 (dont 12 de plus de 7 jours).
 - Requêtes : 21 (dont 4 avec le nom du site).
 - Tendance (14 jours, jusqu'au 2026-11-10) : impressions 223 contre 197, clics 2 contre 2.
 
 ## À résoudre — critique
 
-- 13 éditions de plus de 7 jours sont inconnues de Google (sur 33 pages inspectées). **Action** : Demander l'indexation dans Search Console, vérifier un lien interne depuis une page déjà indexée, patienter si la page a moins de 7 jours. **Agent à envoyer** : seo-technical + seo-sitemap. **Mission** : Diagnostiquer pourquoi ces éditions restent inconnues de Google : profondeur de clics depuis l'accueil, liens internes vers les éditions récentes, structure et dates du plan du site, robots.txt, vitesse. Rendre un plan correctif chiffré, classé par impact.
+- 12 éditions de plus de 7 jours sont inconnues de Google (sur 33 pages inspectées). **Action** : Demander l'indexation dans Search Console, vérifier un lien interne depuis une page déjà indexée, patienter si la page a moins de 7 jours. **Agent à envoyer** : seo-technical + seo-sitemap. **Mission** : Diagnostiquer pourquoi ces éditions restent inconnues de Google : profondeur de clics depuis l'accueil, liens internes vers les éditions récentes, structure et dates du plan du site, robots.txt, vitesse. Rendre un plan correctif chiffré, classé par impact.
 
 ## À résoudre — important
 
@@ -37,7 +37,7 @@ Site `sc-domain:lesscenarios.fr` · données Google du 2026-10-15 au 2026-11-11 
 ## Ce qui ne fonctionne pas
 
 - Presque aucune visite venue de Google : 4 clics en 28 jours.
-- Découverte trop lente : 13 éditions publiées depuis plus d’une semaine ne sont pas connues de Google.
+- Découverte trop lente : 12 éditions publiées depuis plus d’une semaine ne sont pas connues de Google.
 - Page principale non indexée : `/guide-pedagogique.html`.
 
 ## Ce que seul le propriétaire peut faire
@@ -148,6 +148,7 @@ Prochain contrôle : 25 octobre 2026 (ne rien conclure avant).
 - `/sources.html` : ok
 - `/glossaire.html` : ok
 - `/en/` : ok
+- `/archives/2026-11-14.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 0 j
 - `/archives/2026-11-13.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 1 j
 - `/archives/2026-11-12.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 2 j
 - `/archives/2026-11-11.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 3 j
@@ -167,7 +168,6 @@ Prochain contrôle : 25 octobre 2026 (ne rien conclure avant).
 - `/archives/2026-10-28.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 17 j
 - `/archives/2026-10-27.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 18 j
 - `/archives/2026-10-26.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 19 j
-- `/archives/2026-10-25.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 20 j
 - `/en/archives/2026-11-10.html` : ok, publiée il y a 4 j
 - `/en/archives/2026-11-09.html` : ok, publiée il y a 5 j
 - `/en/archives/2026-11-08.html` : ok, publiée il y a 6 j
