@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "394db869da58cc4a8713bb0ee72e082b791a69713f3c6cf9622720544ca93016"
+    "md_sha256": "684abc7c34abf55d547099a63845de926f33a8b0225afb64297c0fd3646b378b"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -5154,7 +5154,7 @@
           "titre": "The Weeknd bat le record de recettes pour une tournée masculine : le live peut-il surpasser le streaming ?",
           "question": null,
           "tag": "musique & économie",
-          "statut": "a_traiter",
+          "statut": "publie",
           "validation": "valide",
           "contexte": "Sa tournée 'After Hours Til Dawn' a généré 1,3 milliard de dollars, clôturée le 5 novembre.",
           "rationnel": "La question : ce succès marque-t-il un retour vers le spectacle vivant ou reste-t-il une exception ? Enjeu pour l'industrie musicale post-pandémie.",
@@ -5182,8 +5182,8 @@
           "note": "Ajouté automatiquement le 2026-11-12 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. Solidité : 85/100. Validé d'office : score suffisant, aucun recyclage de sujet publié.",
           "donnees": "[relevé du 2026-11-12] Revenus des tournées mondiales (unité : milliards de dollars). The Weeknd After Hours Til Dawn Tour = 1.3 (2026) ; Taylor Swift Eras Tour = 2 (2023-2024) ; Coldplay Music of the Spheres Tour = 1.52 (2022-2026). Sources : https://variety.com/2026/music/news/the-weeknd-breaks-tour-record-billion-gross-1236940441/ ; https://ca.billboard.com/business/touring/the-weeknd-highest-grossing-male-tour ; https://news.pollstar.com/2026/09/21/top-tours-the-weeknd-adds-378m-to-world-tours-4-year-gross-now-at-1-07b/",
           "ajoute_le": "2026-11-12",
-          "publie_le": null,
-          "edition": null,
+          "publie_le": "2026-11-14",
+          "edition": "2026-11-14",
           "enrichi_le": "2026-11-12"
         },
         {

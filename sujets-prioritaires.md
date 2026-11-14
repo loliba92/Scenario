@@ -998,7 +998,7 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 ## Culture — samedi
 <!-- Faire tourner les domaines : cinéma, musique, jeux vidéo, littérature, spectacle, séries, art… Registre fusionné le 12 août (retour utilisateur) : "Culture française" (samedi) et "Culture internationale" (dimanche) couvraient les mêmes domaines avec une frontière souvent artificielle (un sujet français a presque toujours une dimension internationale, et inversement) et étaient tous les deux clairsemés — fusionnés en un seul registre plus riche, sans distinction française/internationale à l'entrée. La case libérée par la fusion sert au nouveau registre "Économie & finance mondiale — dimanche" (voir plus bas). -->
-- [ ] The Weeknd bat le record de recettes pour une tournée masculine : le live peut-il surpasser le streaming ? [musique & économie]
+- [x] The Weeknd bat le record de recettes pour une tournée masculine : le live peut-il surpasser le streaming ? [musique & économie]
   <!-- id: culture-the-weeknd-bat-le-record-de-recettes-pour-une -->
   <!-- contexte: Sa tournée 'After Hours Til Dawn' a généré 1,3 milliard de dollars, clôturée le 5 novembre. -->
   <!-- rationnel: La question : ce succès marque-t-il un retour vers le spectacle vivant ou reste-t-il une exception ? Enjeu pour l'industrie musicale post-pandémie. -->
