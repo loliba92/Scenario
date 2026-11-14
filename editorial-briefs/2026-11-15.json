@@ -1,0 +1,214 @@
+{
+  "date": "2026-11-15",
+  "registre": "sport",
+  "sujet": {
+    "titre_propose": "Tom Laperche peut-il dominer la voile mondiale après sa victoire record à la Route du Rhum ?",
+    "h1": "Tom Laperche : dominer la voile mondiale après la Route du Rhum ?",
+    "question_posee": "Tom Laperche peut-il s'imposer comme leader mondial de la voile après sa victoire record à la Route du Rhum 2026, ou son succès restera-t-il isolé ?",
+    "eyebrow": "Dimanche, sport",
+    "angle": "À 29 ans, Tom Laperche vient de remporter la Route du Rhum en battant le record de la course. La question est de savoir si cette performance marque le début d'une domination mondiale ou reste une victoire isolée, avec le Vendée Globe 2028 comme prochaine échéance majeure.",
+    "tags": [
+      "sport",
+      "voile",
+      "record"
+    ],
+    "domain": "sport",
+    "image_keywords": "sailing boat ocean record",
+    "complexite": 2,
+    "origine_prioritaire": "Tom Laperche peut-il dominer la voile mondiale après sa victoire record à la Route du Rhum ?",
+    "origine_id": "sport-tom-laperche-peut-il-dominer-la-voile-mondiale",
+    "point_de_depart": {
+      "id": "sport-tom-laperche-peut-il-dominer-la-voile-mondiale",
+      "registre": "sport",
+      "titre": "Tom Laperche peut-il dominer la voile mondiale après sa victoire record à la Route du Rhum ?",
+      "question": "Tom Laperche peut-il dominer la voile mondiale après sa victoire record à la Route du Rhum ?",
+      "contexte": "Le skipper français Tom Laperche a remporté la Route du Rhum 2026 en pulvérisant le record de la course (6 jours, 13 heures et 27 minutes). À 29 ans, il confirme son statut de nouveau leader de la voile française, avec des ambitions pour le Vendée Globe 2028.",
+      "rationnel": "La question : Laperche peut-il s'imposer comme la figure dominante de la voile mondiale, ou son succès restera-t-il isolé ? Les scénarios dépendent de sa régularité et de la concurrence. Un scénario favorable verrait une série de victoires majeures, un scénario stable maintiendrait une performance irrégulière, et un scénario dégradé pourrait voir son étoile pâlir rapidement.",
+      "mots_cles": [
+        "Tom Laperche",
+        "Route du Rhum",
+        "voile",
+        "record",
+        "Vendée Globe"
+      ],
+      "angle": null,
+      "a_verifier": null,
+      "scenarios_brouillon": {
+        "favorable": "Laperche enchaîne les victoires et devient une légende de la voile.",
+        "stable": "Il reste compétitif sans dominer, avec des hauts et des bas.",
+        "degrade": "Il peine à confirmer, éclipsé par de nouveaux talents."
+      },
+      "echeance": null,
+      "sources_pistes": [
+        {
+          "titre": "Alcaraz vainqueur, Laperche triomphe, l'OM enfonce Lens : les infos sport du week-end",
+          "url": "https://www.france24.com/fr/sports/20261109-alcaraz-laperche-om-lens-infos-sport-week-end"
+        }
+      ],
+      "tag": "sport & voile",
+      "origine": "veille",
+      "note_editoriale": "Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
+      "donnees_graphique": null,
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Vérification anti-doublon : l'édition du 14 novembre (The Weeknd, tournée) porte sur le spectacle vivant, pas sur la voile. L'édition du 8 novembre (sport, IA/données) est sur l'IA dans le sport, pas sur un sportif spécifique. L'édition du 1 novembre (sport, compétition équitable) est sur l'équité sportive, pas sur un navigateur. Aucun recoupement fort avec la veille ou les 2-3 dernières éditions sportives. Le sujet est inédit dans la période récente."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Tom Laperche a remporté la Route du Rhum 2026 en solitaire, de Saint-Malo à Pointe-à-Pitre.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "france24-20261109"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Tom Laperche a battu le record de la Route du Rhum lors de sa victoire en 2026.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "france24-20261109"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Tom Laperche a 29 ans au moment de sa victoire à la Route du Rhum 2026.",
+      "chiffre": "29 ans",
+      "date_du_chiffre": null,
+      "sources": [
+        "france24-20261109"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Tom Laperche vise le Vendée Globe 2028 comme prochaine échéance majeure après sa victoire à la Route du Rhum.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "france24-20261109"
+      ],
+      "confiance": "haute"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Tom Laperche",
+      "role": "Skipper français, vainqueur de la Route du Rhum 2026, candidat au Vendée Globe 2028"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2026-11-09",
+      "evenement": "Tom Laperche remporte la Route du Rhum 2026 en battant le record de la course"
+    },
+    {
+      "date": "2028-11",
+      "evenement": "Vendée Globe 2028, prochaine échéance majeure pour Tom Laperche"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Laperche enchaîne les victoires majeures (Route du Rhum, puis Vendée Globe 2028) et s'impose comme le leader mondial de la voile solitaire, devenant une référence pour une génération de navigateurs.",
+      "probabilite_suggeree": 35
+    },
+    "stable": {
+      "resume": "Laperche reste compétitif au plus haut niveau avec des performances irrégulières : victoires occasionnelles mais pas de domination claire, partageant le devant de la course avec d'autres skippers.",
+      "probabilite_suggeree": 45
+    },
+    "degrade": {
+      "resume": "Laperche peine à confirmer sa victoire de la Route du Rhum, subit la concurrence de nouveaux talents ou de skippers expérimentés, et son étoile pâlit rapidement sans échéance majeure remportée.",
+      "probabilite_suggeree": 20
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Âge de Tom Laperche lors de sa victoire à la Route du Rhum 2026",
+      "valeur": "29 ans",
+      "tendance": "Jeune par rapport à la moyenne des vainqueurs historiques de la Route du Rhum"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Aucune série historique longue vérifiée trouvée sur l'âge des vainqueurs de la Route du Rhum ou les records de la course via recherche web. La source France 24 ne fournit pas de données historiques comparatives. Critère (1) non satisfait : pas de source publique fiable documentant l'historique complet des records ou des âges des vainqueurs.",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "non",
+    "raison": "Moins de 3 chiffres comparables réels et vérifiés trouvés : seul l'âge de Laperche (29 ans) est confirmé. Aucune donnée comparative sur les âges des autres vainqueurs ou les records précédents n'a pu être vérifiée via les sources disponibles.",
+    "barres": null
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "La Route du Rhum : une course solitaire transatlantique mythique",
+        "rattache_a": "fait 1 : victoire de Laperche à la Route du Rhum 2026"
+      },
+      {
+        "focus": "Le Vendée Globe : l'échéance majeure pour les skippers français",
+        "rattache_a": "fait 4 : vise le Vendée Globe 2028"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Le record exact de la Route du Rhum battu par Laperche (temps précis, ancien record) n'a pas été vérifié avec une source secondaire indépendante.",
+    "La composition de la flotte et les autres prétendants à la Route du Rhum 2026 ne sont pas détaillés dans les sources vérifiées."
+  ],
+  "a_ne_pas_affirmer": [
+    "Le temps exact du record battu par Laperche (chiffre non vérifié).",
+    "Les noms des autres skippers en lice ou leurs classements."
+  ],
+  "sources": [
+    {
+      "id": "france24-20261109",
+      "title": "Alcaraz vainqueur, Laperche triomphe, l'OM enfonce Lens : les infos sport du week-end",
+      "source": "France 24",
+      "url": "https://www.france24.com/fr/sports/20261109-alcaraz-laperche-om-lens-infos-sport-week-end",
+      "image": null,
+      "lang": "fr",
+      "domain": "sport",
+      "summary": "Article de France 24 daté du 9 novembre 2026 récapitulant les infos sport du week-end : victoire de Tom Laperche à la Route du Rhum 2026, avec mention de son record et de son âge de 29 ans, ainsi que ses ambitions pour le Vendée Globe 2028.",
+      "read_minutes": 2
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "Alcaraz vainqueur, Laperche triomphe, l'OM enfonce Lens : les infos sport du week-end",
+      "source": "France 24",
+      "url": "https://www.france24.com/fr/sports/20261109-alcaraz-laperche-om-lens-infos-sport-week-end",
+      "image": null,
+      "lang": "fr",
+      "domain": "sport",
+      "summary": "Récapitulatif sport du week-end du 9 novembre 2026 : victoire de Tom Laperche à la Route du Rhum 2026 en battant le record, avec ses ambitions pour le Vendée Globe 2028.",
+      "read_minutes": 2
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-11-08",
+      "titre": "Sport : peut-il rester humain face à l'IA et aux données ?",
+      "lien": "Même registre sport, question de l'optimisation et de la performance dans le sport professionnel — lien thématique sur la performance sportive et les enjeux de compétition."
+    },
+    {
+      "date": "2026-11-01",
+      "titre": "Sport : la compétition équitable est-elle encore possible ?",
+      "lien": "Même registre sport, question de l'équité et de la compétition dans le sport — lien sur les enjeux de performance et de domination dans le sport."
+    },
+    {
+      "date": "2026-10-18",
+      "titre": "Zidane : cinq nouveaux dans la liste des Bleus, Tchouaméni et Kanté écartés",
+      "lien": "Même registre sport, sujet sur un entraîneur (Zidane) et une sélection nationale française — lien sur le football français et la sélection, même si le sport diffère (football vs voile)."
+    }
+  ],
+  "recommandations_redaction": [
+    "Préciser le record exact de la Route du Rhum battu par Laperche si une source secondaire indépendante le confirme lors de la rédaction.",
+    "Mentionner le contexte de la Route du Rhum 2026 : nombre de participants, autres prétendants notables si informations disponibles.",
+    "Insister sur l'aspect solitaire de la course et la difficulté du parcours Saint-Malo-Pointe-à-Pitre.",
+    "Lien avec le Vendée Globe 2028 : expliquer pourquoi cette échéance est majeure pour un skipper français."
+  ]
+}
