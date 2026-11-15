@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "f8a7e77356dc6485857a4f6a3cda5c3b946e3bc17ffeccd2272f7ebabe8bf8f1"
+    "md_sha256": "6c17e8fb6e8ee102e5991439a583b73e04f481a170e4539742084059a3e3b90a"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -6433,11 +6433,11 @@
           ],
           "origine": "veille",
           "note": "Ajouté automatiquement le 2026-11-15 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. Solidité : 85/100. Validé d'office : score suffisant, aucun recyclage de sujet publié.",
-          "donnees": null,
+          "donnees": "[relevé du 2026-11-15] Capitalisation boursière de Nvidia (unité : billions de dollars). Pic d'octobre 2026 = 5.79 (6 octobre 2026) ; après la démission de Jensen Huang = 4.01 (12 novembre 2026) ; perte totale = 1.78 (depuis octobre 2026). Sources : https://www.cnbc.com/2026/11/13/nvidia-stock-jensen-affair-ai.html ; https://finance.yahoo.com/technology/article/nvidia-market-cap-plunges-490-billion-following-former-ceo-huangs-affair-scandals-224412004.html",
           "ajoute_le": "2026-11-15",
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-11-15"
         },
         {
           "type": "sujet",

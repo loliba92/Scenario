@@ -1242,7 +1242,9 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
   <!-- mots-clés: Nvidia ; IA ; bulle financière ; Jensen Huang ; marchés actions ; tech -->
   <!-- scénarios (brouillon): favorable = Les marchés tech se stabilisent après une correction modérée, avec une reprise menée par d'autres acteurs de l'IA. ; stable = La volatilité persiste, mais sans effondrement majeur, les investisseurs diversifiant leurs portefeuilles. ; dégradé = La chute de Nvidia déclenche une vente panique des actions tech, provoquant un krach boursier mondial. -->
   <!-- sources: Monde – L'actualité de la semaine – 13 novembre 2026 | Crédit Agricole <https://etudes-economiques.credit-agricole.com/fr/monde-lactualite-de-la-semaine-13-novembre-2026> -->
+  <!-- données chiffrées: [relevé du 2026-11-15] Capitalisation boursière de Nvidia (unité : billions de dollars). Pic d'octobre 2026 = 5.79 (6 octobre 2026) ; après la démission de Jensen Huang = 4.01 (12 novembre 2026) ; perte totale = 1.78 (depuis octobre 2026). Sources : https://www.cnbc.com/2026/11/13/nvidia-stock-jensen-affair-ai.html ; https://finance.yahoo.com/technology/article/nvidia-market-cap-plunges-490-billion-following-former-ceo-huangs-affair-scandals-224412004.html -->
   <!-- origine: veille -->
+  <!-- enrichi: 2026-11-15 -->
   <!-- note: Ajouté automatiquement le 2026-11-15 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. Solidité : 85/100. Validé d'office : score suffisant, aucun recyclage de sujet publié. -->
 - [x] La BCE peut-elle maintenir ses taux élevés sans provoquer une récession en zone euro ? [économie & banque centrale]
   <!-- id: economie-la-bce-peut-elle-maintenir-ses-taux-eleves-sans -->
