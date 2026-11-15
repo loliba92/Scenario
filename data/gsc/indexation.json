@@ -5,7 +5,7 @@
       "url": "https://lesscenarios.fr/",
       "verdict": "PASS",
       "etat": "Envoyée et indexée",
-      "derniere_exploration": "2026-11-02T19:05:02Z",
+      "derniere_exploration": "2026-11-15T09:37:46Z",
       "canonique_google": "https://lesscenarios.fr/",
       "canonique_declaree": "https://lesscenarios.fr/",
       "robots": "ALLOWED",
@@ -24,7 +24,7 @@
     {
       "url": "https://lesscenarios.fr/guide-pedagogique.html",
       "verdict": "NEUTRAL",
-      "etat": "Détectée, actuellement non indexée",
+      "etat": "Google ne reconnaît pas cette URL",
       "derniere_exploration": null,
       "canonique_google": null,
       "canonique_declaree": null,
@@ -70,6 +70,16 @@
       "canonique_declaree": "https://lesscenarios.fr/en/",
       "robots": "ALLOWED",
       "indexation": "INDEXING_ALLOWED"
+    },
+    {
+      "url": "https://lesscenarios.fr/archives/2026-11-15.html",
+      "verdict": "NEUTRAL",
+      "etat": "Google ne reconnaît pas cette URL",
+      "derniere_exploration": null,
+      "canonique_google": null,
+      "canonique_declaree": null,
+      "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexation": "INDEXING_STATE_UNSPECIFIED"
     },
     {
       "url": "https://lesscenarios.fr/archives/2026-11-14.html",
@@ -253,16 +263,6 @@
     },
     {
       "url": "https://lesscenarios.fr/archives/2026-10-27.html",
-      "verdict": "NEUTRAL",
-      "etat": "Google ne reconnaît pas cette URL",
-      "derniere_exploration": null,
-      "canonique_google": null,
-      "canonique_declaree": null,
-      "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexation": "INDEXING_STATE_UNSPECIFIED"
-    },
-    {
-      "url": "https://lesscenarios.fr/archives/2026-10-26.html",
       "verdict": "NEUTRAL",
       "etat": "Google ne reconnaît pas cette URL",
       "derniere_exploration": null,
