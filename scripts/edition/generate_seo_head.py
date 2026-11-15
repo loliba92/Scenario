@@ -327,8 +327,6 @@ def _build_website_schema() -> str:
 
 def _build_breadcrumblist_schema(date: str, brief: Dict[str, Any]) -> str:
     """Schema.org BreadcrumbList (JSON-LD)."""
-    domain = _get_domain(brief)
-    section = _normalize_domain(domain)
     dt = datetime.strptime(date, "%Y-%m-%d")
     jour_fr = _JOURS_FR[dt.weekday()]
 
@@ -345,18 +343,12 @@ def _build_breadcrumblist_schema(date: str, brief: Dict[str, Any]) -> str:
             {
                 "@type": "ListItem",
                 "position": 2,
-                "name": "Archives",
-                "item": f"{SITE_URL}/archives",
+                "name": "Éditions",
+                "item": f"{SITE_URL}/archives.html",
             },
             {
                 "@type": "ListItem",
                 "position": 3,
-                "name": section,
-                "item": f"{SITE_URL}/archives?domain={domain}",
-            },
-            {
-                "@type": "ListItem",
-                "position": 4,
                 "name": f"{date} ({jour_fr})",
                 "item": _build_canonical_url(date),
             },

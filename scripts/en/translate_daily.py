@@ -1132,7 +1132,7 @@ def build_en_index_page(index_fr_path, repo_root):
     # ../index.html (retour à la home française).
     lang_btn = soup.select_one(".masthead-lang-btn")
     if lang_btn:
-        lang_btn["href"] = "../index.html"
+        lang_btn["href"] = "../"
         lang_btn["aria-label"] = "Lire en français"
         lang_btn["title"] = "Lire en français"
         lang_btn.string = "FR"
@@ -1307,7 +1307,7 @@ def build_en_soup(fr_soup, date_str, translations, memory, en_image_url, for_arc
     # pointer reste correct.
     lang_btn = soup.select_one(".masthead-lang-btn")
     if lang_btn:
-        lang_btn["href"] = f"../../archives/{date_str}.html" if for_archive else "../index.html"
+        lang_btn["href"] = f"../../archives/{date_str}.html" if for_archive else "../"
         lang_btn["aria-label"] = "Lire en français"
         lang_btn["title"] = "Lire en français"
         lang_btn.string = "FR"
@@ -1879,7 +1879,7 @@ def main():
     # cette page en anglais", et la home FR n'est plus une archive depuis
     # le 28 septembre 2026.
     fr_index_text = fr_path.read_text(encoding="utf-8")
-    fr_index_text = add_fr_lang_button(fr_index_text, "en/index.html")
+    fr_index_text = add_fr_lang_button(fr_index_text, "en/")
     fr_index_text = add_hreflang_en(fr_index_text, "https://lesscenarios.fr/en/")
     fr_path.write_text(fr_index_text, encoding="utf-8")
 
