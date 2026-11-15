@@ -1,0 +1,141 @@
+{
+  "h1": "Houthistes : l'Arabie saoudite peut-elle éviter l'escalade régionale ?",
+  "question_text": "Les attaques des Houthistes contre l'Arabie saoudite peuvent-elles déclencher une escalade régionale ?",
+  "section_title": "Trois trajectoires face aux frappes de missiles au Moyen-Orient",
+  "dek": [
+    "La péninsule arabique traverse une nouvelle phase d'instabilité militaire aiguë. Le <strong>11 novembre 2026</strong>, le groupe armé des Houthistes<a class=\"lex-ref\" href=\"#lex-houthistes\" aria-label=\"Voir la définition dans le lexique\">*</a> a lancé une série d'attaques coordonnées de missiles contre la ville d'Aden, siège provisoire du pouvoir yéménite, ainsi que vers Riyad, la capitale de l'Arabie saoudite. Deux projectiles ont touché un camp militaire de la coalition à Aden et un troisième a atteint le centre-ville. Dans le même temps, les défenses antiaériennes saoudiennes ont intercepté <strong>trois missiles de croisière</strong> se dirigeant vers Riyad. Ces frappes ciblent directement les centres de commandement et menacent les infrastructures pétrolières d'un pays qui demeure le premier exportateur mondial de pétrole brut.",
+    "Cette séquence marque un palier dangereux car elle dépasse le cadre du conflit interne au Yémen. Quelques jours avant ces tirs, une tour de l'entreprise nationale pétrolière Aramco a été endommagée dans le quartier d'affaires de Riyad. Les combattants houthistes démontrent ainsi leur capacité à frapper des cibles économiques névralgiques au cœur du territoire saoudien. En réponse, le royaume saoudien renforce son bouclier antimissile mais s'efforce de mesurer sa riposte. Les autorités de Riyad cherchent à préserver leurs projets de modernisation économique tout en protégeant leurs raffineries et leurs terminaux d'exportation contre de futures destructions matérielles.",
+    "Le conflit prend une dimension internationale immédiate en raison du soutien apporté par l'Iran aux forces houthistes. Téhéran fournit un appui matériel et technologique documenté aux insurgés yéménites, ce qui modifie l'équilibre des forces dans tout le Golfe. Le 11 novembre 2026, le secrétaire du Conseil suprême de sécurité nationale iranien, Mohsen Rezaï, a durci le ton en affirmant publiquement que son pays frapperait des bases militaires américaines, y compris si elles se trouvent sur le territoire de pays européens, si celles-ci servaient à lancer des opérations contre la République islamique. Cette déclaration fait peser une menace directe sur les partenaires occidentaux.",
+    "La situation militaire actuelle crée une incertitude majeure pour l'économie mondiale. Le passage maritime stratégique de la mer Rouge et les routes d'exportation d'hydrocarbures dépendent directement de la stabilité de la région. Si les installations de production saoudiennes subissaient des dégâts durables, le volume de pétrole disponible sur le marché mondial chuterait rapidement. Les prix du baril de pétrole brut, déjà orientés à la hausse après les frappes du 11 novembre, réagiraient par une envolée immédiate. Une telle tension énergétique alimenterait l'inflation et pénaliserait l'ensemble des pays importateurs, à commencer par les économies européennes.",
+    "Face à ces tirs répétés, le gouvernement saoudien est confronté à un dilemme stratégique complexe. D'un côté, une riposte militaire massive contre les positions houthistes au Yémen risquerait de provoquer une guerre ouverte avec l'Iran, transformant une crise locale en embrasement généralisé du Moyen-Orient. D'un autre côté, l'absence de réponse ferme pourrait être interprétée comme un aveu de faiblesse par les milices armées, ce qui encouragerait de nouvelles attaques de drones et de missiles contre les villes et les terminaux pétroliers du royaume.",
+    "L'avenir de la crise dépend désormais des choix de Riyad, de Washington et de Téhéran. Pour éclairer les évolutions possibles, trois scénarios distincts se dessinent pour les prochains mois. Le premier envisage un arrêt des hostilités grâce à des négociations diplomatiques discrètes et à un compromis régional. Le deuxième, considéré comme notre scénario central, décrit la poursuite d'échanges de tirs limités que l'Arabie saoudite tente de contenir sans lancer d'offensive générale. Le troisième explore le risque d'un dérapage militaire direct menant à une confrontation ouverte entre puissances régionales et internationales."
+  ],
+  "enjeu_en_clair": {
+    "lead": "Les frappes de missiles houthistes contre les villes et raffineries saoudiennes menacent d'entraîner l'Iran, les États-Unis et l'Europe dans une guerre régionale.",
+    "text": "Le groupe armé des Houthistes, allié de Téhéran, tire des missiles sur l'Arabie saoudite et touche des infrastructures pétrolières. L'Iran menace d'attaquer les bases militaires occidentales si l'armée américaine riposte. Pour le reste du monde, le risque est un blocage des exportations d'énergie et une flambée du prix du carburant."
+  },
+  "stakes_branches": {
+    "favorable": "Une trêve négociée sous médiation internationale stoppe les tirs et stabilise les cours de l'énergie.",
+    "stable": "Les attaques sporadiques continuent sans offensive générale saoudienne, maintenant une pression militaire constante.",
+    "degrade": "Une riposte armée massive déclenche une guerre ouverte entre l'Arabie saoudite, les États-Unis et l'Iran."
+  },
+  "comprendre_box": [
+    {
+      "lead": "Les Houthistes mènent une stratégie de harcèlement pour peser au-delà des frontières du Yémen.",
+      "text": "Ce groupe armé yéménite utilise des missiles et des drones peu coûteux pour frapper des cibles économiques majeures en Arabie saoudite. En visant les raffineries et la capitale Riyad, les combattants cherchent à forcer le royaume saoudien à cesser ses opérations militaires et à obtenir une reconnaissance politique internationale.",
+      "apres_dek_index": 1
+    },
+    {
+      "lead": "L'Iran s'appuie sur des groupes alliés régionaux pour dissuader ses adversaires sans entrer directement en guerre.",
+      "text": "En soutenant militairement les insurgés au Yémen, le gouvernement iranien crée une menace permanente sur le flanc sud de l'Arabie saoudite. Cette méthode permet à Téhéran d'exercer une forte pression sur les pays occidentaux et sur le marché pétrolier sans engager officiellement sa propre armée nationale dans les combats.",
+      "apres_dek_index": 2
+    }
+  ],
+  "list_box": null,
+  "indicators": [
+    {
+      "label": "Prix du baril de pétrole Brent",
+      "delta": "Marchés sous tension après les frappes du 11 novembre 2026",
+      "value": "1er exportateur mondial de brut ciblé"
+    }
+  ],
+  "cards": {
+    "favorable": {
+      "pct": 20,
+      "gauge_word": "Peu probable",
+      "h3": "Un cessez-le-feu négocié stoppe les frappes de missiles",
+      "why": [
+        "Dans ce premier scénario, des canaux de discussion diplomatique s'ouvrent rapidement sous l'égide de médiateurs régionaux comme Oman ou les Nations unies. L'Arabie saoudite choisit de ne pas riposter sur le plan militaire afin de protéger ses programmes d'investissements économiques et touristiques. En échange d'un allègement de certaines sanctions et d'un engagement financier saoudien pour la reconstruction du Yémen, l'Iran incite les Houthistes à cesser leurs tirs de missiles vers Riyad et Aden. Les deux camps établissent un mécanisme de surveillance des frontières, ce qui permet de geler les hostilités et de sécuriser durablement les installations pétrolières d'Aramco.",
+        "Cette issue pacifique est évaluée à <strong>20 %</strong> de probabilité par notre rédaction. Elle se distingue nettement du scénario d'usure continue (55 %) et de celui d'un embrasement armé (25 %). Un tel compromis exige en effet que Téhéran accepte de modérer l'action de ses alliés sans obtenir au préalable de concessions majeures de la part des États-Unis. Si les pourparlers aboutissaient, les voies maritimes de la région retrouveraient leur calme et le risque de choc pétrolier s'éloignerait rapidement pour l'ensemble des pays importateurs."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Prix du baril de pétrole Brent",
+          "evo_current": "Baisse et stabilisation des cours",
+          "evo_arrow": "down",
+          "evo_prev": "Tensions et primes de risque élevées"
+        }
+      ],
+      "france_line": "L'apaisement diplomatique sécurise les approvisionnements en carburant et réduit la menace sur les bases militaires françaises.",
+      "france_impact": "favorable"
+    },
+    "stable": {
+      "pct": 55,
+      "gauge_word": "Assez probable",
+      "h3": "L'usure militaire se poursuit sans confrontation directe",
+      "why": [
+        "Dans ce deuxième scénario, qui constitue l'hypothèse centrale, les combattants houthistes continuent d'envoyer des drones et des missiles de croisière de manière sporadique contre le sud de l'Arabie saoudite et les positions gouvernementales à Aden. Le gouvernement saoudien renforce ses batteries antimissiles et intercepte la majorité des attaques, tout en limitant ses ripostes à des frappes aériennes ciblées sur des dépôts d'armes au Yémen. Riyad évite soigneusement d'accuser directement le gouvernement iranien pour ne pas déclencher une guerre frontale. Les menaces verbales de Téhéran contre les bases occidentales restent au stade de la rhétorique de dissuasion sans passage à l'acte.",
+        "Notre évaluation attribue <strong>55 %</strong> de probabilité à cette dynamique d'endiguement calculé, contre 20 % pour un arrêt négocié et 25 % pour une escalade incontrôlée. Ce statu quo conflictuel s'impose parce qu'aucun des acteurs n'a intérêt à assumer le coût économique et humain d'une guerre régionale ouverte. L'Arabie saoudite accepte de vivre sous une menace sécuritaire récurrente plutôt que de risquer la destruction de ses infrastructures pétrolières majeures, ce qui maintiendrait durablement une prime de risque sur les prix mondiaux de l'énergie."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Prix du baril de pétrole Brent",
+          "evo_current": "Maintien d'une prime de risque élevée",
+          "evo_arrow": "flat",
+          "evo_prev": "Hausse initiale après les frappes"
+        }
+      ],
+      "france_line": "La persistance des tensions entretient un coût élevé de l'énergie et impose une vigilance permanente aux forces françaises dans la région.",
+      "france_impact": "degrade"
+    },
+    "degrade": {
+      "pct": 25,
+      "gauge_word": "Peu probable",
+      "h3": "L'escalade militaire dégénère en conflit régional ouvert",
+      "why": [
+        "Dans ce troisième scénario, une nouvelle salve de missiles houthistes parvient à contourner les systèmes de défense et détruit un site de raffinage pétrolier majeur en Arabie saoudite, faisant de nombreuses victimes. Face à cette atteinte intolérable, la coalition saoudienne et les forces armées américaines lancent une vaste campagne de bombardements contre les centres de commandement au Yémen et des cibles militaires iraniennes dans le Golfe. L'Iran met alors ses menaces à exécution en tirant des missiles balistiques contre des bases militaires alliées et en tentant de bloquer la circulation maritime dans le détroit d'Ormuz.",
+        "Cette trajectoire d'escalade majeure est estimée à <strong>25 %</strong> de probabilité, face à l'hypothèse de tensions contenues (55 %) et à celle d'un accord politique (20 %). Ce dérapage surviendrait si un incident tactique imprévu franchissait les lignes rouges fixées par les belligérants. Une telle guerre régionale paralyserait une part substantielle des exportations de brut du Moyen-Orient, provoquerait une flambée brutale des prix du carburant dans le monde et exposerait les contingents militaires occidentaux à des frappes directes."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Prix du baril de pétrole Brent",
+          "evo_current": "Flambée brutale des prix mondiaux",
+          "evo_arrow": "up",
+          "evo_prev": "Niveaux d'avant les frappes"
+        }
+      ],
+      "france_line": "Un conflit ouvert menacerait directement les soldats français stationnés aux Émirats et provoquerait un choc inflationniste en France.",
+      "france_impact": "degrade"
+    }
+  },
+  "essentiel_box": [
+    "Les attaques répétées des Houthistes contre les villes et raffineries d'Arabie saoudite risquent-elles de provoquer un embrasement militaire élargi à l'Iran et aux pays occidentaux ?",
+    "Le 11 novembre 2026, trois missiles de croisière ont visé Riyad et trois projectiles ont frappé Aden, touchant des installations de la coalition et menaçant le premier pays exportateur mondial de pétrole brut.",
+    "Pas d'escalade immédiate : notre scénario le plus probable (55 %) prévoit la poursuite d'attaques sporadiques contenues par la défense saoudienne, face à l'option d'une trêve négociée (20 %) et au risque d'une guerre régionale ouverte (25 %).",
+    "Le niveau de riposte militaire de l'Arabie saoudite et l'éventuelle utilisation de bases occidentales pour frapper les positions des insurgés au Yémen constitueront les signaux déterminants à observer dans les prochains jours."
+  ],
+  "delta_france": {
+    "kind": "negatif",
+    "score": -0.6,
+    "word": "assez négatif",
+    "text": "la probabilité cumulée de 80 % que les tensions militaires persistent ou dégénèrent fait peser un risque durable sur les prix de l'énergie et sur la sécurité des bases françaises au Moyen-Orient."
+  },
+  "phrase_a_retenir": "Le 11 novembre 2026, trois missiles de croisière ont visé Riyad, menaçant directement les infrastructures du premier exportateur mondial de pétrole brut.",
+  "phrase_a_retenir_stat": "trois missiles de croisière",
+  "lexique": [
+    {
+      "slug": "houthistes",
+      "terme": "Houthistes",
+      "definition": "Mouvement politico-militaire issu d'une minorité yéménite, contrôlant la capitale Sanaa et soutenu par l'Iran dans le conflit régional."
+    }
+  ],
+  "sources_html": [
+    "<a href=\"https://www.ouest-france.fr/monde/iran/guerre-au-moyen-orient-explosions-a-aden-riyad-a-nouveau-visee-teheran-met-leurope-en-garde-les-dernieres-infos-9d30ab4e-dd99-11f1-a62b-776e3051b0df\" target=\"_blank\" rel=\"noopener noreferrer\">Ouest-France — Guerre au Moyen-Orient : explosions à Aden, Riyad à nouveau visé, Téhéran met l'Europe en garde ↗</a>",
+    "<a href=\"https://www.rfi.fr/fr/afrique/20261112/yemen-les-houthis-allies-de-tehran-menacent-la-stabilite-regionale\" target=\"_blank\" rel=\"noopener noreferrer\">Radio France Internationale — Yémen : les Houthistes, alliés de Téhéran, menacent la stabilité régionale ↗</a>"
+  ],
+  "meta": {
+    "title": "Houthistes : l'Arabie saoudite peut-elle éviter l'escalade régionale ?",
+    "meta_description": "Houthistes : l'Arabie saoudite peut-elle éviter l'escalade régionale ? Enjeux géopolitiques et scénarios prospectifs.",
+    "og_image_alt": "Missiles et tensions militaires entre le Yémen et l'Arabie saoudite",
+    "keywords": [
+      "Arabie",
+      "international",
+      "Houthistes",
+      "tensions",
+      "alliances",
+      "géopolitique"
+    ],
+    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-11-16.html\"\n  },\n  \"headline\": \"Houthistes : l'Arabie saoudite peut-elle éviter l'escalade régionale ?\",\n  \"description\": \"Houthistes : l'Arabie saoudite peut-elle éviter l'escalade régionale ? Enjeux géopolitiques et scénarios prospectifs.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-11-16.png\"\n  ],\n  \"datePublished\": \"2026-11-16T00:00:00\",\n  \"dateModified\": \"2026-11-16T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"Arabie, international, Houthistes, tensions, alliances, géopolitique\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Géopolitique\"\n}",
+    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Houthistes : l'Arabie saoudite peut-elle éviter l'escalade régionale ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-11-16.html\"\n    }\n  ]\n}"
+  }
+}
