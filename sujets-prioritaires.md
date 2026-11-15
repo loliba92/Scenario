@@ -723,6 +723,15 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 
 ## Sciences — vendredi (climat & écologie, espace, IA, médecine, énergie…)
+- [ ] Le télescope Euclid peut-il percer les mystères de l'énergie noire avec sa première carte de l'Univers ? [sciences & espace]
+  <!-- id: sciences-le-telescope-euclid-peut-il-percer-les-mysteres -->
+  <!-- contexte: Le 13 novembre 2026, le télescope spatial Euclid a livré son premier ensemble de données, couvrant plus d'un milliard d'objets célestes. Ces observations visent à cartographier l'Univers en 3D pour étudier l'énergie noire, la matière noire et la toile cosmique. Lancé en 2023, Euclid est un projet de l'Agence spatiale européenne. -->
+  <!-- rationnel: La question : les données d'Euclid vont-elles révolutionner notre compréhension de l'énergie noire, ou confirmer les théories existantes sans percée majeure ? Les forces en présence incluent les capacités technologiques du télescope, les modèles cosmologiques actuels, et les attentes de la communauté scientifique. Pour la France, un succès renforcerait la position de l'Europe dans l'astrophysique. -->
+  <!-- mots-clés: Euclid ; énergie noire ; télescope spatial ; ESA ; cosmologie ; matière noire -->
+  <!-- scénarios (brouillon): favorable = Euclid révèle des anomalies majeures dans la distribution de l'énergie noire, ouvrant la voie à une nouvelle physique. ; stable = Les données confirment les modèles actuels, sans surprise mais avec une précision inédite. ; dégradé = Des problèmes techniques ou des biais dans les données limitent la portée des conclusions, retardant les avancées. -->
+  <!-- sources: Revue de presse scientifique du 13/11/2026 <https://sciencemusic.live/revue-de-presse-scientifique-du-13-11-2026/> -->
+  <!-- origine: veille -->
+  <!-- note: Ajouté automatiquement le 2026-11-15 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. Solidité : 85/100. Validé d'office : score suffisant, aucun recyclage de sujet publié. -->
 - [x] La découverte d'une désintégration rare de particule ouvre-t-elle la voie à une nouvelle physique ? [sciences & physique]
   <!-- id: sciences-la-decouverte-d-une-desintegration-rare-de -->
   <!-- contexte: Le 3 novembre 2026, le CERN a annoncé avoir observé la désintégration extrêmement rare d'un méson Bd en deux muons, un phénomène qui ne se produit qu'une fois sur dix milliards. Cette découverte pourrait remettre en question le Modèle Standard de la physique des particules. -->
@@ -1226,6 +1235,15 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 ## Économie & finance mondiale — jeudi
 <!-- Faire tourner les sous-thèmes : marchés financiers, monnaies (dollar, or, bitcoin), dette et taux d'intérêt, matières premières (pétrole, énergie), entreprises et secteurs à l'échelle mondiale, inégalités, démographie économique, luxe et consommation… Nouveau registre créé le 12 août (retour utilisateur), scindé de l'ancien slot "Géopolitique / international — lundi" qui mélangeait géopolitique dure et économie mondiale — voir la note dans la section Géopolitique — lundi pour la règle de classement des sujets à cheval sur les deux. -->
+- [ ] La bulle de l'IA sur les marchés financiers va-t-elle éclater après la démission du PDG de Nvidia ? [économie & finance]
+  <!-- id: economie-la-bulle-de-l-ia-sur-les-marches-financiers-va -->
+  <!-- contexte: Le 12 novembre 2026, Jensen Huang, PDG de Nvidia, a démissionné après des révélations de liaisons avec une espionne chinoise présumée. L'action Nvidia a chuté de 14 % en séance, et la capitalisation boursière du groupe a perdu 1 800 milliards de dollars depuis son pic d'octobre. Les marchés tech américains sont sous pression, tandis que les places européennes résistent mieux. -->
+  <!-- rationnel: La question : la démission du PDG de Nvidia marque-t-elle le début d'un éclatement de la bulle de l'IA, ou les marchés vont-ils se stabiliser ? Les forces en présence incluent la confiance des investisseurs dans les technologies d'IA, les tensions géopolitiques sino-américaines, et les résultats économiques des entreprises tech. Pour la France, un krach tech pourrait affecter les fonds d'investissement et les start-ups locales. -->
+  <!-- mots-clés: Nvidia ; IA ; bulle financière ; Jensen Huang ; marchés actions ; tech -->
+  <!-- scénarios (brouillon): favorable = Les marchés tech se stabilisent après une correction modérée, avec une reprise menée par d'autres acteurs de l'IA. ; stable = La volatilité persiste, mais sans effondrement majeur, les investisseurs diversifiant leurs portefeuilles. ; dégradé = La chute de Nvidia déclenche une vente panique des actions tech, provoquant un krach boursier mondial. -->
+  <!-- sources: Monde – L'actualité de la semaine – 13 novembre 2026 | Crédit Agricole <https://etudes-economiques.credit-agricole.com/fr/monde-lactualite-de-la-semaine-13-novembre-2026> -->
+  <!-- origine: veille -->
+  <!-- note: Ajouté automatiquement le 2026-11-15 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. Solidité : 85/100. Validé d'office : score suffisant, aucun recyclage de sujet publié. -->
 - [x] La BCE peut-elle maintenir ses taux élevés sans provoquer une récession en zone euro ? [économie & banque centrale]
   <!-- id: economie-la-bce-peut-elle-maintenir-ses-taux-eleves-sans -->
   <!-- contexte: Le 10 novembre 2026, la BCE a confirmé sa politique de taux directeurs élevés pour lutter contre l'inflation, malgré des signes de ralentissement économique en zone euro. L'inflation reste à 3,8 %, tandis que la croissance stagne. Les marchés anticipent une possible hausse supplémentaire des taux en décembre. -->

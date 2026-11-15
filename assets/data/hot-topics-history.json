@@ -1,5 +1,19 @@
 [
   {
+    "date": "2026-11-15",
+    "registre": "Économie & finance",
+    "section": "Économie & finance",
+    "accroche": "La bulle de l'IA sur les marchés financiers va-t-elle éclater après la démission du PDG de Nvidia ?",
+    "tag": "économie & finance"
+  },
+  {
+    "date": "2026-11-15",
+    "registre": "Sciences",
+    "section": "Sciences",
+    "accroche": "Le télescope Euclid peut-il percer les mystères de l'énergie noire avec sa première carte de l'Univers ?",
+    "tag": "sciences & espace"
+  },
+  {
     "date": "2026-11-12",
     "registre": "Géopolitique",
     "section": "Géopolitique",
@@ -194,19 +208,5 @@
     "section": "Carte blanche",
     "accroche": "Sabotages et incendies en Europe : la Russie mène-t-elle une guerre hybride silencieuse sur le sol de l'UE ?",
     "tag": "géopolitique & sécurité"
-  },
-  {
-    "date": "2026-10-04",
-    "registre": "Géopolitique",
-    "section": "Géopolitique",
-    "accroche": "Ukraine : l'intensification des frappes sur les raffineries russes peut-elle faire basculer la guerre énergétique ?",
-    "tag": "géopolitique & énergie"
-  },
-  {
-    "date": "2026-10-04",
-    "registre": "Culture",
-    "section": "Culture",
-    "accroche": "Budget culture 2027 : le spectacle vivant peut-il survivre à une baisse de 4 % des crédits à la création ?",
-    "tag": "culture & budget"
   }
 ]
