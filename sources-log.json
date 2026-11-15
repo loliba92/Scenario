@@ -2,6 +2,21 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-11-15",
+      "articles": [
+        {
+          "title": "Alcaraz vainqueur, Laperche triomphe, l'OM enfonce Lens : les infos sport du week-end",
+          "source": "France 24",
+          "url": "https://www.france24.com/fr/sports/20261109-alcaraz-laperche-om-lens-infos-sport-week-end",
+          "image": "https://s.france24.com/media/display/923906d2-dc22-11f1-8b45-695cb59fade5/w:1280/p:16x9/recap-sport-09-11-2026-1.jpg",
+          "lang": "fr",
+          "domain": "sport",
+          "summary": "Récapitulatif sport du week-end du 9 novembre 2026 : victoire de Tom Laperche à la Route du Rhum 2026 en battant le record, avec ses ambitions pour le Vendée Globe 2028.",
+          "read_minutes": 2
+        }
+      ]
+    },
+    {
       "date": "2026-11-14",
       "articles": [
         {
