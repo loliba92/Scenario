@@ -357,7 +357,7 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 ## Sport — dimanche
 <!-- Enjeux sportifs & économiques, jamais la vie privée des sportifs. Sous-thèmes : football, rugby, tennis, JO, cyclisme, sports méca… -->
-- [ ] Tom Laperche peut-il dominer la voile mondiale après sa victoire record à la Route du Rhum ? [sport & voile]
+- [x] Tom Laperche peut-il dominer la voile mondiale après sa victoire record à la Route du Rhum ? [sport & voile]
   <!-- id: sport-tom-laperche-peut-il-dominer-la-voile-mondiale -->
   <!-- contexte: Le skipper français Tom Laperche a remporté la Route du Rhum 2026 en pulvérisant le record de la course (6 jours, 13 heures et 27 minutes). À 29 ans, il confirme son statut de nouveau leader de la voile française, avec des ambitions pour le Vendée Globe 2028. -->
   <!-- rationnel: La question : Laperche peut-il s'imposer comme la figure dominante de la voile mondiale, ou son succès restera-t-il isolé ? Les scénarios dépendent de sa régularité et de la concurrence. Un scénario favorable verrait une série de victoires majeures, un scénario stable maintiendrait une performance irrégulière, et un scénario dégradé pourrait voir son étoile pâlir rapidement. -->

@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "cb7b40b216d6c82a34a323f0512ecdc74301d97d1739e893551b90fce1c43486"
+    "md_sha256": "f8a7e77356dc6485857a4f6a3cda5c3b946e3bc17ffeccd2272f7ebabe8bf8f1"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -1646,7 +1646,7 @@
           "titre": "Tom Laperche peut-il dominer la voile mondiale après sa victoire record à la Route du Rhum ?",
           "question": null,
           "tag": "sport & voile",
-          "statut": "a_traiter",
+          "statut": "publie",
           "validation": "valide",
           "contexte": "Le skipper français Tom Laperche a remporté la Route du Rhum 2026 en pulvérisant le record de la course (6 jours, 13 heures et 27 minutes). À 29 ans, il confirme son statut de nouveau leader de la voile française, avec des ambitions pour le Vendée Globe 2028.",
           "rationnel": "La question : Laperche peut-il s'imposer comme la figure dominante de la voile mondiale, ou son succès restera-t-il isolé ? Les scénarios dépendent de sa régularité et de la concurrence. Un scénario favorable verrait une série de victoires majeures, un scénario stable maintiendrait une performance irrégulière, et un scénario dégradé pourrait voir son étoile pâlir rapidement.",
@@ -1675,8 +1675,8 @@
           "note": "Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
           "donnees": null,
           "ajoute_le": "2026-11-10",
-          "publie_le": null,
-          "edition": null,
+          "publie_le": "2026-11-15",
+          "edition": "2026-11-15",
           "enrichi_le": null
         },
         {
