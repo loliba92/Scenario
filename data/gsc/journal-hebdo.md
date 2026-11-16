@@ -22,3 +22,11 @@
 - Corrigé : titres coupés des éditions du 13 au 16 octobre (générateur + 6 pages), description anglaise du 12 octobre, balise de langue des pages anglaises.
 - À décider par le propriétaire : rien.
 - Pour le propriétaire (Search Console) : demander l'indexation de /archives.html, de l'édition du jour et de /guide-pedagogique.html.
+
+## 2026-11-16 — verdict : critique
+- Chiffres : 4 clics, 426 impressions (28 j) ; 13 pages indexées sur 33 inspectées ; éditions inconnues > 7 j : 12.
+- Agents envoyés : gsc-expert, seo-technical, seo-content.
+- Corrigé : traduction anglaise en panne depuis le 11 novembre (plan du site, PR n° 491) ; descriptions trop courtes dans les deux générateurs et sur 6 éditions (PR n° 492).
+- À décider par le propriétaire : rattrapage des éditions anglaises du 11 au 15 novembre ; liens de langue manquants sur les éditions du 13 au 24 septembre ; réécriture du guide pédagogique (exemple réel, titre) ; liens vers /index.html des gabarits hebdo et suivi.
+- Pour le propriétaire (Search Console) : demander l'indexation de /archives.html, de quelques éditions françaises récentes et de /guide-pedagogique.html ; lire « Pages de provenance » de /en/archives/2026-11-10.html.
+- Prochain contrôle : lundi 23 novembre.
