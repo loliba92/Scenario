@@ -2448,6 +2448,69 @@
     margin: 4px 0 22px; font-family: "Fraunces", Georgia, serif; font-style: italic;
     font-size: 1.15rem; color: var(--gold);
   }
+  /* a-venir-accueil:start */
+  /* ---- Accueil : frise « À venir » (discrète) ---- */
+  section.av-home{ padding:22px 0 26px; border-top:1px dashed var(--hairline); }
+  .av-home .section-label{ color:var(--gold); margin:0; }
+  .av-home .avh-bande{ position:relative; padding:2px 0 0; }
+  .av-home .avh-entete{ display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:14px; }
+  .av-home .avh-tout{ font-family:"JetBrains Mono",monospace; font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--paper-dim);
+    text-decoration:none; border-bottom:1px solid transparent; padding:10px 0; }
+  .av-home .avh-tout:hover{ color:var(--gold); border-bottom-color:var(--gold); }
+  .av-home .avh-frise{ position:relative; list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:0 28px; }
+  .av-home .avh-frise::before{ content:""; position:absolute; left:0; right:0; top:5px; height:1px;
+    background:linear-gradient(90deg, var(--gold), rgba(207,157,76,.35) 55%, transparent); }
+  .av-home .avh-point a{ position:relative; display:block; padding:22px 0 4px; text-decoration:none; color:inherit; }
+  .av-home .avh-noeud{ position:absolute; left:0; top:0; width:11px; height:11px; border-radius:50%; background:var(--ink); border:2px solid var(--gold);
+    box-shadow:0 0 0 4px rgba(207,157,76,.12); transition:box-shadow .25s, background .25s; }
+  .av-home .avh-point a:hover .avh-noeud{ background:var(--gold); box-shadow:0 0 0 6px rgba(207,157,76,.2); }
+  .av-home .avh-date{ display:flex; align-items:center; gap:7px; margin-bottom:6px; font-family:"JetBrains Mono",monospace; font-size:.7rem; letter-spacing:.06em;
+    text-transform:uppercase; color:var(--gold); }
+  .av-home .avh-date svg{ width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+  .av-home .avh-date i{ font-style:normal; color:var(--paper-dim); text-transform:none; letter-spacing:0; }
+  .av-home .avh-date i::before{ content:"·"; margin:0 6px 0 2px; }
+  .av-home .avh-question{ display:block; font-family:"Fraunces",serif; font-weight:500; font-size:1rem; line-height:1.3; text-wrap:balance; transition:color .2s; }
+  .av-home .avh-point a:hover .avh-question{ color:var(--gold); }
+  .av-home .avh-qui{ display:block; margin-top:6px; font-family:"JetBrains Mono",monospace; font-size:.62rem; letter-spacing:.06em; text-transform:uppercase; color:var(--paper-dim); }
+  .av-home .avh-tuile{ display:none; }
+  .av-home .avh-dom{ position:absolute; left:-9999px; }
+  @media (max-width:760px){
+    section.av-home{ padding:22px 0 26px; overflow:hidden; }
+    .av-home .avh-entete{ padding:0 14px; }
+    /* Carrousel : cartes pleine hauteur qu'on fait glisser, la suivante dépasse pour inviter au geste. */
+    .av-home .avh-frise{ display:flex; gap:12px; overflow-x:auto; scroll-snap-type:x mandatory; padding:4px 14px 12px; margin:0;
+      scrollbar-width:none; -webkit-overflow-scrolling:touch; scroll-padding-inline:14px; }
+    .av-home .avh-frise::-webkit-scrollbar{ display:none; }
+    .av-home .avh-frise::before{ display:none; }
+    .av-home .avh-point{ flex:0 0 min(84%, 330px); scroll-snap-align:start; }
+    .av-home .avh-point a{ position:relative; display:grid; grid-template-columns:58px minmax(0,1fr); gap:6px 14px; align-content:start; height:100%;
+      padding:16px; border:1px solid var(--hairline); border-radius:18px; overflow:hidden;
+      background:radial-gradient(130% 90% at 0% 0%, rgba(207,157,76,.14), transparent 60%), var(--surface); }
+    .av-home .avh-point a::before{ content:""; position:absolute; left:0; right:0; top:0; height:2px; background:linear-gradient(90deg, var(--gold), transparent 75%); }
+    .av-home .avh-noeud{ display:none; }
+    .av-home .avh-tuile{ display:block; grid-row:1 / span 2; }
+    .av-home .tuile{ width:58px; border-radius:10px; overflow:hidden; text-align:center; background:var(--surface-2); border:1px solid #3a4656; }
+    .av-home .tuile .haut{ display:block; background:var(--gold); color:var(--ink); font-family:"JetBrains Mono",monospace; font-weight:500; font-size:.55rem;
+      letter-spacing:.05em; text-transform:uppercase; padding:3px 2px; line-height:1.2; white-space:nowrap; }
+    .av-home .tuile .gros{ display:block; font-family:"Fraunces",serif; font-weight:600; font-size:1.5rem; line-height:1; padding:7px 2px 3px; color:var(--paper); }
+    .av-home .tuile .bas{ display:block; font-family:"JetBrains Mono",monospace; font-size:.55rem; letter-spacing:.08em; text-transform:uppercase; color:var(--paper-dim); padding:0 2px 6px; line-height:1.2; }
+    .av-home .tuile .gros.moy{ font-size:1.1rem; padding-top:9px; }
+    .av-home .tuile .gros.moy:last-child{ padding-bottom:10px; }
+    .av-home .tuile .gros.sans-bas{ padding-bottom:8px; }
+    .av-home .tuile.flou{ background:var(--surface); border:1.5px dashed var(--gold); }
+    .av-home .tuile.flou .haut{ background:transparent; color:var(--gold); padding-top:5px; }
+    .av-home .avh-date{ margin:0; align-self:center; }
+    .av-home .avh-date{ flex-wrap:wrap; row-gap:3px; }
+    .av-home .avh-dom{ position:static; font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); }
+    .av-home .avh-date i{ flex:0 0 100%; }
+    .av-home .avh-q{ display:none; }
+    .av-home .avh-date i::before{ display:none; }
+    .av-home .avh-date i{ color:var(--paper); font-family:"JetBrains Mono",monospace; font-size:.72rem; }
+    .av-home .avh-question{ grid-column:1 / -1; font-size:1.12rem; line-height:1.28; margin-top:6px; }
+    .av-home .avh-qui{ grid-column:1 / -1; margin-top:8px; }
+  }
+  @media (prefers-reduced-motion:reduce){ .av-home .avh-noeud, .av-home .avh-question{ transition:none; } }
+  /* a-venir-accueil:end */
 </style>
 </head>
 <body>
@@ -2458,10 +2521,10 @@
 <img alt="" class="brand-mark" src="../assets/logo.svg"/>
 <div class="wordmark">Scéna<span>rio</span></div>
 </div>
-<div class="edition">Edition of November 10, 2026 · No. 110</div>
+<div class="edition">Edition of November 16, 2026 · No. 116</div>
 </div>
 <div class="masthead-right">
-<a aria-label="Lire en français" class="masthead-lang-btn" href="../index.html" title="Lire en français">FR</a>
+<a aria-label="Lire en français" class="masthead-lang-btn" href="../" title="Lire en français">FR</a>
 </div>
 </div>
 </header>
@@ -2469,6 +2532,7 @@
 <div class="wrap">
 <a href="..//">Home</a>
 <a href="../archives.html"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><rect height="4" rx="1" width="16" x="4" y="4.5"></rect><path d="M5 8.5v9.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8.5"></path><line x1="10" x2="14" y1="13" y2="13"></line></svg> Éditions</a>
+<a href="../a-venir.html"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><rect height="14" rx="2" width="16" x="4" y="5.5"></rect><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"></path></svg> À venir</a>
 <a href="../glossaire.html"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><path d="M12 6.5c-1.6-1.2-3.7-1.7-6-1.7v13c2.3 0 4.4.5 6 1.7 1.6-1.2 3.7-1.7 6-1.7v-13c-2.3 0-4.4.5-6 1.7Z"></path><line x1="12" x2="12" y1="6.5" y2="19.5"></line></svg>Glossary</a>
 <a href="../sources.html"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><rect height="14" rx="1.5" width="13" x="3.5" y="5.5"></rect><path d="M16.5 8.5h2.5a1.5 1.5 0 0 1 1.5 1.5v9a1.5 1.5 0 0 1-1.5 1.5h-13"></path><line x1="7" x2="13" y1="9.5" y2="9.5"></line><line x1="7" x2="13" y1="13" y2="13"></line><line x1="7" x2="11" y1="16.5" y2="16.5"></line></svg>Press roundup</a>
 <a href="../le-projet.html"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><path d="m12 3 8 4.5-8 4.5-8-4.5Z"></path><path d="m4 12 8 4.5 8-4.5"></path><path d="m4 16.5 8 4.5 8-4.5"></path></svg>About</a>
@@ -2477,7 +2541,7 @@
 <details class="topnav-more">
 <summary>Plus</summary>
 <div class="topnav-more-panel">
-<a href="../hebdo/2026-11-08.html" id="recap-link">Weekly recap</a>
+<a href="../hebdo/2026-11-15.html" id="recap-link">Weekly recap</a>
 <a href="../archives.html?tag=revise">Updated topic</a>
 <a href="https://open.spotify.com/show/1eycE00I2egdNO50oqeDFQ" rel="noopener noreferrer" target="_blank">Écouter sur Spotify</a>
 <button id="print-page" type="button">Print on 1 page</button>
@@ -2485,9 +2549,9 @@
 </div>
 </details>
 </nav>
-<div class="weekly-banner" data-hebdo="2026-11-08" hidden="" id="weekly-banner">
+<div class="weekly-banner" data-hebdo="2026-11-15" hidden="" id="weekly-banner">
 <div class="wrap weekly-banner-inner">
-<a class="weekly-banner-link" href="../hebdo/2026-11-08.html" id="weekly-banner-link">
+<a class="weekly-banner-link" href="../hebdo/2026-11-15.html" id="weekly-banner-link">
 <svg aria-hidden="true" class="weekly-banner-icon" fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="18"><rect height="15" rx="2" width="17" x="3.5" y="5"></rect><line x1="3.5" x2="20.5" y1="9.5" y2="9.5"></line><line x1="8" x2="8" y1="3" y2="7"></line><line x1="16" x2="16" y1="3" y2="7"></line></svg>
 <span class="weekly-banner-text">This week's recap is up — the 7 topics and their most likely scenario.</span>
 <span class="weekly-banner-cta">Read →</span>
@@ -2500,14 +2564,14 @@
 <section class="featured-article">
 <div class="wrap">
 <p class="section-label">The latest edition</p>
-<a class="featured-article-link" href="archives/2026-11-10.html">
+<a class="featured-article-link" href="archives/2026-11-16.html">
 <div class="featured-article-image-wrap">
-<img alt="Russia: Has Putin locked down power without a crack after the September legislative elections?" class="featured-article-image" src="../assets/social/topic-images/2026-11-10.jpg"/>
+<img alt="Houthis: Can Saudi Arabia Prevent Regional Escalation?" class="featured-article-image" src="../assets/social/topic-images/2026-11-16.jpg"/>
 </div>
 <div>
-<span class="featured-article-date">International · Nov 10</span>
-<h2 class="featured-article-title">Russia: Has Putin locked down power without a crack after the September legislative elections?</h2>
-<p class="featured-article-question">Did Russia’s September 2026 legislative elections lock down Putin’s power until 2031, or will signs of vulnerability emerge?</p>
+<span class="featured-article-date">Geopolitique · Nov 16</span>
+<h2 class="featured-article-title">Houthis: Can Saudi Arabia Prevent Regional Escalation?</h2>
+<p class="featured-article-question">Could Houthi attacks on Saudi Arabia trigger a regional escalation?</p>
 <span class="featured-article-cta">Read the edition →</span>
 </div>
 </a>
@@ -2531,6 +2595,13 @@
 <p class="section-label">Previous editions</p>
 <h2 class="section-title">Latest editions</h2>
 <ul class="related-articles-list">
+<li><a class="related-articles-item" href="archives/2026-11-10.html">
+<img alt="Russia: Has Putin Locked Down Power After the Elections?" class="related-articles-image" decoding="async" loading="lazy" src="../assets/social/topic-images/2026-11-10.jpg"/>
+<div class="related-articles-content">
+<span class="related-articles-date">International · Nov 10</span>
+<span class="related-articles-title">Russia: Has Putin Locked Down Power After the Elections?</span>
+</div>
+</a></li>
 <li><a class="related-articles-item" href="archives/2026-11-09.html">
 <img alt="Ukraine: Could the Refinery War Shift the Balance of the Conflict?" class="related-articles-image" decoding="async" loading="lazy" src="../assets/social/topic-images/2026-11-09.jpg"/>
 <div class="related-articles-content">
@@ -2574,10 +2645,10 @@
 </div>
 </a></li>
 <li><a class="related-articles-item" href="archives/2026-11-03.html">
-<img alt="Kaliningrad: Are Russian nuclear threats forcing NATO to back down or precipitating a confrontation?" class="related-articles-image" decoding="async" loading="lazy" src="../assets/social/topic-images/2026-11-03.jpg"/>
+<img alt="Kaliningrad: Do Russian Nuclear Threats Push NATO Back?" class="related-articles-image" decoding="async" loading="lazy" src="../assets/social/topic-images/2026-11-03.jpg"/>
 <div class="related-articles-content">
 <span class="related-articles-date">International · Nov 3</span>
-<span class="related-articles-title">Kaliningrad: Are Russian nuclear threats forcing NATO to back down or precipitating a confrontation?</span>
+<span class="related-articles-title">Kaliningrad: Do Russian Nuclear Threats Push NATO Back?</span>
 </div>
 </a></li>
 <li><a class="related-articles-item" href="archives/2026-11-02.html">
@@ -2585,13 +2656,6 @@
 <div class="related-articles-content">
 <span class="related-articles-date">Geopolitique · Nov 2</span>
 <span class="related-articles-title">Rare earths: the new oil?</span>
-</div>
-</a></li>
-<li><a class="related-articles-item" href="archives/2026-11-01.html">
-<img alt="Sports: Is Fair Competition Still Possible?" class="related-articles-image" decoding="async" loading="lazy" src="../assets/social/topic-images/2026-11-01.jpg"/>
-<div class="related-articles-content">
-<span class="related-articles-date">Sports · Nov 1</span>
-<span class="related-articles-title">Sports: Is Fair Competition Still Possible?</span>
 </div>
 </a></li>
 </ul>
