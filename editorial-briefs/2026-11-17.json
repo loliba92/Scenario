@@ -1,0 +1,277 @@
+{
+  "date": "2026-11-17",
+  "registre": "carte_blanche",
+  "sujet": {
+    "titre_propose": "La pétition contre CNews peut-elle aboutir à sa suppression ?",
+    "h1": "CNews : la pétition de 1 million de signatures peut-elle faire plier la chaîne ?",
+    "question_posee": "La pétition contre CNews, soutenue par des personnalités et ayant dépassé 1 million de signatures, peut-elle aboutir à une sanction ou à une modification de la chaîne, ou restera-t-elle symbolique ?",
+    "eyebrow": "Mardi, carte blanche",
+    "angle": "Une pétition citoyenne demandant la suppression de CNews a dépassé le million de signatures en novembre 2026, accusant la chaîne d'inciter à la haine et à la discrimination. La question centrale est de savoir si cette mobilisation peut produire des effets concrets — sanctions de l'Arcom, pression politique, changement éditorial — ou si elle restera une initiative symbolique sans impact sur le fonctionnement de la chaîne.",
+    "tags": [
+      "medias",
+      "regulation",
+      "liberte-expression",
+      "arcom"
+    ],
+    "domain": "politique-institutions",
+    "image_keywords": "television studio protest",
+    "complexite": 3,
+    "origine_prioritaire": "La pétition contre CNews peut-elle aboutir à sa suppression ?",
+    "origine_id": "actualite-francaise-la-petition-contre-cnews-peut-elle-aboutir-a-sa",
+    "point_de_depart": {
+      "id": "actualite-francaise-la-petition-contre-cnews-peut-elle-aboutir-a-sa",
+      "registre": "carte_blanche",
+      "titre": "La pétition contre CNews peut-elle aboutir à sa suppression ?",
+      "question": "La pétition contre CNews peut-elle aboutir à sa suppression ?",
+      "contexte": "Une pétition demandant la suppression de CNews a dépassé les 900 000 signatures le 10 novembre 2026. Lancée en juin, elle accuse la chaîne d'inciter à la haine et à la discrimination. CNews, propriété de Vincent Bolloré, a déjà été sanctionnée à plusieurs reprises par l'Arcom pour des manquements à ses obligations.",
+      "rationnel": "La question : cette pétition peut-elle conduire à des sanctions concrètes contre CNews, ou restera-t-elle symbolique ? Les forces en présence incluent la pression de l'opinion publique, la défense de la liberté d'expression par CNews, et le rôle régulateur de l'Arcom. Un scénario favorable verrait des sanctions renforcées contre la chaîne, un scénario stable maintiendrait le statu quo, et un scénario dégradé pourrait entraîner une polarisation accrue du débat médiatique.",
+      "mots_cles": [
+        "CNews",
+        "pétition",
+        "Arcom",
+        "Vincent Bolloré",
+        "liberté d'expression"
+      ],
+      "angle": null,
+      "a_verifier": null,
+      "scenarios_brouillon": {
+        "favorable": "L'Arcom impose des sanctions sévères à CNews, limitant son influence.",
+        "stable": "La pétition reste sans effet concret, mais relance le débat sur la régulation des médias.",
+        "degrade": "La polarisation s'accentue, avec des manifestations ou contre-manifestations autour de la chaîne."
+      },
+      "echeance": null,
+      "sources_pistes": [
+        {
+          "titre": "Les lauréats littéraires 2026, une pétition contre CNews et la tournée de The Weeknd…",
+          "url": "https://www.rtbf.be/article/les-laureats-litteraires-2026-une-petition-contre-cnews-et-la-tournee-de-the-weeknd-retrouvez-l-actu-culturelle-de-la-semaine-11811727"
+        }
+      ],
+      "tag": "médias & politique",
+      "origine": "veille",
+      "note_editoriale": "Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
+      "donnees_graphique": "[relevé du 2026-11-10] Nombre de signatures de la pétition contre CNews (unité : signatures). Signatures le 2 novembre 2026 = 500 000 ; signatures le 8 novembre 2026 = 1 000 000 ; signatures le 10 novembre 2026 = 1 066 909. Sources : https://www.franceinfo.fr/politique/la-petition-appelant-a-supprimer-cnews-de-l-audiovisuel-francais-classee-par-la-commission-de-l-assemblee-nationale_8276303.html ; https://www.leparisien.fr/sports/cest-de-la-dictature-raymond-domenech-furieux-contre-les-deputes-qui-ont-decide-denterrer-la-petition-contre-cnews-10-11-2026-VVFCQ5A54NCCZE3MQKJ5Y6N5BM.php ; https://petitions.assemblee-nationale.fr/initiatives/i-5820?locale=",
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Vérification effectuée : l'édition du 16 novembre 2026 porte sur les Houthistes et l'Arabie saoudite (géopolitique), sans lien avec le sujet des médias français. Aucune édition récente du registre 'carte_blanche' ne traite de CNews ou de la régulation des médias français. Aucun recoupement avec les sujets à suivre actifs."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Une pétition demandant la suppression de CNews a dépassé 1 million de signatures en novembre 2026.",
+      "chiffre": "1 million de signatures",
+      "date_du_chiffre": "2026-11-10",
+      "sources": [
+        "franceinfo-petition"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La pétition a été classée par la commission de l'Assemblée nationale, ce qui a suscité des réactions politiques.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "leparisien-petition"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "CNews, propriété de Vincent Bolloré, a déjà été sanctionnée à plusieurs reprises par l'Arcom pour des manquements à ses obligations.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "rtbf-petition"
+      ],
+      "confiance": "haute"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "CNews",
+      "role": "Chaîne d'information généraliste propriété de Vincent Bolloré, accusée d'inciter à la haine et à la discrimination"
+    },
+    {
+      "nom": "Vincent Bolloré",
+      "role": "Actionnaire de CNews, défend la liberté d'expression de la chaîne"
+    },
+    {
+      "nom": "Arcom",
+      "role": "Autorité de régulation des communications électroniques, des postes et de la distribution de la presse, qui sanctionne les manquements des chaînes"
+    },
+    {
+      "nom": "Assemblée nationale",
+      "role": "Commission parlementaire qui a classé la pétition, suscitant un débat politique"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2026-06",
+      "evenement": "Lancement de la pétition demandant la suppression de CNews"
+    },
+    {
+      "date": "2026-10-02",
+      "evenement": "La pétition atteint 500 000 signatures"
+    },
+    {
+      "date": "2026-11-08",
+      "evenement": "La pétition dépasse 1 million de signatures"
+    },
+    {
+      "date": "2026-11-10",
+      "evenement": "La commission de l'Assemblée nationale classe la pétition, suscitant des réactions"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "L'Arcom renforce ses sanctions contre CNews, la chaîne est contrainte de modifier son ligne éditoriale ou de faire face à des sanctions financières lourdes, et la pétition contribue à un débat public structuré sur la régulation des médias.",
+      "probabilite_suggeree": 25
+    },
+    "stable": {
+      "resume": "La pétition reste sans effet concret sur le fonctionnement de CNews. L'Arcom maintient son dispositif de sanction existant sans nouvelle mesure spécifique, et le débat reste symbolique sans changement de régulation.",
+      "probabilite_suggeree": 55
+    },
+    "degrade": {
+      "resume": "La polarisation s'accentue autour de la chaîne, avec des manifestations ou contre-manifestations, et le débat médiatique se radicalise sans aboutir à une régulation effective, renforçant les clivages politiques.",
+      "probabilite_suggeree": 20
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Signatures de la pétition",
+      "valeur": "1 million",
+      "tendance": "en hausse rapide"
+    },
+    {
+      "label": "Sanctions Arcom contre CNews",
+      "valeur": "plusieurs sanctions",
+      "tendance": "récurrentes"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Aucune série historique longue et publique sur les signatures de pétitions ou les sanctions Arcom spécifiques à CNews n'a été identifiée lors de la recherche. La pétition est un événement récent sans historique comparable disponible publiquement.",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "oui",
+    "raison": "Trois chiffres comparables (évolution des signatures dans le temps) sont disponibles dans les sources vérifiées.",
+    "barres": {
+      "aria_label": "Évolution du nombre de signatures de la pétition contre CNews",
+      "lead": "La pétition a progressé rapidement, passant de 500 000 à plus d'1 million de signatures en quelques semaines.",
+      "caption": "Franceinfo, Le Parisien — novembre 2026",
+      "unite": "signatures",
+      "valeurs": [
+        {
+          "label": "2 octobre 2026",
+          "valeur": 500000,
+          "affichage": "500 000",
+          "mis_en_avant": false
+        },
+        {
+          "label": "8 novembre 2026",
+          "valeur": 1000000,
+          "affichage": "1 000 000",
+          "mis_en_avant": false
+        },
+        {
+          "label": "10 novembre 2026",
+          "valeur": 1066909,
+          "affichage": "1 066 909",
+          "mis_en_avant": true
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Le rôle de l'Arcom dans la régulation des chaînes d'information",
+        "rattache_a": "fait-arcom"
+      },
+      {
+        "focus": "La pétition comme outil de pression politique en France",
+        "rattache_a": "fait-petition"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "L'issue exacte du classement de la pétition par la commission de l'Assemblée nationale n'est pas encore connue.",
+    "Les sanctions futures potentielles de l'Arcom contre CNews restent incertaines."
+  ],
+  "a_ne_pas_affirmer": [
+    "La pétition aboutira à la suppression effective de CNews.",
+    "L'Arcom prendra une nouvelle sanction spécifique suite à cette pétition."
+  ],
+  "sources": [
+    {
+      "id": "franceinfo-petition",
+      "title": "La pétition appelant à supprimer CNews de l'audiovisuel français classée par la commission de l'Assemblée nationale",
+      "source": "Franceinfo",
+      "url": "https://www.franceinfo.fr/politique/la-petition-appelant-a-supprimer-cnews-de-l-audiovisuel-francais-classee-par-la-commission-de-l-assemblee-nationale_8276303.html",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "La pétition demandant la suppression de CNews a été classée par la commission de l'Assemblée nationale, suscitant des réactions politiques. Elle accuse la chaîne d'inciter à la haine et à la discrimination.",
+      "read_minutes": 3
+    },
+    {
+      "id": "leparisien-petition",
+      "title": "C'est de la dictature : Raymond Domenech furieux contre les députés qui ont décidé d'enterrer la pétition contre CNews",
+      "source": "Le Parisien",
+      "url": "https://www.leparisien.fr/sports/cest-de-la-dictature-raymond-domenech-furieux-contre-les-deputes-qui-ont-decide-denterrer-la-petition-contre-cnews-10-11-2026-VVFCQ5A54NCCZE3MQKJ5Y6N5BM.php",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Le Parisien rapporte les réactions de personnalités comme Raymond Domenech contre le classement de la pétition par les députés. La pétition a dépassé 1 million de signatures.",
+      "read_minutes": 3
+    },
+    {
+      "id": "rtbf-petition",
+      "title": "Les lauréats littéraires 2026, une pétition contre CNews et la tournée de The Weeknd…",
+      "source": "RTBF",
+      "url": "https://www.rtbf.be/article/les-laureats-litteraires-2026-une-petition-contre-cnews-et-la-tournee-de-the-weeknd-retrouvez-l-actu-culturelle-de-la-semaine-11811727",
+      "image": null,
+      "lang": "fr",
+      "domain": "culture-divertissement",
+      "summary": "La RTBF mentionne la pétition contre CNews dans son tour d'horizon culturel, rappelant les accusations de haine et de discrimination contre la chaîne.",
+      "read_minutes": 2
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "Les lauréats littéraires 2026, une pétition contre CNews et la tournée de The Weeknd…",
+      "source": "RTBF",
+      "url": "https://www.rtbf.be/article/les-laureats-litteraires-2026-une-petition-contre-cnews-et-la-tournee-de-the-weeknd-retrouvez-l-actu-culturelle-de-la-semaine-11811727",
+      "image": null,
+      "lang": "fr",
+      "domain": "culture-divertissement",
+      "summary": "Tour d'horizon culturel de la semaine incluant la pétition contre CNews et la tournée de The Weeknd.",
+      "read_minutes": 2
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-09-16",
+      "titre": "Électricité : la fin de l'ARENH va-t-elle faire flamber ta facture ?",
+      "lien": "Régulation des services publics de communication en France (ARENH, Arcom) — même contexte de dispositifs de régulation et de leurs impacts sur les usagers."
+    },
+    {
+      "date": "2026-09-13",
+      "titre": "Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?",
+      "lien": "Contexte politique français de l'automne 2026 — la pétition s'inscrit dans un climat politique tendu, avec des débats sur la régulation et les médias."
+    },
+    {
+      "date": "2026-09-23",
+      "titre": "Carburants, menaces hybrides : Macron réunit les candidats",
+      "lien": "Débat public et mobilisation autour de la présidentielle 2027 — la pétition contre CNews s'inscrit dans la même période de tensions politiques et de débats sur la liberté d'expression."
+    }
+  ],
+  "recommandations_redaction": [
+    "Préciser le rôle de l'Arcom dans la régulation des chaînes d'information et ses sanctions précédentes contre CNews.",
+    "Expliquer le mécanisme de la pétition comme outil de pression politique en France (classement parlementaire, impact symbolique vs concret).",
+    "Mettre en perspective la pétition avec les débats plus larges sur la liberté d'expression et la régulation des médias en France."
+  ]
+}

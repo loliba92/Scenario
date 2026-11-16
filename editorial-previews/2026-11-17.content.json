@@ -1,0 +1,169 @@
+{
+  "h1": "CNews : la pétition de 1 million de signatures peut-elle faire plier la chaîne ?",
+  "question_text": "La pétition contre CNews, soutenue par des personnalités et ayant dépassé 1 million de signatures, peut-elle aboutir à une sanction ou à une modification de la chaîne, ou restera-t-elle symbolique ?",
+  "section_title": "Une pétition citoyenne record peut-elle changer l'avenir d'une chaîne télévisée ?",
+  "dek": [
+    "En novembre 2026, la plateforme officielle de l'Assemblée nationale a enregistré un record démocratique inédit avec le franchissement de <strong>1 million de signatures</strong> pour demander la suppression de la chaîne CNews. Lancée à l'origine en juin par un particulier, cette initiative citoyenne accuse le média d'information en continu d'attiser la haine et les discriminations dans l'espace public. Le texte reproche notamment à la chaîne du groupe de l'homme d'affaires Vincent Bolloré de multiplier les provocations éditoriales et réclame le retrait pur et simple de sa fréquence sur la télévision numérique terrestre. L'ampleur prise par cette signature collective a relancé un débat national d'une rare intensité sur la place des médias d'opinion et les limites imposées au débat public.",
+    "Ce sursaut de participation populaire a franchi des seuils symboliques majeurs en seulement quelques semaines, passant de 500 000 signataires au début du mois d'octobre à plus d'un million début novembre. Cette accélération spectaculaire témoigne d'une exaspération vive chez une frange importante des citoyens et de nombreuses personnalités publiques après plusieurs polémiques très médiatisées. Pour les signataires, la télévision d'information ne peut pas s'affranchir des règles républicaines élémentaires au nom de l'audimat. Mais cette contestation massive se heurte immédiatement à l'architecture juridique française, conçue pour protéger la liberté de la presse contre toute intervention politique directe ou populaire impulsive.",
+    "Le 10 novembre 2026, la commission des affaires culturelles de l'Assemblée nationale a pourtant choisi de classer ce texte par <strong>28 voix contre 25</strong>, refusant la tenue automatique d'un débat officiel dans l'hémicycle. Les députés des groupes de droite et du centre ont justifié leur refus en rappelant que le Parlement n'a aucun pouvoir judiciaire ou administratif direct pour fermer un média privé. Selon eux, une telle prérogative relève exclusivement de l'Arcom<a class=\"lex-ref\" href=\"#lex-arcom\" aria-label=\"Voir la définition dans le lexique\">*</a>, l'autorité publique indépendante chargée de surveiller l'audiovisuel. Cette décision de rejet a provoqué la colère des oppositions de gauche, qui dénoncent un enterrement délibéré de la volonté populaire face aux dérives médiatiques.",
+    "La chaîne CNews a d'ailleurs déjà fait l'objet de <strong>plusieurs sanctions</strong> financières et de mises en demeure répétées de la part du régulateur pour des manquements caractérisés à ses devoirs d'honnêteté de l'information et de maîtrise de l'antenne. Ces sanctions récurrentes illustrent la difficulté à faire respecter les règles éditoriales classiques à l'ère des chaînes de débat polarisées. Pour la direction de la chaîne et ses soutiens, ces attaques répétées constituent une tentative inacceptable de censure politique visant à étouffer le pluralisme<a class=\"lex-ref\" href=\"#lex-pluralisme\" aria-label=\"Voir la définition dans le lexique\">*</a> des opinions. Le média rappelle qu'il bénéficie d'une convention<a class=\"lex-ref\" href=\"#lex-convention\" aria-label=\"Voir la définition dans le lexique\">*</a> d'autorisation de diffusion régulièrement accordée par les autorités publiques.",
+    "La confrontation juridique et politique révèle ainsi une mécanique institutionnelle complexe où le nombre de signatures citoyennes ne crée aucune obligation de résultat contraignante. Une pétition parlementaire sert avant tout de signal d'alarme pour alerter les représentants élus, mais elle ne saurait se substituer à une décision de justice ou à une procédure réglementaire formelle. Supprimer un canal de diffusion hertzien exige de prouver des violations graves, répétées et juridiquement incontestables du cahier des charges, sous le contrôle scrupuleux du Conseil d'État pour éviter toute dérive autoritaire de l'État.",
+    "Face à cette impasse apparente entre une colère citoyenne massivement exprimée et la rigueur des procédures de régulation, l'avenir de la chaîne d'information suscite des trajectoires très divergentes. D'un côté, le renforcement des contrôles administratifs pourrait durcir l'encadrement éditorial et peser financièrement sur le modèle économique de la chaîne. De l'autre, la solidité des garanties constitutionnelles protégeant la presse et le refus des institutions de céder à l'émotion populaire laissent présager un statu quo prolongé, voire une accentuation durable des fractures politiques et culturelles du pays."
+  ],
+  "enjeu_en_clair": {
+    "lead": "Une pétition citoyenne record demande la fermeture de CNews, posant la question du pouvoir réel des citoyens face aux médias.",
+    "text": "Plus d'un million de personnes ont signé un texte demandant le retrait de l'autorisation de diffusion de CNews. Le problème réside dans le fait que les députés ne peuvent pas décider seuls de fermer une chaîne de télévision privée. Cet enjeu touche directement les règles qui protègent la liberté d'expression en France tout en sanctionnant les propos haineux."
+  },
+  "stakes_branches": {
+    "favorable": "L'autorité de régulation durcit ses contrôles et contraint la chaîne à adapter sa grille et son ton.",
+    "stable": "La procédure parlementaire s'arrête là et la chaîne conserve sa ligne éditoriale sans contrainte nouvelle.",
+    "degrade": "La controverse alimente une guerre culturelle permanente et fragilise la confiance dans les règles communes."
+  },
+  "comprendre_box": [
+    {
+      "lead": "L'Arcom est le gendarme de l'audiovisuel, pas le Parlement",
+      "text": "L'autorité audiovisuelle agit comme un arbitre indépendant sur un terrain de sport. Elle vérifie que les diffuseurs respectent le cahier des charges et la loi, en infligeant des amendes en cas de faute, mais les députés ne peuvent pas arbitrer le match à sa place.",
+      "apres_dek_index": 2
+    },
+    {
+      "lead": "La pétition citoyenne sert d'avertisseur, pas de tribunal",
+      "text": "Déposer une pétition sur le site de l'Assemblée ressemble au déclenchement d'une alerte citoyenne. Elle oblige les élus à regarder un problème précis, mais elle ne leur donne pas le pouvoir magique de voter la disparition d'une entreprise privée.",
+      "apres_dek_index": 4
+    }
+  ],
+  "list_box": null,
+  "indicators": [
+    {
+      "label": "Signatures de la pétition",
+      "value": "1 million",
+      "delta": "seuil franchi le 8 novembre 2026"
+    },
+    {
+      "label": "Sanctions Arcom contre CNews",
+      "valeur": "plusieurs sanctions",
+      "value": "plusieurs sanctions",
+      "delta": "amendes et mises en demeure répétées"
+    }
+  ],
+  "cards": {
+    "favorable": {
+      "pct": 25,
+      "gauge_word": "Probable",
+      "h3": "L'autorité audiovisuelle durcit ses sanctions financières et éditoriales",
+      "why": [
+        "Dans ce premier scénario, la pression populaire record et la récurrence des manquements constatés conduisent l'Arcom à durcir très nettement sa surveillance quotidienne. Concrètement, l'autorité multiplie les avertissements formels et prononce des amendes record contre la chaîne en cas de dérapage répété sur les plateaux de débat. Face à l'accumulation de ces pénalités financières et au risque juridique pesant sur le renouvellement de sa convention de diffusion, la direction de CNews impose un encadrement plus rigoureux à ses animateurs et renforce le contrôle du direct pour éviter des poursuites judiciaires pénales.",
+        "Notre scénario le plus constructif (25 %) suppose que les institutions utilisent les leviers réglementaires existants sans céder à la censure arbitraire, tandis que le scénario dominant de maintien du statu quo (55 %) n'envisage aucune inflexion éditoriale majeure. Cette voie se distingue aussi du risque de polarisation extrême (20 %) en canalisant la controverse dans un cadre juridique strict et apaisé. L'impact de cette réponse institutionnelle pourrait ainsi démontrer que les règles de l'audiovisuel restent capables de s'adapter aux nouveaux formats d'information en continu sans briser la liberté de la presse."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Signatures de la pétition",
+          "evo_current": "1,2 million",
+          "evo_arrow": "up",
+          "evo_prev": "1 million"
+        },
+        {
+          "field_name": "Sanctions Arcom contre CNews",
+          "evo_current": "amendes alourdies",
+          "evo_arrow": "up",
+          "evo_prev": "plusieurs sanctions"
+        }
+      ],
+      "france_line": "Une application plus ferme des règles améliore la qualité du débat public sans censurer arbitrairement une chaîne.",
+      "france_impact": "favorable"
+    },
+    "stable": {
+      "pct": 55,
+      "gauge_word": "Assez probable",
+      "h3": "La pétition reste sans effet concret et le modèle de la chaîne se maintient",
+      "why": [
+        "Dans cette hypothèse centrale, le classement de la pétition par la commission parlementaire clôt définitivement la tentative de débat dans l'hémicycle de l'Assemblée nationale. Concrètement, CNews continue de diffuser ses programmes habituels sur la TNT sans modifier sa ligne éditoriale ni bouleverser ses grilles de programmes centrées sur les débats d'opinion. L'Arcom poursuit son travail de contrôle au coup par coup selon sa jurisprudence habituelle, sans créer de régime d'exception pour une antenne particulière, ce qui laisse la chaîne poursuivre son activité commerciale et préserver ses niveaux d'audience élevés auprès de son public fidèle.",
+        "Le scénario le plus probable (55 %) repose sur la grande stabilité des règles démocratiques et le refus républicain d'interdire un média sur simple mobilisation populaire, là où l'hypothèse de recadrage réglementaire (25 %) nécessiterait des infractions juridiques répétées d'une gravité exceptionnelle. Ce scénario s'écarte également de l'escalade conflictuelle incontrôlée (20 %) en absorbant la contestation dans les mécanismes parlementaires ordinaires. La chaîne conserverait ainsi son modèle éditorial d'opinion tout en assumant le coût financier sporadique des amendes administratives infligées par le gendarme de l'audiovisuel."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Signatures de la pétition",
+          "evo_current": "1,06 million (palier)",
+          "evo_arrow": "flat",
+          "evo_prev": "1 million"
+        },
+        {
+          "field_name": "Sanctions Arcom contre CNews",
+          "evo_current": "contrôles de routine",
+          "evo_arrow": "flat",
+          "evo_prev": "plusieurs sanctions"
+        }
+      ],
+      "france_line": "La sécurité juridique des médias est préservée mais l'incompréhension grandit chez les signataires de la pétition.",
+      "france_impact": "degrade"
+    },
+    "degrade": {
+      "pct": 20,
+      "gauge_word": "Peu probable",
+      "h3": "La controverse s'envenime et creuse les fractures politiques nationales",
+      "why": [
+        "Dans ce troisième scénario, l'enterrement de la pétition par les députés est perçu comme un déni de démocratie par les collectifs citoyens, déclenchant des appels au boycott des annonceurs et des manifestations régulières. Concrètement, les partisans et les détracteurs de la chaîne s'affrontent violemment dans l'espace médiatique et politique, transformant chaque séquence télévisée en objet de polémique nationale permanente. Le groupe audiovisuel répond en durcissant ses prises de position pour fidéliser sa communauté de téléspectateurs, ce qui aggrave la méfiance réciproque entre les camps politiques et rend tout dialogue public totalement impossible.",
+        "Notre évaluation la plus tendue (20 %) explore les risques d'une guerre culturelle ouverte, contrastant vivement avec la stabilité institutionnelle du scénario central (55 %) et l'apaisement par le droit du scénario de régulation accrue (25 %). Cette trajectoire conflictuelle traduirait une rupture profonde entre les attentes d'une partie des citoyens et le fonctionnement des institutions de contrôle républicain. Le débat médiatique français risquerait alors de se calquer sur le modèle américain de polarisation totale, où chaque chaîne d'information devient une tribune militante imperméable aux critiques extérieures."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Signatures de la pétition",
+          "evo_current": "1,5 million",
+          "evo_arrow": "up",
+          "evo_prev": "1 million"
+        },
+        {
+          "field_name": "Sanctions Arcom contre CNews",
+          "evo_current": "contentieux judiciaires",
+          "evo_arrow": "up",
+          "evo_prev": "plusieurs sanctions"
+        }
+      ],
+      "france_line": "Le durcissement du débat politique affaiblit la cohésion nationale et bloque les réformes sur la régulation de l'information.",
+      "france_impact": "degrade"
+    }
+  },
+  "essentiel_box": [
+    "Une pétition citoyenne ayant réuni plus de 1 million de signatures réclame la suppression de la chaîne CNews, accusée de propager la haine.",
+    "La commission des affaires culturelles de l'Assemblée nationale a classé le texte par 28 voix contre 25 le 10 novembre 2026, refusant d'organiser un débat dans l'hémicycle.",
+    "Non, la pétition ne débouchera pas sur la fermeture de la chaîne : notre scénario le plus probable (55 %) prévoit un maintien du statu quo juridique, tandis que les scénarios de durcissement réglementaire (25 %) ou d'escalade des tensions (20 %) restent minoritaires.",
+    "À surveiller : la demande formelle d'organisation d'un débat déposée par le groupe socialiste auprès de la Conférence des présidents de l'Assemblée nationale dans les prochains jours."
+  ],
+  "delta_france": {
+    "kind": "negatif",
+    "score": -0.5,
+    "word": "assez négatif",
+    "text": "la probabilité cumulée de 75 % d'un blocage démocratique ou d'une polarisation accrue alimente la méfiance citoyenne envers les institutions."
+  },
+  "phrase_a_retenir": "Avec plus de 1 million de signatures, la pétition contre CNews a été classée par l'Assemblée, rappelant que seul le régulateur peut sanctionner une chaîne.",
+  "phrase_a_retenir_stat": "1 million de signatures",
+  "lexique": [
+    {
+      "slug": "arcom",
+      "terme": "Arcom",
+      "definition": "Autorité publique indépendante chargée en France de veiller au respect des lois et des cahiers des charges par les radios et télévisions."
+    },
+    {
+      "slug": "pluralisme",
+      "terme": "pluralisme",
+      "definition": "Principe démocratique imposant la représentation équilibrée des différents courants de pensée politique sur les antennes audiovisuelles."
+    },
+    {
+      "slug": "convention",
+      "terme": "convention",
+      "definition": "Contrat signé entre une chaîne privée et l'autorité de régulation fixant ses engagements éditoriaux en échange d'une fréquence de diffusion."
+    }
+  ],
+  "sources_html": [
+    "<a href=\"https://www.franceinfo.fr/politique/la-petition-appelant-a-supprimer-cnews-de-l-audiovisuel-francais-classee-par-la-commission-de-l-assemblee-nationale_8276303.html\" target=\"_blank\" rel=\"noopener noreferrer\">Franceinfo — La pétition appelant à supprimer CNews de l'audiovisuel français classée par la commission de l'Assemblée nationale ↗</a>",
+    "<a href=\"https://www.leparisien.fr/sports/cest-de-la-dictature-raymond-domenech-furieux-contre-les-deputes-qui-ont-decide-denterrer-la-petition-contre-cnews-10-11-2026-VVFCQ5A54NCCZE3MQKJ5Y6N5BM.php\" target=\"_blank\" rel=\"noopener noreferrer\">Le Parisien — C'est de la dictature : Raymond Domenech furieux contre les députés qui ont décidé d'enterrer la pétition contre CNews ↗</a>",
+    "<a href=\"https://www.rtbf.be/article/les-laureats-litteraires-2026-une-petition-contre-cnews-et-la-tournee-de-the-weeknd-retrouvez-l-actu-culturelle-de-la-semaine-11811727\" target=\"_blank\" rel=\"noopener noreferrer\">RTBF — Les lauréats littéraires 2026, une pétition contre CNews et la tournée de The Weeknd… ↗</a>"
+  ],
+  "meta": {
+    "title": "CNews : la pétition de 1 million de signatures peut-elle faire plier la chaîne ?",
+    "meta_description": "CNews : la pétition de 1 million de signatures peut-elle faire plier la chaîne ? 3 scénarios prospectifs pour 2030.",
+    "og_image_alt": "Studio de télévision et débat sur la régulation de la chaîne CNews en France",
+    "keywords": [],
+    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-11-17.html\"\n  },\n  \"headline\": \"CNews : la pétition de 1 million de signatures peut-elle faire plier la chaîne ?\",\n  \"description\": \"CNews : la pétition de 1 million de signatures peut-elle faire plier la chaîne ? 3 scénarios prospectifs pour 2030.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-11-17.png\"\n  ],\n  \"datePublished\": \"2026-11-17T00:00:00\",\n  \"dateModified\": \"2026-11-17T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Actualité\"\n}",
+    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"CNews : la pétition de 1 million de signatures peut-elle faire plier la chaîne ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-11-17.html\"\n    }\n  ]\n}"
+  }
+}
