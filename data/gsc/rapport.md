@@ -2,25 +2,23 @@
 
 Site `sc-domain:lesscenarios.fr` · données Google du 2026-10-17 au 2026-11-13 · synchronisé le 2026-11-16 (les chiffres de Google ont ~3 jours de retard).
 
-**Verdict : CRITIQUE** — 12 éditions de plus de 7 jours sont inconnues de Google (sur 33 pages inspectées). Demander l'indexation dans Search Console, vérifier un lien interne depuis une page déjà indexée, patienter si la page a moins de 7 jours.
+**Verdict : CRITIQUE** — 11 éditions de plus de 7 jours sont inconnues de Google (sur 33 pages inspectées). Demander l'indexation dans Search Console, vérifier un lien interne depuis une page déjà indexée, patienter si la page a moins de 7 jours.
 
 ## Chiffres (28 jours)
 
 - 4 clics, 426 impressions, taux de clic 0,9 %, position moyenne 10,6.
-- Pages indexées : 13 sur 33 inspectées ; éditions inconnues de Google : 19 (dont 12 de plus de 7 jours).
+- Pages indexées : 12 sur 33 inspectées ; éditions inconnues de Google : 21 (dont 11 de plus de 7 jours).
 - Requêtes : 21 (dont 4 avec le nom du site).
 - Tendance (14 jours, jusqu'au 2026-11-13) : impressions 180 contre 246, clics 2 contre 2.
 
 ## À résoudre — critique
 
-- 12 éditions de plus de 7 jours sont inconnues de Google (sur 33 pages inspectées). **Action** : Demander l'indexation dans Search Console, vérifier un lien interne depuis une page déjà indexée, patienter si la page a moins de 7 jours. **Agent à envoyer** : seo-technical + seo-sitemap. **Mission** : Diagnostiquer pourquoi ces éditions restent inconnues de Google : profondeur de clics depuis l'accueil, liens internes vers les éditions récentes, structure et dates du plan du site, robots.txt, vitesse. Rendre un plan correctif chiffré, classé par impact.
+- 11 éditions de plus de 7 jours sont inconnues de Google (sur 33 pages inspectées). **Action** : Demander l'indexation dans Search Console, vérifier un lien interne depuis une page déjà indexée, patienter si la page a moins de 7 jours. **Agent à envoyer** : seo-technical + seo-sitemap. **Mission** : Diagnostiquer pourquoi ces éditions restent inconnues de Google : profondeur de clics depuis l'accueil, liens internes vers les éditions récentes, structure et dates du plan du site, robots.txt, vitesse. Rendre un plan correctif chiffré, classé par impact.
 
 ## À résoudre — important
 
 - Le site apparaît (position moyenne 10,6) mais est très peu cliqué (0,9 %). **Action** : Retravailler les titres et descriptions des pages les plus vues. **Agent à envoyer** : seo-content. **Mission** : Proposer de nouveaux titres (≤ 59 caractères) et descriptions (100–160) plus incitatifs pour les pages les plus vues, dans le ton sobre de Scénario ; ne rien promettre.
-- 1 page : Google connaît l'adresse mais ne l'a pas encore explorée ou retenue (`/guide-pedagogique.html`). **Action** : Renforcer les liens internes vers la page, enrichir son contenu, demander l'indexation. **Agent à envoyer** : seo-content. **Mission** : Comprendre pourquoi Google retient ou écarte ces pages (profondeur, unicité, qualité perçue) et proposer des améliorations de contenu et de liens internes.
-- Éditions en français : 1 descriptions hors norme. **Action** : Corriger via les générateurs (voir .claude/seo-routage.md). **Mission** : Correction directe dans les générateurs (generate_seo_head.py, translate_daily.py), puis régénération et tests.
-- Éditions en anglais : 5 descriptions hors norme. **Action** : Corriger via les générateurs (voir .claude/seo-routage.md). **Mission** : Correction directe dans les générateurs (generate_seo_head.py, translate_daily.py), puis régénération et tests.
+- Éditions en anglais : 1 descriptions hors norme. **Action** : Corriger via les générateurs (voir .claude/seo-routage.md). **Mission** : Correction directe dans les générateurs (generate_seo_head.py, translate_daily.py), puis régénération et tests.
 
 ## À surveiller
 
@@ -30,21 +28,47 @@ Site `sc-domain:lesscenarios.fr` · données Google du 2026-10-17 au 2026-11-13 
 ## Ce qui fonctionne
 
 - 6 pages principales indexées : `/`, `/archives.html`, `/le-projet.html`, `/sources.html`, `/glossaire.html`, `/en/`.
-- 7 éditions indexées par Google.
+- 6 éditions indexées par Google.
 - Plan du site `/sitemap.xml` lu par Google sans erreur (237 adresses envoyées).
 - Plan du site `/sitemap-news.xml` lu par Google sans erreur (2 adresses envoyées).
+- Balises des 116 éditions en français conformes : titres sans coupure, descriptions de 100 à 160 caractères, un seul titre principal, canonique présente, toutes dans le plan du site.
 
 ## Ce qui ne fonctionne pas
 
 - Presque aucune visite venue de Google : 4 clics en 28 jours.
-- Découverte trop lente : 12 éditions publiées depuis plus d’une semaine ne sont pas connues de Google.
-- Page principale non indexée : `/guide-pedagogique.html`.
+- Découverte trop lente : 11 éditions publiées depuis plus d’une semaine ne sont pas connues de Google.
 
 ## Ce que seul le propriétaire peut faire
 
 - Dans Search Console, collez l'adresse de l'édition du jour dans la barre du haut, puis « Demander une indexation » (quota limité par jour) ; répétez pour les éditions inconnues les plus récentes.
-- Faites de même pour les pages principales « détectées, non indexées » (guide pédagogique, par exemple).
 - Relisez les recommandations des agents avant de valider tout changement de titres ou de contenu.
+
+## Conclusions des agents — 16 novembre 2026 : traduction anglaise en panne depuis le 11 novembre ; français toujours peu exploré
+
+**Verdict** : Les éditions françaises de plus de 7 jours restent inconnues de Google (12 sur 33 pages inspectées), alors que les éditions anglaises sont indexées le jour même : le maillage, le plan du site et les balises sont pourtant identiques, donc attendre ne suffit plus. Une panne du site a de plus été trouvée et corrigée : la traduction anglaise échouait chaque jour depuis le 11 novembre.
+**Agents** : g, s, c, -, e, x, p, e, r, t, ,,  , s, e, o, -, t, e, c, h, n, i, c, a, l, ,,  , s, e, o, -, c, o, n, t, e, n, t, ..
+
+- [Corrigé] **Traduction anglaise en échec du 11 au 16 novembre (6 éditions anglaises manquantes)** (certain (journal du workflow lu, correctif testé)) — Les liens de langue (hreflang) ajoutés au bloc /en/ du plan du site se trouvaient entre <loc> et <lastmod> ; le script de traduction ne retrouvait plus ce bloc et s'arrêtait avant d'enregistrer. Conséquences : plus de page anglaise, liens de langue des éditions françaises du 11 au 16 novembre vers des pages absentes, bouton EN renvoyant à l'accueil anglais. **Action** : Fait (PR 491) : l'expression tolère ces liens, test ajouté, traduction relancée pour l'édition du jour. Les éditions anglaises du 11 au 15 novembre ne sont pas rattrapées : voir « à décider ».
+- [Corrigé] **Six descriptions de moins de 100 caractères (1 FR, 5 EN)** (certain (code lu, pages mesurées)) — La question seule servait de description ; la traduction anglaise, plus courte, tombait sous 100 caractères sans contrôle. **Action** : Fait (PR 492) : les deux générateurs complètent une description trop courte ; les 6 pages corrigées (description, og, twitter, données structurées ; texte visible inchangé, vérifié ligne à ligne).
+- [Vous] **Éditions françaises inconnues de Google (12 de plus de 7 jours : du 27 octobre au 8 novembre sauf le 3)** (mesuré ; cause probable, non prouvée) — Rien ne bloque côté site (robots, canoniques, plan du site lu sans erreur, liens à un clic de l'accueil). Google semble explorer l'anglais en priorité. /archives.html n'a pas été relue depuis le 21 octobre. **Action** : Seul le propriétaire peut agir : demandes d'indexation, lecture de « Page de provenance » dans Search Console, liens venant d'autres sites.
+- [À faire] **/guide-pedagogique.html « détectée, non indexée »** (moyenne) — Contenu qui recoupe fortement le-projet.html, exemple fictif, aucun lien depuis archives.html, titre peu parlant. **Action** : Page vivante, modifiable : exemple réel (budget 2027), liste d'éditions pour la classe, titre « Lire une probabilité et un scénario : guide pour la classe ». Non fait ce jour (réécriture de contenu : à valider).
+- [Vous] **Liens de langue incomplets sur 12 éditions de septembre (13 au 24)** (certain (relu par l'agent)) — 12 éditions anglaises n'ont pas la balise hreflang vers elles-mêmes ; l'édition française du 13 septembre ne déclare pas sa version anglaise. Le plan du site est complet. **Action** : Éditions figées : ces balises sortent de l'exception autorisée. À décider par le propriétaire.
+- [À faire] **Liens vers /index.html dans les gabarits hebdo et suivi** (certain) — hebdo/*.html et suivi/_gabarit.html pointent encore vers ../index.html ; la canonique de l'accueil est correcte, donc impact faible. **Action** : Non fait ce jour (origine du gabarit hebdomadaire à confirmer).
+- [Écarté] **Titres des trois pages anglaises sans clic (13 et 24 septembre, 17 octobre)** (faible (72 impressions)) — Trop peu de données pour conclure ; la première est déjà réécrite le 12 octobre. **Action** : Rien à changer maintenant ; propositions de l'agent conservées pour un prochain contrôle.
+
+À faire par le propriétaire :
+- Dans Search Console, demander l'indexation de /archives.html (non relue depuis le 21 octobre), puis de quelques éditions françaises récentes par jour (en commençant par le 8 novembre), puis de /guide-pedagogique.html.
+- Inspecter /en/archives/2026-11-10.html et lire « Pages de provenance » : cela dira comment Google découvre l'anglais et pas le français.
+- Décider du rattrapage des éditions anglaises du 11 au 15 novembre (nouvelles pages ; liens de langue à ajouter sur les éditions françaises correspondantes).
+- Décider d'ajouter les liens de langue manquants sur les éditions de septembre (13 au 24).
+- Partager publiquement des éditions françaises : quelques liens extérieurs pèsent plus que tout réglage.
+
+Ce que l'on ne sait pas encore :
+- Pourquoi Google découvre l'anglais en quelques heures et le français non.
+- Si les demandes d'indexation recommandées en octobre ont été faites.
+- L'effet des titres réécrits le 12 octobre : 4 clics sur 426 impressions, trop peu pour conclure.
+
+Prochain contrôle : 2026-11-23.
 
 ## Conclusions des agents — 16 octobre 2026 : titres coupés sur les éditions du 13 au 16 octobre
 
@@ -84,39 +108,6 @@ Ce que l'on ne sait pas encore :
 
 Prochain contrôle : 2026-10-26.
 
-## Conclusions des agents — 11 octobre 2026 : des éditions récentes inconnues de Google
-
-**Verdict** : Pas de blocage technique : Google explore rarement ce site jeune et peu cité, et il n'a pas relu la page Éditions depuis le 30 août. Les corrections de maillage et de balises sont faites ; le reste dépend de demandes d'indexation et du temps (mesurer à partir du 25 octobre).
-**Agents** : gsc-expert, seo-technical, seo-sitemap.
-
-- [Écarté] **Aucun blocage technique** (quasi certain) — robots.txt, noindex, canoniques, hreflang et données de page sont corrects ; les éditions indexées ont les mêmes réglages que celles qui ne le sont pas. **Action** : Rien à corriger de ce côté.
-- [Vous] **Google explore rarement le site** (probable (forte)) — Dernière exploration d'une édition : 28 septembre. La page Éditions, qui liste tout, n'a pas été relue depuis le 30 août. Site jeune (quelques mois), très peu de liens venant d'ailleurs. **Action** : Demander l'indexation dans Search Console, d'abord de /archives.html puis des éditions les plus récentes (voir « À faire par vous »).
-- [Vous] **Les éditions anglaises sont connues de Google, pas encore explorées** (certain (mesuré le 11 octobre)) — Sur les 6 dernières éditions anglaises inspectées, 5 sont « détectées, actuellement non indexées » et 1 (7 octobre) est indexée ; l'accueil anglais est indexé. Contrairement aux éditions françaises, Google connaît donc ces adresses (sans doute par le plan du site et les liens entre langues) mais ne les a pas encore lues. **Action** : Rien à corriger dans le site. Après /archives.html, une demande d'indexation de /en/archives/2026-10-11.html peut aider.
-- [Corrigé] **L'accueil ne reliait que 10 éditions** (certain) — Les éditions de plus de 10 jours n'étaient accessibles que par la page Éditions, rarement explorée. **Action** : Fait : nouveau bloc « Les éditions du mois » sur l'accueil, avec un vrai lien HTML vers chaque édition des 30 derniers jours (21 éditions de plus). Ajouté aussi au générateur de l'accueil, donc il se maintient chaque jour.
-- [Corrigé] **Pas de lien entre éditions avant le 10 octobre** (certain) — Les liens « précédente / suivante » n'existaient pas avant le 10 octobre. **Action** : Déjà en place depuis le 10 octobre. Effet attendu après la prochaine exploration par Google (une à trois semaines, sans garantie).
-- [Corrigé] **Dates du plan du site trop uniformes** (certain) — J'avais mis la date du 11 octobre sur 58 éditions après la retouche de leurs balises : 65 pages portaient la même date, ce qui affaiblit ce champ pour Google, et les pages indiquaient une autre date que le plan. **Action** : Fait : chaque édition a retrouvé sa date de publication, cohérente avec la date inscrite dans la page. Un des agents préférait aligner les pages sur le 11 octobre ; j'ai retenu la solution qui ne touche pas au contenu des éditions figées. Règle à garder : ne pas faire bouger cette date pour une simple retouche de balises.
-- [Corrigé] **Plan Actualités mal purgé** (certain) — La purge à 48 heures exactes laissait survivre une entrée de quelques secondes ; le script anglais ne pouvait pas purger les entrées françaises ; le fuseau horaire était fixé à +02:00 (faux à partir du 25 octobre). **Action** : Fait : seuil de 46 heures, purge qui reconnaît toutes les entrées, vrai fuseau Europe/Paris, 3 tests. L'absence de l'édition anglaise du 9 octobre dans ce plan reste à expliquer (journal du workflow du 9 octobre).
-- [Corrigé] **Données structurées invalides sur 22 éditions de septembre** (certain) — Des valeurs étaient entourées de &#39; au lieu de guillemets, et des apostrophes mal codées : Google ignorait ces blocs ou lisait des signes parasites. **Action** : Fait : 22 fichiers réparés, uniquement à l'intérieur de leurs blocs de données structurées ; vérifié que rien d'autre n'a changé et qu'aucun bloc invalide ne subsiste sur 225.
-- [Corrigé] **Descriptions coupées par « … »** (certain) — Le générateur coupait les questions longues en plein milieu. **Action** : Fait : générateur corrigé (phrases complètes ou titre + complément), 7 éditions françaises réparées, 8 tests.
-- [Corrigé] **L'échantillon inspecté ne contenait que des pages françaises** (certain) — Les pages les plus vues sont pourtant anglaises (7 sur 8). **Action** : Fait : l'accueil anglais et les 6 dernières éditions anglaises sont maintenant inspectés chaque jour. Le compteur d'adresses du plan Actualités du rapport est aussi corrigé (5 et non 10).
-- [Corrigé] **Liens internes vers /index.html** (certain) — Des menus pointent vers index.html alors que la canonique de l'accueil est « / » : Google voit deux adresses. **Action** : Fait le 11 octobre (PR 344) : menus des pages vivantes, gabarit de l'accueil et générateurs pointent vers « / ». Éditions passées non touchées.
-- [À faire] **Pages anglaises déclarées en français** (certain) — Une balise de langue indique fr-FR sur les pages anglaises. **Action** : Corriger dans scripts/en/translate_daily.py pour les prochaines éditions (impact faible).
-- [Écarté] **changefreq et priority du plan du site** (certain) — Google ignore ces deux champs. **Action** : Aucun gain à les retirer ; on les laisse.
-
-À faire par le propriétaire :
-- Dans Search Console, demander l'indexation de /archives.html en priorité : c'est la page qui lie les 15 éditions inconnues.
-- Puis, à raison d'une dizaine par jour, des éditions du 4, 3, 2 et 1er octobre, puis du 30, 29, 24 et 23 septembre.
-- Ouvrir Paramètres puis « Statistiques sur l'exploration » : nombre de requêtes par jour depuis le 20 septembre, part d'erreurs, temps de réponse. C'est le seul moyen d'écarter un problème d'hébergement autour du 28 septembre.
-- Inspecter /archives/2026-09-28.html et lire « Page de provenance » : vous saurez par quel chemin Google a trouvé les éditions indexées.
-- Partager publiquement chaque édition (réseaux, newsletter) : quelques liens venant d'ailleurs aident plus que tout réglage. IndexNow ne prévient pas Google.
-
-Ce que l'on ne sait pas encore :
-- À quelle fréquence Google est passé sur l'accueil entre le 28 septembre et le 7 octobre.
-- Si une erreur du serveur a eu lieu autour du 28 septembre.
-- Comment Google a découvert les 5 éditions indexées (plan du site, accueil ou demande manuelle).
-
-Prochain contrôle : 25 octobre 2026 (ne rien conclure avant).
-
 ## Requêtes principales
 
 - « "budget 2027" "49.3" censure lecornu » : 0 clic(s), 16 impression(s), position 6,2
@@ -143,11 +134,12 @@ Prochain contrôle : 25 octobre 2026 (ne rien conclure avant).
 
 - `/` : ok
 - `/archives.html` : ok
-- `/guide-pedagogique.html` : decouverte (Détectée, actuellement non indexée)
+- `/guide-pedagogique.html` : inconnue (Google ne reconnaît pas cette URL)
 - `/le-projet.html` : ok
 - `/sources.html` : ok
 - `/glossaire.html` : ok
 - `/en/` : ok
+- `/archives/2026-11-16.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 0 j
 - `/archives/2026-11-15.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 1 j
 - `/archives/2026-11-14.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 2 j
 - `/archives/2026-11-13.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 3 j
@@ -167,12 +159,11 @@ Prochain contrôle : 25 octobre 2026 (ne rien conclure avant).
 - `/archives/2026-10-30.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 17 j
 - `/archives/2026-10-29.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 18 j
 - `/archives/2026-10-28.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 19 j
-- `/archives/2026-10-27.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 20 j
+- `/en/archives/2026-11-16.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 0 j
 - `/en/archives/2026-11-10.html` : ok, publiée il y a 6 j
 - `/en/archives/2026-11-09.html` : ok, publiée il y a 7 j
 - `/en/archives/2026-11-08.html` : ok, publiée il y a 8 j
 - `/en/archives/2026-11-07.html` : ok, publiée il y a 9 j
 - `/en/archives/2026-11-06.html` : ok, publiée il y a 10 j
-- `/en/archives/2026-11-05.html` : ok, publiée il y a 11 j
 
 Le compteur « indexées » des plans du site n'est pas fiable : l'inspection page par page fait foi.
