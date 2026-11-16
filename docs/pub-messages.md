@@ -1440,6 +1440,16 @@ préférée pour son registre déjà simplifié.*
 
 *Phrase à retenir de l'édition du 2026-11-15 (archives/2026-11-15.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
 
+### chiffre-2026-11-16
+- eyebrow: LE SAVIEZ-VOUS
+- stat: trois missiles de croisière
+- message: Le 11 novembre 2026, trois missiles de croisière ont visé Riyad, menaçant directement les infrastructures du premier exportateur mondial de pétrole brut.
+- attribution: — lesscenarios.fr, 16 novembre 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-11-16.html
+
+*Phrase à retenir de l'édition du 2026-11-16 (archives/2026-11-16.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
