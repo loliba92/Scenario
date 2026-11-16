@@ -1190,6 +1190,30 @@ def add_hreflang_en(html_text, en_url):
     return html_text[:m.end()] + tag + html_text[m.end():]
 
 
+_COMPLEMENTS_EN = (
+    "Three scenarios with odds and indicators.",
+    "Three scenarios, from the most favorable to the darkest.",
+    "Three scenarios with odds, to see what may follow.",
+    "Three scenarios with odds, over the short, medium and long term.",
+)
+
+
+def _completer_description_en(desc, date_str):
+    """Une description anglaise de moins de 100 caractères reçoit un complément (variante selon la date).
+
+    L'anglais est plus court que le français : une description française de 103 à 130 caractères
+    tombait sous 100 après traduction (constat du 16 novembre 2026)."""
+    desc = (desc or "").strip()
+    if not desc or len(desc) >= 100:
+        return desc
+    base = desc if desc[-1] in ".?!" else desc + "."
+    depart = sum(ord(c) for c in date_str) % len(_COMPLEMENTS_EN)
+    for complement in _COMPLEMENTS_EN[depart:] + _COMPLEMENTS_EN[:depart]:
+        if 100 <= len(base) + 1 + len(complement) <= 160:
+            return f"{base} {complement}"
+    return desc
+
+
 def build_en_soup(fr_soup, date_str, translations, memory, en_image_url, for_archive=False):
     """for_archive=False construit en/index.html (profondeur 1 : en/) ;
     for_archive=True construit en/archives/{date_str}.html (profondeur 2 :
@@ -1234,7 +1258,8 @@ def build_en_soup(fr_soup, date_str, translations, memory, en_image_url, for_arc
         soup.title.string = tr("title", soup.title.get_text())
     meta_desc = soup.find("meta", attrs={"name": "description"})
     if meta_desc:
-        meta_desc["content"] = tr("meta_description", meta_desc.get("content", ""))
+        meta_desc["content"] = _completer_description_en(
+            tr("meta_description", meta_desc.get("content", "")), date_str)
 
     soup.html["lang"] = "en"
     # <meta name="language"> recopiée du français (« fr-FR ») : une page anglaise déclarait deux langues
@@ -1245,7 +1270,8 @@ def build_en_soup(fr_soup, date_str, translations, memory, en_image_url, for_arc
 
     en_archive_url = f"https://lesscenarios.fr/en/archives/{date_str}.html"
     title_text = tr("title", soup.title.get_text() if soup.title else "")
-    desc_text = tr("meta_description", meta_desc.get("content", "") if meta_desc else "")
+    desc_text = _completer_description_en(
+        tr("meta_description", meta_desc.get("content", "") if meta_desc else ""), date_str)
 
     # hreflang : mêmes URLs absolues que côté FR (déjà correctes, rien à
     # changer). Le canonical, lui, doit pointer vers CETTE page (l'archive EN).

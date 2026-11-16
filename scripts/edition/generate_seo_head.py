@@ -174,7 +174,14 @@ def _build_description(brief: Dict[str, Any]) -> str:
     inachevée dans les résultats de Google (7 éditions concernées, corrigées à part)."""
     sujet = brief.get("sujet", {})
     question = sujet.get("question_posee", "")
-    if len(question) <= 160:
+    if len(question) >= 100 and len(question) <= 160:
+        return question
+    if question and len(question) < 100:
+        # Question trop courte pour une description (constat du 16 novembre 2026) : on ajoute un complément.
+        base = question if question[-1] in ".?!" else question + "."
+        for complement in _ordre_complements(str(brief.get("date") or question)):
+            if 100 <= len(base) + 1 + len(complement) <= 160:
+                return f"{base} {complement}"
         return question
     # Plus longue suite de phrases complètes qui tient en 160 caractères (« Bros. » n'est pas une fin de phrase :
     # on ne s'arrête pas au premier point, on prend la dernière fin de phrase possible).

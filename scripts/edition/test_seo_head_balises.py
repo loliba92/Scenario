@@ -66,8 +66,16 @@ class TestTitreDepuisH1(unittest.TestCase):
 
 
 class TestDescription(unittest.TestCase):
-    def test_question_courte_inchangee(self):
+    def test_question_courte_completee(self):
+        # moins de 100 caractères : la question est suivie d'un complément (norme 100 à 160)
         q = "L'art passe-t-il d'une culture de l'œuvre à une culture de l'expérience ?"
+        d = g._build_description(brief(question=q))
+        self.assertTrue(d.startswith(q))
+        self.assertTrue(100 <= len(d) <= 160)
+
+    def test_question_de_taille_normale_inchangee(self):
+        q = "L'art passe-t-il d'une culture de l'œuvre à une culture de l'expérience, au point de changer ce que l'on expose ?"
+        self.assertTrue(100 <= len(q) <= 160)
         self.assertEqual(g._build_description(brief(question=q)), q)
 
     def test_premiere_phrase_si_elle_convient(self):
