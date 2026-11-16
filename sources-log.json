@@ -2,6 +2,31 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-11-16",
+      "articles": [
+        {
+          "title": "Iran : les tensions au Moyen-Orient s'intensifient après les attaques houthistes",
+          "source": "Le Monde",
+          "url": "https://www.lemonde.fr/monde/2026/11/12/iran-tensions-moyen-orient-attaques-houthistes/",
+          "image": null,
+          "lang": "fr",
+          "domain": "geopolitique",
+          "summary": "Article du Monde analysant les tensions au Moyen-Orient suite aux attaques des Houthistes contre l'Arabie saoudite et les menaces iraniennes.",
+          "read_minutes": 4
+        },
+        {
+          "title": "Arabie saoudite : Riyad renforce sa défense antimissile après les attaques",
+          "source": "AFP",
+          "url": "https://www.afp.com/fr/arabie-saoudite-defence-antimissile-attaques-houthistes-20261113",
+          "image": null,
+          "lang": "fr",
+          "domain": "geopolitique",
+          "summary": "Article de l'AFP rapportant que l'Arabie saoudite a renforcé ses défenses antimissiles après les attaques du 11 novembre contre Riyad et Aden.",
+          "read_minutes": 3
+        }
+      ]
+    },
+    {
       "date": "2026-11-15",
       "articles": [
         {

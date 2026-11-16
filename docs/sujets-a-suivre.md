@@ -192,6 +192,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 16.11.2026 — [Houthistes : l'Arabie saoudite peut-elle éviter l'escalade régionale ?](../archives/2026-11-16.html)
 - 15.11.2026 — [Tom Laperche : dominer la voile mondiale après la Route du Rhum ?](../archives/2026-11-15.html)
 - 14.11.2026 — [The Weeknd : 1,3 milliard de dollars de tournée, un record masculin](../archives/2026-11-14.html)
 - 13.11.2026 — [CERN : la désintégration rare qui divise les physiciens](../archives/2026-11-13.html)
