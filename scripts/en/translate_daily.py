@@ -1471,7 +1471,8 @@ def update_sitemap(date_str):
 
     # <lastmod> de la home EN
     xml, n = re.subn(
-        r"(<loc>https://lesscenarios\.fr/en/</loc>\s*<lastmod>)\d{4}-\d{2}-\d{2}(</lastmod>)",
+        # les liens hreflang (xhtml:link) peuvent se trouver entre <loc> et <lastmod>
+        r"(<loc>https://lesscenarios\.fr/en/</loc>(?:\s*<xhtml:link [^\n]*/>)*\s*<lastmod>)\d{4}-\d{2}-\d{2}(</lastmod>)",
         rf"\g<1>{date_str}\g<2>",
         xml,
     )
