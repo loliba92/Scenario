@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "ef1faa1a2bd4df5c27d51daaf849d93d510af5807978c4261a3420a2ae980282"
+    "md_sha256": "6076d4124dc1fdfa80cce9ccbc8fa0cee306c0d053b794c724c5ee2b3450be25"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -6398,6 +6398,48 @@
         {
           "type": "commentaire",
           "texte": "Faire tourner les sous-thèmes : marchés financiers, monnaies (dollar, or, bitcoin), dette et taux d'intérêt, matières premières (pétrole, énergie), entreprises et secteurs à l'échelle mondiale, inégalités, démographie économique, luxe et consommation… Nouveau registre créé le 12 août (retour utilisateur), scindé de l'ancien slot \"Géopolitique / international — lundi\" qui mélangeait géopolitique dure et économie mondiale — voir la note dans la section Géopolitique — lundi pour la règle de classement des sujets à cheval sur les deux."
+        },
+        {
+          "type": "sujet",
+          "id": "economie-productivite-l-ia-peut-elle-relancer-la-croissance",
+          "titre": "Productivité : l'IA peut-elle enfin relancer une croissance qui ralentit depuis 1973 ?",
+          "question": null,
+          "tag": "économie & productivité",
+          "statut": "a_traiter",
+          "validation": "valide",
+          "contexte": "Pendant plus de 99 % de l'histoire humaine, la richesse par habitant a quasiment stagné (entre 700 et 1 000 dollars internationaux constants, parité de pouvoir d'achat de 2011, de la révolution néolithique à 1750) : la courbe ressemble à une crosse de hockey, plate pendant des millénaires puis verticale vers 1800. Premier décollage avec la machine à vapeur (1760-1870, productivité du travail autour de 1 à 1,5 % par an). Âge d'or de l'électricité, du moteur à explosion et de l'organisation du travail (1870-1973) : PIB par habitant d'Europe de l'Ouest multiplié par près de 6, productivité horaire à +2,5 à 3 % par an aux États-Unis et +4 à 5 % en Europe et au Japon entre 1945 et 1973. Depuis 1973, ralentissement dans les pays avancés (environ 1 à 1,5 % par an, hors un rebond lié à Internet entre 1995 et 2004) : c'est le paradoxe de Solow, les ordinateurs sont partout sauf dans les statistiques de productivité. Depuis la crise du Covid-19, plateau autour de 0,8 à 1,2 % par an, alors que l'intelligence artificielle générative et la transition énergétique redessinent l'investissement. Repères d'ordre de grandeur : PIB mondial total multiplié par plus de 400 depuis l'an 1 ; avant 1800 il progresse parce qu'il y a plus d'humains, après 1800 parce que chaque heure travaillée produit davantage (capital, énergie fossile, innovation).",
+          "rationnel": "La question : la productivité, seule source durable d'enrichissement par habitant, va-t-elle repartir grâce à l'IA, ou le ralentissement séculaire se poursuit-il ? L'issue est ouverte : l'histoire montre que les grandes technologies (vapeur, électricité) mettent des décennies à produire leurs gains, le temps que les entreprises réorganisent leur travail ; l'IA peut suivre ce schéma ou décevoir comme l'informatique pendant vingt ans. Enjeu pour un lecteur français : salaires, financement des retraites et de la dette (qui reposent sur la croissance), place de la France et de l'Europe face aux États-Unis, où le PIB par habitant dépasse largement le niveau européen. Sujet de fond, utile à relier à l'actualité sur la bulle de l'IA et sur l'emploi.",
+          "angle": "Remonter l'histoire en quelques repères (crosse de hockey, vapeur, électricité, Trente Glorieuses, paradoxe de Solow) pour expliquer pourquoi la productivité compte plus que la taille du PIB, puis poser la question de l'IA.",
+          "a_verifier": "Les chiffres de ce dossier proviennent d'une synthèse fournie par le propriétaire (travaux d'Angus Maddison et Maddison Project Database) : recouper chaque valeur (PIB par habitant par époque, taux de croissance de la productivité par période, PIB par habitant mondial vers 2020 et en Amérique du Nord) avec la base Maddison la plus récente, l'OCDE et le BLS avant rédaction, et préciser les dates et l'unité (dollars internationaux 2011). Ajouter des données récentes de productivité (France, zone euro, États-Unis) et les estimations disponibles sur l'effet de l'IA (FMI, OCDE, Goldman Sachs, études académiques), en distinguant ce qui est mesuré de ce qui est projeté.",
+          "mots_cles": [
+            "productivité",
+            "croissance",
+            "PIB par habitant",
+            "intelligence artificielle",
+            "paradoxe de Solow",
+            "Maddison",
+            "stagnation séculaire",
+            "révolution industrielle"
+          ],
+          "scenarios": {
+            "favorable": "L'IA et la transition énergétique finissent par se diffuser dans les entreprises comme l'électricité un siècle plus tôt : la productivité des pays avancés remonte durablement vers 2 % par an d'ici le milieu des années 2030, avec un partage des gains qui soutient salaires, retraites et finances publiques.",
+            "stable": "Le paradoxe de Solow persiste : les outils d'IA sont largement adoptés mais les gains restent dilués dans des services peu automatisables ; la productivité reste autour de 1 % par an, la croissance par habitant continue de ralentir lentement.",
+            "degrade": "Les promesses de l'IA déçoivent (bulle, coûts d'énergie et de calcul, vieillissement, tensions commerciales) : la productivité tombe sous 0,5 % par an, la stagnation s'installe en Europe, et le partage d'un gâteau qui ne grossit plus devient source de tensions sociales et budgétaires."
+          },
+          "echeance": null,
+          "sources": [
+            {
+              "titre": "Maddison Project Database (Université de Groningue)",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/"
+            }
+          ],
+          "origine": "utilisateur",
+          "note": "Ajouté le 2026-11-17 à la demande du propriétaire, à partir de sa synthèse historique (crosse de hockey, grandes ères de la productivité, tableau de croissance 1 – 2025). Rangé en économie (jeudi), en tête du registre : traité à la prochaine édition économie. Chiffres à recouper avant rédaction (voir « à vérifier »). Aucune mention de l'édition du 2 octobre.",
+          "donnees": null,
+          "ajoute_le": "2026-11-17",
+          "publie_le": null,
+          "edition": null,
+          "enrichi_le": null
         },
         {
           "type": "sujet",
