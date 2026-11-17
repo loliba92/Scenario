@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "ffd5d14549b4b79f664ce33b0f579149f9864e8eb9609b73d0470f67085ef730"
+    "md_sha256": "d5d9af096051ef1b2c52ef5eed20ee61a9f5899eaf22cbdd1cf492ba5e57ec18"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -667,11 +667,11 @@
           ],
           "origine": "veille",
           "note": "Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
-          "donnees": null,
+          "donnees": "[relevé du 2026-11-17] Nombre de captifs échangés entre l'Ukraine et la Russie (unité : personnes). Total avant février 2026 = 4 955 (5 février 2026) ; total avant octobre 2026 = 8 537 (23 octobre 2026) ; échange prévu en novembre 2026 = 1 000 à 1 500 (11 novembre 2026). Sources : https://www.institut-sciences-strategiques.org/etats/russie/abou-dabi-lieu-des-negociations-entre-la-russie-et-l-ukraine/ ; https://www.courrierinternational.com/article/ukraine-pourparlers-d-abou-dhabi-une-promesse-d-echange-de-prisonniers-mais-pas-d-avancee-sur-un-cessez-le-feu_286575 ; https://nv.ua/world/geopolitics/itogi-peregovorov-v-abu-dabi-o-chem-dogovorilis-ukraina-ssha-i-rossiya-sostoitsya-li-obmen-i-kogda-50658281.html",
           "ajoute_le": "2026-11-10",
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-11-17"
         },
         {
           "type": "sujet",
