@@ -192,6 +192,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 17.11.2026 — [CNews : la pétition de 1 million de signatures peut-elle faire plier la chaîne ?](../archives/2026-11-17.html)
 - 16.11.2026 — [Houthistes : l'Arabie saoudite peut-elle éviter l'escalade régionale ?](../archives/2026-11-16.html)
 - 15.11.2026 — [Tom Laperche : dominer la voile mondiale après la Route du Rhum ?](../archives/2026-11-15.html)
 - 14.11.2026 — [The Weeknd : 1,3 milliard de dollars de tournée, un record masculin](../archives/2026-11-14.html)
