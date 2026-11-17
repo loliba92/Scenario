@@ -7,7 +7,7 @@ Site `sc-domain:lesscenarios.fr` · données Google du 2026-10-18 au 2026-11-14 
 ## Chiffres (28 jours)
 
 - 4 clics, 402 impressions, taux de clic 1,0 %, position moyenne 10,5.
-- Pages indexées : 32 sur 33 inspectées ; éditions inconnues de Google : 0 (dont 0 de plus de 7 jours).
+- Pages indexées : 30 sur 33 inspectées ; éditions inconnues de Google : 1 (dont 0 de plus de 7 jours).
 - Requêtes : 21 (dont 4 avec le nom du site).
 - Tendance (14 jours, jusqu'au 2026-11-14) : impressions 164 contre 238, clics 2 contre 2.
 
@@ -18,7 +18,7 @@ Site `sc-domain:lesscenarios.fr` · données Google du 2026-10-18 au 2026-11-14 
 ## À résoudre — important
 
 - Le site apparaît (position moyenne 10,5) mais est très peu cliqué (1,0 %). **Action** : Retravailler les titres et descriptions des pages les plus vues. **Agent à envoyer** : seo-content. **Mission** : Proposer de nouveaux titres (≤ 59 caractères) et descriptions (100–160) plus incitatifs pour les pages les plus vues, dans le ton sobre de Scénario ; ne rien promettre.
-- 1 page : Google connaît l'adresse mais ne l'a pas encore explorée ou retenue (`/guide-pedagogique.html`). **Action** : Renforcer les liens internes vers la page, enrichir son contenu, demander l'indexation. **Agent à envoyer** : seo-content. **Mission** : Comprendre pourquoi Google retient ou écarte ces pages (profondeur, unicité, qualité perçue) et proposer des améliorations de contenu et de liens internes.
+- 2 pages : Google connaît l'adresse mais ne l'a pas encore explorée ou retenue (`/guide-pedagogique.html`, `/en/archives/2026-11-17.html`). **Action** : Renforcer les liens internes vers la page, enrichir son contenu, demander l'indexation. **Agent à envoyer** : seo-content. **Mission** : Comprendre pourquoi Google retient ou écarte ces pages (profondeur, unicité, qualité perçue) et proposer des améliorations de contenu et de liens internes.
 - Éditions en anglais : 1 descriptions hors norme. **Action** : Corriger via les générateurs (voir .claude/seo-routage.md). **Mission** : Correction directe dans les générateurs (generate_seo_head.py, translate_daily.py), puis régénération et tests.
 
 ## À surveiller
@@ -29,10 +29,10 @@ Site `sc-domain:lesscenarios.fr` · données Google du 2026-10-18 au 2026-11-14 
 ## Ce qui fonctionne
 
 - 6 pages principales indexées : `/`, `/archives.html`, `/le-projet.html`, `/sources.html`, `/glossaire.html`, `/en/`.
-- 26 éditions indexées par Google.
+- 24 éditions indexées par Google.
 - Plan du site `/sitemap.xml` lu par Google sans erreur (239 adresses envoyées).
-- Plan du site `/sitemap-news.xml` lu par Google sans erreur (3 adresses envoyées).
-- Balises des 116 éditions en français conformes : titres sans coupure, descriptions de 100 à 160 caractères, un seul titre principal, canonique présente, toutes dans le plan du site.
+- Plan du site `/sitemap-news.xml` lu par Google sans erreur (4 adresses envoyées).
+- Balises des 117 éditions en français conformes : titres sans coupure, descriptions de 100 à 160 caractères, un seul titre principal, canonique présente, toutes dans le plan du site.
 
 ## Ce qui ne fonctionne pas
 
@@ -42,6 +42,7 @@ Site `sc-domain:lesscenarios.fr` · données Google du 2026-10-18 au 2026-11-14 
 
 ## Ce que seul le propriétaire peut faire
 
+- Dans Search Console, collez l'adresse de l'édition du jour dans la barre du haut, puis « Demander une indexation » (quota limité par jour) ; répétez pour les éditions inconnues les plus récentes.
 - Faites de même pour les pages principales « détectées, non indexées » (guide pédagogique, par exemple).
 - Relisez les recommandations des agents avant de valider tout changement de titres ou de contenu.
 
@@ -141,6 +142,7 @@ Prochain contrôle : 2026-10-26.
 - `/sources.html` : ok
 - `/glossaire.html` : ok
 - `/en/` : ok
+- `/archives/2026-11-17.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 0 j
 - `/archives/2026-11-16.html` : ok, publiée il y a 1 j
 - `/archives/2026-11-15.html` : ok, publiée il y a 2 j
 - `/archives/2026-11-14.html` : ok, publiée il y a 3 j
@@ -160,12 +162,11 @@ Prochain contrôle : 2026-10-26.
 - `/archives/2026-10-31.html` : ok, publiée il y a 17 j
 - `/archives/2026-10-30.html` : ok, publiée il y a 18 j
 - `/archives/2026-10-29.html` : ok, publiée il y a 19 j
-- `/archives/2026-10-28.html` : ok, publiée il y a 20 j
+- `/en/archives/2026-11-17.html` : decouverte (Détectée, actuellement non indexée), publiée il y a 0 j
 - `/en/archives/2026-11-16.html` : ok, publiée il y a 1 j
 - `/en/archives/2026-11-10.html` : ok, publiée il y a 7 j
 - `/en/archives/2026-11-09.html` : ok, publiée il y a 8 j
 - `/en/archives/2026-11-08.html` : ok, publiée il y a 9 j
 - `/en/archives/2026-11-07.html` : ok, publiée il y a 10 j
-- `/en/archives/2026-11-06.html` : ok, publiée il y a 11 j
 
 Le compteur « indexées » des plans du site n'est pas fiable : l'inspection page par page fait foi.

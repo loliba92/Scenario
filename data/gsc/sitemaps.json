@@ -3,7 +3,7 @@
   "plans": [
     {
       "plan": "https://lesscenarios.fr/sitemap.xml",
-      "derniere_lecture": "2026-11-16T15:58:53.503Z",
+      "derniere_lecture": "2026-11-17T04:06:01.332Z",
       "erreurs": "0",
       "avertissements": "0",
       "contenus": [
@@ -16,18 +16,18 @@
     },
     {
       "plan": "https://lesscenarios.fr/sitemap-news.xml",
-      "derniere_lecture": "2026-11-16T15:58:54.553Z",
+      "derniere_lecture": "2026-11-17T16:10:22.597Z",
       "erreurs": "0",
       "avertissements": "0",
       "contenus": [
         {
           "type": "web",
-          "submitted": "3",
+          "submitted": "4",
           "indexed": "0"
         },
         {
           "type": "news",
-          "submitted": "3",
+          "submitted": "4",
           "indexed": "0"
         }
       ]
