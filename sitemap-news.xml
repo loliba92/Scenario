@@ -11,4 +11,15 @@
       <news:title>Houthis: Can Saudi Arabia prevent regional escalation?</news:title>
     </news:news>
   </url>
-<url><loc>https://lesscenarios.fr/archives/2026-11-17.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-11-17T06:01:57+01:00</news:publication_date><news:title>CNews : la pétition de 1 million de signatures peut-elle faire plier la chaîne ?</news:title></news:news></url></urlset>
+<url><loc>https://lesscenarios.fr/archives/2026-11-17.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-11-17T06:01:57+01:00</news:publication_date><news:title>CNews : la pétition de 1 million de signatures peut-elle faire plier la chaîne ?</news:title></news:news></url>  <url>
+    <loc>https://lesscenarios.fr/en/archives/2026-11-17.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Scénario</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-11-17T06:01:57+01:00</news:publication_date>
+      <news:title>CNews: Can a 1-million-signature petition force the network to back down?</news:title>
+    </news:news>
+  </url>
+</urlset>
