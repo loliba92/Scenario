@@ -1,33 +1,33 @@
 {
-  "mis_a_jour": "2026-11-16",
+  "mis_a_jour": "2026-11-17",
   "plans": [
     {
       "plan": "https://lesscenarios.fr/sitemap.xml",
-      "derniere_lecture": "2026-11-16T04:05:56.971Z",
+      "derniere_lecture": "2026-11-16T15:58:53.503Z",
       "erreurs": "0",
       "avertissements": "0",
       "contenus": [
         {
           "type": "web",
-          "submitted": "237",
+          "submitted": "239",
           "indexed": "0"
         }
       ]
     },
     {
       "plan": "https://lesscenarios.fr/sitemap-news.xml",
-      "derniere_lecture": "2026-11-16T04:05:57.097Z",
+      "derniere_lecture": "2026-11-16T15:58:54.553Z",
       "erreurs": "0",
       "avertissements": "0",
       "contenus": [
         {
           "type": "web",
-          "submitted": "2",
+          "submitted": "3",
           "indexed": "0"
         },
         {
           "type": "news",
-          "submitted": "2",
+          "submitted": "3",
           "indexed": "0"
         }
       ]
