@@ -143,7 +143,7 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
   <!-- origine: veille -->
   <!-- enrichi: 2026-10-31 -->
   <!-- note: Ajouté automatiquement le 2026-09-18 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — validé. Repéré en veille sur le registre Géopolitique, remonté ici pour son urgence -->
-- [ ] La pétition contre CNews peut-elle aboutir à sa suppression ? [médias & politique]
+- [x] La pétition contre CNews peut-elle aboutir à sa suppression ? [médias & politique]
   <!-- id: actualite-francaise-la-petition-contre-cnews-peut-elle-aboutir-a-sa -->
   <!-- contexte: Une pétition demandant la suppression de CNews a dépassé les 900 000 signatures le 10 novembre 2026. Lancée en juin, elle accuse la chaîne d'inciter à la haine et à la discrimination. CNews, propriété de Vincent Bolloré, a déjà été sanctionnée à plusieurs reprises par l'Arcom pour des manquements à ses obligations. -->
   <!-- rationnel: La question : cette pétition peut-elle conduire à des sanctions concrètes contre CNews, ou restera-t-elle symbolique ? Les forces en présence incluent la pression de l'opinion publique, la défense de la liberté d'expression par CNews, et le rôle régulateur de l'Arcom. Un scénario favorable verrait des sanctions renforcées contre la chaîne, un scénario stable maintiendrait le statu quo, et un scénario dégradé pourrait entraîner une polarisation accrue du débat médiatique. -->
