@@ -1450,6 +1450,16 @@ préférée pour son registre déjà simplifié.*
 
 *Phrase à retenir de l'édition du 2026-11-16 (archives/2026-11-16.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
 
+### chiffre-2026-11-17
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 1 million de signatures
+- message: Avec plus de 1 million de signatures, la pétition contre CNews a été classée par l'Assemblée, rappelant que seul le régulateur peut sanctionner une chaîne.
+- attribution: — lesscenarios.fr, 17 novembre 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-11-17.html
+
+*Phrase à retenir de l'édition du 2026-11-17 (archives/2026-11-17.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
