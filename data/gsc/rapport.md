@@ -24,15 +24,15 @@ Site `sc-domain:lesscenarios.fr` · données Google du 2026-10-19 au 2026-11-15 
 
 - Pages en première page de Google sans aucun clic : `/en/archives/2026-09-13.html`, `/en/archives/2026-09-24.html`, `/en/archives/2026-09-26.html`, `/en/archives/2026-10-17.html`. **Action** : Titre ou description à rendre plus incitatif. **Agent à envoyer** : seo-content. **Mission** : Réécrire titre et description de ces pages (liste dans le rapport), puis vérifier la cohérence avec le contenu.
 - L'adresse `/index.html` apparaît dans Google en plus de `/`. **Action** : Vérifier la balise canonique de l'accueil. **Agent à envoyer** : seo-technical. **Mission** : Vérifier la canonique de l'accueil, les redirections et les liens internes qui pointent vers /index.html.
-- 1 page : Google a lu la page et a décidé de ne pas l'indexer (qualité ou doublon perçu) (`/archives/2026-11-17.html`). **Action** : Apporter de la valeur propre (analyse, chiffres, sources) et vérifier les doublons. **Agent à envoyer** : seo-content. **Mission** : Comprendre pourquoi Google retient ou écarte ces pages (profondeur, unicité, qualité perçue) et proposer des améliorations de contenu et de liens internes.
+- 1 page : Google connaît l'adresse mais ne l'a pas encore explorée ou retenue (`/en/archives/2026-11-18.html`). **Action** : Renforcer les liens internes vers la page, enrichir son contenu, demander l'indexation. **Agent à envoyer** : seo-content. **Mission** : Comprendre pourquoi Google retient ou écarte ces pages (profondeur, unicité, qualité perçue) et proposer des améliorations de contenu et de liens internes.
 
 ## Ce qui fonctionne
 
-- 6 pages principales indexées : `/`, `/archives.html`, `/le-projet.html`, `/sources.html`, `/glossaire.html`, `/en/`.
-- 25 éditions indexées par Google.
+- 7 pages principales indexées : `/`, `/archives.html`, `/guide-pedagogique.html`, `/le-projet.html`, `/sources.html`, `/glossaire.html`.
+- 24 éditions indexées par Google.
 - Plan du site `/sitemap.xml` lu par Google sans erreur (241 adresses envoyées).
 - Plan du site `/sitemap-news.xml` lu par Google sans erreur (4 adresses envoyées).
-- Balises des 117 éditions en français conformes : titres sans coupure, descriptions de 100 à 160 caractères, un seul titre principal, canonique présente, toutes dans le plan du site.
+- Balises des 118 éditions en français conformes : titres sans coupure, descriptions de 100 à 160 caractères, un seul titre principal, canonique présente, toutes dans le plan du site.
 
 ## Ce qui ne fonctionne pas
 
@@ -135,12 +135,13 @@ Prochain contrôle : 2026-10-26.
 
 - `/` : ok
 - `/archives.html` : ok
-- `/guide-pedagogique.html` : inconnue (Google ne reconnaît pas cette URL)
+- `/guide-pedagogique.html` : ok
 - `/le-projet.html` : ok
 - `/sources.html` : ok
 - `/glossaire.html` : ok
 - `/en/` : ok
-- `/archives/2026-11-17.html` : exploree (Explorée, actuellement non indexée), publiée il y a 1 j
+- `/archives/2026-11-18.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 0 j
+- `/archives/2026-11-17.html` : ok, publiée il y a 1 j
 - `/archives/2026-11-16.html` : ok, publiée il y a 2 j
 - `/archives/2026-11-15.html` : ok, publiée il y a 3 j
 - `/archives/2026-11-14.html` : ok, publiée il y a 4 j
@@ -159,12 +160,11 @@ Prochain contrôle : 2026-10-26.
 - `/archives/2026-11-01.html` : ok, publiée il y a 17 j
 - `/archives/2026-10-31.html` : ok, publiée il y a 18 j
 - `/archives/2026-10-30.html` : ok, publiée il y a 19 j
-- `/archives/2026-10-29.html` : ok, publiée il y a 20 j
+- `/en/archives/2026-11-18.html` : decouverte (Détectée, actuellement non indexée), publiée il y a 0 j
 - `/en/archives/2026-11-17.html` : ok, publiée il y a 1 j
 - `/en/archives/2026-11-16.html` : ok, publiée il y a 2 j
 - `/en/archives/2026-11-10.html` : ok, publiée il y a 8 j
 - `/en/archives/2026-11-09.html` : ok, publiée il y a 9 j
 - `/en/archives/2026-11-08.html` : ok, publiée il y a 10 j
-- `/en/archives/2026-11-07.html` : ok, publiée il y a 11 j
 
 Le compteur « indexées » des plans du site n'est pas fiable : l'inspection page par page fait foi.
