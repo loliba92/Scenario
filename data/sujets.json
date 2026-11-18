@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "6af06d29705388e12513b3dfca203eb8b77d66c0181b1ff9ac0ee06226a45634"
+    "md_sha256": "3d76796a3e777f17c6cb9663763aef07a14a9edf5e298d51ddd900b27f81b495"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -2403,7 +2403,7 @@
           "titre": "La hausse du SMIC peut-elle relancer la consommation sans nuire à l'emploi ?",
           "question": null,
           "tag": "économie & pouvoir d'achat",
-          "statut": "a_traiter",
+          "statut": "publie",
           "validation": "valide",
           "contexte": "Le gouvernement a annoncé une hausse de 1,6 % du SMIC le 10 novembre 2026, portant le salaire minimum à 1 502 euros. Cette mesure vise à soutenir le pouvoir d'achat des ménages, mais elle est critiquée par certains économistes qui craignent un impact négatif sur l'emploi, notamment dans les PME.",
           "rationnel": "La question : cette hausse du SMIC peut-elle stimuler la consommation sans peser sur l'emploi, ou aggravera-t-elle les difficultés des entreprises ? Les scénarios dépendent de la réaction des entreprises (embauches, hausses de prix) et de la consommation des ménages. Un scénario favorable verrait une relance de la consommation sans pertes d'emploi, un scénario stable maintiendrait un équilibre fragile, et un scénario dégradé pourrait entraîner une hausse du chômage.",
@@ -2432,8 +2432,8 @@
           "note": "Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
           "donnees": "[relevé du 2026-11-12] Hausse du SMIC en France (unité : euros net mensuels). SMIC avant hausse = 1 478 (novembre 2026) ; SMIC après hausse = 1 502 (décembre 2026) ; hausse annuelle totale du SMIC en 2026 = 5,6% (2026). Sources : https://www.bfmtv.com/economie/economie-social/le-gouvernement-annonce-une-hausse-du-smic-de-1-6-des-le-mois-de-decembre-est-ce-une-fausse-bonne-idee-qui-risque-de-relever-encore-les-prix-et-de-detruire-des-emplois_AV-202611090486.html ; https://www.franceinfo.fr/economie/greve/augmentation-du-smic-allegements-de-charges-pour-les-entreprises-ce-qu-il-faut-retenir-des-annonces-du-gouvernement-a-l-issue-de-la-conference-sociale_8274527.html",
           "ajoute_le": "2026-11-10",
-          "publie_le": null,
-          "edition": null,
+          "publie_le": "2026-11-18",
+          "edition": "2026-11-18",
           "enrichi_le": "2026-11-12"
         },
         {

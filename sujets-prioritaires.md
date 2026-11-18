@@ -501,7 +501,7 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 
 ## Actualité & politique française — mercredi
-- [ ] La hausse du SMIC peut-elle relancer la consommation sans nuire à l'emploi ? [économie & pouvoir d'achat]
+- [x] La hausse du SMIC peut-elle relancer la consommation sans nuire à l'emploi ? [économie & pouvoir d'achat]
   <!-- id: actualite-francaise-la-hausse-du-smic-peut-elle-relancer-la -->
   <!-- contexte: Le gouvernement a annoncé une hausse de 1,6 % du SMIC le 10 novembre 2026, portant le salaire minimum à 1 502 euros. Cette mesure vise à soutenir le pouvoir d'achat des ménages, mais elle est critiquée par certains économistes qui craignent un impact négatif sur l'emploi, notamment dans les PME. -->
   <!-- rationnel: La question : cette hausse du SMIC peut-elle stimuler la consommation sans peser sur l'emploi, ou aggravera-t-elle les difficultés des entreprises ? Les scénarios dépendent de la réaction des entreprises (embauches, hausses de prix) et de la consommation des ménages. Un scénario favorable verrait une relance de la consommation sans pertes d'emploi, un scénario stable maintiendrait un équilibre fragile, et un scénario dégradé pourrait entraîner une hausse du chômage. -->
