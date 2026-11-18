@@ -1,9 +1,9 @@
 {
   "totaux": {
     "clicks": 4,
-    "impressions": 402,
-    "ctr": 0.01,
-    "position": 10.5
+    "impressions": 394,
+    "ctr": 0.0102,
+    "position": 10.8
   },
   "requetes": [
     {
@@ -140,18 +140,18 @@
       "position": 70.1
     },
     {
-      "requete": "tak przeanalizuj",
+      "requete": "tchat scénario",
       "clicks": 0,
       "impressions": 1,
       "ctr": 0,
-      "position": 1
+      "position": 54
     },
     {
       "requete": "viralité organique dirigée",
       "clicks": 0,
-      "impressions": 15,
+      "impressions": 16,
       "ctr": 0,
-      "position": 15.4
+      "position": 15
     }
   ],
   "pages": [
@@ -172,16 +172,16 @@
     {
       "page": "https://lesscenarios.fr/en/archives/2026-08-08.html",
       "clicks": 1,
-      "impressions": 24,
-      "ctr": 0.0417,
+      "impressions": 22,
+      "ctr": 0.0455,
       "position": 7.5
     },
     {
       "page": "https://lesscenarios.fr/en/archives/2026-10-07.html",
       "clicks": 1,
-      "impressions": 51,
-      "ctr": 0.0196,
-      "position": 4.5
+      "impressions": 49,
+      "ctr": 0.0204,
+      "position": 4.7
     },
     {
       "page": "https://lesscenarios.fr/archives.html",
@@ -256,9 +256,9 @@
     {
       "page": "https://lesscenarios.fr/archives/2026-10-03.html",
       "clicks": 0,
-      "impressions": 18,
+      "impressions": 19,
       "ctr": 0,
-      "position": 13.9
+      "position": 13.7
     },
     {
       "page": "https://lesscenarios.fr/archives/2026-10-04.html",
@@ -312,9 +312,9 @@
     {
       "page": "https://lesscenarios.fr/contact.html",
       "clicks": 0,
-      "impressions": 14,
+      "impressions": 15,
       "ctr": 0,
-      "position": 26.4
+      "position": 28.3
     },
     {
       "page": "https://lesscenarios.fr/en/",
@@ -333,16 +333,16 @@
     {
       "page": "https://lesscenarios.fr/en/archives/2026-08-30.html",
       "clicks": 0,
-      "impressions": 6,
+      "impressions": 4,
       "ctr": 0,
-      "position": 8.7
+      "position": 8.8
     },
     {
       "page": "https://lesscenarios.fr/en/archives/2026-09-05.html",
       "clicks": 0,
-      "impressions": 3,
+      "impressions": 2,
       "ctr": 0,
-      "position": 8.7
+      "position": 8
     },
     {
       "page": "https://lesscenarios.fr/en/archives/2026-09-07.html",
@@ -368,14 +368,14 @@
     {
       "page": "https://lesscenarios.fr/en/archives/2026-09-15.html",
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 1,
       "ctr": 0,
-      "position": 7
+      "position": 6
     },
     {
       "page": "https://lesscenarios.fr/en/archives/2026-09-16.html",
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 1,
       "ctr": 0,
       "position": 1
     },
@@ -473,16 +473,16 @@
     {
       "page": "https://lesscenarios.fr/en/archives/2026-10-13.html",
       "clicks": 0,
-      "impressions": 3,
+      "impressions": 2,
       "ctr": 0,
-      "position": 8
+      "position": 7.5
     },
     {
       "page": "https://lesscenarios.fr/en/archives/2026-10-17.html",
       "clicks": 0,
-      "impressions": 19,
+      "impressions": 18,
       "ctr": 0,
-      "position": 6
+      "position": 6.3
     },
     {
       "page": "https://lesscenarios.fr/en/archives/2026-10-18.html",
@@ -632,6 +632,13 @@
       "position": 37.3
     },
     {
+      "page": "https://lesscenarios.fr/suivi/iran-usa.html",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 8
+    },
+    {
       "page": "https://lesscenarios.fr/themes/culture-divertissement.html",
       "clicks": 0,
       "impressions": 1,
@@ -655,8 +662,8 @@
   ],
   "site": "sc-domain:lesscenarios.fr",
   "periode": {
-    "debut": "2026-10-18",
-    "fin": "2026-11-14"
+    "debut": "2026-10-19",
+    "fin": "2026-11-15"
   },
-  "mis_a_jour": "2026-11-17"
+  "mis_a_jour": "2026-11-18"
 }
