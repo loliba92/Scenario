@@ -2,6 +2,21 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-11-18",
+      "articles": [
+        {
+          "title": "Franceinfo — Augmentation du SMIC : allègements de charges pour les entreprises",
+          "source": "Franceinfo",
+          "url": "https://www.franceinfo.fr/economie/grete/augmentation-du-smic-allegements-de-charges-pour-les-entreprises-ce-qu-il-faut-retenir-des-annonces-du-gouvernement-a-l-issue-de-la-conference-sociale_8274527.html",
+          "image": "https://www.franceinfo.fr/pictures/txI-EbVwiHhtS_9bsXaQjDZc6xY/0x106:1024x682/1500x843/2026/11/09/6af1c698c6cbf513265732.jpg",
+          "lang": "fr",
+          "domain": "economie-entreprises",
+          "summary": "À l'issue de la conférence sociale, le gouvernement a annoncé des allègements de charges pour les entreprises compensant partiellement la hausse du SMIC. Environ 1,5 million de salariés seraient concernés. Les syndicats ont obtenu certains allègements, mais les PME restent inquiètes sur l'impact emploi.",
+          "read_minutes": 3
+        }
+      ]
+    },
+    {
       "date": "2026-11-17",
       "articles": [
         {
