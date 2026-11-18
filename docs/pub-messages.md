@@ -1460,6 +1460,16 @@ préférée pour son registre déjà simplifié.*
 
 *Phrase à retenir de l'édition du 2026-11-17 (archives/2026-11-17.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
 
+### chiffre-2026-11-18
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 1 502 euros
+- message: Avec une revalorisation de 1,6 % au 1er décembre 2026 portant le SMIC à 1 502 euros net, la hausse annuelle cumulative atteint 5,6 % pour 1,5 million de salariés.
+- attribution: — lesscenarios.fr, 18 novembre 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-11-18.html
+
+*Phrase à retenir de l'édition du 2026-11-18 (archives/2026-11-18.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
