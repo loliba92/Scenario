@@ -1,0 +1,296 @@
+{
+  "date": "2026-11-19",
+  "registre": "economie",
+  "sujet": {
+    "titre_propose": "La bulle de l'IA sur les marchés financiers va-t-elle éclater après la démission du PDG de Nvidia ?",
+    "h1": "Nvidia : la démission de Jensen Huang fait-elle craquer la bulle de l'IA ?",
+    "question_posee": "La démission du PDG de Nvidia, Jensen Huang, marque-t-elle le début de l'éclatement de la bulle de l'IA sur les marchés financiers, ou les marchés vont-ils se stabiliser ?",
+    "eyebrow": "Jeudi, économie & finance",
+    "angle": "La démission de Jensen Huang le 12 novembre 2026, après des révélations sur ses liens avec une espionne chinoise présumée, a fait chuter l'action Nvidia de 14 % en séance et effacé 1 800 milliards de dollars de capitalisation depuis son pic d'octobre. La question centrale est de savoir si cet événement personnel est le détonneur d'une bulle de l'IA déjà fragile, ou une correction ponctuelle dans un marché toujours porté par les fondamentaux de l'IA.",
+    "tags": [
+      "nvidia",
+      "ia",
+      "bulle-financiere",
+      "marche-actions",
+      "tech"
+    ],
+    "domain": "economie-entreprises",
+    "image_keywords": "nvidia stock chart, artificial intelligence finance, stock market volatility",
+    "complexite": 3,
+    "origine_prioritaire": "La bulle de l'IA sur les marchés financiers va-t-elle éclater après la démission du PDG de Nvidia ?",
+    "origine_id": "economie-la-bulle-de-l-ia-sur-les-marches-financiers-va",
+    "point_de_depart": {
+      "id": "economie-la-bulle-de-l-ia-sur-les-marches-financiers-va",
+      "registre": "economie",
+      "titre": "La bulle de l'IA sur les marchés financiers va-t-elle éclater après la démission du PDG de Nvidia ?",
+      "question": "La bulle de l'IA sur les marchés financiers va-t-elle éclater après la démission du PDG de Nvidia ?",
+      "contexte": "Le 12 novembre 2026, Jensen Huang, PDG de Nvidia, a démissionné après des révélations de liaisons avec une espionne chinoise présumée. L'action Nvidia a chuté de 14 % en séance, et la capitalisation boursière du groupe a perdu 1 800 milliards de dollars depuis son pic d'octobre. Les marchés tech américains sont sous pression, tandis que les places européennes résistent mieux.",
+      "rationnel": "La question : la démission du PDG de Nvidia marque-t-elle le début d'un éclatement de la bulle de l'IA, ou les marchés vont-ils se stabiliser ? Les forces en présence incluent la confiance des investisseurs dans les technologies d'IA, les tensions géopolitiques sino-américaines, et les résultats économiques des entreprises tech. Pour la France, un krach tech pourrait affecter les fonds d'investissement et les start-ups locales.",
+      "mots_cles": [
+        "Nvidia",
+        "IA",
+        "bulle financière",
+        "Jensen Huang",
+        "marchés actions",
+        "tech"
+      ],
+      "angle": null,
+      "a_verifier": null,
+      "scenarios_brouillon": {
+        "favorable": "Les marchés tech se stabilisent après une correction modérée, avec une reprise menée par d'autres acteurs de l'IA.",
+        "stable": "La volatilité persiste, mais sans effondrement majeur, les investisseurs diversifiant leurs portefeuilles.",
+        "degrade": "La chute de Nvidia déclenche une vente panique des actions tech, provoquant un krach boursier mondial."
+      },
+      "echeance": null,
+      "sources_pistes": [
+        {
+          "titre": "Monde – L'actualité de la semaine – 13 novembre 2026 | Crédit Agricole",
+          "url": "https://etudes-economiques.credit-agricole.com/fr/monde-lactualite-de-la-semaine-13-novembre-2026"
+        }
+      ],
+      "tag": "économie & finance",
+      "origine": "veille",
+      "note_editoriale": "Ajouté automatiquement le 2026-11-15 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. Solidité : 85/100. Validé d'office : score suffisant, aucun recyclage de sujet publié.",
+      "donnees_graphique": "[relevé du 2026-11-15] Capitalisation boursière de Nvidia (unité : billions de dollars). Pic d'octobre 2026 = 5.79 (6 octobre 2026) ; après la démission de Jensen Huang = 4.01 (12 novembre 2026) ; perte totale = 1.78 (depuis octobre 2026). Sources : https://www.cnbc.com/2026/11/13/nvidia-stock-jensen-affair-ai.html ; https://finance.yahoo.com/technology/article/nvidia-market-cap-plunges-490-billion-following-former-ceo-huangs-affair-scandals-224412004.html",
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille du 18/11 : SMIC, sujet économie-entreprises mais acteur et mécanisme totalement différents (salaire minimum vs marchés tech). Éditions précédentes du registre économie : 29/10 (Bulle de l'IA : les valorisations tech vont-elles corriger fortement ?) — même thème de bulle IA mais angle différent (valorisations générales vs déclencheur spécifique Nvidia). 05/11 (Assureurs européens) et 04/11 (Facturation électronique) sans lien. 27/10 (Éthiopie-Érythrée, géopolitique), 26/10 (Climat, géopolitique), 25/10 (Pass Sport, sport). Le sujet du 29/10 est le plus proche mais traite les valorisations tech de façon générale, pas la démission de Nvidia comme détonneur. Pas de chevauchement mécanique fort : le sujet d'aujourd'hui est centré sur un événement précis et son impact potentiel sur la bulle, pas sur une analyse générale des valorisations."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Jensen Huang, PDG de Nvidia, a démissionné le 12 novembre 2026 après des révélations de liaisons avec une espionne chinoise présumée.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "source1"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "L'action Nvidia a chuté de 14 % en séance le 12 novembre 2026 suite à l'annonce de la démission.",
+      "chiffre": "14 %",
+      "date_du_chiffre": "2026-11-12",
+      "sources": [
+        "source1",
+        "source2"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La capitalisation boursière de Nvidia a perdu environ 1 800 milliards de dollars depuis son pic d'octobre 2026.",
+      "chiffre": "1 800 milliards de dollars",
+      "date_du_chiffre": "2026-11-12",
+      "sources": [
+        "source1",
+        "source2"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le pic de capitalisation boursière de Nvidia en octobre 2026 était d'environ 5,79 billions de dollars (6 octobre 2026).",
+      "chiffre": "5,79 billions de dollars",
+      "date_du_chiffre": "2026-10-06",
+      "sources": [
+        "source3"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Après la démission de Jensen Huang, la capitalisation de Nvidia est tombée à environ 4,01 billions de dollars (12 novembre 2026), soit une perte totale de 1,78 trillion depuis octobre.",
+      "chiffre": "4,01 billions de dollars",
+      "date_du_chiffre": "2026-11-12",
+      "sources": [
+        "source3"
+      ],
+      "confiance": "haute"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Jensen Huang",
+      "role": "PDG démissionnaire de Nvidia"
+    },
+    {
+      "nom": "Nvidia",
+      "role": "Entreprise technologique américaine, leader des puces IA"
+    },
+    {
+      "nom": "Investisseurs institutionnels",
+      "role": "Déteneurs majoritaires d'actions Nvidia et d'actifs tech"
+    },
+    {
+      "nom": "Fed (Federal Reserve)",
+      "role": "Banque centrale américaine, influence les taux et la liquidité du marché"
+    },
+    {
+      "nom": "BCE (Banque centrale européenne)",
+      "role": "Banque centrale de la zone euro, impact sur les marchés européens"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2026-10-06",
+      "evenement": "Pic de capitalisation boursière de Nvidia à 5,79 billions de dollars"
+    },
+    {
+      "date": "2026-11-12",
+      "evenement": "Démission de Jensen Huang, PDG de Nvidia, après révélations sur ses liens avec une espionne chinoise présumée"
+    },
+    {
+      "date": "2026-11-12",
+      "evenement": "Chute de l'action Nvidia de 14 % en séance, perte de 1 800 milliards de dollars de capitalisation"
+    },
+    {
+      "date": "2026-11-13",
+      "evenement": "Publication d'analyses sur les conséquences pour les marchés tech américains et les tensions sino-américaines"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Les marchés tech absorbent la nouvelle comme une correction ponctuelle. La démission de Huang est vue comme un événement personnel sans impact sur les fondamentaux de Nvidia ni sur la demande en puces IA. D'autres acteurs (AMD, Intel, startups IA) reprennent la relève, et la capitalisation Nvidia rebondit partiellement dans les semaines suivantes. Les tensions géopolitiques sino-américaines restent contenues.",
+      "probabilite_suggeree": 30
+    },
+    "stable": {
+      "resume": "La volatilité persiste mais sans effondrement majeur. Les investisseurs diversifient leurs portefeuilles tech, réduisant l'exposition à Nvidia. Les marchés européens résistent mieux. La bulle de l'IA ne creve pas, mais la croissance des valorisations tech ralentit significativement. Les résultats des entreprises IA restent solides, soutenant les prix à un niveau plus modéré.",
+      "probabilite_suggeree": 45
+    },
+    "degrade": {
+      "resume": "La démission de Huang déclenche une vente panique des actions tech, amplifiée par les tensions géopolitiques avec la Chine et des doutes sur les bénéfices réels de l'IA. La capitalisation Nvidia continue de chuter, entraînant les autres géants tech dans une spirale baissière. Les fonds d'investissement français et européens exposés aux tech subissent des pertes significatives, et les start-ups IA ont du mal à lever des fonds.",
+      "probabilite_suggeree": 25
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Capitalisation boursière Nvidia (pic octobre 2026)",
+      "valeur": "5,79 billions de dollars",
+      "tendance": "Pic record en octobre 2026"
+    },
+    {
+      "label": "Capitalisation boursière Nvidia (après démission)",
+      "valeur": "4,01 billions de dollars",
+      "tendance": "Chute de 1,78 trillion depuis le pic"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "La série de capitalisation boursière de Nvidia n'a que 2 points vérifiés (pic octobre et post-démission) sur une période courte de 5 semaines. Le critère (2) d'au moins 5 points réels sur une période longue n'est pas satisfait. Une source publique fiable (Yahoo Finance, CNBC) ne documente pas l'historique complet sur une période longue avec suffisamment de points pour un graphique en escalier significatif. Critère (2) échoue : seulement 2 points disponibles sur 1,5 mois.",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "oui",
+    "raison": "Trois chiffres comparables (en billions de dollars) sont disponibles et vérifiés : pic d'octobre 2026 (5,79), post-démission (4,01), et perte totale (1,78). Ces trois valeurs permettent une comparaison visuelle claire de l'ampleur de la correction.",
+    "barres": {
+      "aria_label": "Graphique comparatif de la capitalisation boursière de Nvidia en billions de dollars : pic d'octobre 2026, valeur après démission, et perte totale.",
+      "lead": "La capitalisation de Nvidia a perdu l'équivalent de plus de 1,78 trillion de dollars en moins de deux mois.",
+      "caption": "Sources : CNBC, Yahoo Finance — données du 6 octobre et 12 novembre 2026",
+      "unite": "billions de dollars",
+      "valeurs": [
+        {
+          "label": "Pic octobre 2026",
+          "valeur": 5.79,
+          "affichage": "5,79 billions $",
+          "mis_en_avant": false
+        },
+        {
+          "label": "Après démission (12 nov.)",
+          "valeur": 4.01,
+          "affichage": "4,01 billions $",
+          "mis_en_avant": false
+        },
+        {
+          "label": "Perte totale",
+          "valeur": 1.78,
+          "affichage": "1,78 billion $ perdu",
+          "mis_en_avant": true
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Pourquoi Nvidia pèse-t-il autant sur les marchés ?",
+        "rattache_a": "La capitalisation de Nvidia représente une part disproportionnée des marchés tech américains et des indices mondiaux."
+      },
+      {
+        "focus": "Qu'est-ce qu'une bulle de l'IA et comment la reconnaît-on ?",
+        "rattache_a": "Les valorisations des entreprises IA dépassent largement leurs fondamentaux actuels, mais la question est de savoir si cela constitue une bulle ou une anticipation légitime de croissance."
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "L'ampleur réelle des liens entre Jensen Huang et l'espionne chinoise présumée n'est pas encore totalement établie — les sources parlent de 'révélations' sans détailler les preuves.",
+    "L'impact à moyen terme sur les résultats financiers de Nvidia reste incertain : la démission est un événement de gouvernance, mais l'impact sur les ventes de puces et les contrats cloud est à surveiller.",
+    "La réaction des autres acteurs tech (AMD, Intel, startups) et des investisseurs institutionnels dans les jours suivants est encore en cours — les analyses du 13 novembre sont préliminaires."
+  ],
+  "a_ne_pas_affirmer": [
+    "Que la démission de Jensen Huang est définitivement la cause unique de la chute des marchés tech — d'autres facteurs (tensions géopolitiques, résultats trimestriels, ajustements de taux) peuvent contribuer.",
+    "Que la bulle de l'IA va nécessairement éclater ou au contraire ne sera pas touchée — l'issue reste incertaine et dépend de multiples facteurs.",
+    "Que les marchés européens sont immunisés contre un krach tech américain — ils peuvent être affectés via les fonds d'investissement et les entreprises cotées."
+  ],
+  "sources": [
+    {
+      "id": "source1",
+      "title": "Nvidia stock plunges 14% after Jensen Huang affair — AI bubble fears grow",
+      "source": "CNBC",
+      "url": "https://www.cnbc.com/2026/11/13/nvidia-stock-jensen-affair-ai.html",
+      "image": null,
+      "lang": "en",
+      "domain": "economie-entreprises",
+      "summary": "Article du 13 novembre 2026 couvrant la démission de Jensen Huang, la chute de 14 % de l'action Nvidia, et les inquiétudes sur l'impact pour la bulle de l'IA sur les marchés financiers.",
+      "read_minutes": 3
+    },
+    {
+      "id": "source2",
+      "title": "Nvidia market cap plunges $490 billion following former CEO Huang's affair scandals",
+      "source": "Yahoo Finance",
+      "url": "https://finance.yahoo.com/technology/article/nvidia-market-cap-plunges-490-billion-following-former-ceo-huangs-affair-scandals-224412004.html",
+      "image": null,
+      "lang": "en",
+      "domain": "economie-entreprises",
+      "summary": "Article de Yahoo Finance analysant la perte de capitalisation de Nvidia après la démission de Jensen Huang, avec des chiffres détaillés sur l'impact pour les marchés tech.",
+      "read_minutes": 4
+    },
+    {
+      "id": "source3",
+      "title": "Monde – L'actualité de la semaine – 13 novembre 2026",
+      "source": "Crédit Agricole — Études Économiques",
+      "url": "https://etudes-economiques.credit-agricole.com/fr/monde-lactualite-de-la-semaine-13-novembre-2026",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie-entreprises",
+      "summary": "Bilan hebdomadaire de Crédit Agricole du 13 novembre 2026, mentionnant la démission de Jensen Huang, la chute de Nvidia, et les tensions sur les marchés tech américains avec une perspective sur les places européennes.",
+      "read_minutes": 5
+    }
+  ],
+  "revue_de_presse": [],
+  "articles_connexes": [
+    {
+      "date": "2026-10-29",
+      "titre": "Bulle de l'IA : les valorisations tech vont-elles corriger fortement ?",
+      "lien": "Même thème de bulle de l'IA et de correction des valorisations tech — l'édition du 29 octobre analysait le risque de correction générale des actions IA, tandis que celle du 19 novembre se concentre sur un déclencheur spécifique (démolition de Nvidia)."
+    },
+    {
+      "date": "2026-09-11",
+      "titre": "IA : le pari à 725 milliards de la tech américaine",
+      "lien": "Même sujet de l'IA et des investissements massifs de la tech américaine — l'édition du 11 septembre analysait les engagements financiers des géants tech dans l'IA, contexte direct pour comprendre pourquoi les marchés sont sensibles à toute nouvelle sur Nvidia."
+    },
+    {
+      "date": "2026-09-08",
+      "titre": "OpenAI : le pari à 1 000 milliards de dollars",
+      "lien": "Même domaine de l'IA et des valorisations extrêmes des entreprises tech — l'édition du 8 septembre analysait le pari de valorisation d'OpenAI, illustrant la même dynamique de marchés qui surévaluent les perspectives de l'IA."
+    }
+  ],
+  "recommandations_redaction": [
+    "Insister sur le fait que la démission de Jensen Huang est un événement de gouvernance personnelle, pas un problème fondamental de l'entreprise — pour éviter de confondre cause et conséquence.",
+    "Préciser que les 1 800 milliards de dollars perdus depuis le pic représentent une correction, pas nécessairement l'éclatement complet de la bulle — la distinction est importante pour les trois scénarios.",
+    "Mettre en perspective avec le sujet du 29 octobre (Bulle de l'IA : les valorisations tech vont-elles corriger fortement ?) pour montrer la continuité du thème, mais avec un angle différent (événement précis vs analyse générale).",
+    "Évoquer l'impact potentiel pour les investisseurs français (fonds ETFs, assurance-vie exposés aux tech) et les start-ups IA européennes qui pourraient voir leur capacité de levée de fonds affectée en cas de krach.",
+    "Ne pas omettre les tensions géopolitiques sino-américaines comme facteur aggravant potentiel — le contexte des espions et des technologies sensibles ajoute une couche de risque aux marchés tech."
+  ]
+}

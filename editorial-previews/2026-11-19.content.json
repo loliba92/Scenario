@@ -1,0 +1,181 @@
+{
+  "h1": "Nvidia : la démission de Jensen Huang fait-elle craquer la bulle de l'IA ?",
+  "question_text": "La démission du PDG de Nvidia, Jensen Huang, marque-t-elle le début de l'éclatement de la bulle de l'IA sur les marchés financiers, ou les marchés vont-ils se stabiliser ?",
+  "section_title": "Trois trajectoires pour les marchés après le choc Nvidia",
+  "dek": [
+    "Le départ soudain de Jensen Huang le <strong>12 novembre 2026</strong> a provoqué une onde de choc immédiate sur les places financières mondiales. Cofondateur et dirigeant historique de Nvidia depuis trente-trois ans, l'homme incarnait à lui seul la révolution de l'intelligence artificielle générative. Sa démission précipitée, motivée par des révélations sur des liaisons personnelles incluant une relation avec une espionne chinoise présumée, a pris de court l'ensemble des investisseurs. L'action du géant américain des puces électroniques a immédiatement plongé de <strong>14 % en une seule séance</strong>, entraînant dans son sillage les principaux indices boursiers de Wall Street et fragilisant la confiance du secteur technologique.",
+    "Cette chute brutale accélère une érosion déjà amorcée depuis plusieurs semaines. Au sommet de sa trajectoire, le 6 octobre 2026, Nvidia affichait une capitalisation boursière<a class=\"lex-ref\" href=\"#lex-capitalisation-boursiere\" aria-label=\"Voir la définition dans le lexique\">*</a> record de <strong>5,79 billions de dollars</strong>, soit la plus grande valeur d'entreprise jamais enregistrée dans l'histoire économique. Après l'annonce du départ de son dirigeant, cette valorisation<a class=\"lex-ref\" href=\"#lex-valorisation\" aria-label=\"Voir la définition dans le lexique\">*</a> est retombée à environ <strong>4,01 billions de dollars</strong>. En moins de deux mois, l'entreprise a ainsi vu s'évaporer près de <strong>1 800 milliards de dollars</strong> de valeur théorique, une perte nette équivalente à l'ensemble du produit intérieur brut d'une grande puissance industrielle européenne.",
+    "La place démesurée occupée par Nvidia explique l'ampleur de la panique. L'entreprise ne fabrique pas de simples composants grand public : elle produit les processeurs graphiques indispensables à l'entraînement des modèles d'intelligence artificielle les plus puissants du monde. Ses clients majeurs, qu'il s'agisse des géants du logiciel ou des exploitants de centres de données, ont engagé des centaines de milliards de dollars de dépenses d'infrastructure. Lorsqu'un maillon aussi central vacille au sommet, c'est l'ensemble de la chaîne de valeur qui s'interroge sur la pérennité de ses investissements et sur la rentabilité future des technologies déployées.",
+    "Le contexte financier général rendait déjà le marché particulièrement nerveux. Les taux d'intérêt élevés fixés par la banque centrale américaine pénalisent lourdement les entreprises technologiques qui dépendent de la dette pour financer leurs achats de serveurs. En parallèle, les tensions géopolitiques entre Washington et Pékin autour des semi-conducteurs<a class=\"lex-ref\" href=\"#lex-semi-conducteurs\" aria-label=\"Voir la définition dans le lexique\">*</a> sensibles accentuent la suspicion envers toute faille de sécurité. Dans ce climat tendu, les analystes se divisent : certains voient dans cette démission un simple problème de gouvernance interne, tandis que d'autres y lisent le signal déclencheur d'une correction globale des marchés.",
+    "La question fondamentale porte sur l'existence d'une bulle financière<a class=\"lex-ref\" href=\"#lex-bulle-financiere\" aria-label=\"Voir la définition dans le lexique\">*</a> prête à exploser. Depuis fin 2022, les cours des actions technologiques ont grimpé à un rythme spectaculaire, souvent bien plus vite que leurs revenus réels. Les investisseurs institutionnels<a class=\"lex-ref\" href=\"#lex-investisseurs-institutionnels\" aria-label=\"Voir la définition dans le lexique\">*</a>, comme les grands fonds de pension et les banques d'investissement, se demandent si les bénéfices promis par l'automatisation justifient de tels niveaux de prix. Si les entreprises réduisent leurs commandes de matériel, le moteur boursier de ces deux dernières années pourrait caler brutalement.",
+    "L'avenir immédiat du secteur reste donc hautement imprévisible. La directrice financière Colette Kress assure désormais la direction par intérim et doit présenter des résultats trimestriels décisifs dans un climat de méfiance inédit. Trois issues se dessinent pour les prochains mois : une absorption rapide de la crise grâce à la solidité des carnets de commandes, une stagnation prolongée marquée par une redistribution des capitaux, ou un décrochage sévère qui contaminerait l'ensemble des marchés mondiaux."
+  ],
+  "enjeu_en_clair": {
+    "lead": "La démission soudaine du dirigeant de Nvidia menace de faire vaciller les valorisations boursières records du secteur de l'intelligence artificielle.",
+    "text": "Nvidia fabrique les puces indispensables au fonctionnement de l'intelligence artificielle mondiale. Le départ imprévu de son patron Jensen Huang a fait chuter l'action de 14 % en quelques heures. Le désaccord porte sur la nature de cette secousse : simple accident de gouvernance ou début d'un krach boursier. L'enjeu concerne directement les fonds d'épargne et les entreprises du numérique, dont les investissements dépendent de la solidité de ce marché."
+  },
+  "stakes_branches": {
+    "favorable": "La demande de puces reste intacte et stabilise rapidement le secteur.",
+    "stable": "Les valorisations ralentissent sans provoquer de krach généralisé.",
+    "degrade": "La défiance se propage et déclenche une vente panique des actions tech."
+  },
+  "comprendre_box": [
+    {
+      "lead": "Pourquoi le cours de Nvidia influence-t-il l'ensemble de la bourse mondiale ?",
+      "text": "Nvidia représente une part gigantesque des grands indices boursiers américains. Si l'entreprise perd 10 % de sa valeur, les fonds indiciels du monde entier baissent automatiquement, ce qui force de nombreux gérants d'épargne à vendre d'autres actions pour équilibrer leurs comptes.",
+      "apres_dek_index": 1
+    },
+    {
+      "lead": "Comment se forme une bulle financière dans les nouvelles technologies ?",
+      "text": "Une bulle apparaît lorsque les acheteurs payent des actions en pariant sur des gains futurs gigantesques, plutôt que sur les bénéfices actuels. Si un doute surgit sur la vitesse d'adoption réelle du produit, tout le monde cherche à vendre en même temps, provoquant une chute brutale.",
+      "apres_dek_index": 4
+    }
+  ],
+  "list_box": null,
+  "indicators": [
+    {
+      "label": "Capitalisation boursière Nvidia (pic octobre 2026)",
+      "delta": "Record historique atteint le 6 octobre 2026",
+      "value": "5,79 billions de dollars"
+    },
+    {
+      "label": "Capitalisation boursière Nvidia (après démission)",
+      "delta": "-1,78 billion de dollars depuis le pic d'octobre",
+      "value": "4,01 billions de dollars"
+    }
+  ],
+  "cards": {
+    "favorable": {
+      "pct": 30,
+      "gauge_word": "Probable",
+      "h3": "L'incident reste isolé et les fondamentaux industriels rassurent les marchés",
+      "why": [
+        "Premier scénario : les marchés financiers assimilent le départ de Jensen Huang à une crise humaine sans impact sur l'outil de production. Concrètement, les commandes de processeurs graphiques pour les centres de données continuent d'affluer au même rythme soutenu chez les fabricants partenaires. La direction par intérim présente des résultats financiers trimestriels solides, marqués par une croissance annuelle proche de <strong>90 %</strong> de son chiffre d'affaires, ce qui dissipe la peur d'un ralentissement de l'adoption industrielle. Les investisseurs cessent de vendre en urgence et l'action entame un rebond technique dans les semaines suivantes.",
+        "Cette trajectoire suppose que les clients ne remettent pas en cause leurs calendriers de déploiement technologique malgré le changement de direction. Contrairement aux scénarios de repli ou de crise systémique, ce dénouement considère que l'avantage technologique de l'entreprise demeure inaccessible pour ses concurrents directs à court terme. La transition managériale pourrait ainsi être bouclée rapidement sans altérer la rentabilité opérationnelle du secteur."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Capitalisation boursière Nvidia (pic octobre 2026)",
+          "evo_current": "5,79 billions $",
+          "evo_arrow": "flat",
+          "evo_prev": "5,79 billions $"
+        },
+        {
+          "field_name": "Capitalisation boursière Nvidia (après démission)",
+          "evo_current": "4,80 billions $",
+          "evo_arrow": "up",
+          "evo_prev": "4,01 billions $"
+        }
+      ],
+      "france_line": "Les fonds d'épargne français investis dans la tech américaine récupèrent leurs pertes initiales.",
+      "france_impact": "favorable"
+    },
+    "stable": {
+      "pct": 45,
+      "gauge_word": "Probable",
+      "h3": "Les valorisations se tassent sans provoquer d'effondrement systémique",
+      "why": [
+        "Deuxième scénario : la chute de Nvidia marque la fin de l'euphorie boursière mais ne déclenche pas de krach généralisé. Concrètement, les grands gestionnaires de capitaux réduisent leur exposition au titre pour répartir leurs investissements vers d'autres acteurs du secteur ou vers des entreprises traditionnelles plus rentables à court terme. Les cours de bourse cessent de progresser à un rythme vertigineux et entament une phase de consolidation durable, tandis que les exigences de rentabilité sur les projets logiciels deviennent beaucoup plus strictes.",
+        "Cette issue intermédiaire se distingue nettement d'un rebond rapide ou d'une panique destructrice en actant un changement de régime financier. Les valorisations excessives sont rabotées de façon ordonnée, ce qui limite les dégâts pour le reste de l'économie mondiale tout en freinant les levées de fonds spéculatives. Le marché de l'intelligence artificielle deviendrait ainsi plus mature et moins dépendant des déclarations d'un seul dirigeant emblématique."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Capitalisation boursière Nvidia (pic octobre 2026)",
+          "evo_current": "5,79 billions $",
+          "evo_arrow": "flat",
+          "evo_prev": "5,79 billions $"
+        },
+        {
+          "field_name": "Capitalisation boursière Nvidia (après démission)",
+          "evo_current": "3,90 billions $",
+          "evo_arrow": "flat",
+          "evo_prev": "4,01 billions $"
+        }
+      ],
+      "france_line": "Les valorisations des jeunes pousses françaises de l'IA ralentissent sans stopper leurs projets.",
+      "france_impact": "degrade"
+    },
+    "degrade": {
+      "pct": 25,
+      "gauge_word": "Peu probable",
+      "h3": "Une vente panique déclenche une correction sévère de tout le secteur technologique",
+      "why": [
+        "Troisième scénario : l'affaire Jensen Huang sert de révélateur à une bulle devenue insoutenable et provoque une fuite massive des capitaux. Concrètement, les révélations sur des fuites technologiques potentielles vers la Chine déclenchent des enquêtes parlementaires rigoureuses et des restrictions réglementaires accrues sur les exportations de composants. Les entreprises clientes, déjà fragilisées par le coût de la dette, annulent une partie de leurs commandes de serveurs, entraînant une révision à la baisse des prévisions de bénéfices de tous les géants du numérique.",
+        "Par rapport aux deux autres trajectoires, ce scénario transforme un incident de gouvernance en une crise de confiance globale pour l'ensemble des marchés d'actions. Les pertes accumulées sur les valeurs technologiques forcent les fonds de placement à liquider des actifs sains, contaminant les bourses européennes et asséchant le capital-risque mondial. Les financements accordés aux nouvelles technologies glisseraient alors vers un gel prolongé de plusieurs trimestres."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Capitalisation boursière Nvidia (pic octobre 2026)",
+          "evo_current": "5,79 billions $",
+          "evo_arrow": "flat",
+          "evo_prev": "5,79 billions $"
+        },
+        {
+          "field_name": "Capitalisation boursière Nvidia (après démission)",
+          "evo_current": "2,90 billions $",
+          "evo_arrow": "down",
+          "evo_prev": "4,01 billions $"
+        }
+      ],
+      "france_line": "Les épargnants français subissent des baisses de valeur notables sur leurs contrats d'assurance-vie.",
+      "france_impact": "degrade"
+    }
+  },
+  "essentiel_box": [
+    "La démission imprévue du PDG de Nvidia, Jensen Huang, menace-t-elle de faire éclater la bulle financière de l'intelligence artificielle ou le secteur va-t-il absorber le choc ?",
+    "L'action de Nvidia a chuté de 14 % le 12 novembre 2026 après des révélations personnelles, portant la perte de valeur à près de 1 800 milliards de dollars depuis son pic d'octobre.",
+    "Notre scénario le plus probable (45 %) prévoit un atterrissage en douceur avec un ralentissement des valorisations, loin d'un krach généralisé (25 %) ou d'un rebond immédiat (30 %).",
+    "Le signal à surveiller sera la publication des résultats financiers trimestriels de Nvidia et les prévisions de commandes des grands exploitants de serveurs informatiques."
+  ],
+  "delta_france": {
+    "kind": "negatif",
+    "score": -0.4,
+    "word": "léger négatif",
+    "text": "car la probabilité cumulée de 70 % d'une stagnation ou d'un repli des marchés pèse sur les contrats d'assurance-vie investis en actions internationales et freine les levées de fonds des start-ups françaises."
+  },
+  "phrase_a_retenir": "La capitalisation de Nvidia est tombée à 4,01 billions de dollars après la démission de son PDG, effaçant près de 1 800 milliards de dollars depuis son pic d'octobre 2026.",
+  "phrase_a_retenir_stat": "4,01 billions de dollars",
+  "lexique": [
+    {
+      "slug": "capitalisation-boursiere",
+      "terme": "capitalisation boursière",
+      "definition": "Valeur marchande totale d'une entreprise cotée en bourse, calculée en multipliant le prix d'une action par le nombre total d'actions en circulation."
+    },
+    {
+      "slug": "valorisation",
+      "terme": "valorisation",
+      "definition": "Estimation financière de la valeur d'une entreprise à un instant donné, basée sur ses cours de bourse, ses résultats comptables ou ses perspectives de croissance."
+    },
+    {
+      "slug": "semi-conducteurs",
+      "terme": "semi-conducteurs",
+      "definition": "Composants électroniques, souvent appelés puces ou microprocesseurs, indispensables au calcul informatique, au traitement des données et aux systèmes d'intelligence artificielle."
+    },
+    {
+      "slug": "bulle-financiere",
+      "terme": "bulle financière",
+      "definition": "Hausse excessive et injustifiée du prix de certains actifs boursiers, entretenue par la spéculation, avant une baisse brutale lors du retour à la réalité économique."
+    },
+    {
+      "slug": "investisseurs-institutionnels",
+      "terme": "investisseurs institutionnels",
+      "definition": "Grandes organisations financières, comme les fonds de pension, les compagnies d'assurance ou les banques, qui gèrent et placent d'importantes masses de capitaux sur les marchés."
+    }
+  ],
+  "sources_html": [
+    "<a href=\"https://www.cnbc.com/2026/11/13/nvidia-stock-jensen-affair-ai.html\" target=\"_blank\" rel=\"noopener noreferrer\">CNBC — Nvidia stock plunges 14% after Jensen Huang affair — AI bubble fears grow ↗</a>",
+    "<a href=\"https://finance.yahoo.com/technology/article/nvidia-market-cap-plunges-490-billion-following-former-ceo-huangs-affair-scandals-224412004.html\" target=\"_blank\" rel=\"noopener noreferrer\">Yahoo Finance — Nvidia market cap plunges $490 billion following former CEO Huang's affair scandals ↗</a>",
+    "<a href=\"https://etudes-economiques.credit-agricole.com/fr/monde-lactualite-de-la-semaine-13-novembre-2026\" target=\"_blank\" rel=\"noopener noreferrer\">Crédit Agricole — Études Économiques — Monde – L'actualité de la semaine – 13 novembre 2026 ↗</a>"
+  ],
+  "meta": {
+    "title": "Nvidia : la démission de Jensen Huang fait-elle craquer la bulle de l'IA ?",
+    "meta_description": "Nvidia : la démission de Jensen Huang fait-elle craquer la bulle de l'IA ? 3 scénarios prospectifs pour 2030.",
+    "og_image_alt": "Graphique illustrant la volatilité boursière et la chute de la capitalisation de Nvidia sur les marchés financiers",
+    "keywords": [
+      "Jensen Huang",
+      "Nvidia"
+    ],
+    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-11-19.html\"\n  },\n  \"headline\": \"Nvidia : la démission de Jensen Huang fait-elle craquer la bulle de l'IA ?\",\n  \"description\": \"Nvidia : la démission de Jensen Huang fait-elle craquer la bulle de l'IA ? 3 scénarios prospectifs pour 2030.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-11-19.png\"\n  ],\n  \"datePublished\": \"2026-11-19T00:00:00\",\n  \"dateModified\": \"2026-11-19T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"Jensen Huang, Nvidia\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Actualité\"\n}",
+    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Nvidia : la démission de Jensen Huang fait-elle craquer la bulle de l'IA ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-11-19.html\"\n    }\n  ]\n}"
+  }
+}
