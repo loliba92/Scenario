@@ -732,7 +732,9 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
   <!-- mots-clés: Euclid ; énergie noire ; télescope spatial ; ESA ; cosmologie ; matière noire -->
   <!-- scénarios (brouillon): favorable = Euclid révèle des anomalies majeures dans la distribution de l'énergie noire, ouvrant la voie à une nouvelle physique. ; stable = Les données confirment les modèles actuels, sans surprise mais avec une précision inédite. ; dégradé = Des problèmes techniques ou des biais dans les données limitent la portée des conclusions, retardant les avancées. -->
   <!-- sources: Revue de presse scientifique du 13/11/2026 <https://sciencemusic.live/revue-de-presse-scientifique-du-13-11-2026/> -->
+  <!-- données chiffrées: [relevé du 2026-11-18] Nombre de galaxies cartographiées par Euclid (unité : millions). DR1-Foundation = 900 (2026) ; prévision finale = 1 500 (2030) ; Hubble Deep Field = 0.1 (1995). Sources : https://www.lam.fr/euclid-data-release-dr1-foundation-une-avalanche-de-donnees-images-spectres-catalogues-et-premiers-resultats/ ; https://www.esa.int/articles/about-us/directorates/science/euclid/euclid-lays-the-foundation-for-its-best-ever-3d-map-of-the-universe -->
   <!-- origine: veille -->
+  <!-- enrichi: 2026-11-18 -->
   <!-- note: Ajouté automatiquement le 2026-11-15 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. Solidité : 85/100. Validé d'office : score suffisant, aucun recyclage de sujet publié. -->
 - [x] La découverte d'une désintégration rare de particule ouvre-t-elle la voie à une nouvelle physique ? [sciences & physique]
   <!-- id: sciences-la-decouverte-d-une-desintegration-rare-de -->
