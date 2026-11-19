@@ -50,10 +50,13 @@ def rapport(res, aujourdhui):
 
     def detail(s, limite):
         eds = ", ".join(s.get("editions", [])) or "aucune édition liée"
-        return (f"- **{s['libelle']}** (`{s['id']}`) — limite le {limite.strftime('%d/%m/%Y')}.\n"
-                f"  - Si oui : {s['si_concretise']['effet']} (renforce : {s['si_concretise']['renforce']})\n"
-                f"  - Si non : {s['si_non_concretise']['effet']} (renforce : {s['si_non_concretise']['renforce']})\n"
-                f"  - Édition(s) : {eds}")
+        est = " (date estimée par prudence)" if s.get("date_estimee") else ""
+        txt = (f"- **{s['libelle']}** (`{s['id']}`) — limite le {limite.strftime('%d/%m/%Y')}{est}.\n")
+        for cle, lib in (("si_concretise", "Si oui"), ("si_non_concretise", "Si non")):
+            e = s.get(cle)
+            if e:  # absent pour les signaux repris d'une édition sans scénario rédigé
+                txt += f"  - {lib} : {e['effet']} (renforce : {e['renforce']})\n"
+        return txt + f"  - Édition(s) : {eds}"
 
     bloc("À trancher maintenant (date limite dépassée)", res["echus"],
          lambda s, l, j: detail(s, l) + f"\n  - Dépassé de {j} jour(s)")

@@ -1,16 +1,132 @@
-# Événements à surveiller — point du 12/11/2026
+# Événements à surveiller — point du 19/11/2026
 
 Fichier généré par `scripts/detection/verifier_signaux.py` (source : `data/signaux.json`).
 
 ## À trancher maintenant (date limite dépassée)
-Aucun.
+- **Issue des pourparlers entre l'Iran et Oman sur une réouverture du détroit** (`ed-2026-08-10`) — limite le 08/11/2026 (date estimée par prudence).
+  - Édition(s) : archives/2026-08-10.html
+  - Dépassé de 11 jour(s)
+- **Confrontation directe entre les armées régulières éthiopienne et érythréenne** (`ed-2026-08-11`) — limite le 09/11/2026 (date estimée par prudence).
+  - Édition(s) : archives/2026-08-11.html
+  - Dépassé de 10 jour(s)
+- **Cap des six mois de guerre et risque d'inflation mondiale à 4,5 % (Banque mondiale)** (`ed-2026-08-13`) — limite le 31/08/2026.
+  - Édition(s) : archives/2026-08-13.html
+  - Dépassé de 80 jour(s)
+- **Décision du juge Jeremy Cook sur le sort des 561 premières plaintes et premiers bilans de commotions du rugby amateur anglais** (`ed-2026-08-16`) — limite le 14/11/2026 (date estimée par prudence).
+  - Édition(s) : archives/2026-08-16.html
+  - Dépassé de 5 jour(s)
+- **Confirmation ou démenti d'une prolongation du mémorandum entre Washington et Téhéran, et entrée en vigueur des sanctions américaines promises** (`ed-2026-08-17`) — limite le 15/11/2026 (date estimée par prudence).
+  - Édition(s) : archives/2026-08-17.html
+  - Dépassé de 4 jour(s)
+- **Vote du projet de loi Nuñez à l'Assemblée nationale ou conclusion de l'enquête de la Commission européenne sur l'algorithme de X** (`ed-2026-08-19`) — limite le 17/11/2026 (date estimée par prudence).
+  - Édition(s) : archives/2026-08-19.html
+  - Dépassé de 2 jour(s)
+- **Décision de la Fed du 16 septembre 2026 et évolution du trafic pétrolier dans le détroit d'Ormuz** (`ed-2026-08-20`) — limite le 16/09/2026.
+  - Édition(s) : archives/2026-08-20.html
+  - Dépassé de 64 jour(s)
+- **Conclusions de l'agence indépendante (11 septembre 2026) puis position du Conseil de la FIFA** (`ed-2026-08-23`) — limite le 31/10/2026.
+  - Édition(s) : archives/2026-08-23.html
+  - Dépassé de 19 jour(s)
+- **Issue de la primaire de gauche des 9-10 et 16-17 octobre 2026** (`ed-2026-09-01`) — limite le 17/10/2026.
+  - Édition(s) : archives/2026-09-01.html
+  - Dépassé de 33 jour(s)
+- **Décision de l'Anses attendue fin octobre 2026** (`ed-2026-09-02`) — limite le 31/10/2026.
+  - Édition(s) : archives/2026-09-02.html
+  - Dépassé de 19 jour(s)
+- **Présentation du projet de budget 2027 en Conseil des ministres le 30 septembre 2026 et réaction du Parti socialiste** (`ed-2026-09-13`) — limite le 30/09/2026.
+  - Édition(s) : archives/2026-09-13.html
+  - Dépassé de 50 jour(s)
+- **Issue du sommet Trump-Xi du 24 septembre 2026 et contrat d'armement de 14 milliards de dollars** (`ed-2026-09-14`) — limite le 24/09/2026.
+  - Édition(s) : archives/2026-09-14.html
+  - Dépassé de 56 jour(s)
+- **Déroulement du concert de Philadelphie du 19 septembre et maintien des dates du Gillette Stadium les 25 et 26 septembre** (`ed-2026-09-19`) — limite le 26/09/2026.
+  - Édition(s) : archives/2026-09-19.html
+  - Dépassé de 54 jour(s)
+- **Réunion des propriétaires de l'Euroleague du 30 septembre 2026 sur l'expansion à 24 équipes** (`ed-2026-09-20`) — limite le 30/09/2026.
+  - Édition(s) : archives/2026-09-20.html
+  - Dépassé de 50 jour(s)
+- **Cadre écrit et chiffré de réduction tarifaire à l'issue du sommet du 24 septembre 2026** (`ed-2026-09-21`) — limite le 24/09/2026.
+  - Édition(s) : archives/2026-09-21.html
+  - Dépassé de 56 jour(s)
+- **Réunion des ministres de la Défense de l'OTAN à Bruxelles le 15 octobre 2026** (`ed-2026-10-06`) — limite le 15/10/2026.
+  - Édition(s) : archives/2026-10-06.html
+  - Dépassé de 35 jour(s)
+- **Entrée en vigueur des affectations de docteurs juniors le 1er novembre 2026 et débats au Sénat** (`ed-2026-10-07`) — limite le 01/11/2026.
+  - Édition(s) : archives/2026-10-07.html
+  - Dépassé de 18 jour(s)
+- **Dénouement de la phase de groupes en novembre 2026 (matches des 12 et 15 novembre)** (`ed-2026-10-18`) — limite le 15/11/2026.
+  - Édition(s) : archives/2026-10-18.html
+  - Dépassé de 4 jour(s)
+- **Gardes à vue de mineurs et conclusions des enquêtes de l'IGPN sur l'usage des LBD d'ici la mi-novembre 2026** (`ed-2026-10-28`) — limite le 15/11/2026.
+  - Édition(s) : archives/2026-10-28.html
+  - Dépassé de 4 jour(s)
 
 ## Échéance dans 7 jours ou moins
-Aucun.
+- **Issue des prochaines rencontres entre négociateurs américains, russes et ukrainiens** (`ed-2026-08-24`) — limite le 22/11/2026 (date estimée par prudence).
+  - Édition(s) : archives/2026-08-24.html
+  - Reste 3 jour(s)
+- **Issue de l'enquête américaine sur Moonshot AI et Kimi K3** (`ed-2026-08-25`) — limite le 23/11/2026 (date estimée par prudence).
+  - Édition(s) : archives/2026-08-25.html
+  - Reste 4 jour(s)
+- **Réception critique et politique de la sortie de GTA VI le 19 novembre 2026** (`ed-2026-10-17`) — limite le 19/11/2026.
+  - Édition(s) : archives/2026-10-17.html
+  - Reste 0 jour(s)
 
 ## En cours
-- Vote du budget 2027 à l'Assemblée sans motion de censure — limite le 31/12/2026 (dans 49 jours)
-- Annonce d'un cessez-le-feu entre l'Éthiopie et l'Érythrée sous médiation régionale — limite le 30/11/2026 (dans 18 jours)
+- Vote du budget 2027 à l'Assemblée sans motion de censure — limite le 31/12/2026 (dans 42 jours)
+- Annonce d'un cessez-le-feu entre l'Éthiopie et l'Érythrée sous médiation régionale — limite le 30/11/2026 (dans 11 jours)
+- Performance au box-office des grosses sorties d'automne-hiver (Avengers : Doomsday, Dune : Messiah, nouveau film de Tom Cruise) et bilan de fréquentation 2026 — limite le 31/12/2026 (dans 42 jours)
+- Décision du juge de Boston sur l'extension du procès Suno aux 61 026 titres — limite le 09/04/2027 (dans 141 jours)
+- Décision de la Cour de cassation sur le pourvoi de Marine Le Pen, promise avant le premier tour d'avril 2027 — limite le 30/04/2027 (dans 162 jours)
+- Mesures de la ministre Monique Barbut début octobre et montant du Fonds vert dans le budget 2027 — limite le 31/12/2026 (dans 42 jours)
+- Réexamen de la loi Darcos à une prochaine niche parlementaire (pas avant décembre 2026) et réception des romans traduits par IA — limite le 31/12/2026 (dans 42 jours)
+- Publication des lignes directrices européennes sur les incidents impliquant plusieurs agents d'IA — limite le 31/12/2026 (dans 42 jours)
+- Confirmation d'une biosignature sur une exoplanète par le télescope James Webb et actualisation de l'Horloge de l'Apocalypse en janvier 2027 — limite le 31/01/2027 (dans 73 jours)
+- Annonce de la National Film Administration sur le quota 2027 et résultats chinois des grosses sorties américaines de décembre — limite le 31/12/2026 (dans 42 jours)
+- Arbitrage du budget 2027 sur le seuil de désindexation des pensions (1,5, 3 ou 6 milliards d'euros) — limite le 31/12/2026 (dans 42 jours)
+- Adjudications de bons du Trésor à 20 et 30 ans à l'automne et décision de la Fed du 16 septembre 2026 — limite le 21/12/2026 (dans 32 jours)
+- Dépôt du projet de loi de finances 2027 et sort du Fonds vert lors des débats budgétaires — limite le 31/12/2026 (dans 42 jours)
+- Passage d'Universal à sept week-ends d'exclusivité en 2027 et résultats financiers des grandes chaînes de salles — limite le 31/12/2027 (dans 407 jours)
+- Nombre d'abonnés de Ligue 1+ à la reprise de novembre 2026 et décisions de la DNCG — limite le 30/11/2026 (dans 11 jours)
+- Calendrier des travaux d'extension de la base OTAN de Helguvik (fin 2026) et annonces américaines sur le Groenland — limite le 31/12/2026 (dans 42 jours)
+- Évolution de la dette sur marge (argent emprunté par les investisseurs pour acheter des actions) — limite le 02/12/2026 (dans 13 jours)
+- Vol d'essai sans équipage Mengzhou-1 (fin 2026) et retour en vol de la fusée New Glenn — limite le 31/12/2026 (dans 42 jours)
+- Ventes phares de Frieze London et des maisons new-yorkaises (octobre-novembre 2026) et bilan annuel de l'art ultra-contemporain — limite le 31/12/2026 (dans 42 jours)
+- Parution des décrets d'application et premier rapport des fédérations sportives, attendu à la fin de la saison 2026-2027 — limite le 30/06/2027 (dans 223 jours)
+- Confirmation des 530 millions d'euros dans le budget européen 2028-2034 et menaces tarifaires de Trump — limite le 06/12/2026 (dans 17 jours)
+- Prochaine annonce de calendrier ou de valorisation d'OpenAI (seuil des 1 000 milliards de dollars) — limite le 07/12/2026 (dans 18 jours)
+- Budget 2027 pour les collectivités, plan France Ruralités et NPNRU, débattus à l'automne — limite le 31/12/2026 (dans 42 jours)
+- Nouvelles dérogations à l'impôt minimum mondial de l'OCDE et classement Fortune Global 500 2027 — limite le 31/12/2027 (dans 407 jours)
+- Résultats trimestriels des géants technologiques américains au 4e trimestre 2026 (fin janvier-février 2027) — limite le 28/02/2027 (dans 101 jours)
+- Box-office d'Avengers : Doomsday (sortie le 18 décembre 2026) et coupes budgétaires chez Disney ou Universal début 2027 — limite le 31/03/2027 (dans 132 jours)
+- Achèvement du tokamak chinois BEST, visé fin 2027 — limite le 31/12/2027 (dans 407 jours)
+- Décision tarifaire de la CRE attendue au 1er février 2027 (TURPE, revenu nucléaire d'EDF) — limite le 01/02/2027 (dans 74 jours)
+- Publication des données trimestrielles COFER du FMI, attendues fin décembre 2026 — limite le 31/12/2026 (dans 42 jours)
+- Décision finale de Sanofi sur l'essai VITALIZE du riliprubart — limite le 17/12/2026 (dans 28 jours)
+- Annonce par Téhéran et les Houthis des modalités de leur projet de péage à Bab el-Mandeb — limite le 21/12/2026 (dans 32 jours)
+- Rapport trimestriel 13F auprès de la SEC en novembre 2026 sur les allocations des fonds de pension — limite le 30/11/2026 (dans 11 jours)
+- Premières annonces du CIO et des fédérations internationales pour les Jeux de Los Angeles (été 2028) — limite le 31/08/2028 (dans 651 jours)
+- Premiers bilans d'application de l'AI Act européen fin 2026 — limite le 31/12/2026 (dans 42 jours)
+- Premiers grands résultats du télescope spatial Euclid, attendus vers mars 2027 — limite le 31/03/2027 (dans 132 jours)
+- Résultats des tests de tirs multiples nord-coréens et déploiement du programme d'intercepteur GPI d'ici 2029 — limite le 31/12/2029 (dans 1138 jours)
+- Résolutions de la conférence ONU Eau d'Abu Dhabi du 8 au 10 décembre 2026 — limite le 10/12/2026 (dans 21 jours)
+- Recommandations techniques de la Commission de l'ONU sur la dorsale de Lomonossov et manœuvres Arctic Sentry — limite le 24/01/2027 (dans 66 jours)
+- Tenue ou blocage d'une réunion d'urgence du Conseil de sécurité de l'ONU sur l'Éthiopie et l'Érythrée — limite le 25/01/2027 (dans 67 jours)
+- Décisions des fédérations internationales sur les nouveaux équipements de natation et d'athlétisme (championnats du monde 2027) — limite le 31/12/2027 (dans 407 jours)
+- Respect du transit ferroviaire et douanier à travers la Lituanie et interceptions d'avions russes — limite le 01/02/2027 (dans 74 jours)
+- Taux de désignation officiel publié par la DGFIP fin novembre 2026 — limite le 30/11/2026 (dans 11 jours)
+- Premières livraisons du robot NEO de 1X à des particuliers américains avant le 31 décembre 2026 — limite le 31/12/2026 (dans 42 jours)
+- Recettes du premier week-end de « Narnia : Le Neveu du magicien » en février 2027 — limite le 28/02/2027 (dans 101 jours)
+- Mise en conformité des clubs sportifs avec l'AI Act et premières décisions de la CNIL d'ici fin 2026 — limite le 31/12/2026 (dans 42 jours)
+- Ajustement des quotas de l'OPEP+ à la prochaine réunion et réserves de carburant russes — limite le 07/02/2027 (dans 80 jours)
+- Premières sessions de la Douma à l'automne 2026 et vote du budget de défense — limite le 31/12/2026 (dans 42 jours)
+- Projections économiques et décision de politique monétaire de la BCE le 17 décembre 2026 — limite le 17/12/2026 (dans 28 jours)
+- Issue du financement britannique UKRI/STFC pour la modernisation du détecteur LHCb — limite le 11/02/2027 (dans 84 jours)
+- Bilans annuels de billetterie de Pollstar fin 2026 — limite le 31/12/2026 (dans 42 jours)
+- Départ du Vendée Globe 2028 — limite le 30/11/2028 (dans 742 jours)
+- Demande d'organisation d'un débat par le groupe socialiste auprès de la Conférence des présidents de l'Assemblée nationale — limite le 15/02/2027 (dans 88 jours)
+- Publication par l'Insee des chiffres de l'emploi salarié et du chômage au premier trimestre 2027 (impact sur les PME) — limite le 31/05/2027 (dans 193 jours)
+- Résultats financiers trimestriels de Nvidia et prévisions de commandes des grands exploitants de serveurs — limite le 17/02/2027 (dans 90 jours)
 
 ## Déjà tranchés
 Aucun.

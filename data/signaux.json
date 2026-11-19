@@ -3,7 +3,9 @@
     "id": "budget-2027-vote-assemblee",
     "libelle": "Vote du budget 2027 à l'Assemblée sans motion de censure",
     "date_limite": "2026-12-31",
-    "editions": ["archives/2026-09-13.html"],
+    "editions": [
+      "archives/2026-09-13.html"
+    ],
     "si_concretise": {
       "effet": "Le budget est adopté, la visibilité politique revient pour l'exécutif.",
       "renforce": "stable"
@@ -20,7 +22,9 @@
     "id": "ethiopie-erythree-cessez-le-feu",
     "libelle": "Annonce d'un cessez-le-feu entre l'Éthiopie et l'Érythrée sous médiation régionale",
     "date_limite": "2026-11-30",
-    "editions": ["archives/2026-10-27.html"],
+    "editions": [
+      "archives/2026-10-27.html"
+    ],
     "si_concretise": {
       "effet": "Une médiation régionale ouvre une désescalade, sans règlement du fond.",
       "renforce": "stable"
@@ -29,6 +33,968 @@
       "effet": "Les combats reprennent ou s'étendent à une troisième partie.",
       "renforce": "degrade"
     },
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-08-08",
+    "libelle": "Performance au box-office des grosses sorties d'automne-hiver (Avengers : Doomsday, Dune : Messiah, nouveau film de Tom Cruise) et bilan de fréquentation 2026",
+    "date_limite": "2026-12-31",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-08-08.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-08-09",
+    "libelle": "Décision du juge de Boston sur l'extension du procès Suno aux 61 026 titres",
+    "date_limite": "2027-04-09",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-08-09.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-08-10",
+    "libelle": "Issue des pourparlers entre l'Iran et Oman sur une réouverture du détroit",
+    "date_limite": "2026-11-08",
+    "date_estimee": true,
+    "editions": [
+      "archives/2026-08-10.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-08-11",
+    "libelle": "Confrontation directe entre les armées régulières éthiopienne et érythréenne",
+    "date_limite": "2026-11-09",
+    "date_estimee": true,
+    "editions": [
+      "archives/2026-08-11.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-08-12",
+    "libelle": "Décision de la Cour de cassation sur le pourvoi de Marine Le Pen, promise avant le premier tour d'avril 2027",
+    "date_limite": "2027-04-30",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-08-12.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-08-13",
+    "libelle": "Cap des six mois de guerre et risque d'inflation mondiale à 4,5 % (Banque mondiale)",
+    "date_limite": "2026-08-31",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-08-13.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-08-14",
+    "libelle": "Mesures de la ministre Monique Barbut début octobre et montant du Fonds vert dans le budget 2027",
+    "date_limite": "2026-12-31",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-08-14.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-08-15",
+    "libelle": "Réexamen de la loi Darcos à une prochaine niche parlementaire (pas avant décembre 2026) et réception des romans traduits par IA",
+    "date_limite": "2026-12-31",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-08-15.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-08-16",
+    "libelle": "Décision du juge Jeremy Cook sur le sort des 561 premières plaintes et premiers bilans de commotions du rugby amateur anglais",
+    "date_limite": "2026-11-14",
+    "date_estimee": true,
+    "editions": [
+      "archives/2026-08-16.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-08-17",
+    "libelle": "Confirmation ou démenti d'une prolongation du mémorandum entre Washington et Téhéran, et entrée en vigueur des sanctions américaines promises",
+    "date_limite": "2026-11-15",
+    "date_estimee": true,
+    "editions": [
+      "archives/2026-08-17.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-08-18",
+    "libelle": "Publication des lignes directrices européennes sur les incidents impliquant plusieurs agents d'IA",
+    "date_limite": "2026-12-31",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-08-18.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-08-19",
+    "libelle": "Vote du projet de loi Nuñez à l'Assemblée nationale ou conclusion de l'enquête de la Commission européenne sur l'algorithme de X",
+    "date_limite": "2026-11-17",
+    "date_estimee": true,
+    "editions": [
+      "archives/2026-08-19.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-08-20",
+    "libelle": "Décision de la Fed du 16 septembre 2026 et évolution du trafic pétrolier dans le détroit d'Ormuz",
+    "date_limite": "2026-09-16",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-08-20.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-08-21",
+    "libelle": "Confirmation d'une biosignature sur une exoplanète par le télescope James Webb et actualisation de l'Horloge de l'Apocalypse en janvier 2027",
+    "date_limite": "2027-01-31",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-08-21.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-08-22",
+    "libelle": "Annonce de la National Film Administration sur le quota 2027 et résultats chinois des grosses sorties américaines de décembre",
+    "date_limite": "2026-12-31",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-08-22.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-08-23",
+    "libelle": "Conclusions de l'agence indépendante (11 septembre 2026) puis position du Conseil de la FIFA",
+    "date_limite": "2026-10-31",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-08-23.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-08-24",
+    "libelle": "Issue des prochaines rencontres entre négociateurs américains, russes et ukrainiens",
+    "date_limite": "2026-11-22",
+    "date_estimee": true,
+    "editions": [
+      "archives/2026-08-24.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-08-25",
+    "libelle": "Issue de l'enquête américaine sur Moonshot AI et Kimi K3",
+    "date_limite": "2026-11-23",
+    "date_estimee": true,
+    "editions": [
+      "archives/2026-08-25.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-08-26",
+    "libelle": "Arbitrage du budget 2027 sur le seuil de désindexation des pensions (1,5, 3 ou 6 milliards d'euros)",
+    "date_limite": "2026-12-31",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-08-26.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-08-27",
+    "libelle": "Adjudications de bons du Trésor à 20 et 30 ans à l'automne et décision de la Fed du 16 septembre 2026",
+    "date_limite": "2026-12-21",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-08-27.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-08-28",
+    "libelle": "Dépôt du projet de loi de finances 2027 et sort du Fonds vert lors des débats budgétaires",
+    "date_limite": "2026-12-31",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-08-28.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-08-29",
+    "libelle": "Passage d'Universal à sept week-ends d'exclusivité en 2027 et résultats financiers des grandes chaînes de salles",
+    "date_limite": "2027-12-31",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-08-29.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-08-30",
+    "libelle": "Nombre d'abonnés de Ligue 1+ à la reprise de novembre 2026 et décisions de la DNCG",
+    "date_limite": "2026-11-30",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-08-30.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-08-31",
+    "libelle": "Calendrier des travaux d'extension de la base OTAN de Helguvik (fin 2026) et annonces américaines sur le Groenland",
+    "date_limite": "2026-12-31",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-08-31.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-09-01",
+    "libelle": "Issue de la primaire de gauche des 9-10 et 16-17 octobre 2026",
+    "date_limite": "2026-10-17",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-09-01.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-09-02",
+    "libelle": "Décision de l'Anses attendue fin octobre 2026",
+    "date_limite": "2026-10-31",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-09-02.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-09-03",
+    "libelle": "Évolution de la dette sur marge (argent emprunté par les investisseurs pour acheter des actions)",
+    "date_limite": "2026-12-02",
+    "date_estimee": true,
+    "editions": [
+      "archives/2026-09-03.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-09-04",
+    "libelle": "Vol d'essai sans équipage Mengzhou-1 (fin 2026) et retour en vol de la fusée New Glenn",
+    "date_limite": "2026-12-31",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-09-04.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-09-05",
+    "libelle": "Ventes phares de Frieze London et des maisons new-yorkaises (octobre-novembre 2026) et bilan annuel de l'art ultra-contemporain",
+    "date_limite": "2026-12-31",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-09-05.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-09-06",
+    "libelle": "Parution des décrets d'application et premier rapport des fédérations sportives, attendu à la fin de la saison 2026-2027",
+    "date_limite": "2027-06-30",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-09-06.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-09-07",
+    "libelle": "Confirmation des 530 millions d'euros dans le budget européen 2028-2034 et menaces tarifaires de Trump",
+    "date_limite": "2026-12-06",
+    "date_estimee": true,
+    "editions": [
+      "archives/2026-09-07.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-09-08",
+    "libelle": "Prochaine annonce de calendrier ou de valorisation d'OpenAI (seuil des 1 000 milliards de dollars)",
+    "date_limite": "2026-12-07",
+    "date_estimee": true,
+    "editions": [
+      "archives/2026-09-08.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-09-09",
+    "libelle": "Budget 2027 pour les collectivités, plan France Ruralités et NPNRU, débattus à l'automne",
+    "date_limite": "2026-12-31",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-09-09.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-09-10",
+    "libelle": "Nouvelles dérogations à l'impôt minimum mondial de l'OCDE et classement Fortune Global 500 2027",
+    "date_limite": "2027-12-31",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-09-10.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-09-11",
+    "libelle": "Résultats trimestriels des géants technologiques américains au 4e trimestre 2026 (fin janvier-février 2027)",
+    "date_limite": "2027-02-28",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-09-11.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-09-12",
+    "libelle": "Box-office d'Avengers : Doomsday (sortie le 18 décembre 2026) et coupes budgétaires chez Disney ou Universal début 2027",
+    "date_limite": "2027-03-31",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-09-12.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-09-13",
+    "libelle": "Présentation du projet de budget 2027 en Conseil des ministres le 30 septembre 2026 et réaction du Parti socialiste",
+    "date_limite": "2026-09-30",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-09-13.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-09-14",
+    "libelle": "Issue du sommet Trump-Xi du 24 septembre 2026 et contrat d'armement de 14 milliards de dollars",
+    "date_limite": "2026-09-24",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-09-14.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-09-15",
+    "libelle": "Achèvement du tokamak chinois BEST, visé fin 2027",
+    "date_limite": "2027-12-31",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-09-15.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-09-16",
+    "libelle": "Décision tarifaire de la CRE attendue au 1er février 2027 (TURPE, revenu nucléaire d'EDF)",
+    "date_limite": "2027-02-01",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-09-16.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-09-17",
+    "libelle": "Publication des données trimestrielles COFER du FMI, attendues fin décembre 2026",
+    "date_limite": "2026-12-31",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-09-17.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-09-18",
+    "libelle": "Décision finale de Sanofi sur l'essai VITALIZE du riliprubart",
+    "date_limite": "2026-12-17",
+    "date_estimee": true,
+    "editions": [
+      "archives/2026-09-18.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-09-19",
+    "libelle": "Déroulement du concert de Philadelphie du 19 septembre et maintien des dates du Gillette Stadium les 25 et 26 septembre",
+    "date_limite": "2026-09-26",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-09-19.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-09-20",
+    "libelle": "Réunion des propriétaires de l'Euroleague du 30 septembre 2026 sur l'expansion à 24 équipes",
+    "date_limite": "2026-09-30",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-09-20.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-09-21",
+    "libelle": "Cadre écrit et chiffré de réduction tarifaire à l'issue du sommet du 24 septembre 2026",
+    "date_limite": "2026-09-24",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-09-21.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-09-22",
+    "libelle": "Annonce par Téhéran et les Houthis des modalités de leur projet de péage à Bab el-Mandeb",
+    "date_limite": "2026-12-21",
+    "date_estimee": true,
+    "editions": [
+      "archives/2026-09-22.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-10-01",
+    "libelle": "Rapport trimestriel 13F auprès de la SEC en novembre 2026 sur les allocations des fonds de pension",
+    "date_limite": "2026-11-30",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-10-01.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-10-06",
+    "libelle": "Réunion des ministres de la Défense de l'OTAN à Bruxelles le 15 octobre 2026",
+    "date_limite": "2026-10-15",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-10-06.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-10-07",
+    "libelle": "Entrée en vigueur des affectations de docteurs juniors le 1er novembre 2026 et débats au Sénat",
+    "date_limite": "2026-11-01",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-10-07.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-10-11",
+    "libelle": "Premières annonces du CIO et des fédérations internationales pour les Jeux de Los Angeles (été 2028)",
+    "date_limite": "2028-08-31",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-10-11.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-10-13",
+    "libelle": "Premiers bilans d'application de l'AI Act européen fin 2026",
+    "date_limite": "2026-12-31",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-10-13.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-10-16",
+    "libelle": "Premiers grands résultats du télescope spatial Euclid, attendus vers mars 2027",
+    "date_limite": "2027-03-31",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-10-16.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-10-17",
+    "libelle": "Réception critique et politique de la sortie de GTA VI le 19 novembre 2026",
+    "date_limite": "2026-11-19",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-10-17.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-10-18",
+    "libelle": "Dénouement de la phase de groupes en novembre 2026 (matches des 12 et 15 novembre)",
+    "date_limite": "2026-11-15",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-10-18.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-10-19",
+    "libelle": "Résultats des tests de tirs multiples nord-coréens et déploiement du programme d'intercepteur GPI d'ici 2029",
+    "date_limite": "2029-12-31",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-10-19.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-10-23",
+    "libelle": "Résolutions de la conférence ONU Eau d'Abu Dhabi du 8 au 10 décembre 2026",
+    "date_limite": "2026-12-10",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-10-23.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-10-26",
+    "libelle": "Recommandations techniques de la Commission de l'ONU sur la dorsale de Lomonossov et manœuvres Arctic Sentry",
+    "date_limite": "2027-01-24",
+    "date_estimee": true,
+    "editions": [
+      "archives/2026-10-26.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-10-27",
+    "libelle": "Tenue ou blocage d'une réunion d'urgence du Conseil de sécurité de l'ONU sur l'Éthiopie et l'Érythrée",
+    "date_limite": "2027-01-25",
+    "date_estimee": true,
+    "editions": [
+      "archives/2026-10-27.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-10-28",
+    "libelle": "Gardes à vue de mineurs et conclusions des enquêtes de l'IGPN sur l'usage des LBD d'ici la mi-novembre 2026",
+    "date_limite": "2026-11-15",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-10-28.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-11-01",
+    "libelle": "Décisions des fédérations internationales sur les nouveaux équipements de natation et d'athlétisme (championnats du monde 2027)",
+    "date_limite": "2027-12-31",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-11-01.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-11-03",
+    "libelle": "Respect du transit ferroviaire et douanier à travers la Lituanie et interceptions d'avions russes",
+    "date_limite": "2027-02-01",
+    "date_estimee": true,
+    "editions": [
+      "archives/2026-11-03.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-11-04",
+    "libelle": "Taux de désignation officiel publié par la DGFIP fin novembre 2026",
+    "date_limite": "2026-11-30",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-11-04.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-11-06",
+    "libelle": "Premières livraisons du robot NEO de 1X à des particuliers américains avant le 31 décembre 2026",
+    "date_limite": "2026-12-31",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-11-06.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-11-07",
+    "libelle": "Recettes du premier week-end de « Narnia : Le Neveu du magicien » en février 2027",
+    "date_limite": "2027-02-28",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-11-07.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-11-08",
+    "libelle": "Mise en conformité des clubs sportifs avec l'AI Act et premières décisions de la CNIL d'ici fin 2026",
+    "date_limite": "2026-12-31",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-11-08.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-11-09",
+    "libelle": "Ajustement des quotas de l'OPEP+ à la prochaine réunion et réserves de carburant russes",
+    "date_limite": "2027-02-07",
+    "date_estimee": true,
+    "editions": [
+      "archives/2026-11-09.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-11-10",
+    "libelle": "Premières sessions de la Douma à l'automne 2026 et vote du budget de défense",
+    "date_limite": "2026-12-31",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-11-10.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-11-12",
+    "libelle": "Projections économiques et décision de politique monétaire de la BCE le 17 décembre 2026",
+    "date_limite": "2026-12-17",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-11-12.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-11-13",
+    "libelle": "Issue du financement britannique UKRI/STFC pour la modernisation du détecteur LHCb",
+    "date_limite": "2027-02-11",
+    "date_estimee": true,
+    "editions": [
+      "archives/2026-11-13.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-11-14",
+    "libelle": "Bilans annuels de billetterie de Pollstar fin 2026",
+    "date_limite": "2026-12-31",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-11-14.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-11-15",
+    "libelle": "Départ du Vendée Globe 2028",
+    "date_limite": "2028-11-30",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-11-15.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-11-17",
+    "libelle": "Demande d'organisation d'un débat par le groupe socialiste auprès de la Conférence des présidents de l'Assemblée nationale",
+    "date_limite": "2027-02-15",
+    "date_estimee": true,
+    "editions": [
+      "archives/2026-11-17.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-11-18",
+    "libelle": "Publication par l'Insee des chiffres de l'emploi salarié et du chômage au premier trimestre 2027 (impact sur les PME)",
+    "date_limite": "2027-05-31",
+    "date_estimee": false,
+    "editions": [
+      "archives/2026-11-18.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ed-2026-11-19",
+    "libelle": "Résultats financiers trimestriels de Nvidia et prévisions de commandes des grands exploitants de serveurs",
+    "date_limite": "2027-02-17",
+    "date_estimee": true,
+    "editions": [
+      "archives/2026-11-19.html"
+    ],
+    "origine": "signal à surveiller de l'édition",
     "statut": "en_attente",
     "source": null,
     "conclusion": null
