@@ -1,22 +1,22 @@
 {
-  "mis_a_jour": "2026-11-18",
+  "mis_a_jour": "2026-11-19",
   "plans": [
     {
       "plan": "https://lesscenarios.fr/sitemap.xml",
-      "derniere_lecture": "2026-11-18T04:05:57.758Z",
+      "derniere_lecture": "2026-11-18T15:46:42.776Z",
       "erreurs": "0",
       "avertissements": "0",
       "contenus": [
         {
           "type": "web",
-          "submitted": "241",
+          "submitted": "243",
           "indexed": "0"
         }
       ]
     },
     {
       "plan": "https://lesscenarios.fr/sitemap-news.xml",
-      "derniere_lecture": "2026-11-18T04:05:57.350Z",
+      "derniere_lecture": "2026-11-18T15:46:43.019Z",
       "erreurs": "0",
       "avertissements": "0",
       "contenus": [
