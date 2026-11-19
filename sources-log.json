@@ -2,6 +2,61 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-11-19",
+      "articles": [
+        {
+          "title": "EN DIRECT - À Shenzhen, Donald Trump, Xi Jinping et Vladimir Poutine se retrouvent pour un face-à-face inédit",
+          "source": "Le Figaro",
+          "url": "https://www.lefigaro.fr/international/en-direct-a-shenzhen-donald-trump-xi-jinping-et-vladimir-poutine-se-retrouvent-pour-un-face-a-face-inedit-20261119",
+          "image": "https://i.f1g.fr/media/cms/1200x630_crop/2026/11/19/9c628da211502a91757344701998ba07636e0cfd76b06502c3d624da83dc00a0.jpg",
+          "lang": "fr",
+          "domain": "international",
+          "summary": "Les présidents américain, russe et chinois se sont rencontrés jeudi 19 novembre 2026 à Shenzhen en marge du sommet de l'Apec pour des échanges sur la paix mondiale et la stabilité stratégique. La réunion tripartite, prévue à 14h30, devait aborder la guerre en Ukraine, la prolifération nucléaire et la guerre au Moyen-Orient.",
+          "read_minutes": 3
+        },
+        {
+          "title": "Assassinat du président haïtien Jovenel Moïse : un pasteur américano-haïtien reconnu coupable aux Etats-Unis d'implication",
+          "source": "Le Monde",
+          "url": "https://www.lemonde.fr/international/article/2026/11/19/assassinat-du-president-haitien-jovenel-moise-un-pasteur-americano-haitien-reconnu-coupable-aux-etats-unis-d-implication_6813218_3210.html",
+          "image": null,
+          "lang": "fr",
+          "domain": "international",
+          "summary": "Le pasteur Christian Sanon a été reconnu coupable mercredi 18 novembre par un tribunal fédéral de Miami de participation au complot ayant abouti à l'assassinat du président haïtien Jovenel Moïse en juillet 2021. L'enquête américaine a révélé qu'une société de sécurité privée basée en Floride avait prévu de séquestrer Moïse pour le remplacer par Sanon.",
+          "read_minutes": 3
+        },
+        {
+          "title": "Droits de douane, enquêtes anti-dumping, quotas : les obstacles au commerce mondial se renforcent à grande vitesse",
+          "source": "Les Echos",
+          "url": "https://www.lesechos.fr/monde/enjeux-internationaux/droits-de-douane-enquetes-anti-dumping-quotas-les-obstacles-au-commerce-mondial-se-renforcent-a-grande-vitesse-2263339",
+          "image": null,
+          "lang": "fr",
+          "domain": "economie-entreprises",
+          "summary": "Selon un rapport de l'Organisation mondiale du commerce publié le 18 novembre 2026, les 166 pays membres ont instauré 333 nouvelles mesures restrictives au cours du premier semestre 2026, dépassant le total de 300 mesures de l'année 2025. Au 30 juin 2026, le stock des mesures entravant le commerce couvre 5 400 milliards de dollars d'importations, soit 21,3 % du total mondial.",
+          "read_minutes": 4
+        },
+        {
+          "title": "Arabie saoudite : une forte explosion retentit à Ryad, après une alerte",
+          "source": "Le Figaro",
+          "url": "https://www.lefigaro.fr/international/arabie-saoudite-une-forte-explosion-retentit-a-ryad-apres-une-alerte-20261119",
+          "image": "https://i.f1g.fr/media/cms/1200x630_crop/2026/11/19/8e89e63d9f215956b3238987686dbf44b21dcbca3564fa396776f7c238ccc9d7.jpg",
+          "lang": "fr",
+          "domain": "international",
+          "summary": "Une forte explosion a été entendue tôt jeudi 19 novembre 2026 à Ryad par des journalistes de l'AFP, après une alerte de la défense civile de la capitale saoudienne sur un « potentiel danger » qui a ensuite été levée. Le royaume est régulièrement visé par les Houthis pro-iraniens depuis la reprise des hostilités au Yémen.",
+          "read_minutes": 1
+        },
+        {
+          "title": "Asian stocks drop as Anthropic's record IPO fails to reassure",
+          "source": "AFP",
+          "url": "https://www.afp.com/fr/node/3853738",
+          "image": null,
+          "lang": "en",
+          "domain": "economie-entreprises",
+          "summary": "Les actions asiatiques ont principalement baissé jeudi 19 novembre 2026 alors que l'introduction en bourse record d'Anthropic, cotée à 83 dollars par action pour une valorisation d'environ 1 500 milliards de dollars, n'a pas rassuré les marchés. Les marchés asiatiques ont été affectés par les suites de la crise touchant Nvidia après la démission de son PDG Jensen Huang.",
+          "read_minutes": 3
+        }
+      ]
+    },
+    {
       "date": "2026-11-18",
       "articles": [
         {

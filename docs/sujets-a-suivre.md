@@ -192,6 +192,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 19.11.2026 — [Nvidia : la démission de Jensen Huang fait-elle craquer la bulle de l'IA ?](../archives/2026-11-19.html)
 - 18.11.2026 — [SMIC : +1,6 % en décembre, relance ou risque pour l'emploi ?](../archives/2026-11-18.html)
 - 17.11.2026 — [CNews : la pétition de 1 million de signatures peut-elle faire plier la chaîne ?](../archives/2026-11-17.html)
 - 16.11.2026 — [Houthistes : l'Arabie saoudite peut-elle éviter l'escalade régionale ?](../archives/2026-11-16.html)
