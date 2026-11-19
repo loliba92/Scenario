@@ -519,7 +519,9 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
   <!-- mots-clés: retraites ; réforme ; déficit ; syndicats ; présidentielle 2027 -->
   <!-- scénarios (brouillon): favorable = Un consensus émerge pour une réforme progressive. ; stable = Le statu quo persiste jusqu'aux élections. ; dégradé = Des grèves massives perturbent l'économie. -->
   <!-- sources: Retraites : le débat relancé malgré le gel gouvernemental -->
+  <!-- données chiffrées: [relevé du 2026-11-19] Déficit du système de retraites (% du PIB). 2025 = -0.2 (2025) ; 2030 = -0.2 (2030) ; 2045 = -0.9 (2045). Sources : https://www.cor-retraites.fr/sites/default/files/2026-06/Synth%C3%A8se_RA_2026.pdf ; https://www.senat.fr/fileadmin/cru-1792598966/Commissions/Finances/2026-2027/PLF_2027/NP/Note_de_presentation_RSR-CASP_-_PLF_2027.pdf -->
   <!-- origine: veille -->
+  <!-- enrichi: 2026-11-19 -->
   <!-- note: Ajouté automatiquement le 2026-11-02 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
 - [x] Facturation électronique obligatoire (septembre 2026) : les entreprises sont-elles prêtes ? [entreprises & numérique]
   <!-- id: actualite-francaise-facturation-electronique-obligatoire-septembre -->
