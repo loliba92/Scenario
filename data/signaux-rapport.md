@@ -48,6 +48,9 @@ Fichier généré par `scripts/detection/verifier_signaux.py` (source : `data/si
 - **Cadre écrit et chiffré de réduction tarifaire à l'issue du sommet du 24 septembre 2026** (`ed-2026-09-21`) — limite le 24/09/2026.
   - Édition(s) : archives/2026-09-21.html
   - Dépassé de 56 jour(s)
+- **Blocages de terminaux pétroliers sur le littoral méditerranéen et nouveaux incidents de sabotage en Europe d'ici fin octobre 2026** (`ed-2026-09-23`) — limite le 31/10/2026.
+  - Édition(s) : archives/2026-09-23.html
+  - Dépassé de 19 jour(s)
 - **Réunion des ministres de la Défense de l'OTAN à Bruxelles le 15 octobre 2026** (`ed-2026-10-06`) — limite le 15/10/2026.
   - Édition(s) : archives/2026-10-06.html
   - Dépassé de 35 jour(s)
@@ -60,6 +63,9 @@ Fichier généré par `scripts/detection/verifier_signaux.py` (source : `data/si
 - **Gardes à vue de mineurs et conclusions des enquêtes de l'IGPN sur l'usage des LBD d'ici la mi-novembre 2026** (`ed-2026-10-28`) — limite le 15/11/2026.
   - Édition(s) : archives/2026-10-28.html
   - Dépassé de 4 jour(s)
+- **Vote final sur le projet de loi de finances et motions de censure à l'Assemblée nationale le 17 novembre 2026** (`ed-2026-11-11`) — limite le 17/11/2026.
+  - Édition(s) : archives/2026-11-11.html
+  - Dépassé de 2 jour(s)
 
 ## Échéance dans 7 jours ou moins
 - **Issue des prochaines rencontres entre négociateurs américains, russes et ukrainiens** (`ed-2026-08-24`) — limite le 22/11/2026 (date estimée par prudence).
@@ -104,17 +110,44 @@ Fichier généré par `scripts/detection/verifier_signaux.py` (source : `data/si
 - Publication des données trimestrielles COFER du FMI, attendues fin décembre 2026 — limite le 31/12/2026 (dans 42 jours)
 - Décision finale de Sanofi sur l'essai VITALIZE du riliprubart — limite le 17/12/2026 (dans 28 jours)
 - Annonce par Téhéran et les Houthis des modalités de leur projet de péage à Bab el-Mandeb — limite le 21/12/2026 (dans 32 jours)
+- Prochaine réunion de politique monétaire de la BCE et indices d'inflation de la zone euro d'octobre 2026 — limite le 30/11/2026 (dans 11 jours)
+- Décisions de remboursement élargi de la Haute Autorité de santé et premiers génériques de semaglutide (horizon 2030) — limite le 31/12/2030 (dans 1503 jours)
+- Exportations des prochaines grandes franchises chinoises de jeux vidéo et d'animation vers l'Europe et les États-Unis d'ici 2027 — limite le 31/12/2027 (dans 407 jours)
+- Accueil réservé au joueur lors des prochains matchs à l'extérieur en Liga et tonalité des débats politiques français d'ici fin 2026 — limite le 31/12/2026 (dans 42 jours)
+- Prochaines discussions sur la dé-dollarisation partielle au sein du groupe des BRICS élargi — limite le 27/12/2026 (dans 38 jours)
+- Test en vol du système d'atterrissage habité de SpaceX pour la mission Artemis 3 — limite le 28/12/2026 (dans 39 jours)
+- Statistiques de l'Insee sur l'emploi au deuxième trimestre 2026 (destructions de postes contre créations industrielles) — limite le 29/12/2026 (dans 40 jours)
 - Rapport trimestriel 13F auprès de la SEC en novembre 2026 sur les allocations des fonds de pension — limite le 30/11/2026 (dans 11 jours)
+- Signal à surveiller de l'édition du 2 octobre 2026 (voir l'édition) — limite le 31/12/2026 (dans 42 jours)
+- Rapport Music Impact de Luminate et bilans de ventes de fin d'année 2026 — limite le 31/12/2026 (dans 42 jours)
+- Finale inaugurale du 29 novembre 2026 à l'Allianz Stadium de Londres — limite le 29/11/2026 (dans 10 jours)
+- Déploiement des récepteurs compatibles Galileo OSNMA auprès des compagnies aériennes et gestionnaires de réseaux d'ici fin 2026 — limite le 31/12/2026 (dans 42 jours)
+- Vote des premiers articles du budget 2027 à l'Assemblée nationale et réunion de la BCE du 29 octobre — limite le 30/11/2026 (dans 11 jours)
+- Présentation des résultats de l'essai INTerpath-001 aux congrès d'oncologie et dépôt des demandes d'homologation FDA et EMA — limite le 07/01/2027 (dans 49 jours)
+- Bilans annuels de fréquentation du Louvre et rapports semestriels de ventes aux enchères de Deloitte en 2027 — limite le 31/12/2027 (dans 407 jours)
 - Premières annonces du CIO et des fédérations internationales pour les Jeux de Los Angeles (été 2028) — limite le 31/08/2028 (dans 651 jours)
+- Réexamen officiel en 2029 des objectifs d'investissement fixés au sommet de l'OTAN à La Haye — limite le 31/12/2029 (dans 1138 jours)
 - Premiers bilans d'application de l'AI Act européen fin 2026 — limite le 31/12/2026 (dans 42 jours)
+- Arbitrage du gouvernement sur la prolongation des prélèvements de l'État sur l'Unédic d'ici le 1er janvier 2027 — limite le 01/01/2027 (dans 43 jours)
+- Expiration le 10 janvier 2027 de la suspension du second train de restrictions chinoises — limite le 10/01/2027 (dans 52 jours)
 - Premiers grands résultats du télescope spatial Euclid, attendus vers mars 2027 — limite le 31/03/2027 (dans 132 jours)
 - Résultats des tests de tirs multiples nord-coréens et déploiement du programme d'intercepteur GPI d'ici 2029 — limite le 31/12/2029 (dans 1138 jours)
+- Vote des amendements au budget 2027 à l'Assemblée nationale et participation aux assemblées générales lycéennes avant la Toussaint — limite le 30/11/2026 (dans 11 jours)
+- Vote solennel du projet de loi de finances au Parlement d'ici le 31 décembre 2026 et prix à la pompe — limite le 31/12/2026 (dans 42 jours)
+- Débat d'arbitrage budgétaire à l'Assemblée nationale à l'automne 2026 sur une taxe sur le capital — limite le 21/12/2026 (dans 32 jours)
 - Résolutions de la conférence ONU Eau d'Abu Dhabi du 8 au 10 décembre 2026 — limite le 10/12/2026 (dans 21 jours)
+- Prochain bilan annuel du marché de la musique par le SNEP au printemps (vinyles, écoutes d'albums) — limite le 20/06/2027 (dans 213 jours)
+- Fin de la campagne d'activation du coupon et vote final du budget de l'État le 31 décembre 2026 — limite le 31/12/2026 (dans 42 jours)
 - Recommandations techniques de la Commission de l'ONU sur la dorsale de Lomonossov et manœuvres Arctic Sentry — limite le 24/01/2027 (dans 66 jours)
 - Tenue ou blocage d'une réunion d'urgence du Conseil de sécurité de l'ONU sur l'Éthiopie et l'Érythrée — limite le 25/01/2027 (dans 67 jours)
+- Publications trimestrielles des géants du cloud au premier semestre 2027 et niveau de leurs commandes de puces — limite le 30/06/2027 (dans 223 jours)
+- Déploiement de la plateforme Explore IA et des formations du plan Impulsion IA 2027 au premier semestre 2027 — limite le 30/06/2027 (dans 223 jours)
+- Fréquentation des grands musées parisiens et résultats des grandes ventes d'automne à New York en novembre 2026 — limite le 30/11/2026 (dans 11 jours)
 - Décisions des fédérations internationales sur les nouveaux équipements de natation et d'athlétisme (championnats du monde 2027) — limite le 31/12/2027 (dans 407 jours)
+- Expiration de la trêve commerciale de Busan entre Washington et Pékin le 10 janvier 2027 — limite le 10/01/2027 (dans 52 jours)
 - Respect du transit ferroviaire et douanier à travers la Lituanie et interceptions d'avions russes — limite le 01/02/2027 (dans 74 jours)
 - Taux de désignation officiel publié par la DGFIP fin novembre 2026 — limite le 30/11/2026 (dans 11 jours)
+- Tableau de bord des risques de l'EIOPA attendu à l'automne 2026 — limite le 21/12/2026 (dans 32 jours)
 - Premières livraisons du robot NEO de 1X à des particuliers américains avant le 31 décembre 2026 — limite le 31/12/2026 (dans 42 jours)
 - Recettes du premier week-end de « Narnia : Le Neveu du magicien » en février 2027 — limite le 28/02/2027 (dans 101 jours)
 - Mise en conformité des clubs sportifs avec l'AI Act et premières décisions de la CNIL d'ici fin 2026 — limite le 31/12/2026 (dans 42 jours)
@@ -124,6 +157,7 @@ Fichier généré par `scripts/detection/verifier_signaux.py` (source : `data/si
 - Issue du financement britannique UKRI/STFC pour la modernisation du détecteur LHCb — limite le 11/02/2027 (dans 84 jours)
 - Bilans annuels de billetterie de Pollstar fin 2026 — limite le 31/12/2026 (dans 42 jours)
 - Départ du Vendée Globe 2028 — limite le 30/11/2028 (dans 742 jours)
+- Niveau de riposte militaire de l'Arabie saoudite et usage éventuel de bases occidentales contre les insurgés au Yémen — limite le 14/02/2027 (dans 87 jours)
 - Demande d'organisation d'un débat par le groupe socialiste auprès de la Conférence des présidents de l'Assemblée nationale — limite le 15/02/2027 (dans 88 jours)
 - Publication par l'Insee des chiffres de l'emploi salarié et du chômage au premier trimestre 2027 (impact sur les PME) — limite le 31/05/2027 (dans 193 jours)
 - Résultats financiers trimestriels de Nvidia et prévisions de commandes des grands exploitants de serveurs — limite le 17/02/2027 (dans 90 jours)
