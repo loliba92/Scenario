@@ -11,4 +11,15 @@
       <news:title>SMIC: +1.6% in December, a boost or a risk for jobs?</news:title>
     </news:news>
   </url>
-<url><loc>https://lesscenarios.fr/archives/2026-11-19.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-11-19T06:01:50+01:00</news:publication_date><news:title>Nvidia : la démission de Jensen Huang fait-elle craquer la bulle de l'IA ?</news:title></news:news></url></urlset>
+<url><loc>https://lesscenarios.fr/archives/2026-11-19.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-11-19T06:01:50+01:00</news:publication_date><news:title>Nvidia : la démission de Jensen Huang fait-elle craquer la bulle de l'IA ?</news:title></news:news></url>  <url>
+    <loc>https://lesscenarios.fr/en/archives/2026-11-19.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Scénario</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-11-19T06:01:50+01:00</news:publication_date>
+      <news:title>Nvidia: will Jensen Huang’s resignation burst the AI bubble?</news:title>
+    </news:news>
+  </url>
+</urlset>
