@@ -9,7 +9,7 @@ import verifier_signaux as v
 def sig(i, limite, statut="en_attente", eds=()):
     e = {"effet": "x", "renforce": "stable"}
     return {"id": i, "libelle": i, "date_limite": limite, "editions": list(eds),
-            "si_concretise": e, "si_non_concretise": e, "statut": statut}
+            "si_concretise": e, "si_non_concretise": e, "statut": statut, "pourquoi": "p"}
 
 class T(unittest.TestCase):
     def test_classement(self):
@@ -25,6 +25,18 @@ class T(unittest.TestCase):
         r = v.analyser([sig("a", "n'importe quoi"), sig("b", "2026-12-01", "bizarre"),
                         sig("c", "2026-12-01", eds=["archives/inexistant.html"])], date(2026, 11, 5))
         self.assertEqual(len(r["anomalies"]), 3)
+
+    def test_pourquoi_obligatoire(self):
+        s = sig("a", "2026-12-31"); del s["pourquoi"]
+        r = v.analyser([s], date(2026, 11, 5))
+        self.assertEqual(len(r["anomalies"]), 1)
+        self.assertEqual(len(r["en_cours"]), 1)
+
+    def test_rapport_affiche_pourquoi(self):
+        j = date(2026, 11, 5)
+        txt = v.rapport(v.analyser([sig("a", "2026-11-01"), sig("c", "2026-12-31")], j), j)
+        self.assertEqual(txt.count("Pourquoi on le suit : p"), 2)
+
 
 if __name__ == "__main__":
     unittest.main()

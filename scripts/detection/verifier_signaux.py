@@ -23,6 +23,8 @@ def analyser(signaux, aujourdhui, racine=RACINE):
         except (KeyError, ValueError):
             res["anomalies"].append((sid, "date_limite absente ou illisible"))
             continue
+        if not s.get("pourquoi"):
+            res["anomalies"].append((sid, "explication « pourquoi » absente"))
         for ed in s.get("editions", []):
             if not (racine / ed).exists():
                 res["anomalies"].append((sid, f"édition introuvable : {ed}"))
@@ -50,17 +52,23 @@ def rapport(res, aujourdhui):
 
     def detail(s, limite):
         eds = ", ".join(s.get("editions", [])) or "aucune édition liée"
-        return (f"- **{s['libelle']}** (`{s['id']}`) — limite le {limite.strftime('%d/%m/%Y')}.\n"
-                f"  - Si oui : {s['si_concretise']['effet']} (renforce : {s['si_concretise']['renforce']})\n"
-                f"  - Si non : {s['si_non_concretise']['effet']} (renforce : {s['si_non_concretise']['renforce']})\n"
-                f"  - Édition(s) : {eds}")
+        est = " (date estimée par prudence)" if s.get("date_estimee") else ""
+        txt = (f"- **{s['libelle']}** (`{s['id']}`) — limite le {limite.strftime('%d/%m/%Y')}{est}.\n")
+        for cle, lib in (("si_concretise", "Si oui"), ("si_non_concretise", "Si non")):
+            e = s.get(cle)
+            if e:  # absent pour les signaux repris d'une édition sans scénario rédigé
+                txt += f"  - {lib} : {e['effet']} (renforce : {e['renforce']})\n"
+        if s.get("pourquoi"):
+            txt += f"  - Pourquoi on le suit : {s['pourquoi']}\n"
+        return txt + f"  - Édition(s) : {eds}"
 
     bloc("À trancher maintenant (date limite dépassée)", res["echus"],
          lambda s, l, j: detail(s, l) + f"\n  - Dépassé de {j} jour(s)")
     bloc(f"Échéance dans {SEUIL_PROCHE} jours ou moins", res["proches"],
          lambda s, l, j: detail(s, l) + f"\n  - Reste {j} jour(s)")
     bloc("En cours", res["en_cours"],
-         lambda s, l, j: f"- {s['libelle']} — limite le {l.strftime('%d/%m/%Y')} (dans {j} jours)")
+         lambda s, l, j: f"- {s['libelle']} — limite le {l.strftime('%d/%m/%Y')} (dans {j} jours)"
+                         + (f"\n  - Pourquoi on le suit : {s['pourquoi']}" if s.get("pourquoi") else ""))
     bloc("Déjà tranchés", res["tranches"],
          lambda s, l: f"- {s['libelle']} — {s['statut']}")
     bloc("Anomalies dans le fichier", res["anomalies"], lambda i, m: f"- `{i}` : {m}")

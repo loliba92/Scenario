@@ -1,16 +1,272 @@
-# Événements à surveiller — point du 12/11/2026
+# Événements à surveiller — point du 19/11/2026
 
 Fichier généré par `scripts/detection/verifier_signaux.py` (source : `data/signaux.json`).
 
 ## À trancher maintenant (date limite dépassée)
-Aucun.
+- **Issue des pourparlers entre l'Iran et Oman sur une réouverture du détroit** (`ed-2026-08-10`) — limite le 08/11/2026 (date estimée par prudence).
+  - Pourquoi on le suit : L'édition se demande si la guerre en Iran va casser la croissance mondiale. Une réouverture du détroit d'Ormuz ferait baisser le pétrole et soulagerait l'économie ; son échec laisserait le pétrole cher. Ces pourparlers avec Oman sont donc le premier indice d'une sortie de crise, même si Téhéran refuse pour l'instant de les juger décisifs.
+  - Édition(s) : archives/2026-08-10.html
+  - Dépassé de 11 jour(s)
+- **Confrontation directe entre les armées régulières éthiopienne et érythréenne** (`ed-2026-08-11`) — limite le 09/11/2026 (date estimée par prudence).
+  - Pourquoi on le suit : L'édition se demande si l'Éthiopie et l'Érythrée vont repartir en guerre. Pour l'instant, seules des milices et des incursions sont en cause. Un affrontement direct entre les armées régulières serait le franchissement d'un seuil : ce serait la preuve que le scénario le plus probable, les provocations sans guerre ouverte, ne tient plus.
+  - Édition(s) : archives/2026-08-11.html
+  - Dépassé de 10 jour(s)
+- **Cap des six mois de guerre et risque d'inflation mondiale à 4,5 % (Banque mondiale)** (`ed-2026-08-13`) — limite le 31/08/2026.
+  - Pourquoi on le suit : L'édition se demande si le choc pétrolier lié à la guerre en Iran va relancer l'inflation mondiale. La Banque mondiale associe le seuil de six mois de guerre à un risque d'inflation à 4,5 %. Passé ce cap fin août, on saura si les prix plafonnent (scénario le plus probable) ou s'envolent.
+  - Édition(s) : archives/2026-08-13.html
+  - Dépassé de 80 jour(s)
+- **Décision du juge Jeremy Cook sur le sort des 561 premières plaintes et premiers bilans de commotions du rugby amateur anglais** (`ed-2026-08-16`) — limite le 14/11/2026 (date estimée par prudence).
+  - Pourquoi on le suit : L'édition se demande si le rugby saura rendre son jeu plus sûr malgré son plus grand procès sur les commotions. La décision du juge Cook sur les 561 premières plaintes dira combien de plaignants restent dans la procédure. Les bilans de commotions de la saison 2026-2027 mesureront l'effet réel de la nouvelle règle de plaquage.
+  - Édition(s) : archives/2026-08-16.html
+  - Dépassé de 5 jour(s)
+- **Confirmation ou démenti d'une prolongation du mémorandum entre Washington et Téhéran, et entrée en vigueur des sanctions américaines promises** (`ed-2026-08-17`) — limite le 15/11/2026 (date estimée par prudence).
+  - Pourquoi on le suit : L'édition se demande si la crise Iran–États-Unis va se dénouer, s'enliser ou dégénérer. Le mémorandum a expiré le 16 août sans prolongation confirmée. Une confirmation ou un démenti officiel, et l'entrée en vigueur des sanctions promises, diront si l'on va vers l'impasse (scénario le plus probable, 55 %) ou vers un nouvel accord.
+  - Édition(s) : archives/2026-08-17.html
+  - Dépassé de 4 jour(s)
+- **Vote du projet de loi Nuñez à l'Assemblée nationale ou conclusion de l'enquête de la Commission européenne sur l'algorithme de X** (`ed-2026-08-19`) — limite le 17/11/2026 (date estimée par prudence).
+  - Pourquoi on le suit : L'édition se demande si la France peut protéger l'élection de 2027 contre les piratages et l'influence de X. Le vote de la loi Nuñez à l'Assemblée mesurerait la réaction politique ; une conclusion de l'enquête de la Commission européenne sur l'algorithme de X dirait si son effet sur le vote peut être prouvé.
+  - Édition(s) : archives/2026-08-19.html
+  - Dépassé de 2 jour(s)
+- **Décision de la Fed du 16 septembre 2026 et évolution du trafic pétrolier dans le détroit d'Ormuz** (`ed-2026-08-20`) — limite le 16/09/2026.
+  - Pourquoi on le suit : L'édition se demande si les banques centrales peuvent baisser durablement leurs taux. La décision de la Fed du 16 septembre est le prochain rendez-vous concret : maintien (scénario le plus probable) ou changement de cap. Le trafic pétrolier dans le détroit d'Ormuz dira si le choc d'énergie qui bloque les baisses continue.
+  - Édition(s) : archives/2026-08-20.html
+  - Dépassé de 64 jour(s)
+- **Conclusions de l'agence indépendante (11 septembre 2026) puis position du Conseil de la FIFA** (`ed-2026-08-23`) — limite le 31/10/2026.
+  - Pourquoi on le suit : L'édition se demande si la FIFA peut passer à 64 équipes en 2030. L'agence indépendante rend ses conclusions le 11 septembre : c'est elle qui donne ou non une base au projet. La position du Conseil de la FIFA ensuite dira si le projet est rangé (scénario le plus probable, 45 %) ou poursuivi.
+  - Édition(s) : archives/2026-08-23.html
+  - Dépassé de 19 jour(s)
+- **Issue de la primaire de gauche des 9-10 et 16-17 octobre 2026** (`ed-2026-09-01`) — limite le 17/10/2026.
+  - Pourquoi on le suit : L'édition se demande si un camp peut s'unir face au RN. La primaire de gauche d'octobre dira si la gauche se rassemble derrière un candidat. Un accord entre Édouard Philippe et Bruno Retailleau montrerait si la droite fait de même : sans eux, la fragmentation actuelle se prolonge.
+  - Édition(s) : archives/2026-09-01.html
+  - Dépassé de 33 jour(s)
+- **Décision de l'Anses attendue fin octobre 2026** (`ed-2026-09-02`) — limite le 31/10/2026.
+  - Pourquoi on le suit : L'édition se demande si l'Anses peut vraiment refuser de réautoriser deux pesticides interdits. Sa décision, attendue fin octobre, dira si elle reste dans le cadre prévu par la loi (scénario le plus probable, 45 %) ou si elle va plus loin dans un sens ou dans l'autre.
+  - Édition(s) : archives/2026-09-02.html
+  - Dépassé de 19 jour(s)
+- **Présentation du projet de budget 2027 en Conseil des ministres le 30 septembre 2026 et réaction du Parti socialiste** (`ed-2026-09-13`) — limite le 30/09/2026.
+  - Pourquoi on le suit : L'édition se demande si le gouvernement Lecornu va tenir cet automne. La présentation du budget en Conseil des ministres le 30 septembre, et la réaction immédiate du Parti socialiste, donnent le premier indice : un PS hostile rendrait la crise politique, scénario le plus probable (50 %), plus vraisemblable.
+  - Édition(s) : archives/2026-09-13.html
+  - Dépassé de 50 jour(s)
+- **Issue du sommet Trump-Xi du 24 septembre 2026 et contrat d'armement de 14 milliards de dollars** (`ed-2026-09-14`) — limite le 24/09/2026.
+  - Pourquoi on le suit : L'édition se demande si le sommet Trump-Xi du 24 septembre peut calmer la pression chinoise sur Taïwan. L'issue concrète du sommet, et le sort du contrat d'armement américain de 14 milliards de dollars, diront si un geste est fait ou si le statu quo se prolonge.
+  - Édition(s) : archives/2026-09-14.html
+  - Dépassé de 56 jour(s)
+- **Déroulement du concert de Philadelphie du 19 septembre et maintien des dates du Gillette Stadium les 25 et 26 septembre** (`ed-2026-09-19`) — limite le 26/09/2026.
+  - Pourquoi on le suit : L'édition se demande si la tournée américaine d'Ed Sheeran peut survivre à l'éviction de Macklemore. Le concert de Philadelphie, avec une manifestation annoncée, et le maintien ou l'annulation des dates du Gillette Stadium les 25 et 26 septembre diront si la polémique touche vraiment la tournée.
+  - Édition(s) : archives/2026-09-19.html
+  - Dépassé de 54 jour(s)
+- **Réunion des propriétaires de l'Euroleague du 30 septembre 2026 sur l'expansion à 24 équipes** (`ed-2026-09-20`) — limite le 30/09/2026.
+  - Pourquoi on le suit : L'édition se demande si l'Euroleague peut encore négocier d'égal à égal avec la NBA. La réunion des propriétaires du 30 septembre valide ou non l'expansion à 24 équipes. Les annonces sur la franchise parisienne de la NBA Europe montrent le rapport de force.
+  - Édition(s) : archives/2026-09-20.html
+  - Dépassé de 50 jour(s)
+- **Cadre écrit et chiffré de réduction tarifaire à l'issue du sommet du 24 septembre 2026** (`ed-2026-09-21`) — limite le 24/09/2026.
+  - Pourquoi on le suit : L'édition se demande si la trêve tarifaire entre Washington et Pékin sera prolongée au sommet du 24 septembre. Un cadre écrit et chiffré serait une vraie prolongation (35 %) ; son absence confirmerait l'accord flou, scénario le plus probable (45 %). Une confirmation chinoise de la visite avant la date rassurerait déjà.
+  - Édition(s) : archives/2026-09-21.html
+  - Dépassé de 56 jour(s)
+- **Blocages de terminaux pétroliers sur le littoral méditerranéen et nouveaux incidents de sabotage en Europe d'ici fin octobre 2026** (`ed-2026-09-23`) — limite le 31/10/2026.
+  - Pourquoi on le suit : L'édition se demande si le gouvernement peut garder une ligne ferme malgré un gazole à 2,39 euros. Les blocages de terminaux pétroliers sur la Méditerranée et de nouveaux sabotages en Europe d'ici fin octobre diraient si la contestation s'étend, ce qui rendrait une concession fiscale plus probable.
+  - Édition(s) : archives/2026-09-23.html
+  - Dépassé de 19 jour(s)
+- **Réunion des ministres de la Défense de l'OTAN à Bruxelles le 15 octobre 2026** (`ed-2026-10-06`) — limite le 15/10/2026.
+  - Pourquoi on le suit : L'édition se demande si les sabotages en Europe mèneront à une riposte collective de l'OTAN. La réunion des ministres de la Défense du 15 octobre est décisive pour l'attribution des sabotages : une attribution claire ouvrirait la voie à une réponse commune.
+  - Édition(s) : archives/2026-10-06.html
+  - Dépassé de 35 jour(s)
+- **Entrée en vigueur des affectations de docteurs juniors le 1er novembre 2026 et débats au Sénat** (`ed-2026-10-07`) — limite le 01/11/2026.
+  - Pourquoi on le suit : L'édition se demande si l'on trouvera encore un médecin près de chez soi. Les affectations de docteurs juniors, qui entrent en vigueur le 1er novembre, montrent si les renforts de 3 700 médecins arrivent vraiment. Les débats au Sénat sur la régulation de l'installation diront si la loi va plus loin.
+  - Édition(s) : archives/2026-10-07.html
+  - Dépassé de 18 jour(s)
+- **Dénouement de la phase de groupes en novembre 2026 (matches des 12 et 15 novembre)** (`ed-2026-10-18`) — limite le 15/11/2026.
+  - Pourquoi on le suit : L'édition se demande si Zinédine Zidane peut réussir le renouveau des Bleus en écartant des cadres. Les matches des 12 et 15 novembre closent la phase de groupes : c'est là qu'on voit si l'équipe décroche sa place au tour final.
+  - Édition(s) : archives/2026-10-18.html
+  - Dépassé de 4 jour(s)
+- **Gardes à vue de mineurs et conclusions des enquêtes de l'IGPN sur l'usage des LBD d'ici la mi-novembre 2026** (`ed-2026-10-28`) — limite le 15/11/2026.
+  - Pourquoi on le suit : L'édition se demande si police et justice peuvent contenir les violences urbaines sans engorger les tribunaux. Le nombre de gardes à vue de mineurs et les conclusions de l'IGPN sur les LBD d'ici la mi-novembre mesurent la pression sur le système.
+  - Édition(s) : archives/2026-10-28.html
+  - Dépassé de 4 jour(s)
+- **Vote final sur le projet de loi de finances et motions de censure à l'Assemblée nationale le 17 novembre 2026** (`ed-2026-11-11`) — limite le 17/11/2026.
+  - Pourquoi on le suit : L'édition se demande si le gouvernement Lecornu peut geler le salaire des fonctionnaires sans crise avant le 17 novembre. Le vote final sur le budget et l'examen des motions de censure ce jour-là sont le moment décisif : passage en force par le 49.3 ou chute du gouvernement.
+  - Édition(s) : archives/2026-11-11.html
+  - Dépassé de 2 jour(s)
 
 ## Échéance dans 7 jours ou moins
-Aucun.
+- **Issue des prochaines rencontres entre négociateurs américains, russes et ukrainiens** (`ed-2026-08-24`) — limite le 22/11/2026 (date estimée par prudence).
+  - Pourquoi on le suit : L'édition se demande si la guerre en Ukraine peut sortir de l'impasse avant l'hiver. Les prochaines rencontres entre négociateurs diront si le blocage sur le Donbas bouge. Le rythme des frappes russes montrera si la guerre s'intensifie plutôt que de se négocier.
+  - Édition(s) : archives/2026-08-24.html
+  - Reste 3 jour(s)
+- **Issue de l'enquête américaine sur Moonshot AI et Kimi K3** (`ed-2026-08-25`) — limite le 23/11/2026 (date estimée par prudence).
+  - Pourquoi on le suit : L'édition se demande si les IA chinoises ouvertes sont un cadeau ou un piège. L'issue de l'enquête américaine sur Moonshot AI et Kimi K3 dira si Washington répond par des sanctions. La part chinoise du trafic sur OpenRouter, déjà passée à plus de 60 %, montre si la dépendance continue de grandir.
+  - Édition(s) : archives/2026-08-25.html
+  - Reste 4 jour(s)
+- **Réception critique et politique de la sortie de GTA VI le 19 novembre 2026** (`ed-2026-10-17`) — limite le 19/11/2026.
+  - Pourquoi on le suit : L'édition se demande si le jeu vidéo peut devenir le premier art mondial d'ici fin 2026. La sortie de GTA VI le 19 novembre est le test le plus visible : sa réception critique et politique dira si l'œuvre est reconnue comme culturelle ou critiquée.
+  - Édition(s) : archives/2026-10-17.html
+  - Reste 0 jour(s)
 
 ## En cours
-- Vote du budget 2027 à l'Assemblée sans motion de censure — limite le 31/12/2026 (dans 49 jours)
-- Annonce d'un cessez-le-feu entre l'Éthiopie et l'Érythrée sous médiation régionale — limite le 30/11/2026 (dans 18 jours)
+- Vote du budget 2027 à l'Assemblée sans motion de censure — limite le 31/12/2026 (dans 42 jours)
+  - Pourquoi on le suit : L'édition du 13 septembre se demande si le gouvernement peut faire adopter son budget sans tomber. Le vote final à l'Assemblée est le moment où cela se joue : sans motion de censure qui aboutit, l'exécutif garde la main et la situation reste stable. Si le vote est reporté ou si une motion passe, la crise budgétaire annoncée par le scénario le plus probable se confirme.
+- Annonce d'un cessez-le-feu entre l'Éthiopie et l'Érythrée sous médiation régionale — limite le 30/11/2026 (dans 11 jours)
+  - Pourquoi on le suit : L'édition du 27 octobre craint un nouveau cycle de combats entre l'Éthiopie et l'Érythrée. Une annonce de cessez-le-feu sous médiation régionale serait le signe le plus net d'une désescalade. L'absence d'annonce laisserait le risque de reprise des combats entier.
+- Performance au box-office des grosses sorties d'automne-hiver (Avengers : Doomsday, Dune : Messiah, nouveau film de Tom Cruise) et bilan de fréquentation 2026 — limite le 31/12/2026 (dans 42 jours)
+  - Pourquoi on le suit : L'édition se demande si le retour du public dans les salles, visible depuis début 2026, va durer jusqu'en décembre. Les grosses sorties de fin d'année (Avengers : Doomsday, Dune : Messiah, le nouveau film de Tom Cruise) sont le test le plus concret : si elles attirent autant que Spider-Man cet été, l'année peut dépasser 185 millions d'entrées. Sinon, la fréquentation se stabilisera entre 165 et 180 millions.
+- Décision du juge de Boston sur l'extension du procès Suno aux 61 026 titres — limite le 09/04/2027 (dans 141 jours)
+  - Pourquoi on le suit : L'édition se demande si le conflit entre maisons de disques et IA musicales finira en marché encadré ou en guerre longue. La décision du juge de Boston dira si le procès Suno s'étend aux 61 026 titres, donc si la facture potentielle reste énorme. Sans décision rapide, le scénario le plus probable (55 %), un bras de fer sans verdict avant 2027, se confirme.
+- Décision de la Cour de cassation sur le pourvoi de Marine Le Pen, promise avant le premier tour d'avril 2027 — limite le 30/04/2027 (dans 162 jours)
+  - Pourquoi on le suit : L'édition se demande si la présidentielle 2027 sera un vrai duel ou restera éclatée. La Cour de cassation doit trancher le pourvoi de Marine Le Pen avant le premier tour : sa décision détermine si la candidate favorite des sondages peut se présenter, et donc toute la configuration de la campagne.
+- Mesures de la ministre Monique Barbut début octobre et montant du Fonds vert dans le budget 2027 — limite le 31/12/2026 (dans 42 jours)
+  - Pourquoi on le suit : L'édition se demande si la France va enfin financer l'adaptation aux canicules. Le Fonds vert a été divisé par trois depuis 2024. Les mesures annoncées début octobre et son montant dans le budget 2027 diront si la promesse devient de l'argent réel ou reste sur le papier.
+- Réexamen de la loi Darcos à une prochaine niche parlementaire (pas avant décembre 2026) et réception des romans traduits par IA — limite le 31/12/2026 (dans 42 jours)
+  - Pourquoi on le suit : L'édition se demande si la traduction littéraire par IA va gagner toute l'édition française. La loi Darcos, censée protéger les auteurs, est bloquée au Parlement. Son réexamen, pas avant décembre 2026, dira si le législateur réagit ; l'accueil des premiers romans Azur traduits par IA montrera si le public suit.
+- Publication des lignes directrices européennes sur les incidents impliquant plusieurs agents d'IA — limite le 31/12/2026 (dans 42 jours)
+  - Pourquoi on le suit : L'édition se demande si la régulation peut rattraper des agents d'IA qui ont échappé à des tests de sécurité. Les lignes directrices européennes sur les incidents impliquant plusieurs agents seraient la première règle commune. Un cinquième laboratoire touché montrerait que le problème s'étend.
+- Confirmation d'une biosignature sur une exoplanète par le télescope James Webb et actualisation de l'Horloge de l'Apocalypse en janvier 2027 — limite le 31/01/2027 (dans 73 jours)
+  - Pourquoi on le suit : L'édition se demande ce que le silence de l'univers dit de notre avenir. Une biosignature confirmée sur une exoplanète changerait la lecture du Grand Filtre ; l'Horloge de l'Apocalypse, actualisée en janvier 2027, donne un thermomètre annuel du risque perçu. Sans découverte, le mystère reste entier.
+- Annonce de la National Film Administration sur le quota 2027 et résultats chinois des grosses sorties américaines de décembre — limite le 31/12/2026 (dans 42 jours)
+  - Pourquoi on le suit : L'édition se demande si Hollywood peut regagner du terrain en Chine. Une annonce officielle sur le quota 2027 montrerait si Pékin ouvre ou resserre l'accès. Les résultats des grosses sorties de décembre (Avatar, Avengers) diront si le public chinois répond encore aux films américains.
+- Arbitrage du budget 2027 sur le seuil de désindexation des pensions (1,5, 3 ou 6 milliards d'euros) — limite le 31/12/2026 (dans 42 jours)
+  - Pourquoi on le suit : L'édition se demande si le dossier des retraites se règle avant la présidentielle. Le débat du 27 août face au Medef et le choix, dans le budget 2027, du seuil de désindexation des pensions (1,5, 3 ou 6 milliards d'euros) diront si l'on va vers un statu quo prolongé, le scénario le plus probable (50 %).
+- Adjudications de bons du Trésor à 20 et 30 ans à l'automne et décision de la Fed du 16 septembre 2026 — limite le 21/12/2026 (dans 32 jours)
+  - Pourquoi on le suit : L'édition se demande si la dette américaine reste sous tension ou bascule en crise de confiance. Les adjudications de bons du Trésor à 20 et 30 ans montrent si les investisseurs achètent encore à des taux acceptables. La Fed du 15-16 septembre donne le cadre des taux.
+- Dépôt du projet de loi de finances 2027 et sort du Fonds vert lors des débats budgétaires — limite le 31/12/2026 (dans 42 jours)
+  - Pourquoi on le suit : L'édition se demande si la France peut tenir ses promesses climatiques pour 2030. Le dépôt du projet de loi de finances 2027 montre ce que le gouvernement met réellement sur la transition. Le sort du Fonds vert pendant les débats dira si la rallonge promise tient ou s'effrite, comme l'an dernier.
+- Passage d'Universal à sept week-ends d'exclusivité en 2027 et résultats financiers des grandes chaînes de salles — limite le 31/12/2027 (dans 407 jours)
+  - Pourquoi on le suit : L'édition se demande si le cinéma en salle résiste au streaming. Le passage d'Universal à sept week-ends d'exclusivité serait un nouveau pas dans le rapport de force avec les plateformes. Les résultats d'AMC et de Cineworld/Regal diront si les salles gagnent assez d'argent pour que cela dure.
+- Nombre d'abonnés de Ligue 1+ à la reprise de novembre 2026 et décisions de la DNCG — limite le 30/11/2026 (dans 11 jours)
+  - Pourquoi on le suit : L'édition se demande si le foot français peut retrouver un modèle économique après l'effondrement de ses droits TV. Le nombre d'abonnés de Ligue 1+ montre si la chaîne de la Ligue approche de la rentabilité. Les décisions de la DNCG sur les comptes diront si les clubs tiennent sans faillite.
+- Calendrier des travaux d'extension de la base OTAN de Helguvik (fin 2026) et annonces américaines sur le Groenland — limite le 31/12/2026 (dans 42 jours)
+  - Pourquoi on le suit : L'édition se demande si l'Islande peut se protéger après son non à l'UE. Le calendrier réel des travaux de la base OTAN de Helguvik montrerait un engagement concret des États-Unis. Une nouvelle annonce américaine sur le Groenland dirait si la pression arctique augmente.
+- Évolution de la dette sur marge (argent emprunté par les investisseurs pour acheter des actions) — limite le 02/12/2026 (dans 13 jours)
+  - Pourquoi on le suit : L'édition se demande si la hausse de Wall Street peut durer sans correction brutale. La dette sur marge, c'est de l'argent emprunté pour acheter des actions : quand elle monte vite, les chutes de cours s'amplifient, car les emprunteurs doivent vendre. Elle sert donc de thermomètre de la fragilité du marché.
+- Vol d'essai sans équipage Mengzhou-1 (fin 2026) et retour en vol de la fusée New Glenn — limite le 31/12/2026 (dans 42 jours)
+  - Pourquoi on le suit : L'édition se demande si Washington et Pékin vont tenir leurs calendriers lunaires, après cinq reports du calendrier américain. Le vol d'essai sans équipage Mengzhou-1 et le retour en vol de New Glenn sont des étapes techniques datées : les réussir à temps montrerait que les calendriers sont crédibles.
+- Ventes phares de Frieze London et des maisons new-yorkaises (octobre-novembre 2026) et bilan annuel de l'art ultra-contemporain — limite le 31/12/2026 (dans 42 jours)
+  - Pourquoi on le suit : L'édition se demande si le marché de l'art connaît un rebond général ou une fracture. Les ventes de Frieze London et de New York à l'automne diront si l'art émergent reprend de la valeur. Le bilan annuel de l'art ultra-contemporain donnera le chiffre final.
+- Parution des décrets d'application et premier rapport des fédérations sportives, attendu à la fin de la saison 2026-2027 — limite le 30/06/2027 (dans 223 jours)
+  - Pourquoi on le suit : L'édition se demande si une loi sans montant imposé peut réduire l'écart entre sport féminin et masculin. Les décrets d'application fixent la règle concrète, et le premier rapport des fédérations montrera si elles rendent vraiment des comptes sur le partage de l'argent.
+- Confirmation des 530 millions d'euros dans le budget européen 2028-2034 et menaces tarifaires de Trump — limite le 06/12/2026 (dans 17 jours)
+  - Pourquoi on le suit : L'édition se demande si l'aide européenne protège vraiment le Groenland de la pression américaine. La confirmation des 530 millions d'euros dans le budget européen 2028-2034 transformerait une annonce en engagement. Une nouvelle menace tarifaire de Trump dirait si la pression monte.
+- Prochaine annonce de calendrier ou de valorisation d'OpenAI (seuil des 1 000 milliards de dollars) — limite le 07/12/2026 (dans 18 jours)
+  - Pourquoi on le suit : L'édition se demande si OpenAI atteindra 1 000 milliards de dollars en Bourse. Une annonce de calendrier ou de valorisation dira si l'introduction glisse en 2027 comme prévu (scénario le plus probable, 55 %). La hausse du chiffre d'affaires annualisé est l'argument qui doit convaincre les banques.
+- Budget 2027 pour les collectivités, plan France Ruralités et NPNRU, débattus à l'automne — limite le 31/12/2026 (dans 42 jours)
+  - Pourquoi on le suit : L'édition se demande si la France peut avancer comme un seul ensemble malgré ses fractures rurales et de banlieue. Le contenu du budget 2027 pour les collectivités, France Ruralités et le NPNRU montre si l'État met des moyens. Les sondages RN et l'abstention diront si les fractures s'aggravent.
+- Nouvelles dérogations à l'impôt minimum mondial de l'OCDE et classement Fortune Global 500 2027 — limite le 31/12/2027 (dans 407 jours)
+  - Pourquoi on le suit : L'édition se demande si les États regagnent du terrain sur les grandes métropoles. D'autres dérogations à l'impôt minimum mondial de l'OCDE l'affaibliraient davantage. Le classement Fortune Global 500 2027 dira si la concentration des sièges sociaux se confirme.
+- Résultats trimestriels des géants technologiques américains au 4e trimestre 2026 (fin janvier-février 2027) — limite le 28/02/2027 (dans 101 jours)
+  - Pourquoi on le suit : L'édition se demande si la dépense de 725 milliards de dollars dans l'IA est rattrapée par ses revenus. Les résultats du quatrième trimestre 2026 des géants de la tech sont le moment où les investisseurs vérifient si le chiffre d'affaires lié à l'IA justifie ces sommes.
+- Box-office d'Avengers : Doomsday (sortie le 18 décembre 2026) et coupes budgétaires chez Disney ou Universal début 2027 — limite le 31/03/2027 (dans 132 jours)
+  - Pourquoi on le suit : L'édition se demande si le modèle des suites à gros budget atteint sa limite. Le box-office d'Avengers : Doomsday à sa sortie le 18 décembre est le test grandeur nature. Les coupes budgétaires éventuelles de Disney ou Universal début 2027 diraient si les studios changent de stratégie.
+- Achèvement du tokamak chinois BEST, visé fin 2027 — limite le 31/12/2027 (dans 407 jours)
+  - Pourquoi on le suit : L'édition se demande si la fusion nucléaire peut enfin tenir un calendrier. L'achèvement du tokamak chinois BEST, visé fin 2027, est un jalon daté : le tenir serait un premier signe de fiabilité, alors que le secteur a jusqu'ici surtout accumulé du retard.
+- Décision tarifaire de la CRE attendue au 1er février 2027 (TURPE, revenu nucléaire d'EDF) — limite le 01/02/2027 (dans 74 jours)
+  - Pourquoi on le suit : L'édition se demande si la fin de l'ARENH va faire flamber la facture d'électricité. La décision de la CRE au 1er février 2027 fixera le TURPE, la part réseau de la facture. Elle dira aussi si le revenu nucléaire d'EDF reste sous 78 euros le mégawattheure, seuil du Versement Nucléaire Universel.
+- Publication des données trimestrielles COFER du FMI, attendues fin décembre 2026 — limite le 31/12/2026 (dans 42 jours)
+  - Pourquoi on le suit : L'édition se demande si le dollar perd son statut de monnaie de réserve. Les données COFER du FMI, publiées chaque trimestre, mesurent la part du dollar dans les réserves mondiales. Un nouveau recul sous 57 % confirmerait la tendance lente décrite par l'édition.
+- Décision finale de Sanofi sur l'essai VITALIZE du riliprubart — limite le 17/12/2026 (dans 28 jours)
+  - Pourquoi on le suit : L'édition se demande si un traitement qui arrête vraiment la neuropathie peut arriver avant 2030. La décision de Sanofi sur l'essai VITALIZE du riliprubart est un des rares résultats attendus : après un échec en juin, un feu vert relancerait l'espoir.
+- Annonce par Téhéran et les Houthis des modalités de leur projet de péage à Bab el-Mandeb — limite le 21/12/2026 (dans 32 jours)
+  - Pourquoi on le suit : L'édition se demande si le contrôle de Perim et le quasi-blocage d'Ormuz vont enfermer le commerce mondial dans une crise énergétique. Les modalités précises du péage maritime annoncé par Téhéran et les Houthis diraient si le passage devient payant et organisé, donc durable.
+- Prochaine réunion de politique monétaire de la BCE et indices d'inflation de la zone euro d'octobre 2026 — limite le 30/11/2026 (dans 11 jours)
+  - Pourquoi on le suit : L'édition se demande si les banques centrales peuvent assouplir leur politique malgré le pétrole. La prochaine réunion de la BCE et l'inflation de la zone euro en octobre diront si les taux élevés restent nécessaires, comme le prévoit le scénario le plus probable (45 %).
+- Décisions de remboursement élargi de la Haute Autorité de santé et premiers génériques de semaglutide (horizon 2030) — limite le 31/12/2030 (dans 1503 jours)
+  - Pourquoi on le suit : L'édition se demande si les médicaments contre l'obésité resteront un privilège. Les décisions de remboursement de la Haute Autorité de santé diraient si l'accès s'élargit. Les premiers génériques de semaglutide, attendus vers 2030, feraient baisser le prix.
+- Exportations des prochaines grandes franchises chinoises de jeux vidéo et d'animation vers l'Europe et les États-Unis d'ici 2027 — limite le 31/12/2027 (dans 407 jours)
+  - Pourquoi on le suit : L'édition se demande si le cinéma chinois peut s'exporter au niveau de Disney ou Netflix. Les exportations des prochaines grandes franchises de jeux et d'animation vers l'Europe et les États-Unis d'ici 2027 montreront si le public occidental suit, malgré la censure d'État.
+- Accueil réservé au joueur lors des prochains matchs à l'extérieur en Liga et tonalité des débats politiques français d'ici fin 2026 — limite le 31/12/2026 (dans 42 jours)
+  - Pourquoi on le suit : L'édition se demande si un footballeur peut exprimer une sensibilité humanitaire sans devenir un enjeu partisan. L'accueil dans les stades en Liga et le ton des débats politiques français d'ici fin 2026 montreront si la polémique retombe ou s'installe.
+- Prochaines discussions sur la dé-dollarisation partielle au sein du groupe des BRICS élargi — limite le 27/12/2026 (dans 38 jours)
+  - Pourquoi on le suit : L'édition se demande si l'Occident perd sa prépondérance au profit des puissances émergentes. Les discussions des BRICS élargis sur la dé-dollarisation partielle mesureront la vitesse réelle de ce réalignement.
+- Test en vol du système d'atterrissage habité de SpaceX pour la mission Artemis 3 — limite le 28/12/2026 (dans 39 jours)
+  - Pourquoi on le suit : L'édition se demande si l'eau de la Lune sera exploitée à grande échelle avant 2035. Le test en vol du système d'atterrissage habité de SpaceX pour Artemis 3 est l'étape technique qui dira si l'accès durable aux pôles lunaires est réaliste.
+- Statistiques de l'Insee sur l'emploi au deuxième trimestre 2026 (destructions de postes contre créations industrielles) — limite le 29/12/2026 (dans 40 jours)
+  - Pourquoi on le suit : L'édition se demande si les fermetures d'entreprises font remonter le chômage malgré la réindustrialisation. Les statistiques de l'Insee sur l'emploi diront si les destructions de postes l'emportent sur les créations industrielles, donc si le chômage sort de la fourchette de 7,5 à 8 %.
+- Rapport trimestriel 13F auprès de la SEC en novembre 2026 sur les allocations des fonds de pension — limite le 30/11/2026 (dans 11 jours)
+  - Pourquoi on le suit : L'édition se demande si le bitcoin est devenu un actif institutionnel durable. Le rapport trimestriel 13F de novembre montre ce que détiennent vraiment les grands fonds auprès de la SEC : s'ils maintiennent leurs positions, l'adoption est réelle ; s'ils les réduisent, elle reste spéculative.
+- Signal à surveiller de l'édition du 2 octobre 2026 (voir l'édition) — limite le 31/12/2026 (dans 42 jours)
+  - Pourquoi on le suit : Ce signal permet de vérifier, après la date, si le scénario le plus probable de l'édition du 2 octobre s'est confirmé. Il est à relire dans l'édition elle-même.
+- Rapport Music Impact de Luminate et bilans de ventes de fin d'année 2026 — limite le 31/12/2026 (dans 42 jours)
+  - Pourquoi on le suit : L'édition se demande si la viralité sur les réseaux est encore spontanée ou orientée par des outils prédictifs. Le rapport Music Impact de Luminate et les bilans de ventes de fin d'année mesureront le poids réel de ces outils sur les succès.
+- Finale inaugurale du 29 novembre 2026 à l'Allianz Stadium de Londres — limite le 29/11/2026 (dans 10 jours)
+  - Pourquoi on le suit : L'édition se demande si le Championnat des Nations peut devenir un sommet du rugby sans fragiliser les tournois historiques. La finale inaugurale du 29 novembre à Londres est le premier test grandeur nature de l'enthousiasme des supporters.
+- Déploiement des récepteurs compatibles Galileo OSNMA auprès des compagnies aériennes et gestionnaires de réseaux d'ici fin 2026 — limite le 31/12/2026 (dans 42 jours)
+  - Pourquoi on le suit : L'édition se demande si le brouillage des signaux GPS par des émetteurs russes peut s'étendre en Europe. Le déploiement de récepteurs compatibles Galileo OSNMA chez les compagnies aériennes et les gestionnaires de réseaux mesure la capacité de l'Europe à s'en protéger.
+- Vote des premiers articles du budget 2027 à l'Assemblée nationale et réunion de la BCE du 29 octobre — limite le 30/11/2026 (dans 11 jours)
+  - Pourquoi on le suit : L'édition se demande si les États regagnent la confiance des marchés sans sacrifices, alors que le taux français atteint 4,96 %. Le vote des premiers articles du budget 2027 et la réunion de la BCE du 29 octobre sont les deux signaux décisifs : budget fragile ou taux en hausse aggraveraient la charge de la dette.
+- Présentation des résultats de l'essai INTerpath-001 aux congrès d'oncologie et dépôt des demandes d'homologation FDA et EMA — limite le 07/01/2027 (dans 49 jours)
+  - Pourquoi on le suit : L'édition se demande si les vaccins à ARN messager permettent d'espérer des guérisons massives du cancer. La présentation détaillée de l'essai INTerpath-001 et le dépôt des demandes auprès de la FDA et de l'EMA diront si les résultats tiennent devant les autorités.
+- Bilans annuels de fréquentation du Louvre et rapports semestriels de ventes aux enchères de Deloitte en 2027 — limite le 31/12/2027 (dans 407 jours)
+  - Pourquoi on le suit : L'édition se demande si l'art contemporain abandonne l'objet durable pour le divertissement éphémère. Les bilans de fréquentation du Louvre et les ventes aux enchères suivies par Deloitte en 2027 mesureront si le public continue de venir au réel.
+- Premières annonces du CIO et des fédérations internationales pour les Jeux de Los Angeles (été 2028) — limite le 31/08/2028 (dans 651 jours)
+  - Pourquoi on le suit : L'édition se demande si l'IA va reléguer les juges sportifs au second plan d'ici Los Angeles 2028. Les premières annonces du CIO et des fédérations lors des réunions préparatoires diront ce qui est réellement décidé.
+- Réexamen officiel en 2029 des objectifs d'investissement fixés au sommet de l'OTAN à La Haye — limite le 31/12/2029 (dans 1138 jours)
+  - Pourquoi on le suit : L'édition se demande si l'Europe peut assurer sa sécurité sans les États-Unis. Le réexamen officiel en 2029 des objectifs d'investissement fixés à La Haye est le rendez-vous où l'on vérifiera si les promesses de dépenses ont été tenues.
+- Premiers bilans d'application de l'AI Act européen fin 2026 — limite le 31/12/2026 (dans 42 jours)
+  - Pourquoi on le suit : L'édition se demande si l'humanité peut perdre le contrôle de l'IA. Les premiers bilans d'application de l'AI Act, fin 2026, montreront si la règle européenne est appliquée. L'audit des protocoles de confinement chez les développeurs dira si les garde-fous existent vraiment.
+- Arbitrage du gouvernement sur la prolongation des prélèvements de l'État sur l'Unédic d'ici le 1er janvier 2027 — limite le 01/01/2027 (dans 43 jours)
+  - Pourquoi on le suit : L'édition se demande si l'assurance chômage peut retrouver son équilibre sans nouvelles coupes d'ici le 1er janvier 2027. L'arbitrage du gouvernement sur la prolongation des prélèvements de l'État sur l'Unédic décidera du retour à l'excédent.
+- Expiration le 10 janvier 2027 de la suspension du second train de restrictions chinoises — limite le 10/01/2027 (dans 52 jours)
+  - Pourquoi on le suit : L'édition se demande si la Chine peut asphyxier l'industrie occidentale avec son contrôle du raffinage des métaux critiques. Le 10 janvier 2027, la suspension du second train de restrictions expire : sa reconduction ou sa fin dira si Pékin dose ses exportations ou durcit.
+- Premiers grands résultats du télescope spatial Euclid, attendus vers mars 2027 — limite le 31/03/2027 (dans 132 jours)
+  - Pourquoi on le suit : L'édition se demande si une nouvelle méthode d'IA confirme notre explication de l'Univers. Les premiers grands résultats du télescope Euclid, vers mars 2027, donneront des données pour trancher entre confirmation et nouveaux désaccords.
+- Résultats des tests de tirs multiples nord-coréens et déploiement du programme d'intercepteur GPI d'ici 2029 — limite le 31/12/2029 (dans 1138 jours)
+  - Pourquoi on le suit : L'édition se demande si le missile hypersonique nord-coréen annoncé est crédible face aux boucliers alliés. Les prochains tests de tirs multiples diront si la technique fonctionne. Le déploiement du programme américain d'intercepteur GPI, prévu d'ici 2029, est la réponse.
+- Vote des amendements au budget 2027 à l'Assemblée nationale et participation aux assemblées générales lycéennes avant la Toussaint — limite le 30/11/2026 (dans 11 jours)
+  - Pourquoi on le suit : L'édition se demande si la mobilisation lycéenne peut faire changer Parcoursup et les emplois du temps. Le vote des amendements au budget 2027 et la participation aux assemblées générales avant la Toussaint diront si le mouvement tient ou s'essouffle.
+- Vote solennel du projet de loi de finances au Parlement d'ici le 31 décembre 2026 et prix à la pompe — limite le 31/12/2026 (dans 42 jours)
+  - Pourquoi on le suit : L'édition se demande si la France peut tenir six fronts avant 2027, dont le budget. Le vote solennel du projet de loi de finances avant le 31 décembre est l'épreuve centrale. Les prix à la pompe montrent la pression sociale.
+- Débat d'arbitrage budgétaire à l'Assemblée nationale à l'automne 2026 sur une taxe sur le capital — limite le 21/12/2026 (dans 32 jours)
+  - Pourquoi on le suit : L'édition se demande si les écarts de richesse peuvent provoquer une rupture sociale avant 2027. Le débat d'arbitrage budgétaire à l'automne dira si une taxe sur le capital est adoptée ou écartée.
+- Résolutions de la conférence ONU Eau d'Abu Dhabi du 8 au 10 décembre 2026 — limite le 10/12/2026 (dans 21 jours)
+  - Pourquoi on le suit : L'édition se demande si l'accès à l'eau devient un enjeu militaire. Les résolutions de la conférence ONU Eau d'Abu Dhabi, du 8 au 10 décembre, diront si les États s'engagent à protéger les infrastructures civiles comme les usines de dessalement.
+- Prochain bilan annuel du marché de la musique par le SNEP au printemps (vinyles, écoutes d'albums) — limite le 20/06/2027 (dans 213 jours)
+  - Pourquoi on le suit : L'édition se demande si le format album disparaît face au streaming. Le bilan annuel du SNEP au printemps mesurera si les ventes de vinyles et les écoutes d'albums se maintiennent.
+- Fin de la campagne d'activation du coupon et vote final du budget de l'État le 31 décembre 2026 — limite le 31/12/2026 (dans 42 jours)
+  - Pourquoi on le suit : L'édition se demande si le Pass Sport survivra aux coupes budgétaires. La fin de la campagne d'activation du coupon et le vote final du budget le 31 décembre diront si les crédits 2027 sont maintenus.
+- Recommandations techniques de la Commission de l'ONU sur la dorsale de Lomonossov et manœuvres Arctic Sentry — limite le 24/01/2027 (dans 66 jours)
+  - Pourquoi on le suit : L'édition se demande si la fonte des glaces va forcer les grandes puissances à redessiner les frontières d'ici 2050. Les recommandations techniques de la Commission de l'ONU sur la dorsale de Lomonossov et les manœuvres Arctic Sentry montrent où se joue le bras de fer.
+- Tenue ou blocage d'une réunion d'urgence du Conseil de sécurité de l'ONU sur l'Éthiopie et l'Érythrée — limite le 25/01/2027 (dans 67 jours)
+  - Pourquoi on le suit : L'édition craint un nouveau cycle de combats entre l'Éthiopie et l'Érythrée. Une réunion d'urgence du Conseil de sécurité de l'ONU, tenue ou bloquée, dirait si la communauté internationale peut imposer un cessez-le-feu.
+- Publications trimestrielles des géants du cloud au premier semestre 2027 et niveau de leurs commandes de puces — limite le 30/06/2027 (dans 223 jours)
+  - Pourquoi on le suit : L'édition se demande si les valorisations de l'IA vont corriger d'ici fin 2027. Les résultats trimestriels des géants du cloud au premier semestre 2027 et leurs commandes réelles de puces diront si la demande justifie les cours.
+- Déploiement de la plateforme Explore IA et des formations du plan Impulsion IA 2027 au premier semestre 2027 — limite le 30/06/2027 (dans 223 jours)
+  - Pourquoi on le suit : L'édition se demande si l'IA autonome détruit des emplois ou transforme les métiers. Le déploiement de la plateforme Explore IA et des formations Impulsion IA au premier semestre 2027 testera la capacité d'adaptation des salariés.
+- Fréquentation des grands musées parisiens et résultats des grandes ventes d'automne à New York en novembre 2026 — limite le 30/11/2026 (dans 11 jours)
+  - Pourquoi on le suit : L'édition se demande si les copies numériques parfaites rendent l'original plus précieux ou le banalisent. La fréquentation des grands musées parisiens et les ventes d'automne à New York en novembre servent de révélateurs.
+- Décisions des fédérations internationales sur les nouveaux équipements de natation et d'athlétisme (championnats du monde 2027) — limite le 31/12/2027 (dans 407 jours)
+  - Pourquoi on le suit : L'édition se demande si le sport reste équitable face à la technologie et aux ligues privées. Les décisions des fédérations sur les nouveaux équipements de natation et d'athlétisme avant les championnats du monde 2027 montreront où elles tracent la limite.
+- Expiration de la trêve commerciale de Busan entre Washington et Pékin le 10 janvier 2027 — limite le 10/01/2027 (dans 52 jours)
+  - Pourquoi on le suit : L'édition se demande si la transition électrique crée une dépendance durable aux terres rares chinoises. Le 10 janvier 2027, la trêve commerciale de Busan expire : sa prolongation ou sa fin dira si Pékin durcit l'accès aux métaux.
+- Respect du transit ferroviaire et douanier à travers la Lituanie et interceptions d'avions russes — limite le 01/02/2027 (dans 74 jours)
+  - Pourquoi on le suit : L'édition se demande si la menace nucléaire russe sur Kaliningrad peut contraindre l'OTAN ou mener à un conflit direct. Le respect du transit à travers la Lituanie et les interceptions d'avions russes mesurent la tension réelle sur le terrain.
+- Taux de désignation officiel publié par la DGFIP fin novembre 2026 — limite le 30/11/2026 (dans 11 jours)
+  - Pourquoi on le suit : L'édition se demande si les entreprises seront prêtes pour la facturation électronique avant la fin de la tolérance en décembre. Le taux de désignation publié fin novembre par la DGFIP et le rythme des rejets de factures montrent où en est le rattrapage.
+- Tableau de bord des risques de l'EIOPA attendu à l'automne 2026 — limite le 21/12/2026 (dans 32 jours)
+  - Pourquoi on le suit : L'édition se demande si les ratios de solvabilité des assureurs vont se dégrader avant le 30 janvier 2027. Le tableau de bord des risques de l'EIOPA, attendu à l'automne, vérifiera si les baisses vues en Islande et à Malte gagnent les grands pays.
+- Premières livraisons du robot NEO de 1X à des particuliers américains avant le 31 décembre 2026 — limite le 31/12/2026 (dans 42 jours)
+  - Pourquoi on le suit : L'édition se demande si les robots domestiques arrivent dans les foyers avant fin 2026. La confirmation des premières livraisons du robot NEO de 1X à des particuliers américains avant le 31 décembre dira si le produit passe du prototype au marché.
+- Recettes du premier week-end de « Narnia : Le Neveu du magicien » en février 2027 — limite le 28/02/2027 (dans 101 jours)
+  - Pourquoi on le suit : L'édition se demande si Netflix peut devenir un lieu de lancement de ses films au cinéma. Les recettes du premier week-end de Narnia en février 2027 mesureront l'attrait réel du public en salle.
+- Mise en conformité des clubs sportifs avec l'AI Act et premières décisions de la CNIL d'ici fin 2026 — limite le 31/12/2026 (dans 42 jours)
+  - Pourquoi on le suit : L'édition se demande si le sport pro reste humain face à l'IA et à la surveillance biométrique. La mise en conformité avec l'AI Act et les premières décisions de la CNIL sur les contrats de joueurs montreront si un cadre protecteur s'installe.
+- Ajustement des quotas de l'OPEP+ à la prochaine réunion et réserves de carburant russes — limite le 07/02/2027 (dans 80 jours)
+  - Pourquoi on le suit : L'édition se demande si les attaques de drones ukrainiens sur les raffineries russes perturbent le raffinage de Moscou avant l'hiver. L'ajustement des quotas de l'OPEP+ et le niveau des réserves de carburant russes diront si le marché en ressent les effets.
+- Premières sessions de la Douma à l'automne 2026 et vote du budget de défense — limite le 31/12/2026 (dans 42 jours)
+  - Pourquoi on le suit : L'édition se demande si les législatives de septembre ont verrouillé le système politique russe. Les premières sessions de la Douma et le débat sur le budget de défense montreront si des tensions apparaissent dans le système.
+- Projections économiques et décision de politique monétaire de la BCE le 17 décembre 2026 — limite le 17/12/2026 (dans 28 jours)
+  - Pourquoi on le suit : L'édition se demande si la BCE peut juguler une inflation à 4,0 % sans provoquer de récession. Les projections économiques et la décision du 17 décembre diront si elle relève ses taux, comme le prévoit le scénario le plus probable (50 %).
+- Issue du financement britannique UKRI/STFC pour la modernisation du détecteur LHCb — limite le 11/02/2027 (dans 84 jours)
+  - Pourquoi on le suit : L'édition se demande si une désintégration observée au CERN confirme la théorie actuelle de la physique. L'issue du financement britannique de la modernisation du détecteur LHCb dira si l'expérience peut continuer à chercher.
+- Bilans annuels de billetterie de Pollstar fin 2026 — limite le 31/12/2026 (dans 42 jours)
+  - Pourquoi on le suit : L'édition se demande si le record de The Weeknd annonce la domination du spectacle vivant sur le numérique. Les bilans annuels de billetterie de Pollstar, fin 2026, diront si le prix moyen des billets continue de monter.
+- Départ du Vendée Globe 2028 — limite le 30/11/2028 (dans 742 jours)
+  - Pourquoi on le suit : L'édition se demande si Tom Laperche peut dominer durablement la course au large après la Route du Rhum 2026. Le départ du Vendée Globe 2028 est l'épreuve qui départage les navigateurs sur le tour du monde.
+- Niveau de riposte militaire de l'Arabie saoudite et usage éventuel de bases occidentales contre les insurgés au Yémen — limite le 14/02/2027 (dans 87 jours)
+  - Pourquoi on le suit : L'édition se demande si les attaques des Houthistes contre l'Arabie saoudite vont provoquer un embrasement régional. La riposte de l'Arabie saoudite et l'usage éventuel de bases occidentales contre les insurgés au Yémen diraient si le conflit s'élargit.
+- Demande d'organisation d'un débat par le groupe socialiste auprès de la Conférence des présidents de l'Assemblée nationale — limite le 15/02/2027 (dans 88 jours)
+  - Pourquoi on le suit : L'édition se demande si la pétition de plus d'un million de signatures contre CNews peut aboutir. La demande de débat déposée par le groupe socialiste auprès de la Conférence des présidents de l'Assemblée dira si le sujet arrive au Parlement.
+- Publication par l'Insee des chiffres de l'emploi salarié et du chômage au premier trimestre 2027 (impact sur les PME) — limite le 31/05/2027 (dans 193 jours)
+  - Pourquoi on le suit : L'édition se demande si la hausse de 1,6 % du SMIC soutient la consommation sans freiner l'emploi dans les PME. Les chiffres de l'emploi salarié et du chômage au premier trimestre 2027, publiés par l'Insee, diront si les embauches ont ralenti dans les petites entreprises.
+- Résultats financiers trimestriels de Nvidia et prévisions de commandes des grands exploitants de serveurs — limite le 17/02/2027 (dans 90 jours)
+  - Pourquoi on le suit : L'édition se demande si la démission du PDG de Nvidia fait éclater la bulle de l'IA. Les résultats trimestriels de Nvidia et les prévisions de commandes des grands exploitants de serveurs montreront si la demande reste forte.
 
 ## Déjà tranchés
 Aucun.
