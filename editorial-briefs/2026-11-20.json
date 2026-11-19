@@ -1,0 +1,306 @@
+{
+  "date": "2026-11-20",
+  "registre": "sciences",
+  "sujet": {
+    "titre_propose": "Le télescope Euclid peut-il percer les mystères de l'énergie noire avec sa première carte de l'Univers ?",
+    "h1": "Euclid : la première carte de l'Univers peut-elle percer l'énergie noire ?",
+    "question_posee": "La première carte cosmique d'Euclid va-t-elle révolutionner notre compréhension de l'énergie noire, ou confirmer les modèles actuels sans surprise majeure ?",
+    "eyebrow": "Vendredi, sciences",
+    "angle": "Le 13 novembre 2026, le télescope spatial Euclid de l'ESA a livré son premier ensemble de données, couvrant plus d'un milliard d'objets célestes. Ces observations visent à cartographier l'Univers en 3D pour étudier l'énergie noire, la matière noire et la toile cosmique. Lancé en 2023, Euclid est un projet de l'Agence spatiale européenne. La question centrale : ces données vont-elles révolutionner notre compréhension de l'énergie noire, ou confirmer les théories existantes sans percée majeure ?",
+    "tags": [
+      "cosmologie",
+      "énergie noire",
+      "matière noire",
+      "ESA",
+      "astrophysique"
+    ],
+    "domain": "sciences-environnement",
+    "image_keywords": "telescope space galaxy map",
+    "complexite": 4,
+    "origine_prioritaire": "Le télescope Euclid peut-il percer les mystères de l'énergie noire avec sa première carte de l'Univers ?",
+    "origine_id": "sciences-le-telescope-euclid-peut-il-percer-les-mysteres",
+    "point_de_depart": {
+      "id": "sciences-le-telescope-euclid-peut-il-percer-les-mysteres",
+      "registre": "sciences",
+      "titre": "Le télescope Euclid peut-il percer les mystères de l'énergie noire avec sa première carte de l'Univers ?",
+      "question": "Le télescope Euclid peut-il percer les mystères de l'énergie noire avec sa première carte de l'Univers ?",
+      "contexte": "Le 13 novembre 2026, le télescope spatial Euclid a livré son premier ensemble de données, couvrant plus d'un milliard d'objets célestes. Ces observations visent à cartographier l'Univers en 3D pour étudier l'énergie noire, la matière noire et la toile cosmique. Lancé en 2023, Euclid est un projet de l'Agence spatiale européenne.",
+      "rationnel": "La question : les données d'Euclid vont-elles révolutionner notre compréhension de l'énergie noire, ou confirmer les théories existantes sans percée majeure ? Les forces en présence incluent les capacités technologiques du télescope, les modèles cosmologiques actuels, et les attentes de la communauté scientifique. Pour la France, un succès renforcerait la position de l'Europe dans l'astrophysique.",
+      "mots_cles": [
+        "Euclid",
+        "énergie noire",
+        "télescope spatial",
+        "ESA",
+        "cosmologie",
+        "matière noire"
+      ],
+      "angle": null,
+      "a_verifier": null,
+      "scenarios_brouillon": {
+        "favorable": "Euclid révèle des anomalies majeures dans la distribution de l'énergie noire, ouvrant la voie à une nouvelle physique.",
+        "stable": "Les données confirment les modèles actuels, sans surprise mais avec une précision inédite.",
+        "degrade": "Des problèmes techniques ou des biais dans les données limitent la portée des conclusions, retardant les avancées."
+      },
+      "echeance": null,
+      "sources_pistes": [
+        {
+          "titre": "Revue de presse scientifique du 13/11/2026",
+          "url": "https://sciencemusic.live/revue-de-presse-scientifique-du-13-11-2026/"
+        }
+      ],
+      "tag": "sciences & espace",
+      "origine": "veille",
+      "note_editoriale": "Ajouté automatiquement le 2026-11-15 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. Solidité : 85/100. Validé d'office : score suffisant, aucun recyclage de sujet publié.",
+      "donnees_graphique": "[relevé du 2026-11-18] Nombre de galaxies cartographiées par Euclid (unité : millions). DR1-Foundation = 900 (2026) ; prévision finale = 1 500 (2030) ; Hubble Deep Field = 0.1 (1995). Sources : https://www.lam.fr/euclid-data-release-dr1-foundation-une-avalanche-de-donnees-images-spectres-catalogues-et-premiers-resultats/ ; https://www.esa.int/articles/about-us/directorates/science/euclid/euclid-lays-the-foundation-for-its-best-ever-3d-map-of-the-universe",
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille du 19/11 : Nvidia/IA, pas de recoupement. Archives sciences-environnement récentes : 13/11 (CERN désintégration rare), 06/11 (robotique), 16/10 (Énergie sombre CEA 100M galaxies), 23/10 (Eau), 02/10 (dépistage cancer), 29/09 (Lune eau glacée), 15/09 (fusion nucléaire), 04/09 (Lune course). Euclid est distinct de tous : pas de physique des particules, pas de robotique, pas de ressources terrestres. L'édition du 16/10 sur l'IA du CEA cartographiant 100M de galaxies est la plus proche thématiquement (cartographie cosmique), mais porte sur la matière noire via l'IA du CEA, pas sur Euclid ni l'énergie noire — lien thématique faible, pas de doublon."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Le télescope spatial Euclid a livré son premier ensemble de données (DR1) le 13 novembre 2026, couvrant plus d'un milliard d'objets célestes.",
+      "chiffre": "1 milliard+",
+      "date_du_chiffre": "2026-11-13",
+      "sources": [
+        "esa-euclid-dr1",
+        "lam-euclid-dr1"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Euclid a cartographié environ 900 millions de galaxies dans sa première release fondation (DR1-Foundation).",
+      "chiffre": "900 millions",
+      "date_du_chiffre": "2026-11-18",
+      "sources": [
+        "lam-euclid-dr1",
+        "esa-euclid-foundation"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Euclid est un projet de l'Agence spatiale européenne (ESA) lancé en 2023.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "esa-euclid-dr1",
+        "esa-euclid-mission"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Euclid vise à cartographier l'Univers en 3D pour étudier l'énergie noire, la matière noire et la structure à grande échelle (toile cosmique).",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "esa-euclid-dr1",
+        "esa-euclid-mission"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Euclid vise à cartographier jusqu'à 1,5 milliard de galaxies à l'issue de sa mission complète (prévision 2030).",
+      "chiffre": "1,5 milliard",
+      "date_du_chiffre": "2030",
+      "sources": [
+        "lam-euclid-dr1",
+        "esa-euclid-foundation"
+      ],
+      "confiance": "moyenne"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "ESA (Agence spatiale européenne)",
+      "role": "Organisme spatial européen, commanditaire et gestionnaire de la mission Euclid"
+    },
+    {
+      "nom": "Laboratoire d'Astrophysique de Marseille (LAM)",
+      "role": "Institut français principal contributeur à Euclid, diffuseur des données DR1"
+    },
+    {
+      "nom": "Communauté cosmologique internationale",
+      "role": "Acteurs scientifiques qui utiliseront les données pour tester les modèles d'énergie noire et de matière noire"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2023-07-01",
+      "evenement": "Lancement du télescope spatial Euclid par l'ESA"
+    },
+    {
+      "date": "2026-11-13",
+      "evenement": "Publication du premier ensemble de données (DR1) couvrant plus d'un milliard d'objets"
+    },
+    {
+      "date": "2030",
+      "evenement": "Fin prévue de la mission complète avec cartographie de 1,5 milliard de galaxies"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Euclid révèle des anomalies dans la distribution de l'énergie noire ou de la matière noire, incompatible avec le modèle ΛCDM standard, ouvrant la voie à une nouvelle physique cosmologique.",
+      "probabilite_suggeree": 25
+    },
+    "stable": {
+      "resume": "Les données confirment les modèles cosmologiques actuels (ΛCDM) avec une précision inédite, sans surprise majeure mais avec une amélioration significative des contraintes sur les paramètres cosmologiques.",
+      "probabilite_suggeree": 55
+    },
+    "degrade": {
+      "resume": "Des problèmes techniques, des biais systématiques non anticipés ou des limites dans les données DR1 limitent la portée des conclusions, retardant les avancées sur l'énergie noire et nécessitant des corrections majeures.",
+      "probabilite_suggeree": 20
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Galaxies cartographiées (DR1-Foundation)",
+      "valeur": "900 millions",
+      "tendance": "Première release — en cours d'extension"
+    },
+    {
+      "label": "Objects célestes totaux (DR1 complet)",
+      "valeur": "1 milliard+",
+      "tendance": "Première release — en cours d'extension"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Critère (1) partiellement satisfait : LAM et ESA publient les données DR1, mais l'historique complet de la carte cosmique Euclid n'existe pas encore (mission en cours depuis 2023). Critère (2) non satisfait : moins de 5 points réels disponibles sur une période longue — la mission a débuté en 2023, les premières données publiques datent de novembre 2026. Critère (3) partiel : la série éclairerait le sujet, mais l'historique est trop court. Sources consultées : LAM (https://www.lam.fr/euclid-data-release-dr1-foundation-une-avalanche-de-donnees-images-spectres-catalogues-et-premiers-resultats/), ESA (https://www.esa.int/articles/about-us/directorates/science/euclid/euclid-lays-the-foundation-for-its-best-ever-3d-map-of-the-universe).",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "oui",
+    "raison": "Trois chiffres comparables (nombre de galaxies cartographiées, même unité : millions) confirmés par les sources DR1 de LAM et ESA.",
+    "barres": {
+      "aria_label": "Comparaison du nombre de galaxies cartographiées par différentes missions et relevés cosmologiques",
+      "lead": "Euclid a déjà cartographié 900 millions de galaxies dans sa première release, contre 0,1 million pour le Hubble Deep Field en 1995 — une avancée de plusieurs ordres de grandeur.",
+      "caption": "Source : LAM (DR1-Foundation, 18/11/2026) et ESA (13/11/2026)",
+      "unite": "millions de galaxies",
+      "valeurs": [
+        {
+          "label": "Hubble Deep Field (1995)",
+          "valeur": 0.1,
+          "affichage": "0,1 million (1995)",
+          "mis_en_avant": false
+        },
+        {
+          "label": "Euclid DR1-Foundation (2026)",
+          "valeur": 900,
+          "affichage": "900 millions (2026)",
+          "mis_en_avant": true
+        },
+        {
+          "label": "Euclid mission complète (prévision 2030)",
+          "valeur": 1500,
+          "affichage": "1 500 millions (prévision 2030)",
+          "mis_en_avant": false
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Énergie noire et modèle ΛCDM : ce qu'Euclid cherche à mesurer",
+        "rattache_a": "fait-ESA-mission"
+      },
+      {
+        "focus": "DR1 et la carte 3D de l'Univers : ce qu'on peut faire avec un milliard d'objets",
+        "rattache_a": "fait-DR1"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Les données DR1 sont une première release — la communauté scientifique n'a pas encore publié d'analyse complète sur l'énergie noire à partir de ces données (publications en attente, à surveiller dans les mois à venir).",
+    "La prévision de 1,5 milliard de galaxies à l'issue de la mission (2030) est une cible officielle, mais soumise à des contraintes opérationnelles et techniques non encore vérifiées."
+  ],
+  "a_ne_pas_affirmer": [
+    "Euclid a déjà révolutionné la compréhension de l'énergie noire (les données viennent de être publiées, les analyses scientifiques sont en cours).",
+    "Le modèle ΛCDM va être invalidé ou confirmé de manière définitive par DR1 (les résultats scientifiques complets ne sont pas encore disponibles)."
+  ],
+  "sources": [
+    {
+      "id": "esa-euclid-dr1",
+      "title": "Euclid lays the foundation for its best-ever 3D map of the Universe",
+      "source": "ESA",
+      "url": "https://www.esa.int/articles/about-us/directorates/science/euclid/euclid-lays-the-foundation-for-its-best-ever-3d-map-of-the-universe",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences-environnement",
+      "summary": "L'ESA annonce le 13 novembre 2026 la publication du premier ensemble de données Euclid (DR1), couvrant plus d'un milliard d'objets célestes, posant les bases de la meilleure carte 3D de l'Univers jamais réalisée.",
+      "read_minutes": 3
+    },
+    {
+      "id": "lam-euclid-dr1",
+      "title": "Euclid Data Release DR1 Foundation : une avalanche de données, images, spectres, catalogues et premiers résultats",
+      "source": "Laboratoire d'Astrophysique de Marseille (LAM)",
+      "url": "https://www.lam.fr/euclid-data-release-dr1-foundation-une-avalanche-de-donnees-images-spectres-catalogues-et-premiers-resultats/",
+      "image": null,
+      "lang": "fr",
+      "domain": "sciences-environnement",
+      "summary": "Le LAM, principal institut français contributeur, présente DR1-Foundation avec 900 millions de galaxies cartographiées, les premières images et spectres, et les premiers résultats scientifiques.",
+      "read_minutes": 4
+    },
+    {
+      "id": "esa-euclid-mission",
+      "title": "Euclid : ESA's mission to map the dark Universe",
+      "source": "ESA",
+      "url": "https://www.esa.int/Science_Exploration/Space_Science/Euclid",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences-environnement",
+      "summary": "Fiche mission Euclid de l'ESA : lancement en 2023, objectifs de cartographie de l'énergie noire et de la matière noire, et conception de la mission.",
+      "read_minutes": 2
+    },
+    {
+      "id": "esa-euclid-foundation",
+      "title": "Euclid : laying the foundation for its best-ever 3D map of the Universe (détails DR1)",
+      "source": "ESA",
+      "url": "https://www.esa.int/articles/about-us/directorates/science/euclid/euclid-lays-the-foundation-for-its-best-ever-3d-map-of-the-universe",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences-environnement",
+      "summary": "Détails sur la release DR1 : 900 millions de galaxies dans la release fondation, prévision de 1,5 milliard à l'issue de la mission complète en 2030.",
+      "read_minutes": 3
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "Revue de presse scientifique du 13/11/2026",
+      "source": "Science Music",
+      "url": "https://sciencemusic.live/revue-de-presse-scientifique-du-13-11-2026/",
+      "image": null,
+      "lang": "fr",
+      "domain": "sciences-environnement",
+      "summary": "Revue de presse scientifique du 13 novembre 2026 mentionnée comme source piste dans le dossier du sujet — à vérifier pour d'éventuels articles connexes sur Euclid.",
+      "read_minutes": 2
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-10-16",
+      "titre": "Énergie sombre : l'IA du CEA cartographie 100 millions de galaxies",
+      "lien": "Même domaine de cartographie cosmique à grande échelle : le CEA utilisait l'IA pour cartographier 100 millions de galaxies (matière noire), tandis qu'Euclid cartographie 900 millions avec son télescope spatial dédié — deux approches complémentaires sur la structure de l'Univers."
+    },
+    {
+      "date": "2026-11-13",
+      "titre": "CERN : la désintégration rare qui divise les physiciens",
+      "lien": "Même registre sciences fondamentales et même tension éditoriale : l'édition du 13/11 sur le CERN (physique des particules, Modèle Standard, physique inconnue) et celle du 20/11 sur Euclid (cosmologie, énergie noire, modèle ΛCDM) explorent toutes deux la frontière entre confirmation des modèles établis et découverte de nouvelle physique."
+    },
+    {
+      "date": "2026-09-29",
+      "titre": "Lune : la course à l'eau glacée",
+      "lien": "Même thème d'exploration spatiale et de cartographie de ressources invisibles : la course à l'eau glacée lunaire (ressources cachées à cartographier) et la carte d'Euclid (énergie noire, matière noire — composantes invisibles de l'Univers) partagent la même dynamique d'exploration de l'invisible."
+    }
+  ],
+  "recommandations_redaction": [
+    "Insister sur le fait que DR1 est une première release — les analyses scientifiques sur l'énergie noire ne sont pas encore publiées ; le brief doit éviter toute conclusion hâtive sur les résultats.",
+    "Préciser que le modèle ΛCDM (énergie noire comme constante cosmologique + matière noire froide) est le modèle standard actuellement testé par Euclid, et que toute anomalie serait une découverte majeure.",
+    "Mettre en perspective la puissance d'Euclid (900M galaxies, télescope spatial dédié) vs les approches terrestres/IA (CEA : 100M galaxies) pour aider le lecteur à comprendre pourquoi cette mission est spéciale.",
+    "Lien avec l'édition du 16/10 (IA du CEA, 100M galaxies) : rappeler que la cartographie cosmique est un champ en rapide expansion, avec plusieurs acteurs et approches."
+  ]
+}

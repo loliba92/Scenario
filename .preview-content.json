@@ -1,181 +1,187 @@
 {
-  "h1": "Nvidia : la démission de Jensen Huang fait-elle craquer la bulle de l'IA ?",
-  "question_text": "La démission du PDG de Nvidia, Jensen Huang, marque-t-elle le début de l'éclatement de la bulle de l'IA sur les marchés financiers, ou les marchés vont-ils se stabiliser ?",
-  "section_title": "Trois trajectoires pour les marchés après le choc Nvidia",
+  "h1": "Euclid : la première carte de l'Univers peut-elle percer l'énergie noire ?",
+  "question_text": "La première carte cosmique d'Euclid va-t-elle révolutionner notre compréhension de l'énergie noire, ou confirmer les modèles actuels sans surprise majeure ?",
+  "section_title": "Trois scénarios pour les découvertes du télescope Euclid",
   "dek": [
-    "Le départ soudain de Jensen Huang le <strong>12 novembre 2026</strong> a provoqué une onde de choc immédiate sur les places financières mondiales. Cofondateur et dirigeant historique de Nvidia depuis trente-trois ans, l'homme incarnait à lui seul la révolution de l'intelligence artificielle générative. Sa démission précipitée, motivée par des révélations sur des liaisons personnelles incluant une relation avec une espionne chinoise présumée, a pris de court l'ensemble des investisseurs. L'action du géant américain des puces électroniques a immédiatement plongé de <strong>14 % en une seule séance</strong>, entraînant dans son sillage les principaux indices boursiers de Wall Street et fragilisant la confiance du secteur technologique.",
-    "Cette chute brutale accélère une érosion déjà amorcée depuis plusieurs semaines. Au sommet de sa trajectoire, le 6 octobre 2026, Nvidia affichait une capitalisation boursière<a class=\"lex-ref\" href=\"#lex-capitalisation-boursiere\" aria-label=\"Voir la définition dans le lexique\">*</a> record de <strong>5,79 billions de dollars</strong>, soit la plus grande valeur d'entreprise jamais enregistrée dans l'histoire économique. Après l'annonce du départ de son dirigeant, cette valorisation<a class=\"lex-ref\" href=\"#lex-valorisation\" aria-label=\"Voir la définition dans le lexique\">*</a> est retombée à environ <strong>4,01 billions de dollars</strong>. En moins de deux mois, l'entreprise a ainsi vu s'évaporer près de <strong>1 800 milliards de dollars</strong> de valeur théorique, une perte nette équivalente à l'ensemble du produit intérieur brut d'une grande puissance industrielle européenne.",
-    "La place démesurée occupée par Nvidia explique l'ampleur de la panique. L'entreprise ne fabrique pas de simples composants grand public : elle produit les processeurs graphiques indispensables à l'entraînement des modèles d'intelligence artificielle les plus puissants du monde. Ses clients majeurs, qu'il s'agisse des géants du logiciel ou des exploitants de centres de données, ont engagé des centaines de milliards de dollars de dépenses d'infrastructure. Lorsqu'un maillon aussi central vacille au sommet, c'est l'ensemble de la chaîne de valeur qui s'interroge sur la pérennité de ses investissements et sur la rentabilité future des technologies déployées.",
-    "Le contexte financier général rendait déjà le marché particulièrement nerveux. Les taux d'intérêt élevés fixés par la banque centrale américaine pénalisent lourdement les entreprises technologiques qui dépendent de la dette pour financer leurs achats de serveurs. En parallèle, les tensions géopolitiques entre Washington et Pékin autour des semi-conducteurs<a class=\"lex-ref\" href=\"#lex-semi-conducteurs\" aria-label=\"Voir la définition dans le lexique\">*</a> sensibles accentuent la suspicion envers toute faille de sécurité. Dans ce climat tendu, les analystes se divisent : certains voient dans cette démission un simple problème de gouvernance interne, tandis que d'autres y lisent le signal déclencheur d'une correction globale des marchés.",
-    "La question fondamentale porte sur l'existence d'une bulle financière<a class=\"lex-ref\" href=\"#lex-bulle-financiere\" aria-label=\"Voir la définition dans le lexique\">*</a> prête à exploser. Depuis fin 2022, les cours des actions technologiques ont grimpé à un rythme spectaculaire, souvent bien plus vite que leurs revenus réels. Les investisseurs institutionnels<a class=\"lex-ref\" href=\"#lex-investisseurs-institutionnels\" aria-label=\"Voir la définition dans le lexique\">*</a>, comme les grands fonds de pension et les banques d'investissement, se demandent si les bénéfices promis par l'automatisation justifient de tels niveaux de prix. Si les entreprises réduisent leurs commandes de matériel, le moteur boursier de ces deux dernières années pourrait caler brutalement.",
-    "L'avenir immédiat du secteur reste donc hautement imprévisible. La directrice financière Colette Kress assure désormais la direction par intérim et doit présenter des résultats trimestriels décisifs dans un climat de méfiance inédit. Trois issues se dessinent pour les prochains mois : une absorption rapide de la crise grâce à la solidité des carnets de commandes, une stagnation prolongée marquée par une redistribution des capitaux, ou un décrochage sévère qui contaminerait l'ensemble des marchés mondiaux."
+    "Le 13 novembre 2026, l'Agence spatiale européenne a franchi une étape majeure dans l'histoire de l'astronomie. Son télescope spatial Euclid, mis en orbite en juillet 2023, a publié son tout premier catalogue géant de données publiques. En un peu plus d'une année d'observation, l'instrument a déjà recensé <strong>plus d'un milliard d'objets célestes</strong> à travers le cosmos. Parmi eux figurent <strong>900 millions de galaxies</strong> lointaines observées avec une netteté remarquable. Cette moisson spectaculaire dépasse de très loin tous les relevés précédents réalisés depuis l'espace. Elle pose les fondations de la plus vaste carte en trois dimensions jamais dressée de notre Univers observable.",
+    "Pour comprendre l'enjeu, il faut imaginer l'Univers comme une immense toile cosmique<a class=\"lex-ref\" href=\"#lex-toile-cosmique\" aria-label=\"Voir la définition dans le lexique\">*</a> où la matière s'organise en longs filaments reliés entre eux. Cependant, les étoiles, les planètes et le gaz que nous pouvons voir ne représentent qu'environ cinq pour cent du contenu total du cosmos. Tout le reste demeure invisible aux instruments classiques. D'une part, la matière noire<a class=\"lex-ref\" href=\"#lex-matiere-noire\" aria-label=\"Voir la définition dans le lexique\">*</a> agit comme une colle gravitationnelle invisible qui empêche les galaxies de se disperser en tournant sur elles-mêmes. D'autre part, l'énergie noire<a class=\"lex-ref\" href=\"#lex-energie-noire\" aria-label=\"Voir la définition dans le lexique\">*</a> fonctionne à l'inverse comme une force répulsive qui accélère l'expansion de l'espace à grande échelle.",
+    "La théorie standard des scientifiques, appelée le modèle cosmologique<a class=\"lex-ref\" href=\"#lex-modele-cosmologique\" aria-label=\"Voir la définition dans le lexique\">*</a> ou modèle Lambda-CDM, décrit l'énergie noire comme une constante cosmologique immuable dans le temps et dans l'espace. Selon cette formule mathématique établie, cette force mystérieuse garde rigoureusement la même intensité depuis le Big Bang survenu il y a près de quatorze milliards d'années. Mais jusqu'à présent, nos outils de mesure manquaient de précision pour vérifier si cette force varie légèrement ou si elle reste parfaitement stable. Euclid a été conçu précisément pour trancher ce débat fondamental en mesurant la position et la forme de centaines de millions de galaxies.",
+    "Pour mesurer les distances de ces objets lointains, les chercheurs utilisent le décalage vers le rouge<a class=\"lex-ref\" href=\"#lex-decalage-vers-le-rouge\" aria-label=\"Voir la définition dans le lexique\">*</a> de la lumière émise par chaque galaxie. Plus une galaxie s'éloigne vite sous l'effet de l'expansion cosmique, plus son rayonnement lumineux s'étire vers les grandes longueurs d'onde. Grâce à un instrument de haute technologie développé sous la conduite du Laboratoire d'Astrophysique de Marseille en France, Euclid a déjà mesuré plus de 160 millions de spectres lumineux. Les astronomes traquent aussi les lentilles gravitationnelles<a class=\"lex-ref\" href=\"#lex-lentilles-gravitationnelles\" aria-label=\"Voir la définition dans le lexique\">*</a>, des mirages d'optique où la gravité d'une masse invisible déforme la trajectoire de la lumière située en arrière-plan.",
+    "L'arrivée de ce premier ensemble de données ouvre une période d'intense effervescence dans les laboratoires du monde entier. Les scientifiques analysent minutieusement les positions des galaxies pour vérifier si la toile cosmique s'est déployée exactement comme la théorie standard le prévoit. Si les résultats montrent un écart infime mais régulier par rapport aux calculs, les physiciens devront inventer une nouvelle théorie de la gravitation pour expliquer le fonctionnement réel de la nature. À l'inverse, si tout concorde parfaitement, la théorie actuelle sortira renforcée mais le mystère de la nature physique intime de l'énergie noire restera entier.",
+    "D'ici l'horizon 2030, la mission complète prévoit de cartographier <strong>jusqu'à 1,5 milliard de galaxies</strong> sur un tiers de la voûte céleste. Mais la publication des premiers résultats cosmologiques détaillés à la mi-2027 servira de premier test de vérité. Pour éclairer l'avenir de cette recherche de pointe, la rédaction de Scénarios explore trois trajectoires possibles : une rupture théorique majeure bouleversant nos lois de la physique, une confirmation solide du modèle en place, ou des difficultés méthodologiques imprévues qui ralentiraient temporairement les conclusions des chercheurs."
   ],
   "enjeu_en_clair": {
-    "lead": "La démission soudaine du dirigeant de Nvidia menace de faire vaciller les valorisations boursières records du secteur de l'intelligence artificielle.",
-    "text": "Nvidia fabrique les puces indispensables au fonctionnement de l'intelligence artificielle mondiale. Le départ imprévu de son patron Jensen Huang a fait chuter l'action de 14 % en quelques heures. Le désaccord porte sur la nature de cette secousse : simple accident de gouvernance ou début d'un krach boursier. L'enjeu concerne directement les fonds d'épargne et les entreprises du numérique, dont les investissements dépendent de la solidité de ce marché."
+    "lead": "Le télescope spatial européen Euclid vient de publier sa première carte géante de 900 millions de galaxies pour mesurer l'expansion du cosmos.",
+    "text": "Les astrophysiciens cherchent à comprendre l'énergie noire, une force invisible qui étire l'Univers à une vitesse accélérée. La théorie actuelle affirme que cette force ne change jamais, mais personne ne sait ce qu'elle est vraiment. Cette découverte ne changera rien à notre vie quotidienne sur Terre. L'enjeu est de savoir si nos lois actuelles de la physique décrivent correctement le fonctionnement de notre Univers ou si nous devons réécrire nos manuels scolaires."
   },
   "stakes_branches": {
-    "favorable": "La demande de puces reste intacte et stabilise rapidement le secteur.",
-    "stable": "Les valorisations ralentissent sans provoquer de krach généralisé.",
-    "degrade": "La défiance se propage et déclenche une vente panique des actions tech."
+    "favorable": "Euclid détecte des anomalies nettes et force les physiciens à inventer une nouvelle théorie du cosmos.",
+    "stable": "Les mesures confirment le modèle standard actuel avec une précision sans précédent mais sans surprise.",
+    "degrade": "Des biais de mesure ou des défauts d'analyse retardent les conclusions scientifiques sur l'énergie noire."
   },
   "comprendre_box": [
     {
-      "lead": "Pourquoi le cours de Nvidia influence-t-il l'ensemble de la bourse mondiale ?",
-      "text": "Nvidia représente une part gigantesque des grands indices boursiers américains. Si l'entreprise perd 10 % de sa valeur, les fonds indiciels du monde entier baissent automatiquement, ce qui force de nombreux gérants d'épargne à vendre d'autres actions pour équilibrer leurs comptes.",
+      "lead": "L'énergie noire ressemble à un élastique cosmique invisible qui s'étire de plus en plus vite.",
+      "text": "Imaginez deux fourmis posées sur un ballon de baudruche en train de gonfler. Même si elles ne bougent pas, la distance entre elles augmente parce que la surface du ballon grandit sous leurs pattes. L'énergie noire agit de la même façon sur l'espace entre les galaxies, en accélérant ce gonflement continu depuis des milliards d'années.",
       "apres_dek_index": 1
     },
     {
-      "lead": "Comment se forme une bulle financière dans les nouvelles technologies ?",
-      "text": "Une bulle apparaît lorsque les acheteurs payent des actions en pariant sur des gains futurs gigantesques, plutôt que sur les bénéfices actuels. Si un doute surgit sur la vitesse d'adoption réelle du produit, tout le monde cherche à vendre en même temps, provoquant une chute brutale.",
-      "apres_dek_index": 4
+      "lead": "Cartographier un milliard d'objets permet de reconstituer le film du cosmos en relief.",
+      "text": "Observer des galaxies situées à des distances différentes revient à feuilleter un album photo de l'Univers à plusieurs âges de sa vie. Plus une galaxie est éloignée, plus sa lumière a mis de temps à nous parvenir. En combinant 900 millions de clichés, Euclid reconstitue l'histoire de la matière depuis dix milliards d'années.",
+      "apres_dek_index": 3
     }
   ],
   "list_box": null,
   "indicators": [
     {
-      "label": "Capitalisation boursière Nvidia (pic octobre 2026)",
-      "delta": "Record historique atteint le 6 octobre 2026",
-      "value": "5,79 billions de dollars"
+      "label": "Galaxies cartographiées (DR1-Foundation)",
+      "delta": "14 % du ciel final couvert fin 2026",
+      "value": "900 millions"
     },
     {
-      "label": "Capitalisation boursière Nvidia (après démission)",
-      "delta": "-1,78 billion de dollars depuis le pic d'octobre",
-      "value": "4,01 billions de dollars"
+      "label": "Objets célestes totaux (DR1 complet)",
+      "delta": "Premier catalogue public de novembre 2026",
+      "value": "1 milliard+"
     }
   ],
   "cards": {
     "favorable": {
-      "pct": 30,
-      "gauge_word": "Probable",
-      "h3": "L'incident reste isolé et les fondamentaux industriels rassurent les marchés",
+      "pct": 25,
+      "gauge_word": "Peu probable",
+      "h3": "Les données révèlent une fissure dans la théorie standard de l'Univers",
       "why": [
-        "Premier scénario : les marchés financiers assimilent le départ de Jensen Huang à une crise humaine sans impact sur l'outil de production. Concrètement, les commandes de processeurs graphiques pour les centres de données continuent d'affluer au même rythme soutenu chez les fabricants partenaires. La direction par intérim présente des résultats financiers trimestriels solides, marqués par une croissance annuelle proche de <strong>90 %</strong> de son chiffre d'affaires, ce qui dissipe la peur d'un ralentissement de l'adoption industrielle. Les investisseurs cessent de vendre en urgence et l'action entame un rebond technique dans les semaines suivantes.",
-        "Cette trajectoire suppose que les clients ne remettent pas en cause leurs calendriers de déploiement technologique malgré le changement de direction. Contrairement aux scénarios de repli ou de crise systémique, ce dénouement considère que l'avantage technologique de l'entreprise demeure inaccessible pour ses concurrents directs à court terme. La transition managériale pourrait ainsi être bouclée rapidement sans altérer la rentabilité opérationnelle du secteur."
+        "Premier scénario : les mesures statistiques tirées du premier catalogue d'Euclid font apparaître des écarts significatifs avec les prédictions mathématiques du modèle cosmologique standard. En analysant la distribution spatiale des amas de galaxies et les légères déformations causées par les lentilles gravitationnelles, les équipes découvrent que l'énergie noire varie au fil du temps cosmique. Concrètement, cette force invisible ne se comporterait pas comme une simple constante fixe, mais comme un fluide dynamique dont la densité évolue au cours des milliards d'années. Une telle anomalie obligerait les théoriciens à revoir les équations d'Albert Einstein sur la relativité générale à l'échelle du cosmos tout entier.",
+        "Par rapport à une simple confirmation rassurante ou à un retard méthodologique, cette trajectoire constituerait la découverte scientifique la plus importante du siècle en physique fondamentale. Elle apporterait la preuve expérimentale que nos modèles théoriques actuels sont incomplets pour décrire l'expansion du cosmos. Les financements publics et les travaux de recherche mondiaux se réorienteraient massivement vers de nouvelles pistes théoriques, tandis que les laboratoires européens prendraient une avance décisive sur leurs concurrents internationaux. Cette bascule conceptuelle pourrait ouvrir la voie à une révolution scientifique comparable à l'avènement de la physique quantique au début du vingtième siècle."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Capitalisation boursière Nvidia (pic octobre 2026)",
-          "evo_current": "5,79 billions $",
-          "evo_arrow": "flat",
-          "evo_prev": "5,79 billions $"
+          "field_name": "Galaxies cartographiées (DR1-Foundation)",
+          "evo_current": "900 millions analysées avec anomalies confirmées",
+          "evo_arrow": "up",
+          "evo_prev": "900 millions (base de départ)"
         },
         {
-          "field_name": "Capitalisation boursière Nvidia (après démission)",
-          "evo_current": "4,80 billions $",
+          "field_name": "Objets célestes totaux (DR1 complet)",
+          "evo_current": "1 milliard+ d'objets servant à recalibrer les lois",
           "evo_arrow": "up",
-          "evo_prev": "4,01 billions $"
+          "evo_prev": "1 milliard+ (catalogue brut)"
         }
       ],
-      "france_line": "Les fonds d'épargne français investis dans la tech américaine récupèrent leurs pertes initiales.",
+      "france_line": "Le Laboratoire d'Astrophysique de Marseille et le CNRS se retrouveraient au centre de la plus grande découverte de la physique moderne.",
       "france_impact": "favorable"
     },
     "stable": {
-      "pct": 45,
-      "gauge_word": "Probable",
-      "h3": "Les valorisations se tassent sans provoquer d'effondrement systémique",
+      "pct": 55,
+      "gauge_word": "Assez probable",
+      "h3": "Le modèle standard sort conforté avec une précision d'observation inédite",
       "why": [
-        "Deuxième scénario : la chute de Nvidia marque la fin de l'euphorie boursière mais ne déclenche pas de krach généralisé. Concrètement, les grands gestionnaires de capitaux réduisent leur exposition au titre pour répartir leurs investissements vers d'autres acteurs du secteur ou vers des entreprises traditionnelles plus rentables à court terme. Les cours de bourse cessent de progresser à un rythme vertigineux et entament une phase de consolidation durable, tandis que les exigences de rentabilité sur les projets logiciels deviennent beaucoup plus strictes.",
-        "Cette issue intermédiaire se distingue nettement d'un rebond rapide ou d'une panique destructrice en actant un changement de régime financier. Les valorisations excessives sont rabotées de façon ordonnée, ce qui limite les dégâts pour le reste de l'économie mondiale tout en freinant les levées de fonds spéculatives. Le marché de l'intelligence artificielle deviendrait ainsi plus mature et moins dépendant des déclarations d'un seul dirigeant emblématique."
+        "Deuxième scénario : les analyses poussées des positions de galaxies confirment parfaitement la théorie dominante de la constante cosmologique. Toutes les mesures de vitesse d'expansion et de courbure de l'espace tombent exactement dans les marges de tolérance prévues par le modèle Lambda-CDM. Concrètement, l'énergie noire continue d'apparaître comme une propriété intrinsèque et invariable du vide spatial, sans la moindre trace de fluctuation dans le temps ou dans l'espace. Les astrophysiciens obtiennent une précision de mesure dix fois supérieure à celle des missions précédentes, éliminant de nombreuses hypothèses alternatives de physique exotique sans pour autant dévoiler la nature microscopique de cette force.",
+        "Contrairement au scénario de rupture spectaculaire ou à l'hypothèse d'une impasse technique, cette issue valide la solidité remarquable des théories élaborées depuis plusieurs décennies par la communauté scientifique. Même en l'absence de révolution conceptuelle immédiate, ces données affinées permettent de fixer des limites extrêmement strictes sur la masse des particules cosmiques et sur la géométrie globale de l'Univers. La mission Euclid remplirait ainsi rigoureusement son contrat scientifique initial auprès de l'Agence spatiale européenne. Les scientifiques consolideraient un cadre de travail très robuste pour guider les futurs observatoires spatiaux prévus pour la décennie suivante."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Capitalisation boursière Nvidia (pic octobre 2026)",
-          "evo_current": "5,79 billions $",
+          "field_name": "Galaxies cartographiées (DR1-Foundation)",
+          "evo_current": "900 millions confirmant le modèle standard",
           "evo_arrow": "flat",
-          "evo_prev": "5,79 billions $"
+          "evo_prev": "900 millions (catalogue initial)"
         },
         {
-          "field_name": "Capitalisation boursière Nvidia (après démission)",
-          "evo_current": "3,90 billions $",
+          "field_name": "Objets célestes totaux (DR1 complet)",
+          "evo_current": "1 milliard+ d'objets validant les calculs théoriques",
           "evo_arrow": "flat",
-          "evo_prev": "4,01 billions $"
+          "evo_prev": "1 milliard+ (catalogue brut)"
         }
       ],
-      "france_line": "Les valorisations des jeunes pousses françaises de l'IA ralentissent sans stopper leurs projets.",
-      "france_impact": "degrade"
+      "france_line": "L'ingénierie spatiale française et les instruments du LAM voient leur fiabilité saluée au niveau mondial.",
+      "france_impact": "favorable"
     },
     "degrade": {
-      "pct": 25,
+      "pct": 20,
       "gauge_word": "Peu probable",
-      "h3": "Une vente panique déclenche une correction sévère de tout le secteur technologique",
+      "h3": "Des incertitudes de mesure et des biais instrumentaux retardent les réponses",
       "why": [
-        "Troisième scénario : l'affaire Jensen Huang sert de révélateur à une bulle devenue insoutenable et provoque une fuite massive des capitaux. Concrètement, les révélations sur des fuites technologiques potentielles vers la Chine déclenchent des enquêtes parlementaires rigoureuses et des restrictions réglementaires accrues sur les exportations de composants. Les entreprises clientes, déjà fragilisées par le coût de la dette, annulent une partie de leurs commandes de serveurs, entraînant une révision à la baisse des prévisions de bénéfices de tous les géants du numérique.",
-        "Par rapport aux deux autres trajectoires, ce scénario transforme un incident de gouvernance en une crise de confiance globale pour l'ensemble des marchés d'actions. Les pertes accumulées sur les valeurs technologiques forcent les fonds de placement à liquider des actifs sains, contaminant les bourses européennes et asséchant le capital-risque mondial. Les financements accordés aux nouvelles technologies glisseraient alors vers un gel prolongé de plusieurs trimestres."
+        "Troisième scénario : le traitement des données se heurte à des difficultés imprévues liées aux effets d'optique ou à des poussières intergalactiques mal modélisées. Les chercheurs découvrent que certains signaux de déformation de la lumière sont parasités par des artefacts instrumentaux difficiles à corriger. Concrètement, la marge d'erreur statistique reste trop élevée pour déterminer avec certitude si l'énergie noire dévie ou non de la théorie standard. Les équipes doivent suspendre la publication de leurs conclusions cosmologiques majeures pour retravailler en profondeur les algorithmes de nettoyage des images, ce qui repousse de plusieurs années les interprétations scientifiques définitives.",
+        "Par rapport aux deux scénarios précédents où les données apportent une réponse tranchée, cette situation prolongerait une période d'incertitude frustrante pour l'astrophysique européenne. La mission ne serait pas un échec scientifique complet, car les images individuelles restent d'une beauté et d'une richesse exceptionnelles pour l'étude des étoiles proches. Toutefois, le grand objectif d'élucider le mystère de l'accélération cosmique perdrait son avance temporelle face aux projets concurrents menés au sol par les observatoires américains. Le débat cosmologique mondial glisserait alors vers une phase d'attente prolongée jusqu'à la livraison complète du catalogue final prévue en 2030."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Capitalisation boursière Nvidia (pic octobre 2026)",
-          "evo_current": "5,79 billions $",
-          "evo_arrow": "flat",
-          "evo_prev": "5,79 billions $"
+          "field_name": "Galaxies cartographiées (DR1-Foundation)",
+          "evo_current": "900 millions nécessitant des recalibrations",
+          "evo_arrow": "down",
+          "evo_prev": "900 millions (première estimation)"
         },
         {
-          "field_name": "Capitalisation boursière Nvidia (après démission)",
-          "evo_current": "2,90 billions $",
+          "field_name": "Objets célestes totaux (DR1 complet)",
+          "evo_current": "1 milliard+ d'objets gelés pour corrections d'algorithmes",
           "evo_arrow": "down",
-          "evo_prev": "4,01 billions $"
+          "evo_prev": "1 milliard+ (catalogue initial)"
         }
       ],
-      "france_line": "Les épargnants français subissent des baisses de valeur notables sur leurs contrats d'assurance-vie.",
+      "france_line": "Les équipes de recherche françaises devraient mobiliser des mois de calculs supplémentaires pour corriger les chaînes de traitement.",
       "france_impact": "degrade"
     }
   },
   "essentiel_box": [
-    "La démission imprévue du PDG de Nvidia, Jensen Huang, menace-t-elle de faire éclater la bulle financière de l'intelligence artificielle ou le secteur va-t-il absorber le choc ?",
-    "L'action de Nvidia a chuté de 14 % le 12 novembre 2026 après des révélations personnelles, portant la perte de valeur à près de 1 800 milliards de dollars depuis son pic d'octobre.",
-    "Notre scénario le plus probable (45 %) prévoit un atterrissage en douceur avec un ralentissement des valorisations, loin d'un krach généralisé (25 %) ou d'un rebond immédiat (30 %).",
-    "Le signal à surveiller sera la publication des résultats financiers trimestriels de Nvidia et les prévisions de commandes des grands exploitants de serveurs informatiques."
+    "La première livraison de données du télescope spatial Euclid peut-elle enfin dévoiler la nature cachée de l'énergie noire ou confirmera-t-elle simplement les théories établies ?",
+    "Lancé en 2023 par l'Agence spatiale européenne, Euclid a publié le 13 novembre 2026 un relevé colossal comprenant <strong>900 millions de galaxies</strong> et plus d'<strong>un milliard d'objets célestes</strong>.",
+    "Pas de révolution immédiate dans l'immédiat : notre scénario le plus probable (55 %) voit ces données conforter le modèle cosmologique standard avec une précision record — deux autres scénarios restent ouverts : une rupture théorique inattendue (25 %) ou des retards méthodologiques (20 %).",
+    "Signal à surveiller : la publication des premiers articles d'analyse cosmologique conjointe sur l'énergie noire programmée pour le milieu de l'année 2027."
   ],
   "delta_france": {
-    "kind": "negatif",
-    "score": -0.4,
-    "word": "léger négatif",
-    "text": "car la probabilité cumulée de 70 % d'une stagnation ou d'un repli des marchés pèse sur les contrats d'assurance-vie investis en actions internationales et freine les levées de fonds des start-ups françaises."
+    "kind": "positif",
+    "score": 0.6,
+    "word": "assez positif",
+    "text": "La France est l'un des premiers artisans de la mission grâce au spectromètre NISP conçu par le Laboratoire d'Astrophysique de Marseille, assurant aux chercheurs nationaux un accès privilégié aux données dans 80 % de nos scénarios d'analyse (scénario de confirmation à 55 % et scénario de percée théorique à 25 %)."
   },
-  "phrase_a_retenir": "La capitalisation de Nvidia est tombée à 4,01 billions de dollars après la démission de son PDG, effaçant près de 1 800 milliards de dollars depuis son pic d'octobre 2026.",
-  "phrase_a_retenir_stat": "4,01 billions de dollars",
+  "phrase_a_retenir": "Avec 900 millions de galaxies cartographiées dès sa première livraison de novembre 2026, le télescope spatial Euclid pose les bases de la plus vaste carte 3D de l'Univers pour tester la théorie de l'énergie noire.",
+  "phrase_a_retenir_stat": "900 millions de galaxies",
   "lexique": [
     {
-      "slug": "capitalisation-boursiere",
-      "terme": "capitalisation boursière",
-      "definition": "Valeur marchande totale d'une entreprise cotée en bourse, calculée en multipliant le prix d'une action par le nombre total d'actions en circulation."
+      "slug": "toile-cosmique",
+      "terme": "toile cosmique",
+      "definition": "Structure gigantesque en réseau où les galaxies se regroupent le long de longs filaments de matière séparés par d'immenses bulles de vide."
     },
     {
-      "slug": "valorisation",
-      "terme": "valorisation",
-      "definition": "Estimation financière de la valeur d'une entreprise à un instant donné, basée sur ses cours de bourse, ses résultats comptables ou ses perspectives de croissance."
+      "slug": "matiere-noire",
+      "terme": "matière noire",
+      "definition": "Forme invisible de matière qui n'émet aucune lumière mais dont l'attraction gravitationnelle maintient la cohésion des galaxies."
     },
     {
-      "slug": "semi-conducteurs",
-      "terme": "semi-conducteurs",
-      "definition": "Composants électroniques, souvent appelés puces ou microprocesseurs, indispensables au calcul informatique, au traitement des données et aux systèmes d'intelligence artificielle."
+      "slug": "energie-noire",
+      "terme": "énergie noire",
+      "definition": "Force mystérieuse et répulsive qui remplit tout l'espace et accélère l'expansion de l'Univers depuis plusieurs milliards d'années."
     },
     {
-      "slug": "bulle-financiere",
-      "terme": "bulle financière",
-      "definition": "Hausse excessive et injustifiée du prix de certains actifs boursiers, entretenue par la spéculation, avant une baisse brutale lors du retour à la réalité économique."
+      "slug": "modele-cosmologique",
+      "terme": "modèle cosmologique",
+      "definition": "Cadre théorique de référence (aussi appelé Lambda-CDM) décrivant l'histoire, la composition et l'évolution de l'Univers observable."
     },
     {
-      "slug": "investisseurs-institutionnels",
-      "terme": "investisseurs institutionnels",
-      "definition": "Grandes organisations financières, comme les fonds de pension, les compagnies d'assurance ou les banques, qui gèrent et placent d'importantes masses de capitaux sur les marchés."
+      "slug": "decalage-vers-le-rouge",
+      "terme": "décalage vers le rouge",
+      "definition": "Écrasement ou étirement de la lumière vers les teintes rouges causé par l'éloignement d'une galaxie, permettant de calculer sa distance."
+    },
+    {
+      "slug": "lentilles-gravitationnelles",
+      "terme": "lentilles gravitationnelles",
+      "definition": "Déformation de l'image d'une galaxie d'arrière-plan provoquée par la masse d'un objet très lourd situé sur le trajet de la lumière."
     }
   ],
   "sources_html": [
-    "<a href=\"https://www.cnbc.com/2026/11/13/nvidia-stock-jensen-affair-ai.html\" target=\"_blank\" rel=\"noopener noreferrer\">CNBC — Nvidia stock plunges 14% after Jensen Huang affair — AI bubble fears grow ↗</a>",
-    "<a href=\"https://finance.yahoo.com/technology/article/nvidia-market-cap-plunges-490-billion-following-former-ceo-huangs-affair-scandals-224412004.html\" target=\"_blank\" rel=\"noopener noreferrer\">Yahoo Finance — Nvidia market cap plunges $490 billion following former CEO Huang's affair scandals ↗</a>",
-    "<a href=\"https://etudes-economiques.credit-agricole.com/fr/monde-lactualite-de-la-semaine-13-novembre-2026\" target=\"_blank\" rel=\"noopener noreferrer\">Crédit Agricole — Études Économiques — Monde – L'actualité de la semaine – 13 novembre 2026 ↗</a>"
+    "<a href=\"https://www.esa.int/articles/about-us/directorates/science/euclid/euclid-lays-the-foundation-for-its-best-ever-3d-map-of-the-universe\" target=\"_blank\" rel=\"noopener noreferrer\">ESA — Euclid lays the foundation for its best-ever 3D map of the Universe ↗</a>",
+    "<a href=\"https://www.lam.fr/euclid-data-release-dr1-foundation-une-avalanche-de-donnees-images-spectres-catalogues-et-premiers-resultats/\" target=\"_blank\" rel=\"noopener noreferrer\">Laboratoire d'Astrophysique de Marseille (LAM) — Euclid Data Release DR1 Foundation : une avalanche de données, images, spectres, catalogues et premiers résultats ↗</a>",
+    "<a href=\"https://www.esa.int/Science_Exploration/Space_Science/Euclid\" target=\"_blank\" rel=\"noopener noreferrer\">ESA — Euclid : ESA's mission to map the dark Universe ↗</a>",
+    "<a href=\"https://www.esa.int/articles/about-us/directorates/science/euclid/euclid-lays-the-foundation-for-its-best-ever-3d-map-of-the-universe\" target=\"_blank\" rel=\"noopener noreferrer\">ESA — Euclid : laying the foundation for its best-ever 3D map of the Universe (détails DR1) ↗</a>"
   ],
   "meta": {
-    "title": "Nvidia : la démission de Jensen Huang fait-elle craquer la bulle de l'IA ?",
-    "meta_description": "Nvidia : la démission de Jensen Huang fait-elle craquer la bulle de l'IA ? 3 scénarios prospectifs pour 2030.",
-    "og_image_alt": "Graphique illustrant la volatilité boursière et la chute de la capitalisation de Nvidia sur les marchés financiers",
+    "title": "Euclid : la première carte de l'Univers peut-elle percer l'énergie noire ?",
+    "meta_description": "Euclid : la première carte de l'Univers peut-elle percer l'énergie noire ? 3 scénarios prospectifs pour 2030.",
+    "og_image_alt": "Représentation de la carte cosmique en 3D et du télescope spatial Euclid observant l'Univers profond.",
     "keywords": [
-      "Jensen Huang",
-      "Nvidia"
+      "Euclid",
+      "Univers"
     ],
-    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-11-19.html\"\n  },\n  \"headline\": \"Nvidia : la démission de Jensen Huang fait-elle craquer la bulle de l'IA ?\",\n  \"description\": \"Nvidia : la démission de Jensen Huang fait-elle craquer la bulle de l'IA ? 3 scénarios prospectifs pour 2030.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-11-19.png\"\n  ],\n  \"datePublished\": \"2026-11-19T00:00:00\",\n  \"dateModified\": \"2026-11-19T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"Jensen Huang, Nvidia\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Actualité\"\n}",
-    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Nvidia : la démission de Jensen Huang fait-elle craquer la bulle de l'IA ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-11-19.html\"\n    }\n  ]\n}"
+    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-11-20.html\"\n  },\n  \"headline\": \"Euclid : la première carte de l'Univers peut-elle percer l'énergie noire ?\",\n  \"description\": \"Euclid : la première carte de l'Univers peut-elle percer l'énergie noire ? 3 scénarios prospectifs pour 2030.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-11-20.png\"\n  ],\n  \"datePublished\": \"2026-11-20T00:00:00\",\n  \"dateModified\": \"2026-11-20T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"Euclid, Univers\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Actualité\"\n}",
+    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Euclid : la première carte de l'Univers peut-elle percer l'énergie noire ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-11-20.html\"\n    }\n  ]\n}"
   }
 }
