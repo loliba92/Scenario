@@ -61,7 +61,10 @@ class T(unittest.TestCase):
         self.assertIn("<h1>Du scénario au réel</h1>", h)
         self.assertNotIn("{{", h)
         self.assertIn('href="a-venir.html" aria-current="page"', h)
-        visible = re.sub(r"<[^>]+>", " ", g.contenu(g.charger(), date(2026, 11, 10)))
+        # Aucune probabilité sur les rendez-vous à venir. La section « Déjà arrivés » peut en revanche
+        # rappeler ce que l'édition avait annoncé et citer les chiffres vérifiés du constat (« 5,9 % du PIB »).
+        avant_passes = g.contenu(g.charger(), date(2026, 11, 10)).split('<section class="passes"')[0]
+        visible = re.sub(r"<[^>]+>", " ", avant_passes)
         self.assertNotIn("%", visible)
 
     def test_fiche_qui_nature_calendrier(self):
