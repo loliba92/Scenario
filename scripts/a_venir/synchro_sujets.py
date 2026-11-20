@@ -90,8 +90,9 @@ def desires(data, aujourdhui, fermes=None):
     return voulus
 
 
-def synchroniser(donnees, voulus, sujets_ids):
-    """Met à jour data['rendez_vous'] ; renvoie (ajoutés, mis à jour, retirés)."""
+def synchroniser(donnees, voulus, sujets_ids, aujourdhui=None):
+    """Met à jour data['rendez_vous'] ; renvoie (ajoutés, mis à jour, retirés).
+    Un rendez-vous dont la date est passée n'est jamais retiré : il attend la vérification de son résultat."""
     liste = donnees["rendez_vous"]
     par_id = {r["id"]: r for r in liste}
     ajoutes, maj, retires = 0, 0, []
@@ -109,7 +110,8 @@ def synchroniser(donnees, voulus, sujets_ids):
                 r[c] = v[c]
             maj += 1
     for r in list(liste):
-        if r.get("source") == SOURCE and r["id"] not in voulus and "resultat" not in r:
+        echu = aujourdhui is not None and r["date"] < aujourdhui.isoformat()
+        if r.get("source") == SOURCE and r["id"] not in voulus and "resultat" not in r and not echu:
             liste.remove(r)
             retires.append(r["id"])
     return ajoutes, maj, retires
@@ -150,7 +152,7 @@ def main(argv=None):
     donnees = json.loads(A_VENIR.read_text(encoding="utf-8"))
     voulus = desires(data, aujourdhui)
     sujets_ids = {e["id"] for _, e in sj.sujets(data)}
-    ajoutes, maj, retires = synchroniser(donnees, voulus, sujets_ids)
+    ajoutes, maj, retires = synchroniser(donnees, voulus, sujets_ids, aujourdhui)
     if ajoutes or maj or retires:
         A_VENIR.write_text(json.dumps(donnees, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"synchro À venir : {ajoutes} ajouté(s), {maj} mis à jour, {len(retires)} retiré(s)")

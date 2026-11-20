@@ -90,6 +90,17 @@ class SynchroTest(unittest.TestCase):
         self.assertEqual(retires, ["ancien"])
         self.assertEqual([r["id"] for r in donnees["rendez_vous"]], ["ancien-verifie"])
 
+    def test_echu_sans_resultat_reste_en_attente_de_verification(self):
+        donnees = {"rendez_vous": [
+            {"id": "hier", "date": "2026-11-19", "source": "sujets", "domaine": "Culture", "question": "q",
+             "commentaire": "c"},
+            {"id": "demain", "date": "2026-11-21", "source": "sujets", "domaine": "Culture", "question": "q",
+             "commentaire": "c"},
+        ]}
+        _, _, retires = ss.synchroniser(donnees, {}, set(), date(2026, 11, 20))
+        self.assertEqual(retires, ["demain"])
+        self.assertEqual([r["id"] for r in donnees["rendez_vous"]], ["hier"])
+
 
 class ValiderFixeTest(unittest.TestCase):
     BON = {"ferme": True, "evenement": "Réunion BCE", "precision": "jour", "qui": "BCE",
