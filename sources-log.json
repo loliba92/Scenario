@@ -2,6 +2,21 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-11-20",
+      "articles": [
+        {
+          "title": "Revue de presse scientifique du 13/11/2026",
+          "source": "Science Music",
+          "url": "https://sciencemusic.live/revue-de-presse-scientifique-du-13-11-2026/",
+          "image": "https://sciencemusic.live/wp-content/uploads/RDP-13112026.webp",
+          "lang": "fr",
+          "domain": "sciences-environnement",
+          "summary": "Revue de presse scientifique du 13 novembre 2026 mentionnée comme source piste dans le dossier du sujet — à vérifier pour d'éventuels articles connexes sur Euclid.",
+          "read_minutes": 2
+        }
+      ]
+    },
+    {
       "date": "2026-11-19",
       "articles": [
         {
