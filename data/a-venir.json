@@ -106,22 +106,6 @@
       "source": "sujets"
     },
     {
-      "id": "evt-dernier-match-de-la-phase-de-groupes-de-ligue-des-2026-11-15",
-      "date": "2026-11-15",
-      "precision": "jour",
-      "domaine": "Sport",
-      "question": "Dernier match de la phase de groupes de Ligue des nations : 15 novembre 2026",
-      "commentaire": "Dernier match de la phase de groupes (France-Turquie).",
-      "editions": [
-        "2026-10-18"
-      ],
-      "qui": "Fédération française de football",
-      "nature": "Dernier match de la phase de groupes (France-Turquie)",
-      "officiel": true,
-      "calendrier": "date_fixee",
-      "source": "sujets"
-    },
-    {
       "id": "evt-grande-finale-du-championnat-des-nations-de-rugby-2026-11-29",
       "date": "2026-11-29",
       "precision": "jour",
@@ -215,22 +199,6 @@
       ],
       "qui": "Netflix",
       "nature": "Sortie commerciale en salles",
-      "officiel": false,
-      "calendrier": "date_fixee",
-      "source": "sujets"
-    },
-    {
-      "id": "evt-sortie-mondiale-de-gta-vi-2026-11-19",
-      "date": "2026-11-19",
-      "precision": "jour",
-      "domaine": "Culture",
-      "question": "Sortie mondiale de GTA VI : 19 novembre 2026",
-      "commentaire": "Sortie commerciale du jeu.",
-      "editions": [
-        "2026-10-17"
-      ],
-      "qui": "Rockstar Games",
-      "nature": "Sortie commerciale du jeu",
       "officiel": false,
       "calendrier": "date_fixee",
       "source": "sujets"
