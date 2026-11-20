@@ -1480,6 +1480,16 @@ préférée pour son registre déjà simplifié.*
 
 *Phrase à retenir de l'édition du 2026-11-19 (archives/2026-11-19.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
 
+### chiffre-2026-11-20
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 900 millions de galaxies
+- message: Avec 900 millions de galaxies cartographiées dès sa première livraison de novembre 2026, le télescope spatial Euclid pose les bases de la plus vaste carte 3D de l'Univers pour tester la théorie de l'énergie noire.
+- attribution: — lesscenarios.fr, 20 novembre 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-11-20.html
+
+*Phrase à retenir de l'édition du 2026-11-20 (archives/2026-11-20.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
