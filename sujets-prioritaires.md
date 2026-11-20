@@ -1268,7 +1268,9 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
   <!-- mots-clés: Chine ; excédent commercial ; UE ; véhicules hybrides ; protectionnisme -->
   <!-- scénarios (brouillon): favorable = Un compromis est trouvé avec l'UE, permettant à la Chine de maintenir ses exportations. ; stable = Les tensions commerciales persistent sans escalade majeure. ; dégradé = Des mesures restrictives de l'UE entraînent une baisse significative des exportations chinoises. -->
   <!-- sources: Principaux points de l'actualité économique mondiale du 10 novembre 2026 <https://www.vietnam.vn/fr/diem-tin-kinh-te-the-gioi-noi-bat-ngay-10-11-2026> -->
+  <!-- données chiffrées: [relevé du 2026-11-20] Excédent commercial de la Chine avec l'UE (unité : milliards de dollars). 2025 = 310,67 (2025) ; 2026 = 360 (2026) ; Octobre 2026 = 33,4 (octobre 2026). Sources : https://www.france24.com/fr/info-en-continu/20261110-la-chine-passe-la-marque-des-1-000-milliards-de-dollars-d-exc%C3%A9dent-commercial-d%C3%A8s-octobre ; https://www.rapporteur.com/fr/news/bruxelles-laccord-sur-les-vehicules-hybrides-nempechera-pas-des-mesures-commerciales-anti-chine/ -->
   <!-- origine: veille -->
+  <!-- enrichi: 2026-11-20 -->
   <!-- note: Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
 - [ ] La bulle immobilière commerciale va-t-elle éclater en Europe ? [économie & immobilier]
   <!-- id: economie-la-bulle-immobiliere-commerciale-va-t-elle -->
