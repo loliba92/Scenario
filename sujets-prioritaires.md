@@ -727,7 +727,7 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 
 ## Sciences — vendredi (climat & écologie, espace, IA, médecine, énergie…)
-- [ ] Le télescope Euclid peut-il percer les mystères de l'énergie noire avec sa première carte de l'Univers ? [sciences & espace]
+- [x] Le télescope Euclid peut-il percer les mystères de l'énergie noire avec sa première carte de l'Univers ? [sciences & espace]
   <!-- id: sciences-le-telescope-euclid-peut-il-percer-les-mysteres -->
   <!-- contexte: Le 13 novembre 2026, le télescope spatial Euclid a livré son premier ensemble de données, couvrant plus d'un milliard d'objets célestes. Ces observations visent à cartographier l'Univers en 3D pour étudier l'énergie noire, la matière noire et la toile cosmique. Lancé en 2023, Euclid est un projet de l'Agence spatiale européenne. -->
   <!-- rationnel: La question : les données d'Euclid vont-elles révolutionner notre compréhension de l'énergie noire, ou confirmer les théories existantes sans percée majeure ? Les forces en présence incluent les capacités technologiques du télescope, les modèles cosmologiques actuels, et les attentes de la communauté scientifique. Pour la France, un succès renforcerait la position de l'Europe dans l'astrophysique. -->
