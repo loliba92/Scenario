@@ -51,18 +51,19 @@ OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 # Voir docs/alternatives-tests/ et scripts/edition/test-alternatives.py
 DEFAULT_MODEL = "google/gemini-3.7-flash"  # Phase 2 production (qualité + validité garantie)
 REDACTION_PROMPT_PATH = REPO_ROOT / "docs" / "routine-redaction-prompt.md"
-MIN_WORDS = 1100
-# Tolérance croissante sur la longueur (21 novembre 2026 : un texte de 997 mots, refusé trois fois de suite,
-# empêchait tout l'aperçu). La consigne reste de viser bien plus que 1100 mots ; seul le REFUS est assoupli :
-# 1er essai 1100 mots, 2e essai 5 % de moins (1045), 3e essai 10 % de moins (990).
-TOLERANCE_LONGUEUR_PAR_ESSAI = (0.0, 0.05, 0.10)
-MIN_WORDS_FINAL = int(MIN_WORDS * (1 - TOLERANCE_LONGUEUR_PAR_ESSAI[-1]))  # 990 : seuil du contrôle final du HTML
+# Seuils de longueur par essai (21 novembre 2026 : un texte de 997 mots, refusé trois fois de suite, empêchait tout
+# l'aperçu). Décision de l'éditeur : 1000 mots au 1er essai, 900 au 2e, 800 au 3e. La consigne donnée au modèle
+# reste de viser 1300 à 1500 mots ; seul le REFUS est assoupli.
+MIN_WORDS_PAR_ESSAI = (1000, 900, 800)
+MIN_WORDS = MIN_WORDS_PAR_ESSAI[0]
+MIN_WORDS_FINAL = MIN_WORDS_PAR_ESSAI[-1]  # seuil du contrôle final du HTML : le plus tolérant, sinon un texte accepté au 3e essai serait refusé après coup
 
 
 def min_words_pour_essai(essai):
     """Seuil de mots en dessous duquel le contenu est refusé, selon l'essai (0 = premier)."""
-    t = TOLERANCE_LONGUEUR_PAR_ESSAI[min(max(essai, 0), len(TOLERANCE_LONGUEUR_PAR_ESSAI) - 1)]
-    return int(MIN_WORDS * (1 - t))
+    return MIN_WORDS_PAR_ESSAI[min(max(essai, 0), len(MIN_WORDS_PAR_ESSAI) - 1)]
+
+
 MIN_ESSENTIEL_WORDS = 110  # essentiel_box (4 paragraphes) — voir validate_content_schema()
 
 # « L'enjeu en clair » (ajouté le 16 octobre 2026, retour de l'éditeur sur une
@@ -1419,10 +1420,10 @@ def validate_content_schema(content, brief, min_words=MIN_WORDS):
     # schéma, avec le nombre de mots manquants explicite dans le message
     # renvoyé au modèle au deuxième essai.
     word_count = estimate_word_count(content)
-    if word_count < min_words:  # min_words baisse avec l'essai : voir min_words_pour_essai()
+    if word_count < min_words:  # le seuil baisse avec l'essai : voir min_words_pour_essai()
         errors.append(
             f"longueur estimée insuffisante : {word_count} mots dans dek + why + "
-            f"lexique (minimum {MIN_WORDS}, manque {MIN_WORDS - word_count} mots) — "
+            f"lexique (minimum {min_words}, manque {min_words - word_count} mots) — "
             "développer le contexte et les why plutôt que délayer les phrases existantes"
         )
 
