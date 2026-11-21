@@ -52,6 +52,17 @@ OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 DEFAULT_MODEL = "google/gemini-3.7-flash"  # Phase 2 production (qualité + validité garantie)
 REDACTION_PROMPT_PATH = REPO_ROOT / "docs" / "routine-redaction-prompt.md"
 MIN_WORDS = 1100
+# Tolérance croissante sur la longueur (21 novembre 2026 : un texte de 997 mots, refusé trois fois de suite,
+# empêchait tout l'aperçu). La consigne reste de viser bien plus que 1100 mots ; seul le REFUS est assoupli :
+# 1er essai 1100 mots, 2e essai 5 % de moins (1045), 3e essai 10 % de moins (990).
+TOLERANCE_LONGUEUR_PAR_ESSAI = (0.0, 0.05, 0.10)
+MIN_WORDS_FINAL = int(MIN_WORDS * (1 - TOLERANCE_LONGUEUR_PAR_ESSAI[-1]))  # 990 : seuil du contrôle final du HTML
+
+
+def min_words_pour_essai(essai):
+    """Seuil de mots en dessous duquel le contenu est refusé, selon l'essai (0 = premier)."""
+    t = TOLERANCE_LONGUEUR_PAR_ESSAI[min(max(essai, 0), len(TOLERANCE_LONGUEUR_PAR_ESSAI) - 1)]
+    return int(MIN_WORDS * (1 - t))
 MIN_ESSENTIEL_WORDS = 110  # essentiel_box (4 paragraphes) — voir validate_content_schema()
 
 # « L'enjeu en clair » (ajouté le 16 octobre 2026, retour de l'éditeur sur une
@@ -1097,7 +1108,7 @@ def apply_apres_dek_index_fallback(content):
 # ---------------------------------------------------------------------------
 # Validation du contenu retourné par le modèle (avant construction HTML)
 # ---------------------------------------------------------------------------
-def validate_content_schema(content, brief):
+def validate_content_schema(content, brief, min_words=MIN_WORDS):
     errors = []
     required = ["h1", "question_text", "section_title", "dek", "stakes_branches",
                 "indicators", "cards", "essentiel_box", "delta_france",
@@ -1408,7 +1419,7 @@ def validate_content_schema(content, brief):
     # schéma, avec le nombre de mots manquants explicite dans le message
     # renvoyé au modèle au deuxième essai.
     word_count = estimate_word_count(content)
-    if word_count < MIN_WORDS:
+    if word_count < min_words:  # min_words baisse avec l'essai : voir min_words_pour_essai()
         errors.append(
             f"longueur estimée insuffisante : {word_count} mots dans dek + why + "
             f"lexique (minimum {MIN_WORDS}, manque {MIN_WORDS - word_count} mots) — "
@@ -1445,7 +1456,7 @@ def estimate_word_count(content):
     return len(plain.split())
 
 
-def validate_assembled_html(html_text, content):
+def validate_assembled_html(html_text, content, min_words=MIN_WORDS_FINAL):
     """Validation finale, sur le HTML réellement produit — indépendante du
     modèle, même si validate_content_schema() est déjà passée (voir
     section E de l'audit : deux niveaux de validation, jamais un seul)."""
@@ -1496,8 +1507,8 @@ def validate_assembled_html(html_text, content):
     content_els = soup.select(".dek, .why, dd")
     text = " ".join(el.get_text() for el in content_els)
     word_count = len(text.split())
-    if word_count < MIN_WORDS:
-        errors.append(f"longueur : {word_count} mots dans .dek/.why/dd (minimum {MIN_WORDS})")
+    if word_count < min_words:
+        errors.append(f"longueur : {word_count} mots dans .dek/.why/dd (minimum {min_words})")
 
     # Cohérence lex-ref <-> lexique : tout href="#lex-..." doit avoir un id
     # correspondant, et réciproquement chaque terme du lexique doit être
@@ -1638,7 +1649,7 @@ def main():
         content = normalize_content_markdown(content)
         content = normalize_content_indicators(content)
         content = normalize_content_lex_ref(content)
-        errors = validate_content_schema(content, brief)
+        errors = validate_content_schema(content, brief, min_words_pour_essai(attempt))
         attempts_history.append((content, errors))
         if not errors:
             break
