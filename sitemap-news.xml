@@ -11,4 +11,15 @@
       <news:title>Euclid: Can the first map of the Universe unlock dark energy?</news:title>
     </news:news>
   </url>
-<url><loc>https://lesscenarios.fr/archives/2026-11-21.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-11-21T06:01:46+01:00</news:publication_date><news:title>L'IA dans l'édition : les maisons d'édition françaises peuvent-elles se protéger ?</news:title></news:news></url></urlset>
+<url><loc>https://lesscenarios.fr/archives/2026-11-21.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-11-21T06:01:46+01:00</news:publication_date><news:title>L'IA dans l'édition : les maisons d'édition françaises peuvent-elles se protéger ?</news:title></news:news></url>  <url>
+    <loc>https://lesscenarios.fr/en/archives/2026-11-21.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Scénario</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-11-21T06:01:46+01:00</news:publication_date>
+      <news:title>AI in publishing: Can French publishing houses protect themselves?</news:title>
+    </news:news>
+  </url>
+</urlset>
