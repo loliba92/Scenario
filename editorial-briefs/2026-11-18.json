@@ -1,0 +1,305 @@
+{
+  "date": "2026-11-18",
+  "registre": "actualite_francaise",
+  "sujet": {
+    "titre_propose": "La hausse du SMIC peut-elle relancer la consommation sans nuire à l'emploi ?",
+    "h1": "SMIC : +1,6 % en décembre, relance ou risque pour l'emploi ?",
+    "question_posee": "La hausse du SMIC de 1,6 % au 1er décembre 2026, portant le salaire minimum à 1 502 euros, peut-elle relancer la consommation des ménages sans réduire l'emploi, notamment dans les PME ?",
+    "eyebrow": "Mercredi, actualité française",
+    "angle": "Le gouvernement a annoncé le 9 novembre 2026 une hausse de 1,6 % du SMIC au 1er décembre, portant le net mensuel à 1 502 euros. Cette mesure vise à soutenir le pouvoir d'achat après une année de hausse cumulative de 5,6 %, mais les entreprises — surtout les PME — craignent un impact sur l'emploi et les prix. Trois scénarios explorent si la consommation reprend sans pertes d'emplois, ou si le coût pour les entreprises pèse sur l'embauche.",
+    "tags": [
+      "smic",
+      "pouvoir-d-achat",
+      "emploi",
+      "pme",
+      "gouvernement"
+    ],
+    "domain": "economie-entreprises",
+    "image_keywords": "minimum wage document france",
+    "complexite": 3,
+    "origine_prioritaire": "La hausse du SMIC peut-elle relancer la consommation sans nuire à l'emploi ?",
+    "origine_id": "actualite-francaise-la-hausse-du-smic-peut-elle-relancer-la",
+    "point_de_depart": {
+      "id": "actualite-francaise-la-hausse-du-smic-peut-elle-relancer-la",
+      "registre": "actualite_francaise",
+      "titre": "La hausse du SMIC peut-elle relancer la consommation sans nuire à l'emploi ?",
+      "question": "La hausse du SMIC peut-elle relancer la consommation sans nuire à l'emploi ?",
+      "contexte": "Le gouvernement a annoncé une hausse de 1,6 % du SMIC le 10 novembre 2026, portant le salaire minimum à 1 502 euros. Cette mesure vise à soutenir le pouvoir d'achat des ménages, mais elle est critiquée par certains économistes qui craignent un impact négatif sur l'emploi, notamment dans les PME.",
+      "rationnel": "La question : cette hausse du SMIC peut-elle stimuler la consommation sans peser sur l'emploi, ou aggravera-t-elle les difficultés des entreprises ? Les scénarios dépendent de la réaction des entreprises (embauches, hausses de prix) et de la consommation des ménages. Un scénario favorable verrait une relance de la consommation sans pertes d'emploi, un scénario stable maintiendrait un équilibre fragile, et un scénario dégradé pourrait entraîner une hausse du chômage.",
+      "mots_cles": [
+        "SMIC",
+        "pouvoir d'achat",
+        "emploi",
+        "gouvernement",
+        "PME"
+      ],
+      "angle": null,
+      "a_verifier": null,
+      "scenarios_brouillon": {
+        "favorable": "La consommation repart, soutenant la croissance sans impact majeur sur l'emploi.",
+        "stable": "L'impact est neutre, avec une légère hausse des prix compensée par une consommation stable.",
+        "degrade": "Les PME réduisent leurs effectifs pour compenser la hausse des coûts, aggravant le chômage."
+      },
+      "echeance": null,
+      "sources_pistes": [
+        {
+          "titre": "BFM Business : « Nous estimons que la croissance sera modérément positive au quatrième trimestre »",
+          "url": "https://www.banque-france.fr/fr/interventions-gouverneur/bfm-business-nous-estimons-que-la-croissance-sera-moderement-positive-au-quatrieme-trimestre"
+        }
+      ],
+      "tag": "économie & pouvoir d'achat",
+      "origine": "veille",
+      "note_editoriale": "Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
+      "donnees_graphique": "[relevé du 2026-11-12] Hausse du SMIC en France (unité : euros net mensuels). SMIC avant hausse = 1 478 (novembre 2026) ; SMIC après hausse = 1 502 (décembre 2026) ; hausse annuelle totale du SMIC en 2026 = 5,6% (2026). Sources : https://www.bfmtv.com/economie/economie-social/le-gouvernement-annonce-une-hausse-du-smic-de-1-6-des-le-mois-de-decembre-est-ce-une-fausse-bonne-idee-qui-risque-de-relever-encore-les-prix-et-de-detruire-des-emplois_AV-202611090486.html ; https://www.franceinfo.fr/economie/greve/augmentation-du-smic-allegements-de-charges-pour-les-entreprises-ce-qu-il-faut-retenir-des-annonces-du-gouvernement-a-l-issue-de-la-conference-sociale_8274527.html",
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille du 17/11 : CNews, sujet différent (pétition, chaîne de télé). Registre du mercredi = actualité française. Aucune édition récente du mercredi sur le SMIC ou le pouvoir d'achat salarié. Sujets à suivre actifs : aucun sur le SMIC. Anti-doublon OK."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Le gouvernement a annoncé le 9 novembre 2026 une hausse du SMIC de 1,6 % au 1er décembre 2026, portant le salaire minimum net mensuel à 1 502 euros.",
+      "chiffre": "1,6 %",
+      "date_du_chiffre": "2026-11-09",
+      "sources": [
+        "src1"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le SMIC net mensuel était de 1 478 euros avant la hausse de décembre 2026, soit une hausse de 24 euros.",
+      "chiffre": "1 478 euros",
+      "date_du_chiffre": "2026-11-09",
+      "sources": [
+        "src1"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La hausse annuelle cumulative du SMIC en 2026 atteint 5,6 %, incluant les augmentations de janvier et juillet.",
+      "chiffre": "5,6 %",
+      "date_du_chiffre": "2026-11-09",
+      "sources": [
+        "src1"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La France compte environ 1,5 million de salariés au SMIC ou proches, sur environ 13,5 millions d'emplois dans le privé.",
+      "chiffre": "1,5 million",
+      "date_du_chiffre": "2026-11-18",
+      "sources": [
+        "src2"
+      ],
+      "confiance": "moyenne"
+    },
+    {
+      "affirmation": "La consommation des ménages a repris légèrement au troisième trimestre 2026, après plusieurs trimestres de stagnation, selon l'Insee.",
+      "chiffre": null,
+      "date_du_chiffre": "2026-11-18",
+      "sources": [
+        "src3"
+      ],
+      "confiance": "moyenne"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Gouvernement français (Sébastien Lecornu, Premier ministre)",
+      "role": "Annonceur de la hausse du SMIC, défenseur du pouvoir d'achat"
+    },
+    {
+      "nom": "Confédérations syndicales (CGT, CFDT, MEDEF, etc.)",
+      "role": "Acteurs de la concertation sociale sur les salaires minimums"
+    },
+    {
+      "nom": "PME et entreprises françaises",
+      "role": "Bénéficiaires ou victimes potentielles de la hausse des coûts salariaux"
+    },
+    {
+      "nom": "Ménages à bas revenu",
+      "role": "Bénéficiaires directs de la hausse du SMIC, dont la consommation est surveillée"
+    },
+    {
+      "nom": "Insee",
+      "role": "Source des données sur la consommation des ménages et l'emploi"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2026-01-01",
+      "evenement": "Hausse du SMIC de 2,1 % au 1er janvier 2026 (décision de l'année précédente)"
+    },
+    {
+      "date": "2026-07-01",
+      "evenement": "Hausse du SMIC de 1,9 % au 1er juillet 2026"
+    },
+    {
+      "date": "2026-09-09",
+      "evenement": "Annonce du gouvernement d'une hausse de 1,6 % du SMIC au 1er décembre 2026"
+    },
+    {
+      "date": "2026-12-01",
+      "evenement": "Application effective de la hausse du SMIC à 1 502 euros net mensuel"
+    },
+    {
+      "date": "2026-12-31",
+      "evenement": "Fin de l'année fiscale 2026 — bilan de l'impact sur la consommation et l'emploi"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "La hausse du SMIC stimule la consommation des ménages modestes sans réduire l'emploi : les PME absorbent le coût via une productivité accrue ou une reprise d'activité, et les prix restent stables.",
+      "probabilite_suggeree": 30
+    },
+    "stable": {
+      "resume": "L'impact est mitigé : une légère reprise de la consommation est compensée par une hausse modérée des prix et une légère ralentissement de l'embauche dans les PME, sans effondrement ni accélération notable.",
+      "probabilite_suggeree": 50
+    },
+    "degrade": {
+      "resume": "Les PME réduisent leurs effectifs ou reportent les embauches pour compenser la hausse des coûts salariaux, aggravant le chômage et limitant la relance de la consommation attendue.",
+      "probabilite_suggeree": 20
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "SMIC net mensuel (décembre 2026)",
+      "valeur": "1 502 euros",
+      "tendance": "hausse de 1,6 %"
+    },
+    {
+      "label": "Hausse annuelle cumulative du SMIC en 2026",
+      "valeur": "5,6 %",
+      "tendance": "hausse cumulative"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Aucune série historique longue publique vérifiée sur le SMIC net mensuel avec au moins 5 points réels sur une période longue. Les sources consultées (BFM TV, Franceinfo) ne fournissent que les données récentes (2026). Le critère (1) n'est pas satisfait.",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "oui",
+    "raison": "Trois chiffres comparables existent : SMIC avant hausse (1 478 euros), SMIC après hausse (1 502 euros), et hausse annuelle cumulative (5,6 %). Ces trois valeurs sont de même unité (pourcentages ou euros) et permettent une comparaison visuelle.",
+    "barres": {
+      "aria_label": "Graphique comparatif des valeurs du SMIC en 2026",
+      "lead": "Évolution du SMIC en 2026 : avant et après la hausse de décembre, et hausse annuelle cumulative.",
+      "caption": "Sources : BFM TV, Franceinfo, 9 novembre 2026",
+      "unite": "euros / %",
+      "valeurs": [
+        {
+          "label": "SMIC avant hausse (nov. 2026)",
+          "valeur": 1478,
+          "affichage": "1 478 €",
+          "mis_en_avant": false
+        },
+        {
+          "label": "SMIC après hausse (déc. 2026)",
+          "valeur": 1502,
+          "affichage": "1 502 €",
+          "mis_en_avant": true
+        },
+        {
+          "label": "Hausse annuelle cumulative 2026",
+          "valeur": 5.6,
+          "affichage": "5,6 %",
+          "mis_en_avant": false
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Comment la hausse du SMIC se transmet-elle aux prix et à l'emploi ?",
+        "rattache_a": "fait 1 (annonce du gouvernement) et fait 4 (nombre de salariés au SMIC)"
+      },
+      {
+        "focus": "Pourquoi les PME sont-elles plus vulnérables à une hausse des coûts salariaux ?",
+        "rattache_a": "fait 4 (1,5 million de salariés au SMIC) et scénario dégradé"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "L'impact réel sur l'emploi des PME ne sera visible qu'au premier trimestre 2027, après plusieurs mois d'application.",
+    "La transmission des coûts salariaux aux prix des biens et services dépend des marges des entreprises et de la concurrence, difficile à prédire précisément."
+  ],
+  "a_ne_pas_affirmer": [
+    "La hausse du SMIC entraînera une hausse des prix à la consommation — cet effet est possible mais dépend des marges et de la concurrence, et n'est pas encore mesuré.",
+    "Le nombre exact de salariés au SMIC en 2026 est confirmé à 1,5 million — cette estimation provient d'une source non officielle et doit être vérifiée par l'Insee ou les syndicats."
+  ],
+  "sources": [
+    {
+      "id": "src1",
+      "title": "Le gouvernement annonce une hausse du SMIC de 1,6 % dès décembre",
+      "source": "BFM TV",
+      "url": "https://www.bfmtv.com/economie/economie-social/le-gouvernement-annonce-une-hausse-du-smic-de-1-6-des-le-mois-de-decembre-est-ce-une-fausse-bonne-idee-qui-risque-de-relever-encore-les-prix-et-de-detruire-des-emplois_AV-202611090486.html",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie-entreprises",
+      "summary": "Le gouvernement a annoncé le 9 novembre 2026 une hausse du SMIC de 1,6 % au 1er décembre, portant le salaire minimum net à 1 502 euros. Cette hausse s'inscrit dans une année de hausse cumulative de 5,6 %. Les syndicats saluent la mesure, tandis que les PME craignent un impact sur l'emploi et les prix.",
+      "read_minutes": 3
+    },
+    {
+      "id": "src2",
+      "title": "Augmentation du SMIC : ce qu'il faut retenir des annonces du gouvernement",
+      "source": "Franceinfo",
+      "url": "https://www.franceinfo.fr/economie/greve/augmentation-du-smic-allegements-de-charges-pour-les-entreprises-ce-qu-il-faut-retenir-des-annonces-du-gouvernement-a-l-issue-de-la-conference-sociale_8274527.html",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie-entreprises",
+      "summary": "À l'issue de la conférence sociale, le gouvernement a annoncé des allègements de charges pour les entreprises compensant partiellement la hausse du SMIC. Environ 1,5 million de salariés seraient concernés. Les syndicats ont obtenu certains allègements, mais les PME restent inquiètes sur l'impact emploi.",
+      "read_minutes": 3
+    },
+    {
+      "id": "src3",
+      "title": "Consommation des ménages : reprise modérée au troisième trimestre 2026",
+      "source": "Insee",
+      "url": "https://www.insee.fr/fr/statistiques/serie/001763523",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie-entreprises",
+      "summary": "L'Insee publie les données de consommation des ménages : après plusieurs trimestres de stagnation, une légère reprise est observée au troisième trimestre 2026, portée par les ménages modestes. Les indicateurs de confiance des ménages restent prudents.",
+      "read_minutes": 2
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "Franceinfo — Augmentation du SMIC : allègements de charges pour les entreprises",
+      "source": "Franceinfo",
+      "url": "https://www.franceinfo.fr/economie/grete/augmentation-du-smic-allegements-de-charges-pour-les-entreprises-ce-qu-il-faut-retenir-des-annonces-du-gouvernement-a-l-issue-de-la-conference-sociale_8274527.html",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie-entreprises",
+      "summary": "À l'issue de la conférence sociale, le gouvernement a annoncé des allègements de charges pour les entreprises compensant partiellement la hausse du SMIC. Environ 1,5 million de salariés seraient concernés. Les syndicats ont obtenu certains allègements, mais les PME restent inquiètes sur l'impact emploi.",
+      "read_minutes": 3
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-11-12",
+      "titre": "Taux en zone euro : la BCE risque-t-elle la récession ?",
+      "lien": "Économie française et zone euro — la BCE et les taux directeurs influencent le coût du crédit pour les PME, qui sont aussi exposées à la hausse du SMIC."
+    },
+    {
+      "date": "2026-10-22",
+      "titre": "Inégalités : les écarts sociaux vont-ils exploser ?",
+      "lien": "Pouvoir d'achat et inégalités — la hausse du SMIC vise à réduire les écarts de revenus, un thème central de l'édition du 22 octobre."
+    },
+    {
+      "date": "2026-09-30",
+      "titre": "Plans sociaux : le chômage va-t-il repartir à la hausse ?",
+      "lien": "Emploi et plans sociaux — la hausse du SMIC pourrait influencer l'embauche et les plans sociaux, un sujet déjà traité fin septembre."
+    }
+  ],
+  "recommandations_redaction": [
+    "Préciser que la hausse du SMIC de 1,6 % est l'une des trois hausses de 2026 (janvier, juillet, décembre), pour contextualiser la hausse cumulative de 5,6 %.",
+    "Mettre en avant les allègements de charges pour les entreprises annoncés à l'issue de la conférence sociale, comme facteur atténuant l'impact sur les PME.",
+    "Expliquer le mécanisme de transmission : hausse des coûts salariaux → hausse des prix ou réduction de l'emploi, selon les marges et la concurrence.",
+    "Insister sur le fait que l'impact sur la consommation des ménages modestes est le canal principal de relance, mais qu'il dépend de la confiance des ménages et de l'emploi."
+  ]
+}

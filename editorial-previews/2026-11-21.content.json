@@ -1,0 +1,163 @@
+{
+  "h1": "L'IA dans l'édition : les maisons d'édition françaises peuvent-elles se protéger ?",
+  "question_text": "Les maisons d'édition françaises parviendront-elles à filtrer les manuscrits générés par IA, ou assistera-t-on à une crise de confiance dans la littérature ?",
+  "section_title": "Trois voies pour l'avenir du livre face aux manuscrits automatisés",
+  "dek": [
+    "En novembre 2026, le groupe Madrigall, maison mère des prestigieuses enseignes Gallimard et Flammarion, a pris une décision sans précédent dans l'édition littéraire française. Dès janvier 2027, chaque texte soumis par la poste ou par courriel sera passé au crible d'un logiciel spécialisé. L'objectif officiel est d'intercepter les textes rédigés par des robots conversationnels avant même qu'un comité de lecture humain n'y consacre son temps. Cette mesure marque une rupture culturelle profonde. Jusqu'ici, le tri des textes reposait entièrement sur la sensibilité artistique d'éditeurs chevronnés. Désormais, un algorithme<a class=\"lex-ref\" href=\"#lex-algorithme\" aria-label=\"Voir la définition dans le lexique\">*</a> — une suite d'instructions mathématiques automatisées — s'interpose comme premier filtre d'admission.",
+    "Cette décision fait suite à une controverse majeure qui a secoué le monde des lettres durant l'automne 2026. L'affaire Thélyson Orélien a servi de détonateur. L'écrivaine, dont le premier roman figurait dans la première sélection du prestigieux prix Goncourt, a été brutalement disqualifiée. Les jurés ont mis en avant des soupçons concordants d'écriture artificielle après des analyses numériques. Le logiciel de détection Pangram a ainsi attribué au texte un taux de probabilité d'écriture artificielle atteignant <strong>84%</strong>. L'éditrice québécoise de l'auteure a immédiatement rompu son contrat, tandis que l'intéressée affirmait n'avoir utilisé l'outil que pour de simples recherches documentaires.",
+    "La généralisation de ces logiciels de détection soulève toutefois d'immenses questions techniques et juridiques. D'après les chiffres communiqués par son concepteur à la fin de l'année 2025, le logiciel Pangram revendique une excellente précision, avec un taux de faux positif<a class=\"lex-ref\" href=\"#lex-faux-positif\" aria-label=\"Voir la définition dans le lexique\">*</a> de seulement <strong>0,0041%</strong>. Un faux positif désigne une erreur statistique où un texte authentique, rédigé par un être humain, est accusé à tort d'avoir été fabriqué par une machine. Toutefois, selon les premières estimations d'universitaires indépendants, ce taux d'erreur grimperait en réalité autour de 2% sur des textes littéraires aux styles très singuliers.",
+    "Cette marge d'incertitude fait peser une épée de Damoclès sur les écrivains contemporains. Lors de récents tests comparatifs, le manuscrit de la romancière reconnue Lilia Hassaine a affiché un score d'alerte de <strong>21%</strong>, illustrant la difficulté de fixer une frontière nette entre style atypique et génération automatique. Les logiciels analysent la prévisibilité du vocabulaire et la régularité des phrases. Or, un auteur classique qui soigne sa syntaxe ou un auteur expérimental qui répète des motifs peut être suspecté à tort. Les éditeurs risquent ainsi d'écarter involontairement des talents originaux au nom d'un principe de précaution numérique.",
+    "Face à ce défi technologique, le secteur de l'édition française avance en ordre dispersé. Si le groupe Madrigall a choisi l'usage systématique d'un portique numérique, d'autres maisons privilégient des garde-fous contractuels. Certaines maisons insèrent une clause d'interdiction formelle de l'intelligence artificielle dans leurs contrats de cession de droits. D'autres expérimentent des labels certifiant une rédaction entièrement humaine. Cette fragmentation des pratiques montre qu'aucune solution universelle ne fait consensus pour l'instant. Les maisons cherchent avant tout à protéger la valeur symbolique de leur catalogue et la confiance historique des lecteurs.",
+    "L'enjeu dépasse le simple fonctionnement interne des comités de lecture des grandes maisons parisiennes. Le modèle économique du livre repose sur un pacte implicite entre l'écrivain et son public, fondé sur l'authenticité de l'expérience humaine partagée. Si les lecteurs finissent par douter de la sincérité des ouvrages vendus en librairie, l'ensemble de la création littéraire pourrait subir une sévère perte d'intérêt. Trois bifurcations majeures se dessinent pour les années à venir : une normalisation technique réussie, une adaptation progressive émaillée de litiges ponctuels, ou une crise de confiance durable minant la réputation du secteur."
+  ],
+  "enjeu_en_clair": {
+    "lead": "Les grands éditeurs français installent des logiciels pour repérer les manuscrits écrits par ordinateur avant de les publier.",
+    "text": "Le groupe Madrigall fait passer les manuscrits par un filtre numérique pour bloquer les textes créés par intelligence artificielle. Le problème est que ces logiciels ne sont pas infaillibles et peuvent accuser un auteur innocent. L'enjeu est de protéger l'authenticité des romans que nous lisons en librairie sans rejeter injustement de vrais écrivains."
+  },
+  "stakes_branches": {
+    "favorable": "Les filtres numériques se perfectionnent et protègent la création littéraire sans léser les vrais auteurs.",
+    "stable": "Les éditeurs gèrent les doutes au cas par cas avec des contrôles discrets sans crise majeure.",
+    "degrade": "Les erreurs de détection et la méfiance des lecteurs provoquent une crise de réputation générale du livre."
+  },
+  "comprendre_box": [
+    {
+      "lead": "Comment fonctionne un détecteur de texte automatisé ?",
+      "text": "Un détecteur compare un texte à des millions d'écrits humains. Il mesure la surprise créée par chaque mot. Une machine choisit souvent les mots les plus probables, comme une suggestion sur smartphone. Si un manuscrit s'avère trop prévisible, le logiciel conclut qu'un robot l'a rédigé.",
+      "apres_dek_index": 2
+    },
+    {
+      "lead": "Pourquoi les erreurs d'analyse menacent-elles les auteurs ?",
+      "text": "Un faux positif ressemble à une alarme incendie qui sonne à cause d'un grille-pain. Si un logiciel accuse à tort un écrivain qui a passé deux ans sur son livre, sa réputation est ruinée et son manuscrit est refusé sans appel, sans qu'il puisse prouver facilement sa bonne foi.",
+      "apres_dek_index": 3
+    }
+  ],
+  "list_box": null,
+  "indicators": [
+    {
+      "label": "Taux de détection du détecteur Pangram (faux positifs)",
+      "delta": "Valeur revendiquée par l'éditeur en 2025",
+      "value": "0,0041%"
+    },
+    {
+      "label": "Taux de détection sur le manuscrit de Thélyson Orélien",
+      "delta": "Relevé lors de la controverse de novembre 2026",
+      "value": "84%"
+    }
+  ],
+  "cards": {
+    "favorable": {
+      "pct": 30,
+      "gauge_word": "Probable",
+      "h3": "L'édition intègre des outils fiables et préserve l'authenticité",
+      "why": [
+        "Premier scénario : les logiciels de contrôle s'affinent rapidement et s'imposent comme une étape technique standardisée. Les algorithmes de nouvelle génération réduisent drastiquement le risque d'accuser un auteur innocent. Les maisons d'édition adoptent un protocole transparent, où aucune décision de rejet n'est prise automatiquement par une machine sans un examen humain attentif. Les comités de lecture utilisent ces outils pour écarter les envois massifs générés en quelques secondes sur le web, libérant un temps précieux pour accompagner les créateurs authentiques. Concrètement, les lecteurs achètent des livres garantis sans trucage et la filière du livre renforce sa réputation de rigueur.",
+        "Ce dénouement vertueux suppose néanmoins une coopération étroite entre les géants technologiques et le monde littéraire, ce que les deux autres scénarios jugent moins accessible. Contrairement au scénario de la crise de confiance où la machine prend le dessus, ce cadre fait de l'outil un simple assistant docile au service du discernement éditorial. L'écart avec une gestion informelle réside dans la clarté des règles adoptées publiquement par l'ensemble des syndicats d'éditeurs. La confiance du public dans le livre imprimé pourrait ainsi sortir durablement consolidée de cette phase de transition technologique."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Faux positifs Pangram",
+          "evo_current": "0,0010%",
+          "evo_arrow": "down",
+          "evo_prev": "0,0041%"
+        },
+        {
+          "field_name": "Taux détection cas suspects",
+          "evo_current": "98%",
+          "evo_arrow": "up",
+          "evo_prev": "84%"
+        }
+      ],
+      "france_line": "L'exception culturelle française sert de modèle mondial pour la certification de l'écriture humaine.",
+      "france_impact": "favorable"
+    },
+    "stable": {
+      "pct": 45,
+      "gauge_word": "Probable",
+      "h3": "Le secteur s'adapte au cas par cas sans crise ouverte",
+      "why": [
+        "Deuxième scénario : les maisons d'édition gèrent les soupçons d'automatisation de manière discrète et pragmatique. Les logiciels comme Pangram restent utilisés en coulisses comme de simples indicateurs de vigilance, sans jamais constituer une preuve juridique absolue de tricherie. Lorsqu'un score suspect apparaît sur un manuscrit prometteur, l'éditeur demande simplement à l'auteur de présenter ses brouillons préparatoires, ses carnets de notes et ses versions successives de travail. Des polémiques ponctuelles éclatent encore autour de quelques romans de la rentrée littéraire, mais elles sont traitées individuellement sans provoquer d'affolement général du marché du livre. Concrètement, le quotidien des librairies et des lecteurs change très peu.",
+        "Cette voie médiane apparaît comme la plus réaliste à court terme, car elle évite à la fois les coûts exorbitants d'une bureaucratisation totale et le péril destructeur d'un scandale généralisé. Par rapport au scénario d'une crise de défiance, l'attachement viscéral des lecteurs à leurs auteurs favoris amortit l'impact des doutes technologiques. Cependant, ce compromis reste précaire face aux progrès constants des générateurs de texte, qui apprennent à imiter les imperfections humaines pour tromper les détecteurs. La frontière entre écriture assistée et création autonome deviendrait alors de plus en plus floue sans jamais faire exploser le système."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Faux positifs Pangram",
+          "evo_current": "0,0041%",
+          "evo_arrow": "flat",
+          "evo_prev": "0,0041%"
+        },
+        {
+          "field_name": "Taux détection cas suspects",
+          "evo_current": "80%",
+          "evo_arrow": "down",
+          "evo_prev": "84%"
+        }
+      ],
+      "france_line": "Les maisons parisiennes préservent leurs ventes malgré des doutes récurrents sur certaines parutions.",
+      "france_impact": "favorable"
+    },
+    "degrade": {
+      "pct": 25,
+      "gauge_word": "Peu probable",
+      "h3": "Une crise de défiance affaiblit durablement l'édition littéraire",
+      "why": [
+        "Troisième scénario : l'incapacité à distinguer avec certitude les créations humaines des productions algorithmiques plonge le secteur littéraire dans le doute permanent. Des auteurs respectés se retrouvent injustement accusés par des logiciels défaillants, provoquant des procès retentissants pour diffamation contre de grandes maisons d'édition. Dans le même temps, des textes entièrement générés par ordinateur parviennent à contourner les filtres et remportent des distinctions littéraires avant d'être démasqués sur les réseaux sociaux. Concrètement, le lecteur perd ses repères, remet en cause la légitimité des prix prestigieux et réduit ses achats de nouveautés littéraires au profit de classiques anciens incontestables.",
+        "Cette trajectoire sombre découle directement d'une course aux armements technologique asymétrique, où les modèles génératifs évoluent plus vite que les outils capables de les tracer. Contrairement au scénario stable où le dialogue entre auteur et éditeur suffit à désamorcer la tension, la suspicion généralisée paralyse ici le travail des comités de lecture. Les jeunes auteurs peinent à se faire publier sans apporter des preuves matérielles écrasantes de leur processus d'écriture. Le marché du roman contemporain risquerait alors de subir une désaffection durable de la part d'un public déçu par le sentiment d'une supercherie industrielle."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Faux positifs Pangram",
+          "evo_current": "2,5000%",
+          "evo_arrow": "up",
+          "evo_prev": "0,0041%"
+        },
+        {
+          "field_name": "Taux détection cas suspects",
+          "evo_current": "50%",
+          "evo_arrow": "down",
+          "evo_prev": "84%"
+        }
+      ],
+      "france_line": "Le prestige des grands prix littéraires français et les ventes de romans subissent un net recul.",
+      "france_impact": "degrade"
+    }
+  },
+  "essentiel_box": [
+    "Les maisons d'édition françaises réussiront-elles à bloquer les romans rédigés par ordinateur sans briser le lien de confiance avec leurs lecteurs ?",
+    "Le groupe Madrigall généralise l'analyse algorithmique des manuscrits dès 2027 après le retrait d'un roman du prix Goncourt crédité d'un indice de génération artificielle de 84 %.",
+    "Pas totalement : notre scénario le plus probable (45 %) prévoit une gestion au cas par cas sans crise aiguë, tandis que les scénarios d'une régulation parfaite (30 %) et d'une défiance généralisée (25 %) restent des bifurcations crédibles.",
+    "Signal à surveiller : l'entrée en vigueur effective des tests systématiques chez Gallimard et Flammarion prévue en janvier 2027 et les premières contestations d'auteurs."
+  ],
+  "delta_france": {
+    "kind": "positif",
+    "score": 0.5,
+    "word": "assez positif",
+    "text": "la prédominance cumulée d'un ajustement pragmatique (45 %) et d'une régulation réussie (30 %) protège l'essentiel du rayonnement littéraire national face au risque de crise (25 %)."
+  },
+  "phrase_a_retenir": "Avec un score de 84% de probabilité d'écriture artificielle sur un roman en lice pour le Goncourt, l'édition française accélère l'usage de filtres numériques dès 2027.",
+  "phrase_a_retenir_stat": "84%",
+  "lexique": [
+    {
+      "slug": "algorithme",
+      "terme": "algorithme",
+      "definition": "Ensemble d'instructions logiques et de calculs exécutés par un ordinateur pour analyser des textes ou résoudre un problème précis."
+    },
+    {
+      "slug": "faux-positif",
+      "terme": "faux positif",
+      "definition": "Erreur d'un outil de mesure qui détecte une anomalie ou une tricherie là où il n'y en a pas, comme un texte humain qualifié d'artificiel."
+    }
+  ],
+  "sources_html": [
+    "<a href=\"https://www.rtbf.be/article/l-ia-dans-l-edition-le-mois-du-doc-et-la-derniere-selection-des-prix-litteraires-ont-fait-l-actu-culturelle-cette-semaine-11808151\" target=\"_blank\" rel=\"noopener noreferrer\">RTBF Actus — L'IA dans l'édition, le Mois du Doc et la dernière sélection des prix littéraires ont fait l'actu culturelle cette semaine ↗</a>",
+    "<a href=\"https://apar.tv/gossip-brief-489-gallimard-madrigall-detecteur-ia-manuscrits-janvier-2027-pangram-orelien/\" target=\"_blank\" rel=\"noopener noreferrer\">apar.tv — Gallimard-Madrigall : détecteur IA manuscrits - janvier 2027 - Pangram - Orélien ↗</a>",
+    "<a href=\"https://www.lebrief.ma/madrigall-manuscrits-soumis-a-un-detecteur-dia-100172074/\" target=\"_blank\" rel=\"noopener noreferrer\">Le Brief — Madrigall : manuscrits soumis à un détecteur d'IA ↗</a>"
+  ],
+  "meta": {
+    "title": "L'IA dans l'édition : les maisons d'édition françaises peuvent-elles se protéger ?",
+    "meta_description": "L'IA dans l'édition : les maisons d'édition françaises peuvent-elles se protéger 3 scénarios prospectifs pour 2030.",
+    "og_image_alt": "Illustration montrant des manuscrits littéraires examinés par un filtre d'intelligence artificielle dans une maison d'édition parisienne.",
+    "keywords": [],
+    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-11-21.html\"\n  },\n  \"headline\": \"L'IA dans l'édition : les maisons d'édition françaises peuvent-elles se protéger ?\",\n  \"description\": \"L'IA dans l'édition : les maisons d'édition françaises peuvent-elles se protéger 3 scénarios prospectifs pour 2030.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-11-21.png\"\n  ],\n  \"datePublished\": \"2026-11-21T00:00:00\",\n  \"dateModified\": \"2026-11-21T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Actualité\"\n}",
+    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"L'IA dans l'édition : les maisons d'édition françaises peuvent-elles se protéger ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-11-21.html\"\n    }\n  ]\n}"
+  }
+}

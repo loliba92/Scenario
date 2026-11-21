@@ -148,7 +148,7 @@
     .av .anneau::before{ content:""; position:absolute; inset:5px; border-radius:50%; background:var(--surface); }
     .av .anneau b{ position:relative; font-family:Fraunces,serif; font-weight:600; font-size:1.15rem; line-height:1; color:var(--paper); margin-top:6px; }
     .av .anneau small{ position:relative; font-family:"JetBrains Mono",monospace; font-size:.5rem; letter-spacing:.08em; text-transform:uppercase; color:var(--paper-dim); margin-top:-12px; }
-    .av .statut{ justify-self:start; }
+    .av .statut{ grid-column:1 / -1; justify-self:start; max-width:100%; white-space:normal; line-height:1.35; border-radius:14px; }
     .av .carte h2{ font-size:1.3rem; line-height:1.25; margin:0 0 12px; }
     .av .fiche{ grid-template-columns:78px minmax(0,1fr); gap:8px 12px; padding:12px; font-size:.88rem; }
     .av .comm{ font-size:.95rem; }

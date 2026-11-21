@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
-<url><loc>https://lesscenarios.fr/archives/2026-11-16.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-11-16T06:01:49+01:00</news:publication_date><news:title>Houthistes : l'Arabie saoudite peut-elle éviter l'escalade régionale ?</news:title></news:news></url>  <url>
-    <loc>https://lesscenarios.fr/en/archives/2026-11-16.html</loc>
+<url><loc>https://lesscenarios.fr/archives/2026-11-20.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-11-20T06:01:40+01:00</news:publication_date><news:title>Euclid : la première carte de l'Univers peut-elle percer l'énergie noire ?</news:title></news:news></url>  <url>
+    <loc>https://lesscenarios.fr/en/archives/2026-11-20.html</loc>
     <news:news>
       <news:publication>
         <news:name>Scénario</news:name>
         <news:language>en</news:language>
       </news:publication>
-      <news:publication_date>2026-11-16T06:01:49+01:00</news:publication_date>
-      <news:title>Houthis: Can Saudi Arabia prevent regional escalation?</news:title>
+      <news:publication_date>2026-11-20T06:01:40+01:00</news:publication_date>
+      <news:title>Euclid: Can the first map of the Universe unlock dark energy?</news:title>
     </news:news>
   </url>
-<url><loc>https://lesscenarios.fr/archives/2026-11-17.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-11-17T06:01:57+01:00</news:publication_date><news:title>CNews : la pétition de 1 million de signatures peut-elle faire plier la chaîne ?</news:title></news:news></url>  <url>
-    <loc>https://lesscenarios.fr/en/archives/2026-11-17.html</loc>
+<url><loc>https://lesscenarios.fr/archives/2026-11-21.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-11-21T06:01:46+01:00</news:publication_date><news:title>L'IA dans l'édition : les maisons d'édition françaises peuvent-elles se protéger ?</news:title></news:news></url>  <url>
+    <loc>https://lesscenarios.fr/en/archives/2026-11-21.html</loc>
     <news:news>
       <news:publication>
         <news:name>Scénario</news:name>
         <news:language>en</news:language>
       </news:publication>
-      <news:publication_date>2026-11-17T06:01:57+01:00</news:publication_date>
-      <news:title>CNews: Can a 1-million-signature petition force the network to back down?</news:title>
+      <news:publication_date>2026-11-21T06:01:46+01:00</news:publication_date>
+      <news:title>AI in publishing: Can French publishing houses protect themselves?</news:title>
     </news:news>
   </url>
 </urlset>

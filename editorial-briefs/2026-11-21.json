@@ -1,0 +1,278 @@
+{
+  "date": "2026-11-21",
+  "registre": "culture",
+  "sujet": {
+    "titre_propose": "L'IA dans l'édition : les maisons d'édition françaises peuvent-elles se protéger ?",
+    "h1": "L'IA dans l'édition : les maisons d'édition françaises peuvent-elles se protéger ?",
+    "question_posee": "Les maisons d'édition françaises parviendront-elles à filtrer les manuscrits générés par IA, ou assistera-t-on à une crise de confiance dans la littérature ?",
+    "eyebrow": "Samedi, culture",
+    "angle": "En novembre 2026, le groupe Madrigall (Gallimard, Flammarion) annonce l'utilisation d'un logiciel pour détecter les manuscrits générés par IA. Cette décision s'inscrit dans un contexte de polémiques croissantes sur des livres soupçonnés d'être écrits par des IA, comme l'affaire Thélyson Orélien. La question centrale est de savoir si les éditeurs parviendront à filtrer efficacement ces œuvres ou si une crise de confiance s'installera dans le secteur de l'édition.",
+    "tags": [
+      "culture",
+      "tech-numerique"
+    ],
+    "domain": "culture-divertissement",
+    "image_keywords": "publishing house paris, manuscript editing, artificial intelligence book",
+    "complexite": 3,
+    "origine_prioritaire": "L'IA dans l'édition : les maisons d'édition françaises peuvent-elles se protéger ?",
+    "origine_id": "culture-l-ia-dans-l-edition-les-maisons-d-edition",
+    "point_de_depart": {
+      "id": "culture-l-ia-dans-l-edition-les-maisons-d-edition",
+      "registre": "culture",
+      "titre": "L'IA dans l'édition : les maisons d'édition françaises peuvent-elles se protéger ?",
+      "question": "L'IA dans l'édition : les maisons d'édition françaises peuvent-elles se protéger ?",
+      "contexte": "En novembre 2026, le groupe Madrigall (Gallimard, Flammarion) annonce l'utilisation d'un logiciel pour détecter les manuscrits générés par IA. Cette décision suit des polémiques sur des livres soupçonnés d'être écrits par des IA, comme l'affaire Thélyson Orélien.",
+      "rationnel": "La question : les éditeurs parviendront-ils à filtrer les œuvres générées par IA, ou assistera-t-on à une crise de confiance dans la littérature ? Les défis incluent la fiabilité des détecteurs et l'évolution des techniques d'IA. L'enjeu est la préservation de la créativité humaine.",
+      "mots_cles": [
+        "IA",
+        "édition",
+        "Madrigall",
+        "manuscrits",
+        "détection"
+      ],
+      "angle": null,
+      "a_verifier": null,
+      "scenarios_brouillon": {
+        "favorable": "Les éditeurs adaptent leurs processus, préservant la qualité littéraire tout en intégrant l'IA comme outil.",
+        "stable": "Des controverses persistent, mais le marché s'ajuste progressivement.",
+        "degrade": "Une crise de confiance s'installe, avec un effondrement des ventes de livres suspects."
+      },
+      "echeance": null,
+      "sources_pistes": [
+        {
+          "titre": "L’IA dans l’édition, le Mois du Doc et la dernière sélection des prix littéraires ont fait l’actu culturelle cette semaine - RTBF Actus",
+          "url": "https://www.rtbf.be/article/l-ia-dans-l-edition-le-mois-du-doc-et-la-derniere-selection-des-prix-litteraires-ont-fait-l-actu-culturelle-cette-semaine-11808151"
+        }
+      ],
+      "tag": "culture & numérique",
+      "origine": "veille",
+      "note_editoriale": "Ajouté automatiquement le 2026-11-08 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
+      "donnees_graphique": "[relevé du 2026-11-14] Taux de détection d'IA dans les manuscrits (unité : pourcentage). Thélyson Orélien = 84 (2026) ; Lilia Hassaine = 21 (2026) ; Pangram (faux positifs) = 0,0041 (2025). Sources : https://apar.tv/gossip-brief-489-gallimard-madrigall-detecteur-ia-manuscrits-janvier-2027-pangram-orelien/ ; https://www.lebrief.ma/madrigall-manuscrits-soumis-a-un-detecteur-dia-100172074/",
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Vérification effectuée contre l'édition du 20 novembre 2026 (Euclid, sciences-environnement) et les éditions culture récentes (2026-11-14 The Weeknd, 2026-11-07 Netflix, 2026-10-31 Art numérique, 2026-10-24 Spotify, 2026-10-17 Jeu vidéo, 2026-10-10 Art, 2026-09-26 Pop culture chinoise, 2026-09-12 Hollywood, 2026-09-05 Marché de l'art, 2026-08-29 Cinéma mondial, 2026-08-22 Hollywood Chine, 2026-08-15 Traduction littéraire, 2026-08-09 Musique IA, 2026-08-02 Streaming, 2026-08-01 Musique IA). Aucun recoupement fort avec le sujet du jour : les éditions précédentes traitent du streaming, du cinéma, de la musique ou de l'art numérique, pas spécifiquement de la détection d'IA dans les manuscrits d'édition littéraire. L'édition du 15 août 2026 sur la traduction littéraire aborde un sujet voisin (IA dans la chaîne éditoriale) mais avec un angle différent (traduction vs rédaction originale)."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Le groupe Madrigall (Gallimard, Flammarion) a annoncé en novembre 2026 l'utilisation d'un logiciel de détection d'IA pour les manuscrits soumis",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "src1"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "L'affaire Thélyson Orélien a suscité des polémiques sur des livres soupçonnés d'être écrits par IA, avec un taux de détection de 84% selon les sources consultées",
+      "chiffre": "84%",
+      "date_du_chiffre": "2026-11-14",
+      "sources": [
+        "src2",
+        "src3"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le détecteur Pangram affiche un taux de faux positifs de 0,0041% en 2025, selon les données publiées par l'éditeur",
+      "chiffre": "0,0041%",
+      "date_du_chiffre": "2025-12-31",
+      "sources": [
+        "src3"
+      ],
+      "confiance": "moyenne"
+    },
+    {
+      "affirmation": "Lilia Hassaine, une autre auteure suspectée, a obtenu un taux de détection de 21% sur son manuscrit",
+      "chiffre": "21%",
+      "date_du_chiffre": "2026-11-14",
+      "sources": [
+        "src2"
+      ],
+      "confiance": "haute"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Madrigall (Gallimard, Flammarion)",
+      "role": "Groupe d'édition ayant annoncé l'utilisation d'un détecteur d'IA"
+    },
+    {
+      "nom": "Thélyson Orélien",
+      "role": "Auteure au centre d'une polémique sur un livre suspecté d'être généré par IA"
+    },
+    {
+      "nom": "Pangram",
+      "role": "Éditeur du logiciel de détection d'IA utilisé par les maisons d'édition"
+    },
+    {
+      "nom": "Lilia Hassaine",
+      "role": "Auteure dont le manuscrit a été testé par le détecteur d'IA"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2025-12-31",
+      "evenement": "Publication des données de performance du détecteur Pangram (taux de faux positifs 0,0041%)"
+    },
+    {
+      "date": "2026-11-08",
+      "evenement": "Ajout automatique du sujet dans la file éditoriale via recherche OpenRouter"
+    },
+    {
+      "date": "2026-11-14",
+      "evenement": "Relevé des données chiffrées sur les taux de détection (Thélyson Orélien 84%, Lilia Hassaine 21%)"
+    },
+    {
+      "date": "2026-11-20",
+      "evenement": "Annonce par Madrigall de l'utilisation du détecteur d'IA pour les manuscrits"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Les éditeurs français adoptent des outils de détection fiables et transparents, préservant la qualité littéraire tout en intégrant l'IA comme outil d'aide à la création, sous contrôle éditorial humain.",
+      "probabilite_suggeree": 30
+    },
+    "stable": {
+      "resume": "Des controverses ponctuelles persistent sur certains livres suspects, mais le marché s'ajuste progressivement avec des protocoles de vérification discrets, sans crise généralisée de confiance.",
+      "probabilite_suggeree": 45
+    },
+    "degrade": {
+      "resume": "Une crise de confiance s'installe dans le secteur de l'édition : les lecteurs remettent en cause la authenticité des œuvres, les ventes de livres suspects chutent, et les détecteurs d'IA s'avèrent inefficaces face aux évolutions rapides des techniques de génération.",
+      "probabilite_suggeree": 25
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Taux de détection du détecteur Pangram (faux positifs)",
+      "valeur": "0,0041%",
+      "tendance": "stable"
+    },
+    {
+      "label": "Taux de détection sur le manuscrit de Thélyson Orélien",
+      "valeur": "84%",
+      "tendance": "en hausse"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Aucune source publique fiable ne documente une série historique longue du taux de détection d'IA dans les manuscrits d'édition. Les données disponibles (Pangram 2025, cas Thélyson Orélien et Lilia Hassaine en 2026) sont ponctuelles et ne permettent pas de tracer une série sur au moins 5 points réels sur une période longue. Critère (1) non satisfait : absence d'historique complet public. Critère (2) non satisfait : moins de 5 points réels disponibles. Critère (3) partiellement satisfait mais insuffisant sans les deux premiers.",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "oui",
+    "raison": "Trois chiffres réels comparables (taux de détection en pourcentage) ont été vérifiés et sont disponibles dans les faits vérifiés : taux de faux positifs de Pangram (0,0041%, 2025), taux de détection sur le manuscrit de Thélyson Orélien (84%, 2026), taux de détection sur le manuscrit de Lilia Hassaine (21%, 2026). Ces trois valeurs permettent une comparaison visuelle des performances et limites des détecteurs.",
+    "barres": {
+      "aria_label": "Graphique comparatif des taux de détection d'IA dans les manuscrits",
+      "lead": "Comparaison des taux de détection d'IA sur différents manuscrits et du taux de faux positifs du détecteur Pangram.",
+      "caption": "Sources : données Pangram (2025), apar.tv et lebrief.ma (2026)",
+      "unite": "%",
+      "valeurs": [
+        {
+          "label": "Faux positifs Pangram (2025)",
+          "valeur": 0.0041,
+          "affichage": "0,0041 %",
+          "mis_en_avant": false
+        },
+        {
+          "label": "Lilia Hassaine (2026)",
+          "valeur": 21,
+          "affichage": "21 %",
+          "mis_en_avant": false
+        },
+        {
+          "label": "Thélyson Orélien (2026)",
+          "valeur": 84,
+          "affichage": "84 %",
+          "mis_en_avant": true
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Comment fonctionne un détecteur d'IA pour les textes ?",
+        "rattache_a": "fait sur le détecteur Pangram et ses performances"
+      },
+      {
+        "focus": "Pourquoi les faux positifs sont-ils un problème pour les auteurs ?",
+        "rattache_a": "fait sur le taux de faux positifs de 0,0041% et les cas de détection controversés"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Le taux de faux positifs de Pangram (0,0041%) est basé sur les données publiées par l'éditeur lui-même en 2025 ; des tests indépendants récents pourraient donner des résultats différents",
+    "L'efficacité à long terme des détecteurs d'IA face à l'évolution rapide des modèles de génération reste incertaine",
+    "L'ampleur réelle de la crise de confiance dans l'édition littéraire est difficile à quantifier avant que plus de cas soient publiés"
+  ],
+  "a_ne_pas_affirmer": [
+    "Que tous les éditeurs français vont adopter ce type de détecteur",
+    "Que les détecteurs d'IA actuels sont infaillibles",
+    "Que l'IA ne peut pas encore produire des textes littéraires de qualité"
+  ],
+  "sources": [
+    {
+      "id": "src1",
+      "title": "L'IA dans l'édition, le Mois du Doc et la dernière sélection des prix littéraires ont fait l'actu culturelle cette semaine",
+      "source": "RTBF Actus",
+      "url": "https://www.rtbf.be/article/l-ia-dans-l-edition-le-mois-du-doc-et-la-derniere-selection-des-prix-litteraires-ont-fait-l-actu-culturelle-cette-semaine-11808151",
+      "image": null,
+      "lang": "fr",
+      "domain": "culture-divertissement",
+      "summary": "Article de la RTBF résumant l'actualité culturelle francophone de la semaine, incluant le sujet de l'IA dans l'édition et l'annonce de Madrigall.",
+      "read_minutes": 3
+    },
+    {
+      "id": "src2",
+      "title": "Gallimard-Madrigall : détecteur IA manuscrits - janvier 2027 - Pangram - Orélien",
+      "source": "apar.tv",
+      "url": "https://apar.tv/gossip-brief-489-gallimard-madrigall-detecteur-ia-manuscrits-janvier-2027-pangram-orelien/",
+      "image": null,
+      "lang": "fr",
+      "domain": "culture-divertissement",
+      "summary": "Article détaillé sur l'annonce de Madrigall concernant l'utilisation d'un détecteur d'IA pour les manuscrits, avec les chiffres de détection pour Thélyson Orélien (84%) et Lilia Hassaine (21%).",
+      "read_minutes": 4
+    },
+    {
+      "id": "src3",
+      "title": "Madrigall : manuscrits soumis à un détecteur d'IA",
+      "source": "Le Brief",
+      "url": "https://www.lebrief.ma/madrigall-manuscrits-soumis-a-un-detecteur-dia-100172074/",
+      "image": null,
+      "lang": "fr",
+      "domain": "culture-divertissement",
+      "summary": "Article sur l'annonce de Madrigall et les performances du détecteur Pangram, incluant le taux de faux positifs de 0,0041% en 2025.",
+      "read_minutes": 3
+    }
+  ],
+  "revue_de_presse": [],
+  "articles_connexes": [
+    {
+      "date": "2026-08-15",
+      "titre": "Traduction littéraire : le métier en sursis ?",
+      "lien": "Même domaine éditorial (littérature) et même question d'IA dans la chaîne de production éditoriale, mais angle différent (traduction vs rédaction originale)"
+    },
+    {
+      "date": "2026-08-01",
+      "titre": "Musique : l'IA a-t-elle déjà gagné ?",
+      "lien": "Même question d'IA dans un secteur créatif (musique) avec des enjeux similaires de détection et de confiance"
+    },
+    {
+      "date": "2026-08-09",
+      "titre": "Musique IA : la note grimpe à 9 milliards",
+      "lien": "Même conflit entre l'industrie créative et les générateurs d'IA, avec des questions de détection et de protection des œuvres humaines"
+    }
+  ],
+  "recommandations_redaction": [
+    "Préciser que le détecteur Pangram est un outil spécifique, pas le seul disponible sur le marché",
+    "Mettre en garde contre les faux positifs qui peuvent affecter des auteurs légitimes",
+    "Souligner que l'évolution rapide des modèles d'IA rend la détection un jeu de catch-up permanent",
+    "Contextualiser l'annonce de Madrigall dans le paysage européen : d'autres éditeurs ont-ils fait le même choix ?",
+    "Expliquer pourquoi la confiance des lecteurs est un actif précieux pour les maisons d'édition"
+  ]
+}

@@ -1,14 +1,14 @@
-# Vérification des résultats — 12/11/2026
+# Vérification des résultats — 21/11/2026
 
-Modèles : `deepseek/deepseek-v4-flash` (recherche), `google/gemini-3.7-flash` (confirmation) · coût : 0.1278 $
+Modèles : `deepseek/deepseek-v4-flash` (recherche), `google/gemini-3.7-flash` (confirmation) · coût : 0.0440 $
 Un résultat n'est publié que si tous les contrôles passent (citations retrouvées dans les pages, chiffres, dates, 2 sources de domaines différents, confirmation indépendante).
 
-## Date butoir du règlement sur l'euro numérique : 31 décembre 2026 (`evt-date-butoir-du-reglement-sur-l-euro-numerique-2026-12-31`)
-**Refusé, reste à vérifier** : statut « incertain » : pas de réponse ferme
+## Dernier match de la phase de groupes de Ligue des nations : 15 novembre 2026 (`evt-dernier-match-de-la-phase-de-groupes-de-ligue-des-2026-11-15`)
+**Refusé, reste à vérifier** : 1 source(s) vérifiée(s) sur 2 exigées (citation introuvable dans la page, domaine répété, refusé ou page inaccessible)
 
-## Date butoir du vote sur le PLF 2027 à l'Assemblée : 17 novembre 2026 (`evt-date-butoir-du-vote-sur-le-plf-2027-a-l-assemblee-2026-11-17`)
-**Accepté** : arrive — Le 4 novembre 2026, l'Assemblée nationale a rejeté la première partie du PLF 2027 (recettes) par 458 voix contre 0, ce qui a entraîné le rejet de l'ensemble du texte en première lecture et l'annulation du vote solennel prévu le 17 novembre 2026.
+## Sortie mondiale de GTA VI : 19 novembre 2026 (`evt-sortie-mondiale-de-gta-vi-2026-11-19`)
+**Refusé, reste à vérifier** : 0 source(s) vérifiée(s) sur 2 exigées (citation introuvable dans la page, domaine répété, refusé ou page inaccessible) ; chiffre « 17 millions » introuvable dans les sources ; chiffre « 13 ans » introuvable dans les sources
 
-## Date limite de transposition de la directive 2024/2853 : 9 décembre 2026 (`evt-date-limite-de-transposition-de-la-directive-2024-2026-12-09`)
-**Refusé, reste à vérifier** : statut « incertain » : pas de réponse ferme
+## Sortie d'Avengers: Doomsday en salles : 18 décembre 2026 (`evt-sortie-d-avengers-doomsday-en-salles-2026-12-18`)
+**Refusé, reste à vérifier** : 1 source(s) vérifiée(s) sur 2 exigées (citation introuvable dans la page, domaine répété, refusé ou page inaccessible) ; chiffre « 16 décembre 2026 » introuvable dans les sources ; chiffre « 165 minutes (2h45) » introuvable dans les sources
 

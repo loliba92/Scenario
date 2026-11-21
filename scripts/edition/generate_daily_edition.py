@@ -51,7 +51,19 @@ OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 # Voir docs/alternatives-tests/ et scripts/edition/test-alternatives.py
 DEFAULT_MODEL = "google/gemini-3.7-flash"  # Phase 2 production (qualité + validité garantie)
 REDACTION_PROMPT_PATH = REPO_ROOT / "docs" / "routine-redaction-prompt.md"
-MIN_WORDS = 1100
+# Seuils de longueur par essai (21 novembre 2026 : un texte de 997 mots, refusé trois fois de suite, empêchait tout
+# l'aperçu). Décision de l'éditeur : 1000 mots au 1er essai, 900 au 2e, 800 au 3e. La consigne donnée au modèle
+# reste de viser 1300 à 1500 mots ; seul le REFUS est assoupli.
+MIN_WORDS_PAR_ESSAI = (1000, 900, 800)
+MIN_WORDS = MIN_WORDS_PAR_ESSAI[0]
+MIN_WORDS_FINAL = MIN_WORDS_PAR_ESSAI[-1]  # seuil du contrôle final du HTML : le plus tolérant, sinon un texte accepté au 3e essai serait refusé après coup
+
+
+def min_words_pour_essai(essai):
+    """Seuil de mots en dessous duquel le contenu est refusé, selon l'essai (0 = premier)."""
+    return MIN_WORDS_PAR_ESSAI[min(max(essai, 0), len(MIN_WORDS_PAR_ESSAI) - 1)]
+
+
 MIN_ESSENTIEL_WORDS = 110  # essentiel_box (4 paragraphes) — voir validate_content_schema()
 
 # « L'enjeu en clair » (ajouté le 16 octobre 2026, retour de l'éditeur sur une
@@ -1097,7 +1109,7 @@ def apply_apres_dek_index_fallback(content):
 # ---------------------------------------------------------------------------
 # Validation du contenu retourné par le modèle (avant construction HTML)
 # ---------------------------------------------------------------------------
-def validate_content_schema(content, brief):
+def validate_content_schema(content, brief, min_words=MIN_WORDS):
     errors = []
     required = ["h1", "question_text", "section_title", "dek", "stakes_branches",
                 "indicators", "cards", "essentiel_box", "delta_france",
@@ -1408,10 +1420,10 @@ def validate_content_schema(content, brief):
     # schéma, avec le nombre de mots manquants explicite dans le message
     # renvoyé au modèle au deuxième essai.
     word_count = estimate_word_count(content)
-    if word_count < MIN_WORDS:
+    if word_count < min_words:  # le seuil baisse avec l'essai : voir min_words_pour_essai()
         errors.append(
             f"longueur estimée insuffisante : {word_count} mots dans dek + why + "
-            f"lexique (minimum {MIN_WORDS}, manque {MIN_WORDS - word_count} mots) — "
+            f"lexique (minimum {min_words}, manque {min_words - word_count} mots) — "
             "développer le contexte et les why plutôt que délayer les phrases existantes"
         )
 
@@ -1445,7 +1457,7 @@ def estimate_word_count(content):
     return len(plain.split())
 
 
-def validate_assembled_html(html_text, content):
+def validate_assembled_html(html_text, content, min_words=MIN_WORDS_FINAL):
     """Validation finale, sur le HTML réellement produit — indépendante du
     modèle, même si validate_content_schema() est déjà passée (voir
     section E de l'audit : deux niveaux de validation, jamais un seul)."""
@@ -1496,8 +1508,8 @@ def validate_assembled_html(html_text, content):
     content_els = soup.select(".dek, .why, dd")
     text = " ".join(el.get_text() for el in content_els)
     word_count = len(text.split())
-    if word_count < MIN_WORDS:
-        errors.append(f"longueur : {word_count} mots dans .dek/.why/dd (minimum {MIN_WORDS})")
+    if word_count < min_words:
+        errors.append(f"longueur : {word_count} mots dans .dek/.why/dd (minimum {min_words})")
 
     # Cohérence lex-ref <-> lexique : tout href="#lex-..." doit avoir un id
     # correspondant, et réciproquement chaque terme du lexique doit être
@@ -1638,7 +1650,7 @@ def main():
         content = normalize_content_markdown(content)
         content = normalize_content_indicators(content)
         content = normalize_content_lex_ref(content)
-        errors = validate_content_schema(content, brief)
+        errors = validate_content_schema(content, brief, min_words_pour_essai(attempt))
         attempts_history.append((content, errors))
         if not errors:
             break
