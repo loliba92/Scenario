@@ -30,8 +30,8 @@
     "motif": "statut « incertain » : pas de réponse ferme"
   },
   "evt-dernier-match-de-la-phase-de-groupes-de-ligue-des-2026-11-15": {
-    "dernier_essai": "2026-11-20",
-    "essais": 1,
+    "dernier_essai": "2026-11-21",
+    "essais": 2,
     "motif": "1 source(s) vérifiée(s) sur 2 exigées (citation introuvable dans la page, domaine répété, refusé ou page inaccessible)"
   },
   "evt-entree-en-application-de-solvabilite-ii-revisee-2027-01-30": {
@@ -39,10 +39,30 @@
     "essais": 1,
     "motif": "statut « incertain » : pas de réponse ferme"
   },
-  "evt-sortie-mondiale-de-gta-vi-2026-11-19": {
+  "evt-grande-finale-du-championnat-des-nations-de-rugby-2026-11-29": {
     "dernier_essai": "2026-11-20",
     "essais": 1,
-    "motif": "0 source(s) vérifiée(s) sur 2 exigées (citation introuvable dans la page, domaine répété, refusé ou page inaccessible); chiffre « 99/100 » introuvable dans les sources; chiffre « 151 critiques » introuvable dans les sources"
+    "motif": "statut « incertain » : pas de réponse ferme"
+  },
+  "evt-mise-en-conformite-au-dpdp-act-indien-2027-05-13": {
+    "dernier_essai": "2026-11-20",
+    "essais": 1,
+    "motif": "« ne s'est pas produit » refusé avant la date limite; réponse vide ou trop longue; 0 source(s) vérifiée(s) sur 2 exigées (citation introuvable dans la page, domaine répété, refusé ou page inaccessible); chiffre « 13 mai 2027 » introuvable dans les sources; chiffre « 18 mois » introuvable dans les sources; chiffre « 13 novembre 2025 » introuvable dans les sources"
+  },
+  "evt-reunion-de-politique-monetaire-de-la-bce-2026-12-17": {
+    "dernier_essai": "2026-11-20",
+    "essais": 1,
+    "motif": "statut « incertain » : pas de réponse ferme"
+  },
+  "evt-sortie-d-avengers-doomsday-en-salles-2026-12-18": {
+    "dernier_essai": "2026-11-21",
+    "essais": 1,
+    "motif": "1 source(s) vérifiée(s) sur 2 exigées (citation introuvable dans la page, domaine répété, refusé ou page inaccessible); chiffre « 16 décembre 2026 » introuvable dans les sources; chiffre « 165 minutes (2h45) » introuvable dans les sources"
+  },
+  "evt-sortie-mondiale-de-gta-vi-2026-11-19": {
+    "dernier_essai": "2026-11-21",
+    "essais": 2,
+    "motif": "0 source(s) vérifiée(s) sur 2 exigées (citation introuvable dans la page, domaine répété, refusé ou page inaccessible); chiffre « 17 millions » introuvable dans les sources; chiffre « 13 ans » introuvable dans les sources"
   },
   "facturation-electronique-taux-designation": {
     "dernier_essai": "2026-11-11",

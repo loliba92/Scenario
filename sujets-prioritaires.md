@@ -754,7 +754,9 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
   <!-- mots-clés: Tiangong ; atomes froids ; picokelvins ; physique quantique ; condensat de Bose-Einstein -->
   <!-- scénarios (brouillon): favorable = Des interféromètres quantiques spatiaux sont développés, révolutionnant la mesure et la communication. ; stable = Les recherches avancent sans percée immédiate, mais avec des retombées à long terme. ; dégradé = Les défis techniques ralentissent considérablement les applications pratiques. -->
   <!-- sources: À bord de Tiangong, des chercheurs chinois ont atteint un froid jamais vu dans l'espace <https://sciencepost.fr/a-bord-de-tiangong-des-chercheurs-chinois-ont-atteint-un-froid-jamais-vu-dans-lespace/> -->
+  <!-- données chiffrées: [relevé du 2026-11-21] Température équivalente d'atomes refroidis (unité : picokelvins). Record chinois à bord de Tiangong = 9,7 (2026) ; précédent record allemand = 38 (2021) ; record de la NASA à bord de l'ISS = 52 (2022). Sources : https://www.science.org/content/article/china-space-experiment-creates-coldest-temperature-ever ; https://sciencepost.fr/a-bord-de-tiangong-des-chercheurs-chinois-ont-atteint-un-froid-jamais-vu-dans-lespace/ ; https://www.sciencesetcivilisations.fr/des-chercheurs-chinois-ont-atteint-un-record-de-froid-jamais-vu-dans-lespace-via-tiangong-36123/ -->
   <!-- origine: veille -->
+  <!-- enrichi: 2026-11-21 -->
   <!-- note: Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
 - [ ] La percée d'OpenAI sur la théorie de Yang-Mills va-t-elle révolutionner la physique ? [sciences & IA]
   <!-- id: sciences-la-percee-d-openai-sur-la-theorie-de-yang-mills -->
@@ -1024,7 +1026,7 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
   <!-- origine: veille -->
   <!-- enrichi: 2026-11-12 -->
   <!-- note: Ajouté automatiquement le 2026-11-12 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. Solidité : 85/100. Validé d'office : score suffisant, aucun recyclage de sujet publié. -->
-- [ ] L'IA dans l'édition : les maisons d'édition françaises peuvent-elles se protéger ? [culture & numérique]
+- [x] L'IA dans l'édition : les maisons d'édition françaises peuvent-elles se protéger ? [culture & numérique]
   <!-- id: culture-l-ia-dans-l-edition-les-maisons-d-edition -->
   <!-- contexte: En novembre 2026, le groupe Madrigall (Gallimard, Flammarion) annonce l'utilisation d'un logiciel pour détecter les manuscrits générés par IA. Cette décision suit des polémiques sur des livres soupçonnés d'être écrits par des IA, comme l'affaire Thélyson Orélien. -->
   <!-- rationnel: La question : les éditeurs parviendront-ils à filtrer les œuvres générées par IA, ou assistera-t-on à une crise de confiance dans la littérature ? Les défis incluent la fiabilité des détecteurs et l'évolution des techniques d'IA. L'enjeu est la préservation de la créativité humaine. -->

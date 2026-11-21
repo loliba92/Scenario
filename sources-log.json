@@ -2,6 +2,61 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-11-21",
+      "articles": [
+        {
+          "title": "Etats-Unis : de retour d'Asie, Donald Trump défend sa proximité avec Vladimir Poutine et Xi Jinping",
+          "source": "Le Monde",
+          "url": "https://www.lemonde.fr/international/article/2026/11/21/etats-unis-de-retour-d-asie-donald-trump-defend-sa-proximite-avec-vladimir-poutine-et-xi-jinping_6813916_3210.html",
+          "image": null,
+          "lang": "fr",
+          "domain": "international",
+          "summary": "Donald Trump a déclaré vendredi 20 novembre avoir eu des relations « fantastiques » avec Vladimir Poutine et Xi Jinping lors d'un sommet trilatéral en Asie. Il a évoqué la réduction des armements nucléaires et a précisé avoir « passé beaucoup de temps sur l'Ukraine et la Russie ».",
+          "read_minutes": 3
+        },
+        {
+          "title": "La formule 1 va renouer avec les moteurs V8 à partir de 2030 pour retrouver son « ADN »",
+          "source": "Le Monde",
+          "url": "https://www.lemonde.fr/sport/article/2026/11/21/la-formule-1-va-renouer-avec-les-moteurs-v8-a-partir-de-2030-pour-retrouver-son-adn_6813877_3242.html",
+          "image": null,
+          "lang": "fr",
+          "domain": "culture-divertissement",
+          "summary": "La FIA a annoncé vendredi 20 novembre que les monoplaces de Formule 1 utiliseront des moteurs hybrides V8 turbo à partir de 2030. Un accord unanime a été trouvé avec la FOM, les 11 écuries et les six motoristes du paddock.",
+          "read_minutes": 3
+        },
+        {
+          "title": "Les patrons français s'enfoncent dans la déprime",
+          "source": "Les Echos",
+          "url": "https://www.lesechos.fr/economie-france/conjoncture/les-patrons-francais-senfoncent-dans-la-deprime-2263748",
+          "image": null,
+          "lang": "fr",
+          "domain": "economie-entreprises",
+          "summary": "Le climat des affaires en France a chuté de 2 points en novembre pour s'établir à 95, selon l'Insee publié ce vendredi 20 novembre. Aucun secteur n'est épargné, avec des reculs dans l'industrie, le bâtiment, les services et le commerce de détail.",
+          "read_minutes": 2
+        },
+        {
+          "title": "COP31 : la France et plusieurs autres pays réclament «une transition claire hors des énergies fossiles»",
+          "source": "Le Figaro",
+          "url": "https://www.lefigaro.fr/sciences/cop31-la-france-et-plusieurs-autres-pays-reclament-une-transition-claire-hors-des-energies-fossiles-20261120",
+          "image": "https://i.f1g.fr/media/cms/1200x630_crop/2026/11/20/c97dfd358005747592d78e7de3c157c82f6a5e02b83adac3ea243ba8c935854b.jpg",
+          "lang": "fr",
+          "domain": "sciences-environnement",
+          "summary": "La France, le Panama et d'autres pays exigent dans une déclaration commune que les formulations « transition claire hors des énergies fossiles » et « électrification propre » apparaissent dans la décision finale de la COP31. La conférence à Antalya (Turquie) devait s'achever ce vendredi 20 novembre mais s'est prolongée.",
+          "read_minutes": 4
+        },
+        {
+          "title": "Arabie saoudite : trois missiles lancés par les houthistes vers Ryad interceptés",
+          "source": "Le Figaro",
+          "url": "https://www.lefigaro.fr/international/arabie-saoudite-deux-nouvelles-explosions-retentissent-a-ryad-20261121",
+          "image": "https://i.f1g.fr/media/cms/1200x630_crop/2026/11/21/49c1412723625bd0600a8e6d9b47b8eae0def30d553a574535050471e616bd9f.jpg",
+          "lang": "fr",
+          "domain": "international",
+          "summary": "Les forces saoudiennes ont indiqué samedi 21 novembre avoir abattu trois missiles balistiques tirés par les houthistes du Yémen en direction de Ryad. Deux explosions ont été entendues dans la capitale après une alerte de la défense civile, laquelle a ensuite été levée.",
+          "read_minutes": 2
+        }
+      ]
+    },
+    {
       "date": "2026-11-20",
       "articles": [
         {
