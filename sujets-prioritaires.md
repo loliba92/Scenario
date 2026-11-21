@@ -754,7 +754,9 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
   <!-- mots-clés: Tiangong ; atomes froids ; picokelvins ; physique quantique ; condensat de Bose-Einstein -->
   <!-- scénarios (brouillon): favorable = Des interféromètres quantiques spatiaux sont développés, révolutionnant la mesure et la communication. ; stable = Les recherches avancent sans percée immédiate, mais avec des retombées à long terme. ; dégradé = Les défis techniques ralentissent considérablement les applications pratiques. -->
   <!-- sources: À bord de Tiangong, des chercheurs chinois ont atteint un froid jamais vu dans l'espace <https://sciencepost.fr/a-bord-de-tiangong-des-chercheurs-chinois-ont-atteint-un-froid-jamais-vu-dans-lespace/> -->
+  <!-- données chiffrées: [relevé du 2026-11-21] Température équivalente d'atomes refroidis (unité : picokelvins). Record chinois à bord de Tiangong = 9,7 (2026) ; précédent record allemand = 38 (2021) ; record de la NASA à bord de l'ISS = 52 (2022). Sources : https://www.science.org/content/article/china-space-experiment-creates-coldest-temperature-ever ; https://sciencepost.fr/a-bord-de-tiangong-des-chercheurs-chinois-ont-atteint-un-froid-jamais-vu-dans-lespace/ ; https://www.sciencesetcivilisations.fr/des-chercheurs-chinois-ont-atteint-un-record-de-froid-jamais-vu-dans-lespace-via-tiangong-36123/ -->
   <!-- origine: veille -->
+  <!-- enrichi: 2026-11-21 -->
   <!-- note: Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
 - [ ] La percée d'OpenAI sur la théorie de Yang-Mills va-t-elle révolutionner la physique ? [sciences & IA]
   <!-- id: sciences-la-percee-d-openai-sur-la-theorie-de-yang-mills -->
