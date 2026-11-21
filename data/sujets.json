@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "530a9799186d26e8a37beb94e542f375bd388537f78a0339489225b425625797"
+    "md_sha256": "1365ff9f4b7fa78ae8ec7bc333a0dd4e66d21139d46fa5ec58f66073fd11cf8e"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -127,11 +127,11 @@
           ],
           "origine": "utilisateur",
           "note": "Ajouté le 2026-11-17 à la demande du propriétaire. Remis en file le 2026-11-21 après un conflit de fusion. Édition choisie par le propriétaire : mardi 24 novembre (rangé en tête de la carte blanche du mardi, tous domaines acceptés). Chiffres à recouper avant rédaction (voir « à vérifier »).",
-          "donnees": null,
+          "donnees": "[relevé du 2026-11-21] Croissance de la productivité horaire du travail (unité : % par an). France = 1,47 (2025) ; États-Unis = 1,7 (2025) ; Zone euro = 1,37 (2025). Sources : https://www.unsa.org/wp-content/uploads/2026/11/Annexes-lessentiel-de-leco-octobre-2026.pdf ; https://www.prodpress.eu/productivite-etats-unis-europe-bls-eurostat-novembre-2026/",
           "ajoute_le": "2026-11-17",
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-11-21"
         },
         {
           "type": "sujet",
