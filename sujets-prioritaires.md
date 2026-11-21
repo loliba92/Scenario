@@ -1026,7 +1026,7 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
   <!-- origine: veille -->
   <!-- enrichi: 2026-11-12 -->
   <!-- note: Ajouté automatiquement le 2026-11-12 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. Solidité : 85/100. Validé d'office : score suffisant, aucun recyclage de sujet publié. -->
-- [ ] L'IA dans l'édition : les maisons d'édition françaises peuvent-elles se protéger ? [culture & numérique]
+- [x] L'IA dans l'édition : les maisons d'édition françaises peuvent-elles se protéger ? [culture & numérique]
   <!-- id: culture-l-ia-dans-l-edition-les-maisons-d-edition -->
   <!-- contexte: En novembre 2026, le groupe Madrigall (Gallimard, Flammarion) annonce l'utilisation d'un logiciel pour détecter les manuscrits générés par IA. Cette décision suit des polémiques sur des livres soupçonnés d'être écrits par des IA, comme l'affaire Thélyson Orélien. -->
   <!-- rationnel: La question : les éditeurs parviendront-ils à filtrer les œuvres générées par IA, ou assistera-t-on à une crise de confiance dans la littérature ? Les défis incluent la fiabilité des détecteurs et l'évolution des techniques d'IA. L'enjeu est la préservation de la créativité humaine. -->
