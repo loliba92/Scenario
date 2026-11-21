@@ -979,6 +979,7 @@
   // Points de vérification : dernier passage réel de chaque tâche automatique (API publique GitHub, gardée 5 min).
   var REPO = 'loliba92/Scenario';
   var TACHES = [
+    ['daily-preview.yml', 'Aperçu de demain', 30],
     ['post-edition.yml', 'Rédaction et publication', 30],
     ['podcast-quotidien.yml', 'Podcast du jour', 30],
     ['gsc.yml', 'Search Console', 30],
@@ -987,7 +988,7 @@
     ['enrich-sujets.yml', 'Enrichissement des sujets', 30],
     ['hebdo.yml', 'Récap hebdomadaire', 9 * 24]
   ];
-  var CLE = 'scenario-dash-taches-v1';
+  var CLE = 'scenario-dash-taches-v2';  // v2 : la liste des tâches a changé (aperçu de demain ajouté), l'ancien cache serait décalé
 
   function depuis(d) {
     var m = Math.max(0, Math.round((Date.now() - d.getTime()) / 60000));
