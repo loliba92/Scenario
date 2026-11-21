@@ -1,0 +1,331 @@
+{
+  "date": "2026-11-22",
+  "registre": "sport",
+  "sujet": {
+    "titre_propose": "Football féminin : le défi de la rentabilité",
+    "h1": "Football féminin : le défi de la rentabilité",
+    "question_posee": "Le football féminin peut-il devenir rentable et combler son écart financier avec le sport masculin grâce à l'explosion du sponsoring et des droits TV ?",
+    "eyebrow": "Dimanche, sport",
+    "angle": "Tandis que les revenus cumulés du top 15 mondial des clubs féminins ont atteint 158 millions d'euros (+35 % en un an), l'économie du secteur reste ultra-dépendante du sponsoring et des subventions des sections masculines face à des droits audiovisuels encore modestes.",
+    "tags": [
+      "sport",
+      "football",
+      "economie-du-sport",
+      "egalite-femmes-hommes"
+    ],
+    "domain": "sport",
+    "image_keywords": "women soccer stadium match",
+    "complexite": 3,
+    "origine_prioritaire": "Le football féminin peut-il devenir aussi rentable que le masculin ?",
+    "origine_id": "sport-le-football-feminin-peut-il-devenir-aussi",
+    "point_de_depart": {
+      "id": "sport-le-football-feminin-peut-il-devenir-aussi",
+      "registre": "sport",
+      "titre": "Le football féminin peut-il devenir aussi rentable que le masculin ?",
+      "question": "Le football féminin peut-il devenir aussi rentable que le masculin ?",
+      "contexte": "Les audiences TV du foot féminin ont progressé de 30 % en 2026, mais les écarts de rémunération restent énormes.",
+      "rationnel": "La question : Les investisseurs vont-ils combler le gap, ou le modèle reste-t-il déséquilibré ? Les scénarios dépendent des sponsors et des droits TV. L'enjeu est l'équité dans le sport.",
+      "mots_cles": [
+        "football féminin",
+        "audiences",
+        "sponsors",
+        "équité",
+        "sport"
+      ],
+      "angle": null,
+      "a_verifier": null,
+      "scenarios_brouillon": {
+        "favorable": "Les revenus rattrapent ceux du masculin d'ici 2030.",
+        "stable": "Les progrès restent lents.",
+        "degrade": "Les écarts se creusent à nouveau."
+      },
+      "echeance": null,
+      "sources_pistes": [
+        {
+          "titre": "Foot féminin : le boom des audiences",
+          "url": null
+        }
+      ],
+      "tag": "sport & financement",
+      "origine": "veille",
+      "note_editoriale": "Ajouté automatiquement le 2026-11-02 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
+      "donnees_graphique": null,
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "L'édition de la veille (2026-11-21) portait sur l'IA dans l'édition littéraire. Les trois dernières éditions du registre sport (dimanche) traitaient de la voile/Route du Rhum (2026-11-15), de l'IA et de la biométrie sportive (2026-11-08) et de l'équité technologique (2026-11-01). Aucun recoupement avec l'économie du football féminin."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Les quinze clubs féminins les plus riches du monde ont généré un total cumulé de 158 millions d'euros de revenus lors de la saison 2024/2025, marquant une progression de 35 % par rapport à l'exercice précédent.",
+      "chiffre": "158 millions d'euros",
+      "date_du_chiffre": "2026-01-22",
+      "sources": [
+        "deloitte-money-league-2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Arsenal Women et Chelsea Women dominent le classement mondial des revenus avec respectivement 25,6 millions et 25,4 millions d'euros générés sur la saison 2024/2025.",
+      "chiffre": "25,6 millions d'euros",
+      "date_du_chiffre": "2026-01-22",
+      "sources": [
+        "deloitte-money-league-2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Les revenus commerciaux et partenariats représentent en moyenne 66 % des recettes totales des meilleurs clubs féminins européens, contre 17 % pour les droits audiovisuels et 17 % pour la billetterie.",
+      "chiffre": "66 %",
+      "date_du_chiffre": "2025-01-19",
+      "sources": [
+        "sportbusiness-club-2025"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "L'UEFA a réévalué les dotations de la Ligue des champions féminine pour le cycle 2025-2030, permettant au club vainqueur de toucher jusqu'à 1,995 million d'euros puis 2,8 millions à partir de 2027/2028, contre plus de 85 millions pour le vainqueur masculin.",
+      "chiffre": "1,995 million d'euros",
+      "date_du_chiffre": "2025-03-18",
+      "sources": [
+        "uefa-financial-distribution"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "En France, les droits de diffusion de la D1 féminine (Arkema Première Ligue) ont été attribués au groupe Canal+ par la FFF jusqu'en 2029 pour environ 5,3 millions d'euros par an.",
+      "chiffre": "5,3 millions d'euros",
+      "date_du_chiffre": "2023-06-13",
+      "sources": [
+        "sportbuzzbusiness-d1-droits"
+      ],
+      "confiance": "haute"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Deloitte Sports Business Group",
+      "role": "Cabinet publiant le Football Money League annuel de référence sur les finances des clubs"
+    },
+    {
+      "nom": "UEFA / FIFA",
+      "role": "Instances dirigeantes organisant la redistribution financière et les nouvelles compétitions de clubs"
+    },
+    {
+      "nom": "Women's Super League (WSL)",
+      "role": "Championnat anglais féminin, locomotive commerciale et médiatique du football européen"
+    },
+    {
+      "nom": "Fédération Française de Football (FFF)",
+      "role": "Organisateur de l'Arkema Première Ligue et gestionnaire des droits audiovisuels en France"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2023-06-13",
+      "evenement": "Renouvellement des droits TV de la D1 féminine française avec Canal+ jusqu'en 2029 pour 5,3 M€ annuels"
+    },
+    {
+      "date": "2025-01-23",
+      "evenement": "Deloitte intègre pour la première fois les revenus consolidés intra-groupe dans le classement Money League féminin"
+    },
+    {
+      "date": "2026-01-22",
+      "evenement": "Publication du Deloitte Money League 2026 : record de 158 M€ de revenus cumulés pour le top 15"
+    },
+    {
+      "date": "2026-02-01",
+      "evenement": "Inauguration de la FIFA Women's Champions Cup avec une dotation record de 2,3 millions de dollars pour le vainqueur"
+    },
+    {
+      "date": "2028-01-05",
+      "evenement": "Échéance prévue pour la première Coupe du monde des clubs féminine de la FIFA"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Autonomie financière d'ici 2030 portée par la revalorisation massive des droits TV et le remplissage régulier des grands stades.",
+      "probabilite_suggeree": 25
+    },
+    "stable": {
+      "resume": "Croissance à deux vitesses où une poignée de franchises d'élite atteint la rentabilité tandis que la majorité des clubs reste déficitaire.",
+      "probabilite_suggeree": 55
+    },
+    "degrade": {
+      "resume": "Plafond de verre d'audience et réduction des subventions masculines sous la pression des contraintes budgétaires globales du football.",
+      "probabilite_suggeree": 20
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Revenus cumulés du top 15 mondial",
+      "valeur": "158 M€",
+      "tendance": "+35 % sur un an"
+    },
+    {
+      "label": "Part du sponsoring dans les recettes",
+      "valeur": "66 %",
+      "tendance": "moteur ultra-dominant des budgets"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Les données financières consolidées et auditées des clubs féminins ne sont publiées de manière normalisée que depuis 2022 par Deloitte (4 points annuels disponibles), ce qui ne satisfait pas le critère minimal de 5 points historiques longs.",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "oui",
+    "raison": "Comparaison des revenus annuels 2024/2025 des principaux clubs féminins européens selon le rapport Deloitte.",
+    "barres": {
+      "aria_label": "Classement des revenus des clubs de football féminin pour la saison 2024/2025 en millions d'euros",
+      "lead": "Recettes générées par les principales écuries européennes de football féminin (saison 2024/2025) :",
+      "caption": "Deloitte Football Money League, janvier 2026",
+      "unite": "M€",
+      "valeurs": [
+        {
+          "label": "Arsenal Women",
+          "valeur": 25.6,
+          "affichage": "25,6 M€",
+          "mis_en_avant": true
+        },
+        {
+          "label": "Chelsea Women",
+          "valeur": 25.4,
+          "affichage": "25,4 M€",
+          "mis_en_avant": false
+        },
+        {
+          "label": "FC Barcelone",
+          "valeur": 22.0,
+          "affichage": "22,0 M€",
+          "mis_en_avant": false
+        },
+        {
+          "label": "Bayern Munich",
+          "valeur": 7.2,
+          "affichage": "7,2 M€",
+          "mis_en_avant": false
+        },
+        {
+          "label": "PSG Féminin",
+          "valeur": 4.6,
+          "affichage": "4,6 M€",
+          "mis_en_avant": false
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "La structure des revenus : pourquoi le sponsoring compense la faiblesse des droits TV",
+        "rattache_a": "Part commerciale représentant 66 % des recettes contre seulement 17 % pour la diffusion audiovisuelle"
+      },
+      {
+        "focus": "La péréquation intra-groupe et la dépendance aux sections masculines",
+        "rattache_a": "Intégration comptable des contrats de sponsoring globaux et subventions d'équilibre versées par les clubs professionnels"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "La rentabilité nette réelle des sections féminines hors NWSL, les clubs publiant rarement leurs comptes séparés des structures masculines",
+    "L'impact réel sur les revenus de la future Coupe du monde des clubs féminine prévue par la FIFA en 2028"
+  ],
+  "a_ne_pas_affirmer": [
+    "Ne pas affirmer que le football féminin est globalement rentable aujourd'hui : la majorité des clubs fonctionnent à perte ou sous perfusion de leur maison mère",
+    "Ne pas affirmer que les droits TV sont le moteur principal du sport féminin : ils restent très minoritaires face aux contrats de sponsoring d'entreprise"
+  ],
+  "sources": [
+    {
+      "id": "deloitte-money-league-2026",
+      "title": "Deloitte Football Money League 2026: Women's Clubs",
+      "source": "Deloitte",
+      "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHzcQRWm6iWCvT-IVxXnYkIMid8CBudXxnpnVz8cn4Xcgmcmg6m9LnUASH0Y6SQQBJVmukEEuEMFS5Go1_0vxIUpnF2yu2Ylv1w0C5_Wp2ARw1adtCuG8l0jaBQsYEB8cPaG1fITXuWyY1ojnFYk2V85Ze8FOaF2fy9Daxb_cWFmvAqtJU6ztMV3Fd9-MCebrHcAplFpECs28hwoKUX11Q4Xjv_6g==",
+      "image": null,
+      "lang": "en",
+      "domain": "sport",
+      "summary": "Rapport annuel de Deloitte sur les finances des clubs féminins montrant une hausse de 35 % des revenus du top 15 mondial à 158 millions d'euros pour 2024/2025, mené par Arsenal et Chelsea.",
+      "read_minutes": 5
+    },
+    {
+      "id": "sportbusiness-club-2025",
+      "title": "Les revenus du football féminin en forte hausse",
+      "source": "SportBusiness.Club",
+      "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEFMkKmIgGTOzNraBbZYhVO5G7fSUecsmgmzk4irMCemvkABhp0v3TIhfWsA5IYZJ8wJ6k7ujxtXIpJo9Y9xxA1-9phpd6vOKljhJt3wVjg8FRL1UczZmYxGieigpDRwz9sKrUHzKhL-CDQyr8tousYDvFtjx0kSuDzJ7T9t2cdOgHG0qTtA8EbqPs=",
+      "image": null,
+      "lang": "fr",
+      "domain": "sport",
+      "summary": "Analyse de la répartition des revenus des grands clubs féminins européens : 66 % de partenariats commerciaux, 17 % de droits TV et 17 % de billetterie.",
+      "read_minutes": 3
+    },
+    {
+      "id": "uefa-financial-distribution",
+      "title": "UEFA Women's club and national competition financial distribution models",
+      "source": "UEFA",
+      "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGEcT2Mz3WQ0wxFfMjBR8z-sYSO_o3t1U5_EABnGBiVhpTV4jE7zuYUO1-Q4XBsIXNlz3zNzRkmvDFHHGhAINRKI18BGikJJmJ0ERStgIDIl9QsE9VLOMCWNzLYvgvZebTa27q7mKXsqO4_2e6ahJo4CXeiuZr3JAZxJIiuUTLWRPfHZOu87IIOQ06ND9KHDHolXjpOKeTVyK4=",
+      "image": null,
+      "lang": "en",
+      "domain": "sport",
+      "summary": "Présentation du modèle de redistribution de l'UEFA pour la Ligue des champions féminine et l'Euro féminin sur le cycle 2025-2030.",
+      "read_minutes": 4
+    },
+    {
+      "id": "sportbuzzbusiness-d1-droits",
+      "title": "Droits TV – La D1 Arkema sur CANAL+ et Dailymotion jusqu'en 2029",
+      "source": "Sport Buzz Business",
+      "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGCeLBRlxu6ZggwTMxQImjggh0Tx0UtW0zR8etRg2h5QMz-Bil785SExWWrk5F3dJVUEEF5NgjAuwRjy6QWLUslG5waDJQpuoHRj1gks_XWSrpFVOFIcn4I3lPI20NGLcTm6DI8mg7iM3MRaT8UeCi9UuCyip-Q65tfDIDNze6ayWJB1vG1CdP3YEs1n92QyiSZEZrXYJNLw2NVVHPx4apwwcQ=",
+      "image": null,
+      "lang": "fr",
+      "domain": "sport",
+      "summary": "Détails de l'accord FFF / Canal+ pour la diffusion du championnat de France féminin jusqu'en 2029 pour environ 5,3 millions d'euros par an.",
+      "read_minutes": 2
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "Deloitte: Global women's elite sports revenues to reach $3B in 2026",
+      "source": "Deloitte",
+      "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHUB8SjjXyVjLTBUFoOVRixh3rq8ScSlcjzpxjD1WJxny66ss2yN6Kiz54KwAOc9_akP909Y5Pae4DOwzrJ8NFrzaCDunPxK9o-VdkjCGGEoWvoEVK4xwS6DmUWajL_C6GS2vmRSRViZ2ykP3EZ7k0F-CZw138rQ_DDXI9D2MvW7r-hPfxiFMfTp6Q6xBlvV6u_",
+      "image": null,
+      "lang": "en",
+      "domain": "sport",
+      "summary": "Le cabinet Deloitte projette que l'ensemble du sport féminin d'élite mondial franchira la barre des 3 milliards de dollars de revenus en 2026.",
+      "read_minutes": 3
+    },
+    {
+      "title": "FIFA Women's Champions Cup sets new benchmark with $2.3m prize",
+      "source": "FIFA",
+      "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHGXfUAfYfiibAzLruaG9UfeuaycDo-Q4la1FfR6pdsJA7D2rDSyXp7LgxnTPin97WKmX_3fPAav8Md_4QV7vGez9C6WgrdBTmWk2sOJUq-Qr9R8ideF5jb9Tlpixm-50sCkP6YAsJSQjigETQSpFnED9yqMEdNHNxzRP0dzaHq5inAbpjy2MWabAzv27qUHWv-cBwxrn-F450dUc2o_oaPb103mQ==",
+      "image": null,
+      "lang": "en",
+      "domain": "sport",
+      "summary": "La FIFA annonce un prize money record de 2,3 millions de dollars pour le vainqueur de la première Coupe des champions féminine de clubs.",
+      "read_minutes": 3
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-09-06",
+      "titre": "Sport féminin : la loi oblige à partager l'argent",
+      "lien": "Même thématique de péréquation financière et de partage des revenus entre le sport masculin et féminin."
+    },
+    {
+      "date": "2026-08-30",
+      "titre": "Ligue 1 : le foot survit-il à la chute des droits TV ?",
+      "lien": "Même analyse des fragilités du modèle économique du football et de la dépendance aux droits audiovisuels."
+    },
+    {
+      "date": "2026-08-06",
+      "titre": "FIFA : la crise autour d'Infantino, où en est-on ?",
+      "lien": "Même acteur institutionnel (FIFA) et même sujet de valorisation commerciale des compétitions mondiales de football."
+    }
+  ],
+  "recommandations_redaction": [
+    "Bien insister sur le contraste entre la croissance rapide des revenus (+35 %) et le gouffre absolu qui sépare encore les clubs féminins des budgets masculins (Real Madrid masculin à 1,2 milliard contre Arsenal féminin à 25,6 millions d'euros).",
+    "Expliquer de façon très pédagogique le rôle des contrats commerciaux consolidés (la marque sponsor qui achète un package club incluant l'équipe féminine) et pourquoi la billetterie dans les grands stades devient un levier clé."
+  ]
+}
