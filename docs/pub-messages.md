@@ -1490,6 +1490,16 @@ préférée pour son registre déjà simplifié.*
 
 *Phrase à retenir de l'édition du 2026-11-20 (archives/2026-11-20.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
 
+### chiffre-2026-11-21
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 84%
+- message: Avec un score de 84% de probabilité d'écriture artificielle sur un roman en lice pour le Goncourt, l'édition française accélère l'usage de filtres numériques dès 2027.
+- attribution: — lesscenarios.fr, 21 novembre 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-11-21.html
+
+*Phrase à retenir de l'édition du 2026-11-21 (archives/2026-11-21.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
