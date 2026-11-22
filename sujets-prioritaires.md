@@ -393,7 +393,7 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
   <!-- mots-clés: XV de France ; Championnat des nations ; Afrique du Sud ; rugby ; finale -->
   <!-- scénarios (brouillon): favorable = Le XV de France remporte la finale, s'affirmant comme la meilleure équipe mondiale. ; stable = Le XV de France perd honorablement face aux champions du monde. ; dégradé = Le XV de France subit une défaite écrasante, remettant en question ses ambitions. -->
   <!-- échéance: 2026-11-28 — Date de la finale du Championnat des nations. -->
-  <!-- sources: franceinfo sports ; l'actualité du sport en Direct, image et vidéo – Actualité du Sport en Direct – franceinfo Sport <https://www.franceinfo.fr/sports/> ; Le journal des sports - RTBF - L'actualité sportive de ce samedi 21 novembre - Auvio <https://auvio.rtbf.be/media/le-journal-des-sports-rtbf-le-journal-des-sports-rtbf-3567788> -->
+  <!-- sources: franceinfo sports \; l'actualité du sport en Direct, image et vidéo – Actualité du Sport en Direct – franceinfo Sport <https://www.franceinfo.fr/sports/> ; Le journal des sports - RTBF - L'actualité sportive de ce samedi 21 novembre - Auvio <https://auvio.rtbf.be/media/le-journal-des-sports-rtbf-le-journal-des-sports-rtbf-3567788> -->
   <!-- origine: veille -->
   <!-- note: Ajouté automatiquement le 2026-11-22 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. Solidité : 79/100. À valider : score insuffisant. -->
 - [x] Tom Laperche peut-il dominer la voile mondiale après sa victoire record à la Route du Rhum ? [sport & voile]

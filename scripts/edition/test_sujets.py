@@ -155,6 +155,15 @@ class ConversionTest(unittest.TestCase):
         with self.assertRaises(sj.SujetsError):
             sj.parse_md("# T\n\n## Culture — samedi\nune ligne libre perdue\n")
 
+    def test_point_virgule_dans_un_titre_de_source_ou_un_mot_cle(self):
+        d = sj.parse_md(mini_md())
+        e = par_debut(d, "Sujet complet")
+        e["sources"] = [{"titre": "franceinfo ; le direct", "url": "https://x.fr/a"}, {"titre": "Notes", "url": None}]
+        e["mots_cles"] = ["rugby ; XV de France", "marchés", "taux"]
+        e2 = par_debut(sj.parse_md(sj.render_md(d), d), "Sujet complet")
+        self.assertEqual(e2["sources"], e["sources"])
+        self.assertEqual(e2["mots_cles"], e["mots_cles"])
+
     def test_fichier_reel_aller_retour(self):
         data = json.loads((ROOT / "data" / "sujets.json").read_text(encoding="utf-8"))
         md = sj.render_md(data)
