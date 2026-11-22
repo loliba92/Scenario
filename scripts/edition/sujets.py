@@ -333,10 +333,21 @@ def _lire_commentaire(lignes: list[str], i: int):
     return texte, j + 1
 
 
+def _echapper(t: str) -> str:
+    """Un « ; » à l'intérieur d'un titre ou d'un mot-clé est écrit « \\; » dans la vue Markdown,
+    où le point-virgule sépare les éléments d'une liste."""
+    return t.replace(";", "\\;")
+
+
+def _scinder(brut: str) -> list[str]:
+    """Découpe une liste séparée par « ; » sans couper aux « \\; », puis les restitue en « ; »."""
+    return [p.replace("\\;", ";") for p in re.split(r"\s*(?<!\\);\s*", brut)]
+
+
 def _valeur(champ: str, brut: str):
     brut = brut.strip()
     if champ == "mots_cles":
-        return [k.strip() for k in re.split(r"\s*;\s*", brut) if k.strip()]
+        return [k.strip() for k in _scinder(brut) if k.strip()]
     if champ == "scenarios":
         ms = _SCEN_RE.search(brut)
         return ({"favorable": ms.group(1).strip(), "stable": ms.group(2).strip(), "degrade": ms.group(3).strip()}
@@ -346,7 +357,7 @@ def _valeur(champ: str, brut: str):
         return {"date": m.group(1), "raison": (m.group(2) or "").strip()} if m else None
     if champ == "sources":
         out = []
-        for part in re.split(r"\s*;\s*", brut):
+        for part in _scinder(brut):
             if not part.strip():
                 continue
             mu = re.match(r"^(.*?)\s*<(https?://[^>\s]+)>\s*$", part.strip(), re.S)
@@ -492,13 +503,13 @@ def _commentaire(texte: str, indent: str) -> str:
 
 def _serialiser(champ: str, v) -> str | None:
     if champ == "mots_cles":
-        return " ; ".join(v) if v else None
+        return " ; ".join(_echapper(k) for k in v) if v else None
     if champ == "scenarios":
         return (f"favorable = {v['favorable']} ; stable = {v['stable']} ; dégradé = {v['degrade']}" if v else None)
     if champ == "echeance":
         return (f"{v['date']} — {v['raison']}" if v and v.get("raison") else (v["date"] if v else None))
     if champ == "sources":
-        return " ; ".join((s["titre"] + (f" <{s['url']}>" if s.get("url") else "")) for s in v) if v else None
+        return " ; ".join((_echapper(s["titre"]) + (f" <{s['url']}>" if s.get("url") else "")) for s in v) if v else None
     return _texte(v) or None
 
 
