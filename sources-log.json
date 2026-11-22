@@ -2,6 +2,31 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-11-22",
+      "articles": [
+        {
+          "title": "Deloitte: Global women's elite sports revenues to reach $3B in 2026",
+          "source": "Deloitte",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHUB8SjjXyVjLTBUFoOVRixh3rq8ScSlcjzpxjD1WJxny66ss2yN6Kiz54KwAOc9_akP909Y5Pae4DOwzrJ8NFrzaCDunPxK9o-VdkjCGGEoWvoEVK4xwS6DmUWajL_C6GS2vmRSRViZ2ykP3EZ7k0F-CZw138rQ_DDXI9D2MvW7r-hPfxiFMfTp6Q6xBlvV6u_",
+          "image": "https://media.deloitte.com/is/image/deloitte/sports-deloitte-press-2:1200-x-627",
+          "lang": "en",
+          "domain": "sport",
+          "summary": "Le cabinet Deloitte projette que l'ensemble du sport féminin d'élite mondial franchira la barre des 3 milliards de dollars de revenus en 2026.",
+          "read_minutes": 3
+        },
+        {
+          "title": "FIFA Women's Champions Cup sets new benchmark with $2.3m prize",
+          "source": "FIFA",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHGXfUAfYfiibAzLruaG9UfeuaycDo-Q4la1FfR6pdsJA7D2rDSyXp7LgxnTPin97WKmX_3fPAav8Md_4QV7vGez9C6WgrdBTmWk2sOJUq-Qr9R8ideF5jb9Tlpixm-50sCkP6YAsJSQjigETQSpFnED9yqMEdNHNxzRP0dzaHq5inAbpjy2MWabAzv27qUHWv-cBwxrn-F450dUc2o_oaPb103mQ==",
+          "image": null,
+          "lang": "en",
+          "domain": "sport",
+          "summary": "La FIFA annonce un prize money record de 2,3 millions de dollars pour le vainqueur de la première Coupe des champions féminine de clubs.",
+          "read_minutes": 3
+        }
+      ]
+    },
+    {
       "date": "2026-11-21",
       "articles": [
         {

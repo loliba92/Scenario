@@ -192,6 +192,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 22.11.2026 — [Football féminin : le défi de la rentabilité](../archives/2026-11-22.html)
 - 21.11.2026 — [L'IA dans l'édition : les maisons d'édition françaises peuvent-elles se protéger ?](../archives/2026-11-21.html)
 - 20.11.2026 — [Euclid : la première carte de l'Univers peut-elle percer l'énergie noire ?](../archives/2026-11-20.html)
 - 19.11.2026 — [Nvidia : la démission de Jensen Huang fait-elle craquer la bulle de l'IA ?](../archives/2026-11-19.html)
