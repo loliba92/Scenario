@@ -1,0 +1,353 @@
+{
+  "date": "2026-11-23",
+  "registre": "geopolitique",
+  "sujet": {
+    "titre_propose": "Méga introductions en Bourse (Anthropic, SpaceX, OpenAI) : le marché peut-il absorber ces centaines de milliards sans faire éclater la bulle de l'IA ?",
+    "h1": "Méga IPO IA : Anthropic, SpaceX, OpenAI — le marché absorbe-t-il ces centaines de milliards ?",
+    "question_posee": "Anthropic, SpaceX et OpenAI préparent ou ont réalisé des introductions en Bourse d'une taille inédite : ces centaines de milliards de dollars peuvent-ils être absorbés sans éclater la bulle de l'IA ?",
+    "eyebrow": "Lundi, géopolitique",
+    "angle": "Comparer les trois opérations (taille, valorisation, cours après cotation) et interroger la capacité d'absorption du marché, avec le recul des précédentes grandes introductions technologiques. Anthropic est aussi l'éditeur d'un modèle d'IA — mentionné par transparence.",
+    "tags": [
+      "economie-mondiale",
+      "technologies",
+      "marchés-financiers"
+    ],
+    "domain": "economie-entreprises",
+    "image_keywords": "stock market trading floor",
+    "complexite": 4,
+    "origine_prioritaire": "Méga introductions en Bourse (Anthropic, SpaceX, OpenAI) : le marché peut-il absorber ces centaines de milliards sans faire éclater la bulle de l'IA ?",
+    "origine_id": "economie-megas-ipo-anthropic-openai-spacex-la-bulle",
+    "point_de_depart": {
+      "id": "economie-megas-ipo-anthropic-openai-spacex-la-bulle",
+      "registre": "geopolitique",
+      "titre": "Méga introductions en Bourse (Anthropic, SpaceX, OpenAI) : le marché peut-il absorber ces centaines de milliards sans faire éclater la bulle de l'IA ?",
+      "question": "Méga introductions en Bourse (Anthropic, SpaceX, OpenAI) : le marché peut-il absorber ces centaines de milliards sans faire éclater la bulle de l'IA ?",
+      "contexte": "Trois géants préparent ou ont réalisé des introductions en Bourse d'une taille jamais vue. SpaceX a déjà levé environ 75 milliards de dollars (cotation au Nasdaq en juin 2026 selon plusieurs sources, titre ensuite passé sous son prix d'introduction selon un suivi). Anthropic a lancé son roadshow le 10 novembre 2026 : cotation attendue au Nasdaq sous le symbole ANT, fourchette de 70 à 78 dollars par action, environ 825 millions d'actions proposées, levée pouvant atteindre 64 à 69 milliards de dollars, fixation du prix vers le 18 novembre et début de cotation prévu le 19 novembre. Valorisation visée : environ 1 000 milliards de dollars hors options selon Reuters, jusqu'à 1 400 milliards en base entièrement diluée, contre 965 milliards lors de la levée privée de mai 2026 et jusqu'à 2 000 milliards évoqués plus tôt. OpenAI viserait plutôt 2027. En parallèle, la capitalisation de Nvidia a perdu environ 1 800 milliards de dollars depuis octobre et des indicateurs de bulle de l'IA remontent.",
+      "rationnel": "La question : ces opérations géantes, qui demandent aux investisseurs de sortir des centaines de milliards de dollars en quelques mois, confirment-elles la confiance dans l'IA ou marquent-elles le sommet du cycle ? L'issue est ouverte : une cotation réussie peut entraîner OpenAI et d'autres dans son sillage, une cotation décevante (comme celle d'un titre passé sous son prix d'introduction) peut refroidir tout le secteur, et la valorisation visée a déjà été revue à la baisse. Enjeu pour un lecteur français : exposition des fonds, des plans d'épargne et des assurances-vie aux valeurs technologiques américaines, financement des start-ups d'IA européennes, et effet sur les marchés actions mondiaux. À relier au sujet sur Nvidia et à celui sur la productivité. Attention : Anthropic est aussi l'éditeur d'un modèle d'IA, ce que l'édition peut mentionner par transparence.",
+      "mots_cles": [
+        "Anthropic",
+        "IPO",
+        "introduction en Bourse",
+        "Nasdaq",
+        "ANT",
+        "SpaceX",
+        "OpenAI",
+        "bulle de l'IA",
+        "valorisation"
+      ],
+      "angle": "Comparer les trois opérations (taille, valorisation, prix après cotation) et poser la question de la capacité d'absorption du marché, avec le recul des précédentes grandes introductions technologiques.",
+      "a_verifier": "Règle de rédaction : avant la cotation (19 novembre ; édition prévue le 20, donc normalement après), la valorisation, le prix par action et le montant levé sont des attentes, qui dépendent de l'appétit des investisseurs au moment de la fixation du prix : les présenter comme une fourchette visée, jamais comme un résultat. Si l'édition est rédigée à partir du 19 novembre, donner la valorisation réalisée (prix final, montant levé, cours à l'ouverture et à la clôture de la première séance). Les sources se contredisent sur plusieurs points : valorisation (1 000 ou 1 400 milliards selon la base de calcul), montant levé (64,4 ou 69,3 milliards), date exacte du prix final et de la première cotation (18-19 novembre non confirmés partout), statut du dépôt d'OpenAI (confidentiel annoncé en juin ou seulement en préparation). À recouper avant rédaction avec le prospectus déposé auprès de la SEC (formulaire S-1 et ses amendements), Reuters, Bloomberg et le cours réel à la cotation. Si l'introduction a eu lieu le 19 novembre, rédiger avec le prix réel et la première séance, pas avec la fourchette.",
+      "scenarios_brouillon": {
+        "favorable": "L'introduction d'Anthropic est bien accueillie (prix dans le haut de la fourchette, titre en hausse après plusieurs semaines) : le marché absorbe les levées géantes, ouvre la voie à OpenAI en 2027 et finance durablement l'investissement dans l'IA sans choc sur le reste de la cote.",
+        "stable": "La cotation a lieu autour du bas ou du milieu de la fourchette, puis le titre oscille : les introductions se font mais à des valorisations plus raisonnables, le marché trie entre les entreprises qui gagnent de l'argent et les autres, sans krach.",
+        "degrade": "L'introduction déçoit (prix abaissé, titre sous son prix d'introduction comme l'a fait SpaceX) et déclenche une prise de bénéfices sur toute la tech : les introductions suivantes sont repoussées, la bulle de l'IA se dégonfle brutalement et les marchés actions mondiaux corrigent fortement."
+      },
+      "echeance": {
+        "date": "2026-11-19",
+        "raison": "Début de cotation d'Anthropic au Nasdaq annoncé pour le 19 novembre (prix final vers le 18), non confirmé par toutes les sources"
+      },
+      "sources_pistes": [
+        {
+          "titre": "Boursorama, 10/11/2026 — Anthropic vise une valorisation de 1.400 milliards de dollars lors de son IPO",
+          "url": "https://www.boursorama.com/bourse/actualites-amp/anthropic-vise-une-valorisation-de-1-400-milliards-de-dollars-lors-de-son-ipo-8c866fb32059d4ba472fb9fc652ac70f"
+        },
+        {
+          "titre": "Boursorama, 10/11/2026 — Anthropic vise 1 000 milliards, un chiffre plus modeste que prévu",
+          "url": "https://boursorama.com/bourse/actualites/anthropic-vise-une-valorisation-1-000-mds-lors-de-son-ipo-un-chiffre-plus-modeste-que-prevu-4b9bfaaf463dd8f6fb307dadda0e72f2"
+        },
+        {
+          "titre": "CNN, 10/11/2026 — Anthropic to seek $1.4 trillion valuation in blockbuster IPO",
+          "url": "https://edition.cnn.com/2026/11/10/investing/weve-never-seen-anything-like-anthropic-ipo"
+        },
+        {
+          "titre": "Quartz — SpaceX, Anthropic and OpenAI: 3 giant IPOs and only 1 has sold shares",
+          "url": "https://qz.com/biggest-ipos-anthropic-openai-spacex-reuters"
+        }
+      ],
+      "tag": "économie & marchés financiers",
+      "origine": "utilisateur",
+      "note_editoriale": "Ajouté le 2026-11-17 à la demande du propriétaire (« les méga IPO Anthropic »). Remis en file le 2026-11-21 après un conflit de fusion. Édition choisie par le propriétaire : lundi 23 novembre (rangé en tête du registre géopolitique, sujet économique placé là volontairement pour cette date). Cotation annoncée pour le 19 novembre : utiliser les chiffres réalisés, voir « à vérifier ».",
+      "donnees_graphique": null,
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille (22/11, sport) : aucun recoupement. Registre géopolitique : dernière occurrence 09/11 (Ukraine, raffineries) — sujet différent. Économie 29/10 (bulle IA) : lien thématique mais angle distinct (valorisations vs introductions en Bourse), pas de doublon."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Anthropic a lancé son roadshow le 10 novembre 2026 pour une introduction en Bourse au Nasdaq sous le symbole ANT, avec une fourchette de prix de 70 à 78 dollars par action et environ 825 millions d'actions proposées.",
+      "chiffre": "70-78 $/action ; ~825 M d'actions",
+      "date_du_chiffre": "2026-11-10",
+      "sources": [
+        "reuters-anthropic-ipo-nov2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Anthropic visait une valorisation d'environ 1 000 milliards de dollars hors options, et jusqu'à 1 400 milliards en base entièrement diluée, contre 965 milliards lors de sa dernière levée privée en mai 2026.",
+      "chiffre": "1 000 à 1 400 milliards de dollars",
+      "date_du_chiffre": "2026-11-10",
+      "sources": [
+        "reuters-anthropic-ipo-nov2026",
+        "cnn-anthropic-14tn-ipo"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le montant levé par Anthropic pourrait atteindre environ 64 à 69 milliards de dollars selon les sources, les chiffres exacts variant selon la base de calcul retenue.",
+      "chiffre": "64 à 69 milliards de dollars",
+      "date_du_chiffre": "2026-11-10",
+      "sources": [
+        "reuters-anthropic-ipo-nov2026",
+        "cnn-anthropic-14tn-ipo"
+      ],
+      "confiance": "moyenne"
+    },
+    {
+      "affirmation": "SpaceX a déjà levé environ 75 milliards de dollars lors de levées privées, et son titre a coté au Nasdaq en juin 2026 avant de passer sous son prix d'introduction selon un suivi médiatique.",
+      "chiffre": "~75 milliards de dollars",
+      "date_du_chiffre": "2026-11-10",
+      "sources": [
+        "qz-spacex-anthropic-openai-ipos"
+      ],
+      "confiance": "moyenne"
+    },
+    {
+      "affirmation": "OpenAI a annoncé en juin 2026 son intention de se coter en 2027, mais le dépôt officiel de son prospectus auprès de la SEC reste confus entre annonce et préparation effective.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "qz-spacex-anthropic-openai-ipos"
+      ],
+      "confiance": "moyenne"
+    },
+    {
+      "affirmation": "La capitalisation de Nvidia a perdu environ 1 800 milliards de dollars depuis octobre 2026, et des indicateurs de bulle de l'IA remontent.",
+      "chiffre": "~1 800 milliards de dollars",
+      "date_du_chiffre": "2026-11-10",
+      "sources": [
+        "qz-spacex-anthropic-openai-ipos"
+      ],
+      "confiance": "moyenne"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Anthropic",
+      "role": "Startup d'IA fondée par d'anciens chercheurs d'OpenAI, éditeur du modèle Claude, en introduction en Bourse au Nasdaq"
+    },
+    {
+      "nom": "SpaceX",
+      "role": "Entreprise spatiale de Elon Musk, déjà levée ~75 Md$ en privé, titre coté au Nasdaq depuis juin 2026"
+    },
+    {
+      "nom": "OpenAI",
+      "role": "Startup d'IA à la tête de ChatGPT, vise une introduction en Bourse en 2027"
+    },
+    {
+      "nom": "Nasdaq",
+      "role": "Place de marché américaine où sont ou seront cotés Anthropic et SpaceX"
+    },
+    {
+      "nom": "SEC (Securities and Exchange Commission)",
+      "role": "Autorité de régulation américaine qui examine les prospectus d'introduction en Bourse (formulaire S-1)"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2026-05",
+      "evenement": "Dernière levée privée d'Anthropic à 965 milliards de dollars"
+    },
+    {
+      "date": "2026-06",
+      "evenement": "Cotation de SpaceX au Nasdaq, titre ensuite passé sous son prix d'introduction"
+    },
+    {
+      "date": "2026-06",
+      "evenement": "Annonce d'OpenAI d'une introduction en Bourse prévue pour 2027"
+    },
+    {
+      "date": "2026-10",
+      "evenement": "Début de la baisse de la capitalisation de Nvidia (~1 800 Md$ perdus)"
+    },
+    {
+      "date": "2026-10-10",
+      "evenement": "Lancement du roadshow d'Anthropic pour son IPO"
+    },
+    {
+      "date": "2026-11-18",
+      "evenement": "Date prévue de fixation du prix d'Anthropic (non confirmée par toutes les sources)"
+    },
+    {
+      "date": "2026-11-19",
+      "evenement": "Date de début de cotation d'Anthropic au Nasdaq annoncée (non confirmée partout)"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "L'introduction d'Anthropic est bien accueillie (prix dans le haut de la fourchette, titre en hausse après plusieurs semaines) : le marché absorbe les levées géantes, ouvre la voie à OpenAI en 2027 et finance durablement l'investissement dans l'IA sans choc sur le reste de la cote.",
+      "probabilite_suggeree": 30
+    },
+    "stable": {
+      "resume": "La cotation a lieu autour du bas ou du milieu de la fourchette, puis le titre oscille : les introductions se font mais à des valorisations plus raisonnables, le marché trie entre les entreprises qui gagnent de l'argent et les autres, sans krach.",
+      "probabilite_suggeree": 45
+    },
+    "degrade": {
+      "resume": "L'introduction déçoit (prix abaissé, titre sous son prix d'introduction comme l'a fait SpaceX) et déclenche une prise de bénéfices sur toute la tech : les introductions suivantes sont repoussées, la bulle de l'IA se dégonfle brutalement et les marchés actions mondiaux corrigent fortement.",
+      "probabilite_suggeree": 25
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Valorisation visée par Anthropic (hors options)",
+      "valeur": "environ 1 000 milliards de dollars",
+      "tendance": "en baisse par rapport aux 2 000 Md$ évoqués plus tôt"
+    },
+    {
+      "label": "Montant levé par Anthropic (fourchette)",
+      "valeur": "64 à 69 milliards de dollars",
+      "tendance": "en baisse par rapport aux estimations les plus agressives"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Aucune série historique longue et publique vérifiée sur les méga-IPO d'IA n'a été trouvée : les introductions en Bourse d'entreprises d'IA à cette échelle sont trop récentes pour disposer de 5 points réels sur une période longue. Critère (2) non satisfait.",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "oui",
+    "raison": "Trois chiffres comparables (valorisations en milliards de dollars) trouvés dans les sources : valorisation visée d'Anthropic (1 000 Md$), valorisation maximale évoquée (1 400 Md$) et perte de capitalisation de Nvidia depuis octobre (~1 800 Md$).",
+    "barres": {
+      "aria_label": "Graphique comparatif des valorisations et pertes en milliards de dollars",
+      "lead": "Trois ordres de grandeur autour de la bulle de l'IA : la valorisation visée par Anthropic, le plafond évoqué plus tôt, et la perte de Nvidia depuis octobre.",
+      "caption": "Sources : Reuters, CNN, Quartz — novembre 2026",
+      "unite": "milliards de dollars",
+      "valeurs": [
+        {
+          "label": "Anthropic — valorisation visée (hors options)",
+          "valeur": 1000,
+          "affichage": "1 000 Md$",
+          "mis_en_avant": true
+        },
+        {
+          "label": "Anthropic — valorisation maximale (base diluée)",
+          "valeur": 1400,
+          "affichage": "1 400 Md$",
+          "mis_en_avant": false
+        },
+        {
+          "label": "Nvidia — perte de capitalisation depuis octobre",
+          "valeur": 1800,
+          "affichage": "1 800 Md$",
+          "mis_en_avant": false
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Comment une introduction en Bourse absorbe-t-elle des centaines de milliards de dollars ?",
+        "rattache_a": "fait sur le montant levé par Anthropic (64-69 Md$)"
+      },
+      {
+        "focus": "Pourquoi les valorisations d'IA passent-elles de 2 000 à 1 000 milliards ?",
+        "rattache_a": "fait sur la valorisation visée d'Anthropic (1 000-1 400 Md$ contre 965 Md$ en mai 2026)"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Date exacte de la fixation du prix d'Anthropic (18 ou 19 novembre) non confirmée par toutes les sources",
+    "Montant exact levé par Anthropic (64,4 ou 69,3 milliards) selon la base de calcul retenue",
+    "Statut exact du dépôt SEC d'OpenAI : annoncé en juin ou seulement en préparation"
+  ],
+  "a_ne_pas_affirmer": [
+    "La cotation d'Anthropic a eu lieu le 19 novembre 2026 avec un prix final X — l'événement n'est pas confirmé par toutes les sources au moment du brief",
+    "Le titre ANT a ouvert à un prix précis — non vérifié"
+  ],
+  "sources": [
+    {
+      "id": "reuters-anthropic-ipo-nov2026",
+      "title": "Anthropic vise une valorisation d'environ 1 000 milliards de dollars lors de son IPO au Nasdaq",
+      "source": "Reuters",
+      "url": "https://www.reuters.com/technology/anthropic-prepares-blockbuster-ipo-2026-11-10/",
+      "image": null,
+      "lang": "en",
+      "domain": "economie-entreprises",
+      "summary": "Anthropic a lancé son roadshow le 10 novembre 2026 pour une introduction en Bourse au Nasdaq sous le symbole ANT, avec une fourchette de 70 à 78 dollars par action et environ 825 millions d'actions proposées, pour une valorisation visée d'environ 1 000 milliards de dollars hors options.",
+      "read_minutes": 3
+    },
+    {
+      "id": "cnn-anthropic-14tn-ipo",
+      "title": "Anthropic to seek $1.4 trillion valuation in blockbuster IPO",
+      "source": "CNN",
+      "url": "https://edition.cnn.com/2026/11/10/investing/weve-never-seen-anything-like-anthropic-ipo",
+      "image": null,
+      "lang": "en",
+      "domain": "economie-entreprises",
+      "summary": "Anthropic vise jusqu'à 1 400 milliards de dollars de valorisation en base entièrement diluée lors de son introduction en Bourse, contre 965 milliards lors de sa dernière levée privée en mai 2026, avec un montant levé pouvant atteindre 64 à 69 milliards de dollars.",
+      "read_minutes": 3
+    },
+    {
+      "id": "qz-spacex-anthropic-openai-ipos",
+      "title": "SpaceX, Anthropic and OpenAI: 3 giant IPOs and only 1 has sold shares",
+      "source": "Quartz",
+      "url": "https://qz.com/biggest-ipos-anthropic-openai-spacex-reuters",
+      "image": null,
+      "lang": "en",
+      "domain": "economie-entreprises",
+      "summary": "Comparatif des trois géants : SpaceX a déjà levé environ 75 milliards de dollars et son titre a coté au Nasdaq en juin 2026 avant de passer sous son prix d'introduction ; Anthropic lance son roadshow pour novembre ; OpenAI vise 2027. La capitalisation de Nvidia a perdu environ 1 800 milliards de dollars depuis octobre.",
+      "read_minutes": 4
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "Boursorama — Anthropic vise une valorisation de 1 400 milliards de dollars lors de son IPO",
+      "source": "Boursorama",
+      "url": "https://www.boursorama.com/bourse/actualites-amp/anthropic-vise-une-valorisation-de-1-400-milliards-de-dollars-lors-de-son-ipo-8c866fb32059d4ba472fb9fc652ac70f",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie-entreprises",
+      "summary": "Anthropic vise une valorisation de 1 400 milliards de dollars lors de son introduction en Bourse au Nasdaq, un chiffre plus élevé que les 1 000 milliards annoncés par d'autres sources.",
+      "read_minutes": 2
+    },
+    {
+      "title": "Boursorama — Anthropic vise 1 000 milliards, un chiffre plus modeste que prévu",
+      "source": "Boursorama",
+      "url": "https://boursorama.com/bourse/actualites/anthropic-vise-une-valorisation-1-000-mds-lors-de-son-ipo-un-chiffre-plus-modeste-que-prevu-4b9bfaaf463dd8f6fb307dadda0e72f2",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie-entreprises",
+      "summary": "Anthropic vise une valorisation de 1 000 milliards de dollars, un chiffre plus modeste que les 2 000 milliards évoqués plus tôt, lors de son introduction en Bourse.",
+      "read_minutes": 2
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-10-29",
+      "titre": "Bulle de l'IA : les valorisations tech vont-elles corriger fortement ?",
+      "lien": "Même sujet de la bulle de l'IA et des valorisations technologiques, mais angle distinct : correction des valorisations vs capacité d'absorption des méga-IPO."
+    },
+    {
+      "date": "2026-09-08",
+      "titre": "OpenAI : le pari à 1 000 milliards de dollars",
+      "lien": "Même acteur (OpenAI) et même enjeu de valorisation à 1 000 milliards, directement relié à l'introduction en Bourse d'OpenAI évoquée dans le sujet du jour."
+    },
+    {
+      "date": "2026-11-19",
+      "titre": "Nvidia : la démission de Jensen Huang fait-elle craquer la bulle de l'IA ?",
+      "lien": "Même contexte de bulle de l'IA et même indicateur (capitalisation Nvidia) utilisé comme signal d'alerte dans le sujet du jour."
+    }
+  ],
+  "recommandations_redaction": [
+    "Présenter la valorisation, le prix par action et le montant levé d'Anthropic comme une fourchette visée, jamais comme un résultat, tant que la fixation du prix n'est pas confirmée",
+    "Mentionner par transparence qu'Anthropic est l'éditeur du modèle Claude",
+    "Comparer explicitement les trois opérations (Anthropic, SpaceX, OpenAI) sur la taille, la valorisation et le comportement du titre après cotation",
+    "Utiliser la perte de capitalisation de Nvidia (~1 800 Md$) comme signal d'alerte sur la fragilité du secteur",
+    "Relier le sujet à l'édition du 29/10 sur la bulle de l'IA et à celle du 08/09 sur OpenAI"
+  ]
+}
