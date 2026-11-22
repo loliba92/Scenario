@@ -405,7 +405,7 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
   <!-- sources: Alcaraz vainqueur, Laperche triomphe, l'OM enfonce Lens : les infos sport du week-end <https://www.france24.com/fr/sports/20261109-alcaraz-laperche-om-lens-infos-sport-week-end> -->
   <!-- origine: veille -->
   <!-- note: Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
-- [ ] Le football féminin peut-il devenir aussi rentable que le masculin ? [sport & financement]
+- [x] Le football féminin peut-il devenir aussi rentable que le masculin ? [sport & financement]
   <!-- id: sport-le-football-feminin-peut-il-devenir-aussi -->
   <!-- contexte: Les audiences TV du foot féminin ont progressé de 30 % en 2026, mais les écarts de rémunération restent énormes. -->
   <!-- rationnel: La question : Les investisseurs vont-ils combler le gap, ou le modèle reste-t-il déséquilibré ? Les scénarios dépendent des sponsors et des droits TV. L'enjeu est l'équité dans le sport. -->
