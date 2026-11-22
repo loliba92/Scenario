@@ -384,6 +384,18 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 ## Sport — dimanche
 <!-- Enjeux sportifs & économiques, jamais la vie privée des sportifs. Sous-thèmes : football, rugby, tennis, JO, cyclisme, sports méca… -->
+- [ ] 🔍 Le XV de France peut-il remporter le Championnat des nations face à l'Afrique du Sud ? [sport & rugby]
+  <!-- id: sport-le-xv-de-france-peut-il-remporter-le -->
+  <!-- question: Le XV de France, qualifié pour la finale du Championnat des nations, peut-il battre l'Afrique du Sud et s'affirmer comme la meilleure équipe mondiale ? -->
+  <!-- contexte: Le 21 novembre 2026, le XV de France s'est qualifié pour la finale du Championnat des nations après une victoire écrasante face à l'Argentine (45-17). Ils affronteront l'Afrique du Sud, championne du monde en titre, le week-end prochain à Twickenham. -->
+  <!-- rationnel: La question : le XV de France peut-il battre l'Afrique du Sud ? Les forces en présence incluent une équipe française en forme et une équipe sud-africaine expérimentée. Un scénario favorable verrait une victoire française, confirmant leur statut de meilleure équipe mondiale. Un scénario stable maintiendrait le statu quo, avec une défaite honorable face aux champions du monde. Un scénario dégradé verrait une défaite écrasante, remettant en question les ambitions françaises. Pour les fans de rugby français, l'enjeu est de voir si leur équipe peut enfin s'imposer au plus haut niveau. -->
+  <!-- à vérifier: Les préparations des deux équipes et les conditions météorologiques prévues pour la finale. -->
+  <!-- mots-clés: XV de France ; Championnat des nations ; Afrique du Sud ; rugby ; finale -->
+  <!-- scénarios (brouillon): favorable = Le XV de France remporte la finale, s'affirmant comme la meilleure équipe mondiale. ; stable = Le XV de France perd honorablement face aux champions du monde. ; dégradé = Le XV de France subit une défaite écrasante, remettant en question ses ambitions. -->
+  <!-- échéance: 2026-11-28 — Date de la finale du Championnat des nations. -->
+  <!-- sources: franceinfo sports ; l'actualité du sport en Direct, image et vidéo – Actualité du Sport en Direct – franceinfo Sport <https://www.franceinfo.fr/sports/> ; Le journal des sports - RTBF - L'actualité sportive de ce samedi 21 novembre - Auvio <https://auvio.rtbf.be/media/le-journal-des-sports-rtbf-le-journal-des-sports-rtbf-3567788> -->
+  <!-- origine: veille -->
+  <!-- note: Ajouté automatiquement le 2026-11-22 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. Solidité : 79/100. À valider : score insuffisant. -->
 - [x] Tom Laperche peut-il dominer la voile mondiale après sa victoire record à la Route du Rhum ? [sport & voile]
   <!-- id: sport-tom-laperche-peut-il-dominer-la-voile-mondiale -->
   <!-- contexte: Le skipper français Tom Laperche a remporté la Route du Rhum 2026 en pulvérisant le record de la course (6 jours, 13 heures et 27 minutes). À 29 ans, il confirme son statut de nouveau leader de la voile française, avec des ambitions pour le Vendée Globe 2028. -->
@@ -526,6 +538,18 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 
 ## Actualité & politique française — mercredi
+- [ ] 🔍 La mobilisation du 21 novembre peut-elle relancer le débat sur les retraites en France ? [politique & retraites]
+  <!-- id: actualite-francaise-la-mobilisation-du-21-novembre-peut-elle -->
+  <!-- question: La mobilisation sociale du 21 novembre peut-elle contraindre le gouvernement à rouvrir le dossier des retraites avant la présidentielle de 2027 ? -->
+  <!-- contexte: Le 21 novembre 2026, une mobilisation sociale a rassemblé entre 82 500 et 150 000 manifestants en France, selon les sources. Les syndicats réclament une réouverture du débat sur les retraites, alors que le gouvernement maintient sa position sur le gel du point d'indice des fonctionnaires. Cette mobilisation intervient à un an de l'élection présidentielle. -->
+  <!-- rationnel: La question : cette mobilisation peut-elle relancer le débat sur les retraites ? Les forces en présence incluent une pression syndicale forte et une position gouvernementale ferme. Un scénario favorable verrait le gouvernement ouvrir des négociations sur les retraites. Un scénario stable maintiendrait le statu quo avec des déclarations symboliques. Un scénario dégradé verrait une escalade des tensions sociales, avec des grèves prolongées. Pour les Français, l'enjeu est de savoir si leurs revendications seront entendues avant l'élection présidentielle. -->
+  <!-- à vérifier: Les réactions gouvernementales et les prochaines étapes syndicales. -->
+  <!-- mots-clés: mobilisation 21 novembre ; retraites ; syndicats ; gouvernement ; élection présidentielle -->
+  <!-- scénarios (brouillon): favorable = Le gouvernement ouvre des négociations sur les retraites, répondant aux revendications sociales. ; stable = Le gouvernement maintient sa position, mais annonce des mesures symboliques pour apaiser les tensions. ; dégradé = Les tensions sociales s'intensifient, avec des grèves prolongées et un blocage politique. -->
+  <!-- échéance: 2027-04-01 — Échéance de l'élection présidentielle française. -->
+  <!-- sources: franceinfo - Actualités en temps réel et info en direct <https://www.franceinfo.fr/> ; Les Archives du dimanche 22 novembre 2026 des actualités Ouest-France <https://www.ouest-france.fr/archives/2026/22-novembre-2026/> -->
+  <!-- origine: veille -->
+  <!-- note: Ajouté automatiquement le 2026-11-22 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. Solidité : 79/100. À valider : score insuffisant. -->
 - [x] La hausse du SMIC peut-elle relancer la consommation sans nuire à l'emploi ? [économie & pouvoir d'achat]
   <!-- id: actualite-francaise-la-hausse-du-smic-peut-elle-relancer-la -->
   <!-- contexte: Le gouvernement a annoncé une hausse de 1,6 % du SMIC le 10 novembre 2026, portant le salaire minimum à 1 502 euros. Cette mesure vise à soutenir le pouvoir d'achat des ménages, mais elle est critiquée par certains économistes qui craignent un impact négatif sur l'emploi, notamment dans les PME. -->

@@ -1,5 +1,19 @@
 [
   {
+    "date": "2026-11-22",
+    "registre": "Actu. française",
+    "section": "Actu. française",
+    "accroche": "La mobilisation du 21 novembre peut-elle relancer le débat sur les retraites en France ?",
+    "tag": "politique & retraites"
+  },
+  {
+    "date": "2026-11-22",
+    "registre": "Sport",
+    "section": "Sport",
+    "accroche": "Le XV de France peut-il remporter le Championnat des nations face à l'Afrique du Sud ?",
+    "tag": "sport & rugby"
+  },
+  {
     "date": "2026-11-15",
     "registre": "Économie & finance",
     "section": "Économie & finance",
@@ -194,19 +208,5 @@
     "section": "Sciences",
     "accroche": "IA et cosmologie : l'analyse de 100 millions de galaxies par le CEA résout-elle le mystère de l'énergie sombre ?",
     "tag": "astrophysique & IA"
-  },
-  {
-    "date": "2026-10-11",
-    "registre": "Sciences",
-    "section": "Sciences",
-    "accroche": "Robot-chercheur Eve : l'IA autonome qui découvre un effet protecteur inédit sur la levure préfigure-t-elle la fin de la recherche humaine ?",
-    "tag": "IA & recherche scientifique"
-  },
-  {
-    "date": "2026-10-04",
-    "registre": "Géopolitique",
-    "section": "Carte blanche",
-    "accroche": "Sabotages et incendies en Europe : la Russie mène-t-elle une guerre hybride silencieuse sur le sol de l'UE ?",
-    "tag": "géopolitique & sécurité"
   }
 ]
