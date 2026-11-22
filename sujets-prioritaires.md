@@ -1093,7 +1093,9 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
   <!-- mots-clés: cinéma français ; Netflix ; salles ; abonnements ; culture -->
   <!-- scénarios (brouillon): favorable = Des partenariats avec les plateformes relancent l'industrie. ; stable = Les salles se spécialisent dans les événements. ; dégradé = Le cinéma indépendant disparaît. -->
   <!-- sources: Cinéma français : la chute des entrées s'accélère -->
+  <!-- données chiffrées: [relevé du 2026-11-22] Fréquentation des salles de cinéma en France (unité : millions d'entrées). Janvier 2026 = 15,55 (2026) ; Août 2026 = 19,94 (2026) ; Octobre 2026 = 14,66 (2026). Sources : https://www.cnc.fr/professionnels/communiques-de-presse/la-frequentation-au-mois-doctobre-2026-depasse-les-14-millions-dentrees_2693688 ; https://www.cnc.fr/professionnels/actualites/avec-pres-de-20-millions-dentrees-dans-les-salles-de-cinema-le-mois-daout-2026-etablit-un-record-depuis-1980_2647280 -->
   <!-- origine: veille -->
+  <!-- enrichi: 2026-11-22 -->
   <!-- note: Ajouté automatiquement le 2026-11-02 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
 - [x] Netflix peut-il devenir le nouveau cinéma ? [cinéma & streaming]
   <!-- id: culture-netflix-peut-il-devenir-le-nouveau-cinema -->
