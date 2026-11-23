@@ -418,5 +418,11 @@
     "impressions": 20,
     "ctr": 0.05,
     "position": 13.6
+  },
+  "2026-11-20": {
+    "clicks": 0,
+    "impressions": 25,
+    "ctr": 0,
+    "position": 11
   }
 }
