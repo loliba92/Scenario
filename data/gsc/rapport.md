@@ -7,7 +7,7 @@ Site `sc-domain:lesscenarios.fr` · données Google du 2026-10-24 au 2026-11-20 
 ## Chiffres (28 jours)
 
 - 6 clics, 410 impressions, taux de clic 1,5 %, position moyenne 10,7.
-- Pages indexées : 30 sur 33 inspectées ; éditions inconnues de Google : 2 (dont 0 de plus de 7 jours).
+- Pages indexées : 29 sur 33 inspectées ; éditions inconnues de Google : 2 (dont 0 de plus de 7 jours).
 - Requêtes : 22 (dont 7 avec le nom du site).
 - Tendance (14 jours, jusqu'au 2026-11-20) : impressions 168 contre 242, clics 5 contre 1.
 
@@ -18,21 +18,21 @@ Site `sc-domain:lesscenarios.fr` · données Google du 2026-10-24 au 2026-11-20 
 ## À résoudre — important
 
 - Le site apparaît (position moyenne 10,7) mais est très peu cliqué (1,5 %). **Action** : Retravailler les titres et descriptions des pages les plus vues. **Agent à envoyer** : seo-content. **Mission** : Proposer de nouveaux titres (≤ 59 caractères) et descriptions (100–160) plus incitatifs pour les pages les plus vues, dans le ton sobre de Scénario ; ne rien promettre.
-- Éditions en anglais : 1 descriptions hors norme. **Action** : Corriger via les générateurs (voir .claude/seo-routage.md). **Mission** : Correction directe dans les générateurs (generate_seo_head.py, translate_daily.py), puis régénération et tests.
 
 ## À surveiller
 
 - Pages en première page de Google sans aucun clic : `/`, `/en/archives/2026-09-13.html`, `/en/archives/2026-09-24.html`, `/en/archives/2026-09-26.html`, `/en/archives/2026-10-17.html`. **Action** : Titre ou description à rendre plus incitatif. **Agent à envoyer** : seo-content. **Mission** : Réécrire titre et description de ces pages (liste dans le rapport), puis vérifier la cohérence avec le contenu.
 - L'adresse `/index.html` apparaît dans Google en plus de `/`. **Action** : Vérifier la balise canonique de l'accueil. **Agent à envoyer** : seo-technical. **Mission** : Vérifier la canonique de l'accueil, les redirections et les liens internes qui pointent vers /index.html.
-- 1 page : Google connaît l'adresse mais ne l'a pas encore explorée ou retenue (`/en/archives/2026-11-20.html`). **Action** : Renforcer les liens internes vers la page, enrichir son contenu, demander l'indexation. **Agent à envoyer** : seo-content. **Mission** : Comprendre pourquoi Google retient ou écarte ces pages (profondeur, unicité, qualité perçue) et proposer des améliorations de contenu et de liens internes.
+- 2 pages : Google connaît l'adresse mais ne l'a pas encore explorée ou retenue (`/en/archives/2026-11-23.html`, `/en/archives/2026-11-20.html`). **Action** : Renforcer les liens internes vers la page, enrichir son contenu, demander l'indexation. **Agent à envoyer** : seo-content. **Mission** : Comprendre pourquoi Google retient ou écarte ces pages (profondeur, unicité, qualité perçue) et proposer des améliorations de contenu et de liens internes.
 
 ## Ce qui fonctionne
 
 - 7 pages principales indexées : `/`, `/archives.html`, `/guide-pedagogique.html`, `/le-projet.html`, `/sources.html`, `/glossaire.html`.
-- 23 éditions indexées par Google.
+- 22 éditions indexées par Google.
 - Plan du site `/sitemap.xml` lu par Google sans erreur (251 adresses envoyées).
 - Plan du site `/sitemap-news.xml` lu par Google sans erreur (4 adresses envoyées).
-- Balises des 122 éditions en français conformes : titres sans coupure, descriptions de 100 à 160 caractères, un seul titre principal, canonique présente, toutes dans le plan du site.
+- Balises des 123 éditions en français conformes : titres sans coupure, descriptions de 100 à 160 caractères, un seul titre principal, canonique présente, toutes dans le plan du site.
+- Balises des 85 éditions en anglais conformes : titres sans coupure, descriptions de 100 à 160 caractères, un seul titre principal, canonique présente, toutes dans le plan du site.
 
 ## Ce qui ne fonctionne pas
 
@@ -43,6 +43,32 @@ Site `sc-domain:lesscenarios.fr` · données Google du 2026-10-24 au 2026-11-20 
 
 - Dans Search Console, collez l'adresse de l'édition du jour dans la barre du haut, puis « Demander une indexation » (quota limité par jour) ; répétez pour les éditions inconnues les plus récentes.
 - Relisez les recommandations des agents avant de valider tout changement de titres ou de contenu.
+
+## Conclusions des agents — 23 novembre 2026 : éditions françaises enfin explorées ; baisse des impressions due à la panne de traduction
+
+**Verdict** : Les 12 éditions françaises du 4 au 15 novembre sont maintenant indexées : le blocage signalé le 16 novembre est levé. Le creux d'impressions du 11 au 16 novembre coïncide avec la panne de la traduction anglaise ; depuis le 17, le niveau est remonté. Le faible taux de clic (6 clics, 410 impressions) repose sur trop peu de données pour justifier de réécrire des titres. Une seule description anglaise hors norme a été trouvée et corrigée (16 novembre).
+**Agents** : g, s, c, -, e, x, p, e, r, t, ,,  , s, e, o, -, c, o, n, t, e, n, t.
+
+- [Écarté] **Éditions françaises du 4 au 15 novembre indexées** (mesuré (cause non prouvée)) — Google les a explorées le 16 novembre au soir, probablement après des demandes d'indexation. **Action** : Rien à faire côté site. Il reste inconnu pour les éditions du 27 octobre au 2 novembre (hors de l'échantillon inspecté).
+- [Écarté] **Baisse des impressions (168 contre 242)** (moyenne) — Creux de 3 à 9 impressions par jour du 11 au 16 novembre, pendant la panne de traduction anglaise ; 19 à 27 par jour du 17 au 20. **Action** : Revérifier le 30 novembre.
+- [Corrigé] **Description anglaise de 67 caractères (édition du 16 novembre)** (certain (page mesurée)) — Édition traduite avant le correctif de la PR 492 : la question seule servait de description. **Action** : Complément de 57 caractères ajouté (124 au total) dans description, og, twitter et données structurées ; texte visible inchangé, vérifié ligne à ligne.
+- [Vous] **Titre et description de l'accueil peu incitatifs (23 impressions, 0 clic, position 3,9)** (faible (volume trop bas)) — Le titre décrit le format sans dire ce que le lecteur y trouve. **Action** : Non modifié : trop peu de données, et la mesure des titres réécrits en octobre serait brouillée. Pistes de l'agent : « Comprendre l'actualité en 3 scénarios chiffrés — Scénario » ; description commençant par « Que peut-il se passer ensuite ? ».
+- [Écarté] **Pages anglaises sans clic (13, 24, 26 septembre, 17 octobre)** (faible (12 à 25 impressions)) — Volume insuffisant ; éditions figées. **Action** : Rien. À revoir si une page dépasse environ 100 impressions sans clic.
+- [À faire] **Liens vers /index.html dans les gabarits hebdo et suivi** (certain) — Origine du gabarit hebdomadaire toujours inconnue ; impact faible. **Action** : Confier à seo-technical la recherche de l'origine, pour les pages à venir seulement.
+- [À faire] **Descriptions françaises du 20 au 22 novembre limitées à la question** (moyenne) — Le générateur n'ajoute un complément qu'en dessous de 100 caractères. **Action** : Amélioration de second ordre dans generate_seo_head.py, pour les éditions futures ; non faite ce jour.
+- [Vous] **Données structurées en français sur 10 pages anglaises de septembre ; hreflang manquant (13 et 24 septembre)** (certain) — Éditions figées, hors de l'exception autorisée. **Action** : À décider avec les liens de langue de septembre déjà signalés.
+
+À faire par le propriétaire :
+- Dans Search Console, confirmer si vous avez demandé l'indexation le 16 novembre ; la poursuivre pour les éditions du 27 octobre au 2 novembre et pour l'édition du jour.
+- Décider du rattrapage des éditions anglaises du 11 au 15 novembre et des liens de langue manquants sur les éditions de septembre.
+- Décider si le titre et la description de l'accueil doivent être réécrits maintenant ou après quatre semaines de mesure.
+
+Ce que l'on ne sait pas encore :
+- État d'indexation des éditions du 27 octobre au 2 novembre.
+- Effet réel des titres réécrits en octobre.
+- Quelle description anglaise le rapport automatique signalait exactement (celle du 16 novembre est la seule trouvée hors norme).
+
+Prochain contrôle : 2026-11-30.
 
 ## Conclusions des agents — 16 novembre 2026 : traduction anglaise en panne depuis le 11 novembre ; français toujours peu exploré
 
@@ -91,24 +117,6 @@ Ce que l'on ne sait pas encore :
 
 Prochain contrôle : 2026-10-25.
 
-## Conclusions des agents — 12 octobre 2026 : peu de clics malgré une première page
-
-**Verdict** : Le site apparaît en position moyenne 9,1 mais n'obtient que 4 clics sur 291 impressions. Le classement n'est pas en cause : c'est l'aperçu dans Google qui n'incitait pas à cliquer. Les balises des trois pages vivantes et des 10 éditions les plus vues sont réécrites ; reste à mesurer l'effet.
-**Agents** : seo-content.
-
-- [Corrigé] **Les pages les plus vues sont des éditions anglaises passées** (certain (mesuré)) — Sur les 13 pages les plus vues, 9 sont des éditions anglaises et 1 une édition française, toutes passées et figées. Elles sont en position 5 à 7,5 avec 0 clic ; la page cinéma du 8 août a 82 impressions sans aucun clic. **Action** : Fait le 12 octobre, sur accord du propriétaire : titres, descriptions, og et twitter de ces 10 éditions réécrits (9 anglaises, 1 française), sans toucher à rien d'autre (vérifié ligne à ligne). Dates du plan du site inchangées.
-- [À faire] **Les descriptions reprennent la question du titre** (certain (code lu)) — generate_seo_head.py renvoie la question posée telle quelle si elle tient en 160 caractères : la description répète le titre, sans chiffre clé ni mention des trois scénarios. Le titre est un simple extrait du sujet. **Action** : Pour les prochaines éditions : description = un fait ou un chiffre, puis « trois scénarios » et la fourchette des issues, avec des fins variées pour éviter des métadonnées en série ; contrôler titre et description après traduction dans translate_daily.py.
-- [Corrigé] **Accueil, Le projet et Newsletter : balises peu parlantes** (certain) — « Le projet » et « Newsletter » ne disaient pas ce que la page apporte ; la page Newsletter est en position 52 et son titre ne contenait aucun mot de la requête « scénarios email ». **Action** : Fait : nouveaux titres et descriptions (titre ≤ 61 caractères avec la marque, description 133 à 138), repris dans le générateur de l'accueil.
-
-À faire par le propriétaire :
-- Vérifier dans Search Console, à partir du 26 octobre, si le taux de clic de l'accueil, du projet et de la newsletter évolue.
-
-Ce que l'on ne sait pas encore :
-- Quel effet auront ces nouveaux titres sur le taux de clic : aucune garantie, et 291 impressions sur 28 jours sont un échantillon très faible.
-- Si la page Newsletter peut monter au-dessus de la position 52 : elle vise une requête rare.
-
-Prochain contrôle : 2026-10-26.
-
 ## Requêtes principales
 
 - « viralité organique dirigée » : 0 clic(s), 14 impression(s), position 12,6
@@ -140,8 +148,9 @@ Prochain contrôle : 2026-10-26.
 - `/sources.html` : ok
 - `/glossaire.html` : ok
 - `/en/` : ok
+- `/archives/2026-11-23.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 0 j
 - `/archives/2026-11-22.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 1 j
-- `/archives/2026-11-21.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 2 j
+- `/archives/2026-11-21.html` : ok, publiée il y a 2 j
 - `/archives/2026-11-20.html` : ok, publiée il y a 3 j
 - `/archives/2026-11-19.html` : ok, publiée il y a 4 j
 - `/archives/2026-11-18.html` : ok, publiée il y a 5 j
@@ -159,12 +168,11 @@ Prochain contrôle : 2026-10-26.
 - `/archives/2026-11-06.html` : ok, publiée il y a 17 j
 - `/archives/2026-11-05.html` : ok, publiée il y a 18 j
 - `/archives/2026-11-04.html` : ok, publiée il y a 19 j
-- `/archives/2026-11-03.html` : ok, publiée il y a 20 j
+- `/en/archives/2026-11-23.html` : decouverte (Détectée, actuellement non indexée), publiée il y a 0 j
 - `/en/archives/2026-11-22.html` : ok, publiée il y a 1 j
 - `/en/archives/2026-11-21.html` : ok, publiée il y a 2 j
 - `/en/archives/2026-11-20.html` : decouverte (Détectée, actuellement non indexée), publiée il y a 3 j
 - `/en/archives/2026-11-19.html` : ok, publiée il y a 4 j
 - `/en/archives/2026-11-18.html` : ok, publiée il y a 5 j
-- `/en/archives/2026-11-17.html` : ok, publiée il y a 6 j
 
 Le compteur « indexées » des plans du site n'est pas fiable : l'inspection page par page fait foi.
