@@ -1,6 +1,81 @@
 {
   "audits": [
     {
+      "date": "2026-11-23",
+      "titre": "éditions françaises enfin explorées ; baisse des impressions due à la panne de traduction",
+      "verdict": "Les 12 éditions françaises du 4 au 15 novembre sont maintenant indexées : le blocage signalé le 16 novembre est levé. Le creux d'impressions du 11 au 16 novembre coïncide avec la panne de la traduction anglaise ; depuis le 17, le niveau est remonté. Le faible taux de clic (6 clics, 410 impressions) repose sur trop peu de données pour justifier de réécrire des titres. Une seule description anglaise hors norme a été trouvée et corrigée (16 novembre).",
+      "agents": "gsc-expert, seo-content",
+      "constats": [
+        {
+          "titre": "Éditions françaises du 4 au 15 novembre indexées",
+          "certitude": "mesuré (cause non prouvée)",
+          "cause": "Google les a explorées le 16 novembre au soir, probablement après des demandes d'indexation.",
+          "statut": "ecarte",
+          "action": "Rien à faire côté site. Il reste inconnu pour les éditions du 27 octobre au 2 novembre (hors de l'échantillon inspecté)."
+        },
+        {
+          "titre": "Baisse des impressions (168 contre 242)",
+          "certitude": "moyenne",
+          "cause": "Creux de 3 à 9 impressions par jour du 11 au 16 novembre, pendant la panne de traduction anglaise ; 19 à 27 par jour du 17 au 20.",
+          "statut": "ecarte",
+          "action": "Revérifier le 30 novembre."
+        },
+        {
+          "titre": "Description anglaise de 67 caractères (édition du 16 novembre)",
+          "certitude": "certain (page mesurée)",
+          "cause": "Édition traduite avant le correctif de la PR 492 : la question seule servait de description.",
+          "statut": "corrige",
+          "action": "Complément de 57 caractères ajouté (124 au total) dans description, og, twitter et données structurées ; texte visible inchangé, vérifié ligne à ligne."
+        },
+        {
+          "titre": "Titre et description de l'accueil peu incitatifs (23 impressions, 0 clic, position 3,9)",
+          "certitude": "faible (volume trop bas)",
+          "cause": "Le titre décrit le format sans dire ce que le lecteur y trouve.",
+          "statut": "proprietaire",
+          "action": "Non modifié : trop peu de données, et la mesure des titres réécrits en octobre serait brouillée. Pistes de l'agent : « Comprendre l'actualité en 3 scénarios chiffrés — Scénario » ; description commençant par « Que peut-il se passer ensuite ? »."
+        },
+        {
+          "titre": "Pages anglaises sans clic (13, 24, 26 septembre, 17 octobre)",
+          "certitude": "faible (12 à 25 impressions)",
+          "cause": "Volume insuffisant ; éditions figées.",
+          "statut": "ecarte",
+          "action": "Rien. À revoir si une page dépasse environ 100 impressions sans clic."
+        },
+        {
+          "titre": "Liens vers /index.html dans les gabarits hebdo et suivi",
+          "certitude": "certain",
+          "cause": "Origine du gabarit hebdomadaire toujours inconnue ; impact faible.",
+          "statut": "a_faire",
+          "action": "Confier à seo-technical la recherche de l'origine, pour les pages à venir seulement."
+        },
+        {
+          "titre": "Descriptions françaises du 20 au 22 novembre limitées à la question",
+          "certitude": "moyenne",
+          "cause": "Le générateur n'ajoute un complément qu'en dessous de 100 caractères.",
+          "statut": "a_faire",
+          "action": "Amélioration de second ordre dans generate_seo_head.py, pour les éditions futures ; non faite ce jour."
+        },
+        {
+          "titre": "Données structurées en français sur 10 pages anglaises de septembre ; hreflang manquant (13 et 24 septembre)",
+          "certitude": "certain",
+          "cause": "Éditions figées, hors de l'exception autorisée.",
+          "statut": "proprietaire",
+          "action": "À décider avec les liens de langue de septembre déjà signalés."
+        }
+      ],
+      "proprietaire": [
+        "Dans Search Console, confirmer si vous avez demandé l'indexation le 16 novembre ; la poursuivre pour les éditions du 27 octobre au 2 novembre et pour l'édition du jour.",
+        "Décider du rattrapage des éditions anglaises du 11 au 15 novembre et des liens de langue manquants sur les éditions de septembre.",
+        "Décider si le titre et la description de l'accueil doivent être réécrits maintenant ou après quatre semaines de mesure."
+      ],
+      "inconnu": [
+        "État d'indexation des éditions du 27 octobre au 2 novembre.",
+        "Effet réel des titres réécrits en octobre.",
+        "Quelle description anglaise le rapport automatique signalait exactement (celle du 16 novembre est la seule trouvée hors norme)."
+      ],
+      "prochain_controle": "2026-11-30"
+    },
+    {
       "date": "2026-11-16",
       "titre": "traduction anglaise en panne depuis le 11 novembre ; français toujours peu exploré",
       "verdict": "Les éditions françaises de plus de 7 jours restent inconnues de Google (12 sur 33 pages inspectées), alors que les éditions anglaises sont indexées le jour même : le maillage, le plan du site et les balises sont pourtant identiques, donc attendre ne suffit plus. Une panne du site a de plus été trouvée et corrigée : la traduction anglaise échouait chaque jour depuis le 11 novembre.",
@@ -116,45 +191,6 @@
         "Les liens « édition précédente » des pages déjà publiées affichent encore l'ancien titre coupé (pages figées, non modifiées)."
       ],
       "prochain_controle": "2026-10-25"
-    },
-    {
-      "date": "2026-10-12",
-      "titre": "peu de clics malgré une première page",
-      "verdict": "Le site apparaît en position moyenne 9,1 mais n'obtient que 4 clics sur 291 impressions. Le classement n'est pas en cause : c'est l'aperçu dans Google qui n'incitait pas à cliquer. Les balises des trois pages vivantes et des 10 éditions les plus vues sont réécrites ; reste à mesurer l'effet.",
-      "agents": [
-        "seo-content"
-      ],
-      "constats": [
-        {
-          "titre": "Les pages les plus vues sont des éditions anglaises passées",
-          "certitude": "certain (mesuré)",
-          "statut": "corrige",
-          "cause": "Sur les 13 pages les plus vues, 9 sont des éditions anglaises et 1 une édition française, toutes passées et figées. Elles sont en position 5 à 7,5 avec 0 clic ; la page cinéma du 8 août a 82 impressions sans aucun clic.",
-          "action": "Fait le 12 octobre, sur accord du propriétaire : titres, descriptions, og et twitter de ces 10 éditions réécrits (9 anglaises, 1 française), sans toucher à rien d'autre (vérifié ligne à ligne). Dates du plan du site inchangées."
-        },
-        {
-          "titre": "Les descriptions reprennent la question du titre",
-          "certitude": "certain (code lu)",
-          "statut": "a_faire",
-          "cause": "generate_seo_head.py renvoie la question posée telle quelle si elle tient en 160 caractères : la description répète le titre, sans chiffre clé ni mention des trois scénarios. Le titre est un simple extrait du sujet.",
-          "action": "Pour les prochaines éditions : description = un fait ou un chiffre, puis « trois scénarios » et la fourchette des issues, avec des fins variées pour éviter des métadonnées en série ; contrôler titre et description après traduction dans translate_daily.py."
-        },
-        {
-          "titre": "Accueil, Le projet et Newsletter : balises peu parlantes",
-          "certitude": "certain",
-          "statut": "corrige",
-          "cause": "« Le projet » et « Newsletter » ne disaient pas ce que la page apporte ; la page Newsletter est en position 52 et son titre ne contenait aucun mot de la requête « scénarios email ».",
-          "action": "Fait : nouveaux titres et descriptions (titre ≤ 61 caractères avec la marque, description 133 à 138), repris dans le générateur de l'accueil."
-        }
-      ],
-      "proprietaire": [
-        "Vérifier dans Search Console, à partir du 26 octobre, si le taux de clic de l'accueil, du projet et de la newsletter évolue."
-      ],
-      "inconnu": [
-        "Quel effet auront ces nouveaux titres sur le taux de clic : aucune garantie, et 291 impressions sur 28 jours sont un échantillon très faible.",
-        "Si la page Newsletter peut monter au-dessus de la position 52 : elle vise une requête rare."
-      ],
-      "prochain_controle": "2026-10-26"
     }
   ]
 }

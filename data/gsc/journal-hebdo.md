@@ -30,3 +30,11 @@
 - À décider par le propriétaire : rattrapage des éditions anglaises du 11 au 15 novembre ; liens de langue manquants sur les éditions du 13 au 24 septembre ; réécriture du guide pédagogique (exemple réel, titre) ; liens vers /index.html des gabarits hebdo et suivi.
 - Pour le propriétaire (Search Console) : demander l'indexation de /archives.html, de quelques éditions françaises récentes et de /guide-pedagogique.html ; lire « Pages de provenance » de /en/archives/2026-11-10.html.
 - Prochain contrôle : lundi 23 novembre.
+
+## 2026-11-23 — verdict : à améliorer
+- Chiffres : 6 clics, 410 impressions (28 j) ; 30 pages indexées sur 33 inspectées ; éditions inconnues > 7 j : 0.
+- Agents envoyés : gsc-expert, seo-content.
+- Corrigé : description anglaise de l'édition du 16 novembre (67 caractères portés à 124 ; balises seules).
+- À décider par le propriétaire : réécriture du titre et de la description de l'accueil (23 impressions, trop peu pour conclure) ; rattrapage des éditions anglaises du 11 au 15 novembre ; liens de langue et données structurées des éditions de septembre ; origine des liens vers /index.html des gabarits hebdo et suivi.
+- Pour le propriétaire (Search Console) : confirmer les demandes d'indexation du 16 novembre ; demander l'indexation de l'édition du jour et des éditions du 27 octobre au 2 novembre.
+- Prochain contrôle : lundi 30 novembre.

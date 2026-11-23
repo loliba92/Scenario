@@ -59,6 +59,10 @@ class TestTitreDepuisH1(unittest.TestCase):
             self.assertIsNotNone(t)
             self.assertNotIn("…", t)
 
+    def test_h1_de_plus_de_90_coupe_au_tiret_long(self):
+        h1 = "Méga IPO IA : Anthropic, SpaceX, OpenAI — le marché absorbe-t-il ces centaines de milliards ?"
+        self.assertEqual(g.titre_depuis_h1(h1), "Méga IPO IA : Anthropic, SpaceX, OpenAI — Scénario")
+
     def test_h1_trop_long_laisse_la_main_au_titre_propose(self):
         self.assertIsNone(g.titre_depuis_h1("x" * 91))
         t = g._build_title(brief("Art : de l'œuvre à l'expérience", h1="x" * 91))
