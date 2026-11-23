@@ -114,6 +114,11 @@ def titre_depuis_h1(h1: str) -> Optional[str]:
         return f"{h1} — {SITE_NAME}"
     if len(h1) <= 90:
         return h1
+    # Au-delà de 90 : la partie avant le tiret long, si elle est un titre à part entière (23 novembre 2026 :
+    # titre coupé par « … » sur un h1 de 92 caractères).
+    avant = h1.split(" — ")[0].strip()
+    if " — " in h1 and 20 <= len(avant) <= 59:
+        return f"{avant} — {SITE_NAME}"
     return None
 
 
