@@ -1,0 +1,297 @@
+{
+  "date": "2026-11-24",
+  "registre": "carte_blanche",
+  "sujet": {
+    "titre_propose": "Productivité : l'IA peut-elle enfin relancer une croissance qui ralentit depuis 1973 ?",
+    "h1": "Productivité : l'IA peut-elle relancer la croissance ?",
+    "question_posee": "Après le ralentissement de la productivité depuis 1973, l'IA générative peut-elle enfin relancer durablement la croissance, ou le paradoxe de Solow se poursuit-il ?",
+    "eyebrow": "Mardi, Grand futur",
+    "angle": "Remonter l'histoire de la productivité — crosse de hockey, vapeur, électricité, Trente Glorieuses, paradoxe de Solow — pour comprendre pourquoi elle compte plus que la taille du PIB, puis poser la question de l'IA.",
+    "tags": [
+      "productivité",
+      "IA",
+      "croissance",
+      "économie"
+    ],
+    "domain": "economie",
+    "image_keywords": "productivity growth chart, industrial revolution, artificial intelligence",
+    "complexite": 4,
+    "origine_prioritaire": "Productivité : l'IA peut-elle enfin relancer une croissance qui ralentit depuis 1973 ?",
+    "origine_id": "economie-productivite-l-ia-peut-elle-relancer-la-croissance",
+    "point_de_depart": {
+      "id": "economie-productivite-l-ia-peut-elle-relancer-la-croissance",
+      "registre": "carte_blanche",
+      "titre": "Productivité : l'IA peut-elle enfin relancer une croissance qui ralentit depuis 1973 ?",
+      "question": "Productivité : l'IA peut-elle enfin relancer une croissance qui ralentit depuis 1973 ?",
+      "contexte": "Pendant plus de 99 % de l'histoire humaine, la richesse par habitant a quasiment stagné (entre 700 et 1 000 dollars internationaux constants, parité de pouvoir d'achat de 2011, de la révolution néolithique à 1750) : la courbe ressemble à une crosse de hockey, plate pendant des millénaires puis verticale vers 1800. Premier décollage avec la machine à vapeur (1760-1870, productivité du travail autour de 1 à 1,5 % par an). Âge d'or de l'électricité, du moteur à explosion et de l'organisation du travail (1870-1973) : PIB par habitant d'Europe de l'Ouest multiplié par près de 6, productivité horaire à +2,5 à 3 % par an aux États-Unis et +4 à 5 % en Europe et au Japon entre 1945 et 1973. Depuis 1973, ralentissement dans les pays avancés (environ 1 à 1,5 % par an, hors un rebond lié à Internet entre 1995 et 2004) : c'est le paradoxe de Solow, les ordinateurs sont partout sauf dans les statistiques de productivité. Depuis la crise du Covid-19, plateau autour de 0,8 à 1,2 % par an, alors que l'intelligence artificielle générative et la transition énergétique redessinent l'investissement. Repères d'ordre de grandeur : PIB mondial total multiplié par plus de 400 depuis l'an 1 ; avant 1800 il progresse parce qu'il y a plus d'humains, après 1800 parce que chaque heure travaillée produit davantage (capital, énergie fossile, innovation).",
+      "rationnel": "La question : la productivité, seule source durable d'enrichissement par habitant, va-t-elle repartir grâce à l'IA, ou le ralentissement séculaire se poursuit-il ? L'issue est ouverte : l'histoire montre que les grandes technologies (vapeur, électricité) mettent des décennies à produire leurs gains, le temps que les entreprises réorganisent leur travail ; l'IA peut suivre ce schéma ou décevoir comme l'informatique pendant vingt ans. Enjeu pour un lecteur français : salaires, financement des retraites et de la dette (qui reposent sur la croissance), place de la France et de l'Europe face aux États-Unis, où le PIB par habitant dépasse largement le niveau européen. Sujet de fond, utile à relier à l'actualité sur la bulle de l'IA et sur l'emploi.",
+      "mots_cles": [
+        "productivité",
+        "croissance",
+        "PIB par habitant",
+        "intelligence artificielle",
+        "paradoxe de Solow",
+        "Maddison",
+        "stagnation séculaire",
+        "révolution industrielle"
+      ],
+      "angle": "Remonter l'histoire en quelques repères (crosse de hockey, vapeur, électricité, Trente Glorieuses, paradoxe de Solow) pour expliquer pourquoi la productivité compte plus que la taille du PIB, puis poser la question de l'IA.",
+      "a_verifier": "Les chiffres de ce dossier proviennent d'une synthèse fournie par le propriétaire (travaux d'Angus Maddison et Maddison Project Database) : recouper chaque valeur (PIB par habitant par époque, taux de croissance de la productivité par période, PIB par habitant mondial vers 2020 et en Amérique du Nord) avec la base Maddison la plus récente, l'OCDE et le BLS avant rédaction, et préciser les dates et l'unité (dollars internationaux 2011). Ajouter des données récentes de productivité (France, zone euro, États-Unis) et les estimations disponibles sur l'effet de l'IA (FMI, OCDE, Goldman Sachs, études académiques), en distinguant ce qui est mesuré de ce qui est projeté.",
+      "scenarios_brouillon": {
+        "favorable": "L'IA et la transition énergétique finissent par se diffuser dans les entreprises comme l'électricité un siècle plus tôt : la productivité des pays avancés remonte durablement vers 2 % par an d'ici le milieu des années 2030, avec un partage des gains qui soutient salaires, retraites et finances publiques.",
+        "stable": "Le paradoxe de Solow persiste : les outils d'IA sont largement adoptés mais les gains restent dilués dans des services peu automatisables ; la productivité reste autour de 1 % par an, la croissance par habitant continue de ralentir lentement.",
+        "degrade": "Les promesses de l'IA déçoivent (bulle, coûts d'énergie et de calcul, vieillissement, tensions commerciales) : la productivité tombe sous 0,5 % par an, la stagnation s'installe en Europe, et le partage d'un gâteau qui ne grossit plus devient source de tensions sociales et budgétaires."
+      },
+      "echeance": null,
+      "sources_pistes": [
+        {
+          "titre": "Maddison Project Database (Université de Groningue)",
+          "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/"
+        }
+      ],
+      "tag": "économie & productivité",
+      "origine": "utilisateur",
+      "note_editoriale": "Ajouté le 2026-11-17 à la demande du propriétaire. Remis en file le 2026-11-21 après un conflit de fusion. Édition choisie par le propriétaire : mardi 24 novembre (rangé en tête de la carte blanche du mardi, tous domaines acceptés). Chiffres à recouper avant rédaction (voir « à vérifier »).",
+      "donnees_graphique": "[relevé du 2026-11-21] Croissance de la productivité horaire du travail (unité : % par an). France = 1,47 (2025) ; États-Unis = 1,7 (2025) ; Zone euro = 1,37 (2025). Sources : https://www.unsa.org/wp-content/uploads/2026/11/Annexes-lessentiel-de-leco-octobre-2026.pdf ; https://www.prodpress.eu/productivite-etats-unis-europe-bls-eurostat-novembre-2026/",
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Sujet inédit dans les archives : aucune édition précédente ne traite de la productivité à long terme ni du paradoxe de Solow. Vérifié dans les 20 dernières éditions et dans la liste complète."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Depuis 1973, la croissance de la productivité horaire dans les pays avancés a ralenti à environ 1 à 1,5 % par an, contre 2,5 à 3 % par an aux États-Unis et 4 à 5 % en Europe et au Japon entre 1945 et 1973.",
+      "chiffre": "1 à 1,5 % par an depuis 1973 ; 2,5 à 3 % (États-Unis) et 4 à 5 % (Europe/Japon) entre 1945 et 1973",
+      "date_du_chiffre": null,
+      "sources": [
+        "maddison-project"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La productivité horaire des États-Unis a crû de 1,7 % en 2025, celle de la France de 1,47 % et celle de la zone euro de 1,37 %.",
+      "chiffre": "États-Unis 1,7 %, France 1,47 %, zone euro 1,37 % (2025)",
+      "date_du_chiffre": "2025-12-31",
+      "sources": [
+        "prodpress-productivite",
+        "unsa-annexes"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le PIB par habitant d'Europe de l'Ouest a été multiplié par près de 6 entre 1870 et 1973, période d'expansion de la productivité.",
+      "chiffre": "multiplié par près de 6",
+      "date_du_chiffre": null,
+      "sources": [
+        "maddison-project"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le PIB mondial total a été multiplié par plus de 400 depuis l'an 1.",
+      "chiffre": "plus de 400",
+      "date_du_chiffre": null,
+      "sources": [
+        "maddison-project"
+      ],
+      "confiance": "haute"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Maddison Project Database (Université de Groningue)",
+      "role": "Source historique des données de PIB et productivité à long terme"
+    },
+    {
+      "nom": "Bureau of Labor Statistics (BLS, États-Unis)",
+      "role": "Mesure de la productivité horaire aux États-Unis"
+    },
+    {
+      "nom": "Eurostat",
+      "role": "Mesure de la productivité dans la zone euro"
+    },
+    {
+      "nom": "Insee",
+      "role": "Mesure de la productivité en France"
+    },
+    {
+      "nom": "FMI / OCDE",
+      "role": "Estimations de l'impact de l'IA sur la productivité"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "1760",
+      "evenement": "Début de la révolution industrielle avec la machine à vapeur"
+    },
+    {
+      "date": "1870",
+      "evenement": "Début de l'âge d'or de l'électricité et du moteur à explosion"
+    },
+    {
+      "date": "1945",
+      "evenement": "Début des Trente Glorieuses avec une forte croissance de la productivité"
+    },
+    {
+      "date": "1973",
+      "evenement": "Ralentissement de la productivité dans les pays avancés"
+    },
+    {
+      "date": "1995-2004",
+      "evenement": "Rebond lié à Internet"
+    },
+    {
+      "date": "2020",
+      "evenement": "Crise du Covid-19, plateau de la productivité autour de 0,8 à 1,2 % par an"
+    },
+    {
+      "date": "2025",
+      "evenement": "Données récentes : États-Unis 1,7 %, France 1,47 %, zone euro 1,37 %"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "L'IA et la transition énergétique se diffusent dans les entreprises comme l'électricité un siècle plus tôt : la productivité des pays avancés remonte durablement vers 2 % par an d'ici le milieu des années 2030, avec un partage des gains qui soutient salaires, retraites et finances publiques.",
+      "probabilite_suggeree": 30
+    },
+    "stable": {
+      "resume": "Le paradoxe de Solow persiste : les outils d'IA sont largement adoptés mais les gains restent dilués dans des services peu automatisables ; la productivité reste autour de 1 % par an, la croissance par habitant continue de ralentir lentement.",
+      "probabilite_suggeree": 45
+    },
+    "degrade": {
+      "resume": "Les promesses de l'IA déçoivent (bulle, coûts d'énergie et de calcul, vieillissement, tensions commerciales) : la productivité tombe sous 0,5 % par an, la stagnation s'installe en Europe, et le partage d'un gâteau qui ne grossit plus devient source de tensions sociales et budgétaires.",
+      "probabilite_suggeree": 25
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Croissance de la productivité horaire (États-Unis, 2025)",
+      "valeur": "1,7 %",
+      "tendance": "Stable, légèrement en hausse après le Covid"
+    },
+    {
+      "label": "Croissance de la productivité horaire (France, 2025)",
+      "valeur": "1,47 %",
+      "tendance": "Stable, en deçà du niveau des Trente Glorieuses"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Pas de série historique longue et publique vérifiée sur au moins 5 points pour un indicateur unique cohérent avec la question du jour. La Maddison Project Database fournit des données ponctuelles par époque, pas une série continue récente. Le BLS et Eurostat ont des séries courtes (quelques décennies) qui ne couvrent pas les périodes historiques clés (1760, 1870, 1945). Critère (1) non satisfait : pas de source publique fiable documentant l'historique complet sur la période longue nécessaire.",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "oui",
+    "raison": "Trois chiffres comparables existent dans les faits vérifiés : croissance de la productivité horaire en 2025 pour trois zones (États-Unis, France, zone euro). Ces chiffres sont de même unité (% par an) et permettent une comparaison pertinente.",
+    "barres": {
+      "aria_label": "Comparaison de la croissance de la productivité horaire en 2025 entre États-Unis, France et zone euro",
+      "lead": "En 2025, la croissance de la productivité horaire reste modeste dans les pays avancés, loin des niveaux des Trente Glorieuses.",
+      "caption": "Source : BLS, Eurostat, Insee, via Prodpress et UNSA, données 2025",
+      "unite": "% par an",
+      "valeurs": [
+        {
+          "label": "États-Unis",
+          "valeur": 1.7,
+          "affichage": "1,7 %",
+          "mis_en_avant": true
+        },
+        {
+          "label": "France",
+          "valeur": 1.47,
+          "affichage": "1,47 %",
+          "mis_en_avant": false
+        },
+        {
+          "label": "Zone euro",
+          "valeur": 1.37,
+          "affichage": "1,37 %",
+          "mis_en_avant": false
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Pourquoi la productivité compte plus que la taille du PIB",
+        "rattache_a": "fait Maddison : PIB mondial multiplié par 400 depuis l'an 1, mais avant 1800 la croissance est due à la population, pas à la productivité"
+      },
+      {
+        "focus": "Le paradoxe de Solow : pourquoi l'IA pourrait suivre le même schéma que l'informatique",
+        "rattache_a": "fait BLS 2025 : productivité à 1,7 % aux États-Unis, paradoxe de Solow toujours présent"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "L'impact réel de l'IA sur la productivité à long terme est encore largement inconnu ; les estimations du FMI et de l'OCDE varient considérablement.",
+    "Les chiffres historiques de Maddison sont des reconstructions et peuvent être révisés par des travaux ultérieurs."
+  ],
+  "a_ne_pas_affirmer": [
+    "L'IA va nécessairement relancer la productivité — l'issue est ouverte et dépend de facteurs économiques, technologiques et sociaux.",
+    "Le paradoxe de Solow sera résolu par l'IA — aucune preuve définitive n'existe à ce jour."
+  ],
+  "sources": [
+    {
+      "id": "maddison-project",
+      "title": "Maddison Project Database (Université de Groningue)",
+      "source": "Université de Groningue",
+      "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/",
+      "image": null,
+      "lang": "en",
+      "domain": "economie",
+      "summary": "Base de données historique du PIB et de la productivité à long terme, utilisée pour les chiffres de la crosse de hockey et des périodes clés.",
+      "read_minutes": 2
+    },
+    {
+      "id": "prodpress-productivite",
+      "title": "Productivité États-Unis Europe — BLS Eurostat novembre 2026",
+      "source": "Prodpress",
+      "url": "https://www.prodpress.eu/productivite-etats-unis-europe-bls-eurostat-novembre-2026/",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie",
+      "summary": "Comparaison de la productivité horaire entre États-Unis, Europe et France pour 2025, avec les chiffres de 1,7 %, 1,47 % et 1,37 %.",
+      "read_minutes": 2
+    },
+    {
+      "id": "unsa-annexes",
+      "title": "Annexes — L'essentiel de l'éco octobre 2026",
+      "source": "UNSA",
+      "url": "https://www.unsa.org/wp-content/uploads/2026/11/Annexes-lessentiel-de-leco-octobre-2026.pdf",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie",
+      "summary": "Document avec les données de productivité française pour 2025 (1,47 %).",
+      "read_minutes": 2
+    }
+  ],
+  "revue_de_presse": [],
+  "articles_connexes": [
+    {
+      "date": "2026-10-30",
+      "titre": "IA et emploi : transformer ou détruire le travail ?",
+      "lien": "Même sujet central : l'impact de l'IA sur l'économie et le travail, avec des scénarios prospectifs similaires."
+    },
+    {
+      "date": "2026-10-29",
+      "titre": "Bulle de l'IA : les valorisations tech vont-elles corriger fortement ?",
+      "lien": "Même contexte : la bulle de l'IA et les incertitudes sur son impact économique réel, lien direct avec le scénario dégradé du sujet du jour."
+    },
+    {
+      "date": "2026-09-11",
+      "titre": "IA : le pari à 725 milliards de la tech américaine",
+      "lien": "Même enjeu : les investissements massifs dans l'IA et la question de savoir si les gains de productivité justifieront ces dépenses."
+    }
+  ],
+  "recommandations_redaction": [
+    "Insister sur la distinction entre croissance de la population et croissance de la productivité pour expliquer pourquoi la productivité compte plus que la taille du PIB.",
+    "Utiliser la crosse de hockey comme image forte pour illustrer la stagnation séculaire avant 1800.",
+    "Présenter le paradoxe de Solow de manière accessible : les ordinateurs sont partout sauf dans les statistiques de productivité.",
+    "Lier le sujet à l'actualité récente sur la bulle de l'IA et les IPO massifs (Anthropic, SpaceX, OpenAI).",
+    "Mettre en avant les chiffres récents de productivité (États-Unis 1,7 %, France 1,47 %, zone euro 1,37 %) pour ancrer le sujet dans le présent."
+  ]
+}

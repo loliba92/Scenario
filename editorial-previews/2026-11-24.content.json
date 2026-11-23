@@ -1,0 +1,169 @@
+{
+  "h1": "Productivité : l'IA peut-elle relancer la croissance ?",
+  "question_text": "Après le ralentissement de la productivité depuis 1973, l'IA générative peut-elle enfin relancer durablement la croissance, ou le paradoxe de Solow se poursuit-il ?",
+  "section_title": "Trois trajectoires pour l'impact économique de l'intelligence artificielle",
+  "dek": [
+    "Pendant près de dix-huit siècles, la richesse matérielle de l'humanité a très peu évolué par habitant. La production totale augmentait uniquement parce que la population grandissait, mais chaque travailleur produisait à peu près la même quantité de grain ou de tissu d'une génération à l'autre. La rupture survient vers 1760 avec l'apparition de la machine à vapeur, puis s'accélère à partir de 1870 grâce à l'électricité et au moteur à explosion. Selon les données de la base Maddison, le produit intérieur brut<a class=\"lex-ref\" href=\"#lex-produit-interieur-brut\" aria-label=\"Voir la définition dans le lexique\">*</a> par habitant en Europe occidentale a ainsi été <strong>multiplié par près de 6</strong> entre 1870 et 1973, transformant radicalement le niveau de vie, l'éducation et la santé.",
+    "Cette progression fulgurante repose entièrement sur les gains de productivité horaire<a class=\"lex-ref\" href=\"#lex-productivite-horaire\" aria-label=\"Voir la définition dans le lexique\">*</a>, c'est-à-dire la quantité de biens ou de services qu'une personne produit en une heure de travail. Durant les Trente Glorieuses, entre 1945 et 1973, cette productivité progressait au rythme exceptionnel de <strong>4 à 5 % par an</strong> en Europe et au Japon, et de <strong>2,5 à 3 %</strong> aux États-Unis. Travailler une heure permettait de fabriquer deux fois plus d'équipements tous les quinze ans. Cette dynamique a financé la réduction du temps de travail, les hausses régulières de salaires et la création des systèmes modernes de protection sociale sans déséquilibrer les budgets publics.",
+    "Le moteur économique s'est toutefois grippé après le choc pétrolier de 1973. Depuis plus de cinquante ans, la croissance de l'efficacité du travail ralentit dans l'ensemble des économies développées, pour s'établir entre <strong>1 et 1,5 % par an</strong>. Même l'arrivée des micro-ordinateurs et d'Internet entre 1995 et 2004 n'a provoqué qu'un sursaut temporaire outre-Atlantique avant de s'essouffler. L'économiste Robert Solow résumait cette énigme dès 1987 par une formule célèbre : on voyait les ordinateurs partout, sauf dans les statistiques de productivité. Les technologies se multipliaient dans les bureaux sans rendre la production globale beaucoup plus rapide.",
+    "Les chiffres les plus récents confirment ce plafonnement persistant de l'activité. En 2025, la productivité horaire a progressé de <strong>1,7 % aux États-Unis</strong>, de <strong>1,47 % en France</strong> et de <strong>1,37 % dans la zone euro</strong>. Ces rythmes modestes suffisent à peine à compenser le vieillissement démographique et les coûts croissants de la dette publique. Pour maintenir notre modèle social sans augmenter indéfiniment les impôts, les entreprises et les gouvernements espèrent désormais un nouvel élan technologique capable de recréer une vague d'efficacité comparable à celle de l'électrification des usines au début du vingtième siècle.",
+    "L'apparition de l'intelligence artificielle générative suscite ainsi d'immenses espoirs dans les milieux économiques. Des algorithmes capables de rédiger des synthèses, d'écrire du code informatique ou d'analyser des diagnostics médicaux pourraient théoriquement faire gagner des millions d'heures de travail qualifié. Pourtant, l'histoire économique enseigne qu'une invention majeure ne se traduit pas automatiquement par un bond statistique immédiat. Les entreprises doivent d'abord réorganiser en profondeur leurs méthodes de travail, former leurs équipes et consentir de lourdes dépenses en matériel informatique et en réseaux électriques avant d'en tirer un bénéfice mesurable.",
+    "L'incertitude reste donc totale quant à l'issue macroéconomique des investissements actuels. L'intelligence artificielle va-t-elle enfin briser le plafond des gains d'efficacité ou reproduire la déception des décennies numériques précédentes ? Trois scénarios se dessinent pour les dix prochaines années : une diffusion réussie qui réenclenche un cycle de croissance durable, la persistance d'une dilution des gains maintenant la tendance actuelle, ou une désillusion technologique et financière qui aggraverait la stagnation économique des pays avancés."
+  ],
+  "enjeu_en_clair": {
+    "lead": "La productivité mesure ce que nous produisons en une heure : sans ses progrès, le pouvoir d'achat stagne et financer les services publics devient presque impossible.",
+    "text": "Depuis 1973, l'efficacité du travail progresse deux fois moins vite qu'auparavant dans les pays développés. L'arrivée de l'intelligence artificielle promet d'automatiser de nombreuses tâches de bureau, mais les économistes ignorent si elle relancera vraiment l'économie ou si elle s'évaporera dans des gadgets sans effet réel sur la croissance globale."
+  },
+  "stakes_branches": {
+    "favorable": "L'IA transforme les méthodes de travail et remonte la productivité vers 2 % par an.",
+    "stable": "Les gains restent concentrés dans la tech et la productivité plafonne autour de 1 %.",
+    "degrade": "Les coûts élevés et les blocages freinent l'adoption, ramenant la croissance sous 0,5 %."
+  },
+  "comprendre_box": [
+    {
+      "lead": "Pourquoi la productivité compte plus que la taille globale du PIB",
+      "text": "Le PIB mondial a été multiplié par plus de 400 depuis l'an 1, mais avant 1800, cette hausse venait seulement du nombre d'habitants. Si la population double et produit deux fois plus, la part de gâteau par personne reste identique. Seule la hausse de ce qu'une personne produit par heure permet d'augmenter le niveau de vie individuel.",
+      "apres_dek_index": 0
+    },
+    {
+      "lead": "Le paradoxe de Solow : quand la technologie tarde à se voir",
+      "text": "Installer des ordinateurs puissants dans une entreprise ne garantit pas une hausse immédiate de la production si les employés passent leur temps à trier des courriels ou à corriger des logiciels. L'intelligence artificielle risque de suivre ce schéma si elle produit des textes sans supprimer de démarches inutiles.",
+      "apres_dek_index": 2
+    }
+  ],
+  "list_box": null,
+  "indicators": [
+    {
+      "label": "Croissance de la productivité horaire (États-Unis, 2025)",
+      "value": "1,7 %",
+      "delta": "contre 2,5 à 3 % par an entre 1945 et 1973"
+    },
+    {
+      "label": "Croissance de la productivité horaire (France, 2025)",
+      "value": "1,47 %",
+      "delta": "contre 4 à 5 % par an durant les Trente Glorieuses"
+    }
+  ],
+  "cards": {
+    "favorable": {
+      "pct": 30,
+      "gauge_word": "Probable",
+      "h3": "L'intelligence artificielle diffuse ses gains et relance durablement l'activité",
+      "why": [
+        "Premier scénario : les entreprises parviennent à intégrer en profondeur les outils d'automatisation dans leurs tâches administratives, juridiques et industrielles quotidiennes. À l'image de ce qui s'est passé avec le moteur électrique au début du vingtième siècle, les organisations repensent entièrement leurs processus de production au lieu de simplement plaquer un logiciel sur de vieilles méthodes. Les salariés délèguent les tâches répétitives aux algorithmes, ce qui permet d'accélérer la recherche scientifique, de concevoir de nouveaux produits plus vite et de réduire les délais de traitement dans les services. La productivité horaire remonte ainsi progressivement vers <strong>2 % par an</strong> d'ici le milieu des années 2030 dans les pays développés.",
+        "Par rapport aux deux autres trajectoires, ce scénario repose sur une véritable transformation des compétences et un partage équilibré des gains financiers entre entreprises et salariés. Alors que le scénario stable voit les bénéfices confinés à quelques géants du numérique, cette diffusion large permet d'augmenter les salaires réels tout en consolidant les rentrées fiscales indispensables aux budgets publics. Les tensions sur le financement des retraites et des systèmes de santé s'atténueraient nettement si cette accélération technologique parvenait à se concrétiser sur l'ensemble du tissu économique."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Productivité horaire (États-Unis)",
+          "evo_current": "2,2 %",
+          "evo_arrow": "up",
+          "evo_prev": "1,7 % en 2025"
+        },
+        {
+          "field_name": "Productivité horaire (France)",
+          "evo_current": "1,9 %",
+          "evo_arrow": "up",
+          "evo_prev": "1,47 % en 2025"
+        }
+      ],
+      "france_line": "Une hausse de la productivité élargit les bases fiscales et facilite le désendettement de l'État.",
+      "france_impact": "favorable"
+    },
+    "stable": {
+      "pct": 45,
+      "gauge_word": "Probable",
+      "h3": "Le paradoxe de Solow persiste et confine les gains au secteur technologique",
+      "why": [
+        "Deuxième scénario : l'intelligence artificielle est adoptée massivement par le grand public et les bureaux, mais ses effets macroéconomiques réels restent très limités sur le reste de la société. Une grande partie du temps gagné sur la rédaction de documents ou la programmation est absorbée par de nouvelles tâches de vérification, de gestion de conformité ou de réunions internes. Les secteurs les plus lourds de l'économie, comme la santé humaine, les chantiers de construction, l'hôtellerie ou l'enseignement, continuent d'exiger une présence physique incompressible peu automatisable. En conséquence, la progression de la productivité horaire reste bloquée autour de <strong>1,4 % par an</strong> en moyenne.",
+        "Ce scénario se distingue d'une reprise généralisée en montrant que l'abondance d'outils numériques ne crée pas automatiquement un surcroît de richesse mesurable pour tous les citoyens. Contrairement à la crise redoutée dans le scénario dégradé, l'économie ne s'effondre pas, mais elle poursuit sa trajectoire de croissance molle entamée depuis plusieurs décennies. Le vieillissement rapide de la population européenne continuerait ainsi de peser lourdement sur le pouvoir d'achat moyen si les gains d'efficacité restaient cantonnés au seul secteur de la haute technologie."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Productivité horaire (États-Unis)",
+          "evo_current": "1,6 %",
+          "evo_arrow": "flat",
+          "evo_prev": "1,7 % en 2025"
+        },
+        {
+          "field_name": "Productivité horaire (France)",
+          "evo_current": "1,3 %",
+          "evo_arrow": "flat",
+          "evo_prev": "1,47 % en 2025"
+        }
+      ],
+      "france_line": "La croissance molle complique l'équilibre des régimes sociaux sans provoquer de rupture brutale.",
+      "france_impact": "degrade"
+    },
+    "degrade": {
+      "pct": 25,
+      "gauge_word": "Probable",
+      "h3": "L'essoufflement des investissements et les coûts énergétiques bloquent la croissance",
+      "why": [
+        "Troisième scénario : les retours sur investissement de l'intelligence artificielle se révèlent très décevants par rapport aux centaines de milliards de dollars injectés dans les centres de données et les puces spécialisées. La flambée de la consommation d'électricité, le coût exorbitant des infrastructures de calcul et les risques accrus de cybersécurité finissent par alourdir les charges des entreprises au lieu de les réduire. Dans le même temps, les barrières commerciales sur les semi-conducteurs freinent la diffusion des équipements en Europe. La productivité horaire décroche alors pour tomber <strong>sous la barre des 0,5 % par an</strong> sur le continent.",
+        "Par rapport aux deux premières options, cette situation transforme la promesse technologique en un choc financier et industriel sévère pour les entreprises occidentales. Le gâteau économique cessant presque totalement de grandir par habitant, le partage des richesses devient un sujet de discorde politique et sociale direct entre les générations. Les finances publiques de plusieurs pays européens risqueraient de basculer dans une impasse durable si l'absence de gains d'efficacité empêchait tout redressement de l'activité économique."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Productivité horaire (États-Unis)",
+          "evo_current": "0,8 %",
+          "evo_arrow": "down",
+          "evo_prev": "1,7 % en 2025"
+        },
+        {
+          "field_name": "Productivité horaire (France)",
+          "evo_current": "0,4 %",
+          "evo_arrow": "down",
+          "evo_prev": "1,47 % en 2025"
+        }
+      ],
+      "france_line": "Une stagnation prolongée fragiliserait directement la trajectoire budgétaire française.",
+      "france_impact": "degrade"
+    }
+  },
+  "essentiel_box": [
+    "Après un demi-siècle de ralentissement de la productivité depuis 1973, l'intelligence artificielle générative peut-elle enfin recréer une vague de croissance durable dans les pays développés ?",
+    "En 2025, la productivité horaire n'a progressé que de 1,7 % aux États-Unis et de 1,47 % en France, bien loin des rythmes de 4 à 5 % observés durant les Trente Glorieuses.",
+    "Pas immédiatement : notre scénario le plus probable (45 %) estime que le paradoxe de Solow persistera avec une productivité plafonnant autour de 1,4 %, face à une relance plus large (30 %) ou un échec coûteux (25 %).",
+    "La publication des bilans annuels de productivité du Bureau of Labor Statistics et d'Eurostat à l'automne 2027 permettra d'observer si les investissements massifs dans l'IA se traduisent enfin dans les comptes nationaux."
+  ],
+  "delta_france": {
+    "kind": "negatif",
+    "score": -0.4,
+    "word": "léger négatif",
+    "text": "la persistance probable d'une productivité modeste (45 %) et le risque d'une déception technologique (25 %) l'emportent sur le scénario d'une relance franche des gains d'efficacité (30 %)."
+  },
+  "phrase_a_retenir": "En 2025, la productivité horaire n'a progressé que de 1,47 % en France contre 4 à 5 % par an durant les Trente Glorieuses, soulignant le défi d'une relance par l'IA.",
+  "phrase_a_retenir_stat": "1,47 % en France",
+  "lexique": [
+    {
+      "slug": "produit-interieur-brut",
+      "terme": "produit intérieur brut",
+      "definition": "Valeur totale de tous les biens et services produits dans un pays au cours d'une année donnée."
+    },
+    {
+      "slug": "productivite-horaire",
+      "terme": "productivité horaire",
+      "definition": "Quantité de richesse ou de volume produit par une personne pendant une heure de travail."
+    }
+  ],
+  "sources_html": [
+    "<a href=\"https://www.rug.nl/ggdc/historicaldevelopment/maddison/\" target=\"_blank\" rel=\"noopener noreferrer\">Université de Groningue — Maddison Project Database (Université de Groningue) ↗</a>",
+    "<a href=\"https://www.prodpress.eu/productivite-etats-unis-europe-bls-eurostat-novembre-2026/\" target=\"_blank\" rel=\"noopener noreferrer\">Prodpress — Productivité États-Unis Europe — BLS Eurostat novembre 2026 ↗</a>",
+    "<a href=\"https://www.unsa.org/wp-content/uploads/2026/11/Annexes-lessentiel-de-leco-octobre-2026.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">UNSA — Annexes — L'essentiel de l'éco octobre 2026 ↗</a>"
+  ],
+  "meta": {
+    "title": "Productivité : l'IA peut-elle relancer la croissance ? — Scénario",
+    "meta_description": "Productivité : l'IA peut-elle relancer la croissance ? Analyse économique et scénarios.",
+    "og_image_alt": "Graphique et analyse prospective sur l'évolution de la productivité horaire et l'impact de l'IA",
+    "keywords": [
+      "prix",
+      "investissement",
+      "inflation",
+      "économie",
+      "marché"
+    ],
+    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-11-24.html\"\n  },\n  \"headline\": \"Productivité : l'IA peut-elle relancer la croissance ? — Scénario\",\n  \"description\": \"Productivité : l'IA peut-elle relancer la croissance ? Analyse économique et scénarios.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-11-24.png\"\n  ],\n  \"datePublished\": \"2026-11-24T00:00:00\",\n  \"dateModified\": \"2026-11-24T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"prix, investissement, inflation, économie, marché\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Économie\"\n}",
+    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Productivité : l'IA peut-elle relancer la croissance ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-11-24.html\"\n    }\n  ]\n}"
+  }
+}
