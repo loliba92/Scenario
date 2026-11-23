@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "017ae51545abc8e3cfdbb199f9892c2d38e58bed09ea1aff220a121fab0ea600"
+    "md_sha256": "cb7272797076d5ec7be2d8c87bec356ff4d4cf766ee404197860f96549058886"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -642,7 +642,7 @@
           "titre": "Méga introductions en Bourse (Anthropic, SpaceX, OpenAI) : le marché peut-il absorber ces centaines de milliards sans faire éclater la bulle de l'IA ?",
           "question": null,
           "tag": "économie & marchés financiers",
-          "statut": "a_traiter",
+          "statut": "publie",
           "validation": "valide",
           "contexte": "Trois géants préparent ou ont réalisé des introductions en Bourse d'une taille jamais vue. SpaceX a déjà levé environ 75 milliards de dollars (cotation au Nasdaq en juin 2026 selon plusieurs sources, titre ensuite passé sous son prix d'introduction selon un suivi). Anthropic a lancé son roadshow le 10 novembre 2026 : cotation attendue au Nasdaq sous le symbole ANT, fourchette de 70 à 78 dollars par action, environ 825 millions d'actions proposées, levée pouvant atteindre 64 à 69 milliards de dollars, fixation du prix vers le 18 novembre et début de cotation prévu le 19 novembre. Valorisation visée : environ 1 000 milliards de dollars hors options selon Reuters, jusqu'à 1 400 milliards en base entièrement diluée, contre 965 milliards lors de la levée privée de mai 2026 et jusqu'à 2 000 milliards évoqués plus tôt. OpenAI viserait plutôt 2027. En parallèle, la capitalisation de Nvidia a perdu environ 1 800 milliards de dollars depuis octobre et des indicateurs de bulle de l'IA remontent.",
           "rationnel": "La question : ces opérations géantes, qui demandent aux investisseurs de sortir des centaines de milliards de dollars en quelques mois, confirment-elles la confiance dans l'IA ou marquent-elles le sommet du cycle ? L'issue est ouverte : une cotation réussie peut entraîner OpenAI et d'autres dans son sillage, une cotation décevante (comme celle d'un titre passé sous son prix d'introduction) peut refroidir tout le secteur, et la valorisation visée a déjà été revue à la baisse. Enjeu pour un lecteur français : exposition des fonds, des plans d'épargne et des assurances-vie aux valeurs technologiques américaines, financement des start-ups d'IA européennes, et effet sur les marchés actions mondiaux. À relier au sujet sur Nvidia et à celui sur la productivité. Attention : Anthropic est aussi l'éditeur d'un modèle d'IA, ce que l'édition peut mentionner par transparence.",
@@ -690,8 +690,8 @@
           "note": "Ajouté le 2026-11-17 à la demande du propriétaire (« les méga IPO Anthropic »). Remis en file le 2026-11-21 après un conflit de fusion. Édition choisie par le propriétaire : lundi 23 novembre (rangé en tête du registre géopolitique, sujet économique placé là volontairement pour cette date). Cotation annoncée pour le 19 novembre : utiliser les chiffres réalisés, voir « à vérifier ».",
           "donnees": null,
           "ajoute_le": "2026-11-17",
-          "publie_le": null,
-          "edition": null,
+          "publie_le": "2026-11-23",
+          "edition": "2026-11-23",
           "enrichi_le": null
         },
         {
