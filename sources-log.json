@@ -2,6 +2,31 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-11-23",
+      "articles": [
+        {
+          "title": "Boursorama — Anthropic vise une valorisation de 1 400 milliards de dollars lors de son IPO",
+          "source": "Boursorama",
+          "url": "https://www.boursorama.com/bourse/actualites-amp/anthropic-vise-une-valorisation-de-1-400-milliards-de-dollars-lors-de-son-ipo-8c866fb32059d4ba472fb9fc652ac70f",
+          "image": "https://www.boursorama.com/static/i/content/images/8/a/b/8aba3f4cd16d23321c98bd50a7a19920-1280x800.jpg",
+          "lang": "fr",
+          "domain": "economie-entreprises",
+          "summary": "Anthropic vise une valorisation de 1 400 milliards de dollars lors de son introduction en Bourse au Nasdaq, un chiffre plus élevé que les 1 000 milliards annoncés par d'autres sources.",
+          "read_minutes": 2
+        },
+        {
+          "title": "Boursorama — Anthropic vise 1 000 milliards, un chiffre plus modeste que prévu",
+          "source": "Boursorama",
+          "url": "https://boursorama.com/bourse/actualites/anthropic-vise-une-valorisation-1-000-mds-lors-de-son-ipo-un-chiffre-plus-modeste-que-prevu-4b9bfaaf463dd8f6fb307dadda0e72f2",
+          "image": "https://www.boursorama.com/static/i/content/images/0/1/4/014d6d0a95440bd73cf256f9b03e02cb-1600x1067.jpg",
+          "lang": "fr",
+          "domain": "economie-entreprises",
+          "summary": "Anthropic vise une valorisation de 1 000 milliards de dollars, un chiffre plus modeste que les 2 000 milliards évoqués plus tôt, lors de son introduction en Bourse.",
+          "read_minutes": 2
+        }
+      ]
+    },
+    {
       "date": "2026-11-22",
       "articles": [
         {
