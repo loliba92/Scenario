@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "aacc448c5744f1b9dcb68f5f3796310456fdfc408e971714eb2064a2bc3f40ae"
+    "md_sha256": "5c6af2932f88f3c0d93d67b476d01f38d1d817dddf78ecc0c5ee221881e8219b"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -97,7 +97,7 @@
           "titre": "Productivité : l'IA peut-elle enfin relancer une croissance qui ralentit depuis 1973 ?",
           "question": null,
           "tag": "économie & productivité",
-          "statut": "a_traiter",
+          "statut": "publie",
           "validation": "valide",
           "contexte": "Pendant plus de 99 % de l'histoire humaine, la richesse par habitant a quasiment stagné (entre 700 et 1 000 dollars internationaux constants, parité de pouvoir d'achat de 2011, de la révolution néolithique à 1750) : la courbe ressemble à une crosse de hockey, plate pendant des millénaires puis verticale vers 1800. Premier décollage avec la machine à vapeur (1760-1870, productivité du travail autour de 1 à 1,5 % par an). Âge d'or de l'électricité, du moteur à explosion et de l'organisation du travail (1870-1973) : PIB par habitant d'Europe de l'Ouest multiplié par près de 6, productivité horaire à +2,5 à 3 % par an aux États-Unis et +4 à 5 % en Europe et au Japon entre 1945 et 1973. Depuis 1973, ralentissement dans les pays avancés (environ 1 à 1,5 % par an, hors un rebond lié à Internet entre 1995 et 2004) : c'est le paradoxe de Solow, les ordinateurs sont partout sauf dans les statistiques de productivité. Depuis la crise du Covid-19, plateau autour de 0,8 à 1,2 % par an, alors que l'intelligence artificielle générative et la transition énergétique redessinent l'investissement. Repères d'ordre de grandeur : PIB mondial total multiplié par plus de 400 depuis l'an 1 ; avant 1800 il progresse parce qu'il y a plus d'humains, après 1800 parce que chaque heure travaillée produit davantage (capital, énergie fossile, innovation).",
           "rationnel": "La question : la productivité, seule source durable d'enrichissement par habitant, va-t-elle repartir grâce à l'IA, ou le ralentissement séculaire se poursuit-il ? L'issue est ouverte : l'histoire montre que les grandes technologies (vapeur, électricité) mettent des décennies à produire leurs gains, le temps que les entreprises réorganisent leur travail ; l'IA peut suivre ce schéma ou décevoir comme l'informatique pendant vingt ans. Enjeu pour un lecteur français : salaires, financement des retraites et de la dette (qui reposent sur la croissance), place de la France et de l'Europe face aux États-Unis, où le PIB par habitant dépasse largement le niveau européen. Sujet de fond, utile à relier à l'actualité sur la bulle de l'IA et sur l'emploi.",
@@ -129,8 +129,8 @@
           "note": "Ajouté le 2026-11-17 à la demande du propriétaire. Remis en file le 2026-11-21 après un conflit de fusion. Édition choisie par le propriétaire : mardi 24 novembre (rangé en tête de la carte blanche du mardi, tous domaines acceptés). Chiffres à recouper avant rédaction (voir « à vérifier »).",
           "donnees": "[relevé du 2026-11-21] Croissance de la productivité horaire du travail (unité : % par an). France = 1,47 (2025) ; États-Unis = 1,7 (2025) ; Zone euro = 1,37 (2025). Sources : https://www.unsa.org/wp-content/uploads/2026/11/Annexes-lessentiel-de-leco-octobre-2026.pdf ; https://www.prodpress.eu/productivite-etats-unis-europe-bls-eurostat-novembre-2026/",
           "ajoute_le": "2026-11-17",
-          "publie_le": null,
-          "edition": null,
+          "publie_le": "2026-11-24",
+          "edition": "2026-11-24",
           "enrichi_le": "2026-11-21"
         },
         {
