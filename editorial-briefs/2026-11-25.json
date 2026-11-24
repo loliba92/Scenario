@@ -1,0 +1,367 @@
+{
+  "date": "2026-11-25",
+  "registre": "actualite_francaise",
+  "sujet": {
+    "titre_propose": "La réforme des retraites peut-elle revenir dans le débat présidentiel ?",
+    "h1": "Retraites : le retour du dossier explosif dans la présidentielle 2027",
+    "question_posee": "Alors que le déficit des retraites menace d'atteindre 45 milliards d'euros d'ici 2050 selon la Cour des comptes, les candidats à la présidentielle 2027 peuvent-ils rouvrir le dossier de l'âge de départ sans provoquer un nouveau blocage social ?",
+    "eyebrow": "Mercredi, actualité française",
+    "angle": "Malgré la tentative du gouvernement de neutraliser le dossier jusqu'aux élections, la Cour des comptes et le rapport 2026 du COR relancent la pression financière sur les retraites. Entre partisans d'un recul à 65 ans et partisans d'une abrogation pour revenir à 60 ou 62 ans, le sujet s'impose au cœur de la campagne.",
+    "tags": [
+      "retraites",
+      "presidentielle-2027",
+      "finances-publiques",
+      "politique-francaise"
+    ],
+    "domain": "politique-institutions",
+    "image_keywords": "french national assembly paris",
+    "complexite": 3,
+    "origine_prioritaire": "La réforme des retraites peut-elle revenir dans le débat présidentiel ?",
+    "origine_id": "actualite-francaise-la-reforme-des-retraites-peut-elle-revenir-dans",
+    "point_de_depart": {
+      "id": "actualite-francaise-la-reforme-des-retraites-peut-elle-revenir-dans",
+      "registre": "actualite_francaise",
+      "titre": "La réforme des retraites peut-elle revenir dans le débat présidentiel ?",
+      "question": "La réforme des retraites peut-elle revenir dans le débat présidentiel ?",
+      "contexte": "Le gouvernement a annoncé un gel des discussions sur les retraites jusqu'après les élections de 2027, mais des syndicats et partis d'opposition relancent le débat. Les dernières projections montrent un déficit accru du système.",
+      "rationnel": "La question : Les candidats à la présidentielle vont-ils être forcés de prendre position sur une réforme impopulaire, ou le sujet restera-t-il tabou ? Les scénarios dépendent de la pression syndicale et des sondages. L'enjeu est l'équilibre financier du système et son impact sur le pouvoir d'achat.",
+      "mots_cles": [
+        "retraites",
+        "réforme",
+        "déficit",
+        "syndicats",
+        "présidentielle 2027"
+      ],
+      "angle": null,
+      "a_verifier": null,
+      "scenarios_brouillon": {
+        "favorable": "Un consensus émerge pour une réforme progressive.",
+        "stable": "Le statu quo persiste jusqu'aux élections.",
+        "degrade": "Des grèves massives perturbent l'économie."
+      },
+      "echeance": null,
+      "sources_pistes": [
+        {
+          "titre": "Retraites : le débat relancé malgré le gel gouvernemental",
+          "url": null
+        }
+      ],
+      "tag": "politique & retraites",
+      "origine": "veille",
+      "note_editoriale": "Ajouté automatiquement le 2026-11-02 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
+      "donnees_graphique": "[relevé du 2026-11-19] Déficit du système de retraites (% du PIB). 2025 = -0.2 (2025) ; 2030 = -0.2 (2030) ; 2045 = -0.9 (2045). Sources : https://www.cor-retraites.fr/sites/default/files/2026-06/Synth%C3%A8se_RA_2026.pdf ; https://www.senat.fr/fileadmin/cru-1792598966/Commissions/Finances/2026-2027/PLF_2027/NP/Note_de_presentation_RSR-CASP_-_PLF_2027.pdf",
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "L'édition de la veille (2026-11-24) traitait de l'impact de l'IA sur la productivité (économie). Les trois dernières éditions du registre 'actualité française' traitaient du SMIC (18 nov), du point d'indice des fonctionnaires (11 nov) et de la facturation électronique (4 nov). Aucun doublon direct."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Le système de retraite français a enregistré un déficit estimé à 5,1 milliards d'euros en 2025, soit 0,2 % du PIB, avec des dépenses globales de 422 milliards d'euros (14,1 % du PIB).",
+      "chiffre": "5,1 Md€",
+      "date_du_chiffre": "2026-06-12",
+      "sources": [
+        "vie-publique-cor-2026",
+        "lenouveleconomiste-retraites-2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La Cour des comptes a publié fin novembre 2026 une note alertant sur un déficit qui pourrait atteindre 44,6 milliards d'euros en 2050 sans nouvelle réforme, et préconise un relèvement progressif de l'âge de départ à 65 ans.",
+      "chiffre": "44,6 Md€",
+      "date_du_chiffre": "2026-11-24",
+      "sources": [
+        "notretemps-cour-comptes-2026",
+        "orange-cour-comptes-2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le Conseil d'orientation des retraites (COR) a révisé son hypothèse de fécondité à long terme à 1,45 enfant par femme contre 1,8 auparavant, portant le déficit anticipé en 2070 à 2,4 % du PIB contre 1,4 % dans son rapport précédent.",
+      "chiffre": "2,4 % du PIB",
+      "date_du_chiffre": "2026-06-12",
+      "sources": [
+        "vie-publique-cor-2026",
+        "ifrap-cor-2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le ratio de cotisants par retraité en France doit reculer de 1,77 en 2025 à 1,54 d'ici 2050 selon les projections démographiques de la Cour des comptes.",
+      "chiffre": "1,54 cotisant par retraité",
+      "date_du_chiffre": "2026-11-24",
+      "sources": [
+        "orange-cour-comptes-2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Les candidats à la présidentielle 2027 affichent des lignes divergentes : la droite et le centre défendent un report à 65 ans ou une capitalisation partielle, tandis que le RN et la gauche défendent l'abrogation de la réforme 2023 pour revenir à 60 ou 62 ans.",
+      "chiffre": null,
+      "date_du_chiffre": "2026-11-24",
+      "sources": [
+        "meilleurtaux-candidats-retraites-2026",
+        "publicsenat-rn-retraites-2026"
+      ],
+      "confiance": "haute"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Cour des comptes",
+      "role": "Auteur du rapport de novembre 2026 préconisant le report de l'âge légal à 65 ans et la fin des dérogations anticipées pour résorber le déficit."
+    },
+    {
+      "nom": "Conseil d'orientation des retraites (COR)",
+      "role": "Organisme public d'expertise dont les projections pluriannuelles 2026 chiffrent l'aggravation du besoin de financement sous l'effet de la baisse de natalité."
+    },
+    {
+      "nom": "Marine Le Pen et Jordan Bardella (RN)",
+      "role": "Présentation d'un contre-projet prévoyant un départ possible dès 60 ou 62 ans sous condition de trimestres cotisés et de volume d'activité accru."
+    },
+    {
+      "nom": "Candidats de la droite et du centre (Édouard Philippe, Bruno Retailleau, Gabriel Attal)",
+      "role": "Défenseurs d'un allongement de la durée de travail (relèvement progressif vers 65 ans, décote renforcée ou régime par points)."
+    },
+    {
+      "nom": "Syndicats et partis de gauche (NFP / LFI)",
+      "role": "Maintien de la revendication de l'abrogation de la réforme 2023 et du retour à la retraite à 60 ans financée par des prélèvements accrus."
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2023-04-14",
+      "evenement": "Promulgation de la réforme des retraites décalant progressivement l'âge légal à 64 ans."
+    },
+    {
+      "date": "2026-06-11",
+      "evenement": "Publication du rapport annuel 2026 du COR intégrant la baisse de fécondité (1,45) et rehaussant le déficit 2070 à 2,4 % du PIB."
+    },
+    {
+      "date": "2026-11-17",
+      "evenement": "Présentation par le RN de sa feuille de route de retraite prévoyant des départs à 60-62 ans et un fonds de capitalisation."
+    },
+    {
+      "date": "2026-11-23",
+      "evenement": "Publication de la note de la Cour des comptes alertant sur une impasse à 45 Md€ en 2050 et plaidant pour les 65 ans."
+    },
+    {
+      "date": "2027-04-01",
+      "evenement": "Échéance de l'élection présidentielle de 2027 où la question des retraites devient un axe programmatique majeur."
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "La campagne présidentielle accouche d'un compromis réformateur axé sur l'emploi des seniors et une règle d'or paramétrique (durée de cotisation indexée sans recul brutal de l'âge légal), préservant la paix sociale.",
+      "probabilite_suggeree": 30
+    },
+    "stable": {
+      "resume": "Le débat reste polarisé entre promesses d'abrogation et partisans de la rigueur sans issue claire : le vainqueur de 2027 recourt à des mesures d'économie techniques (désindexation partielle des pensions) en évitant un grand texte frontal.",
+      "probabilite_suggeree": 45
+    },
+    "degrade": {
+      "resume": "La réouverture frontale du recul de l'âge (65 ans) ou un passage en force parlementaire dès 2027 déclenche une nouvelle vague massive de grèves et de blocages syndicaux sur fond de crise de la dette souveraine.",
+      "probabilite_suggeree": 25
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Déficit du système de retraite en 2025",
+      "valeur": "5,1 Md€",
+      "tendance": "en hausse vers 6,8 Md€ d'ici 2030"
+    },
+    {
+      "label": "Dépenses de retraite en France",
+      "valeur": "14,1 % du PIB",
+      "tendance": "représente 24,3 % des dépenses publiques"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "La série des déficits projetés par le COR a changé d'hypothèses démographiques de base en 2026, ne permettant pas de tracer une série historique homogène continue en escalier sur 5 points réels sans artefact méthodologique.",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "oui",
+    "raison": "Comparaison de la trajectoire de déficit du système de retraites en part de PIB projetée par le rapport 2026 du COR à différents horizons.",
+    "barres": {
+      "aria_label": "Déficit prévisionnel du système de retraite français en part de PIB",
+      "lead": "Trajectoire du besoin de financement du système de retraites en pourcentage du PIB selon le rapport 2026 du COR :",
+      "caption": "Conseil d'orientation des retraites (COR), rapport annuel de juin 2026",
+      "unite": "% du PIB",
+      "valeurs": [
+        {
+          "label": "2025",
+          "valeur": 0.2,
+          "affichage": "-0,2 %",
+          "mis_en_avant": false
+        },
+        {
+          "label": "2030",
+          "valeur": 0.2,
+          "affichage": "-0,2 %",
+          "mis_en_avant": false
+        },
+        {
+          "label": "2045",
+          "valeur": 0.9,
+          "affichage": "-0,9 %",
+          "mis_en_avant": false
+        },
+        {
+          "label": "2070",
+          "valeur": 2.4,
+          "affichage": "-2,4 %",
+          "mis_en_avant": true
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "L'effet ciseau démographique : pourquoi la baisse de la fécondité française à 1,45 enfant par femme réduit mécaniquement le nombre de cotisants futurs et dégrade le ratio de répartition.",
+        "rattache_a": "La révision des hypothèses du COR et la dégradation à 2,4 % du PIB en 2070"
+      },
+      {
+        "focus": "Les trois leviers d'un régime par répartition : l'âge de départ, le niveau des cotisations et le montant des pensions (taux de remplacement / indexation sur l'inflation).",
+        "rattache_a": "Les options divergentes proposées par la Cour des comptes et les candidats pour 2027"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "L'impact réel d'une désindexation des pensions sur l'acceptabilité sociale et le vote des retraités lors de la présidentielle de 2027.",
+    "La capacité de l'exécutif à faire adopter des économies structurelles sur les retraites dans les budgets 2027 sans déclencher de motion de censure."
+  ],
+  "a_ne_pas_affirmer": [
+    "Ne pas affirmer que le COR recommande de repousser l'âge à 67,6 ans : il s'agit d'une simulation purement mathématique à paramètres constants, pas d'une préconisation.",
+    "Ne pas affirmer qu'une loi reportant l'âge à 65 ans a déjà été votée : c'est une recommandation de la Cour des comptes et une proposition de certains candidats."
+  ],
+  "sources": [
+    {
+      "id": "vie-publique-cor-2026",
+      "title": "Rapport 2026 du Conseil d'orientation des retraites : les perspectives du système de retraite",
+      "source": "Vie-publique.fr",
+      "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHzbG1JzeBQpaagaREecUJZzTG6BHE_kqntDHI_1pUSoQZYmLziU1hQLqLzkj6hWtjqUpUQeBi3_blGUdKhHSLMSvQmX8rAf_d_QeRWpfIBwqpj5pkbmb2l371T--FHYJcJiMG-IYRL1Cy86velz7d4A006SdaVBX_jlbQuR42RBmvKjHTLcqUqZWp8HnGbSFHAuAhcJcY=",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Synthèse du rapport 2026 du COR soulignant le déficit de 5,1 Md€ en 2025 et révisant à la hausse les déficits à long terme suite à l'abaissement du taux de fécondité à 1,45.",
+      "read_minutes": 4
+    },
+    {
+      "id": "notretemps-cour-comptes-2026",
+      "title": "Retraites : départ à 65 ans, pension moins revalorisée… ce que propose la Cour des comptes",
+      "source": "Notre Temps",
+      "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGDxCCV-Asawm-huwGhUnoeOx8ypU8hcDuYls6T5cq9746R5C8GNnTugKynl4lVtYv4bRZhO-egdu83-rwPLLAqKAk9qYRJaNO87Kd97Vs9eX-J9YqgeRwTzWm9cpjgmEdhmnm79WCHsmIxGevPXtNcaiGsjx1iy_ceNaSpK4PR55K93Am6vvlZk_oXMEMfsIpVlBgSayWjK08LAUOUL5wF7zXKhYnm9rUcVl2dLPMG1DnGv6FcvCga7graPpMDjBCCWz3xLxdTba5PE9FISCLIhWyPcAZiMGs1",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "La Cour des comptes publie un rapport alarmant sur l'état des retraites et suggère de repousser l'âge légal à 65 ans tout en limitant les départs anticipés.",
+      "read_minutes": 5
+    },
+    {
+      "id": "orange-cour-comptes-2026",
+      "title": "Retraites : gel des pensions, hausse des prélèvements… les pistes de la Cour des comptes",
+      "source": "Orange Actualités",
+      "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGHGgyq9Ie4BMbMRf09NHCAJ164sAv6HeHmOdFAtoDGKnN5WrnYZ8MFuWlTBwfZisvDHuxIMqhILZldS_gQ5s-e5WuzHC3mRKKDoS1vx0w-Bm3ww-Ei0SlDW28aiLQNfuloM9od6gZmmpyaZcKNDtZCasD6OyPKJF3SE2mv4_Aha0DrmaV_mqlbIbskCBVg-TTfPFQadYrH0hROHXw6EsrQ7hFe99YsCqIZdbbUeQBxOPphvktWy6oJt8M91jD2DcxbHS_d64hdwRK6W_po_YJDOV-_O9WA8rmBQcAiicHz3WFgWceQGp1OF98GgXvvjg==",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Détail des projections de la Cour des comptes prévoyant un déficit de 44,6 Md€ en 2050 et une dégradation du ratio cotisants/retraités de 1,77 à 1,54.",
+      "read_minutes": 4
+    },
+    {
+      "id": "meilleurtaux-candidats-retraites-2026",
+      "title": "Retraite à 65 ans ou système à points : ce que proposent les candidats à la présidentielle",
+      "source": "Meilleurtaux Placement",
+      "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHDQpgWe_PkP7NsK_EtdZvTxHcqjTsXxf-KwdKKpZoOClqrJCwhcz7nRxAY4a0yZmXkubLiyG-q4DbEbIhEbX9sb_ga6FuhMHIhM0at-iCUBJ7GAzGDbTUhT9VhdVYSqedfgke7POcHgJ-c7dvXDtB5E9H_lrl8txI-_IFONmPk4iDmRYTIox4jBSUE4CL_Lyr4WMobsngr9uwcNoufk3Q4edIOGkTwCqOOo39mianEolNeC5gK63aNROe9TAnQZ43q8nbjCgf78JJDCK7Z",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Analyse comparative des propositions des forces politiques françaises pour les retraites en vue de la présidentielle 2027.",
+      "read_minutes": 5
+    },
+    {
+      "id": "ifrap-cor-2026",
+      "title": "Rapport du COR 2026 : un besoin de financement sous-estimé",
+      "source": "Fondation IFRAP",
+      "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQESBGqqAnm40ZryiockyRNzEyVOopC0gKyi3CreTsW_BxuxIqKGNBGBjcsVOmXC3C2WRtu2nMhEv1zCzJe2ulPxBaSnoNi2k4vCF0VHWae67Yf2TwfrBd9kXTXEC8yO3trTXYF11LkrmEgbtqEsOEQkYbB_af9MIKI9_xCxP4Px",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Décryptage des chiffres du COR montrant un besoin de financement cumulé grimpant à 269 Md€ en 2045.",
+      "read_minutes": 6
+    },
+    {
+      "id": "lenouveleconomiste-retraites-2026",
+      "title": "Retraites : le plan du RN face aux projections du COR",
+      "source": "Le Nouvel Économiste",
+      "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG4yFpVtSpc-Oq-gp0rBGIr_UMdebgfkM0llyBtWt0aCd5Xz1k_zijZAA9utcjgyj_QKTMEfFWXEoTdr29yp1DJH4aUpszB5nvZlLdUn6OhFDx7O_aSZa7ogZ1C_PJ3Er-ga-mTee0sLTLsGay3DvjgxjHY40xwWcc1SAa0wtANow68_-GQilFMk0H9_RTnASBMZ1CjCqum2d1VUyHhZxzwQwRbpd8gddxTsXzP",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Confrontation entre les propositions de retraite du RN et les données d'emploi des seniors et de finances publiques du COR.",
+      "read_minutes": 4
+    },
+    {
+      "id": "publicsenat-rn-retraites-2026",
+      "title": "Retraites : Marine Le Pen et Jordan Bardella détaillent leur projet",
+      "source": "Public Sénat",
+      "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGaDzwtp25j1vwheJsLh-7ZoWy3KNCoEvgPWeKpvhyP7S6MJ8CnZONj8v8gKbaDrUe6B-DfjZ6cYb8M6CGaQvaMZCtQp4gInFA3jNK2YQZywsGnqLSlNtzqY_S80MXkmOJ6zk9Qa71wHyDzhe24FGY8AXHS4RN--EIIb35Ppb5D03UZ1SvGlWIJF6RCRiOqCmdfZ6a3rww4mNiJgJ-lLwYHXzlXa6jY4-1ROEAUhYTyNKs4KBFX5vyFB2PNuh474o0=",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Présentation du plan du RN combinant conditions d'annuités, durcissement des carrières incomplètes et création d'un fonds de capitalisation universel.",
+      "read_minutes": 4
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "Pourquoi la Cour des comptes prône une règle d'or pour piloter les retraites",
+      "source": "Le Figaro / Patrimoine24",
+      "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHtgCl9P27oXPSO1rAUEwIGMbHUqbqgI5grzihUDuNnInALokbtq2qBS7GrqjqtxIPkAS_TvOfHlfrhycs_6vz7714iu2INn4rQ0EiN0QLfBRqEdG19s_Sy4y7GUN4YuPd0YWNGrExpjgOlJpfuyUbI3jW2UwWGw9tLfHmsmypedTAzRZGfAi4K1K5BFEME_QGGO73YymgoXA==",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "La Cour des comptes recommande la mise en place d'un mécanisme d'ajustement automatique des retraites selon l'évolution démographique et l'espérance de vie.",
+      "read_minutes": 3
+    },
+    {
+      "title": "Quelles solutions pour réduire la dette française face aux taux d'emprunt ?",
+      "source": "RCF",
+      "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGeGU5QJErlKM_5gjKmdoPMkElZ5GTaC4BGH8rJJUrqIQ8Fhr23FIvgeyp1__dXxPG-iUWcbEII43qDs7wlW2K5Qq4RfkTaKO4ZmRYdArl2b-kQT3Si138CLIisnGkRjCqf4q9oSh_Yhgjz930iHKay1CC6qOYbBmWo5qpr5S6pDbbx_WiaFTkT1J4F-tzi3c76RtLKQgyRSayfv_MA8Yoq9gtOGYdNYZqpn0ZJ5jeFkQ==",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie",
+      "summary": "L'ancien gouverneur de la Banque de France alerte sur la hausse de l'écart de taux souverains français face à l'Allemagne et appelle les candidats de 2027 à clarifier leurs plans budgétaires.",
+      "read_minutes": 4
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-08-26",
+      "titre": "Retraites : dossier gelé jusqu'à la présidentielle 2027 ?",
+      "lien": "Même dossier de fond sur la soutenabilité financière du régime des retraites et la tentation de repousser les arbitrages jusqu'à l'élection présidentielle de 2027."
+    },
+    {
+      "date": "2026-11-11",
+      "titre": "Gel du point d'indice des fonctionnaires : Lecornu peut-il tenir sans crise ?",
+      "lien": "Même cadre de contrainte budgétaire sur les dépenses publiques et de risque de contestation sociale face aux choix d'économies de l'exécutif."
+    },
+    {
+      "date": "2026-09-01",
+      "titre": "Présidentielle 2027 : qui peut vraiment battre le RN ?",
+      "lien": "Même horizon politique de 2027 et structuration des offres programmatiques face à la dynamique électorale du Rassemblement national."
+    }
+  ],
+  "recommandations_redaction": [
+    "Veiller à bien insérer les rappels d'articles précédents ('Retraites : la patate chaude de 2027' et 'Gel du point d'indice des fonctionnaires') dans le corps du texte.",
+    "Expliciter clairement la tension entre l'urgence budgétaire (déficit structurel pointé par la Cour des comptes et le COR) et le risque politique maximal lié à toute remise en cause de l'âge de départ.",
+    "Bien distinguer les simulations techniques du COR (modélisation mathématique d'équilibre) des propositions programmatiques réelles des candidats pour 2027."
+  ]
+}

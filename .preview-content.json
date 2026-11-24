@@ -1,169 +1,179 @@
 {
-  "h1": "Productivité : l'IA peut-elle relancer la croissance ?",
-  "question_text": "Après le ralentissement de la productivité depuis 1973, l'IA générative peut-elle enfin relancer durablement la croissance, ou le paradoxe de Solow se poursuit-il ?",
-  "section_title": "Trois trajectoires pour l'impact économique de l'intelligence artificielle",
+  "h1": "Retraites : le retour du dossier explosif dans la présidentielle 2027",
+  "question_text": "Alors que le déficit des retraites menace d'atteindre 45 milliards d'euros d'ici 2050 selon la Cour des comptes, les candidats à la présidentielle 2027 peuvent-ils rouvrir le dossier de l'âge de départ sans provoquer un nouveau blocage social ?",
+  "section_title": "Trois issues pour l'avenir des retraites françaises",
   "dek": [
-    "Pendant près de dix-huit siècles, la richesse matérielle de l'humanité a très peu évolué par habitant. La production totale augmentait uniquement parce que la population grandissait, mais chaque travailleur produisait à peu près la même quantité de grain ou de tissu d'une génération à l'autre. La rupture survient vers 1760 avec l'apparition de la machine à vapeur, puis s'accélère à partir de 1870 grâce à l'électricité et au moteur à explosion. Selon les données de la base Maddison, le produit intérieur brut<a class=\"lex-ref\" href=\"#lex-produit-interieur-brut\" aria-label=\"Voir la définition dans le lexique\">*</a> par habitant en Europe occidentale a ainsi été <strong>multiplié par près de 6</strong> entre 1870 et 1973, transformant radicalement le niveau de vie, l'éducation et la santé.",
-    "Cette progression fulgurante repose entièrement sur les gains de productivité horaire<a class=\"lex-ref\" href=\"#lex-productivite-horaire\" aria-label=\"Voir la définition dans le lexique\">*</a>, c'est-à-dire la quantité de biens ou de services qu'une personne produit en une heure de travail. Durant les Trente Glorieuses, entre 1945 et 1973, cette productivité progressait au rythme exceptionnel de <strong>4 à 5 % par an</strong> en Europe et au Japon, et de <strong>2,5 à 3 %</strong> aux États-Unis. Travailler une heure permettait de fabriquer deux fois plus d'équipements tous les quinze ans. Cette dynamique a financé la réduction du temps de travail, les hausses régulières de salaires et la création des systèmes modernes de protection sociale sans déséquilibrer les budgets publics.",
-    "Le moteur économique s'est toutefois grippé après le choc pétrolier de 1973. Depuis plus de cinquante ans, la croissance de l'efficacité du travail ralentit dans l'ensemble des économies développées, pour s'établir entre <strong>1 et 1,5 % par an</strong>. Même l'arrivée des micro-ordinateurs et d'Internet entre 1995 et 2004 n'a provoqué qu'un sursaut temporaire outre-Atlantique avant de s'essouffler. L'économiste Robert Solow résumait cette énigme dès 1987 par une formule célèbre : on voyait les ordinateurs partout, sauf dans les statistiques de productivité. Les technologies se multipliaient dans les bureaux sans rendre la production globale beaucoup plus rapide.",
-    "Les chiffres les plus récents confirment ce plafonnement persistant de l'activité. En 2025, la productivité horaire a progressé de <strong>1,7 % aux États-Unis</strong>, de <strong>1,47 % en France</strong> et de <strong>1,37 % dans la zone euro</strong>. Ces rythmes modestes suffisent à peine à compenser le vieillissement démographique et les coûts croissants de la dette publique. Pour maintenir notre modèle social sans augmenter indéfiniment les impôts, les entreprises et les gouvernements espèrent désormais un nouvel élan technologique capable de recréer une vague d'efficacité comparable à celle de l'électrification des usines au début du vingtième siècle.",
-    "L'apparition de l'intelligence artificielle générative suscite ainsi d'immenses espoirs dans les milieux économiques. Des algorithmes capables de rédiger des synthèses, d'écrire du code informatique ou d'analyser des diagnostics médicaux pourraient théoriquement faire gagner des millions d'heures de travail qualifié. Pourtant, l'histoire économique enseigne qu'une invention majeure ne se traduit pas automatiquement par un bond statistique immédiat. Les entreprises doivent d'abord réorganiser en profondeur leurs méthodes de travail, former leurs équipes et consentir de lourdes dépenses en matériel informatique et en réseaux électriques avant d'en tirer un bénéfice mesurable.",
-    "L'incertitude reste donc totale quant à l'issue macroéconomique des investissements actuels. L'intelligence artificielle va-t-elle enfin briser le plafond des gains d'efficacité ou reproduire la déception des décennies numériques précédentes ? Trois scénarios se dessinent pour les dix prochaines années : une diffusion réussie qui réenclenche un cycle de croissance durable, la persistance d'une dilution des gains maintenant la tendance actuelle, ou une désillusion technologique et financière qui aggraverait la stagnation économique des pays avancés."
+    "Trois ans après la crise sociale majeure née du passage de l'âge de départ à 64 ans, la question des retraites redevient le point de friction central de la vie politique française. En novembre 2026, la Cour des comptes a publié une note d'alerte sans détour : sans nouveau tour de vis, le déficit annuel du système par répartition<a class=\"lex-ref\" href=\"#lex-repartition\" aria-label=\"Voir la définition dans le lexique\">*</a> grimpera à <strong>44,6 milliards d'euros d'ici 2050</strong>. Cette dégradation brutale ne relève pas d'un accident passager de trésorerie, mais d'une transformation profonde du pays. Le ratio démographique s'effondre sous l'effet du vieillissement de la population, passant de <strong>1,77 cotisant par retraité en 2025</strong> à seulement <strong>1,54 en 2050</strong>. Pour les magistrats financiers, la France ne pourra pas équilibrer ses comptes publics sans envisager un nouveau relèvement progressif de l'âge légal vers 65 ans.",
+    "Ce diagnostic comptable rejoint les projections officielles du Conseil d'orientation des retraites (COR)<a class=\"lex-ref\" href=\"#lex-cor\" aria-label=\"Voir la définition dans le lexique\">*</a>, l'organisme public chargé de surveiller l'équilibre du régime. Dans son dernier bilan annuel, le COR a intégré une révision démographique déterminante : le taux de fécondité national est désormais estimé à 1,45 enfant par femme, contre 1,8 auparavant. Ce recul réduit mécaniquement le nombre de futurs travailleurs qui cotiseront pour payer les pensions des aînés. Dès lors, le besoin de financement structurel bondirait à <strong>2,4 % du PIB en 2070</strong>, contre 1,4 % prévu lors des études antérieures. L'équilibre financier actuel repose sur une équation qui s'épuise, alors même que les dépenses globales représentent déjà <strong>14,1 % du PIB</strong>, soit près d'un quart de l'ensemble des dépenses publiques du pays.",
+    "Face à cette réalité chiffrée, les forces politiques qui se préparent pour l'élection présidentielle de 2027 adoptent des positions irréconciliables. D'un côté, les candidats de la droite et du centre, menés notamment par Édouard Philippe, Bruno Retailleau ou Gabriel Attal, estiment que l'allongement de la vie impose de travailler plus longtemps. Ils défendent ouvertement un report de l'âge légal à 65 ans, une limitation des départs anticipés ou l'introduction d'une dose de capitalisation<a class=\"lex-ref\" href=\"#lex-capitalisation\" aria-label=\"Voir la définition dans le lexique\">*</a> pour soulager les finances de l'État. Pour ces responsables, masquer ce mur budgétaire reviendrait à exposer la France à une défiance immédiate des marchés financiers et à une hausse insoutenable de ses taux d'emprunt souverains.",
+    "À l'opposé du spectre politique, le Rassemblement national et les partis de gauche réunis sous la bannière du Nouveau Front populaire refusent catégoriquement tout nouveau recul de l'âge. Marine Le Pen et Jordan Bardella ont présenté une feuille de route prévoyant la possibilité de partir dès 60 ou 62 ans pour les carrières longues, financée selon eux par un surcroît d'activité économique et un fonds souverain. De leur côté, La France insoumise et les organisations syndicales exigent l'abrogation pure et simple de la loi de 2023 pour rétablir la retraite à 60 ans à taux plein, en misant sur une hausse des cotisations patronales et une taxation accrue des patrimoines financiers. Entre ces deux visions du monde du travail, aucun compromis spontané ne semble envisageable.",
+    "Cette bipolarisation extrême transforme le sujet en une véritable bombe politique à retardement pour le futur président de la République. Le souvenir des manifestations géantes et des grèves reconductibles de l'hiver 2023 reste gravé dans tous les esprits. Relancer une réforme frontale sur l'âge légal dès le début du prochain quinquennat ferait courir le risque d'une paralysie immédiate du pays et d'une rupture du dialogue social. À l'inverse, promettre l'abrogation des 64 ans sans garantie de recettes immédiates creuserait le déficit budgétaire dans un contexte de surveillance budgétaire européenne renforcée. L'exécutif sortant a tenté d'écarter le sujet jusqu'au scrutin de 2027, mais les rapports successifs de la Cour des comptes interdisent désormais toute esquive.",
+    "L'incertitude ne porte plus sur la réalité de l'impasse financière, mais sur la méthode que choisira le prochain pouvoir exécutif pour tenter de la résorber sans embraser la société. Trois chemins se dessinent pour la France : l'invention d'un compromis progressif centré sur l'emploi des seniors et les carrières longues sans toucher brutalement à la borne d'âge, le recours à un ajustement silencieux par le gel ou la sous-indexation<a class=\"lex-ref\" href=\"#lex-sous-indexation\" aria-label=\"Voir la définition dans le lexique\">*</a> des pensions pour éviter le conflit de rue, ou le choc frontal d'une nouvelle loi d'âge déclenchant un blocage social généralisé sur fond de crise de la dette publique."
   ],
   "enjeu_en_clair": {
-    "lead": "La productivité mesure ce que nous produisons en une heure : sans ses progrès, le pouvoir d'achat stagne et financer les services publics devient presque impossible.",
-    "text": "Depuis 1973, l'efficacité du travail progresse deux fois moins vite qu'auparavant dans les pays développés. L'arrivée de l'intelligence artificielle promet d'automatiser de nombreuses tâches de bureau, mais les économistes ignorent si elle relancera vraiment l'économie ou si elle s'évaporera dans des gadgets sans effet réel sur la croissance globale."
+    "lead": "Le système français de retraite par répartition fait face à un manque d'argent massif que les candidats de 2027 ne pourront plus ignorer.",
+    "text": "Le régime par répartition repose sur un principe simple : les cotisations des travailleurs actuels paient directement les pensions des retraités du moment. Comme le nombre de naissances baisse et que l'espérance de vie progresse, le nombre de cotisants pour chaque retraité diminue rapidement. Pour combler un trou qui atteindrait 45 milliards d'euros en 2050, il faut soit travailler plus longtemps, soit payer plus de cotisations, soit réduire le montant réel des pensions. Les partis s'affrontent sur ce choix sans qu'aucune solution ne fasse l'unanimité auprès des Français."
   },
   "stakes_branches": {
-    "favorable": "L'IA transforme les méthodes de travail et remonte la productivité vers 2 % par an.",
-    "stable": "Les gains restent concentrés dans la tech et la productivité plafonne autour de 1 %.",
-    "degrade": "Les coûts élevés et les blocages freinent l'adoption, ramenant la croissance sous 0,5 %."
+    "favorable": "Un compromis technique préserve la paix sociale en modulant la durée de cotisation et l'emploi des seniors.",
+    "stable": "L'exécutif gèle discrètement la valeur des pensions pour freiner les dépenses sans affronter la rue.",
+    "degrade": "Une nouvelle tentative de recul de l'âge légal à 65 ans déclenche une vague massive de grèves nationales."
   },
   "comprendre_box": [
     {
-      "lead": "Pourquoi la productivité compte plus que la taille globale du PIB",
-      "text": "Le PIB mondial a été multiplié par plus de 400 depuis l'an 1, mais avant 1800, cette hausse venait seulement du nombre d'habitants. Si la population double et produit deux fois plus, la part de gâteau par personne reste identique. Seule la hausse de ce qu'une personne produit par heure permet d'augmenter le niveau de vie individuel.",
-      "apres_dek_index": 0
+      "lead": "L'effet ciseau démographique : pourquoi moins de naissances déséquilibre le système",
+      "text": "Le modèle français ressemble à un pont suspendu : sa solidité dépend du nombre de piliers actifs qui soutiennent la structure. Quand le taux de fécondité tombe à 1,45 enfant par femme, le nombre de futurs piliers rétrécit alors que le poids des retraités s'alourdit. Mécaniquement, chaque actif doit porter une charge financière plus lourde pour maintenir le versement régulier des pensions sans creuser la dette collective.",
+      "apres_dek_index": 1
     },
     {
-      "lead": "Le paradoxe de Solow : quand la technologie tarde à se voir",
-      "text": "Installer des ordinateurs puissants dans une entreprise ne garantit pas une hausse immédiate de la production si les employés passent leur temps à trier des courriels ou à corriger des logiciels. L'intelligence artificielle risque de suivre ce schéma si elle produit des textes sans supprimer de démarches inutiles.",
-      "apres_dek_index": 2
+      "lead": "Les trois manettes de la retraite : pourquoi chaque arbitrage fâche une partie du pays",
+      "text": "Pour équilibrer un régime par répartition, l'État ne dispose que de trois leviers d'action : reculer l'âge de départ pour cotiser plus longtemps, augmenter les prélèvements sur les salaires, ou verser des pensions moins généreuses face à l'inflation. Toucher à l'âge révolte les salariés, relever les cotisations pèse sur le pouvoir d'achat et la compétitivité, et freiner les pensions pénalise directement les électeurs âgés.",
+      "apres_dek_index": 3
     }
   ],
   "list_box": null,
   "indicators": [
     {
-      "label": "Croissance de la productivité horaire (États-Unis, 2025)",
-      "value": "1,7 %",
-      "delta": "contre 2,5 à 3 % par an entre 1945 et 1973"
+      "label": "Déficit du système de retraite en 2025",
+      "delta": "Projection en hausse vers 6,8 Md€ d'ici 2030",
+      "value": "5,1 Md€"
     },
     {
-      "label": "Croissance de la productivité horaire (France, 2025)",
-      "value": "1,47 %",
-      "delta": "contre 4 à 5 % par an durant les Trente Glorieuses"
+      "label": "Dépenses de retraite en France",
+      "delta": "Représente 24,3 % de l'ensemble des dépenses publiques",
+      "value": "14,1 % du PIB"
     }
   ],
   "cards": {
     "favorable": {
       "pct": 30,
       "gauge_word": "Probable",
-      "h3": "L'intelligence artificielle diffuse ses gains et relance durablement l'activité",
+      "h3": "Un compromis réformateur axé sur l'emploi des seniors et les cotisations",
       "why": [
-        "Premier scénario : les entreprises parviennent à intégrer en profondeur les outils d'automatisation dans leurs tâches administratives, juridiques et industrielles quotidiennes. À l'image de ce qui s'est passé avec le moteur électrique au début du vingtième siècle, les organisations repensent entièrement leurs processus de production au lieu de simplement plaquer un logiciel sur de vieilles méthodes. Les salariés délèguent les tâches répétitives aux algorithmes, ce qui permet d'accélérer la recherche scientifique, de concevoir de nouveaux produits plus vite et de réduire les délais de traitement dans les services. La productivité horaire remonte ainsi progressivement vers <strong>2 % par an</strong> d'ici le milieu des années 2030 dans les pays développés.",
-        "Par rapport aux deux autres trajectoires, ce scénario repose sur une véritable transformation des compétences et un partage équilibré des gains financiers entre entreprises et salariés. Alors que le scénario stable voit les bénéfices confinés à quelques géants du numérique, cette diffusion large permet d'augmenter les salaires réels tout en consolidant les rentrées fiscales indispensables aux budgets publics. Les tensions sur le financement des retraites et des systèmes de santé s'atténueraient nettement si cette accélération technologique parvenait à se concrétiser sur l'ensemble du tissu économique."
+        "Premier scénario : la campagne présidentielle de 2027 débouche sur un accord pragmatique évitant tout recul brutal de l'âge légal. Concrètement, le nouveau gouvernement renonce à porter l'âge de départ à 65 ans et privilégie un ajustement fondé sur l'allongement très progressif de la durée de cotisation requise. Cette stratégie s'accompagne d'un vaste plan obligatoire pour maintenir les salariés de plus de 55 ans en emploi, assorti de bonus financiers pour les entreprises vertueuses et d'un assouplissement de la retraite progressive. L'objectif consiste à élargir l'assiette des cotisants réels sans braquer l'opinion publique sur un totem d'âge symbolique, permettant de redresser lentement les comptes sans déclencher de grève générale.",
+        "Par rapport aux deux autres voies, cette trajectoire privilégie la concertation sociale au détriment d'un choc budgétaire immédiat. Elle refuse l'illusion d'un retour pur et simple à 60 ans qui ferait exploser la dette de l'État, tout en écartant le passage en force parlementaire qui avait fracturé le pays en 2023. Les syndicats réformistes acceptent d'entrer dans une négociation sur la pénibilité et les fins de carrière en échange du maintien des 64 ans. Si ce scénario se concrétisait, il permettrait d'apaiser le climat politique français, mais il exigerait plusieurs années d'efforts constants pour que le taux d'emploi des seniors comble réellement le manque à gagner des caisses de retraite."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Productivité horaire (États-Unis)",
-          "evo_current": "2,2 %",
-          "evo_arrow": "up",
-          "evo_prev": "1,7 % en 2025"
+          "field_name": "Déficit du système de retraite",
+          "evo_current": "3,5 Md€",
+          "evo_arrow": "down",
+          "evo_prev": "5,1 Md€ en 2025"
         },
         {
-          "field_name": "Productivité horaire (France)",
-          "evo_current": "1,9 %",
-          "evo_arrow": "up",
-          "evo_prev": "1,47 % en 2025"
+          "field_name": "Dépenses de retraite en France",
+          "evo_current": "13,9 % du PIB",
+          "evo_arrow": "down",
+          "evo_prev": "14,1 % du PIB"
         }
       ],
-      "france_line": "Une hausse de la productivité élargit les bases fiscales et facilite le désendettement de l'État.",
+      "france_line": "Le maintien du dialogue social et la hausse de l'emploi des seniors stabilisent l'économie sans provoquer de blocage des transports.",
       "france_impact": "favorable"
     },
     "stable": {
       "pct": 45,
       "gauge_word": "Probable",
-      "h3": "Le paradoxe de Solow persiste et confine les gains au secteur technologique",
+      "h3": "Un ajustement budgétaire silencieux par la sous-indexation des pensions",
       "why": [
-        "Deuxième scénario : l'intelligence artificielle est adoptée massivement par le grand public et les bureaux, mais ses effets macroéconomiques réels restent très limités sur le reste de la société. Une grande partie du temps gagné sur la rédaction de documents ou la programmation est absorbée par de nouvelles tâches de vérification, de gestion de conformité ou de réunions internes. Les secteurs les plus lourds de l'économie, comme la santé humaine, les chantiers de construction, l'hôtellerie ou l'enseignement, continuent d'exiger une présence physique incompressible peu automatisable. En conséquence, la progression de la productivité horaire reste bloquée autour de <strong>1,4 % par an</strong> en moyenne.",
-        "Ce scénario se distingue d'une reprise généralisée en montrant que l'abondance d'outils numériques ne crée pas automatiquement un surcroît de richesse mesurable pour tous les citoyens. Contrairement à la crise redoutée dans le scénario dégradé, l'économie ne s'effondre pas, mais elle poursuit sa trajectoire de croissance molle entamée depuis plusieurs décennies. Le vieillissement rapide de la population européenne continuerait ainsi de peser lourdement sur le pouvoir d'achat moyen si les gains d'efficacité restaient cantonnés au seul secteur de la haute technologie."
+        "Deuxième scénario : le vainqueur de 2027 choisit d'éviter une grande loi d'âge et rogne discrètement les dépenses par voie budgétaire. Concrètement, l'exécutif applique une sous-indexation temporaire des pensions par rapport à la hausse des prix à la consommation, en ciblant prioritairement les retraites supérieures à 1 200 ou 1 400 euros par mois. En revalorisant les pensions d'un point en dessous de l'inflation réelle, l'État économise environ 3 milliards d'euros chaque année sans avoir à voter un texte spécifique sur l'organisation du travail. Cette technique d'usure financière permet de freiner le dérapage comptable tout en contournant l'obstacle d'une motion de censure à l'Assemblée nationale.",
+        "Contrairement au scénario du compromis qui exige un pacte social ambitieux et à celui du choc frontal qui mobilise des millions de personnes dans la rue, cette option de gestion comptable constitue la ligne de moindre résistance politique immédiate. Elle évite la confrontation directe avec les syndicats tout en refusant les promesses d'abrogation portées par les oppositions radicales. Les retraités voient toutefois leur pouvoir d'achat relatif s'effriter lentement au fil des années, ce qui nourrit un profond mécontentement électoral silencieux. Cette gestion par le rabot budgétaire pourrait ainsi devenir le choix par défaut d'une majorité parlementaire fragile soucieuse de différer l'affrontement."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Productivité horaire (États-Unis)",
-          "evo_current": "1,6 %",
-          "evo_arrow": "flat",
-          "evo_prev": "1,7 % en 2025"
+          "field_name": "Déficit du système de retraite",
+          "evo_current": "4,8 Md€",
+          "evo_arrow": "down",
+          "evo_prev": "5,1 Md€ en 2025"
         },
         {
-          "field_name": "Productivité horaire (France)",
-          "evo_current": "1,3 %",
-          "evo_arrow": "flat",
-          "evo_prev": "1,47 % en 2025"
+          "field_name": "Dépenses de retraite en France",
+          "evo_current": "14,0 % du PIB",
+          "evo_arrow": "down",
+          "evo_prev": "14,1 % du PIB"
         }
       ],
-      "france_line": "La croissance molle complique l'équilibre des régimes sociaux sans provoquer de rupture brutale.",
+      "france_line": "L'exécutif limite les pertes de trésorerie mais réduit le pouvoir d'achat des aînés sans résoudre le déséquilibre de fond.",
       "france_impact": "degrade"
     },
     "degrade": {
       "pct": 25,
       "gauge_word": "Probable",
-      "h3": "L'essoufflement des investissements et les coûts énergétiques bloquent la croissance",
+      "h3": "Une nouvelle tentative de recul à 65 ans et la rechute dans le blocage social",
       "why": [
-        "Troisième scénario : les retours sur investissement de l'intelligence artificielle se révèlent très décevants par rapport aux centaines de milliards de dollars injectés dans les centres de données et les puces spécialisées. La flambée de la consommation d'électricité, le coût exorbitant des infrastructures de calcul et les risques accrus de cybersécurité finissent par alourdir les charges des entreprises au lieu de les réduire. Dans le même temps, les barrières commerciales sur les semi-conducteurs freinent la diffusion des équipements en Europe. La productivité horaire décroche alors pour tomber <strong>sous la barre des 0,5 % par an</strong> sur le continent.",
-        "Par rapport aux deux premières options, cette situation transforme la promesse technologique en un choc financier et industriel sévère pour les entreprises occidentales. Le gâteau économique cessant presque totalement de grandir par habitant, le partage des richesses devient un sujet de discorde politique et sociale direct entre les générations. Les finances publiques de plusieurs pays européens risqueraient de basculer dans une impasse durable si l'absence de gains d'efficacité empêchait tout redressement de l'activité économique."
+        "Troisième scénario : le pouvoir élu en 2027 suit à la lettre les recommandations de la Cour des comptes et tente d'imposer un départ à 65 ans. Concrètement, le gouvernement dépose un projet de loi d'urgence dès l'été 2027 pour relever l'âge légal et supprimer les régimes dérogatoires de départ anticipé. Cette initiative déclenche une riposte syndicale immédiate et unitaire, entraînant des grèves massives dans les transports, l'énergie et la fonction publique. Les blocages logistiques paralysent l'activité économique pendant plusieurs semaines, tandis que l'opposition dépose des motions de censure successives au Parlement dans un climat d'extrême tension institutionnelle.",
+        "Ce scénario de rupture se distingue nettement de la temporisation budgétaire ou du compromis progressif par son niveau inédit de conflictualité. Alors que les partisans de la rigueur affirment vouloir rassurer les agences de notation et contenir le déficit sous les 45 milliards d'euros prévus en 2050, le choc économique causé par les grèves produit l'effet inverse sur la confiance des investisseurs. La polarisation maximale entre le gouvernement et la rue fragilise la légitimité du président fraîchement élu. La situation deviendrait alors hautement instable si l'exécutif refusait de retirer son texte face à une contestation populaire grandissante."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Productivité horaire (États-Unis)",
-          "evo_current": "0,8 %",
-          "evo_arrow": "down",
-          "evo_prev": "1,7 % en 2025"
+          "field_name": "Déficit du système de retraite",
+          "evo_current": "6,2 Md€",
+          "evo_arrow": "up",
+          "evo_prev": "5,1 Md€ en 2025"
         },
         {
-          "field_name": "Productivité horaire (France)",
-          "evo_current": "0,4 %",
-          "evo_arrow": "down",
-          "evo_prev": "1,47 % en 2025"
+          "field_name": "Dépenses de retraite en France",
+          "evo_current": "14,3 % du PIB",
+          "evo_arrow": "up",
+          "evo_prev": "14,1 % du PIB"
         }
       ],
-      "france_line": "Une stagnation prolongée fragiliserait directement la trajectoire budgétaire française.",
+      "france_line": "La paralysie des transports et le blocage de l'économie dégradent l'activité et aggravent la crise de confiance politique.",
       "france_impact": "degrade"
     }
   },
   "essentiel_box": [
-    "Après un demi-siècle de ralentissement de la productivité depuis 1973, l'intelligence artificielle générative peut-elle enfin recréer une vague de croissance durable dans les pays développés ?",
-    "En 2025, la productivité horaire n'a progressé que de 1,7 % aux États-Unis et de 1,47 % en France, bien loin des rythmes de 4 à 5 % observés durant les Trente Glorieuses.",
-    "Pas immédiatement : notre scénario le plus probable (45 %) estime que le paradoxe de Solow persistera avec une productivité plafonnant autour de 1,4 %, face à une relance plus large (30 %) ou un échec coûteux (25 %).",
-    "La publication des bilans annuels de productivité du Bureau of Labor Statistics et d'Eurostat à l'automne 2027 permettra d'observer si les investissements massifs dans l'IA se traduisent enfin dans les comptes nationaux."
+    "Les candidats à l'élection présidentielle de 2027 peuvent-ils rouvrir le dossier de l'âge de départ sans replonger le pays dans un blocage social généralisé ?",
+    "La Cour des comptes alerte sur un déficit prévisionnel de 44,6 milliards d'euros en 2050, accentué par un ratio démographique tombant à 1,54 cotisant par retraité.",
+    "Non, une nouvelle réforme d'âge paraît trop inflammable : notre scénario le plus probable (45 %) anticipe un ajustement silencieux par sous-indexation des pensions, contre 30 % pour un compromis sur les seniors et 25 % pour un conflit frontal sur les 65 ans.",
+    "Le 1er avril 2027, la publication des programmes officiels et des chiffrages budgétaires des candidats scellera les choix soumis au vote des Français."
   ],
   "delta_france": {
     "kind": "negatif",
     "score": -0.4,
     "word": "léger négatif",
-    "text": "la persistance probable d'une productivité modeste (45 %) et le risque d'une déception technologique (25 %) l'emportent sur le scénario d'une relance franche des gains d'efficacité (30 %)."
+    "text": "la prédominance cumulée d'un gel rampant des pensions et du risque d'un nouveau blocage social pèse sur le climat économique français malgré l'espoir d'un compromis négocié."
   },
-  "phrase_a_retenir": "En 2025, la productivité horaire n'a progressé que de 1,47 % en France contre 4 à 5 % par an durant les Trente Glorieuses, soulignant le défi d'une relance par l'IA.",
-  "phrase_a_retenir_stat": "1,47 % en France",
+  "phrase_a_retenir": "Sans nouvelle réforme, le déficit annuel des retraites atteindra 44,6 milliards d'euros en 2050 avec seulement 1,54 cotisant par retraité.",
+  "phrase_a_retenir_stat": "44,6 milliards d'euros",
   "lexique": [
     {
-      "slug": "produit-interieur-brut",
-      "terme": "produit intérieur brut",
-      "definition": "Valeur totale de tous les biens et services produits dans un pays au cours d'une année donnée."
+      "slug": "repartition",
+      "terme": "système par répartition",
+      "definition": "Organisation où les cotisations versées par les actifs d'aujourd'hui financent directement et instantanément les pensions payées aux retraités actuels."
     },
     {
-      "slug": "productivite-horaire",
-      "terme": "productivité horaire",
-      "definition": "Quantité de richesse ou de volume produit par une personne pendant une heure de travail."
+      "slug": "cor",
+      "terme": "Conseil d'orientation des retraites (COR)",
+      "definition": "Instance publique d'expertise réunissant partenaires sociaux et experts pour modéliser les perspectives financières du système de retraite."
+    },
+    {
+      "slug": "capitalisation",
+      "terme": "capitalisation",
+      "definition": "Mécanisme financier où chaque travailleur épargne et place ses propres cotisations sur les marchés pour financer sa retraite future."
+    },
+    {
+      "slug": "sous-indexation",
+      "terme": "sous-indexation",
+      "definition": "Pratique budgétaire consistant à augmenter les pensions moins vite que l'inflation réelle pour générer des économies sur les dépenses publiques."
     }
   ],
   "sources_html": [
-    "<a href=\"https://www.rug.nl/ggdc/historicaldevelopment/maddison/\" target=\"_blank\" rel=\"noopener noreferrer\">Université de Groningue — Maddison Project Database (Université de Groningue) ↗</a>",
-    "<a href=\"https://www.prodpress.eu/productivite-etats-unis-europe-bls-eurostat-novembre-2026/\" target=\"_blank\" rel=\"noopener noreferrer\">Prodpress — Productivité États-Unis Europe — BLS Eurostat novembre 2026 ↗</a>",
-    "<a href=\"https://www.unsa.org/wp-content/uploads/2026/11/Annexes-lessentiel-de-leco-octobre-2026.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">UNSA — Annexes — L'essentiel de l'éco octobre 2026 ↗</a>"
+    "<a href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHzbG1JzeBQpaagaREecUJZzTG6BHE_kqntDHI_1pUSoQZYmLziU1hQLqLzkj6hWtjqUpUQeBi3_blGUdKhHSLMSvQmX8rAf_d_QeRWpfIBwqpj5pkbmb2l371T--FHYJcJiMG-IYRL1Cy86velz7d4A006SdaVBX_jlbQuR42RBmvKjHTLcqUqZWp8HnGbSFHAuAhcJcY=\" target=\"_blank\" rel=\"noopener noreferrer\">Vie-publique.fr — Rapport 2026 du Conseil d'orientation des retraites : les perspectives du système de retraite ↗</a>",
+    "<a href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGDxCCV-Asawm-huwGhUnoeOx8ypU8hcDuYls6T5cq9746R5C8GNnTugKynl4lVtYv4bRZhO-egdu83-rwPLLAqKAk9qYRJaNO87Kd97Vs9eX-J9YqgeRwTzWm9cpjgmEdhmnm79WCHsmIxGevPXtNcaiGsjx1iy_ceNaSpK4PR55K93Am6vvlZk_oXMEMfsIpVlBgSayWjK08LAUOUL5wF7zXKhYnm9rUcVl2dLPMG1DnGv6FcvCga7graPpMDjBCCWz3xLxdTba5PE9FISCLIhWyPcAZiMGs1\" target=\"_blank\" rel=\"noopener noreferrer\">Notre Temps — Retraites : départ à 65 ans, pension moins revalorisée… ce que propose la Cour des comptes ↗</a>",
+    "<a href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGHGgyq9Ie4BMbMRf09NHCAJ164sAv6HeHmOdFAtoDGKnN5WrnYZ8MFuWlTBwfZisvDHuxIMqhILZldS_gQ5s-e5WuzHC3mRKKDoS1vx0w-Bm3ww-Ei0SlDW28aiLQNfuloM9od6gZmmpyaZcKNDtZCasD6OyPKJF3SE2mv4_Aha0DrmaV_mqlbIbskCBVg-TTfPFQadYrH0hROHXw6EsrQ7hFe99YsCqIZdbbUeQBxOPphvktWy6oJt8M91jD2DcxbHS_d64hdwRK6W_po_YJDOV-_O9WA8rmBQcAiicHz3WFgWceQGp1OF98GgXvvjg==\" target=\"_blank\" rel=\"noopener noreferrer\">Orange Actualités — Retraites : gel des pensions, hausse des prélèvements… les pistes de la Cour des comptes ↗</a>",
+    "<a href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHDQpgWe_PkP7NsK_EtdZvTxHcqjTsXxf-KwdKKpZoOClqrJCwhcz7nRxAY4a0yZmXkubLiyG-q4DbEbIhEbX9sb_ga6FuhMHIhM0at-iCUBJ7GAzGDbTUhT9VhdVYSqedfgke7POcHgJ-c7dvXDtB5E9H_lrl8txI-_IFONmPk4iDmRYTIox4jBSUE4CL_Lyr4WMobsngr9uwcNoufk3Q4edIOGkTwCqOOo39mianEolNeC5gK63aNROe9TAnQZ43q8nbjCgf78JJDCK7Z\" target=\"_blank\" rel=\"noopener noreferrer\">Meilleurtaux Placement — Retraite à 65 ans ou système à points : ce que proposent les candidats à la présidentielle ↗</a>",
+    "<a href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQESBGqqAnm40ZryiockyRNzEyVOopC0gKyi3CreTsW_BxuxIqKGNBGBjcsVOmXC3C2WRtu2nMhEv1zCzJe2ulPxBaSnoNi2k4vCF0VHWae67Yf2TwfrBd9kXTXEC8yO3trTXYF11LkrmEgbtqEsOEQkYbB_af9MIKI9_xCxP4Px\" target=\"_blank\" rel=\"noopener noreferrer\">Fondation IFRAP — Rapport du COR 2026 : un besoin de financement sous-estimé ↗</a>",
+    "<a href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG4yFpVtSpc-Oq-gp0rBGIr_UMdebgfkM0llyBtWt0aCd5Xz1k_zijZAA9utcjgyj_QKTMEfFWXEoTdr29yp1DJH4aUpszB5nvZlLdUn6OhFDx7O_aSZa7ogZ1C_PJ3Er-ga-mTee0sLTLsGay3DvjgxjHY40xwWcc1SAa0wtANow68_-GQilFMk0H9_RTnASBMZ1CjCqum2d1VUyHhZxzwQwRbpd8gddxTsXzP\" target=\"_blank\" rel=\"noopener noreferrer\">Le Nouvel Économiste — Retraites : le plan du RN face aux projections du COR ↗</a>",
+    "<a href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGaDzwtp25j1vwheJsLh-7ZoWy3KNCoEvgPWeKpvhyP7S6MJ8CnZONj8v8gKbaDrUe6B-DfjZ6cYb8M6CGaQvaMZCtQp4gInFA3jNK2YQZywsGnqLSlNtzqY_S80MXkmOJ6zk9Qa71wHyDzhe24FGY8AXHS4RN--EIIb35Ppb5D03UZ1SvGlWIJF6RCRiOqCmdfZ6a3rww4mNiJgJ-lLwYHXzlXa6jY4-1ROEAUhYTyNKs4KBFX5vyFB2PNuh474o0=\" target=\"_blank\" rel=\"noopener noreferrer\">Public Sénat — Retraites : Marine Le Pen et Jordan Bardella détaillent leur projet ↗</a>"
   ],
   "meta": {
-    "title": "Productivité : l'IA peut-elle relancer la croissance ? — Scénario",
-    "meta_description": "Productivité : l'IA peut-elle relancer la croissance ? Analyse économique et scénarios.",
-    "og_image_alt": "Graphique et analyse prospective sur l'évolution de la productivité horaire et l'impact de l'IA",
+    "title": "Retraites : le retour du dossier explosif dans la présidentielle 2027",
+    "meta_description": "Retraites : le retour du dossier explosif dans la présidentielle 2027 3 scénarios prospectifs pour 2030.",
+    "og_image_alt": "L'Assemblée nationale à Paris sous tension politique autour de la réforme des retraites et de l'élection présidentielle 2027",
     "keywords": [
-      "prix",
-      "investissement",
-      "inflation",
-      "économie",
-      "marché"
+      "Retraites"
     ],
-    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-11-24.html\"\n  },\n  \"headline\": \"Productivité : l'IA peut-elle relancer la croissance ? — Scénario\",\n  \"description\": \"Productivité : l'IA peut-elle relancer la croissance ? Analyse économique et scénarios.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-11-24.png\"\n  ],\n  \"datePublished\": \"2026-11-24T00:00:00\",\n  \"dateModified\": \"2026-11-24T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"prix, investissement, inflation, économie, marché\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Économie\"\n}",
-    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Productivité : l'IA peut-elle relancer la croissance ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-11-24.html\"\n    }\n  ]\n}"
+    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-11-25.html\"\n  },\n  \"headline\": \"Retraites : le retour du dossier explosif dans la présidentielle 2027\",\n  \"description\": \"Retraites : le retour du dossier explosif dans la présidentielle 2027 3 scénarios prospectifs pour 2030.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-11-25.png\"\n  ],\n  \"datePublished\": \"2026-11-25T00:00:00\",\n  \"dateModified\": \"2026-11-25T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"Retraites\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Actualité\"\n}",
+    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Retraites : le retour du dossier explosif dans la présidentielle 2027\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-11-25.html\"\n    }\n  ]\n}"
   }
 }
