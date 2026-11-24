@@ -1520,6 +1520,16 @@ préférée pour son registre déjà simplifié.*
 
 *Phrase à retenir de l'édition du 2026-11-23 (archives/2026-11-23.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
 
+### chiffre-2026-11-24
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 1,47 % en France
+- message: En 2025, la productivité horaire n'a progressé que de 1,47 % en France contre 4 à 5 % par an durant les Trente Glorieuses, soulignant le défi d'une relance par l'IA.
+- attribution: — lesscenarios.fr, 24 novembre 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-11-24.html
+
+*Phrase à retenir de l'édition du 2026-11-24 (archives/2026-11-24.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
