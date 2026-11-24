@@ -2,6 +2,61 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-11-24",
+      "articles": [
+        {
+          "title": "L'Australie se dit proche d'un traité avec les îles Salomon",
+          "source": "franceinfo",
+          "url": "https://la1ere.franceinfo.fr/nouvellecaledonie/l-australie-se-dit-proche-d-un-traite-avec-les-iles-salomon-1760888.html",
+          "image": "https://la1ere.franceinfo.fr/image/FZELJdQCZBDO4_KP86ZObVMFY1U/0x60:1183x726/1200x675/filters:format(webp):quality(80)/outremer%2F2023%2F04%2F20%2F6440cb671c574_dsc-4426.jpg",
+          "lang": "fr",
+          "domain": "international",
+          "summary": "Publié le 24 novembre 2026 à 01h44, l'article indique que l'Australie finalise un traité global avec les îles Salomon, le dernier d'une série d'accords avec des pays insulaires du Pacifique destinés à contrer les ambitions sécuritaires d'acteurs extérieurs. La ministre des Affaires étrangères Penny Wong doit l'annoncer mardi devant le Parlement australien.",
+          "read_minutes": 2
+        },
+        {
+          "title": "Submersion lexicale : comment les mots de l’extrême droite ont peu à peu contaminé le débat public",
+          "source": "Le Monde",
+          "url": "https://www.lemonde.fr/les-decodeurs/article/2026/11/24/submersion-lexicale-comment-les-mots-de-l-extreme-droite-ont-peu-a-peu-contamine-le-debat-public_6814606_4355770.html",
+          "image": null,
+          "lang": "fr",
+          "domain": "politique-institutions",
+          "summary": "Publié le 24 novembre 2026, ce décryptage analyse la reprise croissante par des figures politiques de notions historiquement xénophobes comme « Français de papier », « anti-France » ou « submersion migratoire ». Les Décodeurs du Monde ont épluché les archives de presse pour retracer la trajectoire de sept termes politiquement marqués, du plus ancien (« anti-France ») au plus récent (« grand remplacement »).",
+          "read_minutes": 4
+        },
+        {
+          "title": "En Espagne, Pedro Sanchez veut taxer les ultrariches",
+          "source": "Les Echos",
+          "url": "https://www.lesechos.fr/monde/europe/en-espagne-pedro-sanchez-veut-taxer-les-ultrariches-2264079",
+          "image": null,
+          "lang": "fr",
+          "domain": "economie-entreprises",
+          "summary": "Publié le 23 novembre 2026 à 14h55, l'article relate que le Premier ministre sortant Pedro Sanchez a dévoilé sur ses réseaux sociaux le projet d'un nouvel impôt pour les fortunes dépassant 100 millions d'euros, dans la dernière ligne droite de la campagne pour les législatives du 29 novembre. Cette proposition imprévue ne figurait pas dans le programme économique du Parti socialiste ouvrier espagnol (PSOE).",
+          "read_minutes": 2
+        },
+        {
+          "title": "La Californie redoute des inondations historiques sous l'effet des grandes marées, d'El Niño et de l'océan surchauffé",
+          "source": "Le Figaro",
+          "url": "https://www.lefigaro.fr/international/la-californie-redoute-des-inondations-historiques-sous-l-effet-des-grandes-marees-d-el-nino-et-de-l-ocean-surchauffe-20261124",
+          "image": "https://i.f1g.fr/media/cms/1200x630_crop/2026/11/24/c6d3ede092663b5874f83e64f1380b9b1fe1e6bda41d7d45e7c23875328146a4.jpg",
+          "lang": "fr",
+          "domain": "sciences-environnement",
+          "summary": "Publié le 24 novembre 2026 à 03h11, l'article indique que la baie de San Francisco pourrait enregistrer des niveaux d'eau inédits depuis plus de quarante ans, le record de 1983 étant de 2,6 mètres. Le météorologiste Dial Hoang du NWS a indiqué à l'AFP que certains rivages pourraient être inondés sur près de trois pieds (91,5 cm) lors du pic des marées mercredi.",
+          "read_minutes": 3
+        },
+        {
+          "title": "Tech firms soar as Huang's return reinvigorates AI trade",
+          "source": "AFP",
+          "url": "https://www.afp.com/en/tech-firms-soar-huangs-return-reinvigorates-ai-trade",
+          "image": null,
+          "lang": "en",
+          "domain": "tech-numerique",
+          "summary": "Publié le 24 novembre 2026 à 03h37, l'article indique que les actions de Nvidia ont bondi de 31,5 % après la réintégration de Jensen Huang comme PDG, ajoutant plus de 900 milliards de dollars à la capitalisation de l'entreprise. Le Nasdaq a gagné plus de 6 %, le S&P 500 4,7 % et le Dow Jones 3 % lors de cette séance de mardi.",
+          "read_minutes": 2
+        }
+      ]
+    },
+    {
       "date": "2026-11-23",
       "articles": [
         {
