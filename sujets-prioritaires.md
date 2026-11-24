@@ -1332,7 +1332,9 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
   <!-- mots-clés: immobilier commercial ; bulle ; taux d'intérêt ; Europe ; crise financière -->
   <!-- scénarios (brouillon): favorable = Une reprise modérée stabilise les prix. ; stable = La correction se poursuit sans crise majeure. ; dégradé = Des faillites en cascade déclenchent une crise bancaire. -->
   <!-- sources: L'immobilier commercial européen sous pression -->
+  <!-- données chiffrées: [relevé du 2026-11-24] Prix des bureaux en Europe (unité : % de variation trimestrielle). Paris = -0.2% (Q3 2026) ; Berlin = -0.1% (Q3 2026) ; Londres = +0.1% (Q3 2026). Sources : https://www.altusgroup.com/fr/press-releases/altus-group-releases-its-q3-2026-pan-european-dataset-analysis-on-cre-valuation-trends/ ; https://www.realestate.bnpparibas.com/media/com/2026-11/2026%20Q3%20Europe%20CRE%20360%20BNPPRE.pdf -->
   <!-- origine: veille -->
+  <!-- enrichi: 2026-11-24 -->
   <!-- note: Ajouté automatiquement le 2026-11-02 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
 - [x] Solvabilité des assureurs européens : les ratios vont-ils se dégrader ? [assurance & finance]
   <!-- id: economie-solvabilite-des-assureurs-europeens-les-ratios -->
