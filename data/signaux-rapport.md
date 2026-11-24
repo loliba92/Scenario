@@ -1,4 +1,4 @@
-# Événements à surveiller — point du 23/11/2026
+# Événements à surveiller — point du 24/11/2026
 
 Fichier généré par `scripts/detection/verifier_signaux.py` (source : `data/signaux.json`).
 
@@ -10,10 +10,10 @@ Aucun.
   - Si oui : Une médiation régionale ouvre une désescalade, sans règlement du fond. (renforce : stable)
   - Si non : Les combats reprennent ou s'étendent à une troisième partie. (renforce : degrade)
   - Édition(s) : archives/2026-10-27.html
-  - Reste 7 jour(s)
+  - Reste 6 jour(s)
 
 ## En cours
-- Vote du budget 2027 à l'Assemblée sans motion de censure — limite le 31/12/2026 (dans 38 jours)
+- Vote du budget 2027 à l'Assemblée sans motion de censure — limite le 31/12/2026 (dans 37 jours)
 
 ## Déjà tranchés
 Aucun.
