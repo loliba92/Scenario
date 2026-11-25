@@ -1,9 +1,9 @@
 {
   "totaux": {
     "clicks": 6,
-    "impressions": 406,
+    "impressions": 405,
     "ctr": 0.0148,
-    "position": 10.7
+    "position": 10.5
   },
   "requetes": [
     {
@@ -142,9 +142,9 @@
     {
       "requete": "scénarios email",
       "clicks": 0,
-      "impressions": 7,
+      "impressions": 6,
       "ctr": 0,
-      "position": 70.9
+      "position": 72
     },
     {
       "requete": "tchat scénario",
@@ -156,9 +156,9 @@
     {
       "requete": "viralité organique dirigée",
       "clicks": 0,
-      "impressions": 13,
+      "impressions": 12,
       "ctr": 0,
-      "position": 10.8
+      "position": 10.2
     }
   ],
   "pages": [
@@ -202,7 +202,7 @@
       "clicks": 1,
       "impressions": 43,
       "ctr": 0.0233,
-      "position": 3.9
+      "position": 3.6
     },
     {
       "page": "https://lesscenarios.fr/",
@@ -270,16 +270,16 @@
     {
       "page": "https://lesscenarios.fr/archives/2026-09-20.html",
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 1,
       "ctr": 0,
-      "position": 3.5
+      "position": 6
     },
     {
       "page": "https://lesscenarios.fr/archives/2026-10-03.html",
       "clicks": 0,
-      "impressions": 15,
+      "impressions": 14,
       "ctr": 0,
-      "position": 10.1
+      "position": 9.6
     },
     {
       "page": "https://lesscenarios.fr/archives/2026-10-04.html",
@@ -326,9 +326,9 @@
     {
       "page": "https://lesscenarios.fr/archives/2026-11-01.html",
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 3,
       "ctr": 0,
-      "position": 9
+      "position": 8
     },
     {
       "page": "https://lesscenarios.fr/archives/2026-11-04.html",
@@ -361,9 +361,9 @@
     {
       "page": "https://lesscenarios.fr/contact.html",
       "clicks": 0,
-      "impressions": 13,
+      "impressions": 11,
       "ctr": 0,
-      "position": 27.2
+      "position": 25.5
     },
     {
       "page": "https://lesscenarios.fr/en/",
@@ -403,7 +403,7 @@
     {
       "page": "https://lesscenarios.fr/en/archives/2026-09-13.html",
       "clicks": 0,
-      "impressions": 12,
+      "impressions": 11,
       "ctr": 0,
       "position": 4.6
     },
@@ -452,9 +452,9 @@
     {
       "page": "https://lesscenarios.fr/en/archives/2026-09-24.html",
       "clicks": 0,
-      "impressions": 13,
+      "impressions": 12,
       "ctr": 0,
-      "position": 7.6
+      "position": 8.2
     },
     {
       "page": "https://lesscenarios.fr/en/archives/2026-09-26.html",
@@ -520,6 +520,13 @@
       "position": 6
     },
     {
+      "page": "https://lesscenarios.fr/en/archives/2026-10-08.html",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 8
+    },
+    {
       "page": "https://lesscenarios.fr/en/archives/2026-10-13.html",
       "clicks": 0,
       "impressions": 1,
@@ -529,16 +536,16 @@
     {
       "page": "https://lesscenarios.fr/en/archives/2026-10-17.html",
       "clicks": 0,
-      "impressions": 27,
+      "impressions": 28,
       "ctr": 0,
       "position": 5.7
     },
     {
       "page": "https://lesscenarios.fr/en/archives/2026-10-18.html",
       "clicks": 0,
-      "impressions": 5,
+      "impressions": 4,
       "ctr": 0,
-      "position": 6
+      "position": 7.2
     },
     {
       "page": "https://lesscenarios.fr/en/archives/2026-10-19.html",
@@ -613,9 +620,9 @@
     {
       "page": "https://lesscenarios.fr/en/archives/2026-11-04.html",
       "clicks": 0,
-      "impressions": 5,
+      "impressions": 6,
       "ctr": 0,
-      "position": 32.8
+      "position": 29
     },
     {
       "page": "https://lesscenarios.fr/en/archives/2026-11-05.html",
@@ -707,12 +714,19 @@
       "impressions": 1,
       "ctr": 0,
       "position": 9
+    },
+    {
+      "page": "https://lesscenarios.fr/themes/sport.html",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6
     }
   ],
   "site": "sc-domain:lesscenarios.fr",
   "periode": {
-    "debut": "2026-10-25",
-    "fin": "2026-11-21"
+    "debut": "2026-10-26",
+    "fin": "2026-11-22"
   },
-  "mis_a_jour": "2026-11-24"
+  "mis_a_jour": "2026-11-25"
 }
