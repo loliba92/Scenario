@@ -192,6 +192,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 25.11.2026 — [Retraites : le retour du dossier explosif dans la présidentielle 2027](../archives/2026-11-25.html)
 - 24.11.2026 — [Productivité : l'IA peut-elle relancer la croissance ?](../archives/2026-11-24.html)
 - 23.11.2026 — [Méga IPO IA : Anthropic, SpaceX, OpenAI — le marché absorbe-t-il ces centaines de milliards ?](../archives/2026-11-23.html)
 - 22.11.2026 — [Football féminin : le défi de la rentabilité](../archives/2026-11-22.html)

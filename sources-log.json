@@ -2,6 +2,31 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-11-25",
+      "articles": [
+        {
+          "title": "Pourquoi la Cour des comptes prône une règle d'or pour piloter les retraites",
+          "source": "Le Figaro / Patrimoine24",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHtgCl9P27oXPSO1rAUEwIGMbHUqbqgI5grzihUDuNnInALokbtq2qBS7GrqjqtxIPkAS_TvOfHlfrhycs_6vz7714iu2INn4rQ0EiN0QLfBRqEdG19s_Sy4y7GUN4YuPd0YWNGrExpjgOlJpfuyUbI3jW2UwWGw9tLfHmsmypedTAzRZGfAi4K1K5BFEME_QGGO73YymgoXA==",
+          "image": null,
+          "lang": "fr",
+          "domain": "politique-institutions",
+          "summary": "La Cour des comptes recommande la mise en place d'un mécanisme d'ajustement automatique des retraites selon l'évolution démographique et l'espérance de vie.",
+          "read_minutes": 3
+        },
+        {
+          "title": "Quelles solutions pour réduire la dette française face aux taux d'emprunt ?",
+          "source": "RCF",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGeGU5QJErlKM_5gjKmdoPMkElZ5GTaC4BGH8rJJUrqIQ8Fhr23FIvgeyp1__dXxPG-iUWcbEII43qDs7wlW2K5Qq4RfkTaKO4ZmRYdArl2b-kQT3Si138CLIisnGkRjCqf4q9oSh_Yhgjz930iHKay1CC6qOYbBmWo5qpr5S6pDbbx_WiaFTkT1J4F-tzi3c76RtLKQgyRSayfv_MA8Yoq9gtOGYdNYZqpn0ZJ5jeFkQ==",
+          "image": "https://assets.radiorcf.com/styles/1280x630_og_image/assets/2026-11/pexels-karola-g-5900183.jpg.webp",
+          "lang": "fr",
+          "domain": "economie",
+          "summary": "L'ancien gouverneur de la Banque de France alerte sur la hausse de l'écart de taux souverains français face à l'Allemagne et appelle les candidats de 2027 à clarifier leurs plans budgétaires.",
+          "read_minutes": 4
+        }
+      ]
+    },
+    {
       "date": "2026-11-24",
       "articles": [
         {
