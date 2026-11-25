@@ -210,7 +210,9 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
   <!-- mots-clés: Yémen ; Houthis ; mer Rouge ; Arabie saoudite ; commerce maritime ; pétrole -->
   <!-- scénarios (brouillon): favorable = Les efforts internationaux sécurisent les voies maritimes et les Houthis sont contraints de négocier. ; stable = Les attaques sporadiques continuent sans escalade majeure. ; dégradé = Les Houthis bloquent le détroit de Bab el-Mandeb, provoquant une crise énergétique mondiale. -->
   <!-- sources: Les Houthis intensifient leurs attaques en mer Rouge -->
+  <!-- données chiffrées: [relevé du 2026-11-25] Trafic maritime hebdomadaire dans le détroit de Bab el-Mandeb (unité : nombre de navires). Avant les attaques des Houthis (octobre 2023) = 80 (2023) ; après les attaques (juillet 2026) = 25 (2026) ; légère reprise (août 2026) = 38 (2026). Sources : https://africacenter.org/fr/spotlight/2026-houthi-mer-rouge-menaces/ ; https://www.tresor.economie.gouv.fr/Articles/2026/09/18/l-etau-des-detroits -->
   <!-- origine: veille -->
+  <!-- enrichi: 2026-11-25 -->
   <!-- note: Ajouté automatiquement le 2026-11-02 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
 - [x] Les terres rares sont-elles vraiment le nouveau pétrole ? [géopolitique & ressources]
   <!-- id: geopolitique-les-terres-rares-sont-elles-vraiment-le-nouveau -->
