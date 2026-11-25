@@ -563,7 +563,7 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
   <!-- origine: veille -->
   <!-- enrichi: 2026-11-12 -->
   <!-- note: Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
-- [ ] La réforme des retraites peut-elle revenir dans le débat présidentiel ? [politique & retraites]
+- [x] La réforme des retraites peut-elle revenir dans le débat présidentiel ? [politique & retraites]
   <!-- id: actualite-francaise-la-reforme-des-retraites-peut-elle-revenir-dans -->
   <!-- contexte: Le gouvernement a annoncé un gel des discussions sur les retraites jusqu'après les élections de 2027, mais des syndicats et partis d'opposition relancent le débat. Les dernières projections montrent un déficit accru du système. -->
   <!-- rationnel: La question : Les candidats à la présidentielle vont-ils être forcés de prendre position sur une réforme impopulaire, ou le sujet restera-t-il tabou ? Les scénarios dépendent de la pression syndicale et des sondages. L'enjeu est l'équilibre financier du système et son impact sur le pouvoir d'achat. -->
