@@ -275,7 +275,49 @@
       "nature": "Dernier match de la phase de groupes (France-Turquie)",
       "officiel": true,
       "calendrier": "date_fixee",
-      "source": "sujets"
+      "source": "sujets",
+      "resultat": {
+        "statut": "arrive",
+        "date": "2026-11-15",
+        "reponse": "Le 15 novembre 2026, l'équipe de France a battu la Turquie 2-1 au Stade Atlantique de Bordeaux lors de la dernière journée de la phase de groupes de la Ligue des nations, se qualifiant ainsi pour les quarts de finale et terminant première du groupe A1 avec 13 points.",
+        "scenario": null,
+        "sources": [
+          {
+            "titre": "Sans briller, l'équipe de France s’impose face à la Turquie et se qualifie pour les quarts de finale de la Ligue des nations – franceinfo",
+            "url": "https://www.franceinfo.fr/sports/foot/ligue-des-nations/l-equipe-de-france-s-impose-face-a-la-turquie-et-se-qualifie-pour-les-quarts-de-finale-de-la-ligue-des-nations_8283920.html"
+          },
+          {
+            "titre": "France 2-1 Turkey: Eli Junior Kroupi scores first international goal as hosts qualify top - BBC Sport",
+            "url": "https://www.bbc.com/sport/football/live/cw30g3p6vd15t"
+          }
+        ],
+        "chiffres": [
+          {
+            "libelle": "Score final France - Turquie",
+            "valeur": "2-1"
+          },
+          {
+            "libelle": "Points de la France en phase de groupes",
+            "valeur": "13"
+          },
+          {
+            "libelle": "Classement final de la France (groupe A1)",
+            "valeur": "1ère"
+          },
+          {
+            "libelle": "Buteur français Eli Junior Kroupi (1er but en sélection)",
+            "valeur": "80e minute"
+          }
+        ],
+        "controle": {
+          "date": "2026-11-25",
+          "modeles": [
+            "deepseek/deepseek-v4-flash",
+            "google/gemini-3.7-flash"
+          ],
+          "sources_verifiees": 2
+        }
+      }
     },
     {
       "id": "evt-sortie-mondiale-de-gta-vi-2026-11-19",
