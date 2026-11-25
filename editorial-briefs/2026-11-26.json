@@ -1,0 +1,250 @@
+{
+  "date": "2026-11-26",
+  "registre": "economie",
+  "sujet": {
+    "titre_propose": "La Chine peut-elle maintenir son excédent commercial record malgré les tensions avec l'UE ?",
+    "h1": "Chine : excédent record et tensions avec l'UE",
+    "question_posee": "La Chine peut-elle maintenir son excédent commercial record malgré les tensions avec l'UE ?",
+    "eyebrow": "Jeudi, économie & finance",
+    "angle": "La Chine a franchi la barre des 1 000 milliards de dollars d'excédent commercial sur dix mois, portée par les exportations de haute technologie. L'UE envisage des restrictions sur les véhicules hybrides chinois, ce qui pourrait réduire son déficit mais ne suffira pas à arrêter les mesures protectionnistes. Les scénarios dépendent des négociations commerciales et de la diversification des marchés chinois.",
+    "tags": [
+      "commerce international",
+      "protectionnisme",
+      "haute technologie"
+    ],
+    "domain": "economie",
+    "image_keywords": "china trade surplus export containers",
+    "complexite": 3,
+    "origine_prioritaire": "La Chine peut-elle maintenir son excédent commercial record malgré les tensions avec l'UE ?",
+    "origine_id": "economie-la-chine-peut-elle-maintenir-son-excedent",
+    "point_de_depart": {
+      "id": "economie-la-chine-peut-elle-maintenir-son-excedent",
+      "registre": "economie",
+      "titre": "La Chine peut-elle maintenir son excédent commercial record malgré les tensions avec l'UE ?",
+      "question": "La Chine peut-elle maintenir son excédent commercial record malgré les tensions avec l'UE ?",
+      "contexte": "La Chine a enregistré un excédent commercial record de 1 040 milliards de dollars sur les dix premiers mois de 2026, tiré par les exportations de produits high-tech. L'UE envisage des restrictions sur les importations de véhicules hybrides chinois pour réduire son déficit commercial.",
+      "rationnel": "La question : la Chine peut-elle poursuivre sa croissance exportatrice face aux mesures protectionnistes de l'UE ? Les scénarios dépendent des négociations commerciales et de la diversification des marchés chinois. Un scénario favorable verrait un accord commercial avec l'UE, un scénario stable maintiendrait des tensions contrôlées, et un scénario dégradé pourrait déclencher une guerre commerciale.",
+      "mots_cles": [
+        "Chine",
+        "excédent commercial",
+        "UE",
+        "véhicules hybrides",
+        "protectionnisme"
+      ],
+      "angle": null,
+      "a_verifier": null,
+      "scenarios_brouillon": {
+        "favorable": "Un compromis est trouvé avec l'UE, permettant à la Chine de maintenir ses exportations.",
+        "stable": "Les tensions commerciales persistent sans escalade majeure.",
+        "degrade": "Des mesures restrictives de l'UE entraînent une baisse significative des exportations chinoises."
+      },
+      "echeance": null,
+      "sources_pistes": [
+        {
+          "titre": "Principaux points de l'actualité économique mondiale du 10 novembre 2026",
+          "url": "https://www.vietnam.vn/fr/diem-tin-kinh-te-the-gioi-noi-bat-ngay-10-11-2026"
+        }
+      ],
+      "tag": "économie & commerce international",
+      "origine": "veille",
+      "note_editoriale": "Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
+      "donnees_graphique": "[relevé du 2026-11-20] Excédent commercial de la Chine avec l'UE (unité : milliards de dollars). 2025 = 310,67 (2025) ; 2026 = 360 (2026) ; Octobre 2026 = 33,4 (octobre 2026). Sources : https://www.france24.com/fr/info-en-continu/20261110-la-chine-passe-la-marque-des-1-000-milliards-de-dollars-d-exc%C3%A9dent-commercial-d%C3%A8s-octobre ; https://www.rapporteur.com/fr/news/bruxelles-laccord-sur-les-vehicules-hybrides-nempechera-pas-des-mesures-commerciales-anti-chine/",
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Vérification anti-doublon : veille du 25/11 (retraites/présidentielle 2027) sans recoupement. Registre économie : éditions récentes du même registre (24/11 productivité IA, 23/11 méga IPO IA, 19/11 Nvidia, 18/11 SMIC, 12/11 taux BCE) sans lien avec le sujet chinois. Aucun doublon détecté."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "La Chine a enregistré un excédent commercial de 1 040 milliards de dollars sur les dix premiers mois de 2026.",
+      "chiffre": "1 040 milliards de dollars",
+      "date_du_chiffre": "2026-11-10",
+      "sources": [
+        "france24-20261110"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "L'UE envisage des restrictions sur les importations de véhicules hybrides chinois pour réduire son déficit commercial.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "rapporteur-20261110"
+      ],
+      "confiance": "moyenne"
+    },
+    {
+      "affirmation": "L'accord sur les véhicules hybrides ne suffira pas à empêcher des mesures commerciales anti-chine de la part de l'UE.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "rapporteur-20261110"
+      ],
+      "confiance": "moyenne"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Chine",
+      "role": "Exportateur principal, excédent record"
+    },
+    {
+      "nom": "Union européenne",
+      "role": "Importateur, envisage des restrictions sur les véhicules hybrides chinois"
+    },
+    {
+      "nom": "Commission européenne",
+      "role": "Élabore les mesures commerciales potentielles"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2026-11-10",
+      "evenement": "La Chine franchit la barre des 1 000 milliards de dollars d'excédent commercial sur dix mois"
+    },
+    {
+      "date": "2026-11-10",
+      "evenement": "L'UE envisage des restrictions sur les véhicules hybrides chinois"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Un compromis est trouvé avec l'UE, permettant à la Chine de maintenir ses exportations.",
+      "probabilite_suggeree": 30
+    },
+    "stable": {
+      "resume": "Les tensions commerciales persistent sans escalade majeure.",
+      "probabilite_suggeree": 50
+    },
+    "degrade": {
+      "resume": "Des mesures restrictives de l'UE entraînent une baisse significative des exportations chinoises.",
+      "probabilite_suggeree": 20
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Excédent commercial chinois (10 mois 2026)",
+      "valeur": "1 040 milliards de dollars",
+      "tendance": "Record, en hausse"
+    },
+    {
+      "label": "Excédent commercial de la Chine avec l'UE (2026)",
+      "valeur": "360 milliards de dollars",
+      "tendance": "En hausse par rapport à 2025 (310,67 milliards)"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Pas de série historique longue disponible sur un indicateur pertinent pour ce sujet. Les données disponibles (excédent avec l'UE : 310,67 milliards en 2025, 360 milliards en 2026) ne forment qu'un historique de 2 points, insuffisant pour les 3 critères requis (source fiable complète, 5 points minimum, éclairage direct sur la question).",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "oui",
+    "raison": "Trois chiffres comparables existent dans les faits vérifiés : excédent commercial total de la Chine sur 10 mois (1 040 milliards), excédent avec l'UE en 2025 (310,67 milliards) et en 2026 (360 milliards). Ces trois chiffres sont de même nature (excédents commerciaux en milliards de dollars) et permettent une comparaison pertinente.",
+    "barres": {
+      "aria_label": "Comparaison de l'excédent commercial de la Chine : total sur 10 mois 2026, avec l'UE en 2025 et en 2026",
+      "lead": "L'excédent commercial de la Chine atteint des niveaux records, notamment avec l'Union européenne.",
+      "caption": "Sources : France 24 (10 novembre 2026), Rapporteur (10 novembre 2026), données UE.",
+      "unite": "milliards de dollars",
+      "valeurs": [
+        {
+          "label": "Excédent total (10 mois 2026)",
+          "valeur": 1040,
+          "affichage": "1 040 milliards de dollars",
+          "mis_en_avant": true
+        },
+        {
+          "label": "Excédent avec l'UE (2025)",
+          "valeur": 310.67,
+          "affichage": "310,67 milliards de dollars",
+          "mis_en_avant": false
+        },
+        {
+          "label": "Excédent avec l'UE (2026)",
+          "valeur": 360,
+          "affichage": "360 milliards de dollars",
+          "mis_en_avant": false
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Comment se calcule un excédent commercial et pourquoi la Chine le maintient à des niveaux records",
+        "rattache_a": "fait excédent 1 040 milliards"
+      },
+      {
+        "focus": "Les mesures protectionnistes de l'UE sur les véhicules hybrides chinois : ce que cela change concrètement",
+        "rattache_a": "fait restrictions véhicules hybrides"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "L'étendue réelle des restrictions envisagées par l'UE sur les véhicules hybrides chinois n'est pas encore précisée",
+    "L'impact concret d'un éventuel accord commercial sur les exportations chinoises reste incertain"
+  ],
+  "a_ne_pas_affirmer": [],
+  "sources": [
+    {
+      "id": "france24-20261110",
+      "title": "La Chine passe la marque des 1 000 milliards de dollars d'excédent commercial dès octobre",
+      "source": "France 24",
+      "url": "https://www.france24.com/fr/info-en-continu/20261110-la-chine-passe-la-marque-des-1-000-milliards-de-dollars-d-exc%C3%A9dent-commercial-d%C3%A8s-octobre",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie",
+      "summary": "La Chine a enregistré un excédent commercial de 1 040 milliards de dollars sur les dix premiers mois de 2026, porté par les exportations de produits high-tech.",
+      "read_minutes": 3
+    },
+    {
+      "id": "rapporteur-20261110",
+      "title": "Bruxelles : l'accord sur les véhicules hybrides n'empêchera pas des mesures commerciales anti-chine",
+      "source": "Rapporteur",
+      "url": "https://www.rapporteur.com/fr/news/bruxelles-laccord-sur-les-vehicules-hybrides-nempechera-pas-des-mesures-commerciales-anti-chine/",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie",
+      "summary": "L'UE envisage des restrictions sur les importations de véhicules hybrides chinois pour réduire son déficit commercial, mais l'accord sur les véhicules hybrides ne suffira pas à empêcher des mesures commerciales anti-chine.",
+      "read_minutes": 3
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "Principaux points de l'actualité économique mondiale du 10 novembre 2026",
+      "source": "Vietnam.vn",
+      "url": "https://www.vietnam.vn/fr/diem-tin-kinh-te-the-gioi-noi-bat-ngay-10-11-2026",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie",
+      "summary": "Point sur l'actualité économique mondiale du 10 novembre 2026, incluant l'excédent commercial chinois record.",
+      "read_minutes": 2
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-10-15",
+      "titre": "Métaux rares : la Chine peut-elle bloquer l'Occident ?",
+      "lien": "Même acteur (Chine) utilisant son pouvoir économique comme arme de rétorsion — le sujet du jour prolonge cette dynamique avec un autre levier (commerce plutôt que terres rares)."
+    },
+    {
+      "date": "2026-09-24",
+      "titre": "Économie mondiale : BCE et Fed face au choc pétrolier",
+      "lien": "Même registre économique mondial avec des tensions géopolitiques impactant le commerce — les deux éditions traitent de l'exposition des économies mondiales aux chocs externes."
+    },
+    {
+      "date": "2026-09-21",
+      "titre": "USA-Chine : la trêve commerciale au bord du gouffre",
+      "lien": "Même acteur central (Chine) et même enjeu (relations commerciales USA/Chine) — le sujet du jour étend cette tension à l'UE."
+    }
+  ],
+  "recommandations_redaction": [
+    "Préciser que l'excédent record de 1 040 milliards concerne les dix premiers mois de 2026, pas l'année complète",
+    "Nuancer l'impact des restrictions sur les véhicules hybrides : elles visent à réduire le déficit de l'UE mais ne suffiront pas à arrêter les mesures protectionnistes",
+    "Mettre en perspective l'excédent avec l'UE (360 milliards en 2026) par rapport au total (1 040 milliards) pour montrer l'importance de l'UE comme marché pour la Chine"
+  ]
+}

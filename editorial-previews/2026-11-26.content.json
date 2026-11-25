@@ -1,0 +1,179 @@
+{
+  "h1": "Chine : excédent record et tensions avec l'UE",
+  "question_text": "La Chine peut-elle maintenir son excédent commercial record malgré les tensions avec l'UE ?",
+  "section_title": "Trois trajectoires pour le commerce entre Pékin et l'Europe",
+  "dek": [
+    "Sur les dix premiers mois de 2026, l'économie chinoise a dégagé un excédent commercial<a class=\"lex-ref\" href=\"#lex-excedent-commercial\" aria-label=\"Voir la définition dans le lexique\">*</a> historique de <strong>1 040 milliards de dollars</strong>. C'est la première fois que le pays franchit la barre des 1 000 milliards de dollars dès le mois d'octobre, dépassant le rythme de l'année précédente qui s'était terminée sur un total de 1 200 milliards de dollars. Ce résultat impressionnant s'explique avant tout par la puissance des usines chinoises dans les secteurs de pointe, comme les véhicules électriques, les batteries et les composants pour l'intelligence artificielle. Les exportations ont bondi de <strong>35,2 % sur un an</strong> pour le seul mois d'octobre, atteignant 412,3 milliards de dollars.",
+    "L'Union européenne représente l'un des débouchés majeurs de cette production de masse. Sur les dix premiers mois de 2026, l'excédent commercial bilatéral en faveur de Pékin a progressé de <strong>28,6 %</strong> pour atteindre <strong>310,67 milliards de dollars</strong>, en route vers un total annuel estimé à environ <strong>360 milliards de dollars</strong>. Cela représente plus d'un milliard de dollars de déséquilibre net chaque jour au détriment des Vingt-Sept. Pour les dirigeants européens, ce flux continu de marchandises bon marché menace directement la survie des fabricants du continent, en particulier dans le secteur automobile qui emploie des millions de personnes.",
+    "Derrière ce triomphe à l'exportation se cache une fragilité interne majeure pour le géant asiatique. La consommation des ménages chinois reste très faible, l'immobilier traverse une crise profonde et le pays subit des pressions déflationnistes<a class=\"lex-ref\" href=\"#lex-deflation\" aria-label=\"Voir la définition dans le lexique\">*</a>. Faute de clients suffisants chez eux, les industriels chinois fabriquent beaucoup plus de biens que leur marché national ne peut en absorber. Ils vendent donc cette surproduction sur les marchés extérieurs à des tarifs très compétitifs. Malgré ces records commerciaux, Pékin ne vise qu'une croissance comprise entre <strong>4,5 % et 5 %</strong> pour 2026, son objectif officiel le plus modeste depuis des décennies.",
+    "Face à ce déséquilibre jugé insoutenable par Bruxelles, la Commission européenne prépare de nouvelles ripostes commerciales. Un accord technique a certes été conclu le mois dernier pour encadrer les importations de véhicules hybrides<a class=\"lex-ref\" href=\"#lex-vehicules-hybrides\" aria-label=\"Voir la définition dans le lexique\">*</a> chinois, mais selon plusieurs sources diplomatiques, ce compromis partiel ne suffira pas à empêcher des mesures protectionnistes<a class=\"lex-ref\" href=\"#lex-protectionnisme\" aria-label=\"Voir la définition dans le lexique\">*</a> plus larges. L'Europe craint que les rabais accordés aux constructeurs chinois ne détruisent son tissu industriel avant que ses propres usines n'aient achevé leur transition technologique.",
+    "La marge de manœuvre de Pékin dépendra aussi de sa capacité à réorienter ses flux de marchandises. Même si les exportations vers les États-Unis ont progressé de <strong>32,9 % en octobre</strong> pour s'établir à 46,4 milliards de dollars malgré les hausses de droits de douane, le marché américain devient de plus en plus difficile d'accès. La Chine cherche donc à vendre davantage en Asie, en Amérique latine et au Moyen-Orient. Mais ces marchés émergents ne disposent pas du pouvoir d'achat colossal des consommateurs européens, ce qui rend le continent européen indispensable à l'équilibre financier chinois.",
+    "L'issue de ce bras de fer commercial reste profondément incertaine pour les prochains mois. La Chine tente d'éviter une fermeture brutale des frontières européennes par des négociations bilatérales au cas par cas, tandis que l'Union européenne hésite entre protéger ses emplois et préserver ses propres exportations vers l'Asie. Trois scénarios permettent de mesurer les bifurcations possibles de cette relation économique sous haute tension, entre compromis négocié, guerre douanière ouverte ou statu quo sous surveillance constante."
+  ],
+  "enjeu_en_clair": {
+    "lead": "La Chine vend beaucoup plus de produits au reste du monde qu'elle ne lui en achète, ce qui crée de fortes tensions avec l'Europe.",
+    "text": "Les usines chinoises exportent massivement des voitures et des technologies de pointe à des prix très bas car leurs clients locaux ne consomment pas assez. L'Union européenne accumule ainsi un déficit record de plus d'un milliard de dollars par jour avec Pékin. Pour éviter la fermeture de leurs propres usines, les Européens préparent des barrières douanières, risquant de déclencher un conflit commercial mondial."
+  },
+  "stakes_branches": {
+    "favorable": "Un accord sectoriel limite les surtaxes et préserve les flux commerciaux entre la Chine et l'Europe.",
+    "stable": "Les frictions douanières s'accumulent sans rupture générale, maintenant l'excédent chinois à un niveau élevé.",
+    "degrade": "L'Union européenne durcit ses barrières aux frontières, provoquant un recul marqué des exportations chinoises."
+  },
+  "comprendre_box": [
+    {
+      "lead": "L'excédent commercial fonctionne comme le budget d'un foyer qui vendrait beaucoup plus qu'il ne dépense.",
+      "text": "Lorsqu'un pays exporte pour une valeur plus élevée que celle de ses importations, la différence forme un solde positif. Pour la Chine, vendre 1 040 milliards de dollars de marchandises de plus qu'elle n'en achète signifie que le reste du monde finance son activité industrielle.",
+      "apres_dek_index": 0
+    },
+    {
+      "lead": "Les mesures protectionnistes sur les voitures hybrides cherchent à rétablir une concurrence équitable.",
+      "text": "En taxant les véhicules importés de Chine ou en fixant des quotas stricts, l'Union européenne cherche à compenser les subventions publiques accordées par Pékin à ses fabricants, afin que les voitures produites en Europe ne soient pas éliminées du marché.",
+      "apres_dek_index": 3
+    }
+  ],
+  "list_box": null,
+  "indicators": [
+    {
+      "label": "Excédent commercial chinois (10 mois 2026)",
+      "value": "1 040 milliards de dollars",
+      "delta": "Record historique atteint dès octobre contre novembre en 2025"
+    },
+    {
+      "label": "Excédent commercial de la Chine avec l'UE (2026)",
+      "value": "360 milliards de dollars",
+      "delta": "En hausse par rapport aux 310,67 milliards constatés sur dix mois"
+    }
+  ],
+  "cards": {
+    "favorable": {
+      "pct": 30,
+      "gauge_word": "Probable",
+      "h3": "Pékin et Bruxelles négocient des compromis par filière",
+      "why": [
+        "Premier scénario : la Chine et l'Union européenne parviennent à désamorcer l'escalade en signant des engagements ciblés sur les prix et les volumes de vente. Dans cette configuration, Pékin accepte de relever volontairement les tarifs de ses véhicules hybrides et électriques vendus en Europe, tout en promettant d'implanter des usines d'assemblage directement sur le sol européen pour y créer des emplois. En contrepartie, la Commission européenne renonce à imposer des droits de douane punitifs généralisés sur le reste des produits technologiques chinois. Ce compromis permet à la Chine de conserver l'essentiel de ses débouchés en Europe tout en évitant des représailles contre les marques automobiles allemandes ou françaises exportant vers l'Asie.",
+        "Contrairement aux perspectives de rupture brutale, cette issue pragmatique s'appuie sur la forte interdépendance entre les deux économies, les industriels européens dépendant encore des chaînes d'approvisionnement asiatiques pour leurs composants électroniques. Le solde commercial chinois resterait ainsi proche de ses sommets historiques, même si la progression vers l'Europe marquerait un léger ralentissement par rapport aux 28,6 % de hausse enregistrés en 2026. La dynamique globale de l'excédent extérieur chinois pourrait alors se stabiliser durablement autour de 1 000 milliards de dollars par an sans déclencher de guerre commerciale incontrôlée."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Excédent commercial chinois",
+          "evo_current": "1 020 Md$",
+          "evo_arrow": "flat",
+          "evo_prev": "1 040 Md$ sur dix mois"
+        },
+        {
+          "field_name": "Excédent commercial avec l'UE",
+          "evo_current": "330 Md$",
+          "evo_arrow": "down",
+          "evo_prev": "360 Md$ projetés en 2026"
+        }
+      ],
+      "france_line": "Les usines françaises évitent un choc brutal mais continuent de subir la concurrence des prix chinois.",
+      "france_impact": "degrade"
+    },
+    "stable": {
+      "pct": 50,
+      "gauge_word": "Probable",
+      "h3": "Des barrières douanières ciblées sans rupture globale",
+      "why": [
+        "Deuxième scénario : notre option centrale prévoit que les frictions commerciales se poursuivent de façon permanente, faites de sanctions ciblées et de recours juridiques réguliers. L'Union européenne applique des restrictions strictes sur les véhicules hybrides et certains équipements électriques, réduisant modérément ses importations dans ces secteurs sensibles. De son côté, Pékin compense ces pertes partielles en accélérant ses ventes vers l'Asie du Sud-Est, l'Amérique latine et le Moyen-Orient, tout en continuant d'écouler ses composants industriels indispensables aux entreprises européennes. L'excédent chinois reste ainsi très élevé car l'Europe ne peut pas couper brutalement ses achats dans tous les domaines à la fois.",
+        "Par rapport à l'hypothèse d'un accord global ou d'une guerre totale, cette voie intermédiaire reflète les divisions internes entre les Vingt-Sept, certains pays exportateurs comme l'Allemagne craignant les rétorsions de Pékin tandis que d'autres exigent une protection immédiate. La Chine conserverait son excédent annuel au-dessus des 1 000 milliards de dollars grâce à sa compétitivité tarifaire dans les pays du Sud global. L'excédent bilatéral avec l'Europe pourrait alors osciller autour de 340 milliards de dollars, maintenant un climat de méfiance politique durable sans pour autant paralyser les échanges mondiaux."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Excédent commercial chinois",
+          "evo_current": "1 050 Md$",
+          "evo_arrow": "flat",
+          "evo_prev": "1 040 Md$ sur dix mois"
+        },
+        {
+          "field_name": "Excédent commercial avec l'UE",
+          "evo_current": "345 Md$",
+          "evo_arrow": "down",
+          "evo_prev": "360 Md$ projetés en 2026"
+        }
+      ],
+      "france_line": "Le déficit commercial français avec Pékin reste important malgré quelques protections ciblées.",
+      "france_impact": "degrade"
+    },
+    "degrade": {
+      "pct": 20,
+      "gauge_word": "Peu probable",
+      "h3": "L'Europe verrouille son marché et freine les exportations chinoises",
+      "why": [
+        "Troisième scénario : l'Union européenne adopte une ligne dure et déploie un vaste ensemble de surtaxes douanières contre les produits industriels chinois, allant bien au-delà de la seule filière automobile. Face à des déficits jugés intolérables, Bruxelles met en place des taxes antidumping massives sur l'acier, les panneaux solaires, les batteries et les technologies vertes. Privées d'une partie substantielle du marché européen qui absorbe plusieurs centaines de milliards de dollars de marchandises chaque année, les usines chinoises doivent réduire leurs cadences de production ou brader leurs stocks avec de lourdes pertes. L'excédent extérieur de Pékin subirait alors une contraction rapide et marquée.",
+        "Cette trajectoire de confrontation ouverte aggraverait les difficultés économiques internes de la Chine, qui ne dispose d'aucun marché de substitution capable d'absorber une telle masse de biens manufacturés. En réponse, Pékin multiplierait les sanctions contre les produits de luxe, le vin et l'aéronautique européens, alimentant une spirale de représailles destructrice pour la croissance internationale. L'excédent commercial global chinois retomberait sous les 850 milliards de dollars, tandis que le déséquilibre avec l'Europe chuterait brutalement sous l'effet des barrières tarifaires, signalant une fragmentation durable du commerce mondial."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Excédent commercial chinois",
+          "evo_current": "830 Md$",
+          "evo_arrow": "down",
+          "evo_prev": "1 040 Md$ sur dix mois"
+        },
+        {
+          "field_name": "Excédent commercial avec l'UE",
+          "evo_current": "220 Md$",
+          "evo_arrow": "down",
+          "evo_prev": "360 Md$ projetés en 2026"
+        }
+      ],
+      "france_line": "L'industrie nationale gagne de l'espace sur son marché mais les exportateurs de luxe subissent des représailles.",
+      "france_impact": "favorable"
+    }
+  },
+  "essentiel_box": [
+    "La Chine a dégagé un excédent commercial record de 1 040 milliards de dollars sur dix mois en 2026, mais fait face à la menace de restrictions douanières européennes sur ses produits phares.",
+    "L'Union européenne enregistre un déficit annuel estimé à 360 milliards de dollars avec Pékin, incitant Bruxelles à préparer des mesures protectionnistes au-delà du récent accord sur les véhicules hybrides.",
+    "Notre scénario le plus probable (50 %) estime que la Chine maintiendra son excédent global au-dessus des 1 000 milliards de dollars en réorientant une partie de ses flux, deux autres issues restant possibles : un compromis sectoriel (30 %) ou une fermeture douanière sévère de l'Europe (20 %).",
+    "Le sommet de l'Apec à Shenzhen les 18 et 19 novembre 2026 fournira un signal décisif sur les négociations commerciales internationales et les futures barrières douanières."
+  ],
+  "delta_france": {
+    "kind": "negatif",
+    "score": -0.6,
+    "word": "assez négatif",
+    "text": "la persistance probable d'un large excédent chinois (scénarios à 50 % et 30 %) maintient une forte pression concurrentielle sur les fabricants industriels français et le déficit extérieur national."
+  },
+  "phrase_a_retenir": "La Chine a accumulé 1 040 milliards de dollars d'excédent commercial en seulement dix mois en 2026, un record historique qui accentue les tensions douanières avec l'Union européenne.",
+  "phrase_a_retenir_stat": "1 040 milliards de dollars",
+  "lexique": [
+    {
+      "slug": "excedent-commercial",
+      "terme": "excédent commercial",
+      "definition": "Situation économique dans laquelle la valeur totale des marchandises vendues par un pays à l'étranger dépasse celle des biens qu'il achète aux autres nations."
+    },
+    {
+      "slug": "deflation",
+      "terme": "pressions déflationnistes",
+      "definition": "Baisse continue et généralisée des prix qui pousse les consommateurs à différer leurs achats et freine l'activité économique globale."
+    },
+    {
+      "slug": "vehicules-hybrides",
+      "terme": "véhicules hybrides",
+      "definition": "Automobiles combinant un moteur thermique classique et un moteur électrique pour réduire leur consommation de carburant."
+    },
+    {
+      "slug": "protectionnisme",
+      "terme": "mesures protectionnistes",
+      "definition": "Politique économique visant à limiter les importations étrangères par des taxes ou des quotas pour préserver les entreprises nationales."
+    }
+  ],
+  "sources_html": [
+    "<a href=\"https://www.france24.com/fr/info-en-continu/20261110-la-chine-passe-la-marque-des-1-000-milliards-de-dollars-d-exc%C3%A9dent-commercial-d%C3%A8s-octobre\" target=\"_blank\" rel=\"noopener noreferrer\">France 24 — La Chine passe la marque des 1 000 milliards de dollars d'excédent commercial dès octobre ↗</a>",
+    "<a href=\"https://www.rapporteur.com/fr/news/bruxelles-laccord-sur-les-vehicules-hybrides-nempechera-pas-des-mesures-commerciales-anti-chine/\" target=\"_blank\" rel=\"noopener noreferrer\">Rapporteur — Bruxelles : l'accord sur les véhicules hybrides n'empêchera pas des mesures commerciales anti-chine ↗</a>"
+  ],
+  "meta": {
+    "title": "Chine : excédent record et tensions avec l'UE — Scénario",
+    "meta_description": "La Chine peut-elle maintenir son excédent commercial record malgré les tensions avec l'UE ? Analyse économique et scénarios.",
+    "og_image_alt": "Conteneurs maritimes d'exportation symbolisant le commerce international de la Chine",
+    "keywords": [
+      "prix",
+      "économie",
+      "marché",
+      "Chine",
+      "inflation",
+      "investissement"
+    ],
+    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-11-26.html\"\n  },\n  \"headline\": \"Chine : excédent record et tensions avec l'UE — Scénario\",\n  \"description\": \"La Chine peut-elle maintenir son excédent commercial record malgré les tensions avec l'UE ? Analyse économique et scénarios.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-11-26.png\"\n  ],\n  \"datePublished\": \"2026-11-26T00:00:00\",\n  \"dateModified\": \"2026-11-26T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"prix, économie, marché, Chine, inflation, investissement\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Économie\"\n}",
+    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Chine : excédent record et tensions avec l'UE\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-11-26.html\"\n    }\n  ]\n}"
+  }
+}
