@@ -1317,7 +1317,7 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
   <!-- sources: L'Europe finit en hausse, tumulte à Wall Street après l'inflation <https://www.boursorama.com/bourse/actualites/l-europe-finit-en-hausse-tumulte-a-wall-street-apres-l-inflation-91fe46dc5a4dc37def19f7796cd825f2> -->
   <!-- origine: veille -->
   <!-- note: Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
-- [ ] La Chine peut-elle maintenir son excédent commercial record malgré les tensions avec l'UE ? [économie & commerce international]
+- [x] La Chine peut-elle maintenir son excédent commercial record malgré les tensions avec l'UE ? [économie & commerce international]
   <!-- id: economie-la-chine-peut-elle-maintenir-son-excedent -->
   <!-- contexte: La Chine a enregistré un excédent commercial record de 1 040 milliards de dollars sur les dix premiers mois de 2026, tiré par les exportations de produits high-tech. L'UE envisage des restrictions sur les importations de véhicules hybrides chinois pour réduire son déficit commercial. -->
   <!-- rationnel: La question : la Chine peut-elle poursuivre sa croissance exportatrice face aux mesures protectionnistes de l'UE ? Les scénarios dépendent des négociations commerciales et de la diversification des marchés chinois. Un scénario favorable verrait un accord commercial avec l'UE, un scénario stable maintiendrait des tensions contrôlées, et un scénario dégradé pourrait déclencher une guerre commerciale. -->
