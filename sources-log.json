@@ -2,6 +2,21 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-11-26",
+      "articles": [
+        {
+          "title": "Principaux points de l'actualité économique mondiale du 10 novembre 2026",
+          "source": "Vietnam.vn",
+          "url": "https://www.vietnam.vn/fr/diem-tin-kinh-te-the-gioi-noi-bat-ngay-10-11-2026",
+          "image": "https://vstatic.vietnam.vn/vietnam/resource/IMAGE/2026/11/10/1794317448910_tq-jpg.webp",
+          "lang": "fr",
+          "domain": "economie",
+          "summary": "Point sur l'actualité économique mondiale du 10 novembre 2026, incluant l'excédent commercial chinois record.",
+          "read_minutes": 2
+        }
+      ]
+    },
+    {
       "date": "2026-11-25",
       "articles": [
         {
