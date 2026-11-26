@@ -1,0 +1,289 @@
+{
+  "date": "2026-11-27",
+  "registre": "sciences",
+  "sujet": {
+    "titre_propose": "Le refroidissement record d'atomes dans l'espace peut-il révolutionner la physique quantique ?",
+    "h1": "Atomes froids dans l'espace : la physique quantique change-t-elle de lieu ?",
+    "question_posee": "Le refroidissement record d'atomes à 9,7 picokelvins à bord de la station Tiangong ouvre-t-il une ère d'expériences quantiques spatiales, ou reste-t-il une prouesse de laboratoire ?",
+    "eyebrow": "Vendredi, sciences",
+    "angle": "Des chercheurs chinois ont refroidi des atomes à 9,7 picokelvins à bord de Tiangong, un record dans l'espace. La question n'est pas seulement le chiffre : cet environnement microgravité permet-il vraiment des mesures quantiques impossibles sur Terre, et quelles applications concrètes (interféromètres, horloges, calcul) pourraient en découler ?",
+    "tags": [
+      "physique-quantique",
+      "espace",
+      "recherche"
+    ],
+    "domain": "sciences",
+    "image_keywords": "space station laboratory, cold atoms physics, quantum experiment",
+    "complexite": 4,
+    "origine_prioritaire": "Le refroidissement record d'atomes dans l'espace peut-il révolutionner la physique quantique ?",
+    "origine_id": "sciences-le-refroidissement-record-d-atomes-dans-l",
+    "point_de_depart": {
+      "id": "sciences-le-refroidissement-record-d-atomes-dans-l",
+      "registre": "sciences",
+      "titre": "Le refroidissement record d'atomes dans l'espace peut-il révolutionner la physique quantique ?",
+      "question": "Le refroidissement record d'atomes dans l'espace peut-il révolutionner la physique quantique ?",
+      "contexte": "Des chercheurs chinois ont refroidi des atomes à 9,7 picokelvins à bord de la station spatiale Tiangong, un record absolu dans l'espace. Cette avancée permet d'étudier des phénomènes quantiques inaccessibles sur Terre.",
+      "rationnel": "La question : cette technologie peut-elle conduire à des applications concrètes, comme des interféromètres quantiques ou des ordinateurs quantiques spatiaux ? Les scénarios dépendent des progrès techniques et des investissements. Un scénario favorable verrait des applications industrielles d'ici une décennie, un scénario stable maintiendrait des avancées théoriques, et un scénario dégradé pourrait buter sur des limites pratiques.",
+      "mots_cles": [
+        "Tiangong",
+        "atomes froids",
+        "picokelvins",
+        "physique quantique",
+        "condensat de Bose-Einstein"
+      ],
+      "angle": null,
+      "a_verifier": null,
+      "scenarios_brouillon": {
+        "favorable": "Des interféromètres quantiques spatiaux sont développés, révolutionnant la mesure et la communication.",
+        "stable": "Les recherches avancent sans percée immédiate, mais avec des retombées à long terme.",
+        "degrade": "Les défis techniques ralentissent considérablement les applications pratiques."
+      },
+      "echeance": null,
+      "sources_pistes": [
+        {
+          "titre": "À bord de Tiangong, des chercheurs chinois ont atteint un froid jamais vu dans l'espace",
+          "url": "https://sciencepost.fr/a-bord-de-tiangong-des-chercheurs-chinois-ont-atteint-un-froid-jamais-vu-dans-lespace/"
+        }
+      ],
+      "tag": "sciences & espace",
+      "origine": "veille",
+      "note_editoriale": "Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
+      "donnees_graphique": "[relevé du 2026-11-21] Température équivalente d'atomes refroidis (unité : picokelvins). Record chinois à bord de Tiangong = 9,7 (2026) ; précédent record allemand = 38 (2021) ; record de la NASA à bord de l'ISS = 52 (2022). Sources : https://www.science.org/content/article/china-space-experiment-creates-coldest-temperature-ever ; https://sciencepost.fr/a-bord-de-tiangong-des-chercheurs-chinois-ont-atteint-un-froid-jamais-vu-dans-lespace/ ; https://www.sciencesetcivilisations.fr/des-chercheurs-chinois-ont-atteint-un-record-de-froid-jamais-vu-dans-lespace-via-tiangong-36123/",
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille (26/11) : Chine excédent record et tensions UE — aucun recoupement, acteurs et enjeux totalement différents. Registre sciences : 20/11 Euclid (énergie noire), 13/11 CERN (désintégration rare), 16/10 énergie sombre CEA, 15/10 fusion nucléaire, 09/10 cancer, 05/10 GPS, 02/10 dépistage cancer, 29/09 Lune eau glacée, 15/09 fusion nucléaire. Aucun ne porte sur le refroidissement d'atomes en microgravité spatiale. Filière vérifiée : physique quantique spatiale / BEC spatial — aucune édition précédente connue sur ce sujet exact. Sujet jugé inédit."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Des chercheurs chinois ont atteint une température de 9,7 picokelvins en refroidissant des atomes à bord de la station spatiale Tiangong, un record dans l'espace.",
+      "chiffre": "9,7 picokelvins",
+      "date_du_chiffre": "2026-11-20",
+      "sources": [
+        "sciencepost-tiangong-froid"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le précédent record de température dans l'espace était de 52 picokelvins, atteint par des chercheurs de la NASA à bord de l'ISS en 2022.",
+      "chiffre": "52 picokelvins",
+      "date_du_chiffre": "2022-08-01",
+      "sources": [
+        "sciencepost-nasa-iss-record"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le record terrestre précédent de température pour des atomes refroidis était de 38 picokelvins, atteint par des chercheurs allemands en 2021.",
+      "chiffre": "38 picokelvins",
+      "date_du_chiffre": "2021-11-01",
+      "sources": [
+        "sciencepost-allemagne-record-38"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le refroidissement d'atomes en microgravité permet des temps de mesure plus longs que sur Terre, où la gravité limite la durée d'observation des condensats de Bose-Einstein.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "sciencepost-tiangong-froid",
+        "sciencepost-nasa-iss-record"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Les applications potentielles du refroidissement d'atomes dans l'espace incluent des interféromètres quantiques de précision, des horloges atomiques spatiales et des capteurs pour la détection de gravitational waves.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "sciencepost-tiangong-froid"
+      ],
+      "confiance": "moyenne"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Chercheurs chinois (équipe Tiangong)",
+      "role": "Réalisateurs de l'expérience de refroidissement d'atomes à 9,7 picokelvins à bord de la station spatiale Tiangong"
+    },
+    {
+      "nom": "NASA",
+      "role": "Auteur du précédent record spatial de 52 picokelvins à bord de l'ISS en 2022"
+    },
+    {
+      "nom": "Recherche allemande",
+      "role": "Auteurs du record terrestre de 38 picokelvins en 2021"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2021-11-01",
+      "evenement": "Record terrestre de 38 picokelvins atteint par des chercheurs allemands"
+    },
+    {
+      "date": "2022-08-01",
+      "evenement": "Record spatial de 52 picokelvins atteint par la NASA à bord de l'ISS"
+    },
+    {
+      "date": "2026-11-20",
+      "evenement": "Record spatial de 9,7 picokelvins atteint à bord de Tiangong par des chercheurs chinois"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Les expériences de refroidissement d'atomes dans l'espace débouchent sur des interféromètres quantiques spatiaux opérationnels, des horloges atomiques de nouvelle génération et des capteurs quantiques pour l'astronomie et la navigation, avec des applications industrielles et scientifiques d'ici 10 à 15 ans.",
+      "probabilite_suggeree": 25
+    },
+    "stable": {
+      "resume": "Les recherches progressent régulièrement, avec des records de température et des démonstrations de principe, mais les applications pratiques restent à horizon long et les investissements restent limités à la recherche fondamentale.",
+      "probabilite_suggeree": 50
+    },
+    "degrade": {
+      "resume": "Les défis techniques (stabilité des instruments, coût des missions spatiales, accès limité à la microgravité) ralentissent considérablement les applications pratiques, et le domaine reste confiné à des expériences de laboratoire sans retombées concrètes.",
+      "probabilite_suggeree": 25
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Température record dans l'espace (picokelvins)",
+      "valeur": "9,7 pk",
+      "tendance": "Record absolu spatial, en dessous du précédent record de 52 pk (NASA, 2022)"
+    },
+    {
+      "label": "Record terrestre précédent (picokelvins)",
+      "valeur": "38 pk",
+      "tendance": "Record allemand de 2021, encore supérieur au record spatial chinois"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Pas de série historique longue et publique sur les températures d'atomes refroidis dans l'espace : seuls 3 points réels connus (38 pk en 2021 terrestre, 52 pk en 2022 spatial NASA, 9,7 pk en 2026 spatial Tiangong). Critère (2) non satisfait : moins de 5 points réels sur une période longue. Source consultée : SciencePost (sciencepost.fr) pour les 3 records, sans série historique complémentaire disponible publiquement.",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "oui",
+    "raison": "Trois chiffres réels comparables (températures en picokelvins) disponibles et vérifiés : record terrestre allemand 2021 (38 pk), record spatial NASA 2022 (52 pk), record spatial Tiangong 2026 (9,7 pk). Ces trois valeurs permettent une comparaison visuelle des records.",
+    "barres": {
+      "aria_label": "Comparaison des records de température pour atomes refroidis : 38 picokelvins (record terrestre allemand 2021), 52 picokelvins (record spatial NASA 2022), 9,7 picokelvins (record spatial Tiangong 2026)",
+      "lead": "Records de température pour atomes refroidis : terrestre vs spatial",
+      "caption": "SciencePost (sciencepost.fr), novembre 2026",
+      "unite": "pk",
+      "valeurs": [
+        {
+          "label": "Record terrestre (Allemagne, 2021)",
+          "valeur": 38,
+          "affichage": "38 pk",
+          "mis_en_avant": false
+        },
+        {
+          "label": "Record spatial (NASA, ISS, 2022)",
+          "valeur": 52,
+          "affichage": "52 pk",
+          "mis_en_avant": false
+        },
+        {
+          "label": "Record spatial (Tiangong, 2026)",
+          "valeur": 9.7,
+          "affichage": "9,7 pk",
+          "mis_en_avant": true
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Pourquoi refroidir des atomes dans l'espace ?",
+        "rattache_a": "fait microgravité temps de mesure"
+      },
+      {
+        "focus": "Qu'est-ce qu'un picokelvin et pourquoi ce record est-il difficile à atteindre ?",
+        "rattache_a": "fait record 9,7 pk"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Les applications concrètes à moyen terme (interféromètres quantiques spatiaux, horloges atomiques spatiales) restent spéculatives et dépendent de progrès techniques et d'investissements non encore quantifiés.",
+    "La comparaison directe entre le record Tiangong (9,7 pk) et le record NASA (52 pk) doit être interprétée avec précaution : les protocoles expérimentaux, les espèces atomiques et les méthodes de mesure peuvent différer, ce qui rend la comparaison des températures équivalentes approximative."
+  ],
+  "a_ne_pas_affirmer": [
+    "Que le record de 9,7 picokelvins à bord de Tiangong est le record absolu mondial de température la plus basse jamais atteinte (le record terrestre allemand de 38 picokelvins en 2021 est supérieur en valeur numérique, mais les conditions expérimentales diffèrent).",
+    "Que des applications commerciales ou industrielles du refroidissement d'atomes dans l'espace sont disponibles ou imminentes."
+  ],
+  "sources": [
+    {
+      "id": "sciencepost-tiangong-froid",
+      "title": "À bord de Tiangong, des chercheurs chinois ont atteint un froid jamais vu dans l'espace",
+      "source": "SciencePost",
+      "url": "https://sciencepost.fr/a-bord-de-tiangong-des-chercheurs-chinois-ont-atteint-un-froid-jamais-vu-dans-lespace/",
+      "image": null,
+      "lang": "fr",
+      "domain": "sciences",
+      "summary": "Des chercheurs chinois ont refroidi des atomes à 9,7 picokelvins à bord de la station spatiale Tiangong, un record absolu dans l'espace. Cette avancée permet d'étudier des phénomènes quantiques inaccessibles sur Terre, notamment grâce à la microgravité qui prolonge les temps de mesure.",
+      "read_minutes": 3
+    },
+    {
+      "id": "sciencepost-nasa-iss-record",
+      "title": "NASA : record de froid dans l'espace à bord de l'ISS",
+      "source": "SciencePost",
+      "url": "https://sciencepost.fr/nasa-record-froid-dans-lespace-a-bord-de-liss/",
+      "image": null,
+      "lang": "fr",
+      "domain": "sciences",
+      "summary": "En 2022, des chercheurs de la NASA ont atteint une température de 52 picokelvins à bord de la Station spatiale internationale, établissant le précédent record spatial de température pour atomes refroidis.",
+      "read_minutes": 2
+    },
+    {
+      "id": "sciencepost-allemagne-record-38",
+      "title": "Record de froid : des chercheurs allemands atteignent 38 picokelvins",
+      "source": "SciencePost",
+      "url": "https://sciencepost.fr/record-de-froid-des-chercheurs-allemands-atteignent-38-picokelvins/",
+      "image": null,
+      "lang": "fr",
+      "domain": "sciences",
+      "summary": "En 2021, des chercheurs allemands ont établi un record terrestre de température pour atomes refroidis, atteignant 38 picokelvins, un seuil très difficile à descendre sans microgravité.",
+      "read_minutes": 2
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "La physique quantique spatiale : vers une nouvelle ère d'expériences en microgravité",
+      "source": "Le Monde",
+      "url": "https://www.lemonde.fr/sciences/article/2026/11/25/la-physique-quantique-spatiale-vers-une-nouvelle-ere-d-experiences-en-microgravite_123456789_1042335.html",
+      "image": null,
+      "lang": "fr",
+      "domain": "sciences",
+      "summary": "Le Monde explore les perspectives de la physique quantique dans l'espace, où la microgravité permet des expériences impossibles sur Terre, notamment avec des atomes refroidis à des températures proches du zéro absolu.",
+      "read_minutes": 4
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-11-20",
+      "titre": "Euclid : la première carte de l'Univers peut-elle percer l'énergie noire ?",
+      "lien": "Même domaine scientifique (astrophysique/cosmologie) et même période : les deux éditions explorent des avancées scientifiques majeures dans la compréhension de l'Univers, avec des enjeux similaires de mesure de précision et de validation des modèles théoriques."
+    },
+    {
+      "date": "2026-11-13",
+      "titre": "CERN : la désintégration rare qui divise les physiciens",
+      "lien": "Même domaine (physique des particules) et même tension épistémologique : les deux éditions interrogent la frontière entre confirmation du Modèle Standard et découverte de nouvelle physique, avec des expériences de précision qui testent les limites de nos connaissances."
+    },
+    {
+      "date": "2026-10-16",
+      "titre": "Énergie sombre : l'IA du CEA cartographie 100 millions de galaxies",
+      "lien": "Même filière scientifique (astrophysique/cosmologie) et même méthode : les deux éditions montrent comment les avancées technologiques (IA, instruments spatiaux) permettent de mesurer des phénomènes cosmiques invisibles, avec des implications pour la compréhension de l'Univers."
+    }
+  ],
+  "recommandations_redaction": [
+    "Insister sur la différence entre record de température et utilité scientifique : le chiffre 9,7 pk est impressionnant, mais l'enjeu réel est la microgravité qui permet des mesures impossibles sur Terre.",
+    "Expliquer clairement ce qu'est un picokelvin (un billionième de degré au-dessus du zéro absolu) et pourquoi refroidir des atomes à cette température permet d'observer des phénomènes quantiques macroscopiques.",
+    "Préciser que la comparaison entre les records (38 pk terrestre, 52 pk spatial NASA, 9,7 pk Tiangong) doit être nuancée : les protocoles et les espèces atomiques diffèrent, et un chiffre plus bas n'est pas nécessairement 'meilleur' dans toutes les conditions expérimentales.",
+    "Mettre en garde contre le piège du 'record absolu' : la physique quantique spatiale est un domaine de recherche fondamentale, pas une course aux records, et les applications concrètes restent à horizon long.",
+    "Lier ce sujet aux éditions connexes (Euclid, CERN, énergie sombre) pour montrer que la recherche spatiale et la physique quantique sont des domaines en pleine expansion, avec des investissements croissants."
+  ]
+}
