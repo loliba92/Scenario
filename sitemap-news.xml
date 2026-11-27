@@ -1,16 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
-<url><loc>https://lesscenarios.fr/archives/2026-11-25.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-11-25T06:01:27+01:00</news:publication_date><news:title>Retraites : le retour du dossier explosif dans la présidentielle 2027</news:title></news:news></url>  <url>
-    <loc>https://lesscenarios.fr/en/archives/2026-11-25.html</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Scénario</news:name>
-        <news:language>en</news:language>
-      </news:publication>
-      <news:publication_date>2026-11-25T06:01:27+01:00</news:publication_date>
-      <news:title>Pensions: the return of an explosive issue in the 2027 presidential race</news:title>
-    </news:news>
-  </url>
 <url><loc>https://lesscenarios.fr/archives/2026-11-26.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-11-26T06:01:45+01:00</news:publication_date><news:title>Chine : excédent record et tensions avec l'UE</news:title></news:news></url>  <url>
     <loc>https://lesscenarios.fr/en/archives/2026-11-26.html</loc>
     <news:news>
@@ -22,4 +11,4 @@
       <news:title>China: Record Surplus and Tensions with the EU</news:title>
     </news:news>
   </url>
-</urlset>
+<url><loc>https://lesscenarios.fr/archives/2026-11-27.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-11-27T06:01:54+01:00</news:publication_date><news:title>Atomes froids dans l'espace : la physique quantique change-t-elle de lieu ?</news:title></news:news></url></urlset>

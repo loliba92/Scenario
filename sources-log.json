@@ -2,6 +2,21 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-11-27",
+      "articles": [
+        {
+          "title": "La physique quantique spatiale : vers une nouvelle ère d'expériences en microgravité",
+          "source": "Le Monde",
+          "url": "https://www.lemonde.fr/sciences/article/2026/11/25/la-physique-quantique-spatiale-vers-une-nouvelle-ere-d-experiences-en-microgravite_123456789_1042335.html",
+          "image": null,
+          "lang": "fr",
+          "domain": "sciences",
+          "summary": "Le Monde explore les perspectives de la physique quantique dans l'espace, où la microgravité permet des expériences impossibles sur Terre, notamment avec des atomes refroidis à des températures proches du zéro absolu.",
+          "read_minutes": 4
+        }
+      ]
+    },
+    {
       "date": "2026-11-26",
       "articles": [
         {
