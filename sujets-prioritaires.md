@@ -799,7 +799,7 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
   <!-- sources: La désintégration extrêmement rare d’une particule suscite l’espoir de découvrir une nouvelle physique <https://www.lemonde.fr/sciences/article/2026/11/10/la-desintegration-extremement-rare-d-une-particule-suscite-l-espoir-de-decouvrir-une-nouvelle-physique_6808823_1650684.html> -->
   <!-- origine: veille -->
   <!-- note: Ajouté automatiquement le 2026-11-10 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
-- [ ] Le refroidissement record d'atomes dans l'espace peut-il révolutionner la physique quantique ? [sciences & espace]
+- [x] Le refroidissement record d'atomes dans l'espace peut-il révolutionner la physique quantique ? [sciences & espace]
   <!-- id: sciences-le-refroidissement-record-d-atomes-dans-l -->
   <!-- contexte: Des chercheurs chinois ont refroidi des atomes à 9,7 picokelvins à bord de la station spatiale Tiangong, un record absolu dans l'espace. Cette avancée permet d'étudier des phénomènes quantiques inaccessibles sur Terre. -->
   <!-- rationnel: La question : cette technologie peut-elle conduire à des applications concrètes, comme des interféromètres quantiques ou des ordinateurs quantiques spatiaux ? Les scénarios dépendent des progrès techniques et des investissements. Un scénario favorable verrait des applications industrielles d'ici une décennie, un scénario stable maintiendrait des avancées théoriques, et un scénario dégradé pourrait buter sur des limites pratiques. -->
