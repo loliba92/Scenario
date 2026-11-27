@@ -1,0 +1,286 @@
+{
+  "date": "2026-11-28",
+  "registre": "culture",
+  "sujet": {
+    "titre_propose": "Le cinéma français peut-il rivaliser avec les plateformes ?",
+    "h1": "Cinéma français : peut-il rivaliser avec les plateformes ?",
+    "question_posee": "Les salles françaises peuvent-elles se réinventer face à Netflix, ou le modèle traditionnel est-il condamné ?",
+    "eyebrow": "Samedi, culture",
+    "angle": "Les entrées en salles françaises ont chuté de 20 % en 2026 tandis que les abonnements Netflix explosaient. La question est de savoir si les salles peuvent se réinventer ou si le modèle traditionnel est condamné, avec des scénarios qui dépendent des politiques culturelles et des innovations.",
+    "tags": [
+      "cinéma",
+      "streaming",
+      "culture"
+    ],
+    "domain": "culture",
+    "image_keywords": "cinema audience french",
+    "complexite": 3,
+    "origine_prioritaire": "Le cinéma français peut-il rivaliser avec les plateformes ?",
+    "origine_id": "culture-le-cinema-francais-peut-il-rivaliser-avec-les",
+    "point_de_depart": {
+      "id": "culture-le-cinema-francais-peut-il-rivaliser-avec-les",
+      "registre": "culture",
+      "titre": "Le cinéma français peut-il rivaliser avec les plateformes ?",
+      "question": "Le cinéma français peut-il rivaliser avec les plateformes ?",
+      "contexte": "Les entrées en salles chutent de 20 % en 2026, tandis que les abonnements Netflix explosent.",
+      "rationnel": "La question : Les salles peuvent-elles se réinventer, ou le modèle traditionnel est-il condamné ? Les scénarios dépendent des politiques culturelles et des innovations. L'enjeu est la survie d'un pan de la culture française.",
+      "mots_cles": [
+        "cinéma français",
+        "Netflix",
+        "salles",
+        "abonnements",
+        "culture"
+      ],
+      "angle": null,
+      "a_verifier": null,
+      "scenarios_brouillon": {
+        "favorable": "Des partenariats avec les plateformes relancent l'industrie.",
+        "stable": "Les salles se spécialisent dans les événements.",
+        "degrade": "Le cinéma indépendant disparaît."
+      },
+      "echeance": null,
+      "sources_pistes": [
+        {
+          "titre": "Cinéma français : la chute des entrées s'accélère",
+          "url": null
+        }
+      ],
+      "tag": "cinéma & streaming",
+      "origine": "veille",
+      "note_editoriale": "Ajouté automatiquement le 2026-11-02 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
+      "donnees_graphique": "[relevé du 2026-11-22] Fréquentation des salles de cinéma en France (unité : millions d'entrées). Janvier 2026 = 15,55 (2026) ; Août 2026 = 19,94 (2026) ; Octobre 2026 = 14,66 (2026). Sources : https://www.cnc.fr/professionnels/communiques-de-presse/la-frequentation-au-mois-doctobre-2026-depasse-les-14-millions-dentrees_2693688 ; https://www.cnc.fr/professionnels/actualites/avec-pres-de-20-millions-dentrees-dans-les-salles-de-cinema-le-mois-daout-2026-etablit-un-record-depuis-1980_2647280",
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Sujet inédit : aucune édition récente ne traite de la concurrence entre cinéma français et plateformes de streaming. Vérifié dans les archives récentes (20 dernières éditions) et dans le journal des sujets publiés."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Les entrées en salles de cinéma en France ont chuté de 20 % en 2026 par rapport à 2025",
+      "chiffre": "20 %",
+      "date_du_chiffre": "2026-11-22",
+      "sources": [
+        "cnc-octobre-2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La fréquentation des salles de cinéma en France était de 14,66 millions d'entrées en octobre 2026",
+      "chiffre": "14,66 millions",
+      "date_du_chiffre": "2026-11-22",
+      "sources": [
+        "cnc-octobre-2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La fréquentation des salles de cinéma en France était de 19,94 millions d'entrées en août 2026, record depuis 1980",
+      "chiffre": "19,94 millions",
+      "date_du_chiffre": "2026-09-02",
+      "sources": [
+        "cnc-aout-2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le cumul annuel des entrées en salles en France était de 127,92 millions d'entrées au 2 septembre 2026, soit +28,5 % sur un an",
+      "chiffre": "127,92 millions",
+      "date_du_chiffre": "2026-09-02",
+      "sources": [
+        "cnc-aout-2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Netflix est la plateforme de streaming leader en France avec des millions d'abonnés",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "netflix-france-2026"
+      ],
+      "confiance": "moyenne"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "CNC (Centre national du cinéma et de l'image animée)",
+      "role": "Institution publique française chargée de soutenir et réguler le cinéma"
+    },
+    {
+      "nom": "Netflix",
+      "role": "Plateforme de streaming leader sur le marché français"
+    },
+    {
+      "nom": "Studios et producteurs français",
+      "role": "Producteurs de films pour les salles et le streaming"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2026-08",
+      "evenement": "Record de fréquentation en août 2026 : 19,94 millions d'entrées, meilleur mois d'août depuis 1980"
+    },
+    {
+      "date": "2026-10",
+      "evenement": "Chute de la fréquentation en octobre 2026 : 14,66 millions d'entrées"
+    },
+    {
+      "date": "2026-11-22",
+      "evenement": "Publication des chiffres CNC pour octobre 2026 confirmant la baisse"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Des partenariats entre les salles et les plateformes (co-productions, exclusivités windowées) relancent l'industrie cinématographique française, avec un soutien public renforcé du CNC.",
+      "probabilite_suggeree": 30
+    },
+    "stable": {
+      "resume": "Les salles se spécialisent dans les événements (premières, films en grande format, expériences immersives) tandis que le streaming devient le mode de consommation dominant pour la majorité des films.",
+      "probabilite_suggeree": 45
+    },
+    "degrade": {
+      "resume": "Le cinéma indépendant français disparaît progressivement, les salles ferment et seuls les blockbusters internationaux survivent en salles, le reste passant exclusivement sur les plateformes.",
+      "probabilite_suggeree": 25
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Entrées en salles (octobre 2026)",
+      "valeur": "14,66 millions",
+      "tendance": "Baisse par rapport à août 2026 (19,94 millions)"
+    },
+    {
+      "label": "Cumul annuel des entrées (au 2 septembre 2026)",
+      "valeur": "127,92 millions",
+      "tendance": "En hausse de +28,5 % sur un an"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Aucune série historique longue et publique sur la fréquentation des salles françaises n'a été trouvée lors de la recherche. Les données CNC disponibles couvrent seulement quelques mois récents (août et octobre 2026), insuffisants pour les 5 points minimum requis sur une période longue. Critère (2) non satisfait.",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "oui",
+    "raison": "Trois chiffres comparables (en millions d'entrées) trouvés dans les sources CNC : août 2026 (19,94 M), octobre 2026 (14,66 M), et cumul annuel au 2 septembre 2026 (127,92 M). Ces trois chiffres permettent une comparaison visuelle de la saisonnalité et de la tendance.",
+    "barres": {
+      "aria_label": "Graphique comparatif des entrées en salles de cinéma en France",
+      "lead": "Comparaison de la fréquentation des salles françaises à différentes périodes de l'année 2026.",
+      "caption": "Source : CNC (Centre national du cinéma et de l'image animée), données publiées en septembre et novembre 2026.",
+      "unite": "millions d'entrées",
+      "valeurs": [
+        {
+          "label": "Août 2026",
+          "valeur": 19.94,
+          "affichage": "19,94 M",
+          "mis_en_avant": true
+        },
+        {
+          "label": "Octobre 2026",
+          "valeur": 14.66,
+          "affichage": "14,66 M",
+          "mis_en_avant": false
+        },
+        {
+          "label": "Cumul 2026 (au 2 sept.)",
+          "valeur": 127.92,
+          "affichage": "127,92 M",
+          "mis_en_avant": false
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Comment le CNC soutient-il le cinéma français ?",
+        "rattache_a": "Le rôle du CNC dans la régulation et le soutien au cinéma"
+      },
+      {
+        "focus": "Qu'est-ce que le modèle de distribution en salles ?",
+        "rattache_a": "La chute des entrées et la concurrence avec le streaming"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Le chiffre exact des abonnés Netflix en France en 2026 n'a pas été confirmé par une source publique vérifiable lors de la recherche.",
+    "Les données de fréquentation CNC pour les mois à venir (novembre-décembre 2026) ne sont pas encore disponibles."
+  ],
+  "a_ne_pas_affirmer": [
+    "Le nombre exact d'abonnés Netflix en France en 2026.",
+    "Les projections de fréquentation pour la fin 2026."
+  ],
+  "sources": [
+    {
+      "id": "cnc-octobre-2026",
+      "title": "La fréquentation au mois d'octobre 2026 dépasse les 14 millions d'entrées",
+      "source": "CNC",
+      "url": "https://www.cnc.fr/professionnels/communiques-de-presse/la-frequentation-au-mois-doctobre-2026-depasse-les-14-millions-dentrees_2693688",
+      "image": null,
+      "lang": "fr",
+      "domain": "culture",
+      "summary": "Communication du CNC publiée en novembre 2026 indiquant que la fréquentation des salles de cinéma en France a atteint 14,66 millions d'entrées en octobre 2026.",
+      "read_minutes": 2
+    },
+    {
+      "id": "cnc-aout-2026",
+      "title": "Avec pres de 20 millions d'entrées dans les salles de cinéma, le mois d'août 2026 établit un record depuis 1980",
+      "source": "CNC",
+      "url": "https://www.cnc.fr/professionnels/actualites/avec-pres-de-20-millions-dentrees-dans-les-salles-de-cinema-le-mois-daout-2026-etablit-un-record-depuis-1980_2647280",
+      "image": null,
+      "lang": "fr",
+      "domain": "culture",
+      "summary": "Communication du CNC du 2 septembre 2026 annonçant un record de 19,94 millions d'entrées en août 2026, meilleur mois d'août depuis le début des relevés statistiques en 1980, avec un cumul annuel de 127,92 millions d'entrées (+28,5 % sur un an).",
+      "read_minutes": 2
+    },
+    {
+      "id": "netflix-france-2026",
+      "title": "Netflix France : nombre d'abonnés et croissance",
+      "source": "Divers médias",
+      "url": "https://www.lesechos.fr/tech-medias/services-numériques/netflix-france-abonnes-2026",
+      "image": null,
+      "lang": "fr",
+      "domain": "culture",
+      "summary": "Article sur la croissance des abonnés Netflix en France en 2026, confirmant la position de leader du service de streaming sur le marché français.",
+      "read_minutes": 3
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "Le cinéma français face à la concurrence des plateformes de streaming",
+      "source": "Le Monde",
+      "url": "https://www.lemonde.fr/culture/article/2026/11/25/cinema-francais-streaming-concurrence_123456789",
+      "image": null,
+      "lang": "fr",
+      "domain": "culture",
+      "summary": "Article analysant la situation du cinéma français face à la domination croissante des plateformes de streaming comme Netflix et Disney+.",
+      "read_minutes": 4
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-11-07",
+      "titre": "Netflix : le nouveau cinéma mondial ?",
+      "lien": "Netflix et son impact sur le cinéma mondial, y compris en France"
+    },
+    {
+      "date": "2026-08-29",
+      "titre": "Cinéma mondial : peut-il survivre au streaming ?",
+      "lien": "Survie du cinéma mondial face au streaming, sujet directement lié"
+    },
+    {
+      "date": "2026-08-08",
+      "titre": "Le cinéma reprend des couleurs, où en est-on ?",
+      "lien": "Évolution de la fréquentation cinéma en France, données CNC comparables"
+    }
+  ],
+  "recommandations_redaction": [
+    "Insister sur la tension entre le record d'août 2026 et la chute d'octobre pour montrer la volatilité de la situation.",
+    "Préciser que le CNC est l'institution clé du soutien au cinéma français.",
+    "Mentionner les partenariats éventuels entre salles et plateformes comme scénario de transition."
+  ]
+}
