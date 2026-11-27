@@ -11,4 +11,15 @@
       <news:title>China: Record Surplus and Tensions with the EU</news:title>
     </news:news>
   </url>
-<url><loc>https://lesscenarios.fr/archives/2026-11-27.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-11-27T06:01:54+01:00</news:publication_date><news:title>Atomes froids dans l'espace : la physique quantique change-t-elle de lieu ?</news:title></news:news></url></urlset>
+<url><loc>https://lesscenarios.fr/archives/2026-11-27.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-11-27T06:01:54+01:00</news:publication_date><news:title>Atomes froids dans l'espace : la physique quantique change-t-elle de lieu ?</news:title></news:news></url>  <url>
+    <loc>https://lesscenarios.fr/en/archives/2026-11-27.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Scénario</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-11-27T06:01:54+01:00</news:publication_date>
+      <news:title>Cold atoms in space: is quantum physics changing location?</news:title>
+    </news:news>
+  </url>
+</urlset>
