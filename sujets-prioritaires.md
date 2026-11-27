@@ -817,7 +817,9 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
   <!-- mots-clés: OpenAI ; théorie de Yang-Mills ; physique ; IA ; recherche -->
   <!-- scénarios (brouillon): favorable = La preuve est validée, accélérant les recherches en physique et légitimant l'IA comme outil scientifique. ; stable = Des erreurs sont identifiées, mais la méthode inspire de nouvelles approches. ; dégradé = La preuve est irrecevable, discréditant temporairement l'IA en recherche fondamentale. -->
   <!-- sources: Percée d'OpenAI sur la théorie de Yang-Mills, mort du télescope Swift et un sas de l'ISS condamné – le récap’ sciences de la semaine - Numerama <https://www.numerama.com/sciences/2364619-percee-dopenai-sur-la-theorie-de-yang-mills-mort-du-telescope-swift-et-un-sas-de-liss-condamne-le-recap-sciences-de-la-semaine.html> -->
+  <!-- données chiffrées: [relevé du 2026-11-27] Validation status of OpenAI's Yang-Mills theory proof (unit: validation steps). Initial assessment = passed (2026-10-28) ; Comparator check = passed (2026-11-03) ; Final validation = passed (2026-11-25). Sources: https://raw.githubusercontent.com/yang-mills-group/YM/main/docs/assessment-1.pdf ; https://www.kitp.ucsb.edu/sites/default/files/4th-Statement-About-Quantum-YangMills-Theory_Nov-25.pdf -->
   <!-- origine: veille -->
+  <!-- enrichi: 2026-11-27 -->
   <!-- note: Ajouté automatiquement le 2026-11-08 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
 - [x] Robotique : les robots vont-ils vraiment entrer dans notre quotidien ? [IA & numérique]
   <!-- id: sciences-robotique-les-robots-vont-ils-vraiment-entrer -->
