@@ -1,0 +1,362 @@
+{
+  "date": "2026-11-29",
+  "registre": "sport",
+  "sujet": {
+    "titre_propose": "Le sport peut-il survivre à la disparition de l'incertitude ?",
+    "h1": "Sport : survivre à la disparition de l'incertitude ?",
+    "question_posee": "Le sport peut-il survivre à la disparition de l'incertitude, d'ici la Coupe du Monde 2030 ?",
+    "eyebrow": "Dimanche, sport",
+    "angle": "Les modèles prédictifs analysent des milliers de variables par match et les parieurs intègrent des IA, mais la faible moyenne et la forte variance du football, ainsi qu'une faible confiance des supporters français (18 % selon Kantar) laissent au hasard un rôle que aucun algorithme ne neutralise — jusqu'à quand le suspense sportif tiendra-t-il face à la prédictibilité croissante ?",
+    "tags": [
+      "sport",
+      "données",
+      "IA",
+      "paris-sportifs"
+    ],
+    "domain": "sport",
+    "image_keywords": "football stadium crowd suspense",
+    "complexite": 4,
+    "origine_prioritaire": "Le sport peut-il survivre à la disparition de l'incertitude ?",
+    "origine_id": "sport-le-sport-peut-il-survivre-a-la-disparition-de-l",
+    "point_de_depart": {
+      "id": "sport-le-sport-peut-il-survivre-a-la-disparition-de-l",
+      "registre": "sport",
+      "titre": "Le sport peut-il survivre à la disparition de l'incertitude ?",
+      "question": "Le sport peut-il survivre à la disparition de l'incertitude ?",
+      "contexte": "Statistiques, probabilités, trajectoires, performances : à mesure qu'on devient capable de mieux prédire le résultat, qu'advient-il du suspense ?",
+      "rationnel": "La question : Le sport peut-il survivre à la disparition de l'incertitude, d'ici la Coupe du Monde 2030 ? L'issue est ouverte car, d'un côté, les modèles prédictifs qui analysent plus de 2000 variables par match réduisent la part d'inconnu et pourraient rendre les résultats plus prévisibles (scénario favorable), tandis que, de l'autre, le faible score et la forte variance du football laissent au hasard un rôle décisif qu'aucun algorithme ne neutralise (scénario dégradé), et la confiance des supporters français dans l'IA reste faible (18 % selon Kantar) tout comme l'incapacité des modèles à dégager un bénéfice sur les marchés de paris efficients (scénario stable). Pour le lecteur français, l'enjeu est de savoir si son plaisir de supporter et ses éventuelles mises resteront guidés par l'émotion du suspense ou seront progressivement remplacés par des prévisions algorithmiques.",
+      "mots_cles": [
+        "Coupe du Monde 2026",
+        "prédiction IA football",
+        "paris sportifs intelligence artificielle",
+        "suspense sportif incertitude",
+        "Kantar confiance IA sport",
+        "modèles prédictifs football",
+        "sabermetrics baseball analytics",
+        "DAZN ADI Predictstreet"
+      ],
+      "angle": null,
+      "a_verifier": "Usage réel des modèles prédictifs dans les médias sportifs et les paris sportifs, cas où l'analytique a changé la perception du suspense d'un sport (ex. base-ball/sabermetrics comme précédent historique hors du champ français, à recontextualiser)",
+      "scenarios_brouillon": null,
+      "echeance": null,
+      "sources_pistes": [
+        {
+          "titre": "Coupe du monde 2026 : on a demandé aux IA le vainqueur potentiel, et elles ont un pronostic (sauf une, un peu paumée)",
+          "url": "https://actu.fr/sports/football/coupe-du-monde-2026-on-a-demande-aux-ia-le-vainqueur-potentiel-et-elles-ont-un-pronostic-sauf-une-un-peu-paumee_64345735.html"
+        },
+        {
+          "titre": "Baromètre Kantar : L'adoption de l'IA dans les foyers français — L'IA peut-elle gagner la Coupe du Monde ?",
+          "url": "https://www.kantar.com/fr/inspirations/publicite-medias-et-rp/-/media/FD25422A7F2E499589C3B20E2B24C2F3.ashx"
+        },
+        {
+          "titre": "DAZN et ADI Predictstreet concluent un partenariat stratégique pour renforcer l'engagement des fans pendant la Coupe du Monde de la FIFA 2026",
+          "url": "https://www.pa-sport.fr/2026/04/15/institutionnel-dazn-et-adi-predictstreet-concluent-un-partenariat-strategique-pour-renforcer-lengagement-des-fans-pendant-la-coupe-du-monde-de-la-fifa-2026/"
+        },
+        {
+          "titre": "La FIFA et Lenovo dévoilent plusieurs innovations alimentées par l'IA à l'approche de la Coupe du Monde de la FIFA 2026",
+          "url": "https://inside.fifa.com/fr/organisation/media-releases/lenovo-technologies-ai-innovations-coupe-monde-2026"
+        }
+      ],
+      "tag": "sport & données",
+      "origine": null,
+      "note_editoriale": "Idée du même lot gardée seule : axe vraiment distinct des deux entrées ci-dessus — celles-ci portent sur l'athlète (équité, humanité), celle-ci sur le spectateur (l'émotion du sport tient-elle à ne pas connaître l'issue). Opposition prévisibilité/émotion, comme formulée par l'utilisateur",
+      "donnees_graphique": "[relevé du 2026-11-10] Confiance dans les prédictions IA pendant un match de football (unité : pourcentage). Supporters français = 18 (2026) ; supporters américains = 38 (2026) ; supporters allemands = 45 (2026). Sources : https://www.kantar.com/fr/inspirations/publicite-medias-et-rp/-/media/FD25422A7F2E499589C3B20E2B24C2F3.ashx ; https://www.ouest-france.fr/sport/coupe-du-monde/coupe-du-monde-2026-les-ia-nouvelles-stars-dans-la-course-aux-pronostics-9da16848-6666-11f1-99fc-6db54956824f",
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Sujet imposé par la file (Étape 0). Vérification veille : édition du 28/11 (culture-divertissement, cinéma vs plateformes) sans recoupement fort. Registre sport déjà traité le 22/11 (football féminin, rentabilité) et le 08/11 (sport humain face à l'IA) : le sujet du 08/11 porte sur l'athlète (équité, humanité) et les données biométriques, tandis que celui du 29/11 porte sur le spectateur et le suspense — mécanisme différent (prédictibilité de l'issue vs optimisation de la performance). Aucun doublon bloquant."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Plusieurs modèles d'IA ont été sollicités pour pronostiquer le vainqueur de la Coupe du Monde 2026, avec des résultats divergents",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "actu_fr_2026"
+      ],
+      "confiance": "moyenne"
+    },
+    {
+      "affirmation": "Seulement 18 % des supporters français font confiance aux prédictions IA pendant un match de football, contre 38 % des supporters américains et 45 % des supporters allemands",
+      "chiffre": "18 %",
+      "date_du_chiffre": "2026-11-10",
+      "sources": [
+        "kantar_2026",
+        "ouest_fr_2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "DAZN et ADI Predictstreet ont conclu un partenariat stratégique pour renforcer l'engagement des fans pendant la Coupe du Monde de la FIFA 2026",
+      "chiffre": null,
+      "date_du_chiffre": "2026-04-15",
+      "sources": [
+        "pa_sport_2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La FIFA et Lenovo ont dévoilé plusieurs innovations alimentées par l'IA à l'approche de la Coupe du Monde 2026",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "fifa_2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Les modèles prédictifs analysent plus de 2000 variables par match pour réduire la part d'inconnu",
+      "chiffre": "2000",
+      "date_du_chiffre": null,
+      "sources": [
+        "kantar_2026"
+      ],
+      "confiance": "moyenne"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "FIFA",
+      "role": "Organisateur de la Coupe du Monde 2026, intégrant des innovations IA"
+    },
+    {
+      "nom": "Lenovo",
+      "role": "Partenaire technologique de la FIFA pour des innovations IA"
+    },
+    {
+      "nom": "DAZN",
+      "role": "Plateforme de streaming sportif, partenaire ADI Predictstreet pour l'engagement des fans"
+    },
+    {
+      "nom": "ADI Predictstreet",
+      "role": "Plateforme de paris et d'engagement des fans, partenaire DAZN"
+    },
+    {
+      "nom": "Kantar",
+      "role": "Institut ayant mesuré la confiance des supporters dans les prédictions IA"
+    },
+    {
+      "nom": "Supporters français",
+      "role": "Public cible, faible confiance (18 %) dans les prédictions IA"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2026-04-15",
+      "evenement": "DAZN et ADI Predictstreet concluent un partenariat stratégique pour la Coupe du Monde 2026"
+    },
+    {
+      "date": "2026-10-10",
+      "evenement": "La FIFA et Lenovo dévoilent des innovations IA pour la Coupe du Monde 2026"
+    },
+    {
+      "date": "2026-11-10",
+      "evenement": "Baromètre Kantar : 18 % des supporters français font confiance aux prédictions IA"
+    },
+    {
+      "date": "2026-11-29",
+      "evenement": "Brief éditorial du jour — date du brief"
+    },
+    {
+      "date": "2030",
+      "evenement": "Coupe du Monde 2030 — échéance horizon du sujet"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Les modèles prédictifs restent limités par la faible moyenne et la forte variance du football : le hasard garde un rôle décisif, les paris restent difficiles à battre sur le long terme, et le suspense sportif survit à la prédictibilité croissante. Les supporters continuent de vivre le sport comme une émotion imprévisible.",
+      "probabilite_suggeree": 40
+    },
+    "stable": {
+      "resume": "Les outils prédictifs se développent dans les médias et les paris, mais sans effacer le suspense : les supporters français restent méfiants (18 % de confiance), les modèles ne dégagent pas de bénéfice clair sur les marchés de paris efficients, et le sport conserve un équilibre entre prédictibilité et émotion.",
+      "probabilite_suggeree": 35
+    },
+    "degrade": {
+      "resume": "Les modèles prédictifs analysent des milliers de variables et deviennent suffisamment performants pour réduire sensiblement l'incertitude perçue : les paris sont de plus en plus algorithmiques, les supporters perdent l'émotion du suspense, et le sport devient une série de résultats prévisibles, surtout dans des sports à faible variance.",
+      "probabilite_suggeree": 25
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Confiance des supporters français dans les prédictions IA",
+      "valeur": "18 %",
+      "tendance": "faible"
+    },
+    {
+      "label": "Confiance des supporters allemands dans les prédictions IA",
+      "valeur": "45 %",
+      "tendance": "plus élevée"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Pas de série historique longue disponible sur la confiance des supporters dans les prédictions IA : le baromètre Kantar de novembre 2026 fournit un instantané (18 %/38 %/45 % pour la France/États-Unis/Allemagne), mais aucune source publique n'offre un historique de plusieurs années avec au moins 5 points réels. La période couverte est un instantané 2026, le critère (2) n'est pas satisfait.",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "oui",
+    "raison": "Trois chiffres comparables existent dans les sources vérifiées : la confiance des supporters dans les prédictions IA pendant un match de football, en pourcentage, pour trois pays (France 18 %, États-Unis 38 %, Allemagne 45 %), issus du baromètre Kantar de novembre 2026.",
+    "barres": {
+      "aria_label": "Confiance des supporters dans les prédictions IA pendant un match de football, par pays",
+      "lead": "La confiance des supporters dans les prédictions IA varie fortement selon les pays :",
+      "caption": "Baromètre Kantar, novembre 2026",
+      "unite": "%",
+      "valeurs": [
+        {
+          "label": "France",
+          "valeur": 18,
+          "affichage": "18 %",
+          "mis_en_avant": true
+        },
+        {
+          "label": "États-Unis",
+          "valeur": 38,
+          "affichage": "38 %",
+          "mis_en_avant": false
+        },
+        {
+          "label": "Allemagne",
+          "valeur": 45,
+          "affichage": "45 %",
+          "mis_en_avant": false
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Pourquoi le football reste imprévisible malgré les données : faible moyenne, forte variance, rôle du hasard",
+        "rattache_a": "faits_verifies — 2000 variables analysées par match, mais variance forte du football"
+      },
+      {
+        "focus": "Ce qu'est la confiance dans les prédictions IA et pourquoi elle diffère selon les pays",
+        "rattache_a": "graphique_chiffres — 18 %/38 %/45 % de confiance France/États-Unis/Allemagne"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Le degré réel de performance des modèles prédictifs sur le football à horizon 2030 : les sources indiquent des pronostics divergents pour la Coupe du Monde 2026, sans consensus sur leur fiabilité",
+    "L'impact réel des partenariats DAZN-ADI Predictstreet et des innovations FIFA-Lenovo sur la prédictibilité perçue par les supporters : pas de données d'usage post-Coupe du Monde 2026 disponibles au moment du brief"
+  ],
+  "a_ne_pas_affirmer": [
+    "Que les modèles prédictifs auront réduit l'incertitude du football d'ici 2030 — l'issue est ouverte et dépend de l'évolution de la performance réelle des algorithmes face à la variance du football",
+    "Que la Coupe du Monde 2026 a déjà eu lieu au moment du brief — la date du brief est le 29 novembre 2026, la Coupe du Monde 2026 est programmée pour l'été 2026 (juin-juillet), donc déjà passée ; les sources citées (DAZN-ADI en avril 2026, FIFA-Lenovo en octobre 2026, Kantar en novembre 2026) sont cohérentes avec un événement déjà déroulé, et aucun fait prospectif sur la CdM 2026 n'est affirmé"
+  ],
+  "sources": [
+    {
+      "id": "actu_fr_2026",
+      "title": "Coupe du monde 2026 : on a demandé aux IA le vainqueur potentiel, et elles ont un pronostic (sauf une, un peu paumée)",
+      "source": "actu.fr",
+      "url": "https://actu.fr/sports/football/coupe-du-monde-2026-on-a-demande-aux-ia-le-vainqueur-potentiel-et-elles-ont-un-pronostic-sauf-une-un-peu-paumee_64345735.html",
+      "image": null,
+      "lang": "fr",
+      "domain": "sport",
+      "summary": "Article qui recense les pronostics de plusieurs IA pour le vainqueur de la Coupe du Monde 2026, avec des résultats divergents et une IA « un peu paumée ».",
+      "read_minutes": 2
+    },
+    {
+      "id": "kantar_2026",
+      "title": "Baromètre Kantar : L'adoption de l'IA dans les foyers français — L'IA peut-elle gagner la Coupe du Monde ?",
+      "source": "Kantar",
+      "url": "https://www.kantar.com/fr/inspirations/publicite-medias-et-rp/-/media/FD25422A7F2E499589C3B20E2B24C2F3.ashx",
+      "image": null,
+      "lang": "fr",
+      "domain": "sport",
+      "summary": "Baromètre Kantar mesurant la confiance des supporters dans les prédictions IA pendant un match de football : 18 % des supporters français, 38 % des supporters américains, 45 % des supporters allemands.",
+      "read_minutes": 3
+    },
+    {
+      "id": "pa_sport_2026",
+      "title": "DAZN et ADI Predictstreet concluent un partenariat stratégique pour renforcer l'engagement des fans pendant la Coupe du Monde de la FIFA 2026",
+      "source": "PA Sport",
+      "url": "https://www.pa-sport.fr/2026/04/15/institutionnel-dazn-et-adi-predictstreet-concluent-un-partenariat-strategique-pour-renforcer-lengagement-des-fans-pendant-la-coupe-du-monde-de-la-fifa-2026/",
+      "image": null,
+      "lang": "fr",
+      "domain": "sport",
+      "summary": "Communiqué de partenariat entre DAZN et ADI Predictstreet pour renforcer l'engagement des fans pendant la Coupe du Monde 2026, avec des outils de paris et de prédiction.",
+      "read_minutes": 2
+    },
+    {
+      "id": "fifa_2026",
+      "title": "La FIFA et Lenovo dévoilent plusieurs innovations alimentées par l'IA à l'approche de la Coupe du Monde de la FIFA 2026",
+      "source": "FIFA",
+      "url": "https://inside.fifa.com/fr/organisation/media-releases/lenovo-technologies-ai-innovations-coupe-monde-2026",
+      "image": null,
+      "lang": "fr",
+      "domain": "sport",
+      "summary": "Communiqué FIFA-Lenovo présentant des innovations IA pour la Coupe du Monde 2026 (analyse de matchs, expérience des fans, etc.).",
+      "read_minutes": 2
+    },
+    {
+      "id": "ouest_fr_2026",
+      "title": "Coupe du monde 2026 : les IA, nouvelles stars dans la course aux pronostics",
+      "source": "Ouest-France",
+      "url": "https://www.ouest-france.fr/sport/coupe-du-monde/coupe-du-monde-2026-les-ia-nouvelles-stars-dans-la-course-aux-pronostics-9da16848-6666-11f1-99fc-6db54956824f",
+      "image": null,
+      "lang": "fr",
+      "domain": "sport",
+      "summary": "Article recensant l'usage croissant des IA pour les pronostics sportifs autour de la Coupe du Monde 2026, avec les chiffres Kantar de confiance des supporters (18 %/38 %/45 %).",
+      "read_minutes": 3
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "Coupe du monde 2026 : on a demandé aux IA le vainqueur potentiel, et elles ont un pronostic (sauf une, un peu paumée)",
+      "source": "actu.fr",
+      "url": "https://actu.fr/sports/football/coupe-du-monde-2026-on-a-demande-aux-ia-le-vainqueur-potentiel-et-elles-ont-un-pronostic-sauf-une-un-peu-paumee_64345735.html",
+      "image": null,
+      "lang": "fr",
+      "domain": "sport",
+      "summary": "Recense les pronostics de plusieurs IA pour le vainqueur de la Coupe du Monde 2026, avec des résultats divergents.",
+      "read_minutes": 2
+    },
+    {
+      "title": "DAZN et ADI Predictstreet concluent un partenariat stratégique pour renforcer l'engagement des fans pendant la Coupe du Monde de la FIFA 2026",
+      "source": "PA Sport",
+      "url": "https://www.pa-sport.fr/2026/04/15/institutionnel-dazn-et-adi-predictstreet-concluent-un-partenariat-strategique-pour-renforcer-lengagement-des-fans-pendant-la-coupe-du-monde-de-la-fifa-2026/",
+      "image": null,
+      "lang": "fr",
+      "domain": "sport",
+      "summary": "Partenariat DAZN-ADI Predictstreet pour l'engagement des fans pendant la Coupe du Monde 2026.",
+      "read_minutes": 2
+    },
+    {
+      "title": "La FIFA et Lenovo dévoilent plusieurs innovations alimentées par l'IA à l'approche de la Coupe du Monde de la FIFA 2026",
+      "source": "FIFA",
+      "url": "https://inside.fifa.com/fr/organisation/media-releases/lenovo-technologies-ai-innovations-coupe-monde-2026",
+      "image": null,
+      "lang": "fr",
+      "domain": "sport",
+      "summary": "Innovations IA FIFA-Lenovo pour la Coupe du Monde 2026.",
+      "read_minutes": 2
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-11-08",
+      "titre": "Sport : peut-il rester humain face à l'IA et aux données ?",
+      "lien": "Même registre sport et même tension sport/IA, mais angle différent : le 08/11 porte sur l'athlète et l'optimisation par les données biométriques, le 29/11 porte sur le spectateur et le suspense face à la prédictibilité croissante."
+    },
+    {
+      "date": "2026-10-11",
+      "titre": "Milan-Cortina : l'IA va-t-elle remplacer les juges ?",
+      "lien": "Même question de l'IA dans le jugement/évaluation sportive, mais sur un événement olympique et les juges, tandis que le 29/11 porte sur la prédiction des résultats et le suspense du supporter."
+    },
+    {
+      "date": "2026-09-20",
+      "titre": "Basket : la NBA débarque en Europe",
+      "lien": "Même registre sport professionnel et enjeu de modèle économique, mais le 20/09 porte sur l'expansion géographique de la NBA et l'Euroleague, tandis que le 29/11 porte sur la prédictibilité et le suspense — lien par le sport professionnel et les données, sans recoupement direct."
+    }
+  ],
+  "recommandations_redaction": [
+    "Insister sur la distinction entre prédictibilité des résultats (objet du sujet) et optimisation de la performance (sujet du 08/11) pour éviter le recoupement avec l'édition du 08/11",
+    "Utiliser le précédent sabermetrics/base-ball comme comparaison historique pour illustrer une transformation analytique ayant changé la perception du suspense dans un sport, en le recontextualisant pour le football français",
+    "Préciser que la Coupe du Monde 2026 est déjà déroulée au moment du brief (été 2026), et que l'horizon 2030 sert de perspective pour évaluer l'évolution à long terme de la prédictibilité",
+    "Ne pas affirmer que les modèles prédictifs réduiront l'incertitude d'ici 2030 : l'issue est ouverte et dépend de la variance du football et de la performance réelle des algorithmes"
+  ]
+}

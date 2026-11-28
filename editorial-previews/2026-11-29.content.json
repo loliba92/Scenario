@@ -1,0 +1,172 @@
+{
+  "h1": "Sport : survivre à la disparition de l'incertitude ?",
+  "question_text": "Le sport peut-il survivre à la disparition de l'incertitude, d'ici la Coupe du Monde 2030 ?",
+  "section_title": "L'intelligence artificielle peut-elle tuer le suspense sportif d'ici 2030 ?",
+  "enjeu_en_clair": {
+    "lead": "Les algorithmes calculent désormais les probabilités de victoire en direct pendant les matchs.",
+    "text": "Le problème est que le suspense repose entièrement sur l'imprévu. Si les spectateurs connaissent l'issue probable d'une rencontre avant la fin, l'émotion du direct s'affaiblit. Cela compte pour toute l'économie du sport, car les droits de diffusion et la ferveur populaire dépendent de cette incertitude."
+  },
+  "dek": [
+    "Le spectacle sportif repose depuis toujours sur une promesse simple : personne ne sait avec certitude qui va l'emporter avant le coup de sifflet final. Pourtant, la généralisation des technologies d'analyse de données bouleverse cette règle fondamentale. Les diffuseurs télévisés, les plateformes de streaming comme DAZN et les opérateurs de paris intègrent désormais des outils capables d'évaluer le cours d'un match en temps réel. Ces systèmes traitent plus de <strong>2000</strong> variables à chaque rencontre, de la position des joueurs à la fatigue physique estimée, pour afficher des pourcentages de victoire actualisés seconde par seconde. Ce déploiement technique transforme le spectateur passif en un observateur constamment informé des probabilités statistiques de l'événement.",
+    "Cette montée en puissance des outils d'analyse statistique, souvent inspirée par la méthode des sabermetrics<a class=\"lex-ref\" href=\"#lex-sabermetrics\" aria-label=\"Voir la définition dans le lexique\">*</a> popularisée dans le base-ball américain, touche désormais le football mondial. Lors des grandes compétitions internationales, la FIFA et son partenaire technologique Lenovo ont multiplié les innovations numériques destinées à décortiquer chaque phase de jeu. Dans le même temps, les grands modèles de langage et les plateformes de prédiction dynamique, comme ADI Predictstreet, fournissent des pronostics automatisés au grand public. L'objectif commercial de ces partenariats est d'augmenter l'engagement des fans en leur offrant une lecture chiffrée, mais cette avalanche de prévisions risque d'altérer la dramaturgie spontanée qui fait le sel des stades.",
+    "Malgré ces investissements massifs, l'accueil réservé à ces outils varie considérablement selon les pays et les cultures sportives. Selon un baromètre établi par l'institut Kantar en novembre 2026, seulement <strong>18 %</strong> des supporters français déclarent faire confiance aux prédictions formulées par une intelligence artificielle pendant une rencontre. À l'inverse, l'adhésion grimpe à <strong>38 %</strong> aux États-Unis et atteint <strong>45 %</strong> chez les supporters allemands. Ce fossé culturel montre que le public hexagonal reste profondément attaché à l'idée d'un destin sportif indécis, imperméable aux calculs mathématiques, tandis que d'autres marchés consomment déjà le sport comme un flux de données probabilistes.",
+    "La résistance du suspense s'explique aussi par la nature mathématique du football, un jeu caractérisé par un très faible nombre de buts par match et une forte variance<a class=\"lex-ref\" href=\"#lex-variance\" aria-label=\"Voir la définition dans le lexique\">*</a> statistique. Contrairement au basket-ball où les points s'accumulent par dizaines et favorisent la logique du plus fort, un match de football peut basculer sur un faux rebond, une décision arbitrale litigieuse ou un tir dévié. Même le modèle prédictif<a class=\"lex-ref\" href=\"#lex-modele-predictif\" aria-label=\"Voir la définition dans le lexique\">*</a> le plus sophistiqué ne parvient pas à éliminer cette part incompressible de hasard. Les tentatives de pronostics automatisés sur les grands tournois aboutissent d'ailleurs régulièrement à des conclusions divergentes, démontrant les limites intrinsèques du calcul face au chaos du terrain.",
+    "L'incertitude quant à l'avenir du suspense sportif soulève une tension économique majeure pour les diffuseurs et les fédérations. Si un algorithme parvient à convaincre le public que le résultat d'un match est scellé dès la soixantième minute, une partie de l'audience éteint son écran avant le terme de la retransmission. Les plateformes tentent d'éviter ce décrochage en proposant des paris interactifs et des jeux de pronostics en direct, mais cette financiarisation de l'attention modifie le lien émotionnel du supporter avec son équipe. On passe alors d'une passion collective partagée à une logique d'optimisation individuelle du gain.",
+    "À l'horizon de la Coupe du Monde 2030, la question n'est plus seulement de savoir si les algorithmes deviendront plus performants, mais si le public acceptera de leur accorder du crédit. Entre la tentation d'une hyper-rationalisation du spectacle et la survie de la magie de l'imprévu, trois trajectoires se dessinent pour les prochaines années. Le sport professionnel pourrait voir ses supporters rejeter la dictature des pourcentages, composer avec une cohabitation mesurée entre émotion et données, ou basculer définitivement dans une expérience calibrée où la surprise devient une anomalie statistique."
+  ],
+  "stakes_branches": {
+    "favorable": "Le hasard reste le maître du jeu et l'émotion populaire préserve le suspense des stades.",
+    "stable": "Les statistiques enrichissent les écrans sans détruire l'incertitude ressentie par les supporters.",
+    "degrade": "La prédictibilité algorithmique banalisera le spectacle et découragera les téléspectateurs."
+  },
+  "comprendre_box": [
+    {
+      "lead": "Pourquoi le football déjoue les calculs des ordinateurs :",
+      "text": "Dans un match de football, très peu de buts sont marqués. Un seul tir dévié peut faire gagner une équipe dominée tout le match. C'est ce que les statisticiens appellent une forte variance : le hasard y pèse beaucoup plus lourd que dans les sports où les scores dépassent cent points.",
+      "apres_dek_index": 3
+    },
+    {
+      "lead": "Ce que révèle le scepticisme des supporters français :",
+      "text": "Avec seulement 18 % de confiance envers les prédictions d'IA, les supporters français voient le football comme un récit humain, pas comme une équation. En Allemagne ou aux États-Unis, la culture des statistiques est plus ancienne, ce qui explique une adhésion deux fois plus forte.",
+      "apres_dek_index": 2
+    }
+  ],
+  "list_box": null,
+  "indicators": [
+    {
+      "label": "Confiance des supporters français dans les prédictions IA",
+      "value": "18 %",
+      "delta": "Baromètre Kantar (nov. 2026)"
+    },
+    {
+      "label": "Confiance des supporters allemands dans les prédictions IA",
+      "value": "45 %",
+      "delta": "Baromètre Kantar (nov. 2026)"
+    }
+  ],
+  "cards": {
+    "favorable": {
+      "pct": 40,
+      "gauge_word": "Probable",
+      "h3": "L'imprévisibilité du terrain résiste aux algorithmes",
+      "why": [
+        "Premier scénario : la structure même des sports collectifs, et du football en particulier, maintient l'incertitude au cœur du spectacle. Concrètement, malgré l'analyse de milliers de paramètres tactiques et physiques, les retournements de situation improbables continuent de défier les calculs en temps réel. Les supporters constatent régulièrement les erreurs des modèles automatisés, ce qui renforce leur attachement à la glorieuse incertitude du sport. Les diffuseurs réduisent la présence des probabilités à l'écran pour se recentrer sur la dramaturgie humaine, les visages des joueurs et la ferveur des tribunes, garantissant des audiences records jusqu'au coup de sifflet final.",
+        "Par rapport aux deux autres trajectoires, cette option s'appuie sur la réalité mathématique de la faible moyenne de buts, que nulle puissance de calcul ne peut effacer. Alors que le scénario dégradé imagine un public résigné devant des pourcentages infaillibles, l'expérience prouve que le sport tire sa valeur commerciale de l'émotion brute et non de la prévision parfaite. La ferveur populaire pourrait ainsi sanctuariser le droit à l'imprévu d'ici 2030."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Confiance des supporters français dans les prédictions IA",
+          "evo_current": "12 %",
+          "evo_arrow": "down",
+          "evo_prev": "18 %"
+        },
+        {
+          "field_name": "Confiance des supporters allemands dans les prédictions IA",
+          "evo_current": "35 %",
+          "evo_arrow": "down",
+          "evo_prev": "45 %"
+        }
+      ],
+      "france_line": "Les supporters français confortent leur rejet des pronostics automatisés au profit de l'ambiance des stades.",
+      "france_impact": "favorable"
+    },
+    "stable": {
+      "pct": 35,
+      "gauge_word": "Probable",
+      "h3": "Les données cohabitent avec le spectacle sans tuer le suspense",
+      "why": [
+        "Deuxième scénario : les indicateurs probabilistes s'installent durablement dans les retransmissions, mais restent perçus comme de simples animations graphiques secondaires. Concrètement, les plateformes comme DAZN continuent de proposer des cotes dynamiques et des prévisions aux amateurs de paris, tandis que le grand public regarde le match sans accorder une foi aveugle à ces chiffres. Les supporters français conservent leur niveau de méfiance mesuré, utilisant parfois ces statistiques pour alimenter les débats de comptoir sans que cela ne gâche le plaisir de la rencontre en direct.",
+        "Contrairement au scénario favorable où la technologie recule et au scénario dégradé où elle écrase le suspense, cette voie médiane normalise l'outil sans le sacraliser. Les marchés de paris absorbent les flux de données pour ajuster leurs marges, mais l'illusion du contrôle ne remplace jamais le frisson du direct chez le téléspectateur ordinaire. L'équilibre économique des compétitions se stabiliserait autour de cette double consommation d'ici la Coupe du Monde 2030."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Confiance des supporters français dans les prédictions IA",
+          "evo_current": "20 %",
+          "evo_arrow": "flat",
+          "evo_prev": "18 %"
+        },
+        {
+          "field_name": "Confiance des supporters allemands dans les prédictions IA",
+          "evo_current": "46 %",
+          "evo_arrow": "flat",
+          "evo_prev": "45 %"
+        }
+      ],
+      "france_line": "Le public français picore les statistiques sans abandonner sa passion spontanée pour les Bleus.",
+      "france_impact": "favorable"
+    },
+    "degrade": {
+      "pct": 25,
+      "gauge_word": "Peu probable",
+      "h3": "La prédictibilité algorithmique émousse l'émotion du direct",
+      "why": [
+        "Troisième scénario : la précision des modèles franchit un cap technique majeur et dissipe une part excessive de l'illusion du suspense. Concrètement, dès qu'une équipe prend l'avantage, les algorithmes prédisent l'issue finale avec une telle fiabilité que les téléspectateurs désertent massivement les fins de match sans enjeu. Les retransmissions sportives se transforment en tableaux de bord financiers dominés par les micro-paris en direct, reléguant l'exploit sportif au second plan. La jeunesse se détourne des rencontres intégrales au profit de courts résumés vidéo, provoquant une crise du modèle des droits audiovisuels.",
+        "Par rapport aux deux scénarios précédents, cette hypothèse suppose une rupture technologique qui réduirait drastiquement l'effet de surprise dans les sports à faible variance. Si les spectateurs finissaient par intégrer que les dés sont jetés dès la première mi-temps, le lien affectif unissant les clubs à leurs communautés risquerait de s'effondrer au profit d'une pure logique spéculative d'ici la fin de la décennie."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Confiance des supporters français dans les prédictions IA",
+          "evo_current": "40 %",
+          "evo_arrow": "up",
+          "evo_prev": "18 %"
+        },
+        {
+          "field_name": "Confiance des supporters allemands dans les prédictions IA",
+          "evo_current": "65 %",
+          "evo_arrow": "up",
+          "evo_prev": "45 %"
+        }
+      ],
+      "france_line": "La perte d'intérêt pour le direct fragilise les recettes télévisées des clubs de Ligue 1.",
+      "france_impact": "degrade"
+    }
+  },
+  "essentiel_box": [
+    "La question posée est de savoir si le suspense sportif peut survivre au déploiement massif des algorithmes prédictifs d'ici la Coupe du Monde 2030.",
+    "Le déploiement d'outils analysant plus de 2000 variables par match se heurte à une forte méfiance, seuls 18 % des supporters français faisant confiance à ces prédictions.",
+    "Oui, le sport survivra à cette poussée technologique : notre scénario le plus probable (40 %) montre que le hasard du terrain reste indomptable, devant une cohabitation pragmatique (35 %) et une perte d'intérêt par excès de prédictibilité (25 %).",
+    "Le signal à surveiller sera l'évolution des audiences télévisées lors des grandes compétitions internationales d'ici 2030 lorsque des cotes en direct sont affichées à l'écran."
+  ],
+  "delta_france": {
+    "kind": "positif",
+    "score": 0.5,
+    "word": "assez positif",
+    "text": "la forte résistance culturelle des supporters français protège le spectacle sportif de la désillusion algorithmique dans nos deux scénarios dominants totalisant 75 % de probabilité."
+  },
+  "phrase_a_retenir": "Seulement 18 % des supporters français font confiance aux prédictions de l'intelligence artificielle pendant un match de football, préservant le suspense face aux algorithmes.",
+  "phrase_a_retenir_stat": "18 %",
+  "lexique": [
+    {
+      "slug": "variance",
+      "terme": "variance",
+      "definition": "Mesure statistique de la dispersion des résultats, expliquant pourquoi le hasard pèse lourd dans les sports où peu de points sont marqués."
+    },
+    {
+      "slug": "sabermetrics",
+      "terme": "sabermetrics",
+      "definition": "Méthode d'analyse statistique poussée des performances sportives, née dans le base-ball américain pour remplacer l'intuition par les chiffres."
+    },
+    {
+      "slug": "modele-predictif",
+      "terme": "modèle prédictif",
+      "definition": "Programme informatique qui croise des milliers de données passées et présentes pour estimer la probabilité d'un résultat futur."
+    }
+  ],
+  "sources_html": [
+    "<a href=\"https://actu.fr/sports/football/coupe-du-monde-2026-on-a-demande-aux-ia-le-vainqueur-potentiel-et-elles-ont-un-pronostic-sauf-une-un-peu-paumee_64345735.html\" target=\"_blank\" rel=\"noopener noreferrer\">actu.fr — Coupe du monde 2026 : on a demandé aux IA le vainqueur potentiel, et elles ont un pronostic (sauf une, un peu paumée) ↗</a>",
+    "<a href=\"https://www.kantar.com/fr/inspirations/publicite-medias-et-rp/-/media/FD25422A7F2E499589C3B20E2B24C2F3.ashx\" target=\"_blank\" rel=\"noopener noreferrer\">Kantar — Baromètre Kantar : L'adoption de l'IA dans les foyers français — L'IA peut-elle gagner la Coupe du Monde ? ↗</a>",
+    "<a href=\"https://www.pa-sport.fr/2026/04/15/institutionnel-dazn-et-adi-predictstreet-concluent-un-partenariat-strategique-pour-renforcer-lengagement-des-fans-pendant-la-coupe-du-monde-de-la-fifa-2026/\" target=\"_blank\" rel=\"noopener noreferrer\">PA Sport — DAZN et ADI Predictstreet concluent un partenariat stratégique pour renforcer l'engagement des fans pendant la Coupe du Monde de la FIFA 2026 ↗</a>",
+    "<a href=\"https://inside.fifa.com/fr/organisation/media-releases/lenovo-technologies-ai-innovations-coupe-monde-2026\" target=\"_blank\" rel=\"noopener noreferrer\">FIFA — La FIFA et Lenovo dévoilent plusieurs innovations alimentées par l'IA à l'approche de la Coupe du Monde de la FIFA 2026 ↗</a>",
+    "<a href=\"https://www.ouest-france.fr/sport/coupe-du-monde/coupe-du-monde-2026-les-ia-nouvelles-stars-dans-la-course-aux-pronostics-9da16848-6666-11f1-99fc-6db54956824f\" target=\"_blank\" rel=\"noopener noreferrer\">Ouest-France — Coupe du monde 2026 : les IA, nouvelles stars dans la course aux pronostics ↗</a>"
+  ],
+  "meta": {
+    "title": "Sport : survivre à la disparition de l'incertitude ? — Scénario",
+    "meta_description": "Le sport peut-il survivre à la disparition de l'incertitude, d'ici la Coupe du Monde 2030 ? 3 scénarios prospectifs pour 2030.",
+    "og_image_alt": "Tribunes d'un stade de football illuminé sous la ferveur des supporters",
+    "keywords": [
+      "Sport"
+    ],
+    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-11-29.html\"\n  },\n  \"headline\": \"Sport : survivre à la disparition de l'incertitude ? — Scénario\",\n  \"description\": \"Le sport peut-il survivre à la disparition de l'incertitude, d'ici la Coupe du Monde 2030 ? 3 scénarios prospectifs pour 2030.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-11-29.png\"\n  ],\n  \"datePublished\": \"2026-11-29T00:00:00\",\n  \"dateModified\": \"2026-11-29T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"Sport\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Sport\"\n}",
+    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Sport : survivre à la disparition de l'incertitude ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-11-29.html\"\n    }\n  ]\n}"
+  }
+}

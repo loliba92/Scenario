@@ -1,173 +1,172 @@
 {
-  "h1": "Cinéma français : peut-il rivaliser avec les plateformes ?",
-  "question_text": "Les salles françaises peuvent-elles se réinventer face à Netflix, ou le modèle traditionnel est-il condamné ?",
-  "section_title": "Trois voies pour l'avenir des salles de cinéma en France",
-  "dek": [
-    "La fréquentation des salles obscures françaises traverse une période de forte instabilité en 2026. D'un côté, le mois d'août 2026 a enregistré un record historique avec <strong>19,94 millions</strong> d'entrées, le meilleur score estival depuis le début des relevés statistiques en 1980. De l'autre, la fréquentation est retombée à <strong>14,66 millions</strong> d'entrées en octobre 2026 selon le CNC, le Centre national du cinéma et de l'image animée<a class=\"lex-ref\" href=\"#lex-cnc\" aria-label=\"Voir la définition dans le lexique\">*</a>. Cette baisse mensuelle brutale met en lumière la fragilité d'un secteur confronté aux changements rapides des habitudes culturelles des spectateurs.",
-    "La concurrence directe vient des plateformes de vidéo en continu, dominées en France par des géants comme Netflix. Ces services numériques proposent des milliers de films et de séries accessibles instantanément depuis un salon ou un smartphone pour un abonnement mensuel fixe. Pour le prix d'un seul billet de cinéma, un foyer entier peut regarder des dizaines de programmes chaque semaine. Cette abondance à domicile modifie profondément la décision de se déplacer en salle, en particulier pour les sorties familiales ou les séances du soir en semaine.",
-    "Pour préserver le réseau de salles, la France s'appuie sur une règle protectrice stricte : la chronologie des médias<a class=\"lex-ref\" href=\"#lex-chronologie-des-medias\" aria-label=\"Voir la définition dans le lexique\">*</a>, qui fixe un calendrier obligatoire entre la sortie d'un film au cinéma et sa mise en ligne sur Internet. Ce système impose aux plateformes d'attendre plusieurs mois avant de diffuser un long-métrage sorti en salle, en échange de leur contribution financière à la production française. Cependant, cette barrière temporelle pousse certains studios américains à contourner les salles pour sortir leurs créations directement sur leurs applications, privant les exploitants de titres très populaires.",
-    "Le modèle économique du cinéma repose aussi sur la redistribution organisée par le CNC, qui prélève une taxe sur chaque billet vendu pour financer les futurs films indépendants. Quand le public déserte les salles, les recettes globales diminuent et le soutien à la création originale s'affaiblit. Malgré tout, le cumul annuel atteignait <strong>127,92 millions</strong> d'entrées au 2 septembre 2026, affichant une progression de <strong>+28,5 %</strong> sur un an. Ce bilan montre que le public revient en masse dès qu'un grand événement populaire ou un film très attendu est programmé.",
-    "L'incertitude demeure pourtant entière pour la diversité des œuvres projetées. Les grosses productions spectaculaires attirent encore les foules, mais les drames intimistes, les documentaires et les comédies d'auteur peinent de plus en plus à rentabiliser leur exploitation en salle. Les exploitants doivent alors investir des sommes importantes pour moderniser leurs équipements, installer des sièges inclinables ou proposer des écrans géants immersifs. Si ces aménagements transforment la séance en expérience de loisir haut de gamme, ils augmentent aussi le prix d'entrée, au risque d'éloigner une partie du jeune public.",
-    "Face à ces mutations profondes, l'écosystème audiovisuel français cherche un nouvel équilibre entre le rituel collectif de la salle et le confort individuel du streaming. L'issue dépendra des compromis trouvés entre les exploitants, les plateformes et l'État pour partager la valeur et adapter la réglementation. Trois trajectoires distinctes se dessinent désormais pour les années à venir : une alliance stratégique et constructive, une spécialisation des cinémas dans l'événementiel de luxe, ou un déclin progressif de la diversité culturelle en salle."
-  ],
+  "h1": "Sport : survivre à la disparition de l'incertitude ?",
+  "question_text": "Le sport peut-il survivre à la disparition de l'incertitude, d'ici la Coupe du Monde 2030 ?",
+  "section_title": "L'intelligence artificielle peut-elle tuer le suspense sportif d'ici 2030 ?",
   "enjeu_en_clair": {
-    "lead": "Les cinémas français affrontent la concurrence directe des plateformes de streaming chez les spectateurs.",
-    "text": "La fréquentation des salles oscille entre des records ponctuels et de nettes baisses de régime. Les plateformes numériques comme Netflix retiennent une partie du public à domicile grâce à des catalogues gigantesques. L'enjeu est de savoir si la salle restera le lieu central de découverte culturelle ou si elle deviendra un simple divertissement occasionnel pour grands spectacles."
+    "lead": "Les algorithmes calculent désormais les probabilités de victoire en direct pendant les matchs.",
+    "text": "Le problème est que le suspense repose entièrement sur l'imprévu. Si les spectateurs connaissent l'issue probable d'une rencontre avant la fin, l'émotion du direct s'affaiblit. Cela compte pour toute l'économie du sport, car les droits de diffusion et la ferveur populaire dépendent de cette incertitude."
   },
+  "dek": [
+    "Le spectacle sportif repose depuis toujours sur une promesse simple : personne ne sait avec certitude qui va l'emporter avant le coup de sifflet final. Pourtant, la généralisation des technologies d'analyse de données bouleverse cette règle fondamentale. Les diffuseurs télévisés, les plateformes de streaming comme DAZN et les opérateurs de paris intègrent désormais des outils capables d'évaluer le cours d'un match en temps réel. Ces systèmes traitent plus de <strong>2000</strong> variables à chaque rencontre, de la position des joueurs à la fatigue physique estimée, pour afficher des pourcentages de victoire actualisés seconde par seconde. Ce déploiement technique transforme le spectateur passif en un observateur constamment informé des probabilités statistiques de l'événement.",
+    "Cette montée en puissance des outils d'analyse statistique, souvent inspirée par la méthode des sabermetrics<a class=\"lex-ref\" href=\"#lex-sabermetrics\" aria-label=\"Voir la définition dans le lexique\">*</a> popularisée dans le base-ball américain, touche désormais le football mondial. Lors des grandes compétitions internationales, la FIFA et son partenaire technologique Lenovo ont multiplié les innovations numériques destinées à décortiquer chaque phase de jeu. Dans le même temps, les grands modèles de langage et les plateformes de prédiction dynamique, comme ADI Predictstreet, fournissent des pronostics automatisés au grand public. L'objectif commercial de ces partenariats est d'augmenter l'engagement des fans en leur offrant une lecture chiffrée, mais cette avalanche de prévisions risque d'altérer la dramaturgie spontanée qui fait le sel des stades.",
+    "Malgré ces investissements massifs, l'accueil réservé à ces outils varie considérablement selon les pays et les cultures sportives. Selon un baromètre établi par l'institut Kantar en novembre 2026, seulement <strong>18 %</strong> des supporters français déclarent faire confiance aux prédictions formulées par une intelligence artificielle pendant une rencontre. À l'inverse, l'adhésion grimpe à <strong>38 %</strong> aux États-Unis et atteint <strong>45 %</strong> chez les supporters allemands. Ce fossé culturel montre que le public hexagonal reste profondément attaché à l'idée d'un destin sportif indécis, imperméable aux calculs mathématiques, tandis que d'autres marchés consomment déjà le sport comme un flux de données probabilistes.",
+    "La résistance du suspense s'explique aussi par la nature mathématique du football, un jeu caractérisé par un très faible nombre de buts par match et une forte variance<a class=\"lex-ref\" href=\"#lex-variance\" aria-label=\"Voir la définition dans le lexique\">*</a> statistique. Contrairement au basket-ball où les points s'accumulent par dizaines et favorisent la logique du plus fort, un match de football peut basculer sur un faux rebond, une décision arbitrale litigieuse ou un tir dévié. Même le modèle prédictif<a class=\"lex-ref\" href=\"#lex-modele-predictif\" aria-label=\"Voir la définition dans le lexique\">*</a> le plus sophistiqué ne parvient pas à éliminer cette part incompressible de hasard. Les tentatives de pronostics automatisés sur les grands tournois aboutissent d'ailleurs régulièrement à des conclusions divergentes, démontrant les limites intrinsèques du calcul face au chaos du terrain.",
+    "L'incertitude quant à l'avenir du suspense sportif soulève une tension économique majeure pour les diffuseurs et les fédérations. Si un algorithme parvient à convaincre le public que le résultat d'un match est scellé dès la soixantième minute, une partie de l'audience éteint son écran avant le terme de la retransmission. Les plateformes tentent d'éviter ce décrochage en proposant des paris interactifs et des jeux de pronostics en direct, mais cette financiarisation de l'attention modifie le lien émotionnel du supporter avec son équipe. On passe alors d'une passion collective partagée à une logique d'optimisation individuelle du gain.",
+    "À l'horizon de la Coupe du Monde 2030, la question n'est plus seulement de savoir si les algorithmes deviendront plus performants, mais si le public acceptera de leur accorder du crédit. Entre la tentation d'une hyper-rationalisation du spectacle et la survie de la magie de l'imprévu, trois trajectoires se dessinent pour les prochaines années. Le sport professionnel pourrait voir ses supporters rejeter la dictature des pourcentages, composer avec une cohabitation mesurée entre émotion et données, ou basculer définitivement dans une expérience calibrée où la surprise devient une anomalie statistique."
+  ],
   "stakes_branches": {
-    "favorable": "Salles et plateformes nouent des partenariats régulés qui préservent le financement des films.",
-    "stable": "Les cinémas se transforment en lieux de spectacles immersifs pendant que le streaming capte le quotidien.",
-    "degrade": "Les cinémas indépendants ferment et les salles ne projettent plus que de gros blockbusters internationaux."
+    "favorable": "Le hasard reste le maître du jeu et l'émotion populaire préserve le suspense des stades.",
+    "stable": "Les statistiques enrichissent les écrans sans détruire l'incertitude ressentie par les supporters.",
+    "degrade": "La prédictibilité algorithmique banalisera le spectacle et découragera les téléspectateurs."
   },
   "comprendre_box": [
     {
-      "lead": "Le CNC fonctionne comme une caisse commune où chaque ticket vendu aide à financer les films suivants.",
-      "text": "À chaque achat de place de cinéma, une petite fraction du prix est reversée au CNC. Cet argent sert ensuite à verser des avances aux scénaristes et aux réalisateurs pour tourner de nouvelles œuvres, garantissant que des créations originales puissent exister même sans certitude de succès commercial immédiat.",
-      "apres_dek_index": 0
+      "lead": "Pourquoi le football déjoue les calculs des ordinateurs :",
+      "text": "Dans un match de football, très peu de buts sont marqués. Un seul tir dévié peut faire gagner une équipe dominée tout le match. C'est ce que les statisticiens appellent une forte variance : le hasard y pèse beaucoup plus lourd que dans les sports où les scores dépassent cent points.",
+      "apres_dek_index": 3
     },
     {
-      "lead": "La distribution en salle ressemble à une vitrine exclusive temporaire avant la mise en rayon généralisée.",
-      "text": "Un film sort d'abord uniquement au cinéma pour créer un événement culturel et faire parler de lui dans les médias. Ce n'est qu'après un délai fixé par la loi qu'il devient accessible en location, à la télévision puis sur les plateformes d'abonnement.",
+      "lead": "Ce que révèle le scepticisme des supporters français :",
+      "text": "Avec seulement 18 % de confiance envers les prédictions d'IA, les supporters français voient le football comme un récit humain, pas comme une équation. En Allemagne ou aux États-Unis, la culture des statistiques est plus ancienne, ce qui explique une adhésion deux fois plus forte.",
       "apres_dek_index": 2
     }
   ],
   "list_box": null,
   "indicators": [
     {
-      "label": "Entrées en salles (octobre 2026)",
-      "value": "14,66 millions",
-      "delta": "en baisse par rapport au pic d'août 2026 (19,94 millions)"
+      "label": "Confiance des supporters français dans les prédictions IA",
+      "value": "18 %",
+      "delta": "Baromètre Kantar (nov. 2026)"
     },
     {
-      "label": "Cumul annuel des entrées (au 2 septembre 2026)",
-      "value": "127,92 millions",
-      "delta": "en hausse de +28,5 % sur un an par rapport à 2025"
+      "label": "Confiance des supporters allemands dans les prédictions IA",
+      "value": "45 %",
+      "delta": "Baromètre Kantar (nov. 2026)"
     }
   ],
   "cards": {
     "favorable": {
-      "pct": 30,
+      "pct": 40,
       "gauge_word": "Probable",
-      "h3": "Partenariats renforcés entre salles et plateformes sous l'égide du CNC",
+      "h3": "L'imprévisibilité du terrain résiste aux algorithmes",
       "why": [
-        "Dans ce premier scénario, les plateformes de streaming et les exploitants de cinéma s'accordent sur un modèle gagnant-gagnant soutenu par les pouvoirs publics. Les géants du numérique cofinancent des œuvres françaises ambitieuses en échange de fenêtres de diffusion plus courtes et flexibles. Les films bénéficient d'une sortie exclusive en salle pendant quelques semaines avec un soutien promotionnel massif des plateformes, avant de rejoindre leur catalogue en ligne. Le public profite ainsi du meilleur des deux mondes : la magie du grand écran pour la nouveauté et le confort du streaming pour le visionnage ultérieur.",
-        "Par rapport aux deux autres trajectoires, cette option évite la guerre d'usure financière qui menacerait les petites salles de quartier. Elle assure au CNC des rentrées fiscales stables grâce aux investissements directs des plateformes dans la création locale. Concrètement, cette collaboration institutionnelle pourrait stabiliser durablement la fréquentation annuelle au-dessus des <strong>180 millions</strong> de billets tout en garantissant la survie des films d'auteur sur grand écran."
+        "Premier scénario : la structure même des sports collectifs, et du football en particulier, maintient l'incertitude au cœur du spectacle. Concrètement, malgré l'analyse de milliers de paramètres tactiques et physiques, les retournements de situation improbables continuent de défier les calculs en temps réel. Les supporters constatent régulièrement les erreurs des modèles automatisés, ce qui renforce leur attachement à la glorieuse incertitude du sport. Les diffuseurs réduisent la présence des probabilités à l'écran pour se recentrer sur la dramaturgie humaine, les visages des joueurs et la ferveur des tribunes, garantissant des audiences records jusqu'au coup de sifflet final.",
+        "Par rapport aux deux autres trajectoires, cette option s'appuie sur la réalité mathématique de la faible moyenne de buts, que nulle puissance de calcul ne peut effacer. Alors que le scénario dégradé imagine un public résigné devant des pourcentages infaillibles, l'expérience prouve que le sport tire sa valeur commerciale de l'émotion brute et non de la prévision parfaite. La ferveur populaire pourrait ainsi sanctuariser le droit à l'imprévu d'ici 2030."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Entrées en salles (octobre 2026)",
-          "evo_current": "17,5 millions",
-          "evo_arrow": "up",
-          "evo_prev": "14,66 millions"
+          "field_name": "Confiance des supporters français dans les prédictions IA",
+          "evo_current": "12 %",
+          "evo_arrow": "down",
+          "evo_prev": "18 %"
         },
         {
-          "field_name": "Cumul annuel des entrées",
-          "evo_current": "185 millions",
-          "evo_arrow": "up",
-          "evo_prev": "127,92 millions au 2 sept."
+          "field_name": "Confiance des supporters allemands dans les prédictions IA",
+          "evo_current": "35 %",
+          "evo_arrow": "down",
+          "evo_prev": "45 %"
         }
       ],
-      "france_line": "La création française conserve son modèle de financement unique tout en profitant de la visibilité mondiale du streaming.",
+      "france_line": "Les supporters français confortent leur rejet des pronostics automatisés au profit de l'ambiance des stades.",
       "france_impact": "favorable"
     },
     "stable": {
-      "pct": 45,
+      "pct": 35,
       "gauge_word": "Probable",
-      "h3": "Spécialisation des salles dans l'événementiel et domination du streaming au quotidien",
+      "h3": "Les données cohabitent avec le spectacle sans tuer le suspense",
       "why": [
-        "Dans ce deuxième scénario, une séparation nette s'établit dans les pratiques culturelles des Français. Les cinémas concentrent leurs investissements sur des équipements technologiques de pointe, les retransmissions de concerts en direct et les projections festives pour justifier le déplacement physique. À l'inverse, la consommation courante de fictions, de comédies et de séries se reporte massivement sur les écrans domestiques. Les spectateurs ne vont plus au cinéma que trois ou quatre fois par an pour vivre une expérience immersive rare, acceptant de payer leur place plus cher.",
-        "Contrairement au scénario de partenariat global, cette évolution fragilise les cinémas d'art et essai<a class=\"lex-ref\" href=\"#lex-art-et-essai\" aria-label=\"Voir la définition dans le lexique\">*</a> qui ne disposent pas des capitaux nécessaires pour installer des technologies immersives coûteuses. Elle maintient toutefois un socle solide d'entrées pour les multiplexes urbains lors des grandes périodes de vacances scolaires. Notre scénario le plus probable (45 %) verrait ainsi le cinéma devenir un loisir événementiel de fin de semaine, tandis que le streaming absorberait le temps de visionnage quotidien des ménages."
+        "Deuxième scénario : les indicateurs probabilistes s'installent durablement dans les retransmissions, mais restent perçus comme de simples animations graphiques secondaires. Concrètement, les plateformes comme DAZN continuent de proposer des cotes dynamiques et des prévisions aux amateurs de paris, tandis que le grand public regarde le match sans accorder une foi aveugle à ces chiffres. Les supporters français conservent leur niveau de méfiance mesuré, utilisant parfois ces statistiques pour alimenter les débats de comptoir sans que cela ne gâche le plaisir de la rencontre en direct.",
+        "Contrairement au scénario favorable où la technologie recule et au scénario dégradé où elle écrase le suspense, cette voie médiane normalise l'outil sans le sacraliser. Les marchés de paris absorbent les flux de données pour ajuster leurs marges, mais l'illusion du contrôle ne remplace jamais le frisson du direct chez le téléspectateur ordinaire. L'équilibre économique des compétitions se stabiliserait autour de cette double consommation d'ici la Coupe du Monde 2030."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Entrées en salles (octobre 2026)",
-          "evo_current": "15,0 millions",
+          "field_name": "Confiance des supporters français dans les prédictions IA",
+          "evo_current": "20 %",
           "evo_arrow": "flat",
-          "evo_prev": "14,66 millions"
+          "evo_prev": "18 %"
         },
         {
-          "field_name": "Cumul annuel des entrées",
-          "evo_current": "155 millions",
+          "field_name": "Confiance des supporters allemands dans les prédictions IA",
+          "evo_current": "46 %",
           "evo_arrow": "flat",
-          "evo_prev": "127,92 millions au 2 sept."
+          "evo_prev": "45 %"
         }
       ],
-      "france_line": "Le réseau de salles se maintient grâce aux grands complexes mais la fréquentation des cinémas indépendants stagne.",
-      "france_impact": "degrade"
+      "france_line": "Le public français picore les statistiques sans abandonner sa passion spontanée pour les Bleus.",
+      "france_impact": "favorable"
     },
     "degrade": {
       "pct": 25,
       "gauge_word": "Peu probable",
-      "h3": "Marginalisation du cinéma indépendant et fermeture des salles de proximité",
+      "h3": "La prédictibilité algorithmique émousse l'émotion du direct",
       "why": [
-        "Dans ce troisième scénario, la concurrence effrénée du streaming étouffe l'économie des salles traditionnelles. Incapables d'amortir leurs charges fixes face à des baisses de fréquentation répétées lors des mois d'automne et d'hiver, de nombreux établissements indépendants mettent la clé sous la porte en dehors des grandes métropoles. Les exploitants restants se replient exclusivement sur les blockbusters<a class=\"lex-ref\" href=\"#lex-blockbuster\" aria-label=\"Voir la définition dans le lexique\">*</a> américains et les franchises mondiales à très gros budget, écartant définitivement les productions françaises de taille moyenne.",
-        "Cette hypothèse noire se distingue des deux autres par une rupture brutale de l'exception culturelle française. Privé de la taxe sur les billets de cinéma, le fonds de soutien du CNC s'effondre, obligeant les producteurs locaux à vendre leurs droits directement aux plateformes sans aucune diffusion en salle. Le public des zones rurales et des villes moyennes perdrait alors son accès de proximité au grand écran, accélérant la fracture culturelle entre les territoires."
+        "Troisième scénario : la précision des modèles franchit un cap technique majeur et dissipe une part excessive de l'illusion du suspense. Concrètement, dès qu'une équipe prend l'avantage, les algorithmes prédisent l'issue finale avec une telle fiabilité que les téléspectateurs désertent massivement les fins de match sans enjeu. Les retransmissions sportives se transforment en tableaux de bord financiers dominés par les micro-paris en direct, reléguant l'exploit sportif au second plan. La jeunesse se détourne des rencontres intégrales au profit de courts résumés vidéo, provoquant une crise du modèle des droits audiovisuels.",
+        "Par rapport aux deux scénarios précédents, cette hypothèse suppose une rupture technologique qui réduirait drastiquement l'effet de surprise dans les sports à faible variance. Si les spectateurs finissaient par intégrer que les dés sont jetés dès la première mi-temps, le lien affectif unissant les clubs à leurs communautés risquerait de s'effondrer au profit d'une pure logique spéculative d'ici la fin de la décennie."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Entrées en salles (octobre 2026)",
-          "evo_current": "11,2 millions",
-          "evo_arrow": "down",
-          "evo_prev": "14,66 millions"
+          "field_name": "Confiance des supporters français dans les prédictions IA",
+          "evo_current": "40 %",
+          "evo_arrow": "up",
+          "evo_prev": "18 %"
         },
         {
-          "field_name": "Cumul annuel des entrées",
-          "evo_current": "130 millions",
-          "evo_arrow": "down",
-          "evo_prev": "127,92 millions au 2 sept."
+          "field_name": "Confiance des supporters allemands dans les prédictions IA",
+          "evo_current": "65 %",
+          "evo_arrow": "up",
+          "evo_prev": "45 %"
         }
       ],
-      "france_line": "La fermeture des cinémas de quartier réduit l'accès à la culture dans les territoires et affaiblit la production nationale.",
+      "france_line": "La perte d'intérêt pour le direct fragilise les recettes télévisées des clubs de Ligue 1.",
       "france_impact": "degrade"
     }
   },
   "essentiel_box": [
-    "Les cinémas français peuvent-ils résister à la montée en puissance des plateformes de streaming comme Netflix, ou leur modèle économique historique est-il condamné à disparaître ?",
-    "Le secteur connaît une très forte volatilité en 2026 : un record de 19,94 millions d'entrées a été atteint en août 2026, suivi d'un repli brutal à 14,66 millions en octobre 2026 selon le CNC.",
-    "Non, le modèle traditionnel n'est pas condamné, mais notre scénario le plus probable (45 %) prévoit une spécialisation des cinémas dans les grands événements immersifs, face aux scénarios d'alliance équilibrée (30 %) ou de déclin du cinéma indépendant (25 %).",
-    "Signal à surveiller : le bilan annuel de fréquentation du CNC publié au début du mois de janvier 2027, qui confirmera si le cap des 160 millions d'entrées a été franchi en France."
+    "La question posée est de savoir si le suspense sportif peut survivre au déploiement massif des algorithmes prédictifs d'ici la Coupe du Monde 2030.",
+    "Le déploiement d'outils analysant plus de 2000 variables par match se heurte à une forte méfiance, seuls 18 % des supporters français faisant confiance à ces prédictions.",
+    "Oui, le sport survivra à cette poussée technologique : notre scénario le plus probable (40 %) montre que le hasard du terrain reste indomptable, devant une cohabitation pragmatique (35 %) et une perte d'intérêt par excès de prédictibilité (25 %).",
+    "Le signal à surveiller sera l'évolution des audiences télévisées lors des grandes compétitions internationales d'ici 2030 lorsque des cotes en direct sont affichées à l'écran."
   ],
   "delta_france": {
-    "kind": "negatif",
-    "score": -0.4,
-    "word": "léger négatif",
-    "text": "parce que les scénarios maintenant une pression sur les cinémas de proximité cumulent 70 % de probabilité (45 % pour la spécialisation événementielle et 25 % pour le déclin), contre 30 % pour une alliance pleinement favorable à l'exception culturelle."
+    "kind": "positif",
+    "score": 0.5,
+    "word": "assez positif",
+    "text": "la forte résistance culturelle des supporters français protège le spectacle sportif de la désillusion algorithmique dans nos deux scénarios dominants totalisant 75 % de probabilité."
   },
-  "phrase_a_retenir": "Avec 14,66 millions d'entrées enregistrées en octobre 2026, la fréquentation des cinémas français oscille fortement face à l'essor du streaming.",
-  "phrase_a_retenir_stat": "14,66 millions",
+  "phrase_a_retenir": "Seulement 18 % des supporters français font confiance aux prédictions de l'intelligence artificielle pendant un match de football, préservant le suspense face aux algorithmes.",
+  "phrase_a_retenir_stat": "18 %",
   "lexique": [
     {
-      "slug": "cnc",
-      "terme": "CNC",
-      "definition": "Établissement public sous tutelle du ministère de la Culture chargé de réglementer et de financer la production cinématographique et audiovisuelle en France."
+      "slug": "variance",
+      "terme": "variance",
+      "definition": "Mesure statistique de la dispersion des résultats, expliquant pourquoi le hasard pèse lourd dans les sports où peu de points sont marqués."
     },
     {
-      "slug": "chronologie-des-medias",
-      "terme": "chronologie des médias",
-      "definition": "Règle juridique française qui fixe l'ordre et les délais dans lesquels un film de cinéma peut être diffusé en vidéo, à la télévision et sur les plateformes de streaming."
+      "slug": "sabermetrics",
+      "terme": "sabermetrics",
+      "definition": "Méthode d'analyse statistique poussée des performances sportives, née dans le base-ball américain pour remplacer l'intuition par les chiffres."
     },
     {
-      "slug": "art-et-essai",
-      "terme": "art et essai",
-      "definition": "Label accordé aux salles de cinéma qui programment majoritairement des œuvres indépendantes, d'auteur ou issues de cinématographies peu diffusées."
-    },
-    {
-      "slug": "blockbuster",
-      "terme": "blockbuster",
-      "definition": "Production cinématographique à très gros budget bénéficiant d'une distribution mondiale massive et visant un très large public populaire."
+      "slug": "modele-predictif",
+      "terme": "modèle prédictif",
+      "definition": "Programme informatique qui croise des milliers de données passées et présentes pour estimer la probabilité d'un résultat futur."
     }
   ],
   "sources_html": [
-    "<a href=\"https://www.cnc.fr/professionnels/communiques-de-presse/la-frequentation-au-mois-doctobre-2026-depasse-les-14-millions-dentrees_2693688\" target=\"_blank\" rel=\"noopener noreferrer\">CNC — La fréquentation au mois d'octobre 2026 dépasse les 14 millions d'entrées ↗</a>",
-    "<a href=\"https://www.cnc.fr/professionnels/actualites/avec-pres-de-20-millions-dentrees-dans-les-salles-de-cinema-le-mois-daout-2026-etablit-un-record-depuis-1980_2647280\" target=\"_blank\" rel=\"noopener noreferrer\">CNC — Avec pres de 20 millions d'entrées dans les salles de cinéma, le mois d'août 2026 établit un record depuis 1980 ↗</a>",
-    "<a href=\"https://www.lesechos.fr/tech-medias/services-numériques/netflix-france-abonnes-2026\" target=\"_blank\" rel=\"noopener noreferrer\">Divers médias — Netflix France : nombre d'abonnés et croissance ↗</a>"
+    "<a href=\"https://actu.fr/sports/football/coupe-du-monde-2026-on-a-demande-aux-ia-le-vainqueur-potentiel-et-elles-ont-un-pronostic-sauf-une-un-peu-paumee_64345735.html\" target=\"_blank\" rel=\"noopener noreferrer\">actu.fr — Coupe du monde 2026 : on a demandé aux IA le vainqueur potentiel, et elles ont un pronostic (sauf une, un peu paumée) ↗</a>",
+    "<a href=\"https://www.kantar.com/fr/inspirations/publicite-medias-et-rp/-/media/FD25422A7F2E499589C3B20E2B24C2F3.ashx\" target=\"_blank\" rel=\"noopener noreferrer\">Kantar — Baromètre Kantar : L'adoption de l'IA dans les foyers français — L'IA peut-elle gagner la Coupe du Monde ? ↗</a>",
+    "<a href=\"https://www.pa-sport.fr/2026/04/15/institutionnel-dazn-et-adi-predictstreet-concluent-un-partenariat-strategique-pour-renforcer-lengagement-des-fans-pendant-la-coupe-du-monde-de-la-fifa-2026/\" target=\"_blank\" rel=\"noopener noreferrer\">PA Sport — DAZN et ADI Predictstreet concluent un partenariat stratégique pour renforcer l'engagement des fans pendant la Coupe du Monde de la FIFA 2026 ↗</a>",
+    "<a href=\"https://inside.fifa.com/fr/organisation/media-releases/lenovo-technologies-ai-innovations-coupe-monde-2026\" target=\"_blank\" rel=\"noopener noreferrer\">FIFA — La FIFA et Lenovo dévoilent plusieurs innovations alimentées par l'IA à l'approche de la Coupe du Monde de la FIFA 2026 ↗</a>",
+    "<a href=\"https://www.ouest-france.fr/sport/coupe-du-monde/coupe-du-monde-2026-les-ia-nouvelles-stars-dans-la-course-aux-pronostics-9da16848-6666-11f1-99fc-6db54956824f\" target=\"_blank\" rel=\"noopener noreferrer\">Ouest-France — Coupe du monde 2026 : les IA, nouvelles stars dans la course aux pronostics ↗</a>"
   ],
   "meta": {
-    "title": "Cinéma français : peut-il rivaliser avec les plateformes ? — Scénario",
-    "meta_description": "Cinéma français : peut-il rivaliser avec les plateformes ? 3 scénarios prospectifs pour 2030.",
-    "og_image_alt": "Spectateurs assis dans une salle de cinéma sombre devant un grand écran éclairé",
-    "keywords": [],
-    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-11-28.html\"\n  },\n  \"headline\": \"Cinéma français : peut-il rivaliser avec les plateformes ? — Scénario\",\n  \"description\": \"Cinéma français : peut-il rivaliser avec les plateformes ? 3 scénarios prospectifs pour 2030.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-11-28.png\"\n  ],\n  \"datePublished\": \"2026-11-28T00:00:00\",\n  \"dateModified\": \"2026-11-28T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Actualité\"\n}",
-    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Cinéma français : peut-il rivaliser avec les plateformes ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-11-28.html\"\n    }\n  ]\n}"
+    "title": "Sport : survivre à la disparition de l'incertitude ? — Scénario",
+    "meta_description": "Le sport peut-il survivre à la disparition de l'incertitude, d'ici la Coupe du Monde 2030 ? 3 scénarios prospectifs pour 2030.",
+    "og_image_alt": "Tribunes d'un stade de football illuminé sous la ferveur des supporters",
+    "keywords": [
+      "Sport"
+    ],
+    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-11-29.html\"\n  },\n  \"headline\": \"Sport : survivre à la disparition de l'incertitude ? — Scénario\",\n  \"description\": \"Le sport peut-il survivre à la disparition de l'incertitude, d'ici la Coupe du Monde 2030 ? 3 scénarios prospectifs pour 2030.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-11-29.png\"\n  ],\n  \"datePublished\": \"2026-11-29T00:00:00\",\n  \"dateModified\": \"2026-11-29T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"Sport\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Sport\"\n}",
+    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Sport : survivre à la disparition de l'incertitude ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-11-29.html\"\n    }\n  ]\n}"
   }
 }
