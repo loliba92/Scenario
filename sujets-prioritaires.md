@@ -1093,7 +1093,7 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
   <!-- origine: veille -->
   <!-- enrichi: 2026-11-14 -->
   <!-- note: Ajouté automatiquement le 2026-11-08 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. -->
-- [ ] Le cinéma français peut-il rivaliser avec les plateformes ? [cinéma & streaming]
+- [x] Le cinéma français peut-il rivaliser avec les plateformes ? [cinéma & streaming]
   <!-- id: culture-le-cinema-francais-peut-il-rivaliser-avec-les -->
   <!-- contexte: Les entrées en salles chutent de 20 % en 2026, tandis que les abonnements Netflix explosent. -->
   <!-- rationnel: La question : Les salles peuvent-elles se réinventer, ou le modèle traditionnel est-il condamné ? Les scénarios dépendent des politiques culturelles et des innovations. L'enjeu est la survie d'un pan de la culture française. -->
