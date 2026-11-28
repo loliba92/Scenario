@@ -16,6 +16,17 @@
       <itunes:email>contact@lesscenarios.fr</itunes:email>
     </itunes:owner>
     <item>
+      <title>Cinéma français : peut-il rivaliser avec les plateformes ?</title>
+      <link>https://lesscenarios.fr/archives/2026-11-28.html</link>
+      <guid isPermaLink="false">scenario-podcast-2026-11-28</guid>
+      <pubDate>Sat, 28 Nov 2026 07:00:00 +0000</pubDate>
+      <description>Cinéma français : peut-il rivaliser avec les plateformes ? Épisode lu par une voix de synthèse (intelligence artificielle), à partir de l'édition du 2026-11-28. Version écrite : https://lesscenarios.fr/archives/2026-11-28.html Rien n'est écrit à l'avance.</description>
+      <enclosure url="https://github.com/loliba92/Scenario/releases/download/podcast-2026-11-28/2026-11-28.mp3" length="4179500" type="audio/mpeg"/>
+      <itunes:duration>00:05:48</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:image href="https://lesscenarios.fr/podcast/episodes/2026-11-28.jpg"/>
+    </item>
+    <item>
       <title>Atomes froids dans l'espace : la physique quantique change-t-elle de lieu ?</title>
       <link>https://lesscenarios.fr/archives/2026-11-27.html</link>
       <guid isPermaLink="false">scenario-podcast-2026-11-27</guid>
