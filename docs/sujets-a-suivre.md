@@ -192,6 +192,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 28.11.2026 — [Cinéma français : peut-il rivaliser avec les plateformes ?](../archives/2026-11-28.html)
 - 27.11.2026 — [Atomes froids dans l'espace : la physique quantique change-t-elle de lieu ?](../archives/2026-11-27.html)
 - 26.11.2026 — [Chine : excédent record et tensions avec l'UE](../archives/2026-11-26.html)
 - 25.11.2026 — [Retraites : le retour du dossier explosif dans la présidentielle 2027](../archives/2026-11-25.html)
