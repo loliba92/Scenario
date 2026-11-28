@@ -18,6 +18,9 @@
   </url>
   <url>
     <loc>https://lesscenarios.fr/archives/2026-11-28.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-11-28.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-11-28.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-11-28.html"/>
     <lastmod>2026-11-28</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
@@ -753,9 +756,18 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/"/>
-    <lastmod>2026-11-27</lastmod>
+    <lastmod>2026-11-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://lesscenarios.fr/en/archives/2026-11-28.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-11-28.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-11-28.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-11-28.html"/>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lesscenarios.fr/en/archives/2026-11-27.html</loc>
